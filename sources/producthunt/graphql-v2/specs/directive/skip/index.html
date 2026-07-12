@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="skip GraphQL documentation">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>skip</title>
+    <link rel="stylesheet" href="../../assets/style.css">
+    <script src="../../assets/vendor/anchor.min.js"></script>
+    <script>
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+      // Add anchors
+      anchors.options = {
+        placement: 'left',
+        visible: 'hover',
+        icon: '¶'
+      };
+      anchors.add('h2, h3, h4, h5, h6, .anchored');
+
+      // Add listener for search filter input
+      const sidebarDiv = document.getElementById('sidebar');
+      const searchDiv = sidebarDiv.querySelector('#search')
+
+      if (searchDiv) {
+        const searchInput = searchDiv.querySelector('input');
+        const menuElements = sidebarDiv.querySelectorAll('ul.menu-root');
+
+        const listener = debounce((event) => {
+          const searchValue = event.target.value;
+          applySearchFilter(searchValue, menuElements)
+        }, 500);
+
+        searchInput.addEventListener('input', listener);
+      }
+
+      // Resize sidebar functionality
+      initializeSidebarResize();
+    });
+
+    function initializeSidebarResize() {
+      const sidebar = document.getElementById('sidebar');
+      if (!sidebar) {
+        return;
+      }
+
+      const minWidth = 200;
+      const maxWidth = 350;
+
+      // Restore saved width from sessionStorage
+      const savedWidth = sessionStorage.getItem('sidebarWidth');
+      if (savedWidth) {
+        sidebar.style.width = savedWidth;
+      }
+
+      // Create resize handle as a sibling to sidebar (not inside it)
+      const resizeHandle = document.createElement('div');
+      resizeHandle.className = 'resize-handle';
+
+      // Position handle at current sidebar width
+      if (savedWidth) {
+        resizeHandle.style.left = savedWidth;
+      }
+
+      // Insert after sidebar
+      sidebar.parentNode.insertBefore(resizeHandle, sidebar.nextSibling);
+
+      // Track resize state
+      let isResizing = false;
+      let startX = 0;
+      let startWidth = 0;
+
+      // Mouse down on handle
+      resizeHandle.addEventListener('mousedown', function(e) {
+        isResizing = true;
+        startX = e.clientX;
+        startWidth = sidebar.offsetWidth;
+
+        // Prevent text selection while dragging
+        e.preventDefault();
+        document.body.style.userSelect = 'none';
+        document.body.style.cursor = 'ew-resize';
+      });
+
+      // Mouse move
+      document.addEventListener('mousemove', function(e) {
+        if (!isResizing) return;
+
+        const dx = e.clientX - startX;
+        const newWidth = startWidth + dx;
+
+        // Apply constraints
+        if (newWidth >= minWidth && newWidth <= maxWidth) {
+          sidebar.style.width = newWidth + 'px';
+          resizeHandle.style.left = newWidth + 'px';
+        }
+      });
+
+      // Mouse up
+      document.addEventListener('mouseup', function() {
+        if (isResizing) {
+          isResizing = false;
+          document.body.style.userSelect = '';
+          document.body.style.cursor = '';
+
+          // Save the new width to sessionStorage
+          sessionStorage.setItem('sidebarWidth', sidebar.style.width);
+        }
+      });
+    }
+
+    function debounce(func, wait) {
+      let timeout;
+
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+    function applySearchFilter(searchValue, menuElements) {
+      menuElements.forEach(menuElement => {
+        const listElements = menuElement.getElementsByTagName('li');
+        let hasVisibleElements = false;
+        Array.from(listElements).forEach(listElement => {
+          let contains = true
+          if (searchValue.length > 0) {
+            const anchorElement = listElement.querySelector('a');
+            const textContent = anchorElement.innerText;
+            contains = textContent.toLowerCase().includes(searchValue.toLowerCase());
+          }
+
+          // Hide the list element if its text does not contain the search value
+          listElement.style.display = contains ? '' : 'none';
+
+          if (contains) {
+            hasVisibleElements = true;
+          }
+        });
+
+        // Hide the entire menu if none of the list items are visible
+        const menuParentElement = menuElement.closest('li')
+        menuParentElement.style.display = hasVisibleElements ? '' : 'none';
+      });
+    }
+    </script>
+  </head>
+  <body>
+
+    <div id="wrap">
+      <div id="header">
+      </div>
+      <div id="sidebar">
+        <div id="search">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14" />
+  </svg>
+  <input autocomplete="off" placeholder="Search" />
+</div>
+<ul class="categories">
+  <li>
+    <ul class="menu-root">
+      <li>
+        <a href="../../index.html">GraphQL Reference</a>
+    </ul>
+  </li>
+
+  <li>
+    <p>Operations</p>
+    <ul class="menu-root">
+      <li>
+        <a href="../../operation/query/index.html" class="sidebar-link">
+          Query
+        </a>
+      </li>
+      <li>
+        <a href="../../operation/mutation/index.html" class="sidebar-link">
+          Mutation
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="../../operation/query/index.html">Queries</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="../../query/collection/index.html" class="sidebar-link">
+          collection
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../query/collections/index.html" class="sidebar-link">
+          collections
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../query/comment/index.html" class="sidebar-link">
+          comment
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../query/post/index.html" class="sidebar-link">
+          post
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../query/posts/index.html" class="sidebar-link">
+          posts
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../query/topic/index.html" class="sidebar-link">
+          topic
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../query/topics/index.html" class="sidebar-link">
+          topics
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../query/user/index.html" class="sidebar-link">
+          user
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../query/viewer/index.html" class="sidebar-link">
+          viewer
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="../../operation/mutation/index.html">Mutations</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="../../mutation/userfollow/index.html" class="sidebar-link">
+          userFollow
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../mutation/userfollowundo/index.html" class="sidebar-link">
+          userFollowUndo
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="../../object/index.html">Objects</a></p>
+    <ul class="menu-root">
+      
+        
+      <li>
+        <a href="../../object/collection/index.html" class="sidebar-link">
+          Collection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/collectionconnection/index.html" class="sidebar-link">
+          CollectionConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/collectionedge/index.html" class="sidebar-link">
+          CollectionEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/comment/index.html" class="sidebar-link">
+          Comment
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/commentconnection/index.html" class="sidebar-link">
+          CommentConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/commentedge/index.html" class="sidebar-link">
+          CommentEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/error/index.html" class="sidebar-link">
+          Error
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/media/index.html" class="sidebar-link">
+          Media
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/pageinfo/index.html" class="sidebar-link">
+          PageInfo
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/post/index.html" class="sidebar-link">
+          Post
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/postconnection/index.html" class="sidebar-link">
+          PostConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/postedge/index.html" class="sidebar-link">
+          PostEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/productlink/index.html" class="sidebar-link">
+          ProductLink
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/topic/index.html" class="sidebar-link">
+          Topic
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/topicconnection/index.html" class="sidebar-link">
+          TopicConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/topicedge/index.html" class="sidebar-link">
+          TopicEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/user/index.html" class="sidebar-link">
+          User
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/userconnection/index.html" class="sidebar-link">
+          UserConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/useredge/index.html" class="sidebar-link">
+          UserEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/userfollowpayload/index.html" class="sidebar-link">
+          UserFollowPayload
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/userfollowundopayload/index.html" class="sidebar-link">
+          UserFollowUndoPayload
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/viewer/index.html" class="sidebar-link">
+          Viewer
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/vote/index.html" class="sidebar-link">
+          Vote
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/voteconnection/index.html" class="sidebar-link">
+          VoteConnection
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/voteedge/index.html" class="sidebar-link">
+          VoteEdge
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/__directive/index.html" class="sidebar-link">
+          __Directive
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/__enumvalue/index.html" class="sidebar-link">
+          __EnumValue
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/__field/index.html" class="sidebar-link">
+          __Field
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/__inputvalue/index.html" class="sidebar-link">
+          __InputValue
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/__schema/index.html" class="sidebar-link">
+          __Schema
+        </a>
+      </li>
+      
+        
+      <li>
+        <a href="../../object/__type/index.html" class="sidebar-link">
+          __Type
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="../../interface/index.html">Interfaces</a></p>
+    <ul class="menu-root">
+      
+        
+        <li>
+          <a href="../../interface/topicableinterface/index.html" class="sidebar-link">
+            TopicableInterface
+          </a>
+        </li>
+      
+        
+        <li>
+          <a href="../../interface/votableinterface/index.html" class="sidebar-link">
+            VotableInterface
+          </a>
+        </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="../../enum/index.html">Enums</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="../../enum/collectionsorder/index.html" class="sidebar-link">
+          CollectionsOrder
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../enum/commentsorder/index.html" class="sidebar-link">
+          CommentsOrder
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../enum/postsorder/index.html" class="sidebar-link">
+          PostsOrder
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../enum/topicsorder/index.html" class="sidebar-link">
+          TopicsOrder
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../enum/__directivelocation/index.html" class="sidebar-link">
+          __DirectiveLocation
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../enum/__typekind/index.html" class="sidebar-link">
+          __TypeKind
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="../../union/index.html">Unions</a></p>
+    <ul class="menu-root">
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="../../input_object/index.html">Input Objects</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="../../input_object/userfollowinput/index.html" class="sidebar-link">
+          UserFollowInput
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../input_object/userfollowundoinput/index.html" class="sidebar-link">
+          UserFollowUndoInput
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="../../scalar/index.html">Scalars</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="../../scalar/boolean/index.html" class="sidebar-link">
+          Boolean
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../scalar/datetime/index.html" class="sidebar-link">
+          DateTime
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../scalar/float/index.html" class="sidebar-link">
+          Float
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../scalar/id/index.html" class="sidebar-link">
+          ID
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../scalar/int/index.html" class="sidebar-link">
+          Int
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../../scalar/string/index.html" class="sidebar-link">
+          String
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+
+  <li>
+    <p><a href="../index.html">Directives</a></p>
+    <ul class="menu-root">
+      
+      
+      <li>
+        <a href="../deprecated/index.html" class="sidebar-link">
+          deprecated
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../include/index.html" class="sidebar-link">
+          include
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../oneof/index.html" class="sidebar-link">
+          oneOf
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="index.html" class="sidebar-link">
+          skip
+        </a>
+      </li>
+      
+      
+      <li>
+        <a href="../specifiedby/index.html" class="sidebar-link">
+          specifiedBy
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+      </div>
+      <div id="content">
+
+        <h1>skip</h1>
+<p>Directs the executor to skip this field or fragment when the <code>if</code> argument is true.</p>
+<h2 id="locations">Locations</h2>
+<ul>
+  <li>FIELD</li>
+  <li>FRAGMENT_SPREAD</li>
+  <li>INLINE_FRAGMENT</li>
+</ul>
+<h2>Arguments</h2>
+<table class="arguments">
+  <thead>
+  <tr>
+    <th>Argument</th>
+    <th>Type</th>
+    <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td><code class="anchored">if</code></td>
+  <td>
+    <code><a href="../../scalar/boolean/index.html">Boolean!</a></code>
+  </td>
+  <td>
+    <p>Skipped when true.</p>
+   </td>
+  </tr>
+  </tbody>
+</table>
+
+      </div>
+
+      <!-- mobile only -->
+      <div id="mobile-header">
+        <a class="menu-button" onclick="document.body.classList.toggle('sidebar-open')"></a>
+        <a class="logo" href="../../index.html">
+
+        </a>
+      </div>
+      <div id="mobile-shade"></div>
+
+    </div>
+
+  </body>
+</html>
