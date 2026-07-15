@@ -1,0 +1,157 @@
+{
+  "source": "techcrunch",
+  "section": "ai-news",
+  "fetched_at": "2026-07-14",
+  "window": {
+    "after": "2026-07-07",
+    "before": "2026-07-15"
+  },
+  "query_params": {
+    "category": "artificial-intelligence",
+    "count": 10,
+    "ranking": "hackernews_points,recency"
+  },
+  "totalCount": 57,
+  "articles": [
+    {
+      "title": "New York Times says OpenAI hid evidence in ChatGPT copyright trial",
+      "description": "News publishers say OpenAI hid tools and datasets that could identify copyrighted journalism in ChatGPT outputs, escalating their lawsuit with a new motion for sanctions.",
+      "url": "https://techcrunch.com/2026/07/09/new-york-times-says-openai-hid-evidence-in-chatgpt-copyright-trial/",
+      "published_at": "2026-07-09T19:05:58Z",
+      "author": "Rebecca Bellan",
+      "image": "https://techcrunch.com/wp-content/uploads/2024/12/GettyImages-2187615188.jpg?resize=1200,800",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 25,
+        "num_comments": 1,
+        "hn_url": "https://news.ycombinator.com/item?id=48853227"
+      }
+    },
+    {
+      "title": "Apple sues OpenAI over alleged trade secret theft",
+      "description": "Apple alleges the misconduct was directed by OpenAI's senior leadership, including a longtime former employee.",
+      "url": "https://techcrunch.com/2026/07/10/apple-sues-openai-over-alleged-trade-secret-theft/",
+      "published_at": "2026-07-10T21:00:29Z",
+      "author": "Sarah Perez",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/tim-cook-sam-altman-GettyImages-2233062347.jpg?w=1024",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 9,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=48865520"
+      }
+    },
+    {
+      "title": "Popular open source AI developer tool Ollama raises $65M, grows to nearly 9M users",
+      "description": "Benchmark-backed Ollama has amassed 176,000 stars, and nearly 17,000 forks on GitHub by helping developers easily run AI on their PCs.",
+      "url": "https://techcrunch.com/2026/07/09/popular-open-source-ai-developer-tool-ollama-raises-65m-grows-to-nearly-9m-users/",
+      "published_at": "2026-07-09T13:00:00Z",
+      "author": "Julie Bort",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/Ollama-founders-Jeff-Morgan-left-and-Michael-Chiang-right.jpg?resize=1200,825",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 8,
+        "num_comments": 7,
+        "hn_url": "https://news.ycombinator.com/item?id=48846153"
+      }
+    },
+    {
+      "title": "An AI agent startup just let its agent run its $100M fundraise",
+      "description": "Lyzr, a startup that builds AI agents for enterprises, used its own AI agent to raise a $100 million round \u2014 proof, evidently, that the product actually works.",
+      "url": "https://techcrunch.com/2026/07/09/an-ai-agent-startup-just-let-its-agent-run-its-100-million-fundraise/",
+      "published_at": "2026-07-09T22:08:58Z",
+      "author": "Connie Loizos",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/Lyzr-graphic.png?resize=1200,658",
+      "reading_time": "1 minute",
+      "hackernews": {
+        "points": 7,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=48885853"
+      }
+    },
+    {
+      "title": "Satya Nadella has issued a shocking warning to companies using AI",
+      "description": "Of all the debates raging about the potential downsides of AI, there is one worry causing the most hand-wringing among AI enthusiasts in Silicon Valley \u2014 that the giant AI labs that sell proprietary models are somehow acting like Trojan horses.",
+      "url": "https://techcrunch.com/2026/07/13/satya-nadella-has-issued-a-shocking-warning-to-companies-using-ai/",
+      "published_at": "2026-07-13T20:59:00Z",
+      "author": "Julie Bort",
+      "image": "https://techcrunch.com/wp-content/uploads/2023/11/GettyImages-1778706504.jpg?resize=1200,783",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 5,
+        "num_comments": 2,
+        "hn_url": "https://news.ycombinator.com/item?id=48904480"
+      }
+    },
+    {
+      "title": "Meta removes controversial AI feature on Instagram after backlash",
+      "description": "\"Our intent was to provide a useful creative tool and to give people control over whether their public content could be referenced in this way,\" the company said in a blog post. \"We've heard the feedback that this feature missed the mark, so it's no longer available.\"",
+      "url": "https://techcrunch.com/2026/07/10/meta-removes-controversial-ai-feature-on-instagram-after-backlash/",
+      "published_at": "2026-07-10T23:55:07Z",
+      "author": "Lucas Ropek",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/05/instagram-header.jpg?resize=1200,800",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 5,
+        "num_comments": 1,
+        "hn_url": "https://news.ycombinator.com/item?id=48874749"
+      }
+    },
+    {
+      "title": "Fidji Simo steps down from OpenAI\u2019s No. 2 role",
+      "description": "OpenAI's No. 2 executive, Fidji Simo, is stepping down from her full-time role after her medical leave proved longer than expected \u2014 a leadership vacuum that comes at a tricky time as the company eyes a possible IPO and races to catch Anthropic in the enterprise market.",
+      "url": "https://techcrunch.com/2026/07/09/fidji-simo-steps-down-from-openais-no-2-role/",
+      "published_at": "2026-07-09T23:38:00Z",
+      "author": "Connie Loizos",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/Fidji-Simo.jpg?w=1024",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 5,
+        "num_comments": 2,
+        "hn_url": "https://news.ycombinator.com/item?id=48857121"
+      }
+    },
+    {
+      "title": "Why the rise of open source AI isn\u2019t hurting Anthropic \u2026 yet",
+      "description": "Open source models\u2019 success isn\u2019t coming at the expense of frontier labs. Instead, they each seem to capture two phases of the same life cycle.",
+      "url": "https://techcrunch.com/2026/07/07/why-the-rise-of-open-source-ai-isnt-hurting-anthropic-yet/",
+      "published_at": "2026-07-07T20:04:32Z",
+      "author": "Russell Brandom",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2256487455.jpg?w=1024",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 5,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=48835032"
+      }
+    },
+    {
+      "title": "OpenAI bets on families as ChatGPT goes deeper into households",
+      "description": "ChatGPT is hiring a dedicated product manager to build experiences for families, caregivers, and older adults, according to a job posting.",
+      "url": "https://techcrunch.com/2026/07/11/openai-bets-on-families-as-chatgpt-goes-deeper-into-households/",
+      "published_at": "2026-07-11T14:13:00Z",
+      "author": "Jagmeet Singh",
+      "image": "https://techcrunch.com/wp-content/uploads/2025/01/GettyImages-2170386424.jpg?w=1024",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 4,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=48881795"
+      }
+    },
+    {
+      "title": "OpenAI is shutting down Atlas, but its AI browser ambitions are still growing",
+      "description": "OpenAI is sunsetting its AI-powered browser after less than a year. But it's moving some agentic browsing features to its desktop app and a Chrome extension.\u00a0",
+      "url": "https://techcrunch.com/2026/07/09/openai-is-shutting-down-atlas-but-its-ai-browser-ambitions-are-still-growing/",
+      "published_at": "2026-07-09T22:03:54Z",
+      "author": "Rebecca Bellan",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/chatgpt-app-browser.jpg?resize=1200,675",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 4,
+        "num_comments": 2,
+        "hn_url": "https://news.ycombinator.com/item?id=48861557"
+      }
+    }
+  ]
+}
