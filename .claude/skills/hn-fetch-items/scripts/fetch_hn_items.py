@@ -13,68 +13,28 @@ import datetime as dt
 import json
 import pathlib
 import re
+import sys
 import urllib.parse
 import urllib.request
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[4]
+sys.path.insert(0, str(REPO_ROOT / ".claude" / "skills" / "shared"))
+import ai_keywords
+
 HN_SEARCH_URL = "https://hn.algolia.com/api/v1/search"
 USER_AGENT = "aibytes-agents/1.0 (weekly newsletter snapshot)"
 
-# Case-sensitive: acronyms that appear inside ordinary words when lowercased
-# ("air", "against", "algorithm"), so only an exact-case word match counts.
-AI_PATTERNS_CASED = [
-    re.compile(p)
-    for p in (
-        r"\bA\.?I\.?\b",  # AI, A.I.
-        r"\bAGI\b",
-        r"\bLLMs?\b",
-        r"\bGPTs?\b",
-        r"\bRAG\b",
-        r"\bGLM\b",
-        r"\bxAI\b",
-    )
-]
-# Case-insensitive: names and phrases that are unambiguous in any casing.
-AI_PATTERNS = [
-    re.compile(p, re.IGNORECASE)
-    for p in (
-        r"artificial intelligence",
-        r"machine[ -]learning",
-        r"deep[ -]learning",
-        r"neural net",
-        r"\blanguage model",
-        r"foundation model",
-        r"generative ai|genai",
-        r"superintelligen",
-        r"chatbot",
-        r"\bchatgpt\b",
-        r"\bopenai\b",
-        r"\banthropic\b",
-        r"\bclaude\b",
-        r"\bgemini\b",
-        r"\bdeepmind\b",
-        r"\bdeepseek\b",
-        r"\bmistral\b",
-        r"\bllama\b",
-        r"\bqwen\b",
-        r"\bgrok\b",
-        r"\bcopilot\b",
-        r"\bmidjourney\b",
-        r"stable diffusion|diffusion model",
-        r"hugging ?face",
-        r"\bollama\b",
-        r"\btransformers?\b",
-        r"prompt (injection|engineering)",
-        r"fine-?tun",  # fine-tune, fine-tuning
-        r"ai[ -](agent|model|coding|assistant|slop|generated)",
-        r"vibe[ -]cod",  # vibe coding, vibe-coded
-    )
-]
-# Domains whose stories are AI news regardless of title wording.
-AI_DOMAINS = re.compile(
-    r"(^|\.)(openai\.com|anthropic\.com|deepmind\.(com|google)|huggingface\.co"
-    r"|ollama\.com|mistral\.ai|x\.ai|deepseek\.com|midjourney\.com)$"
+# HN titles are prose, so the shared acronyms compile case-sensitively (a
+# lowercased "ai" hides inside ordinary words like "air"); phrases plus the
+# HN-specific extras match any casing. Shared vocabulary in ai_keywords.py.
+AI_PATTERNS_CASED = ai_keywords.compile_patterns(ai_keywords.ACRONYMS)
+AI_PATTERNS = ai_keywords.compile_patterns(
+    ai_keywords.PHRASES,
+    (r"ai[ -](agent|model|coding|assistant|slop|generated)",),
+    flags=re.IGNORECASE,
 )
+# Domains whose stories are AI news regardless of title wording.
+AI_DOMAINS = ai_keywords.DOMAINS
 
 
 def is_ai_story(story):

@@ -19,10 +19,11 @@ and the HN thread link.
 2. Filters to AI-related stories. HN has no topic tags, so this is a heuristic:
    keyword/model/company-name matching on the title (word-boundary regexes,
    case-sensitive for acronyms like AI/LLM/GPT) plus an AI-domain allowlist for
-   the story URL (openai.com, anthropic.com, huggingface.co, …). The patterns
-   live at the top of the script — extend them there as new model/product
-   names emerge; genuinely AI stories whose titles avoid all AI vocabulary can
-   slip through the filter.
+   the story URL (openai.com, anthropic.com, huggingface.co, …). The shared
+   vocabulary lives in `.claude/skills/shared/ai_keywords.py` (also used by
+   `/gh-fetch-items`) with HN-specific extras at the top of the script —
+   extend them there as new model/product names emerge; genuinely AI stories
+   whose titles avoid all AI vocabulary can slip through the filter.
 3. Ranks the remainder by points, with submit recency as the tiebreaker.
 4. Writes the top N stories as JSON.
 
