@@ -11,8 +11,10 @@ fields (makers, hunter, media gallery, review ratings, ranks, product links).
 
 ## Requirements
 
-- `.env` at the repo root with `PH_API_KEY` and `PH_API_SECRET` (ProductHunt v2
-  OAuth client credentials). The script exchanges them for a Bearer token itself.
+- `.env` at the repo root with `PH_API_KEY` set to a ProductHunt developer
+  token (used directly as the Bearer token). Alternatively, set both
+  `PH_API_KEY` and `PH_API_SECRET` (v2 OAuth client credentials) and the script
+  exchanges them for a Bearer token itself.
 - Python 3 (stdlib only, no dependencies).
 
 ## Usage

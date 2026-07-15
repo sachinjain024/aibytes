@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Fetch top ProductHunt products of the last N days and save a weekly JSON snapshot.
 
-Stdlib-only. Reads PH_API_KEY / PH_API_SECRET from .env at the repo root,
-exchanges them for an OAuth token (client credentials), queries the GraphQL v2
-API, and writes data/<yyyy>/<mm>/weeks/week-<NN>/producthunt/ph_data.json.
+Stdlib-only. Reads PH_API_KEY from .env at the repo root. A developer token is
+used directly as the Bearer token; if PH_API_SECRET is also set, the pair is
+treated as OAuth client credentials and exchanged for an access token instead.
+Queries the GraphQL v2 API and writes
+data/<yyyy>/<mm>/weeks/week-<NN>/producthunt/ph_data.json.
 """
 
 import argparse
@@ -87,15 +89,19 @@ def main():
     posted_before = f"{as_of + dt.timedelta(days=1)}T00:00:00Z"
 
     env = load_env(REPO_ROOT / ".env")
-    try:
-        key, secret = env["PH_API_KEY"], env["PH_API_SECRET"]
-    except KeyError as e:
-        sys.exit(f"error: {e.args[0]} missing from .env")
+    key = env.get("PH_API_KEY")
+    if not key:
+        sys.exit("error: PH_API_KEY missing from .env")
 
-    token = post_json(
-        TOKEN_URL,
-        {"client_id": key, "client_secret": secret, "grant_type": "client_credentials"},
-    )["access_token"]
+    secret = env.get("PH_API_SECRET")
+    if secret:
+        token = post_json(
+            TOKEN_URL,
+            {"client_id": key, "client_secret": secret, "grant_type": "client_credentials"},
+        )["access_token"]
+    else:
+        # developer token: already a Bearer token, no OAuth exchange
+        token = key
 
     resp = post_json(
         GRAPHQL_URL,
