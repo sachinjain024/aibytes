@@ -20,12 +20,16 @@ mirrors the HTTP calls made by a fetch skill in this repo:
   week's top AI-related HN stories (the AI filter is client-side in the
   script), and by `/tc-fetch-items` to rank TechCrunch articles by HN points
   (TechCrunch has no popularity metric).
+- **GitHub** — public trending page scraped by `/gh-fetch-items`
+  (`.claude/skills/gh-fetch-items/scripts/fetch_gh_items.py`). GitHub has no
+  trending API, so the response is HTML; the script parses the `<article>`
+  cards and applies the AI topic filter client-side.
 
 Snapshots land under `data/<yyyy>/<mm>/weeks/week-<NN>/` at the repo root.
 
 ## Auth & conventions
 
-- TechCrunch and HackerNews are public; no auth.
+- TechCrunch, HackerNews, and GitHub trending are public; no auth.
 - ProductHunt auth lives in the `local` environment (gitignored — real values
   are populated there): `ph_access_token` holds a ProductHunt developer token,
   sent as a Bearer token by **Top Posts**. The **Get OAuth Token** request is
