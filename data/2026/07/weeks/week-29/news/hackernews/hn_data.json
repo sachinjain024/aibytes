@@ -1,0 +1,120 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-07-15",
+  "window": {
+    "after": "2026-07-08",
+    "before": "2026-07-16"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 75,
+  "poolCount": 422,
+  "stories": [
+    {
+      "title": "Apple sues OpenAI, accuses ex-employees of stealing trade secrets",
+      "url": "https://9to5mac.com/2026/07/10/apple-sues-openai-trade-secret-theft/",
+      "type": "story",
+      "points": 1651,
+      "num_comments": 956,
+      "author": "stock_toaster",
+      "created_at": "2026-07-10T20:47:09Z",
+      "hn_url": "https://news.ycombinator.com/item?id=48865019"
+    },
+    {
+      "title": "GPT-5.6",
+      "url": "https://openai.com/index/gpt-5-6/",
+      "type": "story",
+      "points": 1559,
+      "num_comments": 1106,
+      "author": "logickkk1",
+      "created_at": "2026-07-09T17:04:14Z",
+      "hn_url": "https://news.ycombinator.com/item?id=48849066"
+    },
+    {
+      "title": "Zig Creator Calls Spade a Spade, Anthropic Blows Smoke",
+      "url": "https://raymyers.org/post/zed-creator-calls-spade-a-spade/",
+      "type": "story",
+      "points": 1523,
+      "num_comments": 772,
+      "author": "crowdhailer",
+      "created_at": "2026-07-13T08:39:39Z",
+      "hn_url": "https://news.ycombinator.com/item?id=48889637"
+    },
+    {
+      "title": "Ask HN: Add flag for AI-generated articles",
+      "url": "https://news.ycombinator.com/item?id=48886741",
+      "type": "ask_hn",
+      "points": 1078,
+      "num_comments": 453,
+      "author": "levkk",
+      "created_at": "2026-07-13T01:24:20Z",
+      "hn_url": "https://news.ycombinator.com/item?id=48886741"
+    },
+    {
+      "title": "Show HN: Getting GLM 5.2 running on my slow computer",
+      "url": "https://github.com/JustVugg/colibri",
+      "type": "show_hn",
+      "points": 928,
+      "num_comments": 240,
+      "author": "vforno",
+      "created_at": "2026-07-09T08:05:04Z",
+      "hn_url": "https://news.ycombinator.com/item?id=48842459"
+    },
+    {
+      "title": "Grok 4.5",
+      "url": "https://x.ai/news/grok-4-5",
+      "type": "story",
+      "points": 774,
+      "num_comments": 1501,
+      "author": "BoumTAC",
+      "created_at": "2026-07-08T18:00:32Z",
+      "hn_url": "https://news.ycombinator.com/item?id=48835111"
+    },
+    {
+      "title": "GPT\u2011Live",
+      "url": "https://openai.com/index/introducing-gpt-live/",
+      "type": "story",
+      "points": 749,
+      "num_comments": 527,
+      "author": "logickkk1",
+      "created_at": "2026-07-08T17:03:19Z",
+      "hn_url": "https://news.ycombinator.com/item?id=48834405"
+    },
+    {
+      "title": "Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k",
+      "url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
+      "type": "story",
+      "points": 698,
+      "num_comments": 389,
+      "author": "systima",
+      "created_at": "2026-07-12T18:25:51Z",
+      "hn_url": "https://news.ycombinator.com/item?id=48883275"
+    },
+    {
+      "title": "How to stop Claude from saying load-bearing",
+      "url": "https://jola.dev/posts/how-to-stop-claude-from-saying-load-bearing",
+      "type": "story",
+      "points": 551,
+      "num_comments": 570,
+      "author": "shintoist",
+      "created_at": "2026-07-14T11:46:02Z",
+      "hn_url": "https://news.ycombinator.com/item?id=48905248"
+    },
+    {
+      "title": "GitLost: We Tricked GitHub's AI Agent into Leaking Private Repos",
+      "url": "https://noma.security/blog/gitlost-how-we-tricked-githubs-ai-agent-into-leaking-private-repos/",
+      "type": "story",
+      "points": 539,
+      "num_comments": 205,
+      "author": "ColinEberhardt",
+      "created_at": "2026-07-08T05:25:35Z",
+      "hn_url": "https://news.ycombinator.com/item?id=48827858"
+    }
+  ]
+}

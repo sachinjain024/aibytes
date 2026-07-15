@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "key": "tags",
+    "value": "story",
+    "isEnabled": true,
+    "description": "stories only (no comments/polls); Ask/Show HN included"
+  },
+  {
+    "id": 2,
+    "key": "hitsPerPage",
+    "value": "100",
+    "isEnabled": true
+  },
+  {
+    "id": 3,
+    "key": "page",
+    "value": "0",
+    "isEnabled": true,
+    "description": "0-based; total pages in nbPages response field"
+  },
+  {
+    "id": 4,
+    "key": "numericFilters",
+    "value": "created_at_i>1783468800,created_at_i<1784160000,points>=50",
+    "isEnabled": true,
+    "description": "window start/end unix timestamps (2026-07-08 to 2026-07-16 UTC) plus points floor; sort by points client-side"
+  }
+]

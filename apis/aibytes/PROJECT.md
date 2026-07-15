@@ -15,8 +15,11 @@ mirrors the HTTP calls made by a fetch skill in this repo:
 - **TechCrunch** — public WordPress REST API used by `/tc-fetch-items`
   (`.claude/skills/tc-fetch-items/scripts/fetch_tc_items.py`). AI category ID
   `577047203`; paginate via the `X-WP-TotalPages` response header.
-- **HackerNews** — Algolia search API used by `/tc-fetch-items` to rank
-  TechCrunch articles by HN points (TechCrunch has no popularity metric).
+- **HackerNews** — Algolia search API used by `/hn-fetch-items`
+  (`.claude/skills/hn-fetch-items/scripts/fetch_hn_items.py`) to snapshot the
+  week's top AI-related HN stories (the AI filter is client-side in the
+  script), and by `/tc-fetch-items` to rank TechCrunch articles by HN points
+  (TechCrunch has no popularity metric).
 
 Snapshots land under `data/<yyyy>/<mm>/weeks/week-<NN>/` at the repo root.
 
