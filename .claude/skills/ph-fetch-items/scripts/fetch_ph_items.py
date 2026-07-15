@@ -146,7 +146,11 @@ def main():
         + "\n"
     )
 
-    print(f"wrote {out_path.relative_to(REPO_ROOT)}")
+    try:
+        shown_path = out_path.relative_to(REPO_ROOT)
+    except ValueError:  # --output-root outside the repo
+        shown_path = out_path
+    print(f"wrote {shown_path}")
     for p in posts["nodes"]:
         print(f'  {p["featuredAt"][:10]}  {p["name"]}  ({p["votesCount"]} votes)')
 

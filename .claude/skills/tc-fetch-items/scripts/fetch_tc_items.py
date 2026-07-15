@@ -166,7 +166,11 @@ def main():
         + "\n"
     )
 
-    print(f"wrote {out_path.relative_to(REPO_ROOT)} ({len(top)} of {len(posts)} articles)")
+    try:
+        shown_path = out_path.relative_to(REPO_ROOT)
+    except ValueError:  # --output-root outside the repo
+        shown_path = out_path
+    print(f"wrote {shown_path} ({len(top)} of {len(posts)} articles)")
     for a in top:
         points = (a["hackernews"] or {}).get("points", 0)
         print(f'  {a["published_at"][:10]}  [{points:>4} pts]  {a["title"]}')
