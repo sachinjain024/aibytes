@@ -1,0 +1,6 @@
+{
+  "$schema": "https://assets.requestly.com/local/v1.12.0/graphql-query.json",
+  "query": "query TopPosts($first: Int!, $postedAfter: DateTime!, $postedBefore: DateTime!) {\n  posts(first: $first, order: VOTES, featured: true,\n        postedAfter: $postedAfter, postedBefore: $postedBefore) {\n    totalCount\n    nodes {\n      id\n      name\n      tagline\n      description\n      slug\n      votesCount\n      commentsCount\n      reviewsRating\n      reviewsCount\n      dailyRank\n      weeklyRank\n      url\n      website\n      featuredAt\n      createdAt\n      thumbnail { type url }\n      media { type url videoUrl }\n      productLinks { type url }\n      topics(first: 5) { nodes { name slug } }\n      makers { name username headline url twitterUsername }\n      user { name username headline url }\n    }\n  }\n}",
+  "variables": "{\n  \"first\": 5,\n  \"postedAfter\": \"2026-07-07T00:00:00Z\",\n  \"postedBefore\": \"2026-07-15T00:00:00Z\"\n}",
+  "operationName": "TopPosts"
+}

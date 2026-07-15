@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "key": "query",
+    "value": "techcrunch.com",
+    "isEnabled": true,
+    "description": "matched against story URLs only (see restrictSearchableAttributes)"
+  },
+  {
+    "id": 2,
+    "key": "restrictSearchableAttributes",
+    "value": "url",
+    "isEnabled": true,
+    "description": "match the query against URLs, not titles/text"
+  },
+  {
+    "id": 3,
+    "key": "hitsPerPage",
+    "value": "100",
+    "isEnabled": true
+  },
+  {
+    "id": 4,
+    "key": "page",
+    "value": "0",
+    "isEnabled": true,
+    "description": "0-based; total pages in nbPages response field"
+  },
+  {
+    "id": 5,
+    "key": "numericFilters",
+    "value": "created_at_i>1783382400",
+    "isEnabled": true,
+    "description": "unix timestamp of window start (2026-07-07T00:00:00Z)"
+  }
+]

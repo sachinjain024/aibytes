@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "key": "categories",
+    "value": "577047203",
+    "isEnabled": true,
+    "description": "AI category (slug: artificial-intelligence)"
+  },
+  {
+    "id": 2,
+    "key": "after",
+    "value": "2026-07-07T00:00:00",
+    "isEnabled": true,
+    "description": "window start (site-local ISO 8601)"
+  },
+  {
+    "id": 3,
+    "key": "before",
+    "value": "2026-07-15T00:00:00",
+    "isEnabled": true,
+    "description": "window end, exclusive"
+  },
+  {
+    "id": 4,
+    "key": "per_page",
+    "value": "100",
+    "isEnabled": true,
+    "description": "max allowed by the WP REST API"
+  },
+  {
+    "id": 5,
+    "key": "page",
+    "value": "1",
+    "isEnabled": true,
+    "description": "1-based; total pages in X-WP-TotalPages header"
+  },
+  {
+    "id": 6,
+    "key": "_fields",
+    "value": "id,date_gmt,link,title,excerpt,yoast_head_json",
+    "isEnabled": true,
+    "description": "yoast_head_json carries description, author, og_image, reading time"
+  }
+]
