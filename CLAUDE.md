@@ -12,6 +12,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `.claude/skills/shared/` — Python helpers shared by skill scripts (not a skill itself). `ai_keywords.py` holds the AI-topic keyword vocabulary used by the HackerNews and GitHub fetch scripts; extend shared vocabulary there, source-specific extras in each script.
 - `sources/producthunt/graphql-v2/specs/` — the generated offline mirror (~70 HTML pages: queries, mutations, objects, enums, etc.). This is committed output, not hand-written; regenerate it with the skill rather than editing files in it.
 - `apis/aibytes/` — Requestly project mirroring the HTTP calls the fetch skills make (ProductHunt, TechCrunch, HackerNews, GitHub collections + environments). See its `AGENTS.md` for the on-disk format and `PROJECT.md` for conventions; keep collections in sync with the skill scripts.
+- `.agents/skills` — symlink to `.claude/skills`. The SKILL.md format is the open Agent Skills standard (agentskills.io); this symlink lets OpenAI Codex and other compatible tools discover the same skills at their standard path. `.claude/skills/` stays the canonical location — never put real files under `.agents/`.
 - `tests/` — `unittest` suite for the skill scripts. `test_ai_filters.py` unit-tests the shared vocabulary and each script's filter/parser offline; `test_skill_scripts.py` smoke-tests each fetch skill end-to-end against the live APIs, writing to a per-test temp dir via `--output-root` (never the committed `data/` tree) that is removed when the test ends.
 
 ## Commands

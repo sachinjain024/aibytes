@@ -15,6 +15,9 @@ snapshots in this repo.
 
 Each skill lives in `.claude/skills/` and is a plain Python 3 script — no
 dependencies. Only ProductHunt needs an API key (`PH_API_KEY` in `.env`).
+The skills follow the open [Agent Skills](https://agentskills.io) format, and
+a `.agents/skills` symlink makes them work in OpenAI Codex and other
+compatible tools too.
 
 ## Data
 
