@@ -1,108 +1,24 @@
 {
   "source": "producthunt",
-  "fetched_at": "2026-07-15",
+  "fetched_at": "2026-07-16",
   "window": {
-    "postedAfter": "2026-07-08T00:00:00Z",
-    "postedBefore": "2026-07-16T00:00:00Z"
+    "postedAfter": "2026-07-09T00:00:00Z",
+    "postedBefore": "2026-07-17T00:00:00Z"
   },
   "query_params": {
     "first": 5,
     "order": "VOTES",
     "featured": true
   },
-  "totalCount": 114,
+  "totalCount": 128,
   "posts": [
-    {
-      "id": "1190010",
-      "name": "ExploreYC",
-      "tagline": "Open-source API for Y Combinator & a16z company data",
-      "description": "One open-source API for startup data across Y Combinator AND a16z - 6,600+ companies with funding, stage, IPO/M&A exits, and founders. Filter by VC (yc/a16z/all), batch, industry, country, or search. Grab a free API key, read the docs (curl/Node/Python + Swagger), and build in 30 seconds. Plus the full web app: map, analytics, funding data, a live hiring board, and AI tools.",
-      "slug": "exploreyc-2",
-      "votesCount": 855,
-      "commentsCount": 70,
-      "reviewsRating": 4.5,
-      "reviewsCount": 2,
-      "dailyRank": 1,
-      "weeklyRank": 2,
-      "url": "https://www.producthunt.com/products/yc-company-explorer?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
-      "website": "https://www.producthunt.com/r/TXISOCQQFTUHJC?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
-      "featuredAt": "2026-07-08T07:01:00Z",
-      "createdAt": "2026-07-08T07:01:00Z",
-      "thumbnail": {
-        "type": "image",
-        "url": "https://ph-files.imgix.net/0affb3fc-9a19-4185-9db7-b6ff3aa445ed.png?auto=format"
-      },
-      "media": [
-        {
-          "type": "image",
-          "url": "https://ph-files.imgix.net/baea8039-95b0-4f47-98fb-67956e53cf41.png?auto=format",
-          "videoUrl": null
-        },
-        {
-          "type": "image",
-          "url": "https://ph-files.imgix.net/8cba1952-ee6d-49ac-bfee-b1b5edf019ec.png?auto=format",
-          "videoUrl": null
-        },
-        {
-          "type": "image",
-          "url": "https://ph-files.imgix.net/64a4d976-acfc-4b39-9ee3-d5ca21fa45fd.png?auto=format",
-          "videoUrl": null
-        },
-        {
-          "type": "image",
-          "url": "https://ph-files.imgix.net/c00c7c59-7f85-4bb8-a664-a9596b02b155.png?auto=format",
-          "videoUrl": null
-        }
-      ],
-      "productLinks": [
-        {
-          "type": "Website",
-          "url": "https://www.producthunt.com/r/TXISOCQQFTUHJC?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
-        }
-      ],
-      "topics": {
-        "nodes": [
-          {
-            "name": "API",
-            "slug": "api-1"
-          },
-          {
-            "name": "Open Source",
-            "slug": "open-source"
-          },
-          {
-            "name": "Developer Tools",
-            "slug": "developer-tools"
-          },
-          {
-            "name": "GitHub",
-            "slug": "github"
-          }
-        ]
-      },
-      "makers": [
-        {
-          "name": "Konstantin Borimechkov",
-          "username": "konstantimb",
-          "headline": "swe by day & founder by night",
-          "url": "https://www.producthunt.com/@konstantimb?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
-          "twitterUsername": null
-        }
-      ],
-      "user": {
-        "name": "Konstantin Borimechkov",
-        "username": "konstantimb",
-        "headline": "swe by day & founder by night",
-        "url": "https://www.producthunt.com/@konstantimb?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
-      }
-    },
     {
       "id": "1191785",
       "name": "ChatCut",
       "tagline": "Your AI video editor in ChatGPT, desktop, and web",
       "description": "ChatCut is a lightweight, professional-grade AI video editor anyone can use, even without editing experience. It\u2019s like having a personal video editing assistant that understands your footage, intent, and timeline. Make structural edits, fine-tune cuts, add captions, B-roll, music, voiceover, motion graphics, stock footage, and AI-generated video in one place. Every edit stays editable on a real timeline, with XML export when you want to keep working elsewhere.",
       "slug": "chatcut-2",
-      "votesCount": 758,
+      "votesCount": 776,
       "commentsCount": 105,
       "reviewsRating": 4.5,
       "reviewsCount": 2,
@@ -200,17 +116,17 @@
       },
       "makers": [
         {
-          "name": "[REDACTED]",
-          "username": "[REDACTED]",
-          "headline": null,
-          "url": "[REDACTED]",
+          "name": "Alima Strickland",
+          "username": "alimastrickland",
+          "headline": "Co-founder and COO of ChatCut.",
+          "url": "https://www.producthunt.com/@alimastrickland?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
           "twitterUsername": null
         },
         {
-          "name": "[REDACTED]",
-          "username": "[REDACTED]",
-          "headline": null,
-          "url": "[REDACTED]",
+          "name": "Kaiwen Li",
+          "username": "kaiwenli",
+          "headline": "CEO of ChatCut | Filmmaker & Director",
+          "url": "https://www.producthunt.com/@kaiwenli?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
           "twitterUsername": null
         },
         {
@@ -234,8 +150,8 @@
       "tagline": "Trading desk for LLM calls",
       "description": "Auriko treats LLM providers as trading venues and arbitrages the spread. Built by ex-quant traders, Auriko\u2019s cost-arbitrage engine calibrates to each user\u2019s request patterns and selects optimized inference paths based on token price, cache behavior, latency, reliability, and request quality. Auriko benchmarks show average 30% cost reduction against industry peers and direct providers. See the source: https://www.auriko.ai/reports/llm-cost-arbitrage",
       "slug": "auriko-2",
-      "votesCount": 752,
-      "commentsCount": 78,
+      "votesCount": 765,
+      "commentsCount": 79,
       "reviewsRating": 4.67,
       "reviewsCount": 3,
       "dailyRank": 1,
@@ -346,8 +262,8 @@
       "tagline": "The first goal-driven, proactive AI team for e-commerce",
       "description": "ClawTeams is an AI employee platform for e-commerce sellers. Instead of hiring specialists\u2014or doing everything yourself\u2014you get a coordinated AI team that thinks, plans, and executes like real employees. One goal. One team. Zero micromanagement. Tell your team lead what you want\u2014\"Increase Q4 revenue by 20%\"\u2014and they break it down, assign specialists, and run the plan. You get updates in Slack or Discord. High-stakes decisions wait for your approval. Everything else just happens.",
       "slug": "clawteams-a263d5d3-d341-45d9-9e9f-7154e7066e4a",
-      "votesCount": 710,
-      "commentsCount": 81,
+      "votesCount": 763,
+      "commentsCount": 88,
       "reviewsRating": 0.0,
       "reviewsCount": 0,
       "dailyRank": 1,
@@ -457,17 +373,136 @@
       }
     },
     {
+      "id": "1181193",
+      "name": "Pazi",
+      "tagline": "Vibe code business operations",
+      "description": "Pazi is an AI team for that idea you keep coming back to \u2014 a book, a shop, an app, a skill you want to sell. Tell Pazi what you're trying to do and it builds a team of agents around your idea and starts making things happen: a website, first outreach, content, the next step. Every time you come back, something has moved. You stay in control; your team does the rest alongside you, one real step at a time. Like vibe coding but for business operations.",
+      "slug": "pazi-2",
+      "votesCount": 754,
+      "commentsCount": 98,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 2,
+      "weeklyRank": 2,
+      "url": "https://www.producthunt.com/products/pazi?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/ZFDSZ4CUJ3IHCB?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-07-14T07:01:00Z",
+      "createdAt": "2026-07-14T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/0cc238aa-08c3-4d44-a509-0289f8806019.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/894cbea0-4ac1-4225-b2a8-95f7f1947f3f.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/19c2f196-01e1-4e04-83c7-4aaeb4544db5.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/306bce7a-d6a4-4016-ad89-6c14966b525b.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/2fce1365-951a-4175-80be-ad002e4d0a1d.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/a4170df0-6acf-4720-b33b-3a55d0c8a7fd.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/c603dd26-8fe8-49c6-91f7-3f42faf63c9f.jpeg?auto=format",
+          "videoUrl": "https://www.youtube.com/watch?v=MtS5liK4KYM"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/ZFDSZ4CUJ3IHCB?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/OCWYYQ2GLDYFBQ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/ISQYK75UCJOUS4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Productivity",
+            "slug": "productivity"
+          },
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          },
+          {
+            "name": "Vibe coding",
+            "slug": "vibe-coding"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Kevin Kamau",
+          "username": "kevin_kamau",
+          "headline": "Growth ops at Pazi",
+          "url": "https://www.producthunt.com/@kevin_kamau?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Garry Tan",
+        "username": "garrytan",
+        "headline": "President & CEO, Y Combinator",
+        "url": "https://www.producthunt.com/@garrytan?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
       "id": "1192591",
       "name": "AgentKey",
       "tagline": "One-stop live data marketplace for your agent",
       "description": "AgentKey is a plugin that connects your agent to live external data in one command. Install it into Claude Code, Codex, OpenClaw, or any MCP-based agent and instantly unlock access to search, web pages, social platforms, finance, e-commerce, business and crypto data. No integrations. No setup. Auto failover keeps workflows running.",
       "slug": "agentkey",
-      "votesCount": 683,
+      "votesCount": 690,
       "commentsCount": 128,
       "reviewsRating": 0.0,
       "reviewsCount": 0,
       "dailyRank": 1,
-      "weeklyRank": 2,
+      "weeklyRank": 3,
       "url": "https://www.producthunt.com/products/agentkey?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
       "website": "https://www.producthunt.com/r/U23MKZQPSZUKGY?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
       "featuredAt": "2026-07-13T07:01:00Z",

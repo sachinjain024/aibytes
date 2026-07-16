@@ -31,6 +31,17 @@ def has_ph_key():
 
 @unittest.skipIf(os.environ.get("AIBYTES_SKIP_LIVE") == "1", "AIBYTES_SKIP_LIVE=1")
 class TestFetchSkillScripts(unittest.TestCase):
+    def snapshot_path(self, root, as_of, rel_snapshot):
+        _, week, _ = as_of.isocalendar()
+        return (
+            pathlib.Path(root)
+            / f"{as_of.year:04d}"
+            / f"{as_of.month:02d}"
+            / "weeks"
+            / f"week-{week:02d}"
+            / rel_snapshot
+        )
+
     def run_skill(self, skill, script, rel_snapshot, source, items_key, extra_args=()):
         """Run a skill script into a temp root and return the parsed snapshot."""
         tmp = tempfile.TemporaryDirectory(prefix=f"{skill}-test-")
@@ -55,15 +66,7 @@ class TestFetchSkillScripts(unittest.TestCase):
         )
         self.assertEqual(proc.returncode, 0, f"{skill} failed:\n{proc.stderr}")
 
-        _, week, _ = as_of.isocalendar()
-        snapshot = (
-            pathlib.Path(tmp.name)
-            / f"{as_of.year:04d}"
-            / f"{as_of.month:02d}"
-            / "weeks"
-            / f"week-{week:02d}"
-            / rel_snapshot
-        )
+        snapshot = self.snapshot_path(tmp.name, as_of, rel_snapshot)
         self.assertTrue(snapshot.is_file(), f"missing snapshot {snapshot}\n{proc.stdout}")
 
         data = json.loads(snapshot.read_text())
@@ -73,6 +76,18 @@ class TestFetchSkillScripts(unittest.TestCase):
         self.assertIsInstance(items, list)
         self.assertGreater(len(items), 0, f"{skill} returned no items")
         self.assertLessEqual(len(items), 3)
+        return data
+
+    def assert_snapshot(self, root, as_of, rel_snapshot, source, items_key, max_items=3):
+        snapshot = self.snapshot_path(root, as_of, rel_snapshot)
+        self.assertTrue(snapshot.is_file(), f"missing snapshot {snapshot}")
+        data = json.loads(snapshot.read_text())
+        self.assertEqual(data["source"], source)
+        self.assertEqual(data["fetched_at"], as_of.isoformat())
+        items = data[items_key]
+        self.assertIsInstance(items, list)
+        self.assertGreater(len(items), 0)
+        self.assertLessEqual(len(items), max_items)
         return data
 
     def test_gh_fetch_items(self):
@@ -119,6 +134,43 @@ class TestFetchSkillScripts(unittest.TestCase):
             "producthunt",
             "posts",
         )
+
+    def test_fetch_weekly_items(self):
+        tmp = tempfile.TemporaryDirectory(prefix="fetch-weekly-items-test-")
+        self.addCleanup(tmp.cleanup)
+        as_of = dt.date.today()
+        cmd = [
+            sys.executable,
+            str(SKILLS / "fetch-weekly-items" / "scripts" / "fetch_weekly_items.py"),
+            "--output-root",
+            tmp.name,
+            "--date",
+            as_of.isoformat(),
+            "--count",
+            "3",
+            "--techcrunch-no-hn",
+        ]
+        expected = [
+            ("github/gh_data.json", "github-trending", "repos"),
+            ("news/hackernews/hn_data.json", "hackernews", "stories"),
+            ("news/techcrunch/tc_data.json", "techcrunch", "articles"),
+        ]
+        if has_ph_key():
+            expected.append(("producthunt/ph_data.json", "producthunt", "posts"))
+        else:
+            cmd.extend(["--skip", "producthunt"])
+
+        proc = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            cwd=REPO_ROOT,
+            timeout=TIMEOUT,
+        )
+        self.assertEqual(proc.returncode, 0, f"fetch-weekly-items failed:\n{proc.stderr}")
+
+        for rel_snapshot, source, items_key in expected:
+            self.assert_snapshot(tmp.name, as_of, rel_snapshot, source, items_key)
 
 
 if __name__ == "__main__":

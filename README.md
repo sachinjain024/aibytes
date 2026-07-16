@@ -8,6 +8,7 @@ snapshots in this repo.
 
 | Skill | What it fetches |
 |---|---|
+| `/fetch-weekly-items` | Runs all weekly fetch skills below |
 | `/ph-fetch-items` | Top ProductHunt products of the week |
 | `/hn-fetch-items` | Top AI-related HackerNews stories |
 | `/tc-fetch-items` | Most popular TechCrunch AI articles |

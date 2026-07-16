@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fetch Weekly Items"
+  short_description: "Fetch all AIBytes weekly sources"
+  default_prompt: "Use $fetch-weekly-items to refresh all weekly AIBytes source snapshots."

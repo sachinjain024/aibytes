@@ -1,17 +1,17 @@
 {
   "source": "techcrunch",
   "section": "ai-news",
-  "fetched_at": "2026-07-14",
+  "fetched_at": "2026-07-16",
   "window": {
-    "after": "2026-07-07",
-    "before": "2026-07-15"
+    "after": "2026-07-09",
+    "before": "2026-07-17"
   },
   "query_params": {
     "category": "artificial-intelligence",
     "count": 10,
     "ranking": "hackernews_points,recency"
   },
-  "totalCount": 57,
+  "totalCount": 68,
   "articles": [
     {
       "title": "New York Times says OpenAI hid evidence in ChatGPT copyright trial",
@@ -25,6 +25,20 @@
         "points": 25,
         "num_comments": 1,
         "hn_url": "https://news.ycombinator.com/item?id=48853227"
+      }
+    },
+    {
+      "title": "The real AI race may no longer be at the frontier",
+      "description": "Hugging Face CEO Clem Delangue says enterprises increasingly want open models, due to cost, accessibility, and ownership. Do frontier models still matter if most production AI ends up running on open models?",
+      "url": "https://techcrunch.com/2026/07/14/the-real-ai-race-may-no-longer-be-at-the-frontier-open-models-hugging-face/",
+      "published_at": "2026-07-14T14:24:53Z",
+      "author": "Rebecca Bellan",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/GettyImages-1849294862.jpg?w=1024",
+      "reading_time": "5 minutes",
+      "hackernews": {
+        "points": 9,
+        "num_comments": 4,
+        "hn_url": "https://news.ycombinator.com/item?id=48909401"
       }
     },
     {
@@ -56,6 +70,20 @@
       }
     },
     {
+      "title": "Satya Nadella has issued a shocking warning to companies using AI",
+      "description": "Of all the debates raging about the potential downsides of AI, there is one worry causing the most hand-wringing among AI enthusiasts in Silicon Valley \u2014 that the giant AI labs that sell proprietary models are somehow acting like Trojan horses.",
+      "url": "https://techcrunch.com/2026/07/13/satya-nadella-has-issued-a-shocking-warning-to-companies-using-ai/",
+      "published_at": "2026-07-13T20:59:00Z",
+      "author": "Julie Bort",
+      "image": "https://techcrunch.com/wp-content/uploads/2023/11/GettyImages-1778706504.jpg?resize=1200,783",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 7,
+        "num_comments": 7,
+        "hn_url": "https://news.ycombinator.com/item?id=48904480"
+      }
+    },
+    {
       "title": "An AI agent startup just let its agent run its $100M fundraise",
       "description": "Lyzr, a startup that builds AI agents for enterprises, used its own AI agent to raise a $100 million round \u2014 proof, evidently, that the product actually works.",
       "url": "https://techcrunch.com/2026/07/09/an-ai-agent-startup-just-let-its-agent-run-its-100-million-fundraise/",
@@ -70,17 +98,31 @@
       }
     },
     {
-      "title": "Satya Nadella has issued a shocking warning to companies using AI",
-      "description": "Of all the debates raging about the potential downsides of AI, there is one worry causing the most hand-wringing among AI enthusiasts in Silicon Valley \u2014 that the giant AI labs that sell proprietary models are somehow acting like Trojan horses.",
-      "url": "https://techcrunch.com/2026/07/13/satya-nadella-has-issued-a-shocking-warning-to-companies-using-ai/",
-      "published_at": "2026-07-13T20:59:00Z",
-      "author": "Julie Bort",
-      "image": "https://techcrunch.com/wp-content/uploads/2023/11/GettyImages-1778706504.jpg?resize=1200,783",
-      "reading_time": "4 minutes",
+      "title": "Anthropic, Blackstone bet the next trillion-dollar AI business is implementation, not just models",
+      "description": "Anthropic-backed Ode launches as AI labs bet that embedding forward-deployed engineers inside enterprises is the key to accelerating enterprise AI adoption.",
+      "url": "https://techcrunch.com/2026/07/15/anthropic-blackstone-bet-the-next-trillion-dollar-ai-business-is-implementation-not-models/",
+      "published_at": "2026-07-15T13:10:47Z",
+      "author": "Rebecca Bellan",
+      "image": "https://techcrunch.com/wp-content/uploads/2022/05/GettyImages-564946817.jpg?resize=1200,675",
+      "reading_time": "5 minutes",
+      "hackernews": {
+        "points": 6,
+        "num_comments": 2,
+        "hn_url": "https://news.ycombinator.com/item?id=48920435"
+      }
+    },
+    {
+      "title": "Vint Cerf is working on a plan to unleash AI agents on the open internet",
+      "description": "The guy behind TCP/IP is working on a standard for identifying AI agents in the wild.",
+      "url": "https://techcrunch.com/2026/07/15/vint-cerf-is-working-on-a-plan-to-unleash-ai-agents-on-the-open-internet/",
+      "published_at": "2026-07-15T12:00:00Z",
+      "author": "Tim Fernholz",
+      "image": "https://techcrunch.com/wp-content/uploads/2023/05/vint-cerf-GettyImages-454796419.jpg?resize=1200,723",
+      "reading_time": "3 minutes",
       "hackernews": {
         "points": 5,
         "num_comments": 2,
-        "hn_url": "https://news.ycombinator.com/item?id=48904480"
+        "hn_url": "https://news.ycombinator.com/item?id=48928419"
       }
     },
     {
@@ -109,48 +151,6 @@
         "points": 5,
         "num_comments": 2,
         "hn_url": "https://news.ycombinator.com/item?id=48857121"
-      }
-    },
-    {
-      "title": "Why the rise of open source AI isn\u2019t hurting Anthropic \u2026 yet",
-      "description": "Open source models\u2019 success isn\u2019t coming at the expense of frontier labs. Instead, they each seem to capture two phases of the same life cycle.",
-      "url": "https://techcrunch.com/2026/07/07/why-the-rise-of-open-source-ai-isnt-hurting-anthropic-yet/",
-      "published_at": "2026-07-07T20:04:32Z",
-      "author": "Russell Brandom",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2256487455.jpg?w=1024",
-      "reading_time": "4 minutes",
-      "hackernews": {
-        "points": 5,
-        "num_comments": 0,
-        "hn_url": "https://news.ycombinator.com/item?id=48835032"
-      }
-    },
-    {
-      "title": "OpenAI bets on families as ChatGPT goes deeper into households",
-      "description": "ChatGPT is hiring a dedicated product manager to build experiences for families, caregivers, and older adults, according to a job posting.",
-      "url": "https://techcrunch.com/2026/07/11/openai-bets-on-families-as-chatgpt-goes-deeper-into-households/",
-      "published_at": "2026-07-11T14:13:00Z",
-      "author": "Jagmeet Singh",
-      "image": "https://techcrunch.com/wp-content/uploads/2025/01/GettyImages-2170386424.jpg?w=1024",
-      "reading_time": "4 minutes",
-      "hackernews": {
-        "points": 4,
-        "num_comments": 0,
-        "hn_url": "https://news.ycombinator.com/item?id=48881795"
-      }
-    },
-    {
-      "title": "OpenAI is shutting down Atlas, but its AI browser ambitions are still growing",
-      "description": "OpenAI is sunsetting its AI-powered browser after less than a year. But it's moving some agentic browsing features to its desktop app and a Chrome extension.\u00a0",
-      "url": "https://techcrunch.com/2026/07/09/openai-is-shutting-down-atlas-but-its-ai-browser-ambitions-are-still-growing/",
-      "published_at": "2026-07-09T22:03:54Z",
-      "author": "Rebecca Bellan",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/07/chatgpt-app-browser.jpg?resize=1200,675",
-      "reading_time": "2 minutes",
-      "hackernews": {
-        "points": 4,
-        "num_comments": 2,
-        "hn_url": "https://news.ycombinator.com/item?id=48861557"
       }
     }
   ]
