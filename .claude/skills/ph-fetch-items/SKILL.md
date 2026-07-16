@@ -50,4 +50,4 @@ alongside the posts. Re-running for the same week overwrites in place.
 
 The skill takes one snapshot per invocation; run it weekly (ideally at the end
 of the ISO week, so vote counts for the whole week have settled). To automate,
-schedule it with cron or the `/schedule` skill.
+schedule the script with cron or your agent runner.

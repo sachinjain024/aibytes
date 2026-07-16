@@ -67,4 +67,4 @@ same week overwrites in place.
 
 One snapshot per invocation; run it weekly at the end of the ISO week alongside
 `/ph-fetch-items` and `/tc-fetch-items` so points for the week's stories have
-settled. To automate, schedule it with cron or the `/schedule` skill.
+settled. To automate, schedule the script with cron or your agent runner.

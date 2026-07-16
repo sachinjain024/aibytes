@@ -57,4 +57,4 @@ the top articles. Re-running for the same week overwrites in place.
 
 One snapshot per invocation; run it weekly at the end of the ISO week alongside
 `/ph-fetch-items` so HN points for the week's stories have settled. To automate,
-schedule it with cron or the `/schedule` skill.
+schedule the script with cron or your agent runner.

@@ -18,6 +18,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Commands
 
+Run all weekly source fetches:
+
+```bash
+python3 .claude/skills/fetch-weekly-items/scripts/fetch_weekly_items.py
+```
+
+Without ProductHunt credentials, run only public sources:
+
+```bash
+python3 .claude/skills/fetch-weekly-items/scripts/fetch_weekly_items.py --skip producthunt
+```
+
 Refresh the ProductHunt docs mirror (from the repo root; overwrites in place):
 
 ```bash

@@ -13,6 +13,12 @@ skills in sequence:
 - `tc-fetch-items` for TechCrunch AI articles
 - `gh-fetch-items` for GitHub trending AI repositories
 
+## Requirements
+
+- Python 3 (stdlib only, no dependencies).
+- A repo-root `.env` with `PH_API_KEY` for the ProductHunt child skill. To run
+  only public sources without ProductHunt credentials, pass `--skip producthunt`.
+
 ## Usage
 
 Run from the repo root:
@@ -30,7 +36,10 @@ Common options:
 --days N                # optional window override for ProductHunt, HN, and TechCrunch
 --skip SOURCE           # skip one source; repeatable: producthunt, hackernews, techcrunch, github
 --keep-going            # continue after a child skill fails, then exit nonzero if any failed
+--github-since WINDOW   # daily | weekly | monthly, passed to gh-fetch-items; default weekly
+--github-languages L [L...]  # extra GitHub language trending pages to merge
 --techcrunch-no-hn      # pass --no-hn to tc-fetch-items for faster smoke runs
+--dry-run               # print child commands and expected snapshots without running
 ```
 
 The runner verifies each expected output file after the child script exits.

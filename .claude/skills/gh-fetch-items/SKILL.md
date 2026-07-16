@@ -49,7 +49,7 @@ Options:
 --since WINDOW       # daily | weekly | monthly (default weekly)
 --date YYYY-MM-DD    # as-of date used to file the snapshot (default today)
 --output-root DIR    # root data dir (default: data)
---languages L [L…]   # extra per-language trending pages to merge, e.g. python jupyter-notebook
+--languages L [L...] # extra per-language trending pages to merge, e.g. python jupyter-notebook
 --no-ai-filter       # keep all trending repos, not just AI-related ones
 ```
 
@@ -74,5 +74,5 @@ Re-running for the same week overwrites in place.
 One snapshot per invocation; run it weekly at the end of the ISO week
 alongside `/ph-fetch-items`, `/tc-fetch-items`, and `/hn-fetch-items`. Because
 the trending page is live-only, run it while the target week is still GitHub's
-"this week" — it cannot be backfilled later. To automate, schedule it with
-cron or the `/schedule` skill.
+"this week" — it cannot be backfilled later. To automate, schedule the script
+with cron or your agent runner.

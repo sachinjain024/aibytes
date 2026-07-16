@@ -20,6 +20,20 @@ The skills follow the open [Agent Skills](https://agentskills.io) format, and
 a `.agents/skills` symlink makes them work in OpenAI Codex and other
 compatible tools too.
 
+## Usage
+
+Fetch all weekly snapshots:
+
+```bash
+python3 .claude/skills/fetch-weekly-items/scripts/fetch_weekly_items.py
+```
+
+If ProductHunt credentials are unavailable, run only the public sources:
+
+```bash
+python3 .claude/skills/fetch-weekly-items/scripts/fetch_weekly_items.py --skip producthunt
+```
+
 ## Data
 
 Snapshots land under `data/<year>/<month>/weeks/week-<NN>/`, one folder per
