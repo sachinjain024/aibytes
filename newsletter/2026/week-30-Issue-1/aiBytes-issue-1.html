@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aiBytes_ #1 - Open weights surge, a $1.5B bill & AI cracks old math</title>
+<meta name="description" content="Catch up on China's open-weights lead, Qwen 3.8 and Inkling, Anthropic's $1.5B copyright settlement, and the week's top launches and repos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
+    --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--cobalt);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px 56px}
+
+  header{padding:36px 0 0}
+  .issue-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--slate);display:flex;justify-content:space-between;margin-bottom:12px}
+  .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
+  .logo em{font-style:normal;color:var(--cobalt)}
+
+  /* ── TL;DR block: the signature ── */
+  .tldr{background:var(--ink);color:var(--paper);padding:20px 22px;margin-top:18px;
+        clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}
+  .tldr .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--signal)}
+  .tldr p{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.5;margin-top:8px}
+  .tldr b{color:var(--signal);font-weight:700}
+
+  section{margin-top:34px}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--paper);background:var(--ink);padding:2px 7px}
+  .sec-title{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+  .sec-rule{flex:1;height:2px;background:var(--ink)}
+
+  /* ── Intro block ── */
+  .intro{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 22px;margin-bottom:18px}
+  .intro p{font-size:15.5px;line-height:1.65;margin-bottom:14px;color:#3A3E4A}
+  .intro p:last-child{margin-bottom:0}
+  .intro b{color:var(--ink);font-weight:700}
+
+  /* ── News card ── */
+  .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
+  .news-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;color:var(--cobalt);letter-spacing:.02em;margin-bottom:14px}
+  .news-item{font-size:15.5px;margin-bottom:14px;line-height:1.6}
+  .news-item:last-of-type{margin-bottom:0}
+  .news-item b a{font-weight:700}
+  .src{font-family:var(--mono);font-size:12px;color:var(--slate)}
+  .quote{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px 18px;margin-top:18px}
+  .quote p{font-size:15px;color:#3A3E4A}
+  .quote .who{margin-top:10px;font-size:14px;color:var(--slate)}
+
+  /* ── Ticker rows ── */
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .ico{width:22px;text-align:center;flex-shrink:0}
+  .row .txt{flex:1}
+  .row .txt b{font-weight:600}
+  .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
+  .stat b{color:var(--cobalt);font-weight:700}
+  .hot{background:var(--signal);padding:0 4px;font-weight:600}
+
+  footer{margin-top:48px;border-top:3px solid var(--ink);padding-top:20px;text-align:center}
+  footer p{color:var(--slate);font-size:13.5px}
+  .foot-links{margin-top:10px;font-family:var(--mono);font-size:12.5px;display:flex;gap:20px;justify-content:center}
+  @media (max-width:480px){ .row{flex-wrap:wrap} .stat{margin-left:34px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="issue-tag"><span>ISSUE 0x01 · TL;DR</span><span>2026-07-21 · ~5 MIN</span></div>
+    <div class="logo">⚡ aiBytes<em>_</em> #1</div>
+  </header>
+
+  <section>
+    <div class="intro">
+      <p>An open-weight model out of China was the most-read AI story on Hacker News this week — outrunning every closed frontier lab — the same week Anthropic quietly wrote a $1.5B check for the books it trained on.</p>
+      <p><b>The moat is moving</b>: open weights went from fast-follower to front-runner in a matter of days — Qwen 3.8, a fresh Kimi, Thinking Machines' first open model, and Grok Build's source drop all landed together, while <a href="https://techcrunch.com/2026/07/14/the-real-ai-race-may-no-longer-be-at-the-frontier-open-models-hugging-face/">Hugging Face's CEO argued the real race has already left the frontier</a>.</p>
+      <p>If the model itself is becoming a commodity, the thing worth owning is whatever sits closest to the person actually using it. Let's dive in.</p>
+    </div>
+
+    <div class="news-card">
+      <div class="card-title">🌍 NEWS</div>
+
+      <p class="news-item">🔥 <b><a href="https://news.ycombinator.com/item?id=48979269">China's open-weights AI strategy is winning</a></b> — the week's most-discussed post argues US labs' locked-down, proprietary approach is quietly costing them the lead. <span class="hot">Story of the week</span> <span class="src">(Hacker News)</span></p>
+
+      <p class="news-item">🚀 <b><a href="https://news.ycombinator.com/item?id=48966120">Qwen 3.8</a></b> — Alibaba dropped its latest open model and it shot straight up the charts, right behind the open-weights debate itself. <span class="src">(Hacker News)</span></p>
+
+      <p class="news-item">⚖️ <b><a href="https://techcrunch.com/2026/07/20/anthropics-landmark-1-5b-copyright-settlement-is-approved/">Anthropic's landmark $1.5B copyright settlement is approved</a></b> — the payout for training on authors' books is now final, but it settles one case, not the broader training-data question. <span class="src">(TechCrunch)</span></p>
+
+      <p class="news-item">🧪 <b><a href="https://techcrunch.com/2026/07/15/thinking-machines-amps-up-its-bet-against-one-size-fits-all-ai-with-its-first-open-model-inkling/">Thinking Machines ships Inkling, its first open model</a></b> — the lab's first public proof point after a year and a half spent building infrastructure out of view. <span class="src">(TechCrunch)</span></p>
+
+      <p class="news-item">🐙 <b><a href="https://news.ycombinator.com/item?id=48926590">Grok Build is open source</a></b> — xAI put its build agent on GitHub, adding one more open release to a very crowded week. <span class="src">(Hacker News)</span></p>
+
+      <p class="news-item">💰 <b><a href="https://techcrunch.com/2026/07/17/databricks-hits-188b-valuation-extending-its-run-as-ais-favorite-second-act/">Databricks hits a $188B valuation</a></b> — and published research on just how much cheaper open-weight models are for coding. <span class="src">(TechCrunch)</span></p>
+
+      <div class="quote">
+        <p>"The frontier used to be the whole game. This week it started to look like just the opening move."</p>
+        <p class="who">- aiBytes_, on the open-weight surge</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Launches</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🛒</span><span class="txt"><b><a href="https://www.producthunt.com/products/clawteams">ClawTeams</a></b> — a goal-driven, proactive AI team that plans and runs e-commerce ops for you.</span><span class="stat"><b>▲ 973</b></span></div>
+    <div class="row"><span class="ico">🎓</span><span class="txt"><b><a href="https://www.producthunt.com/products/paradigm-3">Paradigm</a></b> — turns any learning goal into an adaptive path that evolves with your progress.</span><span class="stat"><b>▲ 943</b></span></div>
+    <div class="row"><span class="ico">🧩</span><span class="txt"><b><a href="https://www.producthunt.com/products/pazi">Pazi</a></b> — vibe-code your business ops: describe the idea, get a team of agents that moves it forward.</span><span class="stat"><b>▲ 894</b></span></div>
+    <div class="row"><span class="ico">🔍</span><span class="txt"><b><a href="https://www.producthunt.com/products/openseo">OpenSEO</a></b> — an open-source Ahrefs alternative with MCP, from $10/month instead of $100+.</span><span class="stat"><b>▲ 798</b></span></div>
+    <div class="row"><span class="ico">🎮</span><span class="txt"><b><a href="https://www.producthunt.com/products/v2fun">V2Fun</a></b> — generate 3D characters with 8K textures and AI motion capture from images or prompts.</span><span class="stat"><b>▲ 780</b></span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">Trending Repos</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🎨</span><span class="txt"><b><a href="https://github.com/Nutlope/hallmark">Nutlope/hallmark</a></b> — an anti-AI-slop design skill for Claude Code, Cursor, and Codex.</span><span class="stat"><b>+9.2k</b> ★</span></div>
+    <div class="row"><span class="ico">📚</span><span class="txt"><b><a href="https://github.com/Shubhamsaboo/awesome-llm-apps">Shubhamsaboo/awesome-llm-apps</a></b> — 100+ agent & RAG apps you can clone, customize, and ship.</span><span class="stat"><b>+5.9k</b> ★</span></div>
+    <div class="row"><span class="ico">📈</span><span class="txt"><b><a href="https://github.com/HKUDS/Vibe-Trading">HKUDS/Vibe-Trading</a></b> — a personal trading agent you can vibe-code.</span><span class="stat"><b>+4.4k</b> ★</span></div>
+    <div class="row"><span class="ico">📄</span><span class="txt"><b><a href="https://github.com/iOfficeAI/OfficeCLI">iOfficeAI/OfficeCLI</a></b> — an Office suite built for agents to read and edit Word, Excel, and PowerPoint.</span><span class="stat"><b>+4.1k</b> ★</span></div>
+    <div class="row"><span class="ico">🕸️</span><span class="txt"><b><a href="https://github.com/tirth8205/code-review-graph">tirth8205/code-review-graph</a></b> — a local-first code graph so AI tools read only what matters.</span><span class="stat"><b>+3.1k</b> ★</span></div>
+    <div class="row"><span class="ico">🧰</span><span class="txt"><b><a href="https://github.com/earendil-works/pi">earendil-works/pi</a></b> — an AI agent toolkit: unified LLM API, agent loop, TUI, and coding CLI.</span><span class="stat"><b>+2.9k</b> ★</span></div>
+    <div class="row"><span class="ico">💻</span><span class="txt"><b><a href="https://github.com/openinterpreter/openinterpreter">openinterpreter/openinterpreter</a></b> — a coding agent for open models like Kimi K3.</span><span class="stat"><b>+2.6k</b> ★</span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">HN Deep Cuts</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🧮</span><span class="txt"><b><a href="https://news.ycombinator.com/item?id=48973869">Claude Fable produced a counterexample to the Jacobian Conjecture</a></b> — an AI chips at a problem open since the 1930s.</span><span class="stat"><b>700</b> pts</span></div>
+    <div class="row"><span class="ico">🔓</span><span class="txt"><b><a href="https://news.ycombinator.com/item?id=48916975">I tricked Claude into leaking your deepest, darkest secrets</a></b> — a memory-heist writeup on agent data exfiltration.</span><span class="stat"><b>668</b> pts</span></div>
+    <div class="row"><span class="ico">🏷️</span><span class="txt"><b><a href="https://news.ycombinator.com/item?id=48905248">How to stop Claude from saying "load-bearing"</a></b> — a field guide to taming a model's verbal tics.</span><span class="stat"><b>608</b> pts</span></div>
+    <div class="row"><span class="ico">📐</span><span class="txt"><b><a href="https://news.ycombinator.com/item?id=48957779">GPT-5.6 used a prompt to close a 30-year gap in convex optimization</a></b> — the second AI-driven math result of the week.</span><span class="stat"><b>598</b> pts</span></div>
+    <div class="row"><span class="ico">🦀</span><span class="txt"><b><a href="https://news.ycombinator.com/item?id=48966569">Claude Code uses Bun written in Rust now</a></b> — Simon Willison unpacks the new runtime under the hood.</span><span class="stat"><b>594</b> pts</span></div>
+  </section>
+
+  <div class="tldr" style="margin-top:44px">
+    <div class="kicker">ONE IDEA TO CARRY NEXT WEEK</div>
+    <p>When the strongest models ship their own weights, the durable advantage stops being the model and becomes <b>distribution</b> — whoever sits closest to the work the user is already doing.</p>
+  </div>
+
+  <footer>
+    <p>Made for builders who ship with AI. See you next week. ✌️</p>
+    <div class="foot-links"><a href="#">SUBSCRIBE</a><a href="#">ARCHIVE</a><a href="#">SUGGEST A LINK</a></div>
+  </footer>
+
+</div>
+</body>
+</html>

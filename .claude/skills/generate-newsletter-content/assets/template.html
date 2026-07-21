@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{EMAIL_SUBJECT}}</title>
+<meta name="description" content="{{EMAIL_DESCRIPTION}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
+    --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--cobalt);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px 56px}
+
+  header{padding:36px 0 0}
+  .issue-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--slate);display:flex;justify-content:space-between;margin-bottom:12px}
+  .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
+  .logo em{font-style:normal;color:var(--cobalt)}
+
+  /* ── TL;DR block: the signature ── */
+  .tldr{background:var(--ink);color:var(--paper);padding:20px 22px;margin-top:18px;
+        clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}
+  .tldr .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--signal)}
+  .tldr p{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.5;margin-top:8px}
+  .tldr b{color:var(--signal);font-weight:700}
+
+  section{margin-top:34px}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--paper);background:var(--ink);padding:2px 7px}
+  .sec-title{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+  .sec-rule{flex:1;height:2px;background:var(--ink)}
+
+  /* ── Intro block ── */
+  .intro{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 22px;margin-bottom:18px}
+  .intro p{font-size:15.5px;line-height:1.65;margin-bottom:14px;color:#3A3E4A}
+  .intro p:last-child{margin-bottom:0}
+  .intro b{color:var(--ink);font-weight:700}
+
+  /* ── News card ── */
+  .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
+  .news-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;color:var(--cobalt);letter-spacing:.02em;margin-bottom:14px}
+  .news-item{font-size:15.5px;margin-bottom:14px;line-height:1.6}
+  .news-item:last-of-type{margin-bottom:0}
+  .news-item b a{font-weight:700}
+  .src{font-family:var(--mono);font-size:12px;color:var(--slate)}
+  .quote{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px 18px;margin-top:18px}
+  .quote p{font-size:15px;color:#3A3E4A}
+  .quote .who{margin-top:10px;font-size:14px;color:var(--slate)}
+
+  /* ── Ticker rows ── */
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .ico{width:22px;text-align:center;flex-shrink:0}
+  .row .txt{flex:1}
+  .row .txt b{font-weight:600}
+  .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
+  .stat b{color:var(--cobalt);font-weight:700}
+  .hot{background:var(--signal);padding:0 4px;font-weight:600}
+
+  footer{margin-top:48px;border-top:3px solid var(--ink);padding-top:20px;text-align:center}
+  footer p{color:var(--slate);font-size:13.5px}
+  .foot-links{margin-top:10px;font-family:var(--mono);font-size:12.5px;display:flex;gap:20px;justify-content:center}
+  @media (max-width:480px){ .row{flex-wrap:wrap} .stat{margin-left:34px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="issue-tag"><span>ISSUE 0x{{ISSUE_HEX}} · TL;DR</span><span>{{DATE_ISO}} · ~{{READ_MIN}} MIN</span></div>
+    <div class="logo">⚡ aiBytes<em>_</em> #{{ISSUE_NUM}}</div>
+  </header>
+
+  <section>
+    <!-- Intro: no salutation ("Hey crew" etc. is banned). Three beats:
+         1. HOOK — one arresting fact or juxtaposition from the week, stated cold.
+         2. STORYLINE — the thread connecting the week's items; <b> lead + one inline link allowed.
+         3. FOOD FOR THOUGHT — one idea to chew on, then "Let's dive in." -->
+    <div class="intro">
+      <p>{{INTRO_HOOK}}</p>
+      <p><b>{{INTRO_STORYLINE_LEAD}}</b>: {{INTRO_STORYLINE}}</p>
+      <p>{{INTRO_FOOD_FOR_THOUGHT}} Let's dive in.</p>
+    </div>
+
+    <div class="news-card">
+      <div class="card-title">🌍 NEWS</div>
+
+      <!-- Repeat per news item. Mark the top story with the .hot badge. Pattern:
+      <p class="news-item">🔥 <b><a href="URL">Headline</a></b> one-line context <span class="hot">Story of the week</span> <span class="src">(Source)</span></p>
+      -->
+      {{NEWS_ITEMS}}
+
+      <div class="quote">
+        <p>"{{QUOTE_TEXT}}"</p>
+        <p class="who">- {{QUOTE_WHO}}</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Launches</h2><div class="sec-rule"></div></div>
+    <!-- Repeat per launch. Pattern:
+    <div class="row"><span class="ico">🎬</span><span class="txt"><b><a href="URL">Name</a></b> — one-line description.</span><span class="stat"><b>▲ 776</b></span></div>
+    -->
+    {{LAUNCH_ROWS}}
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">Trending Repos</h2><div class="sec-rule"></div></div>
+    <!-- Repeat per repo. Pattern:
+    <div class="row"><span class="ico">📎</span><span class="txt"><b><a href="URL">repo-name</a></b> — one-line description.</span><span class="stat"><b>+6.4k</b> ★</span></div>
+    -->
+    {{REPO_ROWS}}
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">HN Deep Cuts</h2><div class="sec-rule"></div></div>
+    <!-- Repeat per post. Pattern:
+    <div class="row"><span class="ico">📊</span><span class="txt"><b><a href="URL">Post title</a></b> optional context.</span><span class="stat"><b>699</b> pts</span></div>
+    Add "· N 💬" to the stat when the comment count is itself the story. -->
+    {{HN_ROWS}}
+  </section>
+
+  <div class="tldr" style="margin-top:44px">
+    <div class="kicker">ONE IDEA TO CARRY NEXT WEEK</div>
+    <!-- One forward-looking thought drawn from the week's themes; <b> the pivotal word. -->
+    <p>{{CLOSING_IDEA}}</p>
+  </div>
+
+  <footer>
+    <p>Made for builders who ship with AI. See you next week. ✌️</p>
+    <div class="foot-links"><a href="#">SUBSCRIBE</a><a href="#">ARCHIVE</a><a href="#">SUGGEST A LINK</a></div>
+  </footer>
+
+</div>
+</body>
+</html>
