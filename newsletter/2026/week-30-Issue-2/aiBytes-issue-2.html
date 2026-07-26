@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aiBytes_ #2 - Opus 5, $1.5B copyright &amp; open weights</title>
+<meta name="description" content="Catch up on Claude Opus 5, an AI-evaluation security incident, and the open-weight strategy fight.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
+    --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--cobalt);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px 56px}
+
+  header{padding:36px 0 0}
+  .issue-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--slate);display:flex;justify-content:space-between;margin-bottom:12px}
+  .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
+  .logo em{font-style:normal;color:var(--cobalt)}
+
+  /* ── TL;DR block: the signature ── */
+  .tldr{background:var(--ink);color:var(--paper);padding:20px 22px;margin-top:18px;
+        clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}
+  .tldr .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--signal)}
+  .tldr p{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.5;margin-top:8px}
+  .tldr b{color:var(--signal);font-weight:700}
+
+  section{margin-top:34px}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--paper);background:var(--ink);padding:2px 7px}
+  .sec-title{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+  .sec-rule{flex:1;height:2px;background:var(--ink)}
+
+  /* ── Intro block ── */
+  .intro{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 22px;margin-bottom:18px}
+  .intro p{font-size:15.5px;line-height:1.65;margin-bottom:14px;color:#3A3E4A}
+  .intro p:last-child{margin-bottom:0}
+  .intro b{color:var(--ink);font-weight:700}
+
+  /* ── News card ── */
+  .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
+  .news-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;color:var(--cobalt);letter-spacing:.02em;margin-bottom:14px}
+  .news-item{font-size:15.5px;margin-bottom:14px;line-height:1.6}
+  .news-item:last-of-type{margin-bottom:0}
+  .news-item b a{font-weight:700}
+  .src{font-family:var(--mono);font-size:12px;color:var(--slate)}
+  .quote{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px 18px;margin-top:18px}
+  .quote p{font-size:15px;color:#3A3E4A}
+  .quote .who{margin-top:10px;font-size:14px;color:var(--slate)}
+
+  /* ── Ticker rows ── */
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .ico{width:22px;text-align:center;flex-shrink:0}
+  .row .txt{flex:1}
+  .row .txt b{font-weight:600}
+  .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
+  .stat b{color:var(--cobalt);font-weight:700}
+  .hot{background:var(--signal);padding:0 4px;font-weight:600}
+
+  footer{margin-top:48px;border-top:3px solid var(--ink);padding-top:20px;text-align:center}
+  footer p{color:var(--slate);font-size:13.5px}
+  .foot-links{margin-top:10px;font-family:var(--mono);font-size:12.5px;display:flex;gap:20px;justify-content:center}
+  @media (max-width:480px){ .row{flex-wrap:wrap} .stat{margin-left:34px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="issue-tag"><span>ISSUE 0x02 · TL;DR</span><span>2026-07-26 · ~5 MIN</span></div>
+    <div class="logo">⚡ aiBytes<em>_</em> #2</div>
+  </header>
+
+  <section>
+    <!-- Intro: no salutation ("Hey crew" etc. is banned). Three beats:
+         1. HOOK — one arresting fact or juxtaposition from the week, stated cold.
+         2. STORYLINE — the thread connecting the week's items; <b> lead + one inline link allowed.
+         3. FOOD FOR THOUGHT — one idea to chew on, then "Let's dive in." -->
+    <div class="intro">
+      <p>Claude Opus 5 drew 1,752 Hacker News points in the same week an AI-agent book gained 16,579 GitHub stars and a robotics startup raised $1.7B.</p>
+      <p><b>The stack is widening</b>: frontier models are shipping, open-weight strategy is turning geopolitical, and builders are assembling routing, context, and agent tooling underneath.</p>
+      <p>When model access commoditizes, advantage moves to orchestration—and to the judgment about where humans remain in the loop. Let's dive in.</p>
+    </div>
+
+    <div class="news-card">
+      <div class="card-title">🌍 NEWS</div>
+
+      <!-- Repeat per news item. Mark the top story with the .hot badge. Pattern:
+      <p class="news-item">🔥 <b><a href="URL">Headline</a></b> one-line context <span class="hot">Story of the week</span> <span class="src">(Source)</span></p>
+      -->
+            <p class="news-item">🔥 <b><a href="https://www.anthropic.com/news/claude-opus-5">Claude Opus 5</a></b> — Anthropic's announcement pulled 1,752 points and 1,290 comments on Hacker News. <span class="hot">Story of the week</span> <span class="src">(Anthropic)</span></p>
+      <p class="news-item">🔐 <b><a href="https://openai.com/index/hugging-face-model-evaluation-security-incident/">OpenAI and Hugging Face address security incident during model evaluation</a></b> — the two teams addressed a security incident during a model evaluation. <span class="src">(OpenAI)</span></p>
+      <p class="news-item">⚖️ <b><a href="https://techcrunch.com/2026/07/20/anthropics-landmark-1-5b-copyright-settlement-is-approved/">Anthropic’s landmark $1.5B copyright settlement is approved</a></b> — final approval closes one case while the wider training-data question remains open. <span class="src">(TechCrunch)</span></p>
+      <p class="news-item">🌏 <b><a href="https://werd.io/american-ai-is-locked-down-and-proprietary-its-losing/">China’s open-weights AI strategy is winning</a></b> — an argument for open models as a strategic advantage reached 1,241 HN points. <span class="src">(Werd.io)</span></p>
+      <p class="news-item">🤖 <b><a href="https://techcrunch.com/2026/07/22/travis-kalanicks-robotics-company-raises-1-7b-led-by-a16z/">Travis Kalanick’s robotics company raises $1.7B, led by a16z</a></b> — Atoms raised $1.7B for its industrial-AI and robotics pitch. <span class="src">(TechCrunch)</span></p>
+      <p class="news-item">📉 <b><a href="https://techcrunch.com/2026/07/22/monday-com-lays-off-hundreds-to-focuses-on-ai/">Monday.com lays off hundreds to focus on AI</a></b> — the company is cutting about 630 roles, or 20% of staff, as it focuses on its AI Work Platform. <span class="src">(TechCrunch)</span></p>
+      <p class="news-item">🔌 <b><a href="https://techcrunch.com/2026/07/20/ais-most-important-protocol-is-getting-a-little-bit-easier-to-use/">AI’s most important protocol is getting a little bit easier to use</a></b> — the protocol is moving toward looser, stateless server-side session IDs. <span class="src">(TechCrunch)</span></p>
+
+      <div class="quote">
+        <p>"Open models are no longer the cheap edge case; they are becoming the strategic center of gravity."</p>
+        <p class="who">- aiBytes_</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Launches</h2><div class="sec-rule"></div></div>
+    <!-- Repeat per launch. Pattern:
+    <div class="row"><span class="ico">🎬</span><span class="txt"><b><a href="URL">Name</a></b> — one-line description.</span><span class="stat"><b>▲ 776</b></span></div>
+    -->
+        <div class="row"><span class="ico">🔎</span><span class="txt"><b><a href="https://www.producthunt.com/products/openseo?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29">OpenSEO</a></b> — The open source Ahrefs alternative.</span><span class="stat"><b>▲ 893</b></span></div>
+    <div class="row"><span class="ico">🧲</span><span class="txt"><b><a href="https://www.producthunt.com/products/fuzzy-ai-2?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29">Fuzzy AI</a></b> — We warm your prospects before reaching out.</span><span class="stat"><b>▲ 691</b></span></div>
+    <div class="row"><span class="ico">🎯</span><span class="txt"><b><a href="https://www.producthunt.com/products/lev8?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29">Lev8</a></b> — Find, research, and reach the right people.</span><span class="stat"><b>▲ 667</b></span></div>
+    <div class="row"><span class="ico">💬</span><span class="txt"><b><a href="https://www.producthunt.com/products/humalike-2?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29">Humalike x Hermes</a></b> — Social intelligence plugin for Hermes Agent.</span><span class="stat"><b>▲ 523</b></span></div>
+    <div class="row"><span class="ico">🧭</span><span class="txt"><b><a href="https://www.producthunt.com/products/nautis?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29">Nautis</a></b> — The AI-native Operating System for founders.</span><span class="stat"><b>▲ 509</b></span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">Trending Repos</h2><div class="sec-rule"></div></div>
+    <!-- Repeat per repo. Pattern:
+    <div class="row"><span class="ico">📎</span><span class="txt"><b><a href="URL">repo-name</a></b> — one-line description.</span><span class="stat"><b>+6.4k</b> ★</span></div>
+    -->
+        <div class="row"><span class="ico">📘</span><span class="txt"><b><a href="https://github.com/bojieli/ai-agent-book">bojieli/ai-agent-book</a></b> — an open book, PDF, and chapter code on AI-agent design and engineering.</span><span class="stat"><b>+16.6k</b> ★</span></div>
+    <div class="row"><span class="ico">🌐</span><span class="txt"><b><a href="https://github.com/koala73/worldmonitor">koala73/worldmonitor</a></b> — a real-time global intelligence dashboard with AI news aggregation and infrastructure tracking.</span><span class="stat"><b>+12.1k</b> ★</span></div>
+    <div class="row"><span class="ico">🚦</span><span class="txt"><b><a href="https://github.com/diegosouzapw/OmniRoute">diegosouzapw/OmniRoute</a></b> — one gateway for 290+ providers and 500+ models, with quota-aware fallback and compression.</span><span class="stat"><b>+11.1k</b> ★</span></div>
+    <div class="row"><span class="ico">🐋</span><span class="txt"><b><a href="https://github.com/stablyai/orca">stablyai/orca</a></b> — an agent development environment for running fleets of parallel coding agents.</span><span class="stat"><b>+7.3k</b> ★</span></div>
+    <div class="row"><span class="ico">🕸️</span><span class="txt"><b><a href="https://github.com/tirth8205/code-review-graph">tirth8205/code-review-graph</a></b> — a local-first code graph that trims context for AI reviews and large-repo work.</span><span class="stat"><b>+6.4k</b> ★</span></div>
+    <div class="row"><span class="ico">🧰</span><span class="txt"><b><a href="https://github.com/earendil-works/pi">earendil-works/pi</a></b> — a unified LLM API, agent loop, TUI, and coding-agent CLI.</span><span class="stat"><b>+5.2k</b> ★</span></div>
+    <div class="row"><span class="ico">✨</span><span class="txt"><b><a href="https://github.com/Nutlope/hallmark">Nutlope/hallmark</a></b> — an anti-AI-slop design skill for Claude Code, Cursor, and Codex.</span><span class="stat"><b>+4.9k</b> ★</span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">HN Deep Cuts</h2><div class="sec-rule"></div></div>
+    <!-- Repeat per post. Pattern:
+    <div class="row"><span class="ico">📊</span><span class="txt"><b><a href="URL">Post title</a></b> optional context.</span><span class="stat"><b>699</b> pts</span></div>
+    Add "· N 💬" to the stat when the comment count is itself the story. -->
+        <div class="row"><span class="ico">🧮</span><span class="txt"><b><a href="https://chatgpt.com/share/6a5fdc7a-d6f8-83e8-bbea-8deb42cfed56">Terence Tao's ChatGPT conversation about the Jacobian Conjecture counterexample</a></b></span><span class="stat"><b>1117</b> pts</span></div>
+    <div class="row"><span class="ico">📣</span><span class="txt"><b><a href="https://ads.openai.com/">Advertise in ChatGPT</a></b></span><span class="stat"><b>1093</b> pts</span></div>
+    <div class="row"><span class="ico">🧠</span><span class="txt"><b><a href="https://twitter.com/Alibaba_Qwen/status/2078759124914098291">Qwen 3.8</a></b></span><span class="stat"><b>961</b> pts</span></div>
+    <div class="row"><span class="ico">🧩</span><span class="txt"><b><a href="https://xcancel.com/__alpoge__/status/2079028340955197566">Claude Fable produced a counterexample to the Jacobian Conjecture</a></b></span><span class="stat"><b>801</b> pts</span></div>
+    <div class="row"><span class="ico">⚡</span><span class="txt"><b><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/">Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber</a></b></span><span class="stat"><b>755</b> pts</span></div>
+  </section>
+
+  <div class="tldr" style="margin-top:44px">
+    <div class="kicker">ONE IDEA TO CARRY NEXT WEEK</div>
+    <!-- One forward-looking thought drawn from the week's themes; <b> the pivotal word. -->
+    <p>The durable advantage is not access to one model; it is the <b>routing layer</b> that chooses models, tools, context, and human judgment well.</p>
+  </div>
+
+  <footer>
+    <p>Made for builders who ship with AI. See you next week. ✌️</p>
+    <div class="foot-links"><a href="#">SUBSCRIBE</a><a href="#">ARCHIVE</a><a href="#">SUGGEST A LINK</a></div>
+  </footer>
+
+</div>
+</body>
+</html>

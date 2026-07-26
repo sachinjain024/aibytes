@@ -1,10 +1,10 @@
 {
   "source": "hackernews",
   "section": "ai-news",
-  "fetched_at": "2026-07-21",
+  "fetched_at": "2026-07-26",
   "window": {
-    "after": "2026-07-14",
-    "before": "2026-07-22"
+    "after": "2026-07-19",
+    "before": "2026-07-27"
   },
   "query_params": {
     "tags": "story",
@@ -13,25 +13,75 @@
     "topic": "ai",
     "ranking": "points,recency"
   },
-  "totalCount": 74,
-  "poolCount": 413,
+  "totalCount": 88,
+  "poolCount": 436,
   "stories": [
+    {
+      "title": "Claude Opus 5",
+      "url": "https://www.anthropic.com/news/claude-opus-5",
+      "type": "story",
+      "points": 1752,
+      "num_comments": 1290,
+      "author": "alvis",
+      "created_at": "2026-07-24T16:57:41Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49038433"
+    },
+    {
+      "title": "OpenAI and Hugging Face address security incident during model evaluation",
+      "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
+      "type": "story",
+      "points": 1625,
+      "num_comments": 1155,
+      "author": "mfiguiere",
+      "created_at": "2026-07-21T20:09:52Z",
+      "hn_url": "https://news.ycombinator.com/item?id=48997548"
+    },
     {
       "title": "China\u2019s open-weights AI strategy is winning",
       "url": "https://werd.io/american-ai-is-locked-down-and-proprietary-its-losing/",
       "type": "story",
-      "points": 998,
-      "num_comments": 805,
+      "points": 1241,
+      "num_comments": 932,
       "author": "benwerd",
       "created_at": "2026-07-20T14:21:47Z",
       "hn_url": "https://news.ycombinator.com/item?id=48979269"
     },
     {
+      "title": "Terence Tao's ChatGPT conversation about the Jacobian Conjecture counterexample",
+      "url": "https://chatgpt.com/share/6a5fdc7a-d6f8-83e8-bbea-8deb42cfed56",
+      "type": "story",
+      "points": 1117,
+      "num_comments": 636,
+      "author": "gmays",
+      "created_at": "2026-07-22T17:30:40Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49010345"
+    },
+    {
+      "title": "Advertise in ChatGPT",
+      "url": "https://ads.openai.com/",
+      "type": "story",
+      "points": 1093,
+      "num_comments": 840,
+      "author": "montecarl",
+      "created_at": "2026-07-21T18:58:44Z",
+      "hn_url": "https://news.ycombinator.com/item?id=48996571"
+    },
+    {
+      "title": "Startup founders urge U.S. government not to shut off Chinese open weight AI",
+      "url": "https://www.politico.com/news/2026/07/22/startup-founders-urge-trump-not-to-shut-off-chinese-open-weight-ai-01008992",
+      "type": "story",
+      "points": 1063,
+      "num_comments": 879,
+      "author": "theanonymousone",
+      "created_at": "2026-07-23T15:18:40Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49023016"
+    },
+    {
       "title": "Qwen 3.8",
       "url": "https://twitter.com/Alibaba_Qwen/status/2078759124914098291",
       "type": "story",
-      "points": 949,
-      "num_comments": 689,
+      "points": 961,
+      "num_comments": 730,
       "author": "nh43215rgb",
       "created_at": "2026-07-19T08:44:57Z",
       "hn_url": "https://news.ycombinator.com/item?id=48966120"
@@ -40,81 +90,31 @@
       "title": "Claude Fable produced a counterexample to the Jacobian Conjecture",
       "url": "https://xcancel.com/__alpoge__/status/2079028340955197566",
       "type": "story",
-      "points": 700,
-      "num_comments": 448,
+      "points": 801,
+      "num_comments": 514,
       "author": "loubbrad",
       "created_at": "2026-07-20T02:51:16Z",
       "hn_url": "https://news.ycombinator.com/item?id=48973869"
     },
     {
-      "title": "I tricked Claude into leaking your deepest, darkest secrets",
-      "url": "https://www.ayush.digital/blog/the-memory-heist",
+      "title": "Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/",
       "type": "story",
-      "points": 668,
-      "num_comments": 293,
-      "author": "macleginn",
-      "created_at": "2026-07-15T06:28:00Z",
-      "hn_url": "https://news.ycombinator.com/item?id=48916975"
+      "points": 755,
+      "num_comments": 575,
+      "author": "logickkk1",
+      "created_at": "2026-07-21T15:17:16Z",
+      "hn_url": "https://news.ycombinator.com/item?id=48993414"
     },
     {
-      "title": "How to stop Claude from saying load-bearing",
-      "url": "https://jola.dev/posts/how-to-stop-claude-from-saying-load-bearing",
+      "title": "AI Companies Are Trying to Hide a Staggering Amount of Debt",
+      "url": "https://futurism.com/artificial-intelligence/ai-companies-hide-debt-off-balance-sheet",
       "type": "story",
-      "points": 608,
-      "num_comments": 611,
-      "author": "shintoist",
-      "created_at": "2026-07-14T11:46:02Z",
-      "hn_url": "https://news.ycombinator.com/item?id=48905248"
-    },
-    {
-      "title": "GPT-5.6 used a prompt to close a 30-year gap in convex optimization",
-      "url": "https://old.reddit.com/r/math/comments/1uxj3cy/after_openais_cdc_proof_announcement_gpt56_used_a/",
-      "type": "story",
-      "points": 598,
-      "num_comments": 390,
-      "author": "mbustamanter",
-      "created_at": "2026-07-18T13:00:52Z",
-      "hn_url": "https://news.ycombinator.com/item?id=48957779"
-    },
-    {
-      "title": "Claude Code uses Bun written in Rust now",
-      "url": "https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/",
-      "type": "story",
-      "points": 594,
-      "num_comments": 819,
-      "author": "tosh",
-      "created_at": "2026-07-19T10:03:23Z",
-      "hn_url": "https://news.ycombinator.com/item?id=48966569"
-    },
-    {
-      "title": "NYC may require landlords and realtors to disclose the use of AI in listings",
-      "url": "https://petapixel.com/2026/07/16/mayor-mamdani-says-landlords-cant-secretly-use-ai-images-to-advertise-properties/",
-      "type": "story",
-      "points": 591,
-      "num_comments": 264,
-      "author": "gnabgib",
-      "created_at": "2026-07-18T22:13:39Z",
-      "hn_url": "https://news.ycombinator.com/item?id=48962983"
-    },
-    {
-      "title": "Grok Build is open source",
-      "url": "https://github.com/xai-org/grok-build",
-      "type": "story",
-      "points": 588,
-      "num_comments": 641,
-      "author": "skp1995",
-      "created_at": "2026-07-15T20:24:58Z",
-      "hn_url": "https://news.ycombinator.com/item?id=48926590"
-    },
-    {
-      "title": "Kaiser nurses say AI, surveillance are making their jobs and patient care worse",
-      "url": "https://localnewsmatters.org/2026/07/15/kaiser-nurses-say-ai-workplace-surveillance-are-making-their-jobs-and-patient-care-worse/",
-      "type": "story",
-      "points": 562,
-      "num_comments": 378,
-      "author": "gnabgib",
-      "created_at": "2026-07-17T22:26:30Z",
-      "hn_url": "https://news.ycombinator.com/item?id=48952880"
+      "points": 689,
+      "num_comments": 375,
+      "author": "technewssss",
+      "created_at": "2026-07-23T13:09:10Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49020999"
     }
   ]
 }

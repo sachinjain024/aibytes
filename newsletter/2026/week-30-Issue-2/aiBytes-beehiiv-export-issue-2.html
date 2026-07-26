@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beehiiv Export — aiBytes_ #2</title>
+<style>
+  :root{color-scheme:light}
+  *{box-sizing:border-box}
+  body{margin:0;background:#EFEFEA;color:#191C26;font-family:'Instrument Sans',Helvetica,Arial,sans-serif}
+  .wrap{max-width:760px;margin:0 auto;padding:32px 20px 64px}
+  h1{font-size:22px;margin:0 0 6px}
+  .sub{color:#6B7080;font-size:14px;margin:0 0 28px}
+  .sub code{background:#E4E4DC;padding:1px 5px;border-radius:4px;font-size:12.5px}
+  .sec-block{background:#FFFFFF;border:1px solid #E4E4DC;border-radius:12px;margin-bottom:22px;overflow:hidden}
+  .bar{display:flex;justify-content:space-between;align-items:center;background:#191C26;padding:10px 16px}
+  .bar .name{color:#FAFAF7;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;letter-spacing:.1em}
+  .copy-btn{background:#FFD338;border:none;border-radius:6px;padding:6px 14px;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;font-weight:700;color:#191C26;cursor:pointer}
+  .copy-btn:hover{background:#FFC800}
+  .copy-btn.done{background:#7BE0A2}
+  .code{display:none}
+  .preview{padding:20px 22px;background:#FAFAF7}
+  .meta{padding:16px 22px}
+  .meta .label{font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:10.5px;letter-spacing:.1em;color:#6B7080;margin-bottom:2px}
+  .meta .title{font-size:17px;font-weight:700;margin-bottom:12px}
+  .meta .desc{font-size:14.5px;color:#3A3E4A}
+  .divider{text-align:center;color:#6B7080;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;letter-spacing:.06em;margin:18px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Beehiiv Export — aiBytes_ Issue #2</h1>
+  <p class="sub">Two email-safe HTML parts (inline styles, table layout). Click <b>⧉ Copy HTML</b>, then in Beehiiv type <code>/</code> → Premium → <code>HTML Snippet</code> and paste. Each preview shows exactly what you'll get.</p>
+
+  <!-- Post title (= email subject line) and description (= preview/subtitle text).
+       Entered in Beehiiv's title/subtitle fields, not pasted as HTML — so no copy button. -->
+  <div class="sec-block">
+    <div class="bar"><span class="name">POST TITLE &amp; DESCRIPTION</span></div>
+    <div class="meta">
+      <div class="label">TITLE — USED AS EMAIL SUBJECT</div>
+      <div class="title">aiBytes_ #2 - Opus 5, $1.5B copyright &amp; open weights</div>
+      <div class="label">DESCRIPTION — PREVIEW / SUBTITLE TEXT</div>
+      <div class="desc">Catch up on Claude Opus 5, an AI-evaluation security incident, and the open-weight strategy fight.</div>
+    </div>
+  </div>
+
+  <!-- Exactly two copy buttons on this page: Part 1 and Part 2. Each textarea
+       holds the MERGED snippet for its half of the issue (sections joined with
+       a blank line, in reading order); the preview renders from it.
+       Part 1 = masthead + intro + news card. Part 2 = launches + repos + HN +
+       closing idea. Snippets must not contain the literal string "</textarea>". -->
+  <div class="sec-block">
+    <div class="bar"><span class="name">PART 1 — MASTHEAD · INTRO · NEWS</span><button class="copy-btn" type="button">⧉ Copy HTML</button></div>
+    <textarea class="code" spellcheck="false"><table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-bottom:12px;">
+  <tr>
+    <td style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;letter-spacing:.08em;color:#6B7080;">ISSUE 0x02 · TL;DR</td>
+    <td align="right" style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;letter-spacing:.08em;color:#6B7080;">2026-07-26 · ~5 MIN</td>
+  </tr>
+</table>
+<div style="font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:800;font-size:34px;letter-spacing:-.02em;color:#191C26;">⚡ aiBytes<span style="color:#2B4EF0;">_</span> #2</div>
+
+<div style="border:1px solid #E4E4DC;border-radius:14px;background-color:#FFFFFF;padding:20px 22px;margin:18px 0;">
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;">Claude Opus 5 drew 1,752 Hacker News points in the same week an AI-agent book gained 16,579 GitHub stars and a robotics startup raised $1.7B.</p>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;"><b style="color:#191C26;">The stack is widening</b>: frontier models are shipping, open-weight strategy is turning geopolitical, and builders are assembling routing, context, and agent tooling underneath.</p>
+  <p style="margin:0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;">When model access commoditizes, advantage moves to orchestration—and to the judgment about where humans remain in the loop. Let's dive in.</p>
+</div>
+
+<div style="border:2px solid #2B4EF0;border-radius:14px;padding:20px 22px;background-color:#FFFFFF;">
+  <div style="font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:800;font-size:20px;color:#2B4EF0;letter-spacing:.02em;margin-bottom:14px;">🌍 NEWS</div>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">🔥 <a href="https://www.anthropic.com/news/claude-opus-5" style="color:#2B4EF0;text-decoration:none;font-weight:700;">Claude Opus 5</a> — Anthropic's announcement pulled 1,752 points and 1,290 comments on Hacker News. <span style="background-color:#FFD338;padding:0 4px;font-weight:600;">Story of the week</span> <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(Anthropic)</span></p>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">🔐 <a href="https://openai.com/index/hugging-face-model-evaluation-security-incident/" style="color:#2B4EF0;text-decoration:none;font-weight:700;">OpenAI and Hugging Face address security incident during model evaluation</a> — the two teams addressed a security incident during a model evaluation. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(OpenAI)</span></p>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">⚖️ <a href="https://techcrunch.com/2026/07/20/anthropics-landmark-1-5b-copyright-settlement-is-approved/" style="color:#2B4EF0;text-decoration:none;font-weight:700;">Anthropic’s landmark $1.5B copyright settlement is approved</a> — final approval closes one case while the wider training-data question remains open. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(TechCrunch)</span></p>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">🌏 <a href="https://werd.io/american-ai-is-locked-down-and-proprietary-its-losing/" style="color:#2B4EF0;text-decoration:none;font-weight:700;">China’s open-weights AI strategy is winning</a> — an argument for open models as a strategic advantage reached 1,241 HN points. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(Werd.io)</span></p>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">🤖 <a href="https://techcrunch.com/2026/07/22/travis-kalanicks-robotics-company-raises-1-7b-led-by-a16z/" style="color:#2B4EF0;text-decoration:none;font-weight:700;">Travis Kalanick’s robotics company raises $1.7B, led by a16z</a> — Atoms raised $1.7B for its industrial-AI and robotics pitch. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(TechCrunch)</span></p>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">📉 <a href="https://techcrunch.com/2026/07/22/monday-com-lays-off-hundreds-to-focuses-on-ai/" style="color:#2B4EF0;text-decoration:none;font-weight:700;">Monday.com lays off hundreds to focus on AI</a> — the company is cutting about 630 roles, or 20% of staff, as it focuses on its AI Work Platform. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(TechCrunch)</span></p>
+  <p style="margin:0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">🔌 <a href="https://techcrunch.com/2026/07/20/ais-most-important-protocol-is-getting-a-little-bit-easier-to-use/" style="color:#2B4EF0;text-decoration:none;font-weight:700;">AI’s most important protocol is getting a little bit easier to use</a> — the protocol is moving toward looser, stateless server-side session IDs. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(TechCrunch)</span></p>
+  <div style="border:1px solid #E4E4DC;border-radius:10px;background-color:#FAFAF7;padding:16px 18px;margin-top:18px;">
+    <p style="margin:0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;color:#3A3E4A;">"Open models are no longer the cheap edge case; they are becoming the strategic center of gravity."</p>
+    <p style="margin:10px 0 0 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:14px;color:#6B7080;">- aiBytes_</p>
+  </div>
+</div></textarea>
+    <div class="preview"></div>
+  </div>
+
+  <p class="divider">▼ paste native Beehiiv blocks here — subscribe form, ads, polls ▼</p>
+
+  <div class="sec-block">
+    <div class="bar"><span class="name">PART 2 — LAUNCHES · REPOS · HN · CLOSING</span><button class="copy-btn" type="button">⧉ Copy HTML</button></div>
+    <textarea class="code" spellcheck="false"><table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-top:34px;margin-bottom:12px;">
+  <tr>
+    <td width="1" style="background-color:#191C26;color:#FAFAF7;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-weight:700;font-size:12px;padding:2px 7px;white-space:nowrap;">0x02</td>
+    <td style="padding-left:10px;white-space:nowrap;font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:700;font-size:19px;letter-spacing:.01em;color:#191C26;">LAUNCHES</td>
+    <td width="100%" style="padding-left:10px;"><div style="height:2px;background-color:#191C26;font-size:0;line-height:0;">&nbsp;</div></td>
+  </tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🔎</span>
+      <a href="https://www.producthunt.com/products/openseo?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29" style="color:#2B4EF0;text-decoration:none;font-weight:600;">OpenSEO</a> — The open source Ahrefs alternative.
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">▲ 893</b></td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🧲</span>
+      <a href="https://www.producthunt.com/products/fuzzy-ai-2?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29" style="color:#2B4EF0;text-decoration:none;font-weight:600;">Fuzzy AI</a> — We warm your prospects before reaching out.
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">▲ 691</b></td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🎯</span>
+      <a href="https://www.producthunt.com/products/lev8?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29" style="color:#2B4EF0;text-decoration:none;font-weight:600;">Lev8</a> — Find, research, and reach the right people.
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">▲ 667</b></td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">💬</span>
+      <a href="https://www.producthunt.com/products/humalike-2?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29" style="color:#2B4EF0;text-decoration:none;font-weight:600;">Humalike x Hermes</a> — Social intelligence plugin for Hermes Agent.
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">▲ 523</b></td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🧭</span>
+      <a href="https://www.producthunt.com/products/nautis?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29" style="color:#2B4EF0;text-decoration:none;font-weight:600;">Nautis</a> — The AI-native Operating System for founders.
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">▲ 509</b></td>
+  </tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-top:34px;margin-bottom:12px;">
+  <tr>
+    <td width="1" style="background-color:#191C26;color:#FAFAF7;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-weight:700;font-size:12px;padding:2px 7px;white-space:nowrap;">0x03</td>
+    <td style="padding-left:10px;white-space:nowrap;font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:700;font-size:19px;letter-spacing:.01em;color:#191C26;">TRENDING REPOS</td>
+    <td width="100%" style="padding-left:10px;"><div style="height:2px;background-color:#191C26;font-size:0;line-height:0;">&nbsp;</div></td>
+  </tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">📘</span>
+      <a href="https://github.com/bojieli/ai-agent-book" style="color:#2B4EF0;text-decoration:none;font-weight:600;">bojieli/ai-agent-book</a> — an open book, PDF, and chapter code on AI-agent design and engineering.
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">+16.6k</b> ★</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🌐</span>
+      <a href="https://github.com/koala73/worldmonitor" style="color:#2B4EF0;text-decoration:none;font-weight:600;">koala73/worldmonitor</a> — a real-time global intelligence dashboard with AI news aggregation and infrastructure tracking.
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">+12.1k</b> ★</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🚦</span>
+      <a href="https://github.com/diegosouzapw/OmniRoute" style="color:#2B4EF0;text-decoration:none;font-weight:600;">diegosouzapw/OmniRoute</a> — one gateway for 290+ providers and 500+ models, with quota-aware fallback and compression.
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">+11.1k</b> ★</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🐋</span>
+      <a href="https://github.com/stablyai/orca" style="color:#2B4EF0;text-decoration:none;font-weight:600;">stablyai/orca</a> — an agent development environment for running fleets of parallel coding agents.
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">+7.3k</b> ★</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🕸️</span>
+      <a href="https://github.com/tirth8205/code-review-graph" style="color:#2B4EF0;text-decoration:none;font-weight:600;">tirth8205/code-review-graph</a> — a local-first code graph that trims context for AI reviews and large-repo work.
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">+6.4k</b> ★</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🧰</span>
+      <a href="https://github.com/earendil-works/pi" style="color:#2B4EF0;text-decoration:none;font-weight:600;">earendil-works/pi</a> — a unified LLM API, agent loop, TUI, and coding-agent CLI.
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">+5.2k</b> ★</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">✨</span>
+      <a href="https://github.com/Nutlope/hallmark" style="color:#2B4EF0;text-decoration:none;font-weight:600;">Nutlope/hallmark</a> — an anti-AI-slop design skill for Claude Code, Cursor, and Codex.
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">+4.9k</b> ★</td>
+  </tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-top:34px;margin-bottom:12px;">
+  <tr>
+    <td width="1" style="background-color:#191C26;color:#FAFAF7;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-weight:700;font-size:12px;padding:2px 7px;white-space:nowrap;">0x04</td>
+    <td style="padding-left:10px;white-space:nowrap;font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:700;font-size:19px;letter-spacing:.01em;color:#191C26;">HN DEEP CUTS</td>
+    <td width="100%" style="padding-left:10px;"><div style="height:2px;background-color:#191C26;font-size:0;line-height:0;">&nbsp;</div></td>
+  </tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🧮</span>
+      <a href="https://chatgpt.com/share/6a5fdc7a-d6f8-83e8-bbea-8deb42cfed56" style="color:#2B4EF0;text-decoration:none;font-weight:600;">Terence Tao's ChatGPT conversation about the Jacobian Conjecture counterexample</a>
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">1117</b> pts</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">📣</span>
+      <a href="https://ads.openai.com/" style="color:#2B4EF0;text-decoration:none;font-weight:600;">Advertise in ChatGPT</a>
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">1093</b> pts</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🧠</span>
+      <a href="https://twitter.com/Alibaba_Qwen/status/2078759124914098291" style="color:#2B4EF0;text-decoration:none;font-weight:600;">Qwen 3.8</a>
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">961</b> pts</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🧩</span>
+      <a href="https://xcancel.com/__alpoge__/status/2079028340955197566" style="color:#2B4EF0;text-decoration:none;font-weight:600;">Claude Fable produced a counterexample to the Jacobian Conjecture</a>
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">801</b> pts</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">⚡</span>
+      <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/" style="color:#2B4EF0;text-decoration:none;font-weight:600;">Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber</a>
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">755</b> pts</td>
+  </tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-top:44px;">
+  <tr>
+    <td style="background-color:#191C26;padding:20px 22px;">
+      <div style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11px;letter-spacing:.14em;color:#FFD338;">ONE IDEA TO CARRY NEXT WEEK</div>
+      <p style="margin:8px 0 0 0;font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:700;font-size:17px;line-height:1.5;color:#FAFAF7;">The durable advantage is not access to one model; it is the <b style="color:#FFD338;">routing layer</b> that chooses models, tools, context, and human judgment well.</p>
+    </td>
+  </tr>
+</table></textarea>
+    <div class="preview"></div>
+  </div>
+
+</div>
+<script>
+  document.querySelectorAll('.sec-block').forEach(function(block){
+    var ta = block.querySelector('.code');
+    if (!ta) return;
+    var pv = block.querySelector('.preview');
+    if (pv) pv.innerHTML = ta.value;
+    var copyBtn = block.querySelector('.copy-btn');
+    if (!copyBtn) return;
+    copyBtn.addEventListener('click', function(){
+      var btn = this;
+      function ok(){ btn.textContent='✓ Copied'; btn.classList.add('done');
+        setTimeout(function(){ btn.textContent='⧉ Copy HTML'; btn.classList.remove('done'); },1500); }
+      function fallback(){
+        ta.style.display='block'; ta.select();
+        try{ document.execCommand('copy'); ok(); } finally { ta.style.display='none'; }
+      }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(ta.value).then(ok).catch(fallback);
+      } else { fallback(); }
+    });
+  });
+</script>
+</body>
+</html>

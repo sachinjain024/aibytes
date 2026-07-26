@@ -15,7 +15,7 @@ Read every JSON file in the `data/` directory of the working folder (ask the use
 
 - **News** (5–7 items) — TechCrunch stories plus major HackerNews news items
 - **Launches** (top ~5) — Product Hunt, with upvote counts
-- **Trending Repos** (top ~7) — GitHub, with star growth
+- **Trending on GitHub** (top ~7) — GitHub repositories, with star growth
 - **HN Deep Cuts** (top ~5) — HackerNews posts that are interesting but aren't headline news, with points/comments
 - **Quote / closing idea** — a pull-quote and one takeaway thought (write these yourself from the week's themes if the data doesn't include them)
 
@@ -34,7 +34,7 @@ Copy `assets/template.html` and replace every `{{TOKEN}}`. The template is the c
 - **Masthead**: the logo line reads `⚡ aiBytes_ #{num}` — the brand is always written "aiBytes_" (lowercase a, capital B, trailing underscore), and the issue number must match the auto-incremented `num` from step 2. There is deliberately no TL;DR summary block and no separate issue-header rule; the intro block opens the issue right after the masthead.
 - **Intro block**: three short paragraphs, and never a salutation — no "Hey crew", "Hi everyone", or any greeting. Open cold with a **hook**: one arresting fact or juxtaposition pulled from the week's data ("A model went 4-for-6 on the IMO the same week a code editor paid ten figures for an eval company."). Then the **storyline**: a `<b>`-led sentence naming the thread that connects the week's items (one inline link allowed). Close with **food for thought**: one idea the reader can chew on, ending in "Let's dive in." The hook should make skipping the issue feel expensive; the storyline should make the item list feel inevitable rather than miscellaneous.
 - **News items**: emoji + bold linked headline + one-line context + `<span class="src">(Source)</span>`. Mark the single biggest story with `<span class="hot">Story of the week</span>`.
-- **Launches / Repos / HN rows**: emoji, bold linked name, em-dash description, right-aligned stat (`▲ upvotes`, `+N.Nk ★`, `N pts`).
+- **Launches / Trending on GitHub / HN rows**: emoji, bold linked name, em-dash description, right-aligned stat (`▲ upvotes`, `+N.Nk ★`, `N pts`).
 - **Issue tag**: `ISSUE 0x{num in hex, 2 digits} · TL;DR` and date + estimated read time.
 
 Match the template's tone: terse, builder-focused, no hype words.
@@ -52,9 +52,9 @@ Fill `{{EMAIL_SUBJECT}}` and `{{EMAIL_DESCRIPTION}}` in the main template (`<tit
 
 The user publishes on Beehiiv, whose HTML Snippet block strips `<style>` tags — so the main file's CSS classes won't survive a paste. Alongside the main HTML, always generate a second file: a copy-paste export page.
 
-For each section of the issue (masthead, intro, news card, launches, trending repos, HN deep cuts, closing idea), rebuild the content as an email-safe snippet — inline styles only, `<table>` layout, no flexbox/clip-path/classes. The exact pattern for every section is in `references/beehiiv-patterns.html`; read it and fill the tokens with the same content as the main file.
+For each section of the issue (masthead, intro, news card, launches, Trending on GitHub, HN deep cuts, closing idea), rebuild the content as an email-safe snippet — inline styles only, `<table>` layout, no flexbox/clip-path/classes. The exact pattern for every section is in `references/beehiiv-patterns.html`; read it and fill the tokens with the same content as the main file.
 
-Then take `assets/beehiiv-export-template.html` and fill its tokens: `{{PART1_HTML}}` with the merged snippets for masthead + intro + news card, `{{PART2_HTML}}` with launches + repos + HN deep cuts + closing idea (sections joined by a blank line, in reading order), plus `{{EMAIL_SUBJECT}}`, `{{EMAIL_DESCRIPTION}}`, and `{{ISSUE_NUM}}`. The page shows the title panel, then exactly two copy buttons — Part 1 and Part 2 — each with a live preview. Two parts rather than one because the user pastes native Beehiiv blocks (subscribe form, ads, polls) between them.
+Then take `assets/beehiiv-export-template.html` and fill its tokens: `{{PART1_HTML}}` with the merged snippets for masthead + intro + news card, `{{PART2_HTML}}` with launches + Trending on GitHub + HN deep cuts + closing idea (sections joined by a blank line, in reading order), plus `{{EMAIL_SUBJECT}}`, `{{EMAIL_DESCRIPTION}}`, and `{{ISSUE_NUM}}`. The page shows the title panel, then exactly two copy buttons — Part 1 and Part 2 — each with a live preview. Two parts rather than one because the user pastes native Beehiiv blocks (subscribe form, ads, polls) between them.
 
 ### 6. Save the output
 

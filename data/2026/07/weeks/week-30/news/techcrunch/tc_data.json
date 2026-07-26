@@ -1,58 +1,30 @@
 {
   "source": "techcrunch",
   "section": "ai-news",
-  "fetched_at": "2026-07-21",
+  "fetched_at": "2026-07-26",
   "window": {
-    "after": "2026-07-14",
-    "before": "2026-07-22"
+    "after": "2026-07-19",
+    "before": "2026-07-27"
   },
   "query_params": {
     "category": "artificial-intelligence",
     "count": 10,
     "ranking": "hackernews_points,recency"
   },
-  "totalCount": 65,
+  "totalCount": 61,
   "articles": [
     {
-      "title": "Anthropic\u2019s newest ad is creeping people out",
-      "description": "Anthropic has consistently attempted to depict itself as the ethical foil to other AI companies. This latest marketing stunt \u2014 which leans into criticism of AI as a way to make Anthropic seem aware of the responsibility it carries \u2014 would appear to be more of the same.",
-      "url": "https://techcrunch.com/2026/07/14/anthropics-newest-ad-is-creeping-people-out/",
-      "published_at": "2026-07-14T19:41:27Z",
-      "author": "Lucas Ropek",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2278736523.jpeg?resize=1200,798",
+      "title": "Meta is testing an AI bedtime story app for people with no imagination",
+      "description": "At last, a tech company has found a way to outsource humanity's oldest pastime: using our imaginations.",
+      "url": "https://techcrunch.com/2026/07/21/meta-is-testing-an-ai-bedtime-story-app-for-people-with-no-imagination/",
+      "published_at": "2026-07-21T23:55:10Z",
+      "author": "Amanda Silberling",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/GettyImages-2248543137.jpg?resize=1200,840",
       "reading_time": "3 minutes",
       "hackernews": {
-        "points": 43,
-        "num_comments": 8,
-        "hn_url": "https://news.ycombinator.com/item?id=48963614"
-      }
-    },
-    {
-      "title": "The real AI race may no longer be at the frontier",
-      "description": "Hugging Face CEO Clem Delangue says enterprises increasingly want open models, due to cost, accessibility, and ownership. Do frontier models still matter if most production AI ends up running on open models?",
-      "url": "https://techcrunch.com/2026/07/14/the-real-ai-race-may-no-longer-be-at-the-frontier-open-models-hugging-face/",
-      "published_at": "2026-07-14T14:24:53Z",
-      "author": "Rebecca Bellan",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/07/GettyImages-1849294862.jpg?w=1024",
-      "reading_time": "5 minutes",
-      "hackernews": {
-        "points": 9,
-        "num_comments": 4,
-        "hn_url": "https://news.ycombinator.com/item?id=48909401"
-      }
-    },
-    {
-      "title": "Anthropic, Blackstone bet the next trillion-dollar AI business is implementation, not just models",
-      "description": "Anthropic-backed Ode launches as AI labs bet that embedding forward-deployed engineers inside enterprises is the key to accelerating enterprise AI adoption.",
-      "url": "https://techcrunch.com/2026/07/15/anthropic-blackstone-bet-the-next-trillion-dollar-ai-business-is-implementation-not-models/",
-      "published_at": "2026-07-15T13:10:47Z",
-      "author": "Rebecca Bellan",
-      "image": "https://techcrunch.com/wp-content/uploads/2022/05/GettyImages-564946817.jpg?resize=1200,675",
-      "reading_time": "5 minutes",
-      "hackernews": {
-        "points": 6,
-        "num_comments": 2,
-        "hn_url": "https://news.ycombinator.com/item?id=48920435"
+        "points": 11,
+        "num_comments": 6,
+        "hn_url": "https://news.ycombinator.com/item?id=49000117"
       }
     },
     {
@@ -64,93 +36,121 @@
       "image": "https://techcrunch.com/wp-content/uploads/2026/06/Claude-photo.jpg?w=1024",
       "reading_time": "2 minutes",
       "hackernews": {
-        "points": 5,
+        "points": 10,
         "num_comments": 3,
         "hn_url": "https://news.ycombinator.com/item?id=48987021"
       }
     },
     {
-      "title": "Vint Cerf is working on a plan to unleash AI agents on the open internet",
-      "description": "The guy behind TCP/IP is working on a standard for identifying AI agents in the wild.",
-      "url": "https://techcrunch.com/2026/07/15/vint-cerf-is-working-on-a-plan-to-unleash-ai-agents-on-the-open-internet/",
-      "published_at": "2026-07-15T12:00:00Z",
-      "author": "Tim Fernholz",
-      "image": "https://techcrunch.com/wp-content/uploads/2023/05/vint-cerf-GettyImages-454796419.jpg?resize=1200,723",
-      "reading_time": "3 minutes",
+      "title": "Midjourney acquired the astrology app Co-Star",
+      "description": "The AI lab Midjourney continues to expand its purview beyond image and video generation.",
+      "url": "https://techcrunch.com/2026/07/24/midjourney-acquired-the-astrology-app-co-star/",
+      "published_at": "2026-07-24T15:09:55Z",
+      "author": "Amanda Silberling",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/GettyImages-149418827.jpg?resize=1200,837",
+      "reading_time": "1 minute",
       "hackernews": {
-        "points": 5,
-        "num_comments": 2,
-        "hn_url": "https://news.ycombinator.com/item?id=48928419"
+        "points": 7,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49041390"
       }
     },
     {
-      "title": "The Zoom hack that says, \u2018Don\u2019t record me\u2019",
-      "description": "If every meeting, watercooler conversation, and date gets transcribed and summarized, who's actually reading any of it?",
-      "url": "https://techcrunch.com/2026/07/17/the-zoom-hack-that-says-dont-record-me/",
-      "published_at": "2026-07-17T21:20:47Z",
-      "author": "Connie Loizos",
-      "image": "https://techcrunch.com/wp-content/uploads/2022/08/GettyImages-1392897289.jpg?resize=1200,806",
+      "title": "Travis Kalanick\u2019s robotics company raises $1.7B, led by a16z",
+      "description": "Uber is also investing in Travis Kalanick's company Atoms, which has made gauzy claims about using industrial AI to modernize the world.",
+      "url": "https://techcrunch.com/2026/07/22/travis-kalanicks-robotics-company-raises-1-7b-led-by-a16z/",
+      "published_at": "2026-07-22T18:50:44Z",
+      "author": "Sean O'Kane",
+      "image": "https://techcrunch.com/wp-content/uploads/2019/04/GettyImages-1132384785.jpg?resize=1200,799",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 7,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49012511"
+      }
+    },
+    {
+      "title": "Monday.com lays off hundreds to focus on AI",
+      "description": "The company said it is reducing its headcount by 20%, or about 630 staff, to \"support a leaner, more focused operating model\" as it focuses on its AI Work Platform.",
+      "url": "https://techcrunch.com/2026/07/22/monday-com-lays-off-hundreds-to-focuses-on-ai/",
+      "published_at": "2026-07-22T17:54:14Z",
+      "author": "Ram Iyer",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/GettyImages-2259521127.jpg?w=1024",
       "reading_time": "2 minutes",
       "hackernews": {
-        "points": 4,
-        "num_comments": 0,
-        "hn_url": "https://news.ycombinator.com/item?id=48957157"
-      }
-    },
-    {
-      "title": "Patreon stops asking AI bots not to scrape \u2014 and starts blocking them",
-      "description": "Patreon is strengthening its defenses against AI scraping by working with Cloudflare to block bots that train AI models on creators\u2019 content without permission. The move marks a shift away from relying on websites using robots.txt alone to actively block unauthorized AI training.",
-      "url": "https://techcrunch.com/2026/07/17/patreon-stops-asking-ai-bots-not-to-scrape-and-starts-blocking-them/",
-      "published_at": "2026-07-17T15:21:17Z",
-      "author": "Sarah Perez",
-      "image": "https://techcrunch.com/wp-content/uploads/2024/08/patreon-logo-v1.jpg?resize=1200,675",
-      "reading_time": "3 minutes",
-      "hackernews": {
-        "points": 4,
-        "num_comments": 0,
-        "hn_url": "https://news.ycombinator.com/item?id=48949806"
-      }
-    },
-    {
-      "title": "Kimi: Threat or menace?",
-      "description": "Chinese company Moonshot AI released a new version of its Kimi model this week, prompting concern about \"full AI communism.\"",
-      "url": "https://techcrunch.com/2026/07/18/kimi-threat-or-menace/",
-      "published_at": "2026-07-18T18:51:07Z",
-      "author": "Anthony Ha",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/01/GettyImages-2254580342.jpg?w=1024",
-      "reading_time": "3 minutes",
-      "hackernews": {
-        "points": 3,
-        "num_comments": 0,
-        "hn_url": "https://news.ycombinator.com/item?id=48971035"
-      }
-    },
-    {
-      "title": "Databricks hits $188B valuation, extending its run as AI\u2019s favorite second act",
-      "description": "Databricks has remade its image into an AI company and has published research on the cost savings of open-weight AI models for coding.",
-      "url": "https://techcrunch.com/2026/07/17/databricks-hits-188b-valuation-extending-its-run-as-ais-favorite-second-act/",
-      "published_at": "2026-07-17T22:12:56Z",
-      "author": "Julie Bort",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/04/dollar-signs-data-center.png?w=1024",
-      "reading_time": "3 minutes",
-      "hackernews": {
-        "points": 3,
-        "num_comments": 0,
-        "hn_url": "https://news.ycombinator.com/item?id=48961957"
-      }
-    },
-    {
-      "title": "Thinking Machines amps up its bet against one-size-fits-all AI with its first open model, Inkling",
-      "description": "It's the company's first public proof point after a year and a half spent building AI infrastructure largely out of public view.",
-      "url": "https://techcrunch.com/2026/07/15/thinking-machines-amps-up-its-bet-against-one-size-fits-all-ai-with-its-first-open-model-inkling/",
-      "published_at": "2026-07-15T18:04:06Z",
-      "author": "Connie Loizos",
-      "image": "https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-1730510668.jpg?resize=1200,800",
-      "reading_time": "6 minutes",
-      "hackernews": {
-        "points": 3,
+        "points": 7,
         "num_comments": 1,
-        "hn_url": "https://news.ycombinator.com/item?id=48935358"
+        "hn_url": "https://news.ycombinator.com/item?id=49038179"
+      }
+    },
+    {
+      "title": "Substack\u2019s new tool tells you who\u2019s been writing their newsletters with AI",
+      "description": "Substack is giving readers a way to estimate how much of a newsletter was written by AI, signaling a broader shift toward transparency around AI-assisted content.",
+      "url": "https://techcrunch.com/2026/07/22/substacks-new-tool-tells-you-whos-been-writing-their-newsletters-with-ai/",
+      "published_at": "2026-07-22T16:23:09Z",
+      "author": "Sarah Perez",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/substack-GettyImages-2261803485.jpg?w=1024",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 6,
+        "num_comments": 1,
+        "hn_url": "https://news.ycombinator.com/item?id=49015184"
+      }
+    },
+    {
+      "title": "Trump\u2019s latest AI czar has already resigned",
+      "description": "The director role for the Center for AI Standards and Innovation (CAISI) has become a revolving door since David Sacks left his position as czar.",
+      "url": "https://techcrunch.com/2026/07/20/trumps-latest-ai-czar-has-already-resigned/",
+      "published_at": "2026-07-20T22:21:04Z",
+      "author": "Julie Bort",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/GettyImages-2286058347.jpg?w=1024",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 6,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=48988335"
+      }
+    },
+    {
+      "title": "Treasury threatens sanctions after White House claims Moonshot distilled Anthropic\u2019s Fable",
+      "description": "The episode has also intensified a broader debate in Washington over the influx of Chinese open models.",
+      "url": "https://techcrunch.com/2026/07/22/treasury-threatens-sanctions-after-white-house-claims-moonshot-distilled-anthropics-fable/",
+      "published_at": "2026-07-22T20:49:03Z",
+      "author": "Rebecca Bellan",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/01/GettyImages-2254580342.jpg?w=1024",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 5,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49031893"
+      }
+    },
+    {
+      "title": "After shocking quarter, IBM insists that AI isn\u2019t killing the mainframe",
+      "description": "After IBM's stock crashed last week on warnings of poor mainframe sales, the CEO explained that AI wrecked corporate hardware budget, temporarily.",
+      "url": "https://techcrunch.com/2026/07/22/after-shocking-quarter-ibm-insists-that-ai-isnt-killing-the-mainframe/",
+      "published_at": "2026-07-22T23:47:54Z",
+      "author": "Julie Bort",
+      "image": "https://techcrunch.com/wp-content/uploads/2022/05/Arvind-at-Think.jpeg?resize=1200,674",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 4,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49024718"
+      }
+    },
+    {
+      "title": "AI\u2019s most important protocol is getting a little bit easier to use",
+      "description": "Under the new system, the protocol will take a looser, \"stateless\" approach to session IDs on the server side, similar to how most ordinary websites already work.",
+      "url": "https://techcrunch.com/2026/07/20/ais-most-important-protocol-is-getting-a-little-bit-easier-to-use/",
+      "published_at": "2026-07-20T20:50:40Z",
+      "author": "Russell Brandom",
+      "image": "https://techcrunch.com/wp-content/uploads/2025/10/getty-perplexity.jpg?resize=1200,800",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 3,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=48986434"
       }
     }
   ]
