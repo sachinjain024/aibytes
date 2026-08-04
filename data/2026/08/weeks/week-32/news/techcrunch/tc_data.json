@@ -1,0 +1,157 @@
+{
+  "source": "techcrunch",
+  "section": "ai-news",
+  "fetched_at": "2026-08-03",
+  "window": {
+    "after": "2026-07-27",
+    "before": "2026-08-04"
+  },
+  "query_params": {
+    "category": "artificial-intelligence",
+    "count": 10,
+    "ranking": "hackernews_points,recency"
+  },
+  "totalCount": 58,
+  "articles": [
+    {
+      "title": "PSA: Your Claude shared chats and Artifacts may have ended up on Google",
+      "description": "The issue appears to have originated from Claude\u2019s \u201cshare chat\u201d feature, which allows users to create links that enable anyone with the assigned URL view a conversation or project.",
+      "url": "https://techcrunch.com/2026/07/27/psa-your-claude-shared-chats-and-artifacts-may-have-ended-up-on-google/",
+      "published_at": "2026-07-27T20:19:42Z",
+      "author": "Lorenzo Franceschi-Bicchierai",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/facepalm-statue.jpg?resize=1200,688",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 26,
+        "num_comments": 9,
+        "hn_url": "https://news.ycombinator.com/item?id=49075115"
+      }
+    },
+    {
+      "title": "Claude Opus 5 became downright ruthless when tasked with running a vending machine",
+      "description": "Andon Labs' latest vending machine simulation shows Opus 5 lied and colluded its way to become the best AI capitalist ever.",
+      "url": "https://techcrunch.com/2026/07/29/claude-opus-5-became-downright-ruthless-when-tasked-with-running-a-vending-machine/",
+      "published_at": "2026-07-29T18:45:27Z",
+      "author": "Julie Bort",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/Andon-Labs-AI-vending-machine.png?resize=1200,684",
+      "reading_time": "5 minutes",
+      "hackernews": {
+        "points": 13,
+        "num_comments": 4,
+        "hn_url": "https://news.ycombinator.com/item?id=49101543"
+      }
+    },
+    {
+      "title": "Sam Altman is still making the case for parenting via ChatGPT",
+      "description": "OpenAI's CEO seemed excited to share a \"cool use case\" for parents.",
+      "url": "https://techcrunch.com/2026/08/01/sam-altman-is-still-making-the-case-for-parenting-via-chatgpt/",
+      "published_at": "2026-08-01T17:07:34Z",
+      "author": "Anthony Ha",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/02/GettyImages-2236544077.jpg?resize=1200,800",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 8,
+        "num_comments": 4,
+        "hn_url": "https://news.ycombinator.com/item?id=49143114"
+      }
+    },
+    {
+      "title": "LinkedIn adds a button to report AI-generated \u2018slop\u2019",
+      "description": "LinkedIn is introducing new ways to reduce low-quality AI-generated posts, including a \u201cseems like AI slop\u201d reporting option. It's also replacing its own AI writing feature with a proofreading tool.",
+      "url": "https://techcrunch.com/2026/07/30/linkedin-adds-a-button-to-report-ai-generated-slop/",
+      "published_at": "2026-07-30T18:05:21Z",
+      "author": "Sarah Perez",
+      "image": "https://techcrunch.com/wp-content/uploads/2022/11/GettyImages-1244671434-e1669291782949.jpg?resize=1200,676",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 7,
+        "num_comments": 3,
+        "hn_url": "https://news.ycombinator.com/item?id=49116087"
+      }
+    },
+    {
+      "title": "Anthropic says its own AI models breached three companies during security tests",
+      "description": "After OpenAI's models broke into Hugging Face, Anthropic checked its own history and found three similar incidents.",
+      "url": "https://techcrunch.com/2026/07/30/anthropic-says-its-own-ai-models-breached-three-companies-during-security-tests/",
+      "published_at": "2026-07-31T01:06:54Z",
+      "author": "Kirsten Korosec",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2278736523.jpeg?resize=1200,798",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 6,
+        "num_comments": 1,
+        "hn_url": "https://news.ycombinator.com/item?id=49118087"
+      }
+    },
+    {
+      "title": "Sam Altman is ready to decelerate",
+      "description": "His change of position comes after \"the first security incident that I have felt very viscerally.\"",
+      "url": "https://techcrunch.com/2026/07/28/sam-altman-is-ready-to-decelerate/",
+      "published_at": "2026-07-28T20:17:08Z",
+      "author": "Tim Fernholz",
+      "image": "https://techcrunch.com/wp-content/uploads/2025/07/GettyImages-2226496284.jpg?w=1024",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 6,
+        "num_comments": 4,
+        "hn_url": "https://news.ycombinator.com/item?id=49092000"
+      }
+    },
+    {
+      "title": "Thinking Machines co-founder Lilian Weng left the company citing health reasons, then joined OpenAI",
+      "description": "Weng previously served as the VP of AI Safety Research at OpenAI.",
+      "url": "https://techcrunch.com/2026/07/29/thinking-machines-co-founder-lilian-weng-left-the-company-citing-health-reasons-then-joined-openai/",
+      "published_at": "2026-07-29T21:07:48Z",
+      "author": "Amanda Silberling",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/05/openai-logo-code-background.jpg?resize=1200,798",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 5,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49107409"
+      }
+    },
+    {
+      "title": "Google\u2019s AI search is rapidly becoming the default, new data shows",
+      "description": "Google\u2019s AI Overviews now appear in 43% of searches, underscoring how quickly AI-generated answers are becoming the default way people discover information online.",
+      "url": "https://techcrunch.com/2026/07/27/googles-ai-search-is-rapidly-becoming-the-default-new-data-shows/",
+      "published_at": "2026-07-27T15:57:12Z",
+      "author": "Sarah Perez",
+      "image": "https://techcrunch.com/wp-content/uploads/2024/05/Sundar-AI-Overviews-IO-2024.png?resize=1200,698",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 5,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49133906"
+      }
+    },
+    {
+      "title": "Judge says Trump admin still lacks evidence for Anthropic \u2018supply-chain risk\u2019 label",
+      "description": "A federal judge said the Trump administration has not presented enough evidence to justify labeling Anthropic a supply-chain risk, casting doubt on the government's ban on its AI technology.",
+      "url": "https://techcrunch.com/2026/07/30/judge-says-trump-admin-still-lacks-evidence-for-anthropic-supply-chain-risk-label/",
+      "published_at": "2026-07-30T20:26:38Z",
+      "author": "Rebecca Bellan",
+      "image": "https://techcrunch.com/wp-content/uploads/2025/08/Claude-Chrome-Ext_email-hero-hero.png?w=1200",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 4,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49119744"
+      }
+    },
+    {
+      "title": "Data centers may face temporary power cuts to prevent blackouts on largest US grid",
+      "description": "The decision arrives as the breakneck pace of data center construction has grid operators scrambling to generate power.",
+      "url": "https://techcrunch.com/2026/07/28/data-centers-may-face-temporary-power-cuts-to-prevent-blackouts-on-largest-us-grid/",
+      "published_at": "2026-07-28T15:42:26Z",
+      "author": "Tim De Chant",
+      "image": "https://techcrunch.com/wp-content/uploads/2017/05/gettyimages-173791238.jpg?resize=1200,797",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 4,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49087712"
+      }
+    }
+  ]
+}

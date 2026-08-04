@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beehiiv Export — aiBytes_ #{{ISSUE_NUM}}</title>
+<title>Beehiiv Export - aiBytes_ #{{ISSUE_NUM}}</title>
 <style>
   :root{color-scheme:light}
   *{box-sizing:border-box}
@@ -29,17 +29,17 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>Beehiiv Export — aiBytes_ Issue #{{ISSUE_NUM}}</h1>
+  <h1>Beehiiv Export - aiBytes_ Issue #{{ISSUE_NUM}}</h1>
   <p class="sub">Two email-safe HTML parts (inline styles, table layout). Click <b>⧉ Copy HTML</b>, then in Beehiiv type <code>/</code> → Premium → <code>HTML Snippet</code> and paste. Each preview shows exactly what you'll get.</p>
 
   <!-- Post title (= email subject line) and description (= preview/subtitle text).
-       Entered in Beehiiv's title/subtitle fields, not pasted as HTML — so no copy button. -->
+       Entered in Beehiiv's title/subtitle fields, not pasted as HTML - so no copy button. -->
   <div class="sec-block">
     <div class="bar"><span class="name">POST TITLE &amp; DESCRIPTION</span></div>
     <div class="meta">
-      <div class="label">TITLE — USED AS EMAIL SUBJECT</div>
+      <div class="label">TITLE - USED AS EMAIL SUBJECT</div>
       <div class="title">{{EMAIL_SUBJECT}}</div>
-      <div class="label">DESCRIPTION — PREVIEW / SUBTITLE TEXT</div>
+      <div class="label">DESCRIPTION - PREVIEW / SUBTITLE TEXT</div>
       <div class="desc">{{EMAIL_DESCRIPTION}}</div>
     </div>
   </div>
@@ -50,15 +50,15 @@
        Part 1 = masthead + intro + news card. Part 2 = launches + GitHub + HN +
        closing idea. Snippets must not contain the literal string "</textarea>". -->
   <div class="sec-block">
-    <div class="bar"><span class="name">PART 1 — MASTHEAD · INTRO · NEWS</span><button class="copy-btn" type="button">⧉ Copy HTML</button></div>
+    <div class="bar"><span class="name">PART 1 - MASTHEAD · INTRO · NEWS FOR DEVS</span><button class="copy-btn" type="button">⧉ Copy HTML</button></div>
     <textarea class="code" spellcheck="false">{{PART1_HTML}}</textarea>
     <div class="preview"></div>
   </div>
 
-  <p class="divider">▼ paste native Beehiiv blocks here — subscribe form, ads, polls ▼</p>
+  <p class="divider">▼ paste native Beehiiv blocks here - subscribe form, ads, polls ▼</p>
 
   <div class="sec-block">
-    <div class="bar"><span class="name">PART 2 — LAUNCHES · GITHUB · HN · CLOSING</span><button class="copy-btn" type="button">⧉ Copy HTML</button></div>
+    <div class="bar"><span class="name">PART 2 - LAUNCHES · GITHUB · HN · CLOSING</span><button class="copy-btn" type="button">⧉ Copy HTML</button></div>
     <textarea class="code" spellcheck="false">{{PART2_HTML}}</textarea>
     <div class="preview"></div>
   </div>

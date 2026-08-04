@@ -1,9 +1,9 @@
 <!--
-Beehiiv-safe snippet patterns — one per newsletter section.
+Beehiiv-safe snippet patterns - one per newsletter section.
 
 Why these exist: Beehiiv's HTML Snippet block strips <style> tags, and email
 clients don't support flexbox, clip-path, or external CSS. So every snippet
-below uses ONLY inline styles and <table> layout. Keep it that way — no
+below uses ONLY inline styles and <table> layout. Keep it that way - no
 classes, no <style>, no flex, no clip-path, no <script>.
 
 Shared palette (inline everywhere):
@@ -27,7 +27,7 @@ table omits border-bottom so the list doesn't end with a stray hairline.
 </table>
 <div style="font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:800;font-size:34px;letter-spacing:-.02em;color:#191C26;">⚡ aiBytes<span style="color:#2B4EF0;">_</span> #{{ISSUE_NUM}}</div>
 <!-- Brand is always written "aiBytes_" (lowercase a, capital B, trailing underscore in cobalt).
-     No separate issue-header rule — the intro block follows the masthead directly. -->
+     No separate issue-header rule - the intro block follows the masthead directly. -->
 
 <!-- ═══ PATTERN: numbered section header (Launches, Trending on GitHub, HN) ═══ -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-top:34px;margin-bottom:12px;">
@@ -38,17 +38,21 @@ table omits border-bottom so the list doesn't end with a stray hairline.
   </tr>
 </table>
 
-<!-- ═══ PATTERN: intro block (hook / storyline / food-for-thought) ═══ -->
+<!-- ═══ PATTERN: intro block (greeting / welcome + hook / storyline / today) ═══ -->
+<!-- The greeting line is fixed copy, and it renders in ink (#191C26), not body grey.
+     No comment/upvote/star counts anywhere in the intro. No "Let's dive in." - the
+     Today line is the closer. -->
 <div style="border:1px solid #E4E4DC;border-radius:14px;background-color:#FFFFFF;padding:20px 22px;margin-bottom:18px;">
-  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;">{{INTRO_HOOK}}</p>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#191C26;">Good morning, builders 👋</p>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;">Welcome back to your {{WEEKDAY}}-morning dose of aiBytes_. {{INTRO_HOOK}}</p>
   <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;"><b style="color:#191C26;">{{INTRO_STORYLINE_LEAD}}</b>: {{INTRO_STORYLINE}}</p>
-  <p style="margin:0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;">{{INTRO_FOOD_FOR_THOUGHT}} Let's dive in.</p>
+  <p style="margin:0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;"><b style="color:#191C26;">Today:</b> {{INTRO_TODAY}}</p>
 </div>
 
 <!-- ═══ PATTERN: news card (repeat the <p> per item; last item margin:0) ═══ -->
 <div style="border:2px solid #2B4EF0;border-radius:14px;padding:20px 22px;background-color:#FFFFFF;">
-  <div style="font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:800;font-size:20px;color:#2B4EF0;letter-spacing:.02em;margin-bottom:14px;">🌍 NEWS</div>
-  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">{{EMOJI}} <a href="{{URL}}" style="color:#2B4EF0;text-decoration:none;font-weight:700;">{{HEADLINE}}</a> — {{CONTEXT}} <span style="background-color:#FFD338;padding:0 4px;font-weight:600;">Story of the week</span> <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">({{SOURCE}})</span></p>
+  <div style="font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:800;font-size:20px;color:#2B4EF0;letter-spacing:.02em;margin-bottom:14px;">🌍 NEWS FOR DEVS</div>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">{{EMOJI}} <a href="{{URL}}" style="color:#2B4EF0;text-decoration:none;font-weight:700;">{{HEADLINE}}</a> - {{CONTEXT}} <span style="background-color:#FFD338;padding:0 4px;font-weight:600;">Story of the week</span> <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">({{SOURCE}})</span></p>
   <!-- hot badge span only on the top story -->
   <div style="border:1px solid #E4E4DC;border-radius:10px;background-color:#FAFAF7;padding:16px 18px;margin-top:18px;">
     <p style="margin:0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;color:#3A3E4A;">"{{QUOTE_TEXT}}"</p>
@@ -61,7 +65,7 @@ table omits border-bottom so the list doesn't end with a stray hairline.
   <tr>
     <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
       <span style="display:inline-block;width:22px;text-align:center;">{{EMOJI}}</span>
-      <a href="{{URL}}" style="color:#2B4EF0;text-decoration:none;font-weight:600;">{{NAME}}</a> — {{DESCRIPTION}}
+      <a href="{{URL}}" style="color:#2B4EF0;text-decoration:none;font-weight:600;">{{NAME}}</a> - {{DESCRIPTION}}
     </td>
     <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">{{STAT_BOLD}}</b> {{STAT_REST}}</td>
   </tr>
@@ -79,4 +83,4 @@ table omits border-bottom so the list doesn't end with a stray hairline.
   </tr>
 </table>
 
-<!-- Footer: skip it — Beehiiv appends its own compliant footer. -->
+<!-- Footer: skip it - Beehiiv appends its own compliant footer. -->

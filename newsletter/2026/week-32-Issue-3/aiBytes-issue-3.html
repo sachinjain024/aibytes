@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aiBytes_ #3 - Kimi-K3, cheaper frontier models &amp; agents that break in</title>
+<meta name="description" content="Catch up on Kimi-K3's open-weights launch, the DeepSeek and GPT-5.6 price cuts, and the week AI models started breaching companies.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
+    --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--cobalt);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px 56px}
+
+  header{padding:36px 0 0}
+  .issue-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--slate);display:flex;justify-content:space-between;margin-bottom:12px}
+  .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
+  .logo em{font-style:normal;color:var(--cobalt)}
+
+  /* ── TL;DR block: the signature ── */
+  .tldr{background:var(--ink);color:var(--paper);padding:20px 22px;margin-top:18px;
+        clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}
+  .tldr .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--signal)}
+  .tldr p{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.5;margin-top:8px}
+  .tldr b{color:var(--signal);font-weight:700}
+
+  section{margin-top:34px}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--paper);background:var(--ink);padding:2px 7px}
+  .sec-title{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+  .sec-rule{flex:1;height:2px;background:var(--ink)}
+
+  /* ── Intro block ── */
+  .intro{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 22px;margin-bottom:18px}
+  .intro p{font-size:15.5px;line-height:1.65;margin-bottom:14px;color:#3A3E4A}
+  .intro p:last-child{margin-bottom:0}
+  .intro .greet{color:var(--ink)}
+  .intro b{color:var(--ink);font-weight:700}
+
+  /* ── News card ── */
+  .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
+  .news-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;color:var(--cobalt);letter-spacing:.02em;margin-bottom:14px}
+  .news-item{font-size:15.5px;margin-bottom:14px;line-height:1.6}
+  .news-item:last-of-type{margin-bottom:0}
+  .news-item b a{font-weight:700}
+  .src{font-family:var(--mono);font-size:12px;color:var(--slate)}
+  .quote{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px 18px;margin-top:18px}
+  .quote p{font-size:15px;color:#3A3E4A}
+  .quote .who{margin-top:10px;font-size:14px;color:var(--slate)}
+
+  /* ── Ticker rows ── */
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .ico{width:22px;text-align:center;flex-shrink:0}
+  .row .txt{flex:1}
+  .row .txt b{font-weight:600}
+  .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
+  .stat b{color:var(--cobalt);font-weight:700}
+  .hot{background:var(--signal);padding:0 4px;font-weight:600}
+
+  footer{margin-top:48px;border-top:3px solid var(--ink);padding-top:20px;text-align:center}
+  footer p{color:var(--slate);font-size:13.5px}
+  .foot-links{margin-top:10px;font-family:var(--mono);font-size:12.5px;display:flex;gap:20px;justify-content:center}
+  @media (max-width:480px){ .row{flex-wrap:wrap} .stat{margin-left:34px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="issue-tag"><span>ISSUE 0x03 · TL;DR</span><span>2026-08-03 · ~5 MIN</span></div>
+    <div class="logo">⚡ aiBytes<em>_</em> #3</div>
+  </header>
+
+  <section>
+    <div class="intro">
+      <p class="greet">Good morning, builders 👋</p>
+      <p>Welcome back to your Monday-morning dose of aiBytes_. I had this issue half-written as a price-cut roundup - three labs, three cheaper models, tidy week. Then Anthropic published that its own models had breached three companies during security tests, and Sam Altman, of all people, said he's ready to decelerate. Back to the drawing board 😅</p>
+      <p><b>Capability is outrunning containment</b>: Kimi-K3, DeepSeek-V4-Flash and GPT-5.6 all made frontier intelligence cheaper, while <a href="https://www.anthropic.com/news/position-open-weights-models">Anthropic's position on open-weights models</a> set off the loudest argument of the week over who should be allowed to hold it.</p>
+      <p><b>Today:</b> Moonshot's open-weights flagship and the argument it reopened, two price cuts in 48 hours, DeepMind putting whole-body control in a robot, and seven repos worth your weekend.</p>
+    </div>
+
+    <div class="news-card">
+      <div class="card-title">🌍 NEWS FOR DEVS</div>
+
+      <p class="news-item">🔥 <b><a href="https://huggingface.co/moonshotai/Kimi-K3">Kimi-K3 on HuggingFace</a></b> - Moonshot's new open-weights flagship took 1,378 points and 545 comments, the top AI thread of the week. <span class="hot">Story of the week</span> <span class="src">(Hugging Face)</span></p>
+      <p class="news-item">📜 <b><a href="https://www.anthropic.com/news/position-open-weights-models">Our position on open-weights models</a></b> - Anthropic laid out where it stands, and 1,746 comments piled in behind it. <span class="src">(Anthropic)</span></p>
+      <p class="news-item">⚡ <b><a href="https://api-docs.deepseek.com/updates/">DeepSeek-V4-Flash Update</a></b> - another price-performance jump, shipped straight into the API changelog. <span class="src">(DeepSeek)</span></p>
+      <p class="news-item">💸 <b><a href="https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/">Advancing the price-performance frontier with GPT‑5.6</a></b> - OpenAI's answer landed the day after, same argument, different curve. <span class="src">(OpenAI)</span></p>
+      <p class="news-item">🦾 <b><a href="https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/">Gemini Robotics 2 brings whole body intelligence to robots</a></b> - DeepMind moves past manipulation to whole-body control. <span class="src">(DeepMind)</span></p>
+      <p class="news-item">🔐 <b><a href="https://techcrunch.com/2026/07/30/anthropic-says-its-own-ai-models-breached-three-companies-during-security-tests/">Anthropic says its own AI models breached three companies during security tests</a></b> - after OpenAI's models broke into Hugging Face, Anthropic checked its history and found three more. <span class="src">(TechCrunch)</span></p>
+      <p class="news-item">🐌 <b><a href="https://techcrunch.com/2026/07/28/sam-altman-is-ready-to-decelerate/">Sam Altman is ready to decelerate</a></b> - the reversal follows "the first security incident that I have felt very viscerally." <span class="src">(TechCrunch)</span></p>
+
+      <div class="quote">
+        <p>"Three labs made intelligence cheaper this week. One incident made autonomy expensive."</p>
+        <p class="who">- aiBytes_</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Launches</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🔍</span><span class="txt"><b><a href="https://www.producthunt.com/products/prelint?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29">Prelint</a></b> - Reviews every PR against your ADRs and past decisions to catch product drift.</span><span class="stat"><b>▲ 640</b></span></div>
+    <div class="row"><span class="ico">📈</span><span class="txt"><b><a href="https://www.producthunt.com/products/prefactor?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29">Prefactor</a></b> - Scores every agent run in real time and surfaces quality regressions as they happen.</span><span class="stat"><b>▲ 639</b></span></div>
+    <div class="row"><span class="ico">🎙️</span><span class="txt"><b><a href="https://www.producthunt.com/products/ski?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29">SKI</a></b> - Voice coding for Claude Code and Codex; the agent answers you out loud.</span><span class="stat"><b>▲ 622</b></span></div>
+    <div class="row"><span class="ico">📣</span><span class="txt"><b><a href="https://www.producthunt.com/products/adomate?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29">Adomate</a></b> - Builds branded ad concepts from ad-account and review data, traceable to the source.</span><span class="stat"><b>▲ 574</b></span></div>
+    <div class="row"><span class="ico">🧠</span><span class="txt"><b><a href="https://www.producthunt.com/products/memmy?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29">Memmy Agent</a></b> - One shared local memory hub so every AI tool remembers the same you.</span><span class="stat"><b>▲ 564</b></span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">Trending on GitHub</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🚦</span><span class="txt"><b><a href="https://github.com/diegosouzapw/OmniRoute">diegosouzapw/OmniRoute</a></b> - one MIT gateway for 290+ providers and 500+ models, with quota-aware fallback.</span><span class="stat"><b>+7.1k</b> ★</span></div>
+    <div class="row"><span class="ico">🎓</span><span class="txt"><b><a href="https://github.com/microsoft/AI-For-Beginners">microsoft/AI-For-Beginners</a></b> - Microsoft's 24-lesson AI curriculum, back near the top of the charts.</span><span class="stat"><b>+5.6k</b> ★</span></div>
+    <div class="row"><span class="ico">🎯</span><span class="txt"><b><a href="https://github.com/ayghri/i-have-adhd">ayghri/i-have-adhd</a></b> - a skill that stops your coding agent from burying the answer.</span><span class="stat"><b>+5.2k</b> ★</span></div>
+    <div class="row"><span class="ico">📚</span><span class="txt"><b><a href="https://github.com/virgiliojr94/book-to-skill">virgiliojr94/book-to-skill</a></b> - turns any technical book PDF into a Claude Code skill.</span><span class="stat"><b>+5.2k</b> ★</span></div>
+    <div class="row"><span class="ico">⚙️</span><span class="txt"><b><a href="https://github.com/alibaba/open-code-review">alibaba/open-code-review</a></b> - Alibaba's hybrid reviewer: deterministic pipelines plus an LLM agent, line-level.</span><span class="stat"><b>+4.4k</b> ★</span></div>
+    <div class="row"><span class="ico">🌐</span><span class="txt"><b><a href="https://github.com/citrolabs/ego-lite">citrolabs/ego-lite</a></b> - shares your logged-in browser state with agents without disturbing your session.</span><span class="stat"><b>+3.6k</b> ★</span></div>
+    <div class="row"><span class="ico">🎭</span><span class="txt"><b><a href="https://github.com/moeru-ai/airi">moeru-ai/airi</a></b> - a self-hosted companion with realtime voice chat, and it plays Minecraft.</span><span class="stat"><b>+3.4k</b> ★</span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">HN Deep Cuts</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">📕</span><span class="txt"><b><a href="https://news.ycombinator.com/item?id=49068738">AI companies are shredding rare books</a></b> - what training-data acquisition costs when it is physical.</span><span class="stat"><b>797</b> pts · 513 💬</span></div>
+    <div class="row"><span class="ico">🛡️</span><span class="txt"><b><a href="https://tailscale.com/blog/hugging-face-intrusion">Tailscale didn't stop the Hugging Face intrusion</a></b> - a vendor post-mortem on what its own product did and didn't cover.</span><span class="stat"><b>619</b> pts</span></div>
+    <div class="row"><span class="ico">📄</span><span class="txt"><b><a href="https://www.science.org/content/article/ai-s-top-startups-are-barely-publishing-their-research">AI's top startups are barely publishing their research</a></b> - Science on the closing of the frontier labs.</span><span class="stat"><b>616</b> pts</span></div>
+    <div class="row"><span class="ico">📊</span><span class="txt"><b><a href="https://artificialanalysis.ai/models/deepseek-v4-flash">DeepSeek V4 Flash 0731 Intelligence, Performance and Price Analysis</a></b> - the independent numbers behind the launch.</span><span class="stat"><b>585</b> pts</span></div>
+    <div class="row"><span class="ico">🐛</span><span class="txt"><b><a href="https://blog.google/security/chrome-stronger-with-every-update/">Google fixed more Chrome bugs in June than over the past two years, thanks to AI</a></b> - the same capability, pointed the other way.</span><span class="stat"><b>573</b> pts · 598 💬</span></div>
+  </section>
+
+  <div class="tldr" style="margin-top:44px">
+    <div class="kicker">ONE IDEA TO CARRY NEXT WEEK</div>
+    <p>Every lab shipping this week optimized cost per token. Nobody is publishing cost per <b>unsupervised action</b> - and that is the number your next incident review will ask for.</p>
+  </div>
+
+  <footer>
+    <p>Made for builders who ship with AI. See you next week. ✌️</p>
+    <div class="foot-links"><a href="#">SUBSCRIBE</a><a href="#">ARCHIVE</a><a href="#">SUGGEST A LINK</a></div>
+  </footer>
+
+</div>
+</body>
+</html>

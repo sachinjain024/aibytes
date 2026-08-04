@@ -1,0 +1,426 @@
+<title>2026-Aug-03-Intro-section-taste</title>
+<style>
+  :root{
+    --ground:#E7E8EC;
+    --panel:#FDFDFD;
+    --ink:#14161F;
+    --muted:#5C6070;
+    --line:#CBCED7;
+    --hair:#D9DCE3;
+    --cobalt:#2B4EF0;
+    --signal:#FFD338;
+    --chip-ink:#FFFFFF;
+
+    /* Specimen tokens: an inbox always renders light, so these never invert. */
+    --mail-bg:#FFFFFF;
+    --mail-line:#E4E4DC;
+    --mail-ink:#191C26;
+    --mail-body:#3A3E4A;
+    --mail-link:#2B4EF0;
+
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+    --grotesque:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mail-face:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ground:#101219;
+      --panel:#181A22;
+      --ink:#E5E6EC;
+      --muted:#949AA8;
+      --line:#2C303B;
+      --hair:#242832;
+      --cobalt:#8AA0FF;
+      --chip-ink:#101219;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#101219;
+    --panel:#181A22;
+    --ink:#E5E6EC;
+    --muted:#949AA8;
+    --line:#2C303B;
+    --hair:#242832;
+    --cobalt:#8AA0FF;
+    --chip-ink:#101219;
+  }
+  :root[data-theme="light"]{
+    --ground:#E7E8EC;
+    --panel:#FDFDFD;
+    --ink:#14161F;
+    --muted:#5C6070;
+    --line:#CBCED7;
+    --hair:#D9DCE3;
+    --cobalt:#2B4EF0;
+    --chip-ink:#FFFFFF;
+  }
+
+  body{
+    background:var(--ground);
+    color:var(--ink);
+    font-family:var(--grotesque);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+  }
+  .sheet{
+    max-width:820px;
+    margin:0 auto;
+    padding:48px 24px 72px;
+    display:grid;
+    gap:44px;
+  }
+  a:focus-visible,.spec:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:2px}
+
+  /* ── masthead ── */
+  .masthead{display:grid;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:22px}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .eyebrow b{color:var(--cobalt);font-weight:600}
+  h1{
+    font-size:clamp(30px,5.2vw,44px);
+    font-weight:800;
+    letter-spacing:-.03em;
+    line-height:1.02;
+    text-wrap:balance;
+    margin:0;
+  }
+  .lede{max-width:60ch;color:var(--muted);font-size:16px;line-height:1.6}
+  .lede b{color:var(--ink);font-weight:600}
+
+  /* ── variation block ── */
+  .spec{display:grid;gap:16px}
+  .strip{display:grid;gap:10px}
+  .head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .tag{
+    font-family:var(--mono);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.06em;
+    background:var(--cobalt);
+    color:var(--chip-ink);
+    padding:3px 8px;
+    border-radius:3px;
+  }
+  .baseline .tag{background:transparent;color:var(--muted);border:1px solid var(--line);font-weight:500}
+  .name{font-size:20px;font-weight:700;letter-spacing:-.015em;margin:0}
+  .ledger{
+    display:flex;
+    flex-wrap:wrap;
+    gap:4px 26px;
+    font-family:var(--mono);
+    font-size:11.5px;
+    line-height:1.5;
+    color:var(--muted);
+    border-top:1px solid var(--hair);
+    padding-top:9px;
+    margin:0;
+  }
+  .ledger > div{display:flex;gap:7px}
+  .ledger dt{letter-spacing:.08em;text-transform:uppercase;opacity:.72}
+  .ledger dd{margin:0;color:var(--ink);font-variant-numeric:tabular-nums}
+
+  /* ── the specimen: intro card as it renders in the inbox ── */
+  .mail{
+    max-width:640px;
+    background:var(--mail-bg);
+    border:1px solid var(--mail-line);
+    border-radius:14px;
+    padding:22px 24px;
+    box-shadow:0 1px 2px rgba(20,22,31,.06),0 8px 24px -18px rgba(20,22,31,.5);
+  }
+  .mail p{
+    font-family:var(--mail-face);
+    font-size:15.5px;
+    line-height:1.65;
+    color:var(--mail-body);
+    margin:0 0 14px 0;
+  }
+  .mail p:last-child{margin-bottom:0}
+  .mail b{color:var(--mail-ink);font-weight:700}
+  .mail a{color:var(--mail-link);text-decoration:none;font-weight:500}
+  .mail a:hover{text-decoration:underline}
+  .greet{color:var(--mail-ink) !important;font-weight:400}
+
+  .why{
+    max-width:640px;
+    font-size:14.5px;
+    line-height:1.6;
+    color:var(--muted);
+    margin:0;
+    padding-left:14px;
+    border-left:2px solid var(--signal);
+  }
+  .why b{color:var(--ink);font-weight:600}
+
+  /* ── close ── */
+  .close{
+    border-top:1px solid var(--hair);
+    padding-top:22px;
+    display:grid;
+    gap:12px;
+    max-width:62ch;
+    font-size:14.5px;
+    line-height:1.6;
+    color:var(--muted);
+  }
+  .close h2{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink);
+    font-weight:600;
+    margin:0;
+  }
+  .close b{color:var(--ink);font-weight:600}
+  code{font-family:var(--mono);font-size:.9em;color:var(--ink)}
+
+  /* ── contents ── */
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  .spec,.close,.decision{scroll-margin-top:20px}
+  .toc{display:grid;gap:11px;border-left:2px solid var(--cobalt);padding-left:18px}
+  .toc h2{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    font-weight:500;
+    margin:0;
+  }
+  .toc ul{list-style:none;display:grid;gap:7px;margin:0;padding:0}
+  .toc li{display:flex;align-items:baseline;gap:11px}
+  .toc .lbl{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.06em;
+    color:var(--muted);
+    min-width:3.4em;
+  }
+  .toc a{color:var(--ink);text-decoration:none;font-size:15px;border-bottom:1px solid transparent}
+  .toc a:hover{border-bottom-color:var(--cobalt)}
+  .toc .mark{
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    background:var(--signal);
+    color:#191C26;
+    padding:1px 6px;
+    border-radius:2px;
+    margin-left:2px;
+  }
+
+  /* ── locked decision ── */
+  .decision{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-top:3px solid var(--cobalt);
+    border-radius:4px;
+    padding:22px 24px;
+    display:grid;
+    gap:14px;
+  }
+  .decision .head{align-items:center}
+  .decision h2{font-size:22px;font-weight:700;letter-spacing:-.015em;margin:0}
+  .decision p{margin:0;max-width:62ch;font-size:15px;line-height:1.62;color:var(--muted)}
+  .decision p b{color:var(--ink);font-weight:600}
+  .tag.sel{background:var(--signal);color:#191C26}
+  .spec.picked .tag{background:var(--signal);color:#191C26}
+  .spec.picked .mail{border-color:var(--cobalt);border-width:2px;padding:21px 23px}
+  .badge{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--cobalt);
+    border:1px solid currentColor;
+    border-radius:2px;
+    padding:1px 6px;
+  }
+</style>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <div class="eyebrow"><b>aiBytes_ #3</b> · intro block · proof sheet · 2026-08-03</div>
+    <h1>Five warmer ways in</h1>
+    <p class="lede">Five candidate openers for the issue, and the one that won. Same facts and links throughout - what changes is the first six words: whether the issue opens with a person or a headline. <b>No comment or upvote counts</b> in any of them; those stay down in the item rows where they're evidence. Specimens render exactly as the intro card does in the inbox, so they stay light in both themes.</p>
+  </header>
+
+  <nav class="toc" aria-label="Contents">
+    <h2>Contents</h2>
+    <ul>
+      <li><span class="lbl">-</span><a href="#decision">The pick, locked</a></li>
+      <li><span class="lbl">NOW</span><a href="#now">What shipped before</a></li>
+      <li><span class="lbl">V1</span><a href="#v1">Welcome, inline</a></li>
+      <li><span class="lbl">V2</span><a href="#v2">Greeting, then the punch</a></li>
+      <li><span class="lbl">V3</span><a href="#v3">From behind the desk</a><span class="mark">selected</span></li>
+      <li><span class="lbl">V4</span><a href="#v4">Welcome + today's menu</a></li>
+      <li><span class="lbl">V5</span><a href="#v5">Ask them something</a></li>
+      <li><span class="lbl">-</span><a href="#notes">What the pick locked in</a></li>
+    </ul>
+  </nav>
+
+  <section class="decision" id="decision">
+    <div class="head">
+      <span class="tag sel">SELECTED</span>
+      <h2>V3 - From behind the desk</h2>
+    </div>
+    <p><b>Why this one.</b> It does the most to make the issue feel like it came from a person rather than a feed. It says hello to the audience by name, treats the send as a standing appointment - <em>your Monday-morning dose of aiBytes_</em> - and earns its hook with a real account of how the week turned, instead of opening cold on a fact. The <b>Today:</b> menu was pulled across from V4 so none of that warmth costs the skimmer anything: they still learn what's below before deciding to scroll. Engagement counts stay out; the intro makes its argument in words and lets the item rows carry the receipts.</p>
+    <dl class="ledger">
+      <div><dt>Locked</dt><dd>2026-08-03</dd></div>
+      <div><dt>Shipped in</dt><dd>aiBytes_ #3</dd></div>
+      <div><dt>Now standing in</dt><dd>generate-newsletter-content</dd></div>
+      <div><dt>Handle</dt><dd>builders</dd></div>
+    </dl>
+  </section>
+
+  <article class="spec baseline" id="now">
+    <div class="strip">
+      <div class="head">
+        <span class="tag">NOW</span>
+        <h2 class="name">What ships today</h2>
+      </div>
+      <dl class="ledger">
+        <div><dt>Opens on</dt><dd>A fact</dd></div>
+        <div><dt>Handle</dt><dd>None</dd></div>
+        <div><dt>Length</dt><dd>≈93 words</dd></div>
+        <div><dt>Sign-off</dt><dd>Let's dive in.</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <p>Three labs pushed the price-performance frontier in seven days. In the same seven days, Anthropic disclosed that its own models had breached three companies, and Sam Altman said he is ready to decelerate.</p>
+      <p><b>Capability is outrunning containment</b>: Kimi-K3, DeepSeek-V4-Flash and GPT-5.6 all made frontier intelligence cheaper, while <a href="https://www.anthropic.com/news/position-open-weights-models">Anthropic's position on open-weights models</a> drew 1,746 comments arguing over who should be allowed to hold it.</p>
+      <p>Access stopped being the constraint some time ago. What is scarce now is a credible answer to what your agent did at 3am. Let's dive in.</p>
+    </div>
+    <p class="why">The analysis is strong, but it starts mid-thought - no one says hello, and the reader orients themselves from a standing start. It also spends its one metric here: <b>"1,746 comments"</b> is scoreboard detail that belongs in the news row, not the opening argument.</p>
+  </article>
+
+  <article class="spec" id="v1">
+    <div class="strip">
+      <div class="head">
+        <span class="tag">V1</span>
+        <h2 class="name">Welcome, inline</h2>
+      </div>
+      <dl class="ledger">
+        <div><dt>Pattern</dt><dd>Superhuman</dd></div>
+        <div><dt>Handle</dt><dd>builders</dd></div>
+        <div><dt>Length</dt><dd>≈96 words</dd></div>
+        <div><dt>Sign-off</dt><dd>Let's dive in.</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <p><b>Welcome back, builders.</b> Three labs pushed the price-performance frontier in seven days - and in those same seven days, Anthropic disclosed that its own models had breached three companies, and Sam Altman said he's ready to decelerate.</p>
+      <p><b>Capability is outrunning containment</b>: Kimi-K3, DeepSeek-V4-Flash and GPT-5.6 all made frontier intelligence cheaper, while <a href="https://www.anthropic.com/news/position-open-weights-models">Anthropic's position on open-weights models</a> set off the loudest argument of the week over who should be allowed to hold it.</p>
+      <p>Access stopped being the constraint a while ago. What's scarce now is a credible answer to what your agent did at 3am. Let's dive in.</p>
+    </div>
+    <p class="why"><b>Smallest possible change.</b> Four words of greeting ride on the front of the existing hook, so nothing gets pushed down and the fact still lands in line one. Safest pick if you want warmth without spending any vertical space.</p>
+  </article>
+
+  <article class="spec" id="v2">
+    <div class="strip">
+      <div class="head">
+        <span class="tag">V2</span>
+        <h2 class="name">Greeting, then the punch</h2>
+      </div>
+      <dl class="ledger">
+        <div><dt>Pattern</dt><dd>Agent Owners</dd></div>
+        <div><dt>Handle</dt><dd>builders</dd></div>
+        <div><dt>Length</dt><dd>≈82 words</dd></div>
+        <div><dt>Sign-off</dt><dd>Let's dive in.</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <p class="greet">Good morning, builders 👋</p>
+      <p>Intelligence got cheaper three times this week, broke into three companies, and made Sam Altman want to slow down.</p>
+      <p><b>Capability is outrunning containment</b>: Kimi-K3, DeepSeek-V4-Flash and GPT-5.6 all pushed the price-performance frontier, while <a href="https://www.anthropic.com/news/position-open-weights-models">Anthropic's position on open-weights models</a> set off the loudest argument of the week over who should be allowed to hold it.</p>
+      <p>Access stopped being the constraint a while ago. What's scarce now is a credible answer to what your agent did at 3am. Let's dive in.</p>
+    </div>
+    <p class="why"><b>The tightest hook of the five.</b> The greeting stands alone, then one 19-word sentence carries the whole week on a rule of three. Shortest total read despite the extra line - it wins the space back by compressing the hook.</p>
+  </article>
+
+  <article class="spec picked" id="v3">
+    <div class="strip">
+      <div class="head">
+        <span class="tag">V3</span>
+        <h2 class="name">From behind the desk</h2>
+        <span class="badge">Selected · shipped in #3</span>
+      </div>
+      <dl class="ledger">
+        <div><dt>Pattern</dt><dd>First-person + menu</dd></div>
+        <div><dt>Handle</dt><dd>builders</dd></div>
+        <div><dt>Length</dt><dd>≈120 words</dd></div>
+        <div><dt>Sign-off</dt><dd>Menu replaces it</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <p class="greet">Good morning, builders 👋</p>
+      <p>Welcome back to your Monday-morning dose of aiBytes_. I had this issue half-written as a price-cut roundup - three labs, three cheaper models, tidy week. Then Anthropic published that its own models had breached three companies during security tests, and Sam Altman, of all people, said he's ready to decelerate. Back to the drawing board 😅</p>
+      <p><b>Capability is outrunning containment</b>: Kimi-K3, DeepSeek-V4-Flash and GPT-5.6 all made frontier intelligence cheaper, while <a href="https://www.anthropic.com/news/position-open-weights-models">Anthropic's position on open-weights models</a> set off the loudest argument of the week over who should be allowed to hold it.</p>
+      <p><b>Today:</b> Moonshot's open-weights flagship and the argument it reopened, two price cuts in 48 hours, DeepMind putting whole-body control in a robot, and seven repos worth your weekend.</p>
+    </div>
+    <p class="why"><b>A named human wrote this - and told you where it's going.</b> The greeting says hello, the standing "Monday-morning dose" line makes the issue feel like an appointment, and the rewrite anecdote dramatizes how the week turned before the menu hands off to the sections. Longest of the five, and the one that asks most of you: it needs a genuine new story every week or it curdles into a bit.</p>
+  </article>
+
+  <article class="spec" id="v4">
+    <div class="strip">
+      <div class="head">
+        <span class="tag">V4</span>
+        <h2 class="name">Welcome + today's menu</h2>
+      </div>
+      <dl class="ledger">
+        <div><dt>Pattern</dt><dd>Superhuman "Today:"</dd></div>
+        <div><dt>Handle</dt><dd>devs</dd></div>
+        <div><dt>Length</dt><dd>≈90 words</dd></div>
+        <div><dt>Sign-off</dt><dd>Menu replaces it</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <p><b>Welcome back, devs.</b> Frontier intelligence got cheaper three separate times this week. In the same seven days, Anthropic disclosed that its own models had breached three companies, and Sam Altman said he's ready to decelerate.</p>
+      <p><b>Capability is outrunning containment</b> - and access stopped being the constraint a while ago. What's scarce now is a credible answer to what your agent did at 3am.</p>
+      <p><b>Today:</b> Moonshot's open-weights flagship and the argument it reopened, two price cuts in 48 hours, DeepMind putting whole-body control in a robot, and seven repos worth your weekend.</p>
+    </div>
+    <p class="why"><b>Buys a scroll.</b> The menu line tells a skimmer what's further down, which is the one thing the current intro can't do. Same ending as V3 - the difference is everything before it: this one greets and gets straight to the facts in three tight beats, where V3 stops to tell you a story first. Pick this if you want the appointment feel without committing to a weekly anecdote.</p>
+  </article>
+
+  <article class="spec" id="v5">
+    <div class="strip">
+      <div class="head">
+        <span class="tag">V5</span>
+        <h2 class="name">Ask them something</h2>
+      </div>
+      <dl class="ledger">
+        <div><dt>Pattern</dt><dd>Direct address</dd></div>
+        <div><dt>Handle</dt><dd>builders</dd></div>
+        <div><dt>Length</dt><dd>≈95 words</dd></div>
+        <div><dt>Sign-off</dt><dd>Let's dive in.</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <p class="greet">Hey builders 👋</p>
+      <p>Honest question: could you say, right now, what your agents did at 3am last night?</p>
+      <p>Asking because this week Anthropic disclosed that its own models breached three companies during security tests, and Sam Altman said he's ready to decelerate. Meanwhile Kimi-K3, DeepSeek-V4-Flash and GPT-5.6 all made frontier intelligence cheaper, and <a href="https://www.anthropic.com/news/position-open-weights-models">Anthropic's position on open-weights models</a> reopened the argument over who should be allowed to hold it.</p>
+      <p><b>Capability is outrunning containment.</b> Access stopped being the constraint a while ago; a credible answer to that 3am question is what's scarce now. Let's dive in.</p>
+    </div>
+    <p class="why"><b>Puts the reader in the story.</b> Promotes the sharpest line in the current intro - the 3am question - to the top, then pays it off in the closer. Most distinctive voice; also the most easily overused, so it works best as an occasional opener rather than the weekly default.</p>
+  </article>
+
+  <footer class="close" id="notes">
+    <h2>What the pick locked in</h2>
+    <p><b>The handle is "builders."</b> It's fixed copy in the template now, not a per-issue decision, and it agrees with the <b>News for devs</b> heading. Changing it later means changing it everywhere at once.</p>
+    <p><b>The weekday comes from the issue date.</b> "Monday-morning" is a promise about the send day - true for #3, wrong the moment an issue ships on a Tuesday. The skill fills <code>{{WEEKDAY}}</code> from <code>date +%A</code> rather than hard-coding it.</p>
+    <p><b>No counts in the intro.</b> Never a comment total, upvote tally, or star count above the fold: the intro argues, the item rows carry the receipts. Where the old copy leaned on "1,746 comments," it now says what the number <em>meant</em> - "set off the loudest argument of the week."</p>
+    <p><b>Single hyphens only.</b> No em dashes or en dashes anywhere in the output - prose, item rows, ranges, or subject lines. A spaced hyphen (" - ") does the job. The specimens above are shown with the corrected punctuation, and <code>SKILL.md</code> carries the rule so the generator stops reaching for the long one.</p>
+    <p><b>"Let's dive in." is retired.</b> The <b>Today:</b> menu is the closer, and it gets rewritten every issue to match the actual section lineup.</p>
+    <p><b>The old rule is gone.</b> <code>SKILL.md</code> used to say the intro takes "never a salutation - no 'Hey crew', 'Hi everyone', or any greeting." That line is now the four-beat pattern above, so future issues open this way by default.</p>
+    <p><b>Five files carry it.</b> <code>aiBytes-issue-3.html</code> and the export's Part 1 block for this issue; <code>assets/template.html</code>, <code>references/beehiiv-patterns.html</code> and <code>SKILL.md</code> for every issue after it.</p>
+  </footer>
+
+</div>

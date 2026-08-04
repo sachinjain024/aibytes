@@ -1,0 +1,108 @@
+{
+  "source": "github-trending",
+  "section": "trending-repos",
+  "fetched_at": "2026-08-03",
+  "query_params": {
+    "since": "weekly",
+    "languages": [
+      "all"
+    ],
+    "count": 10,
+    "topic": "ai",
+    "ranking": "period_stars,total_stars"
+  },
+  "totalCount": 10,
+  "poolCount": 18,
+  "repos": [
+    {
+      "name": "diegosouzapw/OmniRoute",
+      "url": "https://github.com/diegosouzapw/OmniRoute",
+      "description": "Never stop coding. Free MIT AI gateway: one endpoint, 290+ providers (90+ free), 500+ models \u2014 Kimi, Claude, GPT, OpenAI, Gemini, GLM, DeepSeek, MiniMax. Works with Claude Code, Codex, Cursor, OpenCode, Cline & Copilot. Quota-aware auto-fallback, RTK+Caveman compression saves 15-95% tokens, MCP/A2A, Desktop/PWA. Built by 500+ contributors",
+      "language": "TypeScript",
+      "stars": 38127,
+      "forks": 4985,
+      "period_stars": 7141
+    },
+    {
+      "name": "microsoft/AI-For-Beginners",
+      "url": "https://github.com/microsoft/AI-For-Beginners",
+      "description": "12 Weeks, 24 Lessons, AI for All!",
+      "language": "Jupyter Notebook",
+      "stars": 59752,
+      "forks": 11714,
+      "period_stars": 5601
+    },
+    {
+      "name": "ayghri/i-have-adhd",
+      "url": "https://github.com/ayghri/i-have-adhd",
+      "description": "A skill to stop your coding agent from burying the answer. ADHD-friendly output.",
+      "language": "Python",
+      "stars": 15872,
+      "forks": 883,
+      "period_stars": 5225
+    },
+    {
+      "name": "virgiliojr94/book-to-skill",
+      "url": "https://github.com/virgiliojr94/book-to-skill",
+      "description": "Turn any technical book PDF into a Claude Code skill \u2014 ready to study, reference, and use while you work.",
+      "language": "Python",
+      "stars": 15565,
+      "forks": 1677,
+      "period_stars": 5223
+    },
+    {
+      "name": "alibaba/open-code-review",
+      "url": "https://github.com/alibaba/open-code-review",
+      "description": "Fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible.",
+      "language": "Go",
+      "stars": 18105,
+      "forks": 1219,
+      "period_stars": 4365
+    },
+    {
+      "name": "citrolabs/ego-lite",
+      "url": "https://github.com/citrolabs/ego-lite",
+      "description": "The fastest browser for AI agents to run browser automation, built for sharing your logged-in browser state with your AI agents, like Codex or Claude Code, without disturbing you. Zero cost, zero config.",
+      "language": "JavaScript",
+      "stars": 7788,
+      "forks": 386,
+      "period_stars": 3582
+    },
+    {
+      "name": "moeru-ai/airi",
+      "url": "https://github.com/moeru-ai/airi",
+      "description": "\ud83d\udc96\ud83e\uddf8 Self hosted, you-owned Grok Companion, a container of souls of waifu, cyber livings to bring them into our worlds, wishing to achieve Neuro-sama's altitude. Capable of realtime voice chat, Minecraft, Factorio playing. Web / macOS / Windows supported.",
+      "language": "TypeScript",
+      "stars": 46606,
+      "forks": 4596,
+      "period_stars": 3431
+    },
+    {
+      "name": "different-ai/openwork",
+      "url": "https://github.com/different-ai/openwork",
+      "description": "The open-source alternative to Claude Cowork (powered by opencode)",
+      "language": "TypeScript",
+      "stars": 20505,
+      "forks": 2102,
+      "period_stars": 2925
+    },
+    {
+      "name": "earthtojake/text-to-cad",
+      "url": "https://github.com/earthtojake/text-to-cad",
+      "description": "A library of agent skills for CAD, CAE and CAM",
+      "language": "JavaScript",
+      "stars": 12564,
+      "forks": 1328,
+      "period_stars": 2063
+    },
+    {
+      "name": "andrewyng/aisuite",
+      "url": "https://github.com/andrewyng/aisuite",
+      "description": "Simple, unified interface to multiple Generative AI providers",
+      "language": "Python",
+      "stars": 15924,
+      "forks": 1684,
+      "period_stars": 576
+    }
+  ]
+}
