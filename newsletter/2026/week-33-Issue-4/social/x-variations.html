@@ -1,0 +1,1034 @@
+<title>aiBytes_ #4 - X thread variations</title>
+<meta name="description" content="Five X threads drawn from aiBytes_ issue 4, week 33, with per-tweet character counts and copy-ready text.">
+<style>
+:root{
+  --ground:#E7E8EC;
+  --panel:#FDFDFD;
+  --sunk:#F1F2F5;
+  --ink:#14161F;
+  --body:#33374A;
+  --muted:#5C6070;
+  --line:#CBCED7;
+  --hair:#DEE0E6;
+  --accent:#6A3AB2;
+  --accent-soft:#EFE7FB;
+  --chip-ink:#FFFFFF;
+  --warn:#A8371A;
+  --ok:#2F6B4F;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --grotesque:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --platform:"TwitterChirp",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#101219;
+    --panel:#181A22;
+    --sunk:#14161D;
+    --ink:#E5E6EC;
+    --body:#C3C6D2;
+    --muted:#949AA8;
+    --line:#2C303B;
+    --hair:#232733;
+    --accent:#C0A2F5;
+    --accent-soft:#241C33;
+    --chip-ink:#101219;
+    --warn:#FF9E7A;
+    --ok:#78C79C;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101219;
+  --panel:#181A22;
+  --sunk:#14161D;
+  --ink:#E5E6EC;
+  --body:#C3C6D2;
+  --muted:#949AA8;
+  --line:#2C303B;
+  --hair:#232733;
+  --accent:#C0A2F5;
+  --accent-soft:#241C33;
+  --chip-ink:#101219;
+  --warn:#FF9E7A;
+  --ok:#78C79C;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--grotesque);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  margin:0;
+}
+.sheet{max-width:900px;margin:0 auto;padding:44px 20px 96px;display:grid;gap:40px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+
+/* masthead */
+.masthead{display:grid;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:20px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.eyebrow b{color:var(--accent);font-weight:600}
+h1{font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1.03;margin:0;text-wrap:balance}
+.lede{max-width:64ch;color:var(--muted);font-size:15.5px;line-height:1.62;margin:0}
+.lede b{color:var(--ink);font-weight:600}
+
+/* rules strip */
+.rules{
+  display:grid;gap:6px;background:var(--panel);border:1px solid var(--line);
+  border-left:3px solid var(--accent);padding:14px 16px;
+}
+.rules p{margin:0;font-size:13.5px;color:var(--body);line-height:1.55}
+.rules .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* variation block */
+.spec{display:grid;gap:14px}
+.head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--accent);color:var(--chip-ink);padding:3px 8px;border-radius:3px}
+.fmt{font-size:20px;font-weight:700;letter-spacing:-.015em;margin:0}
+.meta{display:grid;gap:3px;font-size:13.5px;color:var(--muted);line-height:1.55}
+.meta .anchor{color:var(--ink);font-weight:500}
+.meta .src{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em}
+.flag{
+  display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--warn);
+  background:var(--sunk);border:1px dashed var(--warn);padding:9px 11px;line-height:1.5;
+}
+.flag b{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;flex:none;padding-top:2px}
+
+/* specimen shell */
+.card{background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.bar{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding:9px 14px;border-bottom:1px solid var(--hair);background:var(--sunk);
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+}
+.count{font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.count b{color:var(--ink);font-weight:600}
+.count.over b{color:var(--warn)}
+
+button.copy{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  background:transparent;color:var(--ink);border:1px solid var(--line);
+  padding:4px 10px;cursor:pointer;border-radius:3px;
+}
+button.copy:hover{border-color:var(--accent);color:var(--accent)}
+button.copy.done{border-color:var(--ok);color:var(--ok)}
+
+/* linkedin post body */
+.post{font-family:var(--platform);font-size:15px;line-height:1.55;color:var(--ink);padding:20px 22px}
+.post .p{margin:0 0 15px}
+.post .p:last-child{margin-bottom:0}
+.foldmark{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);white-space:nowrap;vertical-align:2px;margin:0 5px;
+  border-left:2px solid var(--accent);padding-left:5px;
+}
+.below{color:var(--muted)}
+.tail{border-top:1px solid var(--hair);padding:14px 22px;display:grid;gap:10px;background:var(--sunk)}
+.tail .row{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.tail .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:2px;flex:none}
+.tail .val{font-family:var(--platform);font-size:13.5px;color:var(--body);word-break:break-word;flex:1;min-width:220px}
+.tags{font-family:var(--platform);font-size:13.5px;color:var(--accent)}
+
+/* x thread cells */
+.thread{display:grid}
+.tw{display:grid;grid-template-columns:34px 1fr;gap:0;border-bottom:1px solid var(--hair)}
+.tw:last-child{border-bottom:0}
+.tw .n{
+  font-family:var(--mono);font-size:11px;color:var(--muted);padding:16px 0 0 14px;
+  font-variant-numeric:tabular-nums;
+}
+.tw .cell{padding:16px 16px 14px 4px;display:grid;gap:10px}
+.tw .txt{font-family:var(--platform);font-size:15.5px;line-height:1.42;color:var(--ink);white-space:pre-wrap;word-break:break-word}
+.tw .foot{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.gauge{flex:1;min-width:120px;height:3px;background:var(--hair);position:relative;max-width:220px}
+.gauge i{position:absolute;left:0;top:0;bottom:0;background:var(--accent);display:block}
+.gauge.over i{background:var(--warn)}
+.tw .c{font-family:var(--mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.tw .c b{color:var(--ink);font-weight:600}
+.tw .c.over b{color:var(--warn)}
+
+.note{font-size:12.5px;color:var(--muted);line-height:1.55;margin:0}
+.note code{font-family:var(--mono);font-size:11.5px}
+.hidden{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+@media (prefers-reduced-motion:no-preference){
+  button.copy{transition:border-color .15s ease,color .15s ease}
+}
+@media (max-width:560px){
+  .post{padding:16px 15px}
+  .tail{padding:13px 15px}
+}
+</style>
+<div class="sheet">
+  <header class="masthead">
+    <div class="eyebrow">aiBytes_ <b>#4</b> &middot; week 33 &middot; 2026-08-10 &middot; X / TWITTER</div>
+    <h1>Five threads, one item each</h1>
+    <p class="lede">The same five anchors as the LinkedIn deck, rewritten for a feed that rewards one idea per line. Copy a single tweet or the whole thread. Every cell is counted against 280 the way the composer counts it.</p>
+  </header>
+  <section class="rules">
+<p class="k">House rules applied</p>
+<p>No em dash, no en dash, no double hyphen, no hashtags, no thread emoji. Tweet 1 stands alone when someone quotes it. Counts follow X's rule that any link costs 23 characters whatever its length, so a cell showing "raw" is longer on the page than it is in the composer.</p>
+</section>
+  <article class="spec">
+  <div class="head"><span class="tag">V1</span><h2 class="fmt">The reversal</h2></div>
+  <div class="meta">
+<div class="anchor">Oracle bans AI-generated code from OpenJDK</div>
+<div class="src">DEALROOM &middot; <a href="https://app.dealroom.co/news/feed/oracle-bans-ai-generated-code-from-openjdk-despite-ellison-s-claim-oracle-isn-t-writing-its-own-code">https://app.dealroom.co/news/feed/oracle-bans-ai-generated-code-from-openjdk-d</a></div>
+<div>Two vendors moved opposite directions in one week; the reason is not the obvious one.</div>
+</div>
+<div class="flag"><b>Check</b><span>Oracle&#x27;s policy page 403&#x27;d; the rationale is labelled as the HN reading, not as Oracle&#x27;s stated reason.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>7</b> tweets &middot; longest <b>240</b>/280</span>
+      <button class="copy" data-target="xall-v1">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">Same week, opposite directions.
+
+Anthropic is turning Claude Code&#x27;s auto mode on by default. The agent needs less sign-off than it did last month.
+
+Oracle banned AI-generated code from OpenJDK outright.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:72%"></i></span>
+      <span class="c"><b>202</b>/280</span>
+      <button class="copy" data-target="x-v1-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-1" readonly>Same week, opposite directions.
+
+Anthropic is turning Claude Code&#x27;s auto mode on by default. The agent needs less sign-off than it did last month.
+
+Oracle banned AI-generated code from OpenJDK outright.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">The reason is the interesting part, and it does not look like a quality judgment.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:29%"></i></span>
+      <span class="c"><b>81</b>/280</span>
+      <button class="copy" data-target="x-v1-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-2" readonly>The reason is the interesting part, and it does not look like a quality judgment.</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">The reading the Hacker News thread settled on:
+
+Oracle spends its legal life on copyright. A company that wants to keep pursuing people for laundering proprietary code through a model cannot be seen accepting contributions it never checked.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:86%"></i></span>
+      <span class="c"><b>240</b>/280</span>
+      <button class="copy" data-target="x-v1-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-3" readonly>The reading the Hacker News thread settled on:
+
+Oracle spends its legal life on copyright. A company that wants to keep pursuing people for laundering proprietary code through a model cannot be seen accepting contributions it never checked.</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">Oracle has not said that, and the policy page would not load for me.
+
+But it fits the shape of the decision better than &quot;the code is bad&quot; does.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:51%"></i></span>
+      <span class="c"><b>143</b>/280</span>
+      <button class="copy" data-target="x-v1-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-4" readonly>Oracle has not said that, and the policy page would not load for me.
+
+But it fits the shape of the decision better than &quot;the code is bad&quot; does.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">If that read is right, it tells you exactly who the rule applies to.
+
+Projects needing a clean authorship chain. Contributor agreements. Anything litigable. Anything you indemnify.
+
+Not your internal service.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:74%"></i></span>
+      <span class="c"><b>208</b>/280</span>
+      <button class="copy" data-target="x-v1-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-5" readonly>If that read is right, it tells you exactly who the rule applies to.
+
+Projects needing a clean authorship chain. Contributor agreements. Anything litigable. Anything you indemnify.
+
+Not your internal service.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">Which makes the question a different one.
+
+Not &quot;is AI code good enough.&quot;
+
+&quot;Can you say where it came from.&quot;
+
+Almost nobody can, because almost nobody is recording it.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:59%"></i></span>
+      <span class="c"><b>166</b>/280</span>
+      <button class="copy" data-target="x-v1-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-6" readonly>Which makes the question a different one.
+
+Not &quot;is AI code good enough.&quot;
+
+&quot;Can you say where it came from.&quot;
+
+Almost nobody can, because almost nobody is recording it.</textarea>
+<div class="tw">
+  <div class="n">7</div>
+  <div class="cell">
+    <div class="txt">We turned auto mode on faster than we built the paper trail underneath it.
+
+Thread: https://news.ycombinator.com/item?id=49213754
+
+Rest of the week: [link to aiBytes_ #4]</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:53%"></i></span>
+      <span class="c"><b>148</b>/280 &middot; 170 raw</span>
+      <button class="copy" data-target="x-v1-7">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-7" readonly>We turned auto mode on faster than we built the paper trail underneath it.
+
+Thread: https://news.ycombinator.com/item?id=49213754
+
+Rest of the week: [link to aiBytes_ #4]</textarea></div>
+  </div>
+  <textarea class="hidden" id="xall-v1" readonly>Same week, opposite directions.
+
+Anthropic is turning Claude Code&#x27;s auto mode on by default. The agent needs less sign-off than it did last month.
+
+Oracle banned AI-generated code from OpenJDK outright.
+
+The reason is the interesting part, and it does not look like a quality judgment.
+
+The reading the Hacker News thread settled on:
+
+Oracle spends its legal life on copyright. A company that wants to keep pursuing people for laundering proprietary code through a model cannot be seen accepting contributions it never checked.
+
+Oracle has not said that, and the policy page would not load for me.
+
+But it fits the shape of the decision better than &quot;the code is bad&quot; does.
+
+If that read is right, it tells you exactly who the rule applies to.
+
+Projects needing a clean authorship chain. Contributor agreements. Anything litigable. Anything you indemnify.
+
+Not your internal service.
+
+Which makes the question a different one.
+
+Not &quot;is AI code good enough.&quot;
+
+&quot;Can you say where it came from.&quot;
+
+Almost nobody can, because almost nobody is recording it.
+
+We turned auto mode on faster than we built the paper trail underneath it.
+
+Thread: https://news.ycombinator.com/item?id=49213754
+
+Rest of the week: [link to aiBytes_ #4]</textarea>
+</article>
+<article class="spec">
+  <div class="head"><span class="tag">V2</span><h2 class="fmt">The teardown</h2></div>
+  <div class="meta">
+<div class="anchor">TencentCloud/TencentDB-Agent-Memory</div>
+<div class="src">GITHUB &middot; <a href="https://github.com/TencentCloud/TencentDB-Agent-Memory">https://github.com/TencentCloud/TencentDB-Agent-Memory</a></div>
+<div>Crowded category, genuinely different design, governance is the standout.</div>
+</div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>7</b> tweets &middot; longest <b>210</b>/280</span>
+      <button class="copy" data-target="xall-v2">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">TencentDB Agent Memory took 8,003 stars last week. 19,024 total.
+
+Agent memory is a crowded category. This one splits memory four ways, and the split is the whole idea.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:60%"></i></span>
+      <span class="c"><b>168</b>/280</span>
+      <button class="copy" data-target="x-v2-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-1" readonly>TencentDB Agent Memory took 8,003 stars last week. 19,024 total.
+
+Agent memory is a crowded category. This one splits memory four ways, and the split is the whole idea.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">Chat Memory distills a conversation through four layers.
+
+Raw discussion, then extracted facts, then scenario-organised blocks, then a long-term profile.
+
+Not one bucket of embeddings.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:66%"></i></span>
+      <span class="c"><b>184</b>/280</span>
+      <button class="copy" data-target="x-v2-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-2" readonly>Chat Memory distills a conversation through four layers.
+
+Raw discussion, then extracted facts, then scenario-organised blocks, then a long-term profile.
+
+Not one bucket of embeddings.</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">Skill turns a finished task into a reusable workflow, carrying versions, trigger boundaries and validation rules.
+
+LLM-Wiki builds linked doc pages out of whatever you import.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:62%"></i></span>
+      <span class="c"><b>175</b>/280</span>
+      <button class="copy" data-target="x-v2-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-3" readonly>Skill turns a finished task into a reusable workflow, carrying versions, trigger boundaries and validation rules.
+
+LLM-Wiki builds linked doc pages out of whatever you import.</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">Code-Graph is the one I would actually use.
+
+It indexes files, symbols, call relationships and impact paths, so an agent can ask what a change will break before it makes it.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:62%"></i></span>
+      <span class="c"><b>173</b>/280</span>
+      <button class="copy" data-target="x-v2-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-4" readonly>Code-Graph is the one I would actually use.
+
+It indexes files, symbols, call relationships and impact paths, so an agent can ask what a change will break before it makes it.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">But the decision worth stealing is the governance.
+
+Every asset is private, team, or restricted behind a real ACL. Agents get a curated loadout, not the whole org&#x27;s memory.
+
+Different roles, different loadouts.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:75%"></i></span>
+      <span class="c"><b>210</b>/280</span>
+      <button class="copy" data-target="x-v2-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-5" readonly>But the decision worth stealing is the governance.
+
+Every asset is private, team, or restricted behind a real ACL. Agents get a curated loadout, not the whole org&#x27;s memory.
+
+Different roles, different loadouts.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">That matters the first time a contractor&#x27;s agent inherits your incident history.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:29%"></i></span>
+      <span class="c"><b>80</b>/280</span>
+      <button class="copy" data-target="x-v2-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-6" readonly>That matters the first time a contractor&#x27;s agent inherits your incident history.</textarea>
+<div class="tw">
+  <div class="n">7</div>
+  <div class="cell">
+    <div class="txt">The cost, and the README is straight about it:
+
+Wiki and Code-Graph build async. Private repos and SSH are still rough. Routing is manual today, so you wire bindings by hand.
+
+https://github.com/TencentCloud/TencentDB-Agent-Memory</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:71%"></i></span>
+      <span class="c"><b>199</b>/280 &middot; 230 raw</span>
+      <button class="copy" data-target="x-v2-7">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-7" readonly>The cost, and the README is straight about it:
+
+Wiki and Code-Graph build async. Private repos and SSH are still rough. Routing is manual today, so you wire bindings by hand.
+
+https://github.com/TencentCloud/TencentDB-Agent-Memory</textarea></div>
+  </div>
+  <textarea class="hidden" id="xall-v2" readonly>TencentDB Agent Memory took 8,003 stars last week. 19,024 total.
+
+Agent memory is a crowded category. This one splits memory four ways, and the split is the whole idea.
+
+Chat Memory distills a conversation through four layers.
+
+Raw discussion, then extracted facts, then scenario-organised blocks, then a long-term profile.
+
+Not one bucket of embeddings.
+
+Skill turns a finished task into a reusable workflow, carrying versions, trigger boundaries and validation rules.
+
+LLM-Wiki builds linked doc pages out of whatever you import.
+
+Code-Graph is the one I would actually use.
+
+It indexes files, symbols, call relationships and impact paths, so an agent can ask what a change will break before it makes it.
+
+But the decision worth stealing is the governance.
+
+Every asset is private, team, or restricted behind a real ACL. Agents get a curated loadout, not the whole org&#x27;s memory.
+
+Different roles, different loadouts.
+
+That matters the first time a contractor&#x27;s agent inherits your incident history.
+
+The cost, and the README is straight about it:
+
+Wiki and Code-Graph build async. Private repos and SSH are still rough. Routing is manual today, so you wire bindings by hand.
+
+https://github.com/TencentCloud/TencentDB-Agent-Memory</textarea>
+</article>
+<article class="spec">
+  <div class="head"><span class="tag">V3</span><h2 class="fmt">The number</h2></div>
+  <div class="meta">
+<div class="anchor">zhaoxuya520/reverse-skill</div>
+<div class="src">GITHUB &middot; <a href="https://github.com/zhaoxuya520/reverse-skill">https://github.com/zhaoxuya520/reverse-skill</a></div>
+<div>Steepest curve of the week, and it lines up with the safety-test story.</div>
+</div>
+<div class="flag"><b>Check</b><span>Read the description and star history, not the code. Takeaway is kept defensive.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>7</b> tweets &middot; longest <b>237</b>/280</span>
+      <button class="copy" data-target="xall-v3">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">zhaoxuya520/reverse-skill picked up 9,784 stars last week.
+
+It has 22,876 in total.
+
+So roughly 42% of everything it has ever earned arrived in seven days.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:55%"></i></span>
+      <span class="c"><b>155</b>/280</span>
+      <button class="copy" data-target="x-v3-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-1" readonly>zhaoxuya520/reverse-skill picked up 9,784 stars last week.
+
+It has 22,876 in total.
+
+So roughly 42% of everything it has ever earned arrived in seven days.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">What it is: a skill router for reverse engineering, authorized pentesting and security research.
+
+Routes the request, bootstraps the toolchain on demand, keeps a self-updating knowledge base. Plugs into Claude Code, Cursor, Cline, Kiro.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:84%"></i></span>
+      <span class="c"><b>236</b>/280</span>
+      <button class="copy" data-target="x-v3-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-2" readonly>What it is: a skill router for reverse engineering, authorized pentesting and security research.
+
+Routes the request, bootstraps the toolchain on demand, keeps a self-updating knowledge base. Plugs into Claude Code, Cursor, Cline, Kiro.</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">It is written in PowerShell, which tells you something about who is picking it up.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:29%"></i></span>
+      <span class="c"><b>82</b>/280</span>
+      <button class="copy" data-target="x-v3-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-3" readonly>It is written in PowerShell, which tells you something about who is picking it up.</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">The number interests me more than the repo.
+
+The same week this went vertical, TechCrunch ran a piece on AI agents escaping cybersecurity test environments and reaching real systems.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:65%"></i></span>
+      <span class="c"><b>182</b>/280</span>
+      <button class="copy" data-target="x-v3-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-4" readonly>The number interests me more than the repo.
+
+The same week this went vertical, TechCrunch ran a piece on AI agents escaping cybersecurity test environments and reaching real systems.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">One of those is a story about capability arriving.
+
+The other is a story about capability arriving somewhere nobody planned for.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:46%"></i></span>
+      <span class="c"><b>128</b>/280</span>
+      <button class="copy" data-target="x-v3-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-5" readonly>One of those is a story about capability arriving.
+
+The other is a story about capability arriving somewhere nobody planned for.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">Offensive tooling has always been dual use. What is new is the bootstrapping.
+
+A router that installs its own toolchain moves the floor from &quot;knows the tools&quot; to &quot;can describe the goal.&quot;
+
+That is a threat model change, not a convenience.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:85%"></i></span>
+      <span class="c"><b>237</b>/280</span>
+      <button class="copy" data-target="x-v3-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-6" readonly>Offensive tooling has always been dual use. What is new is the bootstrapping.
+
+A router that installs its own toolchain moves the floor from &quot;knows the tools&quot; to &quot;can describe the goal.&quot;
+
+That is a threat model change, not a convenience.</textarea>
+<div class="tw">
+  <div class="n">7</div>
+  <div class="cell">
+    <div class="txt">Red team has seen this already.
+
+Blue team, this is the week to go look.
+
+https://github.com/zhaoxuya520/reverse-skill</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:35%"></i></span>
+      <span class="c"><b>97</b>/280 &middot; 118 raw</span>
+      <button class="copy" data-target="x-v3-7">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-7" readonly>Red team has seen this already.
+
+Blue team, this is the week to go look.
+
+https://github.com/zhaoxuya520/reverse-skill</textarea></div>
+  </div>
+  <textarea class="hidden" id="xall-v3" readonly>zhaoxuya520/reverse-skill picked up 9,784 stars last week.
+
+It has 22,876 in total.
+
+So roughly 42% of everything it has ever earned arrived in seven days.
+
+What it is: a skill router for reverse engineering, authorized pentesting and security research.
+
+Routes the request, bootstraps the toolchain on demand, keeps a self-updating knowledge base. Plugs into Claude Code, Cursor, Cline, Kiro.
+
+It is written in PowerShell, which tells you something about who is picking it up.
+
+The number interests me more than the repo.
+
+The same week this went vertical, TechCrunch ran a piece on AI agents escaping cybersecurity test environments and reaching real systems.
+
+One of those is a story about capability arriving.
+
+The other is a story about capability arriving somewhere nobody planned for.
+
+Offensive tooling has always been dual use. What is new is the bootstrapping.
+
+A router that installs its own toolchain moves the floor from &quot;knows the tools&quot; to &quot;can describe the goal.&quot;
+
+That is a threat model change, not a convenience.
+
+Red team has seen this already.
+
+Blue team, this is the week to go look.
+
+https://github.com/zhaoxuya520/reverse-skill</textarea>
+</article>
+<article class="spec">
+  <div class="head"><span class="tag">V4</span><h2 class="fmt">The field note</h2></div>
+  <div class="meta">
+<div class="anchor">Coldtea.ai (Product Hunt, 511 upvotes)</div>
+<div class="src">PRODUCT HUNT &middot; <a href="https://www.producthunt.com/products/coldtea">https://www.producthunt.com/products/coldtea</a></div>
+<div>Names a failure mode every team shipping with agents is walking into.</div>
+</div>
+<div class="flag"><b>Check</b><span>First person is about the failure mode, not about using Coldtea.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>7</b> tweets &middot; longest <b>234</b>/280</span>
+      <button class="copy" data-target="xall-v4">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">Coldtea launched last week, 511 upvotes.
+
+An agentic IDE: coding agents build, QA agents catch regressions, a monitoring layer watches production.
+
+Its one-sentence pitch names something I have watched happen and never had a word for.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:84%"></i></span>
+      <span class="c"><b>234</b>/280</span>
+      <button class="copy" data-target="x-v4-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-1" readonly>Coldtea launched last week, 511 upvotes.
+
+An agentic IDE: coding agents build, QA agents catch regressions, a monitoring layer watches production.
+
+Its one-sentence pitch names something I have watched happen and never had a word for.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">&quot;The faster your team ships with AI, the harder it becomes to keep production stable.&quot;</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:31%"></i></span>
+      <span class="c"><b>86</b>/280</span>
+      <button class="copy" data-target="x-v4-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-2" readonly>&quot;The faster your team ships with AI, the harder it becomes to keep production stable.&quot;</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">When a person writes a feature, the tests get written by someone who knows which parts they were unsure about.
+
+That knowledge is not in the diff. It is why a good suite covers the weird branch instead of the happy path.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:79%"></i></span>
+      <span class="c"><b>220</b>/280</span>
+      <button class="copy" data-target="x-v4-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-3" readonly>When a person writes a feature, the tests get written by someone who knows which parts they were unsure about.
+
+That knowledge is not in the diff. It is why a good suite covers the weird branch instead of the happy path.</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">An agent does not carry that.
+
+It produces a change that is complete, tested against the spec you handed it, and confident.
+
+The uncertainty that used to generate the good tests never gets recorded.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:71%"></i></span>
+      <span class="c"><b>198</b>/280</span>
+      <button class="copy" data-target="x-v4-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-4" readonly>An agent does not carry that.
+
+It produces a change that is complete, tested against the spec you handed it, and confident.
+
+The uncertainty that used to generate the good tests never gets recorded.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">So coverage still looks fine, and the gaps move somewhere nobody is looking.
+
+Then you start shipping four a day instead of one a week.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:48%"></i></span>
+      <span class="c"><b>135</b>/280</span>
+      <button class="copy" data-target="x-v4-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-5" readonly>So coverage still looks fine, and the gaps move somewhere nobody is looking.
+
+Then you start shipping four a day instead of one a week.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">The real bet: verification has to become as automated as generation, because a human review queue does not scale to agent output.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:46%"></i></span>
+      <span class="c"><b>129</b>/280</span>
+      <button class="copy" data-target="x-v4-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-6" readonly>The real bet: verification has to become as automated as generation, because a human review queue does not scale to agent output.</textarea>
+<div class="tw">
+  <div class="n">7</div>
+  <div class="cell">
+    <div class="txt">The catch is that this is an agent checking an agent.
+
+It only pays off if the checker fails differently from the writer. Nobody has shown me that yet.
+
+https://www.producthunt.com/products/coldtea</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:63%"></i></span>
+      <span class="c"><b>176</b>/280 &middot; 197 raw</span>
+      <button class="copy" data-target="x-v4-7">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-7" readonly>The catch is that this is an agent checking an agent.
+
+It only pays off if the checker fails differently from the writer. Nobody has shown me that yet.
+
+https://www.producthunt.com/products/coldtea</textarea></div>
+  </div>
+  <textarea class="hidden" id="xall-v4" readonly>Coldtea launched last week, 511 upvotes.
+
+An agentic IDE: coding agents build, QA agents catch regressions, a monitoring layer watches production.
+
+Its one-sentence pitch names something I have watched happen and never had a word for.
+
+&quot;The faster your team ships with AI, the harder it becomes to keep production stable.&quot;
+
+When a person writes a feature, the tests get written by someone who knows which parts they were unsure about.
+
+That knowledge is not in the diff. It is why a good suite covers the weird branch instead of the happy path.
+
+An agent does not carry that.
+
+It produces a change that is complete, tested against the spec you handed it, and confident.
+
+The uncertainty that used to generate the good tests never gets recorded.
+
+So coverage still looks fine, and the gaps move somewhere nobody is looking.
+
+Then you start shipping four a day instead of one a week.
+
+The real bet: verification has to become as automated as generation, because a human review queue does not scale to agent output.
+
+The catch is that this is an agent checking an agent.
+
+It only pays off if the checker fails differently from the writer. Nobody has shown me that yet.
+
+https://www.producthunt.com/products/coldtea</textarea>
+</article>
+<article class="spec">
+  <div class="head"><span class="tag">V5</span><h2 class="fmt">The argument</h2></div>
+  <div class="meta">
+<div class="anchor">Prevent cognitive debt by manually retyping LLM-generated code</div>
+<div class="src">HACKER NEWS &middot; <a href="https://news.ycombinator.com/item?id=49153374">https://news.ycombinator.com/item?id=49153374</a></div>
+<div>Highest comment-to-point ratio of the week&#x27;s deep cuts, and a real two-sided argument.</div>
+</div>
+<div class="flag"><b>Check</b><span>Post was fetched and read; the numbers are paraphrase, not direct quotes.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>7</b> tweets &middot; longest <b>216</b>/280</span>
+      <button class="copy" data-target="xall-v5">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">540 points on Hacker News for the least efficient coding advice of the year:
+
+never let the model edit your files. Have it print the code in chat, then retype every line by hand.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:64%"></i></span>
+      <span class="c"><b>178</b>/280</span>
+      <button class="copy" data-target="x-v5-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-1" readonly>540 points on Hacker News for the least efficient coding advice of the year:
+
+never let the model edit your files. Have it print the code in chat, then retype every line by hand.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">The author calls what this prevents cognitive debt.
+
+The understanding you quietly stop having when you accept code you did not read.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:48%"></i></span>
+      <span class="c"><b>133</b>/280</span>
+      <button class="copy" data-target="x-v5-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-2" readonly>The author calls what this prevents cognitive debt.
+
+The understanding you quietly stop having when you accept code you did not read.</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">His own accounting is what makes it credible.
+
+No 10x claim. He puts himself at roughly twice as fast as working without an LLM at all, and takes that trade on purpose.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:60%"></i></span>
+      <span class="c"><b>168</b>/280</span>
+      <button class="copy" data-target="x-v5-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-3" readonly>His own accounting is what makes it credible.
+
+No 10x claim. He puts himself at roughly twice as fast as working without an LLM at all, and takes that trade on purpose.</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">For it: typing is slow enough to catch a hallucination that reading skims past.
+
+It builds what he calls a spatial map of the codebase. And you refactor while you transcribe, so the code lands better than it arrived.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:77%"></i></span>
+      <span class="c"><b>216</b>/280</span>
+      <button class="copy" data-target="x-v5-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-4" readonly>For it: typing is slow enough to catch a hallucination that reading skims past.
+
+It builds what he calls a spatial map of the codebase. And you refactor while you transcribe, so the code lands better than it arrived.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">Against: it does not scale past one person on one codebase.
+
+Nobody retypes a 400 line migration.
+
+And it assumes you will still be maintaining this code in two years, which is often just false.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:69%"></i></span>
+      <span class="c"><b>194</b>/280</span>
+      <button class="copy" data-target="x-v5-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-5" readonly>Against: it does not scale past one person on one codebase.
+
+Nobody retypes a 400 line migration.
+
+And it assumes you will still be maintaining this code in two years, which is often just false.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">Where I land: right about the mechanism, wrong about the remedy.
+
+The problem is not that you did not type it. It is that you never had to form an opinion about it before it merged.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:65%"></i></span>
+      <span class="c"><b>181</b>/280</span>
+      <button class="copy" data-target="x-v5-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-6" readonly>Where I land: right about the mechanism, wrong about the remedy.
+
+The problem is not that you did not type it. It is that you never had to form an opinion about it before it merged.</textarea>
+<div class="tw">
+  <div class="n">7</div>
+  <div class="cell">
+    <div class="txt">Retyping forces that. A review you actually do forces it too, and costs less.
+
+Most of us stopped doing that one honestly around the time diffs got too long to read.
+
+https://ankursethi.com/blog/prevent-cognitive-debt-by-manually-retyping-llm-generated-code/</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:68%"></i></span>
+      <span class="c"><b>190</b>/280 &middot; 258 raw</span>
+      <button class="copy" data-target="x-v5-7">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-7" readonly>Retyping forces that. A review you actually do forces it too, and costs less.
+
+Most of us stopped doing that one honestly around the time diffs got too long to read.
+
+https://ankursethi.com/blog/prevent-cognitive-debt-by-manually-retyping-llm-generated-code/</textarea></div>
+  </div>
+  <textarea class="hidden" id="xall-v5" readonly>540 points on Hacker News for the least efficient coding advice of the year:
+
+never let the model edit your files. Have it print the code in chat, then retype every line by hand.
+
+The author calls what this prevents cognitive debt.
+
+The understanding you quietly stop having when you accept code you did not read.
+
+His own accounting is what makes it credible.
+
+No 10x claim. He puts himself at roughly twice as fast as working without an LLM at all, and takes that trade on purpose.
+
+For it: typing is slow enough to catch a hallucination that reading skims past.
+
+It builds what he calls a spatial map of the codebase. And you refactor while you transcribe, so the code lands better than it arrived.
+
+Against: it does not scale past one person on one codebase.
+
+Nobody retypes a 400 line migration.
+
+And it assumes you will still be maintaining this code in two years, which is often just false.
+
+Where I land: right about the mechanism, wrong about the remedy.
+
+The problem is not that you did not type it. It is that you never had to form an opinion about it before it merged.
+
+Retyping forces that. A review you actually do forces it too, and costs less.
+
+Most of us stopped doing that one honestly around the time diffs got too long to read.
+
+https://ankursethi.com/blog/prevent-cognitive-debt-by-manually-retyping-llm-generated-code/</textarea>
+</article>
+  <p class="note">Replace <code>[link to aiBytes_ #4]</code> with the live issue URL before posting. Post tweet 1 first, then reply down the stack in order.</p>
+</div>
+<script>
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest('button.copy');
+  if (!btn) return;
+  var src = document.getElementById(btn.dataset.target);
+  if (!src) return;
+  var text = src.value;
+  var done = function () {
+    var was = btn.textContent;
+    btn.textContent = 'Copied';
+    btn.classList.add('done');
+    setTimeout(function () { btn.textContent = was; btn.classList.remove('done'); }, 1600);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, function () { fallback(src, done); });
+  } else {
+    fallback(src, done);
+  }
+});
+function fallback(src, done) {
+  src.classList.remove('hidden');
+  src.select();
+  try { document.execCommand('copy'); done(); } catch (err) {}
+  src.classList.add('hidden');
+}
+</script>

@@ -11,6 +11,7 @@
   :root{
     --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
     --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
+    --butter:#FFF6D9; --butter-line:#F0E2AE; --amber:#8A6A00;
     --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -25,12 +26,13 @@
   .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
   .logo em{font-style:normal;color:var(--cobalt)}
 
-  /* ── TL;DR block: the signature ── */
-  .tldr{background:var(--ink);color:var(--paper);padding:20px 22px;margin-top:18px;
+  /* ── Closing block: the signature. Butter panel, notch, idea text at 500 ── */
+  .tldr{background:var(--butter);border:1px solid var(--butter-line);color:var(--ink);
+        padding:20px 22px;margin-top:18px;
         clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}
-  .tldr .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--signal)}
-  .tldr p{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.5;margin-top:8px}
-  .tldr b{color:var(--signal);font-weight:700}
+  .tldr .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--amber)}
+  .tldr p{font-family:var(--display);font-weight:500;font-size:17px;line-height:1.55;margin-top:8px;color:var(--ink)}
+  .tldr b{background:var(--signal);padding:0 4px;color:var(--ink);font-weight:700}
 
   section{margin-top:34px}
   .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
@@ -52,9 +54,11 @@
   .news-item:last-of-type{margin-bottom:0}
   .news-item b a{font-weight:700}
   .src{font-family:var(--mono);font-size:12px;color:var(--slate)}
+  /* Attribution links stay grey and quiet - the headline link is the loud one. */
+  .src a{color:var(--slate);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+  .src a:hover{color:var(--ink)}
   .quote{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px 18px;margin-top:18px}
   .quote p{font-size:15px;color:#3A3E4A}
-  .quote .who{margin-top:10px;font-size:14px;color:var(--slate)}
 
   /* ── Ticker rows ── */
   .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
@@ -85,9 +89,10 @@
          comment/upvote/star count anywhere in here - say what the number meant.
          1. GREETING - fixed line, "Good morning, builders 👋". "builders" is the
             standing name for the audience; do not swap it issue to issue.
-         2. WELCOME + HOOK - the standing "dose of aiBytes_" line ({{WEEKDAY}} comes
-            from the issue date), then a first-person hook: what surprised you while
-            putting the issue together, in your own voice. One light emoji is fine.
+         2. WELCOME + HOOK - the standing "dose of aiBytes_" line ({{WEEKDAY}} is
+            Monday; the newsletter always sends Monday morning), then a first-person
+            hook: what surprised you while putting the issue together, in your own
+            voice. One light emoji is fine.
          3. STORYLINE - the thread connecting the week's items; <b> lead + one inline link.
          4. TODAY - a menu of what's below, so a skimmer knows what they're scrolling
             into. This replaces the old "Let's dive in." sign-off; do not add one. -->
@@ -106,17 +111,18 @@
       -->
       {{NEWS_ITEMS}}
 
+      <!-- Callout only. No attribution line - the quote is the issue talking to itself. -->
       <div class="quote">
         <p>"{{QUOTE_TEXT}}"</p>
-        <p class="who">- {{QUOTE_WHO}}</p>
       </div>
     </div>
   </section>
 
   <section>
     <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Launches</h2><div class="sec-rule"></div></div>
-    <!-- Repeat per launch. Pattern:
-    <div class="row"><span class="ico">🎬</span><span class="txt"><b><a href="URL">Name</a></b> - one-line description.</span><span class="stat"><b>▲ 776</b></span></div>
+    <!-- Repeat per launch. The name links to the product's OWN website; the trailing
+    (ProductHunt) links to the launch page. Plain URLs, no tracking params. Pattern:
+    <div class="row"><span class="ico">🎬</span><span class="txt"><b><a href="SITE_URL">Name</a></b> - one-line description. <span class="src">(<a href="PH_LAUNCH_URL">ProductHunt</a>)</span></span><span class="stat"><b>▲ 776</b></span></div>
     -->
     {{LAUNCH_ROWS}}
   </section>
@@ -131,8 +137,9 @@
 
   <section>
     <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">HN Deep Cuts</h2><div class="sec-rule"></div></div>
-    <!-- Repeat per post. Pattern:
-    <div class="row"><span class="ico">📊</span><span class="txt"><b><a href="URL">Post title</a></b> optional context.</span><span class="stat"><b>699</b> pts</span></div>
+    <!-- Repeat per post. The title links to the ARTICLE; the trailing (HackerNews)
+    links to the thread. Pattern:
+    <div class="row"><span class="ico">📊</span><span class="txt"><b><a href="ARTICLE_URL">Post title</a></b> optional context. <span class="src">(<a href="HN_THREAD_URL">HackerNews</a>)</span></span><span class="stat"><b>699</b> pts</span></div>
     Add "· N 💬" to the stat when the comment count is itself the story. -->
     {{HN_ROWS}}
   </section>

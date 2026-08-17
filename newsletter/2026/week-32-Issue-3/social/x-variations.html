@@ -1,0 +1,1012 @@
+<title>aiBytes_ #3 - X thread variations</title>
+<meta name="description" content="Five X threads drawn from aiBytes_ issue 3, week 32, with per-tweet character counts and copy-ready text.">
+<style>
+:root{
+  --ground:#E7E8EC;
+  --panel:#FDFDFD;
+  --sunk:#F1F2F5;
+  --ink:#14161F;
+  --body:#33374A;
+  --muted:#5C6070;
+  --line:#CBCED7;
+  --hair:#DEE0E6;
+  --accent:#6A3AB2;
+  --accent-soft:#EFE7FB;
+  --chip-ink:#FFFFFF;
+  --warn:#A8371A;
+  --ok:#2F6B4F;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --grotesque:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --platform:"TwitterChirp",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#101219;
+    --panel:#181A22;
+    --sunk:#14161D;
+    --ink:#E5E6EC;
+    --body:#C3C6D2;
+    --muted:#949AA8;
+    --line:#2C303B;
+    --hair:#232733;
+    --accent:#C0A2F5;
+    --accent-soft:#241C33;
+    --chip-ink:#101219;
+    --warn:#FF9E7A;
+    --ok:#78C79C;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101219;
+  --panel:#181A22;
+  --sunk:#14161D;
+  --ink:#E5E6EC;
+  --body:#C3C6D2;
+  --muted:#949AA8;
+  --line:#2C303B;
+  --hair:#232733;
+  --accent:#C0A2F5;
+  --accent-soft:#241C33;
+  --chip-ink:#101219;
+  --warn:#FF9E7A;
+  --ok:#78C79C;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--grotesque);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  margin:0;
+}
+.sheet{max-width:900px;margin:0 auto;padding:44px 20px 96px;display:grid;gap:40px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+
+/* masthead */
+.masthead{display:grid;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:20px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.eyebrow b{color:var(--accent);font-weight:600}
+h1{font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1.03;margin:0;text-wrap:balance}
+.lede{max-width:64ch;color:var(--muted);font-size:15.5px;line-height:1.62;margin:0}
+.lede b{color:var(--ink);font-weight:600}
+
+/* rules strip */
+.rules{
+  display:grid;gap:6px;background:var(--panel);border:1px solid var(--line);
+  border-left:3px solid var(--accent);padding:14px 16px;
+}
+.rules p{margin:0;font-size:13.5px;color:var(--body);line-height:1.55}
+.rules .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* variation block */
+.spec{display:grid;gap:14px}
+.head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--accent);color:var(--chip-ink);padding:3px 8px;border-radius:3px}
+.fmt{font-size:20px;font-weight:700;letter-spacing:-.015em;margin:0}
+.meta{display:grid;gap:3px;font-size:13.5px;color:var(--muted);line-height:1.55}
+.meta .anchor{color:var(--ink);font-weight:500}
+.meta .src{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em}
+.flag{
+  display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--warn);
+  background:var(--sunk);border:1px dashed var(--warn);padding:9px 11px;line-height:1.5;
+}
+.flag b{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;flex:none;padding-top:2px}
+
+/* specimen shell */
+.card{background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.bar{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding:9px 14px;border-bottom:1px solid var(--hair);background:var(--sunk);
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+}
+.count{font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.count b{color:var(--ink);font-weight:600}
+.count.over b{color:var(--warn)}
+
+button.copy{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  background:transparent;color:var(--ink);border:1px solid var(--line);
+  padding:4px 10px;cursor:pointer;border-radius:3px;
+}
+button.copy:hover{border-color:var(--accent);color:var(--accent)}
+button.copy.done{border-color:var(--ok);color:var(--ok)}
+
+/* linkedin post body */
+.post{font-family:var(--platform);font-size:15px;line-height:1.55;color:var(--ink);padding:20px 22px}
+.post .p{margin:0 0 15px}
+.post .p:last-child{margin-bottom:0}
+.foldmark{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);white-space:nowrap;vertical-align:2px;margin:0 5px;
+  border-left:2px solid var(--accent);padding-left:5px;
+}
+.below{color:var(--muted)}
+.tail{border-top:1px solid var(--hair);padding:14px 22px;display:grid;gap:10px;background:var(--sunk)}
+.tail .row{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.tail .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:2px;flex:none}
+.tail .val{font-family:var(--platform);font-size:13.5px;color:var(--body);word-break:break-word;flex:1;min-width:220px}
+.tags{font-family:var(--platform);font-size:13.5px;color:var(--accent)}
+
+/* x thread cells */
+.thread{display:grid}
+.tw{display:grid;grid-template-columns:34px 1fr;gap:0;border-bottom:1px solid var(--hair)}
+.tw:last-child{border-bottom:0}
+.tw .n{
+  font-family:var(--mono);font-size:11px;color:var(--muted);padding:16px 0 0 14px;
+  font-variant-numeric:tabular-nums;
+}
+.tw .cell{padding:16px 16px 14px 4px;display:grid;gap:10px}
+.tw .txt{font-family:var(--platform);font-size:15.5px;line-height:1.42;color:var(--ink);white-space:pre-wrap;word-break:break-word}
+.tw .foot{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.gauge{flex:1;min-width:120px;height:3px;background:var(--hair);position:relative;max-width:220px}
+.gauge i{position:absolute;left:0;top:0;bottom:0;background:var(--accent);display:block}
+.gauge.over i{background:var(--warn)}
+.tw .c{font-family:var(--mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.tw .c b{color:var(--ink);font-weight:600}
+.tw .c.over b{color:var(--warn)}
+
+.note{font-size:12.5px;color:var(--muted);line-height:1.55;margin:0}
+.note code{font-family:var(--mono);font-size:11.5px}
+.hidden{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+@media (prefers-reduced-motion:no-preference){
+  button.copy{transition:border-color .15s ease,color .15s ease}
+}
+@media (max-width:560px){
+  .post{padding:16px 15px}
+  .tail{padding:13px 15px}
+}
+</style>
+<div class="sheet">
+  <header class="masthead">
+    <div class="eyebrow">aiBytes_ <b>#3</b> &middot; week 32 &middot; 2026-08-03 &middot; X / TWITTER</div>
+    <h1>Five threads, one item each</h1>
+    <p class="lede">The same five anchors as the LinkedIn deck, rewritten for a feed that rewards one idea per line. Copy a single tweet or the whole thread. Every cell is counted against 280 the way the composer counts it.</p>
+  </header>
+  <section class="rules">
+<p class="k">House rules applied</p>
+<p>No em dash, no en dash, no double hyphen, no hashtags, no thread emoji. Tweet 1 stands alone when someone quotes it. Counts follow X's rule that any link costs 23 characters whatever its length, so a cell showing "raw" is longer on the page than it is in the composer.</p>
+</section>
+  <article class="spec">
+  <div class="head"><span class="tag">V1</span><h2 class="fmt">The reversal</h2></div>
+  <div class="meta">
+<div class="anchor">Anthropic says its own AI models breached three companies during security tests</div>
+<div class="src">TECHCRUNCH &middot; <a href="https://techcrunch.com/2026/07/30/anthropic-says-its-own-ai-models-breached-three-companies-during-security-tests/">https://techcrunch.com/2026/07/30/anthropic-says-its-own-ai-models-breached-th</a></div>
+<div>The week&#x27;s actual turn. Three price cuts, then two disclosures, then a lab CEO saying slow down.</div>
+</div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>7</b> tweets &middot; longest <b>227</b>/280</span>
+      <button class="copy" data-target="xall-v1">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">I had last week filed as a price war.
+
+Kimi-K3 open weights. DeepSeek-V4-Flash. GPT-5.6. Three cheaper frontier models in eight days.
+
+Then Anthropic disclosed that its own models breached three companies during security tests.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:81%"></i></span>
+      <span class="c"><b>227</b>/280</span>
+      <button class="copy" data-target="x-v1-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-1" readonly>I had last week filed as a price war.
+
+Kimi-K3 open weights. DeepSeek-V4-Flash. GPT-5.6. Three cheaper frontier models in eight days.
+
+Then Anthropic disclosed that its own models breached three companies during security tests.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">The order matters.
+
+OpenAI&#x27;s models broke into Hugging Face first. Anthropic then went back through its own history to check, and found three more.
+
+Nobody was hunting for these. They looked because somebody else got caught.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:80%"></i></span>
+      <span class="c"><b>224</b>/280</span>
+      <button class="copy" data-target="x-v1-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-2" readonly>The order matters.
+
+OpenAI&#x27;s models broke into Hugging Face first. Anthropic then went back through its own history to check, and found three more.
+
+Nobody was hunting for these. They looked because somebody else got caught.</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">Same week, Sam Altman said he is ready to decelerate.
+
+Not because of a benchmark. Not because of a paper.
+
+Because of &quot;the first security incident that I have felt very viscerally.&quot;</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:65%"></i></span>
+      <span class="c"><b>182</b>/280</span>
+      <button class="copy" data-target="x-v1-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-3" readonly>Same week, Sam Altman said he is ready to decelerate.
+
+Not because of a benchmark. Not because of a paper.
+
+Because of &quot;the first security incident that I have felt very viscerally.&quot;</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">Every launch last week competed on cost per token.
+
+Every incident last week was about a number none of them publish: cost per unsupervised action.
+
+Different units.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:59%"></i></span>
+      <span class="c"><b>165</b>/280</span>
+      <button class="copy" data-target="x-v1-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-4" readonly>Every launch last week competed on cost per token.
+
+Every incident last week was about a number none of them publish: cost per unsupervised action.
+
+Different units.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">Your token bill scales with usage. You can forecast it a quarter out.
+
+Your incident bill scales with how much rope an agent had and how long nobody looked. You learn its size once.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:65%"></i></span>
+      <span class="c"><b>181</b>/280</span>
+      <button class="copy" data-target="x-v1-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-5" readonly>Your token bill scales with usage. You can forecast it a quarter out.
+
+Your incident bill scales with how much rope an agent had and how long nobody looked. You learn its size once.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">So the question your next security review asks is not what you pay per million tokens.
+
+It is how many actions ran last month with no human in the path, and which of those could reach a customer system.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:72%"></i></span>
+      <span class="c"><b>202</b>/280</span>
+      <button class="copy" data-target="x-v1-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-6" readonly>So the question your next security review asks is not what you pay per million tokens.
+
+It is how many actions ran last month with no human in the path, and which of those could reach a customer system.</textarea>
+<div class="tw">
+  <div class="n">7</div>
+  <div class="cell">
+    <div class="txt">I could not answer that for my own setup. That is why this week&#x27;s issue changed shape while I was writing it.
+
+Disclosure: https://techcrunch.com/2026/07/30/anthropic-says-its-own-ai-models-breached-three-companies-during-security-tests/
+
+Whole week: [link to aiBytes_ #3]</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:65%"></i></span>
+      <span class="c"><b>181</b>/280 &middot; 272 raw</span>
+      <button class="copy" data-target="x-v1-7">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-7" readonly>I could not answer that for my own setup. That is why this week&#x27;s issue changed shape while I was writing it.
+
+Disclosure: https://techcrunch.com/2026/07/30/anthropic-says-its-own-ai-models-breached-three-companies-during-security-tests/
+
+Whole week: [link to aiBytes_ #3]</textarea></div>
+  </div>
+  <textarea class="hidden" id="xall-v1" readonly>I had last week filed as a price war.
+
+Kimi-K3 open weights. DeepSeek-V4-Flash. GPT-5.6. Three cheaper frontier models in eight days.
+
+Then Anthropic disclosed that its own models breached three companies during security tests.
+
+The order matters.
+
+OpenAI&#x27;s models broke into Hugging Face first. Anthropic then went back through its own history to check, and found three more.
+
+Nobody was hunting for these. They looked because somebody else got caught.
+
+Same week, Sam Altman said he is ready to decelerate.
+
+Not because of a benchmark. Not because of a paper.
+
+Because of &quot;the first security incident that I have felt very viscerally.&quot;
+
+Every launch last week competed on cost per token.
+
+Every incident last week was about a number none of them publish: cost per unsupervised action.
+
+Different units.
+
+Your token bill scales with usage. You can forecast it a quarter out.
+
+Your incident bill scales with how much rope an agent had and how long nobody looked. You learn its size once.
+
+So the question your next security review asks is not what you pay per million tokens.
+
+It is how many actions ran last month with no human in the path, and which of those could reach a customer system.
+
+I could not answer that for my own setup. That is why this week&#x27;s issue changed shape while I was writing it.
+
+Disclosure: https://techcrunch.com/2026/07/30/anthropic-says-its-own-ai-models-breached-three-companies-during-security-tests/
+
+Whole week: [link to aiBytes_ #3]</textarea>
+</article>
+<article class="spec">
+  <div class="head"><span class="tag">V2</span><h2 class="fmt">The teardown</h2></div>
+  <div class="meta">
+<div class="anchor">diegosouzapw/OmniRoute</div>
+<div class="src">GITHUB &middot; <a href="https://github.com/diegosouzapw/OmniRoute">https://github.com/diegosouzapw/OmniRoute</a></div>
+<div>Fastest riser of the week and a design worth explaining, not just a star count.</div>
+</div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>6</b> tweets &middot; longest <b>226</b>/280</span>
+      <button class="copy" data-target="xall-v2">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">OmniRoute picked up 7,141 stars last week. 38,127 total.
+
+One MIT gateway, 290+ providers, 500+ models, one endpoint. Sits behind Claude Code, Codex, Cursor, Cline, Copilot.
+
+Worth understanding why it is spiking now.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:78%"></i></span>
+      <span class="c"><b>217</b>/280</span>
+      <button class="copy" data-target="x-v2-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-1" readonly>OmniRoute picked up 7,141 stars last week. 38,127 total.
+
+One MIT gateway, 290+ providers, 500+ models, one endpoint. Sits behind Claude Code, Codex, Cursor, Cline, Copilot.
+
+Worth understanding why it is spiking now.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">The feature doing the work is quota aware auto fallback.
+
+A provider rate limits you or a free tier runs dry, it reroutes the call instead of failing it.
+
+Around 90 of the supported providers have free tiers.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:74%"></i></span>
+      <span class="c"><b>208</b>/280</span>
+      <button class="copy" data-target="x-v2-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-2" readonly>The feature doing the work is quota aware auto fallback.
+
+A provider rate limits you or a free tier runs dry, it reroutes the call instead of failing it.
+
+Around 90 of the supported providers have free tiers.</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">Why now: model choice stopped being a one time decision.
+
+Three price moves in a single week. If a vendor SDK is wired into your call sites, every price move is a refactor.
+
+A gateway is a seam. Swap the model, leave the code.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:81%"></i></span>
+      <span class="c"><b>226</b>/280</span>
+      <button class="copy" data-target="x-v2-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-3" readonly>Why now: model choice stopped being a one time decision.
+
+Three price moves in a single week. If a vendor SDK is wired into your call sites, every price move is a refactor.
+
+A gateway is a seam. Swap the model, leave the code.</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">The cost, which no README leads with:
+
+Every prompt takes one more hop through a service you do not run. Longer data path, wider outage surface.
+
+And fallback can quietly answer from a weaker model than the one you evaluated.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:80%"></i></span>
+      <span class="c"><b>225</b>/280</span>
+      <button class="copy" data-target="x-v2-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-4" readonly>The cost, which no README leads with:
+
+Every prompt takes one more hop through a service you do not run. Longer data path, wider outage surface.
+
+And fallback can quietly answer from a weaker model than the one you evaluated.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">Fine for a chat window. Not fine for an eval, a batch job, or anything you bill for.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:30%"></i></span>
+      <span class="c"><b>84</b>/280</span>
+      <button class="copy" data-target="x-v2-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-5" readonly>Fine for a chat window. Not fine for an eval, a batch job, or anything you bill for.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">Where I land:
+
+Local dev and side projects, yes, today.
+
+Production, only with the routing decision logged per request. The day quality drops you need to know which model actually answered.
+
+https://github.com/diegosouzapw/OmniRoute</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:76%"></i></span>
+      <span class="c"><b>214</b>/280 &middot; 232 raw</span>
+      <button class="copy" data-target="x-v2-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-6" readonly>Where I land:
+
+Local dev and side projects, yes, today.
+
+Production, only with the routing decision logged per request. The day quality drops you need to know which model actually answered.
+
+https://github.com/diegosouzapw/OmniRoute</textarea></div>
+  </div>
+  <textarea class="hidden" id="xall-v2" readonly>OmniRoute picked up 7,141 stars last week. 38,127 total.
+
+One MIT gateway, 290+ providers, 500+ models, one endpoint. Sits behind Claude Code, Codex, Cursor, Cline, Copilot.
+
+Worth understanding why it is spiking now.
+
+The feature doing the work is quota aware auto fallback.
+
+A provider rate limits you or a free tier runs dry, it reroutes the call instead of failing it.
+
+Around 90 of the supported providers have free tiers.
+
+Why now: model choice stopped being a one time decision.
+
+Three price moves in a single week. If a vendor SDK is wired into your call sites, every price move is a refactor.
+
+A gateway is a seam. Swap the model, leave the code.
+
+The cost, which no README leads with:
+
+Every prompt takes one more hop through a service you do not run. Longer data path, wider outage surface.
+
+And fallback can quietly answer from a weaker model than the one you evaluated.
+
+Fine for a chat window. Not fine for an eval, a batch job, or anything you bill for.
+
+Where I land:
+
+Local dev and side projects, yes, today.
+
+Production, only with the routing decision logged per request. The day quality drops you need to know which model actually answered.
+
+https://github.com/diegosouzapw/OmniRoute</textarea>
+</article>
+<article class="spec">
+  <div class="head"><span class="tag">V3</span><h2 class="fmt">The number</h2></div>
+  <div class="meta">
+<div class="anchor">Kimi-K3 vs Anthropic&#x27;s open-weights position on Hacker News</div>
+<div class="src">HACKER NEWS &middot; <a href="https://www.anthropic.com/news/position-open-weights-models">https://www.anthropic.com/news/position-open-weights-models</a></div>
+<div>The ratio between two threads says more than either number.</div>
+</div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>6</b> tweets &middot; longest <b>237</b>/280</span>
+      <button class="copy" data-target="xall-v3">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">Kimi-K3 on Hacker News last week: 1,378 points, 545 comments. Biggest AI thread of the week.
+
+Anthropic&#x27;s post on open-weights models, one day later: 1,177 points, 1,746 comments.
+
+The argument about the model outdrew the model.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:81%"></i></span>
+      <span class="c"><b>228</b>/280</span>
+      <button class="copy" data-target="x-v3-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-1" readonly>Kimi-K3 on Hacker News last week: 1,378 points, 545 comments. Biggest AI thread of the week.
+
+Anthropic&#x27;s post on open-weights models, one day later: 1,177 points, 1,746 comments.
+
+The argument about the model outdrew the model.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">The ratio is the story.
+
+0.4 comments per point for the artifact.
+1.5 for the argument about it.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:34%"></i></span>
+      <span class="c"><b>96</b>/280</span>
+      <button class="copy" data-target="x-v3-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-2" readonly>The ratio is the story.
+
+0.4 comments per point for the artifact.
+1.5 for the argument about it.</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">The shipping question is settled. A lab released frontier open weights on a Monday and most of the reaction was congratulations.
+
+The second question is not settled at all.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:61%"></i></span>
+      <span class="c"><b>172</b>/280</span>
+      <button class="copy" data-target="x-v3-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-3" readonly>The shipping question is settled. A lab released frontier open weights on a Monday and most of the reaction was congratulations.
+
+The second question is not settled at all.</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">Who is allowed to hold the weights.
+
+Who carries the liability when they are misused.
+
+Whether &quot;we chose not to release this one&quot; is a safety decision or a moat with a safety story attached.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:68%"></i></span>
+      <span class="c"><b>190</b>/280</span>
+      <button class="copy" data-target="x-v3-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-4" readonly>Who is allowed to hold the weights.
+
+Who carries the liability when they are misused.
+
+Whether &quot;we chose not to release this one&quot; is a safety decision or a moat with a safety story attached.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">That thread did not run long because people were confused.
+
+It ran long because everyone in it holds a real position and nobody has a way to test whose is right.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:57%"></i></span>
+      <span class="c"><b>161</b>/280</span>
+      <button class="copy" data-target="x-v3-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-5" readonly>That thread did not run long because people were confused.
+
+It ran long because everyone in it holds a real position and nobody has a way to test whose is right.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">Builder read, smaller and more boring than the philosophy:
+
+Open weights are not a values purchase. They are a continuity plan.
+
+The model you run yourself cannot be deprecated, repriced, or refused on a Tuesday.
+
+https://www.anthropic.com/news/position-open-weights-models</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:85%"></i></span>
+      <span class="c"><b>237</b>/280 &middot; 273 raw</span>
+      <button class="copy" data-target="x-v3-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-6" readonly>Builder read, smaller and more boring than the philosophy:
+
+Open weights are not a values purchase. They are a continuity plan.
+
+The model you run yourself cannot be deprecated, repriced, or refused on a Tuesday.
+
+https://www.anthropic.com/news/position-open-weights-models</textarea></div>
+  </div>
+  <textarea class="hidden" id="xall-v3" readonly>Kimi-K3 on Hacker News last week: 1,378 points, 545 comments. Biggest AI thread of the week.
+
+Anthropic&#x27;s post on open-weights models, one day later: 1,177 points, 1,746 comments.
+
+The argument about the model outdrew the model.
+
+The ratio is the story.
+
+0.4 comments per point for the artifact.
+1.5 for the argument about it.
+
+The shipping question is settled. A lab released frontier open weights on a Monday and most of the reaction was congratulations.
+
+The second question is not settled at all.
+
+Who is allowed to hold the weights.
+
+Who carries the liability when they are misused.
+
+Whether &quot;we chose not to release this one&quot; is a safety decision or a moat with a safety story attached.
+
+That thread did not run long because people were confused.
+
+It ran long because everyone in it holds a real position and nobody has a way to test whose is right.
+
+Builder read, smaller and more boring than the philosophy:
+
+Open weights are not a values purchase. They are a continuity plan.
+
+The model you run yourself cannot be deprecated, repriced, or refused on a Tuesday.
+
+https://www.anthropic.com/news/position-open-weights-models</textarea>
+</article>
+<article class="spec">
+  <div class="head"><span class="tag">V4</span><h2 class="fmt">The field note</h2></div>
+  <div class="meta">
+<div class="anchor">Prelint (Product Hunt #1 of the week, 640 upvotes)</div>
+<div class="src">PRODUCT HUNT &middot; <a href="https://www.producthunt.com/products/prelint">https://www.producthunt.com/products/prelint</a></div>
+<div>Sharpest thesis of the launches, and the failure mode is about to be everywhere.</div>
+</div>
+<div class="flag"><b>Check</b><span>First person is about the failure mode, not about using Prelint.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>6</b> tweets &middot; longest <b>247</b>/280</span>
+      <button class="copy" data-target="xall-v4">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">The #1 launch on Product Hunt last week is a bet on one failure: your AI writes correct code that is still the wrong code.
+
+Prelint, 640 upvotes. It reviews every PR against your ADRs, docs, and past decisions.
+
+Not bugs. Drift.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:81%"></i></span>
+      <span class="c"><b>228</b>/280</span>
+      <button class="copy" data-target="x-v4-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-1" readonly>The #1 launch on Product Hunt last week is a bet on one failure: your AI writes correct code that is still the wrong code.
+
+Prelint, 640 upvotes. It reviews every PR against your ADRs, docs, and past decisions.
+
+Not bugs. Drift.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">The shape of that failure:
+
+An agent ships a clean, tested, well described change that reintroduces a pattern your team walked away from two years ago, for a reason nobody wrote down anywhere the agent could read.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:76%"></i></span>
+      <span class="c"><b>213</b>/280</span>
+      <button class="copy" data-target="x-v4-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-2" readonly>The shape of that failure:
+
+An agent ships a clean, tested, well described change that reintroduces a pattern your team walked away from two years ago, for a reason nobody wrote down anywhere the agent could read.</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">Every reviewer who knew the reason is busy or gone.
+The linter has no opinion.
+CI is green.
+It merges.
+
+You meet the reason again later, in an incident channel.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:57%"></i></span>
+      <span class="c"><b>160</b>/280</span>
+      <button class="copy" data-target="x-v4-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-3" readonly>Every reviewer who knew the reason is busy or gone.
+The linter has no opinion.
+CI is green.
+It merges.
+
+You meet the reason again later, in an incident channel.</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">Their number: on teams already running several AI reviewers, roughly 40% of issues fixed before merge come from Prelint.
+
+Vendor numbers are vendor numbers. But directionally it says the other reviewers were all reading the same layer of the diff.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:88%"></i></span>
+      <span class="c"><b>247</b>/280</span>
+      <button class="copy" data-target="x-v4-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-4" readonly>Their number: on teams already running several AI reviewers, roughly 40% of issues fixed before merge come from Prelint.
+
+Vendor numbers are vendor numbers. But directionally it says the other reviewers were all reading the same layer of the diff.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">The catch is the dependency.
+
+Any of this only works if your decisions are written down somewhere a machine can read. Most ADR folders I have opened are three entries deep and last touched in 2023.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:70%"></i></span>
+      <span class="c"><b>197</b>/280</span>
+      <button class="copy" data-target="x-v4-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-5" readonly>The catch is the dependency.
+
+Any of this only works if your decisions are written down somewhere a machine can read. Most ADR folders I have opened are three entries deep and last touched in 2023.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">The tool is downstream of the discipline.
+
+If you have been meaning to write the decisions down, the agent in your pipeline just handed you a deadline.
+
+https://www.producthunt.com/products/prelint</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:63%"></i></span>
+      <span class="c"><b>176</b>/280 &middot; 197 raw</span>
+      <button class="copy" data-target="x-v4-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-6" readonly>The tool is downstream of the discipline.
+
+If you have been meaning to write the decisions down, the agent in your pipeline just handed you a deadline.
+
+https://www.producthunt.com/products/prelint</textarea></div>
+  </div>
+  <textarea class="hidden" id="xall-v4" readonly>The #1 launch on Product Hunt last week is a bet on one failure: your AI writes correct code that is still the wrong code.
+
+Prelint, 640 upvotes. It reviews every PR against your ADRs, docs, and past decisions.
+
+Not bugs. Drift.
+
+The shape of that failure:
+
+An agent ships a clean, tested, well described change that reintroduces a pattern your team walked away from two years ago, for a reason nobody wrote down anywhere the agent could read.
+
+Every reviewer who knew the reason is busy or gone.
+The linter has no opinion.
+CI is green.
+It merges.
+
+You meet the reason again later, in an incident channel.
+
+Their number: on teams already running several AI reviewers, roughly 40% of issues fixed before merge come from Prelint.
+
+Vendor numbers are vendor numbers. But directionally it says the other reviewers were all reading the same layer of the diff.
+
+The catch is the dependency.
+
+Any of this only works if your decisions are written down somewhere a machine can read. Most ADR folders I have opened are three entries deep and last touched in 2023.
+
+The tool is downstream of the discipline.
+
+If you have been meaning to write the decisions down, the agent in your pipeline just handed you a deadline.
+
+https://www.producthunt.com/products/prelint</textarea>
+</article>
+<article class="spec">
+  <div class="head"><span class="tag">V5</span><h2 class="fmt">The argument</h2></div>
+  <div class="meta">
+<div class="anchor">AI companies are shredding rare books (797 pts, 513 comments)</div>
+<div class="src">HACKER NEWS &middot; <a href="https://news.ycombinator.com/item?id=49068738">https://news.ycombinator.com/item?id=49068738</a></div>
+<div>Highest heat per point of the week, and a genuine two-sided argument.</div>
+</div>
+<div class="flag"><b>Check</b><span>The primary source is a tweet thread. Read it before posting.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>6</b> tweets &middot; longest <b>253</b>/280</span>
+      <button class="copy" data-target="xall-v5">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">797 points and 513 comments on Hacker News for six words: AI companies are shredding rare books.
+
+The practice is destructive scanning. Cut the spine off, feed the pages flat, the book is gone.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:69%"></i></span>
+      <span class="c"><b>193</b>/280</span>
+      <button class="copy" data-target="x-v5-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-1" readonly>797 points and 513 comments on Hacker News for six words: AI companies are shredding rare books.
+
+The practice is destructive scanning. Cut the spine off, feed the pages flat, the book is gone.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">It is not new. Libraries have done it for decades with damaged stock and duplicates.
+
+What changed is the buyer and the volume.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:45%"></i></span>
+      <span class="c"><b>127</b>/280</span>
+      <button class="copy" data-target="x-v5-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-2" readonly>It is not new. Libraries have done it for decades with damaged stock and duplicates.
+
+What changed is the buyer and the volume.</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">For it: a rare book nobody can read does less good than a scan everybody can. Physical scarcity is not a virtue on its own.
+
+And it is legal. You can do what you like with a book you paid for.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:69%"></i></span>
+      <span class="c"><b>192</b>/280</span>
+      <button class="copy" data-target="x-v5-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-3" readonly>For it: a rare book nobody can read does less good than a scan everybody can. Physical scarcity is not a virtue on its own.
+
+And it is legal. You can do what you like with a book you paid for.</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">Against it: the destruction is permanent, the benefit is private.
+
+The scan goes into a training corpus, not a public archive. Weights are not readable, citable, or lendable.
+
+Nobody checks the copy against the original later, because there is no later.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:90%"></i></span>
+      <span class="c"><b>253</b>/280</span>
+      <button class="copy" data-target="x-v5-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-4" readonly>Against it: the destruction is permanent, the benefit is private.
+
+The scan goes into a training corpus, not a public archive. Weights are not readable, citable, or lendable.
+
+Nobody checks the copy against the original later, because there is no later.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">What makes it land harder than it would have a year ago is the rest of the week.
+
+Top labs are publishing less research. Frontier work is closing.
+
+Now the inputs are being consumed the same way the outputs are being closed off.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:81%"></i></span>
+      <span class="c"><b>228</b>/280</span>
+      <button class="copy" data-target="x-v5-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-5" readonly>What makes it land harder than it would have a year ago is the rest of the week.
+
+Top labs are publishing less research. Frontier work is closing.
+
+Now the inputs are being consumed the same way the outputs are being closed off.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">No clean side here, and I am suspicious of anyone who says there is.
+
+But if you are training on acquired material, saying where it came from costs you nothing.
+
+https://news.ycombinator.com/item?id=49068738</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:66%"></i></span>
+      <span class="c"><b>185</b>/280 &middot; 207 raw</span>
+      <button class="copy" data-target="x-v5-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-6" readonly>No clean side here, and I am suspicious of anyone who says there is.
+
+But if you are training on acquired material, saying where it came from costs you nothing.
+
+https://news.ycombinator.com/item?id=49068738</textarea></div>
+  </div>
+  <textarea class="hidden" id="xall-v5" readonly>797 points and 513 comments on Hacker News for six words: AI companies are shredding rare books.
+
+The practice is destructive scanning. Cut the spine off, feed the pages flat, the book is gone.
+
+It is not new. Libraries have done it for decades with damaged stock and duplicates.
+
+What changed is the buyer and the volume.
+
+For it: a rare book nobody can read does less good than a scan everybody can. Physical scarcity is not a virtue on its own.
+
+And it is legal. You can do what you like with a book you paid for.
+
+Against it: the destruction is permanent, the benefit is private.
+
+The scan goes into a training corpus, not a public archive. Weights are not readable, citable, or lendable.
+
+Nobody checks the copy against the original later, because there is no later.
+
+What makes it land harder than it would have a year ago is the rest of the week.
+
+Top labs are publishing less research. Frontier work is closing.
+
+Now the inputs are being consumed the same way the outputs are being closed off.
+
+No clean side here, and I am suspicious of anyone who says there is.
+
+But if you are training on acquired material, saying where it came from costs you nothing.
+
+https://news.ycombinator.com/item?id=49068738</textarea>
+</article>
+  <p class="note">Replace <code>[link to aiBytes_ #3]</code> with the live issue URL before posting. Post tweet 1 first, then reply down the stack in order.</p>
+</div>
+<script>
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest('button.copy');
+  if (!btn) return;
+  var src = document.getElementById(btn.dataset.target);
+  if (!src) return;
+  var text = src.value;
+  var done = function () {
+    var was = btn.textContent;
+    btn.textContent = 'Copied';
+    btn.classList.add('done');
+    setTimeout(function () { btn.textContent = was; btn.classList.remove('done'); }, 1600);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, function () { fallback(src, done); });
+  } else {
+    fallback(src, done);
+  }
+});
+function fallback(src, done) {
+  src.classList.remove('hidden');
+  src.select();
+  try { document.execCommand('copy'); done(); } catch (err) {}
+  src.classList.add('hidden');
+}
+</script>

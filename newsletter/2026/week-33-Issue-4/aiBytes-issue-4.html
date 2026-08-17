@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aiBytes_ 04: DeepMind's shake-up and the week Oracle said no</title>
+<meta name="description" content="Plus OpenAI claiming ten new results in mathematics, a 3B open-weights moderation model from Mistral, and the launch that reviews your agents' work before you do.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
+    --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
+    --butter:#FFF6D9; --butter-line:#F0E2AE; --amber:#8A6A00;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--cobalt);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px 56px}
+
+  header{padding:36px 0 0}
+  .issue-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--slate);display:flex;justify-content:space-between;margin-bottom:12px}
+  .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
+  .logo em{font-style:normal;color:var(--cobalt)}
+
+  /* ── Closing block: the signature. Butter panel, notch, idea text at 500 ── */
+  .tldr{background:var(--butter);border:1px solid var(--butter-line);color:var(--ink);
+        padding:20px 22px;margin-top:18px;
+        clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}
+  .tldr .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--amber)}
+  .tldr p{font-family:var(--display);font-weight:500;font-size:17px;line-height:1.55;margin-top:8px;color:var(--ink)}
+  .tldr b{background:var(--signal);padding:0 4px;color:var(--ink);font-weight:700}
+
+  section{margin-top:34px}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--paper);background:var(--ink);padding:2px 7px}
+  .sec-title{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+  .sec-rule{flex:1;height:2px;background:var(--ink)}
+
+  /* ── Intro block ── */
+  .intro{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 22px;margin-bottom:18px}
+  .intro p{font-size:15.5px;line-height:1.65;margin-bottom:14px;color:#3A3E4A}
+  .intro p:last-child{margin-bottom:0}
+  .intro .greet{color:var(--ink)}
+  .intro b{color:var(--ink);font-weight:700}
+
+  /* ── News card ── */
+  .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
+  .news-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;color:var(--cobalt);letter-spacing:.02em;margin-bottom:14px}
+  .news-item{font-size:15.5px;margin-bottom:14px;line-height:1.6}
+  .news-item:last-of-type{margin-bottom:0}
+  .news-item b a{font-weight:700}
+  .src{font-family:var(--mono);font-size:12px;color:var(--slate)}
+  /* Attribution links stay grey and quiet - the headline link is the loud one. */
+  .src a{color:var(--slate);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+  .src a:hover{color:var(--ink)}
+  .quote{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px 18px;margin-top:18px}
+  .quote p{font-size:15px;color:#3A3E4A}
+
+  /* ── Ticker rows ── */
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .ico{width:22px;text-align:center;flex-shrink:0}
+  .row .txt{flex:1}
+  .row .txt b{font-weight:600}
+  .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
+  .stat b{color:var(--cobalt);font-weight:700}
+  .hot{background:var(--signal);padding:0 4px;font-weight:600}
+
+  footer{margin-top:48px;border-top:3px solid var(--ink);padding-top:20px;text-align:center}
+  footer p{color:var(--slate);font-size:13.5px}
+  .foot-links{margin-top:10px;font-family:var(--mono);font-size:12.5px;display:flex;gap:20px;justify-content:center}
+  @media (max-width:480px){ .row{flex-wrap:wrap} .stat{margin-left:34px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="issue-tag"><span>ISSUE 0x04 · TL;DR</span><span>2026-08-10 · ~5 MIN</span></div>
+    <div class="logo">⚡ aiBytes<em>_</em> #4</div>
+  </header>
+
+  <section>
+    <div class="intro">
+      <p class="greet">Good morning, builders 👋</p>
+      <p>Welcome back to your Monday-morning dose of aiBytes_. I started this one as an autonomy week: Claude Code's auto mode going on by default, a browser built for agents, an agent OS that will run a whole company for a solo founder. Then Oracle banned AI-generated code from OpenJDK outright, and the argument everyone kept circling back to all week was that these models only pay off if you already know the answer 🤔</p>
+      <p><b>The keyboard is changing hands faster than the trust is</b>: the tools that shipped this week take more decisions off you by default, while the people downstream, from OpenJDK maintainers to researchers working through <a href="https://research.jfrog.com/post/sqlite-critical-cves-or-llm-slops/">AI-written CVE reports</a>, are quietly putting the checkpoints back in.</p>
+      <p><b>Today:</b> a leadership change at the top of DeepMind, the week Oracle said no, an assistant that talks to your network instead of to you, and seven repos worth an hour on Sunday.</p>
+    </div>
+
+    <div class="news-card">
+      <div class="card-title">🌍 NEWS FOR DEVS</div>
+
+      <p class="news-item">🏛️ <b><a href="https://blog.google/company-news/inside-google/message-ceo/next-chapter-ai-momentum/">Changes at Google DeepMind: Hassabis to Chair, Jeff Dean departs</a></b> - Google restructures the top of its AI org, and the succession question is suddenly live. <span class="hot">Story of the week</span> <span class="src">(Google)</span></p>
+
+      <p class="news-item">🚫 <b><a href="https://app.dealroom.co/news/feed/oracle-bans-ai-generated-code-from-openjdk-despite-ellison-s-claim-oracle-isn-t-writing-its-own-code">Oracle bans AI-generated code from OpenJDK</a></b> - AI-written contributions are out of the JDK, in the same week everyone else turned oversight down. <span class="src">(Dealroom)</span></p>
+
+      <p class="news-item">🎚️ <b><a href="https://techcrunch.com/2026/08/09/anthropic-is-turning-claude-codes-auto-mode-on-by-default/">Anthropic is turning Claude Code's auto mode on by default</a></b> - Less human oversight in the loop, shipped as the default rather than a flag you opt into. <span class="src">(TechCrunch)</span></p>
+
+      <p class="news-item">🧪 <b><a href="https://techcrunch.com/2026/08/09/the-ai-safety-test-is-becoming-a-safety-risk/">The AI safety test is becoming a safety risk</a></b> - Agents are escaping cybersecurity test environments and reaching real systems. <span class="src">(TechCrunch)</span></p>
+
+      <p class="news-item">➗ <b><a href="https://openai.com/index/ten-advances-in-mathematics/">Ten advances in mathematics and theoretical computer science</a></b> - OpenAI's claim of genuinely new results, and the longest argument of the week about what counts as new. <span class="src">(OpenAI)</span></p>
+
+      <p class="news-item">🪁 <b><a href="https://techcrunch.com/2026/08/07/cloudflare-launches-kitesurf-a-browser-built-for-ai-agents/">Cloudflare launches Kitesurf, a browser built for AI agents</a></b> - A cloud browser aimed at agents rather than people, cheaper than driving Chromium. <span class="src">(TechCrunch)</span></p>
+
+      <p class="news-item">🛡️ <b><a href="https://mistral.ai/news/shieldstral/">Mistral's Shieldstral: 3B open-weights model for multimodal moderation</a></b> - A moderation model small enough to self-host next to whatever you are already running. <span class="src">(Mistral)</span></p>
+
+      <div class="quote">
+        <p>"Autonomy shipped on by default this week. Trust did not."</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Launches</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">📣</span><span class="txt"><b><a href="https://adant.ai/">AdAnt AI</a></b> - Creative agents that plan, write and iterate social ads for TikTok and Instagram. <span class="src">(<a href="https://www.producthunt.com/products/adant-ai">ProductHunt</a>)</span></span><span class="stat"><b>▲ 599</b></span></div>
+    <div class="row"><span class="ico">🤝</span><span class="txt"><b><a href="https://heynoah.io/">Hey Noah</a></b> - An executive assistant that talks to your network across email, text and WhatsApp. <span class="src">(<a href="https://www.producthunt.com/products/hey-noah">ProductHunt</a>)</span></span><span class="stat"><b>▲ 596</b></span></div>
+    <div class="row"><span class="ico">🎙️</span><span class="txt"><b><a href="https://wisprflow.ai/">Wispr Flow Notetaker</a></b> - Reads the invite before the call, so names and jargon land right in the recap. <span class="src">(<a href="https://www.producthunt.com/products/wisprflow">ProductHunt</a>)</span></span><span class="stat"><b>▲ 572</b></span></div>
+    <div class="row"><span class="ico">🧊</span><span class="txt"><b><a href="https://coldtea.ai/">Coldtea.ai</a></b> - An agentic IDE where QA agents catch what the coding agents just broke. <span class="src">(<a href="https://www.producthunt.com/products/coldtea">ProductHunt</a>)</span></span><span class="stat"><b>▲ 511</b></span></div>
+    <div class="row"><span class="ico">🧭</span><span class="txt"><b><a href="https://www.soloop.io/">Soloop</a></b> - Approval-first agent OS for solo founders, with an AI CEO, CTO and CMO. <span class="src">(<a href="https://www.producthunt.com/products/soloop">ProductHunt</a>)</span></span><span class="stat"><b>▲ 493</b></span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">Trending on GitHub</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🔓</span><span class="txt"><b><a href="https://github.com/zhaoxuya520/reverse-skill">zhaoxuya520/reverse-skill</a></b> - a skill router for reverse engineering and pentest work, with on-demand toolchain bootstrap.</span><span class="stat"><b>+9.8k</b> ★</span></div>
+    <div class="row"><span class="ico">🧠</span><span class="txt"><b><a href="https://github.com/TencentCloud/TencentDB-Agent-Memory">TencentCloud/TencentDB-Agent-Memory</a></b> - team-level memory hub: chat memory, skills, an LLM wiki and a code graph.</span><span class="stat"><b>+8.0k</b> ★</span></div>
+    <div class="row"><span class="ico">🎓</span><span class="txt"><b><a href="https://github.com/microsoft/AI-For-Beginners">microsoft/AI-For-Beginners</a></b> - Microsoft's 24-lesson curriculum, near the top of the charts a second week running.</span><span class="stat"><b>+5.5k</b> ★</span></div>
+    <div class="row"><span class="ico">🪫</span><span class="txt"><b><a href="https://github.com/lyogavin/airllm">lyogavin/airllm</a></b> - 70B inference on a single 4GB GPU.</span><span class="stat"><b>+5.1k</b> ★</span></div>
+    <div class="row"><span class="ico">⌨️</span><span class="txt"><b><a href="https://github.com/esengine/DeepSeek-Reasonix">esengine/DeepSeek-Reasonix</a></b> - DeepSeek-native terminal agent, built around prefix-cache stability so you can leave it running.</span><span class="stat"><b>+4.7k</b> ★</span></div>
+    <div class="row"><span class="ico">📚</span><span class="txt"><b><a href="https://github.com/virgiliojr94/book-to-skill">virgiliojr94/book-to-skill</a></b> - turns a technical book PDF into a Claude Code skill.</span><span class="stat"><b>+4.1k</b> ★</span></div>
+    <div class="row"><span class="ico">🎛️</span><span class="txt"><b><a href="https://github.com/Comfy-Org/ComfyUI">Comfy-Org/ComfyUI</a></b> - the modular node graph for diffusion models, still climbing.</span><span class="stat"><b>+2.0k</b> ★</span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">HN Deep Cuts</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🎯</span><span class="txt"><b><a href="https://www.seangoedecke.com/llms-reward-expertise/">LLMs reward expertise</a></b> - the week's most-read argument: the model pays off in proportion to what you already know. <span class="src">(<a href="https://news.ycombinator.com/item?id=49161518">HackerNews</a>)</span></span><span class="stat"><b>1,411</b> pts · 572 💬</span></div>
+    <div class="row"><span class="ico">🖼️</span><span class="txt"><b><a href="https://nelson.cloud/ai-generated-images-discourage-me-from-reading-your-blog/">AI-Generated Images Discourage Me from Reading Your Blog</a></b> - what a generated header image now signals to the person deciding whether to read you. <span class="src">(<a href="https://news.ycombinator.com/item?id=49167113">HackerNews</a>)</span></span><span class="stat"><b>794</b> pts · 465 💬</span></div>
+    <div class="row"><span class="ico">📊</span><span class="txt"><b><a href="https://arcprize.org/results/deepseek-v4-flash-0731">DeepSeek V4 Flash 0731</a></b> - the ARC Prize numbers, a week after the launch made the rounds. <span class="src">(<a href="https://news.ycombinator.com/item?id=49214008">HackerNews</a>)</span></span><span class="stat"><b>784</b> pts</span></div>
+    <div class="row"><span class="ico">🐛</span><span class="txt"><b><a href="https://research.jfrog.com/post/sqlite-critical-cves-or-llm-slops/">SQLite Critical CVEs or LLM Slop?</a></b> - JFrog works through the AI-written vulnerability reports one by one. <span class="src">(<a href="https://news.ycombinator.com/item?id=49154332">HackerNews</a>)</span></span><span class="stat"><b>726</b> pts</span></div>
+    <div class="row"><span class="ico">✍️</span><span class="txt"><b><a href="https://ankursethi.com/blog/prevent-cognitive-debt-by-manually-retyping-llm-generated-code/">Prevent cognitive debt by manually retyping LLM-generated code</a></b> - a deliberately slow habit, argued seriously. <span class="src">(<a href="https://news.ycombinator.com/item?id=49153374">HackerNews</a>)</span></span><span class="stat"><b>540</b> pts · 444 💬</span></div>
+  </section>
+
+  <div class="tldr" style="margin-top:44px">
+    <div class="kicker">ONE IDEA TO CARRY NEXT WEEK</div>
+    <p>The most-read argument of the week was that these models pay off in proportion to what you already know. Every tool under it moved one more judgment call out of your hands. Worth writing down, this week, which ones you are <b>keeping</b>.</p>
+  </div>
+
+  <footer>
+    <p>Made for builders who ship with AI. See you next week. ✌️</p>
+    <div class="foot-links"><a href="#">SUBSCRIBE</a><a href="#">ARCHIVE</a><a href="#">SUGGEST A LINK</a></div>
+  </footer>
+
+</div>
+</body>
+</html>

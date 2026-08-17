@@ -1,0 +1,441 @@
+<title>aiBytes_ #4 - LinkedIn variations</title>
+<meta name="description" content="Five LinkedIn deep dives drawn from aiBytes_ issue 4, week 33, with fold markers and copy-ready text.">
+<style>
+:root{
+  --ground:#E7E8EC;
+  --panel:#FDFDFD;
+  --sunk:#F1F2F5;
+  --ink:#14161F;
+  --body:#33374A;
+  --muted:#5C6070;
+  --line:#CBCED7;
+  --hair:#DEE0E6;
+  --accent:#2B4EF0;
+  --accent-soft:#E4E8FD;
+  --chip-ink:#FFFFFF;
+  --warn:#A8371A;
+  --ok:#2F6B4F;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --grotesque:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --platform:-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#101219;
+    --panel:#181A22;
+    --sunk:#14161D;
+    --ink:#E5E6EC;
+    --body:#C3C6D2;
+    --muted:#949AA8;
+    --line:#2C303B;
+    --hair:#232733;
+    --accent:#8AA0FF;
+    --accent-soft:#20263A;
+    --chip-ink:#101219;
+    --warn:#FF9E7A;
+    --ok:#78C79C;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101219;
+  --panel:#181A22;
+  --sunk:#14161D;
+  --ink:#E5E6EC;
+  --body:#C3C6D2;
+  --muted:#949AA8;
+  --line:#2C303B;
+  --hair:#232733;
+  --accent:#8AA0FF;
+  --accent-soft:#20263A;
+  --chip-ink:#101219;
+  --warn:#FF9E7A;
+  --ok:#78C79C;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--grotesque);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  margin:0;
+}
+.sheet{max-width:900px;margin:0 auto;padding:44px 20px 96px;display:grid;gap:40px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+
+/* masthead */
+.masthead{display:grid;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:20px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.eyebrow b{color:var(--accent);font-weight:600}
+h1{font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1.03;margin:0;text-wrap:balance}
+.lede{max-width:64ch;color:var(--muted);font-size:15.5px;line-height:1.62;margin:0}
+.lede b{color:var(--ink);font-weight:600}
+
+/* rules strip */
+.rules{
+  display:grid;gap:6px;background:var(--panel);border:1px solid var(--line);
+  border-left:3px solid var(--accent);padding:14px 16px;
+}
+.rules p{margin:0;font-size:13.5px;color:var(--body);line-height:1.55}
+.rules .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* variation block */
+.spec{display:grid;gap:14px}
+.head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--accent);color:var(--chip-ink);padding:3px 8px;border-radius:3px}
+.fmt{font-size:20px;font-weight:700;letter-spacing:-.015em;margin:0}
+.meta{display:grid;gap:3px;font-size:13.5px;color:var(--muted);line-height:1.55}
+.meta .anchor{color:var(--ink);font-weight:500}
+.meta .src{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em}
+.flag{
+  display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--warn);
+  background:var(--sunk);border:1px dashed var(--warn);padding:9px 11px;line-height:1.5;
+}
+.flag b{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;flex:none;padding-top:2px}
+
+/* specimen shell */
+.card{background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.bar{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding:9px 14px;border-bottom:1px solid var(--hair);background:var(--sunk);
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+}
+.count{font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.count b{color:var(--ink);font-weight:600}
+.count.over b{color:var(--warn)}
+
+button.copy{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  background:transparent;color:var(--ink);border:1px solid var(--line);
+  padding:4px 10px;cursor:pointer;border-radius:3px;
+}
+button.copy:hover{border-color:var(--accent);color:var(--accent)}
+button.copy.done{border-color:var(--ok);color:var(--ok)}
+
+/* linkedin post body */
+.post{font-family:var(--platform);font-size:15px;line-height:1.55;color:var(--ink);padding:20px 22px}
+.post .p{margin:0 0 15px}
+.post .p:last-child{margin-bottom:0}
+.foldmark{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);white-space:nowrap;vertical-align:2px;margin:0 5px;
+  border-left:2px solid var(--accent);padding-left:5px;
+}
+.below{color:var(--muted)}
+.tail{border-top:1px solid var(--hair);padding:14px 22px;display:grid;gap:10px;background:var(--sunk)}
+.tail .row{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.tail .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:2px;flex:none}
+.tail .val{font-family:var(--platform);font-size:13.5px;color:var(--body);word-break:break-word;flex:1;min-width:220px}
+.tags{font-family:var(--platform);font-size:13.5px;color:var(--accent)}
+
+/* x thread cells */
+.thread{display:grid}
+.tw{display:grid;grid-template-columns:34px 1fr;gap:0;border-bottom:1px solid var(--hair)}
+.tw:last-child{border-bottom:0}
+.tw .n{
+  font-family:var(--mono);font-size:11px;color:var(--muted);padding:16px 0 0 14px;
+  font-variant-numeric:tabular-nums;
+}
+.tw .cell{padding:16px 16px 14px 4px;display:grid;gap:10px}
+.tw .txt{font-family:var(--platform);font-size:15.5px;line-height:1.42;color:var(--ink);white-space:pre-wrap;word-break:break-word}
+.tw .foot{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.gauge{flex:1;min-width:120px;height:3px;background:var(--hair);position:relative;max-width:220px}
+.gauge i{position:absolute;left:0;top:0;bottom:0;background:var(--accent);display:block}
+.gauge.over i{background:var(--warn)}
+.tw .c{font-family:var(--mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.tw .c b{color:var(--ink);font-weight:600}
+.tw .c.over b{color:var(--warn)}
+
+.note{font-size:12.5px;color:var(--muted);line-height:1.55;margin:0}
+.note code{font-family:var(--mono);font-size:11.5px}
+.hidden{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+@media (prefers-reduced-motion:no-preference){
+  button.copy{transition:border-color .15s ease,color .15s ease}
+}
+@media (max-width:560px){
+  .post{padding:16px 15px}
+  .tail{padding:13px 15px}
+}
+</style>
+<div class="sheet">
+  <header class="masthead">
+    <div class="eyebrow">aiBytes_ <b>#4</b> &middot; week 33 &middot; 2026-08-10 &middot; LINKEDIN</div>
+    <h1>Five ways to go deeper than the issue did</h1>
+    <p class="lede">One item each, five different shapes. Pick one, post it, put the link in the first comment. Each specimen is set in LinkedIn's own face so the line breaks and the fold land where they will land in the feed.</p>
+  </header>
+  <section class="rules">
+<p class="k">House rules applied</p>
+<p>No em dash, no en dash, no double hyphen, anywhere. Link lives in the first comment, never the body, so LinkedIn does not throttle reach. Every number traces to <code>data/2026/08/weeks/week-33/</code>. The marker shows where the "see more" cut lands on mobile; everything tinted after it is what a reader has to tap to see.</p>
+</section>
+  <article class="spec">
+  <div class="head"><span class="tag">V1</span><h2 class="fmt">The reversal</h2></div>
+  <div class="meta">
+<div class="anchor">Oracle bans AI-generated code from OpenJDK (534 pts / 378 comments)</div>
+<div class="src">DEALROOM &middot; <a href="https://app.dealroom.co/news/feed/oracle-bans-ai-generated-code-from-openjdk-despite-ellison-s-claim-oracle-isn-t-writing-its-own-code">https://app.dealroom.co/news/feed/oracle-bans-ai-generated-code-from-openjdk-d</a></div>
+<div>Two vendors moved in opposite directions in one week, and the reason for the ban is not the one most people assumed.</div>
+</div>
+<div class="flag"><b>Check</b><span>Oracle&#x27;s policy page returned 403 to me, so the rationale here is the reading the Hacker News thread settled on, and the post labels it as exactly that. Read the policy before posting if you want to state it harder.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1524</b> / 3000 chars &middot; 261 words</span>
+      <button class="copy" data-target="li-v1">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">Anthropic turned oversight off by default. Oracle banned the output entirely.</div>
+<div class="p">Same week, opposite directions.</div>
+<div class="p">Anthropic is switching Claude Code&#x27;s auto mode on by default, so the agent needs less<span class="foldmark">see more</span><span class="below"> human sign-off than it did last month. Days earlier, Oracle published an interim policy barring AI-generated code from OpenJDK.</span></div>
+<div class="p below">The interesting part is the reason, because it does not look like a quality judgment.</div>
+<div class="p below">The Hacker News thread landed somewhere sharper. Oracle spends a great deal of its legal life on copyright, and a company that wants to keep pursuing people for laundering proprietary code through a model cannot be seen accepting contributions whose provenance it never checked. Oracle has not said this, and the policy page itself would not load for me. But it fits the shape of the decision better than &quot;the code is bad&quot; does.</div>
+<div class="p below">If that read is right, it changes who the rule applies to.</div>
+<div class="p below">A ban like this lands on projects that need a clean authorship chain: anything under a contributor agreement, anything that might get litigated, anything you indemnify for a customer. It does not land on your internal service, and it never will.</div>
+<div class="p below">So the question in front of most teams is not whether AI code is good enough. It is whether you can say where a given line came from. Almost nobody can answer that today, because almost nobody is recording it.</div>
+<div class="p below">We turned auto mode on faster than we built the paper trail underneath it. That gap closes deliberately, or it closes badly.</div>
+<div class="p below">Which one is your repo on track for?</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">The policy, via Dealroom: https://app.dealroom.co/news/feed/oracle-bans-ai-generated-code-from-openjdk-despite-ellison-s-claim-oracle-isn-t-writing-its-own-code · The thread: https://news.ycombinator.com/item?id=49213754</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">#opensource #llmops</span></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v1" readonly>Anthropic turned oversight off by default. Oracle banned the output entirely.
+
+Same week, opposite directions.
+
+Anthropic is switching Claude Code&#x27;s auto mode on by default, so the agent needs less human sign-off than it did last month. Days earlier, Oracle published an interim policy barring AI-generated code from OpenJDK.
+
+The interesting part is the reason, because it does not look like a quality judgment.
+
+The Hacker News thread landed somewhere sharper. Oracle spends a great deal of its legal life on copyright, and a company that wants to keep pursuing people for laundering proprietary code through a model cannot be seen accepting contributions whose provenance it never checked. Oracle has not said this, and the policy page itself would not load for me. But it fits the shape of the decision better than &quot;the code is bad&quot; does.
+
+If that read is right, it changes who the rule applies to.
+
+A ban like this lands on projects that need a clean authorship chain: anything under a contributor agreement, anything that might get litigated, anything you indemnify for a customer. It does not land on your internal service, and it never will.
+
+So the question in front of most teams is not whether AI code is good enough. It is whether you can say where a given line came from. Almost nobody can answer that today, because almost nobody is recording it.
+
+We turned auto mode on faster than we built the paper trail underneath it. That gap closes deliberately, or it closes badly.
+
+Which one is your repo on track for?</textarea>
+  <textarea class="hidden" id="lic-v1" readonly>The policy, via Dealroom: https://app.dealroom.co/news/feed/oracle-bans-ai-generated-code-from-openjdk-despite-ellison-s-claim-oracle-isn-t-writing-its-own-code · The thread: https://news.ycombinator.com/item?id=49213754</textarea>
+</article>
+<article class="spec">
+  <div class="head"><span class="tag">V2</span><h2 class="fmt">The teardown</h2></div>
+  <div class="meta">
+<div class="anchor">TencentCloud/TencentDB-Agent-Memory (+8,003 stars this week, 19,024 total)</div>
+<div class="src">GITHUB &middot; <a href="https://github.com/TencentCloud/TencentDB-Agent-Memory">https://github.com/TencentCloud/TencentDB-Agent-Memory</a></div>
+<div>Crowded category, genuinely different design, and the governance model is the part nobody else has built.</div>
+</div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1655</b> / 3000 chars &middot; 272 words</span>
+      <button class="copy" data-target="li-v2">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">8,003 stars in a week for an agent memory tool. The design earns it.</div>
+<div class="p">TencentDB Agent Memory is a team-level memory hub for coding agents. It sits at 19,024 stars now, and 8,003 of those landed in<span class="foldmark">see more</span><span class="below"> the last seven days.</span></div>
+<div class="p below">Most memory tools hand you one bucket of embeddings. This one splits memory into four assets, and the split is the whole idea.</div>
+<div class="p below">Chat Memory distills a conversation through four layers: raw discussion, then extracted facts, then scenario-organised blocks, then a long-term profile. Skill turns a finished task into a reusable workflow carrying versions, trigger boundaries and validation rules. LLM-Wiki builds linked documentation pages out of whatever you import. Code-Graph indexes files, symbols, call relationships and impact paths, so an agent can ask what a change will break before it makes it.</div>
+<div class="p below">The part that made me stop was not the storage. It was the governance.</div>
+<div class="p below">Every asset carries a visibility tier: private, team, or restricted behind a real ACL. Agents receive a curated loadout rather than the whole organisation&#x27;s memory. Different roles, different loadouts. That is the first agent memory product I have seen treat &quot;who is allowed to remember this&quot; as a first-class problem, and it will matter the first time a contractor&#x27;s agent inherits your incident history.</div>
+<div class="p below">What it costs you, and the README is refreshingly straight about this: Wiki and Code-Graph build asynchronously, private repos and SSH support are still being refined, and memory routing is manual for now. Today you are wiring bindings by hand.</div>
+<div class="p below">Worth reading even if you never run it. The four-way split is the idea to steal.</div>
+<div class="p below">Repo in the first comment.</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">Repo: https://github.com/TencentCloud/TencentDB-Agent-Memory</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">#aiagents #devtools</span></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v2" readonly>8,003 stars in a week for an agent memory tool. The design earns it.
+
+TencentDB Agent Memory is a team-level memory hub for coding agents. It sits at 19,024 stars now, and 8,003 of those landed in the last seven days.
+
+Most memory tools hand you one bucket of embeddings. This one splits memory into four assets, and the split is the whole idea.
+
+Chat Memory distills a conversation through four layers: raw discussion, then extracted facts, then scenario-organised blocks, then a long-term profile. Skill turns a finished task into a reusable workflow carrying versions, trigger boundaries and validation rules. LLM-Wiki builds linked documentation pages out of whatever you import. Code-Graph indexes files, symbols, call relationships and impact paths, so an agent can ask what a change will break before it makes it.
+
+The part that made me stop was not the storage. It was the governance.
+
+Every asset carries a visibility tier: private, team, or restricted behind a real ACL. Agents receive a curated loadout rather than the whole organisation&#x27;s memory. Different roles, different loadouts. That is the first agent memory product I have seen treat &quot;who is allowed to remember this&quot; as a first-class problem, and it will matter the first time a contractor&#x27;s agent inherits your incident history.
+
+What it costs you, and the README is refreshingly straight about this: Wiki and Code-Graph build asynchronously, private repos and SSH support are still being refined, and memory routing is manual for now. Today you are wiring bindings by hand.
+
+Worth reading even if you never run it. The four-way split is the idea to steal.
+
+Repo in the first comment.</textarea>
+  <textarea class="hidden" id="lic-v2" readonly>Repo: https://github.com/TencentCloud/TencentDB-Agent-Memory</textarea>
+</article>
+<article class="spec">
+  <div class="head"><span class="tag">V3</span><h2 class="fmt">The number</h2></div>
+  <div class="meta">
+<div class="anchor">zhaoxuya520/reverse-skill (+9,784 stars, 42% of its lifetime total, in one week)</div>
+<div class="src">GITHUB &middot; <a href="https://github.com/zhaoxuya520/reverse-skill">https://github.com/zhaoxuya520/reverse-skill</a></div>
+<div>Steepest curve in the week&#x27;s trending set, and it lines up with the safety-test story in a way nobody connected.</div>
+</div>
+<div class="flag"><b>Check</b><span>I read the repo description and the star history, not the code. This is security tooling framed for authorized testing; the post keeps the takeaway defensive. Look at it yourself before amplifying.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1524</b> / 3000 chars &middot; 264 words</span>
+      <button class="copy" data-target="li-v3">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">Forty-two percent of this repo&#x27;s lifetime stars arrived in the last seven days.</div>
+<div class="p">zhaoxuya520/reverse-skill picked up 9,784 stars last week. It has 22,876 in total. So roughly forty-two percent of<span class="foldmark">see more</span><span class="below"> everything it has ever earned came in one week, the steepest curve in the whole trending set I pulled.</span></div>
+<div class="p below">What it is: a skill router for reverse engineering, authorized penetration testing and security research. It routes a request to the right skill, bootstraps the toolchain on demand, and keeps a knowledge base that updates itself. It plugs into Claude Code, Cursor, Cline and Kiro.</div>
+<div class="p below">It is written in PowerShell, which tells you something about who is actually picking it up.</div>
+<div class="p below">Here is why the number interests me more than the repo does. In the same week this went vertical, TechCrunch ran a piece on AI agents escaping cybersecurity testing environments and reaching real systems. One of those is a story about capability arriving. The other is a story about capability arriving somewhere nobody planned for.</div>
+<div class="p below">Offensive tooling has always been dual use, and I am not arguing it should not exist. What is new is the bootstrapping. A router that installs its own toolchain moves the floor from &quot;someone who knows the tools&quot; to &quot;someone who can describe the goal.&quot; That is a change in the threat model, not just in convenience.</div>
+<div class="p below">If you run a red team, you have almost certainly seen this already. If you run a blue team, this is the week to go and look at what your people are about to be up against.</div>
+<div class="p below">Link in the first comment.</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">Repo: https://github.com/zhaoxuya520/reverse-skill · The TechCrunch piece on agents escaping test environments: https://techcrunch.com/2026/08/09/the-ai-safety-test-is-becoming-a-safety-risk/</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">#appsec #redteam #aiagents</span></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v3" readonly>Forty-two percent of this repo&#x27;s lifetime stars arrived in the last seven days.
+
+zhaoxuya520/reverse-skill picked up 9,784 stars last week. It has 22,876 in total. So roughly forty-two percent of everything it has ever earned came in one week, the steepest curve in the whole trending set I pulled.
+
+What it is: a skill router for reverse engineering, authorized penetration testing and security research. It routes a request to the right skill, bootstraps the toolchain on demand, and keeps a knowledge base that updates itself. It plugs into Claude Code, Cursor, Cline and Kiro.
+
+It is written in PowerShell, which tells you something about who is actually picking it up.
+
+Here is why the number interests me more than the repo does. In the same week this went vertical, TechCrunch ran a piece on AI agents escaping cybersecurity testing environments and reaching real systems. One of those is a story about capability arriving. The other is a story about capability arriving somewhere nobody planned for.
+
+Offensive tooling has always been dual use, and I am not arguing it should not exist. What is new is the bootstrapping. A router that installs its own toolchain moves the floor from &quot;someone who knows the tools&quot; to &quot;someone who can describe the goal.&quot; That is a change in the threat model, not just in convenience.
+
+If you run a red team, you have almost certainly seen this already. If you run a blue team, this is the week to go and look at what your people are about to be up against.
+
+Link in the first comment.</textarea>
+  <textarea class="hidden" id="lic-v3" readonly>Repo: https://github.com/zhaoxuya520/reverse-skill · The TechCrunch piece on agents escaping test environments: https://techcrunch.com/2026/08/09/the-ai-safety-test-is-becoming-a-safety-risk/</textarea>
+</article>
+<article class="spec">
+  <div class="head"><span class="tag">V4</span><h2 class="fmt">The field note</h2></div>
+  <div class="meta">
+<div class="anchor">Coldtea.ai (Product Hunt, 511 upvotes)</div>
+<div class="src">PRODUCT HUNT &middot; <a href="https://www.producthunt.com/products/coldtea">https://www.producthunt.com/products/coldtea</a></div>
+<div>Its one-line pitch names a failure mode every team shipping with agents is walking into.</div>
+</div>
+<div class="flag"><b>Check</b><span>First person is about the failure mode, not about using Coldtea. Confirm before posting if you want a usage claim in there.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1643</b> / 3000 chars &middot; 297 words</span>
+      <button class="copy" data-target="li-v4">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">The bug that ships today is the one your tests were never written for.</div>
+<div class="p">Coldtea launched last week and took 511 upvotes on Product Hunt. It is an agentic IDE: coding agents build, visual QA agents<span class="foldmark">see more</span><span class="below"> catch regressions, and a monitoring layer watches production.</span></div>
+<div class="p below">Their pitch is one sentence. The faster your team ships with AI, the harder it becomes to keep production stable.</div>
+<div class="p below">That sentence names something I have watched happen and never had a word for.</div>
+<div class="p below">When a person writes a feature, the tests get written by someone who knows which parts they were unsure about. That knowledge is not in the diff. It lives in the author&#x27;s head, and it is the reason a good suite covers the weird branch instead of the happy path.</div>
+<div class="p below">An agent does not carry that. It produces a change that is complete, tested against the spec you handed it, and confident. The uncertainty that used to generate the good tests never gets recorded anywhere. So coverage still looks fine, and the gaps quietly move somewhere nobody is looking.</div>
+<div class="p below">Then you start shipping four of those a day instead of one a week.</div>
+<div class="p below">The real bet in Coldtea is not that agents write code. It is that verification has to become as automated as generation, because a human review queue does not scale to agent output.</div>
+<div class="p below">The caveat is obvious: this is an agent checking an agent&#x27;s work. A genuine regress, and it only pays off if the checker fails differently from the writer. Nobody has shown me that yet.</div>
+<div class="p below">The problem is real either way. If you went from one deploy a week to four a day this year, the question is not whether your agents write good code. It is who is watching production while they do.</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">Coldtea on Product Hunt: https://www.producthunt.com/products/coldtea</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">#testing #aiagents</span></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v4" readonly>The bug that ships today is the one your tests were never written for.
+
+Coldtea launched last week and took 511 upvotes on Product Hunt. It is an agentic IDE: coding agents build, visual QA agents catch regressions, and a monitoring layer watches production.
+
+Their pitch is one sentence. The faster your team ships with AI, the harder it becomes to keep production stable.
+
+That sentence names something I have watched happen and never had a word for.
+
+When a person writes a feature, the tests get written by someone who knows which parts they were unsure about. That knowledge is not in the diff. It lives in the author&#x27;s head, and it is the reason a good suite covers the weird branch instead of the happy path.
+
+An agent does not carry that. It produces a change that is complete, tested against the spec you handed it, and confident. The uncertainty that used to generate the good tests never gets recorded anywhere. So coverage still looks fine, and the gaps quietly move somewhere nobody is looking.
+
+Then you start shipping four of those a day instead of one a week.
+
+The real bet in Coldtea is not that agents write code. It is that verification has to become as automated as generation, because a human review queue does not scale to agent output.
+
+The caveat is obvious: this is an agent checking an agent&#x27;s work. A genuine regress, and it only pays off if the checker fails differently from the writer. Nobody has shown me that yet.
+
+The problem is real either way. If you went from one deploy a week to four a day this year, the question is not whether your agents write good code. It is who is watching production while they do.</textarea>
+  <textarea class="hidden" id="lic-v4" readonly>Coldtea on Product Hunt: https://www.producthunt.com/products/coldtea</textarea>
+</article>
+<article class="spec">
+  <div class="head"><span class="tag">V5</span><h2 class="fmt">The argument</h2></div>
+  <div class="meta">
+<div class="anchor">Prevent cognitive debt by manually retyping LLM-generated code (540 pts / 444 comments)</div>
+<div class="src">HACKER NEWS &middot; <a href="https://news.ycombinator.com/item?id=49153374">https://news.ycombinator.com/item?id=49153374</a></div>
+<div>Highest comment-to-point ratio of the week&#x27;s deep cuts, and a real two-sided argument about how you keep understanding your own codebase.</div>
+</div>
+<div class="flag"><b>Check</b><span>I fetched and read the post. The quoted terms are the author&#x27;s, the summary of his numbers is a paraphrase, so keep the phrasing as written rather than tightening it into direct quotes.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1618</b> / 3000 chars &middot; 294 words</span>
+      <button class="copy" data-target="li-v5">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">540 points on Hacker News for the least efficient coding advice of the year.</div>
+<div class="p">Ankur Sethi&#x27;s argument: never let the model edit your files. Have it print the code in chat, then retype every line<span class="foldmark">see more</span><span class="below"> yourself, by hand.</span></div>
+<div class="p below">He calls what this prevents cognitive debt. The understanding you quietly stop having when you accept code you did not read.</div>
+<div class="p below">His own accounting makes the post credible. No 10x claim: he puts himself at roughly twice as fast as working without an LLM at all, and takes that trade knowingly, buying comprehension with the speed.</div>
+<div class="p below">The case for it is stronger than it sounds. Typing is slow enough to catch a hallucination that reading skims past. It builds what he calls a spatial map of the codebase, the thing that lets you guess where a bug lives before you open the file. And you refactor while you transcribe, so the code lands better than it arrived.</div>
+<div class="p below">The case against is just as strong. It does not scale past one person on one codebase. Nobody retypes a 400 line migration. And it assumes you will still maintain this code in two years, which is often false.</div>
+<div class="p below">Where I land is uncomfortable: right about the mechanism, wrong about the remedy. The problem is not that you did not type it. It is that you never had to form an opinion about it before it merged.</div>
+<div class="p below">Retyping forces that. A review you actually do forces it too, and costs less. Most of us stopped doing that one honestly around the time diffs got too long to read.</div>
+<div class="p below">The week&#x27;s most-read thread argued these models pay off in proportion to what you already know. This is that claim from the other end. If you stop knowing, they stop paying.</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">The post: https://ankursethi.com/blog/prevent-cognitive-debt-by-manually-retyping-llm-generated-code/ · The thread: https://news.ycombinator.com/item?id=49153374</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">#codereview #engineering</span></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v5" readonly>540 points on Hacker News for the least efficient coding advice of the year.
+
+Ankur Sethi&#x27;s argument: never let the model edit your files. Have it print the code in chat, then retype every line yourself, by hand.
+
+He calls what this prevents cognitive debt. The understanding you quietly stop having when you accept code you did not read.
+
+His own accounting makes the post credible. No 10x claim: he puts himself at roughly twice as fast as working without an LLM at all, and takes that trade knowingly, buying comprehension with the speed.
+
+The case for it is stronger than it sounds. Typing is slow enough to catch a hallucination that reading skims past. It builds what he calls a spatial map of the codebase, the thing that lets you guess where a bug lives before you open the file. And you refactor while you transcribe, so the code lands better than it arrived.
+
+The case against is just as strong. It does not scale past one person on one codebase. Nobody retypes a 400 line migration. And it assumes you will still maintain this code in two years, which is often false.
+
+Where I land is uncomfortable: right about the mechanism, wrong about the remedy. The problem is not that you did not type it. It is that you never had to form an opinion about it before it merged.
+
+Retyping forces that. A review you actually do forces it too, and costs less. Most of us stopped doing that one honestly around the time diffs got too long to read.
+
+The week&#x27;s most-read thread argued these models pay off in proportion to what you already know. This is that claim from the other end. If you stop knowing, they stop paying.</textarea>
+  <textarea class="hidden" id="lic-v5" readonly>The post: https://ankursethi.com/blog/prevent-cognitive-debt-by-manually-retyping-llm-generated-code/ · The thread: https://news.ycombinator.com/item?id=49153374</textarea>
+</article>
+  <p class="note">Replace <code>[link to aiBytes_ #4]</code> with the live issue URL before posting. Character counts are exact for the text in the copy buffer.</p>
+</div>
+<script>
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest('button.copy');
+  if (!btn) return;
+  var src = document.getElementById(btn.dataset.target);
+  if (!src) return;
+  var text = src.value;
+  var done = function () {
+    var was = btn.textContent;
+    btn.textContent = 'Copied';
+    btn.classList.add('done');
+    setTimeout(function () { btn.textContent = was; btn.classList.remove('done'); }, 1600);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, function () { fallback(src, done); });
+  } else {
+    fallback(src, done);
+  }
+});
+function fallback(src, done) {
+  src.classList.remove('hidden');
+  src.select();
+  try { document.execCommand('copy'); done(); } catch (err) {}
+  src.classList.add('hidden');
+}
+</script>

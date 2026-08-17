@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>aiBytes_ #{{ISSUE_NUM}} thumbnail</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* Fixed 1200x630 canvas. Beehiiv post thumbnail, and the OG card when shared. */
+  :root{
+    --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
+    --slate:#6B7080;
+    --display:'Bricolage Grotesque',system-ui,Helvetica,Arial,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:var(--ink)}
+  body{
+    width:1200px;height:630px;overflow:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* Paper card on ink, with the issue's signature notched corner cut out of it. */
+  .card{
+    position:absolute;inset:18px;
+    background:var(--paper);color:var(--ink);
+    padding:56px 64px 52px;
+    display:flex;flex-direction:column;justify-content:space-between;
+    clip-path:polygon(0 0,calc(100% - 64px) 0,100% 64px,100% 100%,0 100%);
+  }
+
+  .top{display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+  .wordmark{font-family:var(--display);font-weight:800;font-size:40px;letter-spacing:-.02em}
+  .wordmark em{font-style:normal;color:var(--cobalt)}
+  .meta{font-family:var(--mono);font-size:15px;letter-spacing:.1em;color:var(--slate);white-space:nowrap}
+
+  h1{
+    font-family:var(--display);font-weight:800;
+    font-size:70px;line-height:1.05;letter-spacing:-.032em;
+    text-wrap:balance;max-width:19ch;
+  }
+  h1 mark{
+    background:var(--signal);color:var(--ink);
+    padding:0 8px;border-radius:2px;
+    -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  }
+
+  .foot{
+    display:flex;align-items:baseline;justify-content:space-between;gap:24px;
+    border-top:2px solid var(--ink);padding-top:18px;
+    font-family:var(--mono);font-size:14.5px;letter-spacing:.09em;color:var(--slate);
+  }
+  .foot .now{color:var(--ink);font-weight:500}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="top">
+      <div class="wordmark">⚡ aiBytes<em>_</em></div>
+      <div class="meta">ISSUE 0x{{ISSUE_HEX}} &middot; {{DATE_ISO}}</div>
+    </div>
+
+    <h1>{{HEADLINE_HTML}}</h1>
+
+    <div class="foot">
+      <span class="now">{{SECTIONS}}</span>
+      <span>~{{READ_MIN}} MIN</span>
+    </div>
+  </div>
+</body>
+</html>

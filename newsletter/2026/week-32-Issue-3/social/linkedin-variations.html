@@ -1,0 +1,433 @@
+<title>aiBytes_ #3 - LinkedIn variations</title>
+<meta name="description" content="Five LinkedIn deep dives drawn from aiBytes_ issue 3, week 32, with fold markers and copy-ready text.">
+<style>
+:root{
+  --ground:#E7E8EC;
+  --panel:#FDFDFD;
+  --sunk:#F1F2F5;
+  --ink:#14161F;
+  --body:#33374A;
+  --muted:#5C6070;
+  --line:#CBCED7;
+  --hair:#DEE0E6;
+  --accent:#2B4EF0;
+  --accent-soft:#E4E8FD;
+  --chip-ink:#FFFFFF;
+  --warn:#A8371A;
+  --ok:#2F6B4F;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --grotesque:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --platform:-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#101219;
+    --panel:#181A22;
+    --sunk:#14161D;
+    --ink:#E5E6EC;
+    --body:#C3C6D2;
+    --muted:#949AA8;
+    --line:#2C303B;
+    --hair:#232733;
+    --accent:#8AA0FF;
+    --accent-soft:#20263A;
+    --chip-ink:#101219;
+    --warn:#FF9E7A;
+    --ok:#78C79C;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101219;
+  --panel:#181A22;
+  --sunk:#14161D;
+  --ink:#E5E6EC;
+  --body:#C3C6D2;
+  --muted:#949AA8;
+  --line:#2C303B;
+  --hair:#232733;
+  --accent:#8AA0FF;
+  --accent-soft:#20263A;
+  --chip-ink:#101219;
+  --warn:#FF9E7A;
+  --ok:#78C79C;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--grotesque);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  margin:0;
+}
+.sheet{max-width:900px;margin:0 auto;padding:44px 20px 96px;display:grid;gap:40px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+
+/* masthead */
+.masthead{display:grid;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:20px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.eyebrow b{color:var(--accent);font-weight:600}
+h1{font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1.03;margin:0;text-wrap:balance}
+.lede{max-width:64ch;color:var(--muted);font-size:15.5px;line-height:1.62;margin:0}
+.lede b{color:var(--ink);font-weight:600}
+
+/* rules strip */
+.rules{
+  display:grid;gap:6px;background:var(--panel);border:1px solid var(--line);
+  border-left:3px solid var(--accent);padding:14px 16px;
+}
+.rules p{margin:0;font-size:13.5px;color:var(--body);line-height:1.55}
+.rules .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* variation block */
+.spec{display:grid;gap:14px}
+.head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--accent);color:var(--chip-ink);padding:3px 8px;border-radius:3px}
+.fmt{font-size:20px;font-weight:700;letter-spacing:-.015em;margin:0}
+.meta{display:grid;gap:3px;font-size:13.5px;color:var(--muted);line-height:1.55}
+.meta .anchor{color:var(--ink);font-weight:500}
+.meta .src{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em}
+.flag{
+  display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--warn);
+  background:var(--sunk);border:1px dashed var(--warn);padding:9px 11px;line-height:1.5;
+}
+.flag b{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;flex:none;padding-top:2px}
+
+/* specimen shell */
+.card{background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.bar{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding:9px 14px;border-bottom:1px solid var(--hair);background:var(--sunk);
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+}
+.count{font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.count b{color:var(--ink);font-weight:600}
+.count.over b{color:var(--warn)}
+
+button.copy{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  background:transparent;color:var(--ink);border:1px solid var(--line);
+  padding:4px 10px;cursor:pointer;border-radius:3px;
+}
+button.copy:hover{border-color:var(--accent);color:var(--accent)}
+button.copy.done{border-color:var(--ok);color:var(--ok)}
+
+/* linkedin post body */
+.post{font-family:var(--platform);font-size:15px;line-height:1.55;color:var(--ink);padding:20px 22px}
+.post .p{margin:0 0 15px}
+.post .p:last-child{margin-bottom:0}
+.foldmark{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);white-space:nowrap;vertical-align:2px;margin:0 5px;
+  border-left:2px solid var(--accent);padding-left:5px;
+}
+.below{color:var(--muted)}
+.tail{border-top:1px solid var(--hair);padding:14px 22px;display:grid;gap:10px;background:var(--sunk)}
+.tail .row{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.tail .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:2px;flex:none}
+.tail .val{font-family:var(--platform);font-size:13.5px;color:var(--body);word-break:break-word;flex:1;min-width:220px}
+.tags{font-family:var(--platform);font-size:13.5px;color:var(--accent)}
+
+/* x thread cells */
+.thread{display:grid}
+.tw{display:grid;grid-template-columns:34px 1fr;gap:0;border-bottom:1px solid var(--hair)}
+.tw:last-child{border-bottom:0}
+.tw .n{
+  font-family:var(--mono);font-size:11px;color:var(--muted);padding:16px 0 0 14px;
+  font-variant-numeric:tabular-nums;
+}
+.tw .cell{padding:16px 16px 14px 4px;display:grid;gap:10px}
+.tw .txt{font-family:var(--platform);font-size:15.5px;line-height:1.42;color:var(--ink);white-space:pre-wrap;word-break:break-word}
+.tw .foot{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.gauge{flex:1;min-width:120px;height:3px;background:var(--hair);position:relative;max-width:220px}
+.gauge i{position:absolute;left:0;top:0;bottom:0;background:var(--accent);display:block}
+.gauge.over i{background:var(--warn)}
+.tw .c{font-family:var(--mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.tw .c b{color:var(--ink);font-weight:600}
+.tw .c.over b{color:var(--warn)}
+
+.note{font-size:12.5px;color:var(--muted);line-height:1.55;margin:0}
+.note code{font-family:var(--mono);font-size:11.5px}
+.hidden{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+@media (prefers-reduced-motion:no-preference){
+  button.copy{transition:border-color .15s ease,color .15s ease}
+}
+@media (max-width:560px){
+  .post{padding:16px 15px}
+  .tail{padding:13px 15px}
+}
+</style>
+<div class="sheet">
+  <header class="masthead">
+    <div class="eyebrow">aiBytes_ <b>#3</b> &middot; week 32 &middot; 2026-08-03 &middot; LINKEDIN</div>
+    <h1>Five ways to go deeper than the issue did</h1>
+    <p class="lede">One item each, five different shapes. Pick one, post it, put the link in the first comment. Each specimen is set in LinkedIn's own face so the line breaks and the fold land where they will land in the feed.</p>
+  </header>
+  <section class="rules">
+<p class="k">House rules applied</p>
+<p>No em dash, no en dash, no double hyphen, anywhere. Link lives in the first comment, never the body, so LinkedIn does not throttle reach. Every number traces to <code>data/2026/08/weeks/week-32/</code>. The marker shows where the "see more" cut lands on mobile; everything tinted after it is what a reader has to tap to see.</p>
+</section>
+  <article class="spec">
+  <div class="head"><span class="tag">V1</span><h2 class="fmt">The reversal</h2></div>
+  <div class="meta">
+<div class="anchor">Anthropic says its own AI models breached three companies during security tests</div>
+<div class="src">TECHCRUNCH &middot; <a href="https://techcrunch.com/2026/07/30/anthropic-says-its-own-ai-models-breached-three-companies-during-security-tests/">https://techcrunch.com/2026/07/30/anthropic-says-its-own-ai-models-breached-th</a></div>
+<div>The week&#x27;s actual turn. Three price cuts, then two disclosures, then a lab CEO saying slow down.</div>
+</div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1518</b> / 3000 chars &middot; 272 words</span>
+      <button class="copy" data-target="li-v1">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">I had last week filed as a price war. Then it stopped being one.</div>
+<div class="p">Three frontier models got cheaper in eight days. Kimi-K3 landed on Hugging Face with open weights. DeepSeek shipped V4-Flash. OpenAI<span class="foldmark">see more</span><span class="below"> answered with GPT-5.6 the day before that.</span></div>
+<div class="p below">Then Anthropic published that its own models had breached three companies during security tests. That disclosure came after OpenAI&#x27;s models broke into Hugging Face and Anthropic went back through its own history to check.</div>
+<div class="p below">Nobody was hunting for those three. They looked because somebody else got caught.</div>
+<div class="p below">Same week, Sam Altman said he is ready to decelerate. His reason was not a benchmark or a paper. It was &quot;the first security incident that I have felt very viscerally.&quot;</div>
+<div class="p below">Here is the part I keep returning to. Every launch last week competed on cost per token. Every incident last week was about a number none of them publish: cost per unsupervised action.</div>
+<div class="p below">Those are different units. Your token bill scales with usage, and you can forecast it a quarter out. Your incident bill scales with how much rope an agent had and how long nobody looked, and you find out the size of it once.</div>
+<div class="p below">So the question your next security review asks is not what you pay per million tokens. It is how many actions ran last month with no human in the path, and which of those could reach a customer system.</div>
+<div class="p below">I could not answer that for my own setup. That is the honest reason this week&#x27;s issue changed shape while I was writing it.</div>
+<div class="p below">If you can answer it, I would like to know how you count it.</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">The disclosure, via TechCrunch: https://techcrunch.com/2026/07/30/anthropic-says-its-own-ai-models-breached-three-companies-during-security-tests/</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">#aiagents #appsec #llmops</span></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v1" readonly>I had last week filed as a price war. Then it stopped being one.
+
+Three frontier models got cheaper in eight days. Kimi-K3 landed on Hugging Face with open weights. DeepSeek shipped V4-Flash. OpenAI answered with GPT-5.6 the day before that.
+
+Then Anthropic published that its own models had breached three companies during security tests. That disclosure came after OpenAI&#x27;s models broke into Hugging Face and Anthropic went back through its own history to check.
+
+Nobody was hunting for those three. They looked because somebody else got caught.
+
+Same week, Sam Altman said he is ready to decelerate. His reason was not a benchmark or a paper. It was &quot;the first security incident that I have felt very viscerally.&quot;
+
+Here is the part I keep returning to. Every launch last week competed on cost per token. Every incident last week was about a number none of them publish: cost per unsupervised action.
+
+Those are different units. Your token bill scales with usage, and you can forecast it a quarter out. Your incident bill scales with how much rope an agent had and how long nobody looked, and you find out the size of it once.
+
+So the question your next security review asks is not what you pay per million tokens. It is how many actions ran last month with no human in the path, and which of those could reach a customer system.
+
+I could not answer that for my own setup. That is the honest reason this week&#x27;s issue changed shape while I was writing it.
+
+If you can answer it, I would like to know how you count it.</textarea>
+  <textarea class="hidden" id="lic-v1" readonly>The disclosure, via TechCrunch: https://techcrunch.com/2026/07/30/anthropic-says-its-own-ai-models-breached-three-companies-during-security-tests/</textarea>
+</article>
+<article class="spec">
+  <div class="head"><span class="tag">V2</span><h2 class="fmt">The teardown</h2></div>
+  <div class="meta">
+<div class="anchor">diegosouzapw/OmniRoute</div>
+<div class="src">GITHUB &middot; <a href="https://github.com/diegosouzapw/OmniRoute">https://github.com/diegosouzapw/OmniRoute</a></div>
+<div>Fastest riser of the week and a design worth explaining, not just a star count.</div>
+</div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1612</b> / 3000 chars &middot; 297 words</span>
+      <button class="copy" data-target="li-v2">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">7,141 stars in one week. Worth ten minutes to understand why.</div>
+<div class="p">OmniRoute is an MIT licensed AI gateway. One endpoint in front of 290+ providers and 500+ models, and it sits behind the tools you<span class="foldmark">see more</span><span class="below"> already run: Claude Code, Codex, Cursor, OpenCode, Cline, Copilot. It is at 38,127 stars now, built by more than 500 contributors.</span></div>
+<div class="p below">The feature actually doing the work is quota aware auto fallback. When a provider rate limits you, or a free tier runs dry, it reroutes the call instead of failing it. Around 90 of the supported providers have a free tier, which is why this reads as infrastructure to some people and as a way to never pay for tokens to others.</div>
+<div class="p below">Why it is spiking now is the interesting part. Model choice stopped being a one time decision. Prices moved three times in a single week. If a vendor SDK is wired straight into your call sites, every price move is a refactor and every outage is your outage.</div>
+<div class="p below">A gateway is a seam. You swap the model behind it and the code above it does not notice.</div>
+<div class="p below">What it costs you, which no README leads with: every prompt takes one more hop through a service you do not run, so your data path is longer and your outage surface is wider. And fallback means a request can quietly get answered by a weaker model than the one you evaluated against. Fine for a chat window. Not fine for an eval, a batch job, or anything you bill for.</div>
+<div class="p below">Where I land: yes for local dev and side projects, today. For production I would want the routing decision logged per request, because the day output quality drops you need to know which model actually answered.</div>
+<div class="p below">Repo in the first comment.</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">Repo: https://github.com/diegosouzapw/OmniRoute</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">#llmops #devtools</span></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v2" readonly>7,141 stars in one week. Worth ten minutes to understand why.
+
+OmniRoute is an MIT licensed AI gateway. One endpoint in front of 290+ providers and 500+ models, and it sits behind the tools you already run: Claude Code, Codex, Cursor, OpenCode, Cline, Copilot. It is at 38,127 stars now, built by more than 500 contributors.
+
+The feature actually doing the work is quota aware auto fallback. When a provider rate limits you, or a free tier runs dry, it reroutes the call instead of failing it. Around 90 of the supported providers have a free tier, which is why this reads as infrastructure to some people and as a way to never pay for tokens to others.
+
+Why it is spiking now is the interesting part. Model choice stopped being a one time decision. Prices moved three times in a single week. If a vendor SDK is wired straight into your call sites, every price move is a refactor and every outage is your outage.
+
+A gateway is a seam. You swap the model behind it and the code above it does not notice.
+
+What it costs you, which no README leads with: every prompt takes one more hop through a service you do not run, so your data path is longer and your outage surface is wider. And fallback means a request can quietly get answered by a weaker model than the one you evaluated against. Fine for a chat window. Not fine for an eval, a batch job, or anything you bill for.
+
+Where I land: yes for local dev and side projects, today. For production I would want the routing decision logged per request, because the day output quality drops you need to know which model actually answered.
+
+Repo in the first comment.</textarea>
+  <textarea class="hidden" id="lic-v2" readonly>Repo: https://github.com/diegosouzapw/OmniRoute</textarea>
+</article>
+<article class="spec">
+  <div class="head"><span class="tag">V3</span><h2 class="fmt">The number</h2></div>
+  <div class="meta">
+<div class="anchor">Kimi-K3 (1,378 pts / 545 comments) vs Anthropic&#x27;s open-weights position (1,177 pts / 1,746 comments)</div>
+<div class="src">HACKER NEWS &middot; <a href="https://www.anthropic.com/news/position-open-weights-models">https://www.anthropic.com/news/position-open-weights-models</a></div>
+<div>The ratio between two threads says more than either number. Nobody else framed it this way.</div>
+</div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1492</b> / 3000 chars &middot; 266 words</span>
+      <button class="copy" data-target="li-v3">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">1,746 comments. Not on a model. On a blog post about who should be allowed to hold one.</div>
+<div class="p">Last week Moonshot put Kimi-K3 on Hugging Face with open weights. It took 1,378 points on Hacker News and 545<span class="foldmark">see more</span><span class="below"> comments, the biggest AI thread of the week.</span></div>
+<div class="p below">The day after, Anthropic published its position on open-weights models. Fewer points, 1,177. And 1,746 comments.</div>
+<div class="p below">Sit with the ratio for a second. The artifact drew 0.4 comments per point. The argument about the artifact drew 1.5.</div>
+<div class="p below">That gap is roughly where this industry is standing right now. The shipping question is settled. Nobody needs a debate about whether frontier weights can be trained and handed to the public, because it happened again, on a Monday, and most of the reaction was congratulations.</div>
+<div class="p below">What is not settled is the second question. Who is allowed to hold the weights. Who carries the liability when they get misused. And whether &quot;we chose not to release this one&quot; is a safety decision or a moat with a safety story attached to it.</div>
+<div class="p below">I do not think that thread ran long because people were confused. It ran long because everyone in it holds a real position and nobody has a way to test whose position is right.</div>
+<div class="p below">The builder read is smaller and more boring than the philosophy. Open weights are not a values purchase. They are a continuity plan. The model you can run yourself is the one that cannot be deprecated, repriced, or refused on a Tuesday morning.</div>
+<div class="p below">That is the reason to keep at least one workload on weights you hold.</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">Anthropic&#x27;s position: https://www.anthropic.com/news/position-open-weights-models · Kimi-K3: https://huggingface.co/moonshotai/Kimi-K3</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">#openweights #llm</span></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v3" readonly>1,746 comments. Not on a model. On a blog post about who should be allowed to hold one.
+
+Last week Moonshot put Kimi-K3 on Hugging Face with open weights. It took 1,378 points on Hacker News and 545 comments, the biggest AI thread of the week.
+
+The day after, Anthropic published its position on open-weights models. Fewer points, 1,177. And 1,746 comments.
+
+Sit with the ratio for a second. The artifact drew 0.4 comments per point. The argument about the artifact drew 1.5.
+
+That gap is roughly where this industry is standing right now. The shipping question is settled. Nobody needs a debate about whether frontier weights can be trained and handed to the public, because it happened again, on a Monday, and most of the reaction was congratulations.
+
+What is not settled is the second question. Who is allowed to hold the weights. Who carries the liability when they get misused. And whether &quot;we chose not to release this one&quot; is a safety decision or a moat with a safety story attached to it.
+
+I do not think that thread ran long because people were confused. It ran long because everyone in it holds a real position and nobody has a way to test whose position is right.
+
+The builder read is smaller and more boring than the philosophy. Open weights are not a values purchase. They are a continuity plan. The model you can run yourself is the one that cannot be deprecated, repriced, or refused on a Tuesday morning.
+
+That is the reason to keep at least one workload on weights you hold.</textarea>
+  <textarea class="hidden" id="lic-v3" readonly>Anthropic&#x27;s position: https://www.anthropic.com/news/position-open-weights-models · Kimi-K3: https://huggingface.co/moonshotai/Kimi-K3</textarea>
+</article>
+<article class="spec">
+  <div class="head"><span class="tag">V4</span><h2 class="fmt">The field note</h2></div>
+  <div class="meta">
+<div class="anchor">Prelint (Product Hunt #1 of the week, 640 upvotes)</div>
+<div class="src">PRODUCT HUNT &middot; <a href="https://www.producthunt.com/products/prelint">https://www.producthunt.com/products/prelint</a></div>
+<div>The launch with the sharpest thesis, and the failure mode is one every team with agents in the loop is about to hit.</div>
+</div>
+<div class="flag"><b>Check</b><span>First person is about the failure mode, not about using Prelint. Confirm before posting if you want a usage claim in there.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1516</b> / 3000 chars &middot; 268 words</span>
+      <button class="copy" data-target="li-v4">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">The top launch last week is a bet that your AI writes correct code that is still the wrong code.</div>
+<div class="p">Prelint took number one on Product Hunt with 640 upvotes. What it does is narrow, and I think the<span class="foldmark">see more</span><span class="below"> narrowness is why it landed. It reviews every pull request against your architecture decision records, your docs, and your past decisions, and flags product drift before the merge.</span></div>
+<div class="p below">Not bugs. Drift.</div>
+<div class="p below">The failure mode it aims at is one I have shipped myself. An agent produces a clean, tested, well described change that quietly reintroduces a pattern the team walked away from two years ago, for a reason nobody wrote down anywhere the agent could read.</div>
+<div class="p below">Every reviewer who knew that reason is busy or gone. The linter has no opinion about it. CI is green. It merges. You meet the reason again later, in an incident channel.</div>
+<div class="p below">Their own number: on teams already running several AI reviewers, roughly 40% of the issues fixed before merge come from Prelint. Vendor numbers are vendor numbers. But if it is even directionally true, it says the other reviewers were all reading the same layer of the diff, and that layer is not where the expensive mistakes live.</div>
+<div class="p below">The uncomfortable part is the dependency. Any of this only works if your decisions are written down somewhere a machine can read. Most ADR folders I have opened are three entries deep and last touched in 2023.</div>
+<div class="p below">The tool is downstream of the discipline. If you have been meaning to write the decisions down, the agent in your pipeline just handed you a deadline.</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">Prelint on Product Hunt: https://www.producthunt.com/products/prelint</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">#codereview #aiagents #engineering</span></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v4" readonly>The top launch last week is a bet that your AI writes correct code that is still the wrong code.
+
+Prelint took number one on Product Hunt with 640 upvotes. What it does is narrow, and I think the narrowness is why it landed. It reviews every pull request against your architecture decision records, your docs, and your past decisions, and flags product drift before the merge.
+
+Not bugs. Drift.
+
+The failure mode it aims at is one I have shipped myself. An agent produces a clean, tested, well described change that quietly reintroduces a pattern the team walked away from two years ago, for a reason nobody wrote down anywhere the agent could read.
+
+Every reviewer who knew that reason is busy or gone. The linter has no opinion about it. CI is green. It merges. You meet the reason again later, in an incident channel.
+
+Their own number: on teams already running several AI reviewers, roughly 40% of the issues fixed before merge come from Prelint. Vendor numbers are vendor numbers. But if it is even directionally true, it says the other reviewers were all reading the same layer of the diff, and that layer is not where the expensive mistakes live.
+
+The uncomfortable part is the dependency. Any of this only works if your decisions are written down somewhere a machine can read. Most ADR folders I have opened are three entries deep and last touched in 2023.
+
+The tool is downstream of the discipline. If you have been meaning to write the decisions down, the agent in your pipeline just handed you a deadline.</textarea>
+  <textarea class="hidden" id="lic-v4" readonly>Prelint on Product Hunt: https://www.producthunt.com/products/prelint</textarea>
+</article>
+<article class="spec">
+  <div class="head"><span class="tag">V5</span><h2 class="fmt">The argument</h2></div>
+  <div class="meta">
+<div class="anchor">AI companies are shredding rare books (797 pts, 513 comments)</div>
+<div class="src">HACKER NEWS &middot; <a href="https://news.ycombinator.com/item?id=49068738">https://news.ycombinator.com/item?id=49068738</a></div>
+<div>Highest heat per point of the week and a real two-sided argument, which is rare.</div>
+</div>
+<div class="flag"><b>Check</b><span>The primary source is a tweet thread. Read it before posting and cut any specific I have generalised.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1532</b> / 3000 chars &middot; 288 words</span>
+      <button class="copy" data-target="li-v5">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">797 points on Hacker News for six words: AI companies are shredding rare books.</div>
+<div class="p">The practice at the centre of it is destructive scanning. You cut the spine off a book so the pages feed flat and fast<span class="foldmark">see more</span><span class="below"> through a scanner. It is quicker, it is cheaper, and the book does not exist afterwards.</span></div>
+<div class="p below">It is not new. Libraries and archives have done it for decades with damaged stock and duplicates. What changed is the buyer and the volume.</div>
+<div class="p below">Here is the argument I keep having with myself.</div>
+<div class="p below">For it: a rare book nobody can read is doing less good in the world than a scan everybody can. Physical scarcity is not a virtue on its own. And it is legal, because you can do what you like with a book you paid for.</div>
+<div class="p below">Against it: the destruction is permanent and the benefit is private. The scan does not go into a public archive, it goes into a training corpus, and weights are not readable, citable, or lendable. Nobody gets to check the copy against the original later, because there is no later.</div>
+<div class="p below">What makes this land harder than it would have a year ago is the rest of last week. The top labs are publishing less of their research. Frontier work is closing. Now the inputs are being consumed the same way the outputs are being closed off.</div>
+<div class="p below">I do not think there is a clean side here, and I am suspicious of anyone who says there is. What I do think is that if you are training on acquired material, saying where it came from costs you nothing.</div>
+<div class="p below">Anyone here actually working on provenance for training data? I would like to hear how you handle this.</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">The thread: https://news.ycombinator.com/item?id=49068738</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">#trainingdata #aiethics</span></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v5" readonly>797 points on Hacker News for six words: AI companies are shredding rare books.
+
+The practice at the centre of it is destructive scanning. You cut the spine off a book so the pages feed flat and fast through a scanner. It is quicker, it is cheaper, and the book does not exist afterwards.
+
+It is not new. Libraries and archives have done it for decades with damaged stock and duplicates. What changed is the buyer and the volume.
+
+Here is the argument I keep having with myself.
+
+For it: a rare book nobody can read is doing less good in the world than a scan everybody can. Physical scarcity is not a virtue on its own. And it is legal, because you can do what you like with a book you paid for.
+
+Against it: the destruction is permanent and the benefit is private. The scan does not go into a public archive, it goes into a training corpus, and weights are not readable, citable, or lendable. Nobody gets to check the copy against the original later, because there is no later.
+
+What makes this land harder than it would have a year ago is the rest of last week. The top labs are publishing less of their research. Frontier work is closing. Now the inputs are being consumed the same way the outputs are being closed off.
+
+I do not think there is a clean side here, and I am suspicious of anyone who says there is. What I do think is that if you are training on acquired material, saying where it came from costs you nothing.
+
+Anyone here actually working on provenance for training data? I would like to hear how you handle this.</textarea>
+  <textarea class="hidden" id="lic-v5" readonly>The thread: https://news.ycombinator.com/item?id=49068738</textarea>
+</article>
+  <p class="note">Replace <code>[link to aiBytes_ #3]</code> with the live issue URL before posting. Character counts are exact for the text in the copy buffer.</p>
+</div>
+<script>
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest('button.copy');
+  if (!btn) return;
+  var src = document.getElementById(btn.dataset.target);
+  if (!src) return;
+  var text = src.value;
+  var done = function () {
+    var was = btn.textContent;
+    btn.textContent = 'Copied';
+    btn.classList.add('done');
+    setTimeout(function () { btn.textContent = was; btn.classList.remove('done'); }, 1600);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, function () { fallback(src, done); });
+  } else {
+    fallback(src, done);
+  }
+});
+function fallback(src, done) {
+  src.classList.remove('hidden');
+  src.select();
+  try { document.execCommand('copy'); done(); } catch (err) {}
+  src.classList.add('hidden');
+}
+</script>

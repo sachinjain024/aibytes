@@ -1,0 +1,209 @@
+<title>2026-Aug-10-Closing-block-taste</title>
+<style>
+  :root{
+    --ground:#E7E8EC;
+    --panel:#FDFDFD;
+    --ink:#14161F;
+    --muted:#5C6070;
+    --line:#CBCED7;
+    --hair:#D9DCE3;
+    --cobalt:#2B4EF0;
+    --chip-ink:#FFFFFF;
+
+    /* Specimen tokens: an inbox always renders light, so these never invert. */
+    --mail-paper:#FAFAF7;
+    --mail-card:#FFFFFF;
+    --mail-ink:#191C26;
+    --mail-body:#3A3E4A;
+    --mail-slate:#6B7080;
+    --mail-line:#E4E4DC;
+    --mail-cobalt:#2B4EF0;
+    --mail-signal:#FFD338;
+
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+    --grotesque:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mail-face:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#101219;
+      --panel:#181A22;
+      --ink:#E5E6EC;
+      --muted:#949AA8;
+      --line:#2C303B;
+      --hair:#242832;
+      --cobalt:#8AA0FF;
+      --chip-ink:#101219;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#101219;
+    --panel:#181A22;
+    --ink:#E5E6EC;
+    --muted:#949AA8;
+    --line:#2C303B;
+    --hair:#242832;
+    --cobalt:#8AA0FF;
+    --chip-ink:#101219;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--ground);
+    color:var(--ink);
+    font-family:var(--grotesque);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+    margin:0;
+  }
+  .sheet{max-width:820px;margin:0 auto;padding:48px 24px 88px;display:grid;gap:44px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:2px}
+
+  /* ── masthead ── */
+  .masthead{display:grid;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:22px}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .eyebrow b{color:var(--cobalt);font-weight:600}
+  h1{font-size:clamp(30px,5.2vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.02;text-wrap:balance;margin:0}
+  .lede{max-width:62ch;color:var(--muted);font-size:16px;line-height:1.6;margin:0}
+  .lede b{color:var(--ink);font-weight:600}
+
+  /* ── variation block ── */
+  .spec{display:grid;gap:16px}
+  .head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .tag{
+    font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;
+    background:var(--cobalt);color:var(--chip-ink);padding:3px 8px;border-radius:3px;
+  }
+  .baseline .tag{background:transparent;color:var(--muted);border:1px solid var(--line);font-weight:500}
+  .name{font-size:20px;font-weight:700;letter-spacing:-.015em;margin:0}
+  .note{color:var(--muted);font-size:14.5px;line-height:1.6;margin:0;max-width:62ch}
+  .ledger{
+    display:flex;flex-wrap:wrap;gap:4px 26px;font-family:var(--mono);font-size:11.5px;
+    line-height:1.5;color:var(--muted);border-top:1px solid var(--hair);padding-top:9px;
+  }
+  .ledger b{color:var(--ink);font-weight:600}
+
+  /* ── the specimen stage: always the newsletter's paper ── */
+  .stage{background:var(--mail-paper);border:1px solid var(--line);padding:26px 24px}
+
+  /* the block itself, shared type */
+  .tldr{padding:20px 22px}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em}
+  .idea{font-family:var(--mail-face);font-weight:500;font-size:17px;line-height:1.55;margin:8px 0 0}
+
+  /* 00 - current */
+  .v0{background:#191C26;clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}
+  .v0 .kicker{color:var(--mail-signal)}
+  .v0 .idea{color:var(--mail-paper)}
+  .v0 .idea b{color:var(--mail-signal)}
+
+  /* 01 - butter notch */
+  .v1{background:#FFF6D9;border:1px solid #F0E2AE;clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}
+  .v1 .kicker{color:#8A6A00}
+  .v1 .idea{color:var(--mail-ink)}
+  .v1 .idea b{background:var(--mail-signal);padding:0 4px;color:var(--mail-ink)}
+
+  /* 02 - paper card, signal rule */
+  .v2{background:var(--mail-card);border:1px solid var(--mail-line);border-left:4px solid var(--mail-signal);border-radius:14px}
+  .v2 .kicker{color:var(--mail-slate)}
+  .v2 .idea{color:var(--mail-ink)}
+  .v2 .idea b{background:var(--mail-signal);padding:0 4px;color:var(--mail-ink)}
+
+  /* 03 - cobalt wash */
+  .v3{background:#EEF1FE;border:1px solid #C9D3FB;border-radius:14px}
+  .v3 .kicker{color:var(--mail-cobalt)}
+  .v3 .idea{color:var(--mail-ink)}
+  .v3 .idea b{color:var(--mail-cobalt)}
+
+  /* 04 - hairline rules, no fill */
+  .v4{background:transparent;border-top:2px solid var(--mail-ink);border-bottom:2px solid var(--mail-ink);padding:18px 0}
+  .v4 .kicker{background:var(--mail-ink);color:var(--mail-signal);padding:3px 7px;display:inline-block}
+  .v4 .idea{color:var(--mail-ink)}
+  .v4 .idea b{background:var(--mail-signal);padding:0 4px}
+
+  .verdict{
+    background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--cobalt);
+    padding:16px 18px;display:grid;gap:8px;
+  }
+  .verdict p{margin:0;font-size:14.5px;line-height:1.6;color:var(--ink)}
+  .verdict .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  code{font-family:var(--mono);font-size:12.5px}
+  @media (max-width:560px){ .stage{padding:18px 14px} .tldr{padding:16px 16px} }
+</style>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <div class="eyebrow">aiBytes_ <b>#4</b> &middot; closing block &middot; picking a lighter treatment</div>
+    <h1>The last thing they read, minus the slab</h1>
+    <p class="lede">The closing block is the only dark surface in the issue, and at full ink it reads like a footer rather than a parting thought. Four lighter treatments below, each shown on the newsletter's own paper. <b>01 is applied to issue #4 right now</b>; say a number and I will swap it, then push the winner into the template and the Beehiiv patterns.</p>
+  </header>
+
+  <section class="spec baseline">
+    <div class="head"><span class="tag">00</span><h2 class="name">Current: ink slab</h2></div>
+    <p class="note">Full <code>#191C26</code> fill. The notch is a genuine signature, but at this weight the block stops the page instead of closing it, and it is the only element in the issue that inverts.</p>
+    <div class="stage">
+      <div class="tldr v0">
+        <div class="kicker">ONE IDEA TO CARRY NEXT WEEK</div>
+        <p class="idea">The most-read argument of the week was that these models pay off in proportion to what you already know. Every tool under it moved one more judgment call out of your hands. Worth writing down, this week, which ones you are <b>keeping</b>.</p>
+      </div>
+    </div>
+    <div class="ledger"><span>fill <b>#191C26</b></span><span>notch <b>yes</b></span><span>pivot word <b>signal text</b></span><span>email <b>flat dark td</b></span></div>
+  </section>
+
+  <section class="spec">
+    <div class="head"><span class="tag">01</span><h2 class="name">Butter notch</h2></div>
+    <p class="note">Same silhouette, a quarter of the weight. Keeps the notch so the signature survives, and the pivotal word picks up the signal highlight already used by the "Story of the week" badge. Reads like something highlighted in a notebook, which is what the section is asking the reader to do.</p>
+    <div class="stage">
+      <div class="tldr v1">
+        <div class="kicker">ONE IDEA TO CARRY NEXT WEEK</div>
+        <p class="idea">The most-read argument of the week was that these models pay off in proportion to what you already know. Every tool under it moved one more judgment call out of your hands. Worth writing down, this week, which ones you are <b>keeping</b>.</p>
+      </div>
+    </div>
+    <div class="ledger"><span>fill <b>#FFF6D9</b></span><span>border <b>#F0E2AE</b></span><span>kicker <b>#8A6A00</b></span><span>notch <b>yes</b></span><span>email <b>butter td, no notch</b></span></div>
+  </section>
+
+  <section class="spec">
+    <div class="head"><span class="tag">02</span><h2 class="name">Paper card, signal rule</h2></div>
+    <p class="note">Matches the intro card exactly, with a signal-yellow spine on the left. The quietest option, and the most consistent with the rest of the issue. Risk: it stops looking like a closing statement and starts looking like one more section.</p>
+    <div class="stage">
+      <div class="tldr v2">
+        <div class="kicker">ONE IDEA TO CARRY NEXT WEEK</div>
+        <p class="idea">The most-read argument of the week was that these models pay off in proportion to what you already know. Every tool under it moved one more judgment call out of your hands. Worth writing down, this week, which ones you are <b>keeping</b>.</p>
+      </div>
+    </div>
+    <div class="ledger"><span>fill <b>#FFFFFF</b></span><span>spine <b>4px signal</b></span><span>radius <b>14px</b></span><span>notch <b>no</b></span><span>email <b>border-left on td</b></span></div>
+  </section>
+
+  <section class="spec">
+    <div class="head"><span class="tag">03</span><h2 class="name">Cobalt wash</h2></div>
+    <p class="note">Picks up the news card's cobalt instead of the yellow. Calm and clearly a different register from the item rows. Costs you the yellow, which is the only place the brand's second colour appears down here.</p>
+    <div class="stage">
+      <div class="tldr v3">
+        <div class="kicker">ONE IDEA TO CARRY NEXT WEEK</div>
+        <p class="idea">The most-read argument of the week was that these models pay off in proportion to what you already know. Every tool under it moved one more judgment call out of your hands. Worth writing down, this week, which ones you are <b>keeping</b>.</p>
+      </div>
+    </div>
+    <div class="ledger"><span>fill <b>#EEF1FE</b></span><span>border <b>#C9D3FB</b></span><span>pivot word <b>cobalt</b></span><span>notch <b>no</b></span><span>email <b>tinted td</b></span></div>
+  </section>
+
+  <section class="spec">
+    <div class="head"><span class="tag">04</span><h2 class="name">Hairline rules, no fill</h2></div>
+    <p class="note">No panel at all: two ink rules and the paper between them, with the label as a small ink chip so the dark survives at badge scale. The most editorial of the four, and the one that reads most like a pull quote rather than a box.</p>
+    <div class="stage">
+      <div class="tldr v4">
+        <div class="kicker">ONE IDEA TO CARRY NEXT WEEK</div>
+        <p class="idea">The most-read argument of the week was that these models pay off in proportion to what you already know. Every tool under it moved one more judgment call out of your hands. Worth writing down, this week, which ones you are <b>keeping</b>.</p>
+      </div>
+    </div>
+    <div class="ledger"><span>fill <b>none</b></span><span>rules <b>2px ink</b></span><span>kicker <b>ink chip</b></span><span>notch <b>no</b></span><span>email <b>border-top/bottom td</b></span></div>
+  </section>
+
+  <div class="verdict">
+    <p class="k">Settled</p>
+    <p><b>01, the butter notch, at weight 500.</b> It is the only option that solves the darkness without giving up the notch, and the notch is the one piece of shape in the whole issue that is not a rectangle. Keeping the signal yellow on the pivotal word means the closing block and the "Story of the week" badge speak the same language, so the yellow reads as a system rather than a one-off.</p>
+    <p>The idea text dropped from 700 to <b>500</b>, the lightest weight the issue actually loads for Bricolage Grotesque, with line-height opened to 1.55 to suit it. The highlighted pivot word stays at 700, so the emphasis now comes from weight and colour together instead of a whole paragraph shouting. Every specimen above is shown at the shipping weight.</p>
+    <p>Runners-up, for the record: 04 if it should be quieter still, 02 if it should recede into the issue.</p>
+  </div>
+
+</div>

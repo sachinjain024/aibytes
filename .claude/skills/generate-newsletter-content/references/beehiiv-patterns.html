@@ -9,6 +9,7 @@ classes, no <style>, no flex, no clip-path, no <script>.
 Shared palette (inline everywhere):
   paper #FAFAF7 · ink #191C26 · cobalt #2B4EF0 · signal #FFD338
   slate #6B7080 · line #E4E4DC · card #FFFFFF · quote text #3A3E4A
+  butter #FFF6D9 · butter line #F0E2AE · amber #8A6A00  (closing block only)
 Font stacks (email clients fall back gracefully):
   display: 'Bricolage Grotesque',Helvetica,Arial,sans-serif
   body:    'Instrument Sans',Helvetica,Arial,sans-serif
@@ -16,6 +17,9 @@ Font stacks (email clients fall back gracefully):
 
 Fill {{TOKENS}}, repeat row/item blocks as needed. The LAST row/item in any
 table omits border-bottom so the list doesn't end with a stray hairline.
+
+Outbound links are plain canonical URLs - no ref or utm_* tracking params on
+anything, including the trailing (HackerNews) and (ProductHunt) links.
 -->
 
 <!-- ═══ PATTERN: masthead (issue tag + logo) ═══ -->
@@ -54,31 +58,39 @@ table omits border-bottom so the list doesn't end with a stray hairline.
   <div style="font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:800;font-size:20px;color:#2B4EF0;letter-spacing:.02em;margin-bottom:14px;">🌍 NEWS FOR DEVS</div>
   <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">{{EMOJI}} <a href="{{URL}}" style="color:#2B4EF0;text-decoration:none;font-weight:700;">{{HEADLINE}}</a> - {{CONTEXT}} <span style="background-color:#FFD338;padding:0 4px;font-weight:600;">Story of the week</span> <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">({{SOURCE}})</span></p>
   <!-- hot badge span only on the top story -->
+  <!-- Callout only - no attribution line under the quote. -->
   <div style="border:1px solid #E4E4DC;border-radius:10px;background-color:#FAFAF7;padding:16px 18px;margin-top:18px;">
     <p style="margin:0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;color:#3A3E4A;">"{{QUOTE_TEXT}}"</p>
-    <p style="margin:10px 0 0 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:14px;color:#6B7080;">- {{QUOTE_WHO}}</p>
   </div>
 </div>
 
 <!-- ═══ PATTERN: ticker row table (Launches ▲ N · GitHub +N.Nk ★ · HN N pts) ═══ -->
+<!-- {{URL}} is the destination the reader wants: the product's own website for a
+     launch, the article for an HN deep cut, the repo for GitHub. The trailing span is
+     the attribution link - (ProductHunt) to the launch page, (HackerNews) to the
+     thread - rendered grey with an underline so it stays subordinate to the name.
+     Drop that span entirely on GitHub rows, where the name is already the source. -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
   <tr>
     <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
       <span style="display:inline-block;width:22px;text-align:center;">{{EMOJI}}</span>
-      <a href="{{URL}}" style="color:#2B4EF0;text-decoration:none;font-weight:600;">{{NAME}}</a> - {{DESCRIPTION}}
+      <a href="{{URL}}" style="color:#2B4EF0;text-decoration:none;font-weight:600;">{{NAME}}</a> - {{DESCRIPTION}} <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(<a href="{{SOURCE_URL}}" style="color:#6B7080;text-decoration:underline;">{{SOURCE_NAME}}</a>)</span>
     </td>
     <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">{{STAT_BOLD}}</b> {{STAT_REST}}</td>
   </tr>
   <!-- repeat <tr>; drop border-bottom on the last row's two tds -->
 </table>
 
-<!-- ═══ PATTERN: closing idea (dark block; no clip-path notch in email) ═══ -->
+<!-- ═══ PATTERN: closing idea (butter panel; no clip-path notch in email) ═══ -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-top:44px;">
   <tr>
-    <td style="background-color:#191C26;padding:20px 22px;">
-      <div style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11px;letter-spacing:.14em;color:#FFD338;">ONE IDEA TO CARRY NEXT WEEK</div>
-      <p style="margin:8px 0 0 0;font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:700;font-size:17px;line-height:1.5;color:#FAFAF7;">{{CLOSING_IDEA_WITH_B_IN_SIGNAL}}</p>
-      <!-- wrap the pivotal word: <b style="color:#FFD338;">word</b> -->
+    <td style="background-color:#FFF6D9;border:1px solid #F0E2AE;padding:20px 22px;">
+      <div style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11px;letter-spacing:.14em;color:#8A6A00;">ONE IDEA TO CARRY NEXT WEEK</div>
+      <p style="margin:8px 0 0 0;font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:500;font-size:17px;line-height:1.55;color:#191C26;">{{CLOSING_IDEA_WITH_B_HIGHLIGHTED}}</p>
+      <!-- Email drops the notch, so the butter fill and the hairline border carry the
+           shape on their own. Idea text is weight 500, not bold; only the pivotal word
+           is emphasised, and it is highlighted rather than recoloured:
+           <b style="background-color:#FFD338;padding:0 4px;color:#191C26;">word</b> -->
     </td>
   </tr>
 </table>

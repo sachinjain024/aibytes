@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beehiiv Export - aiBytes_ #4</title>
+<style>
+  :root{color-scheme:light}
+  *{box-sizing:border-box}
+  body{margin:0;background:#EFEFEA;color:#191C26;font-family:'Instrument Sans',Helvetica,Arial,sans-serif}
+  .wrap{max-width:760px;margin:0 auto;padding:32px 20px 64px}
+  h1{font-size:22px;margin:0 0 6px}
+  .sub{color:#6B7080;font-size:14px;margin:0 0 28px}
+  .sub code{background:#E4E4DC;padding:1px 5px;border-radius:4px;font-size:12.5px}
+  .sec-block{background:#FFFFFF;border:1px solid #E4E4DC;border-radius:12px;margin-bottom:22px;overflow:hidden}
+  .bar{display:flex;justify-content:space-between;align-items:center;background:#191C26;padding:10px 16px}
+  .bar .name{color:#FAFAF7;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;letter-spacing:.1em}
+  .copy-btn{background:#FFD338;border:none;border-radius:6px;padding:6px 14px;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;font-weight:700;color:#191C26;cursor:pointer}
+  .copy-btn:hover{background:#FFC800}
+  .copy-btn.done{background:#7BE0A2}
+  .code{display:none}
+  .preview{padding:20px 22px;background:#FAFAF7}
+  .meta{padding:16px 22px}
+  .meta .label{font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:10.5px;letter-spacing:.1em;color:#6B7080;margin-bottom:2px}
+  .meta .title{font-size:17px;font-weight:700;margin-bottom:12px}
+  .meta .desc{font-size:14.5px;color:#3A3E4A}
+  .divider{text-align:center;color:#6B7080;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;letter-spacing:.06em;margin:18px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Beehiiv Export - aiBytes_ Issue #4</h1>
+  <p class="sub">Two email-safe HTML parts (inline styles, table layout). Click <b>⧉ Copy HTML</b>, then in Beehiiv type <code>/</code> → Premium → <code>HTML Snippet</code> and paste. Each preview shows exactly what you'll get.</p>
+
+  <div class="sec-block">
+    <div class="bar"><span class="name">POST TITLE &amp; DESCRIPTION</span></div>
+    <div class="meta">
+      <div class="label">TITLE - USED AS EMAIL SUBJECT</div>
+      <div class="title">aiBytes_ 04: DeepMind's shake-up and the week Oracle said no</div>
+      <div class="label">DESCRIPTION - PREVIEW / SUBTITLE TEXT</div>
+      <div class="desc">Plus OpenAI claiming ten new results in mathematics, a 3B open-weights moderation model from Mistral, and the launch that reviews your agents' work before you do.</div>
+    </div>
+  </div>
+
+  <div class="sec-block">
+    <div class="bar"><span class="name">PART 1 - MASTHEAD · INTRO · NEWS FOR DEVS</span><button class="copy-btn" type="button">⧉ Copy HTML</button></div>
+    <textarea class="code" spellcheck="false"><table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-bottom:12px;">
+  <tr>
+    <td style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;letter-spacing:.08em;color:#6B7080;">ISSUE 0x04 &middot; TL;DR</td>
+    <td align="right" style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;letter-spacing:.08em;color:#6B7080;">2026-08-10 &middot; ~5 MIN</td>
+  </tr>
+</table>
+<div style="font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:800;font-size:34px;letter-spacing:-.02em;color:#191C26;">&#9889; aiBytes<span style="color:#2B4EF0;">_</span> #4</div>
+
+<div style="border:1px solid #E4E4DC;border-radius:14px;background-color:#FFFFFF;padding:20px 22px;margin-bottom:18px;margin-top:18px;">
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#191C26;">Good morning, builders &#128075;</p>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;">Welcome back to your Monday-morning dose of aiBytes_. I started this one as an autonomy week: Claude Code's auto mode going on by default, a browser built for agents, an agent OS that will run a whole company for a solo founder. Then Oracle banned AI-generated code from OpenJDK outright, and the argument everyone kept circling back to all week was that these models only pay off if you already know the answer 🤔</p>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;"><b style="color:#191C26;">The keyboard is changing hands faster than the trust is</b>: the tools that shipped this week take more decisions off you by default, while the people downstream, from OpenJDK maintainers to researchers working through <a style="color:#2B4EF0;text-decoration:none;" href="https://research.jfrog.com/post/sqlite-critical-cves-or-llm-slops/">AI-written CVE reports</a>, are quietly putting the checkpoints back in.</p>
+  <p style="margin:0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;"><b style="color:#191C26;">Today:</b> a leadership change at the top of DeepMind, the week Oracle said no, an assistant that talks to your network instead of to you, and seven repos worth an hour on Sunday.</p>
+</div>
+
+<div style="border:2px solid #2B4EF0;border-radius:14px;padding:20px 22px;background-color:#FFFFFF;">
+  <div style="font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:800;font-size:20px;color:#2B4EF0;letter-spacing:.02em;margin-bottom:14px;">&#127757; NEWS FOR DEVS</div>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">🏛️ <a href="https://blog.google/company-news/inside-google/message-ceo/next-chapter-ai-momentum/" style="color:#2B4EF0;text-decoration:none;font-weight:700;">Changes at Google DeepMind: Hassabis to Chair, Jeff Dean departs</a> - Google restructures the top of its AI org, and the succession question is suddenly live. <span style="background-color:#FFD338;padding:0 4px;font-weight:600;">Story of the week</span> <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(Google)</span></p>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">🚫 <a href="https://app.dealroom.co/news/feed/oracle-bans-ai-generated-code-from-openjdk-despite-ellison-s-claim-oracle-isn-t-writing-its-own-code" style="color:#2B4EF0;text-decoration:none;font-weight:700;">Oracle bans AI-generated code from OpenJDK</a> - AI-written contributions are out of the JDK, in the same week everyone else turned oversight down. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(Dealroom)</span></p>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">🎚️ <a href="https://techcrunch.com/2026/08/09/anthropic-is-turning-claude-codes-auto-mode-on-by-default/" style="color:#2B4EF0;text-decoration:none;font-weight:700;">Anthropic is turning Claude Code's auto mode on by default</a> - Less human oversight in the loop, shipped as the default rather than a flag you opt into. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(TechCrunch)</span></p>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">🧪 <a href="https://techcrunch.com/2026/08/09/the-ai-safety-test-is-becoming-a-safety-risk/" style="color:#2B4EF0;text-decoration:none;font-weight:700;">The AI safety test is becoming a safety risk</a> - Agents are escaping cybersecurity test environments and reaching real systems. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(TechCrunch)</span></p>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">➗ <a href="https://openai.com/index/ten-advances-in-mathematics/" style="color:#2B4EF0;text-decoration:none;font-weight:700;">Ten advances in mathematics and theoretical computer science</a> - OpenAI's claim of genuinely new results, and the longest argument of the week about what counts as new. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(OpenAI)</span></p>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">🪁 <a href="https://techcrunch.com/2026/08/07/cloudflare-launches-kitesurf-a-browser-built-for-ai-agents/" style="color:#2B4EF0;text-decoration:none;font-weight:700;">Cloudflare launches Kitesurf, a browser built for AI agents</a> - A cloud browser aimed at agents rather than people, cheaper than driving Chromium. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(TechCrunch)</span></p>
+  <p style="margin:0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">🛡️ <a href="https://mistral.ai/news/shieldstral/" style="color:#2B4EF0;text-decoration:none;font-weight:700;">Mistral's Shieldstral: 3B open-weights model for multimodal moderation</a> - A moderation model small enough to self-host next to whatever you are already running. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(Mistral)</span></p>
+  <div style="border:1px solid #E4E4DC;border-radius:10px;background-color:#FAFAF7;padding:16px 18px;margin-top:18px;">
+    <p style="margin:0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;color:#3A3E4A;">"Autonomy shipped on by default this week. Trust did not."</p>
+  </div>
+</div></textarea>
+    <div class="preview"></div>
+  </div>
+
+  <p class="divider">▼ paste native Beehiiv blocks here - subscribe form, ads, polls ▼</p>
+
+  <div class="sec-block">
+    <div class="bar"><span class="name">PART 2 - LAUNCHES · GITHUB · HN · CLOSING</span><button class="copy-btn" type="button">⧉ Copy HTML</button></div>
+    <textarea class="code" spellcheck="false"><table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-top:34px;margin-bottom:12px;">
+  <tr>
+    <td width="1" style="background-color:#191C26;color:#FAFAF7;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-weight:700;font-size:12px;padding:2px 7px;white-space:nowrap;">0x02</td>
+    <td style="padding-left:10px;white-space:nowrap;font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:700;font-size:19px;letter-spacing:.01em;color:#191C26;">LAUNCHES</td>
+    <td width="100%" style="padding-left:10px;"><div style="height:2px;background-color:#191C26;font-size:0;line-height:0;">&nbsp;</div></td>
+  </tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">📣</span>
+      <a href="https://adant.ai/" style="color:#2B4EF0;text-decoration:none;font-weight:600;">AdAnt AI</a> - Creative agents that plan, write and iterate social ads for TikTok and Instagram. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(<a href="https://www.producthunt.com/products/adant-ai" style="color:#6B7080;text-decoration:underline;">ProductHunt</a>)</span>
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">▲ 599</b></td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🤝</span>
+      <a href="https://heynoah.io/" style="color:#2B4EF0;text-decoration:none;font-weight:600;">Hey Noah</a> - An executive assistant that talks to your network across email, text and WhatsApp. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(<a href="https://www.producthunt.com/products/hey-noah" style="color:#6B7080;text-decoration:underline;">ProductHunt</a>)</span>
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">▲ 596</b></td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🎙️</span>
+      <a href="https://wisprflow.ai/" style="color:#2B4EF0;text-decoration:none;font-weight:600;">Wispr Flow Notetaker</a> - Reads the invite before the call, so names and jargon land right in the recap. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(<a href="https://www.producthunt.com/products/wisprflow" style="color:#6B7080;text-decoration:underline;">ProductHunt</a>)</span>
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">▲ 572</b></td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🧊</span>
+      <a href="https://coldtea.ai/" style="color:#2B4EF0;text-decoration:none;font-weight:600;">Coldtea.ai</a> - An agentic IDE where QA agents catch what the coding agents just broke. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(<a href="https://www.producthunt.com/products/coldtea" style="color:#6B7080;text-decoration:underline;">ProductHunt</a>)</span>
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">▲ 511</b></td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🧭</span>
+      <a href="https://www.soloop.io/" style="color:#2B4EF0;text-decoration:none;font-weight:600;">Soloop</a> - Approval-first agent OS for solo founders, with an AI CEO, CTO and CMO. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(<a href="https://www.producthunt.com/products/soloop" style="color:#6B7080;text-decoration:underline;">ProductHunt</a>)</span>
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">▲ 493</b></td>
+  </tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-top:34px;margin-bottom:12px;">
+  <tr>
+    <td width="1" style="background-color:#191C26;color:#FAFAF7;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-weight:700;font-size:12px;padding:2px 7px;white-space:nowrap;">0x03</td>
+    <td style="padding-left:10px;white-space:nowrap;font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:700;font-size:19px;letter-spacing:.01em;color:#191C26;">TRENDING ON GITHUB</td>
+    <td width="100%" style="padding-left:10px;"><div style="height:2px;background-color:#191C26;font-size:0;line-height:0;">&nbsp;</div></td>
+  </tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🔓</span>
+      <a href="https://github.com/zhaoxuya520/reverse-skill" style="color:#2B4EF0;text-decoration:none;font-weight:600;">zhaoxuya520/reverse-skill</a> - a skill router for reverse engineering and pentest work, with on-demand toolchain bootstrap.
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">+9.8k</b> ★</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🧠</span>
+      <a href="https://github.com/TencentCloud/TencentDB-Agent-Memory" style="color:#2B4EF0;text-decoration:none;font-weight:600;">TencentCloud/TencentDB-Agent-Memory</a> - team-level memory hub: chat memory, skills, an LLM wiki and a code graph.
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">+8.0k</b> ★</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🎓</span>
+      <a href="https://github.com/microsoft/AI-For-Beginners" style="color:#2B4EF0;text-decoration:none;font-weight:600;">microsoft/AI-For-Beginners</a> - Microsoft's 24-lesson curriculum, near the top of the charts a second week running.
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">+5.5k</b> ★</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🪫</span>
+      <a href="https://github.com/lyogavin/airllm" style="color:#2B4EF0;text-decoration:none;font-weight:600;">lyogavin/airllm</a> - 70B inference on a single 4GB GPU.
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">+5.1k</b> ★</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">⌨️</span>
+      <a href="https://github.com/esengine/DeepSeek-Reasonix" style="color:#2B4EF0;text-decoration:none;font-weight:600;">esengine/DeepSeek-Reasonix</a> - DeepSeek-native terminal agent, built around prefix-cache stability so you can leave it running.
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">+4.7k</b> ★</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">📚</span>
+      <a href="https://github.com/virgiliojr94/book-to-skill" style="color:#2B4EF0;text-decoration:none;font-weight:600;">virgiliojr94/book-to-skill</a> - turns a technical book PDF into a Claude Code skill.
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">+4.1k</b> ★</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🎛️</span>
+      <a href="https://github.com/Comfy-Org/ComfyUI" style="color:#2B4EF0;text-decoration:none;font-weight:600;">Comfy-Org/ComfyUI</a> - the modular node graph for diffusion models, still climbing.
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">+2.0k</b> ★</td>
+  </tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-top:34px;margin-bottom:12px;">
+  <tr>
+    <td width="1" style="background-color:#191C26;color:#FAFAF7;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-weight:700;font-size:12px;padding:2px 7px;white-space:nowrap;">0x04</td>
+    <td style="padding-left:10px;white-space:nowrap;font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:700;font-size:19px;letter-spacing:.01em;color:#191C26;">HN DEEP CUTS</td>
+    <td width="100%" style="padding-left:10px;"><div style="height:2px;background-color:#191C26;font-size:0;line-height:0;">&nbsp;</div></td>
+  </tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🎯</span>
+      <a href="https://www.seangoedecke.com/llms-reward-expertise/" style="color:#2B4EF0;text-decoration:none;font-weight:600;">LLMs reward expertise</a> - the week's most-read argument: the model pays off in proportion to what you already know. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(<a href="https://news.ycombinator.com/item?id=49161518" style="color:#6B7080;text-decoration:underline;">HackerNews</a>)</span>
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">1,411</b> pts · 572 💬</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🖼️</span>
+      <a href="https://nelson.cloud/ai-generated-images-discourage-me-from-reading-your-blog/" style="color:#2B4EF0;text-decoration:none;font-weight:600;">AI-Generated Images Discourage Me from Reading Your Blog</a> - what a generated header image now signals to the person deciding whether to read you. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(<a href="https://news.ycombinator.com/item?id=49167113" style="color:#6B7080;text-decoration:underline;">HackerNews</a>)</span>
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">794</b> pts · 465 💬</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">📊</span>
+      <a href="https://arcprize.org/results/deepseek-v4-flash-0731" style="color:#2B4EF0;text-decoration:none;font-weight:600;">DeepSeek V4 Flash 0731</a> - the ARC Prize numbers, a week after the launch made the rounds. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(<a href="https://news.ycombinator.com/item?id=49214008" style="color:#6B7080;text-decoration:underline;">HackerNews</a>)</span>
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">784</b> pts</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">🐛</span>
+      <a href="https://research.jfrog.com/post/sqlite-critical-cves-or-llm-slops/" style="color:#2B4EF0;text-decoration:none;font-weight:600;">SQLite Critical CVEs or LLM Slop?</a> - JFrog works through the AI-written vulnerability reports one by one. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(<a href="https://news.ycombinator.com/item?id=49154332" style="color:#6B7080;text-decoration:underline;">HackerNews</a>)</span>
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">726</b> pts</td>
+  </tr>
+  <tr>
+    <td style="padding:9px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <span style="display:inline-block;width:22px;text-align:center;">✍️</span>
+      <a href="https://ankursethi.com/blog/prevent-cognitive-debt-by-manually-retyping-llm-generated-code/" style="color:#2B4EF0;text-decoration:none;font-weight:600;">Prevent cognitive debt by manually retyping LLM-generated code</a> - a deliberately slow habit, argued seriously. <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(<a href="https://news.ycombinator.com/item?id=49153374" style="color:#6B7080;text-decoration:underline;">HackerNews</a>)</span>
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">540</b> pts · 444 💬</td>
+  </tr>
+</table>
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-top:44px;">
+  <tr>
+    <td style="background-color:#FFF6D9;border:1px solid #F0E2AE;padding:20px 22px;">
+      <div style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11px;letter-spacing:.14em;color:#8A6A00;">ONE IDEA TO CARRY NEXT WEEK</div>
+      <p style="margin:8px 0 0 0;font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:500;font-size:17px;line-height:1.55;color:#191C26;">The most-read argument of the week was that these models pay off in proportion to what you already know. Every tool under it moved one more judgment call out of your hands. Worth writing down, this week, which ones you are <b style="background-color:#FFD338;padding:0 4px;color:#191C26;">keeping</b>.</p>
+    </td>
+  </tr>
+</table></textarea>
+    <div class="preview"></div>
+  </div>
+
+</div>
+<script>
+  document.querySelectorAll('.sec-block').forEach(function(block){
+    var ta = block.querySelector('.code');
+    if (!ta) return;
+    var pv = block.querySelector('.preview');
+    if (pv) pv.innerHTML = ta.value;
+    var copyBtn = block.querySelector('.copy-btn');
+    if (!copyBtn) return;
+    copyBtn.addEventListener('click', function(){
+      var btn = this;
+      function ok(){ btn.textContent='✓ Copied'; btn.classList.add('done');
+        setTimeout(function(){ btn.textContent='⧉ Copy HTML'; btn.classList.remove('done'); },1500); }
+      function fallback(){
+        ta.style.display='block'; ta.select();
+        try{ document.execCommand('copy'); ok(); } finally { ta.style.display='none'; }
+      }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(ta.value).then(ok).catch(fallback);
+      } else { fallback(); }
+    });
+  });
+</script>
+</body>
+</html>

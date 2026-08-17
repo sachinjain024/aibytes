@@ -1,0 +1,120 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-08-10",
+  "window": {
+    "after": "2026-08-03",
+    "before": "2026-08-11"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 94,
+  "poolCount": 433,
+  "stories": [
+    {
+      "title": "LLMs reward expertise",
+      "url": "https://www.seangoedecke.com/llms-reward-expertise/",
+      "type": "story",
+      "points": 1411,
+      "num_comments": 572,
+      "author": "MaxMussio",
+      "created_at": "2026-08-03T21:13:53Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49161518"
+    },
+    {
+      "title": "Changes at Google DeepMind: Demis Hassabis from CEO to Chair, Jeff Dean departs",
+      "url": "https://blog.google/company-news/inside-google/message-ceo/next-chapter-ai-momentum/",
+      "type": "story",
+      "points": 861,
+      "num_comments": 929,
+      "author": "colesantiago",
+      "created_at": "2026-08-05T16:05:31Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49184755"
+    },
+    {
+      "title": "AI-Generated Images Discourage Me from Reading Your Blog",
+      "url": "https://nelson.cloud/ai-generated-images-discourage-me-from-reading-your-blog/",
+      "type": "story",
+      "points": 794,
+      "num_comments": 465,
+      "author": "meysamazad",
+      "created_at": "2026-08-04T11:30:17Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49167113"
+    },
+    {
+      "title": "DeepSeek V4 Flash 0731",
+      "url": "https://arcprize.org/results/deepseek-v4-flash-0731",
+      "type": "story",
+      "points": 784,
+      "num_comments": 470,
+      "author": "tosh",
+      "created_at": "2026-08-07T17:56:20Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49214008"
+    },
+    {
+      "title": "SQLite Critical CVEs or LLM Slop?",
+      "url": "https://research.jfrog.com/post/sqlite-critical-cves-or-llm-slops/",
+      "type": "story",
+      "points": 726,
+      "num_comments": 374,
+      "author": "ymir_e",
+      "created_at": "2026-08-03T11:28:54Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49154332"
+    },
+    {
+      "title": "Ten advances in mathematics and theoretical computer science",
+      "url": "https://openai.com/index/ten-advances-in-mathematics/",
+      "type": "story",
+      "points": 627,
+      "num_comments": 938,
+      "author": "milkshakes",
+      "created_at": "2026-08-03T16:27:12Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49157930"
+    },
+    {
+      "title": "How I use LLMs to learn complex topics",
+      "url": "https://laurentiugabriel.github.io/blog/articles/how-i-use-llms-to-learn/",
+      "type": "story",
+      "points": 593,
+      "num_comments": 340,
+      "author": "laurentiurad",
+      "created_at": "2026-08-09T19:16:49Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49234675"
+    },
+    {
+      "title": "Prevent cognitive debt by manually retyping LLM-generated code",
+      "url": "https://ankursethi.com/blog/prevent-cognitive-debt-by-manually-retyping-llm-generated-code/",
+      "type": "story",
+      "points": 540,
+      "num_comments": 444,
+      "author": "mpweiher",
+      "created_at": "2026-08-03T09:32:07Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49153374"
+    },
+    {
+      "title": "Oracle bans AI-generated code from OpenJDK",
+      "url": "https://app.dealroom.co/news/feed/oracle-bans-ai-generated-code-from-openjdk-despite-ellison-s-claim-oracle-isn-t-writing-its-own-code",
+      "type": "story",
+      "points": 534,
+      "num_comments": 378,
+      "author": "delduca",
+      "created_at": "2026-08-07T17:36:30Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49213754"
+    },
+    {
+      "title": "Mistral's Shieldstral: 3B open-weights model for multimodal moderation",
+      "url": "https://mistral.ai/news/shieldstral/",
+      "type": "story",
+      "points": 481,
+      "num_comments": 133,
+      "author": "riadsila",
+      "created_at": "2026-08-04T16:36:05Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49171268"
+    }
+  ]
+}
