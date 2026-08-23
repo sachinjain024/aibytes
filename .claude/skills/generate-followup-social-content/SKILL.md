@@ -7,7 +7,7 @@ description: Generate follow-up LinkedIn and X (Twitter) posts that go deep on o
 
 The newsletter is the roundup. Social is the deep dive.
 
-Each week, after an issue ships, pick single items out of it and go further than the issue could - explain the mechanism, unpack the number, take a side. Produce **5 LinkedIn variations** and **5 X (Twitter) variations**, presented as two review artifacts so the user can read them side by side and pick.
+Each week, after an issue ships, pick single items out of it and go further than the issue could - explain the mechanism, unpack the number, take a side. Produce **LinkedIn story posts for the items the user picks** (one post per item, chosen by the user from a shortlist you offer) and **5 X (Twitter) variations**, presented as two review artifacts so the user can read them side by side and pick.
 
 Output goes to `newsletter/{yyyy}/{week-folder}/social/`, where `{week-folder}` is the issue folder that already exists (e.g. `newsletter/2026/week-32-Issue-3/social/`).
 
@@ -20,9 +20,9 @@ Output goes to `newsletter/{yyyy}/{week-folder}/social/`, where `{week-folder}` 
 - Read the matching raw snapshots under `data/{yyyy}/{mm}/weeks/week-{NN}/` (producthunt, github, news/hackernews, news/techcrunch). The issue carries one line per item; the raw JSON carries the full description, the vote and star and point counts, the comment counts and the canonical URL. **The deep dive lives in the raw data**, so never write from the issue alone.
 - Every number and link in a post must be traceable to that data. Do not round, inflate, or invent. If a detail would strengthen a post and is not in the data, either leave it out or fetch the source page and cite what it actually says.
 
-### 2. Pick 5 anchor items
+### 2. Pick 5 anchor items (X deck)
 
-One item per variation, five different items. Rank candidates on how much there is to *say*:
+This step and the format step below govern the **X deck**. LinkedIn anchors are not picked here: the user picks them in step 4, from a shortlist you offer. One item per variation, five different items. Rank candidates on how much there is to *say*:
 
 - Does it have a mechanism worth explaining, a number worth unpacking, or a real disagreement behind it?
 - Would a builder change something on Monday because they read it?
@@ -30,7 +30,7 @@ One item per variation, five different items. Rank candidates on how much there 
 
 Coverage rule: across the five, include **at least one news story, at least one GitHub repo, and at least one product launch**. Highest engagement is a tiebreaker, not the criterion - a 5k-star repo with an interesting design beats a 7k-star repo that is another awesome-list.
 
-### 3. Assign each anchor a format
+### 3. Assign each anchor a format (X deck)
 
 Five formats, one each, so the set reads as five different kinds of post rather than one post rewritten five times:
 
@@ -42,16 +42,22 @@ Five formats, one each, so the set reads as five different kinds of post rather 
 
 **Honesty guard for the field note.** Never write a first-person claim of having used, tested, installed, or measured something unless the user actually did. Anchor the first person in the *problem* ("I have shipped this bug", "I could not answer that for my own setup"), not in the product. If a variation needs a personal claim to work, write it and flag it in the artifact as **needs the user's confirmation before posting**.
 
-### 4. Write the LinkedIn variations
+### 4. Write the LinkedIn stories (ask the user first)
+
+LinkedIn posts are **zoom-ins, not roundups**: each post tells the story of exactly one item from the issue, in plain narrative English, the way you would tell it to a colleague.
+
+**Ask before writing.** Shortlist 5-8 items from the issue, each with one line on why it would make a good story, and ask the user which ones to write (use the question tool, multi-select). Never pick for them; wait for the pick. One post per chosen item - the number of variations is however many the user picks.
 
 Structure per post:
 
-- **Hook**: one line, under about 12 words. It has to work as the only thing a scrolling reader sees. Concrete beats clever: a number, a reversal, or a claim someone could disagree with.
-- **The fold**: LinkedIn truncates around 200 characters on mobile. The first two lines must land a complete thought before the cut, and the line just after the cut has to be worth expanding for.
-- **Body**: 150 to 300 words. What happened (specific), the mechanism or detail most people missed, why it matters for someone shipping with AI, and one honest caveat, cost, or open question. The caveat is not optional - it is the thing that makes the post read as written by someone with judgment.
+- **Opener**: one or two lines that set the scene as a story, not a headline. Two shapes that work: the personal-discovery opener ("Last week, I read a thread on HackerNews that would not leave me alone.") and the big-news-plus-question opener ("Stripe is reportedly buying OpenRouter for $7B+. Why does a payments company want an LLM router?"). The opener must work as the only thing a scrolling reader sees.
+- **The fold**: LinkedIn truncates around 200 characters on mobile. The opener must land a complete thought before the cut, and the line just after the cut has to be worth expanding for.
+- **Arc**: tell it in sequence rather than in labeled sections - what happened, with the concrete details and numbers from the data; the mechanism or context most coverage skips; why a builder should care; then an honest open question or a stated take. 150 to 350 words. The post must go deeper on its one item than the newsletter blurb did, or it has no reason to exist.
+- **Facts**: insightful and factually correct beats punchy. Every number and claim must trace to `data/` or a fetched source. If the story wants a figure that is not in the data (a revenue multiple, a valuation, a user count), fetch the source and cite what it actually says, or leave it out - never estimate one into existence.
 - **Close**: a real question or a stated position. Never "What do you think? Comment below."
 - **Link handling**: LinkedIn suppresses posts with external links in the body. Put the URL in a `First comment:` line instead, and say what the link is.
 - **Newsletter mention**: at most one, at the end, phrased as where the rest of the week lives. Not a pitch.
+- **Emojis**: sparing - at most two per post, never in the opener.
 - **Hashtags**: three maximum, on their own line at the end, lowercase-specific (`#llmops`) over generic (`#AI #Tech #Innovation`). Zero is a valid choice.
 
 ### 5. Write the X (Twitter) variations
@@ -91,7 +97,7 @@ newsletter/{yyyy}/{week-folder}/social/linkedin-variations.html
 newsletter/{yyyy}/{week-folder}/social/x-variations.html
 ```
 
-Each page carries, for all five variations: the format name, the anchor item and its source link, the post rendered in a platform-shaped specimen, a metadata ledger, and a **copy button that copies the exact post text** (plain text, the characters that get pasted, no markup and no dashes the rules ban).
+Each page carries, for every variation: the format name, the anchor item and its source link, the post rendered in a platform-shaped specimen, a metadata ledger, and a **copy button that copies the exact post text** (plain text, the characters that get pasted, no markup and no dashes the rules ban).
 
 Platform-specific specimen details that earn their place:
 
@@ -110,4 +116,5 @@ Then publish both as artifacts so the user can read them in the browser, and tel
 - No LinkedIn post has a URL in its body; each has a `First comment:` line.
 - No tweet exceeds 280 characters; tweet 1 is under 240.
 - Any first-person claim about using or testing something is flagged for the user's confirmation.
-- The five formats are all different and the five anchors are all different, with news, GitHub, and a launch all represented.
+- On the X deck, the five formats are all different and the five anchors are all different, with news, GitHub, and a launch all represented.
+- Every LinkedIn post zooms into exactly one item, opens as a story rather than a headline, and was picked by the user, not for them.
