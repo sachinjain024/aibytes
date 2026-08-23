@@ -1,0 +1,410 @@
+<title>Three Openers for #6</title>
+<style>
+  :root{
+    --ground:#E7E8EC;
+    --panel:#FDFDFD;
+    --ink:#14161F;
+    --muted:#5C6070;
+    --line:#CBCED7;
+    --hair:#D9DCE3;
+    --cobalt:#2B4EF0;
+    --signal:#FFD338;
+    --chip-ink:#FFFFFF;
+
+    /* Specimen tokens: an inbox always renders light, so these never invert. */
+    --mail-bg:#FFFFFF;
+    --mail-line:#E4E4DC;
+    --mail-ink:#191C26;
+    --mail-body:#3A3E4A;
+    --mail-link:#2B4EF0;
+    --mail-held:#8B8F9C;
+
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+    --grotesque:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mail-face:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#101219;
+      --panel:#181A22;
+      --ink:#E5E6EC;
+      --muted:#949AA8;
+      --line:#2C303B;
+      --hair:#242832;
+      --cobalt:#8AA0FF;
+      --chip-ink:#101219;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#101219;
+    --panel:#181A22;
+    --ink:#E5E6EC;
+    --muted:#949AA8;
+    --line:#2C303B;
+    --hair:#242832;
+    --cobalt:#8AA0FF;
+    --chip-ink:#101219;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--ground);
+    color:var(--ink);
+    font-family:var(--grotesque);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+    margin:0;
+  }
+  .sheet{
+    max-width:820px;
+    margin:0 auto;
+    padding:48px 24px 72px;
+    display:grid;
+    gap:44px;
+  }
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:2px}
+
+  /* ── masthead ── */
+  .masthead{display:grid;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:22px}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .eyebrow b{color:var(--cobalt);font-weight:600}
+  h1{
+    font-size:clamp(30px,5.2vw,44px);
+    font-weight:800;
+    letter-spacing:-.03em;
+    line-height:1.02;
+    text-wrap:balance;
+    margin:0;
+  }
+  .lede{max-width:60ch;color:var(--muted);font-size:16px;line-height:1.6;margin:0}
+  .lede b{color:var(--ink);font-weight:600}
+
+  /* ── contents ── */
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  .spec,.close{scroll-margin-top:20px}
+  .toc{display:grid;gap:11px;border-left:2px solid var(--cobalt);padding-left:18px}
+  .toc h2{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    font-weight:500;
+    margin:0;
+  }
+  .toc ul{list-style:none;display:grid;gap:7px;margin:0;padding:0}
+  .toc li{display:flex;align-items:baseline;gap:11px}
+  .toc .lbl{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.06em;
+    color:var(--muted);
+    min-width:3.4em;
+  }
+  .toc a{color:var(--ink);text-decoration:none;font-size:15px;border-bottom:1px solid transparent}
+  .toc a:hover{border-bottom-color:var(--cobalt)}
+
+  /* ── variation block ── */
+  .spec{display:grid;gap:16px}
+  .strip{display:grid;gap:10px}
+  .head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .tag{
+    font-family:var(--mono);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.06em;
+    background:var(--cobalt);
+    color:var(--chip-ink);
+    padding:3px 8px;
+    border-radius:3px;
+  }
+  .baseline .tag{background:transparent;color:var(--muted);border:1px solid var(--line);font-weight:500}
+  .name{font-size:20px;font-weight:700;letter-spacing:-.015em;margin:0}
+  .ledger{
+    display:flex;
+    flex-wrap:wrap;
+    gap:4px 26px;
+    font-family:var(--mono);
+    font-size:11.5px;
+    line-height:1.5;
+    color:var(--muted);
+    border-top:1px solid var(--hair);
+    padding-top:9px;
+    margin:0;
+  }
+  .ledger > div{display:flex;gap:7px}
+  .ledger dt{letter-spacing:.08em;text-transform:uppercase;opacity:.72}
+  .ledger dd{margin:0;color:var(--ink);font-variant-numeric:tabular-nums}
+
+  /* ── the specimen: intro card as it renders in the inbox ── */
+  .mail{
+    max-width:640px;
+    background:var(--mail-bg);
+    border:1px solid var(--mail-line);
+    border-radius:14px;
+    padding:22px 24px;
+    box-shadow:0 1px 2px rgba(20,22,31,.06),0 8px 24px -18px rgba(20,22,31,.5);
+  }
+  .mail p{
+    font-family:var(--mail-face);
+    font-size:15.5px;
+    line-height:1.65;
+    color:var(--mail-body);
+    margin:0 0 14px 0;
+  }
+  .mail p:last-child{margin-bottom:0}
+  .mail b{color:var(--mail-ink);font-weight:700}
+  .mail a{color:var(--mail-link);text-decoration:none;font-weight:500}
+  .mail a:hover{text-decoration:underline}
+  .greet{color:var(--mail-ink) !important;font-weight:400}
+  /* paragraphs 3 and 4 are identical in every specimen - held back so the eye stays on the hook */
+  .held p{color:var(--mail-held)}
+  .held b{color:var(--mail-held)}
+  .held a{color:var(--mail-held);font-weight:400}
+  .held{
+    border-top:1px dashed var(--mail-line);
+    margin-top:16px;
+    padding-top:14px;
+    position:relative;
+  }
+  .held-note{
+    font-family:var(--mono);
+    font-size:9.5px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--mail-held);
+    margin:0 0 10px 0 !important;
+  }
+
+  .why{
+    max-width:640px;
+    font-size:14.5px;
+    line-height:1.6;
+    color:var(--muted);
+    margin:0;
+    padding-left:14px;
+    border-left:2px solid var(--signal);
+  }
+  .why b{color:var(--ink);font-weight:600}
+  .baseline .why{border-left-color:var(--line)}
+
+  /* ── close ── */
+  .close{
+    border-top:1px solid var(--hair);
+    padding-top:22px;
+    display:grid;
+    gap:12px;
+    max-width:62ch;
+    font-size:14.5px;
+    line-height:1.6;
+    color:var(--muted);
+  }
+  .close h2{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink);
+    font-weight:600;
+    margin:0;
+  }
+  .close b{color:var(--ink);font-weight:600}
+  .close ul{margin:0;padding-left:18px;display:grid;gap:7px}
+  code{font-family:var(--mono);font-size:.9em;color:var(--ink)}
+
+  /* ── locked decision ── */
+  .decision{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-top:3px solid var(--cobalt);
+    border-radius:4px;
+    padding:22px 24px;
+    display:grid;
+    gap:14px;
+  }
+  .decision .head{align-items:center}
+  .decision h2{font-size:22px;font-weight:700;letter-spacing:-.015em;margin:0}
+  .decision p{margin:0;max-width:62ch;font-size:15px;line-height:1.62;color:var(--muted)}
+  .decision p b{color:var(--ink);font-weight:600}
+  .tag.sel{background:var(--signal);color:#191C26}
+  .spec.picked .tag{background:var(--signal);color:#191C26}
+  .spec.picked .mail{border-color:var(--cobalt);border-width:2px;padding:21px 23px}
+  .badge{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--cobalt);
+    border:1px solid currentColor;
+    border-radius:2px;
+    padding:1px 6px;
+  }
+  .toc .mark{
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    background:var(--signal);
+    color:#191C26;
+    padding:1px 6px;
+    border-radius:2px;
+    margin-left:2px;
+  }
+  .decision,.spec,.close{scroll-margin-top:20px}
+</style>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <div class="eyebrow"><b>aiBytes_ #6</b> · intro hook · proof sheet · 2026-08-23</div>
+    <h1>Three ways into the week</h1>
+    <p class="lede">Only the <b>second paragraph's hook</b> changes - the greeting, the storyline and the <b>Today:</b> menu are identical in all four specimens and held back in grey. Same facts, same emoji, same links. What moves is the shape of the sentence that carries the week's turn: whether it opens on my drafting process, on me, or on the story itself.</p>
+  </header>
+
+  <nav class="toc" aria-label="Contents">
+    <h2>Contents</h2>
+    <ul>
+      <li><span class="lbl">-</span><a href="#decision">The pick, locked</a></li>
+      <li><span class="lbl">NOW</span><a href="#now">What shipped before</a></li>
+      <li><span class="lbl">V1</span><a href="#v1">Straight to the turn</a></li>
+      <li><span class="lbl">V2</span><a href="#v2">I didn't expect this</a><span class="mark">selected</span></li>
+      <li><span class="lbl">V3</span><a href="#v3">On paper vs. in fact</a></li>
+      <li><span class="lbl">-</span><a href="#notes">What the pick locked in</a></li>
+    </ul>
+  </nav>
+
+  <section class="decision" id="decision">
+    <div class="head">
+      <span class="tag sel">SELECTED</span>
+      <h2>V2 - I didn't expect this</h2>
+    </div>
+    <p><b>Why this one.</b> It keeps the publisher in the paragraph without making the paragraph about the publisher. The "I" is <b>reacting to the news, not narrating the draft</b> - so the warmth of the first-person voice survives, but the reader is never walked through an outline of a week that didn't happen. "A week in AI thinking about paper" states the whole issue in eight words and hands off to the story in the same breath. V1 was shorter but spent the person entirely; V3 kept the setup-and-turn that was the problem in the first place.</p>
+    <p><b>What repeats is the shape, not the words.</b> The beat is <em>surprise as a reaction, then the story that caused it</em> - "I did not expect…" is one phrasing of it, and the phrasing changes every issue. The banned shape is explicit in the skill now: no more "I had this issue half-written as X - then Z".</p>
+    <dl class="ledger">
+      <div><dt>Locked</dt><dd>2026-08-23</dd></div>
+      <div><dt>Shipped in</dt><dd>aiBytes_ #6</dd></div>
+      <div><dt>Now standing in</dt><dd>generate-newsletter-content</dd></div>
+      <div><dt>Retired</dt><dd>Draft-that-changed</dd></div>
+    </dl>
+  </section>
+
+  <article class="spec baseline" id="now">
+    <div class="strip">
+      <div class="head">
+        <span class="tag">NOW</span>
+        <h2 class="name">What shipped before</h2>
+      </div>
+      <dl class="ledger">
+        <div><dt>Shape</dt><dd>Draft-that-changed</dd></div>
+        <div><dt>Opens on</dt><dd>My process</dd></div>
+        <div><dt>Person</dt><dd>First</dd></div>
+        <div><dt>Hook words</dt><dd>55</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <p class="greet">Good morning, builders 👋</p>
+      <p>Welcome back to your Monday-morning dose of aiBytes_. I had this issue sketched as a quiet infrastructure week - a price cut here, a vision model there. Then Amazon, the company that started out selling books, was caught pulping rare ones to feed its models, and Anna's Archive answered with a race to scan whatever survives 📚</p>
+      <div class="held">
+        <p class="held-note">Unchanged in every version</p>
+        <p><b>The week the readers pushed back</b>: the labs kept shipping, but the loudest posts of the week were people refusing to read model output - just as <a href="#">a study put a third of the web's new pages</a> down as machine-written.</p>
+        <p><b>Today:</b> the book-pulping saga, Cursor coming for GitHub's lunch, an agent that can clip your home videos, seven repos led by a literal money printer, and five essays from the week HN stopped reading.</p>
+      </div>
+    </div>
+    <p class="why"><b>The formula is showing.</b> Issue #3 opened "I had this issue half-written as a price-cut roundup"; #6 opens "I had this issue sketched as a quiet infrastructure week". Twice is a voice, three times is a bit - and the reader starts hearing the template instead of the news. It also spends its first fifteen words describing <b>a week that didn't happen</b>, and makes my drafting process the subject before the story gets a word.</p>
+  </article>
+
+  <article class="spec" id="v1">
+    <div class="strip">
+      <div class="head">
+        <span class="tag">V1</span>
+        <h2 class="name">Straight to the turn</h2>
+      </div>
+      <dl class="ledger">
+        <div><dt>Shape</dt><dd>Story first</dd></div>
+        <div><dt>Opens on</dt><dd>Amazon</dd></div>
+        <div><dt>Person</dt><dd>None in hook</dd></div>
+        <div><dt>Hook words</dt><dd>40</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <p class="greet">Good morning, builders 👋</p>
+      <p>Welcome back to your Monday-morning dose of aiBytes_. Amazon, the company that started out selling books, spent this week destroying rare ones to feed its models - and Anna's Archive answered within days with a public race to scan whatever survives 📚</p>
+      <div class="held">
+        <p class="held-note">Unchanged in every version</p>
+        <p><b>The week the readers pushed back</b>: the labs kept shipping, but the loudest posts of the week were people refusing to read model output - just as <a href="#">a study put a third of the web's new pages</a> down as machine-written.</p>
+        <p><b>Today:</b> the book-pulping saga, Cursor coming for GitHub's lunch, an agent that can clip your home videos, seven repos led by a literal money printer, and five essays from the week HN stopped reading.</p>
+      </div>
+    </div>
+    <p class="why"><b>Shortest, hardest.</b> No setup, no drafting frame - the bookseller-turned-shredder irony does all the work, and it is strong enough to carry the paragraph alone. The trade: <b>the "I" disappears from the hook</b>, so the warmth now rests entirely on the greeting and the storyline. Repeats best of the three, because it has no reusable scaffolding to notice - each week it is just the week's biggest story, said well.</p>
+  </article>
+
+  <article class="spec picked" id="v2">
+    <div class="strip">
+      <div class="head">
+        <span class="tag">V2</span>
+        <h2 class="name">I didn't expect this</h2>
+        <span class="badge">Selected · shipped in #6</span>
+      </div>
+      <dl class="ledger">
+        <div><dt>Shape</dt><dd>Reaction, not rewrite</dd></div>
+        <div><dt>Opens on</dt><dd>My surprise</dd></div>
+        <div><dt>Person</dt><dd>First</dd></div>
+        <div><dt>Hook words</dt><dd>49</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <p class="greet">Good morning, builders 👋</p>
+      <p>Welcome back to your Monday-morning dose of aiBytes_. I did not expect to spend a week in AI thinking about paper. But Amazon, the company that started out selling books, is pulping rare ones to feed its models, and Anna's Archive is racing to scan whatever survives 📚</p>
+      <div class="held">
+        <p class="held-note">Unchanged in every version</p>
+        <p><b>The week the readers pushed back</b>: the labs kept shipping, but the loudest posts of the week were people refusing to read model output - just as <a href="#">a study put a third of the web's new pages</a> down as machine-written.</p>
+        <p><b>Today:</b> the book-pulping saga, Cursor coming for GitHub's lunch, an agent that can clip your home videos, seven repos led by a literal money printer, and five essays from the week HN stopped reading.</p>
+      </div>
+    </div>
+    <p class="why"><b>Keeps the person, drops the paperwork.</b> Still first-person, but the "I" is <b>reacting to the news rather than narrating the draft</b> - the reader gets a human without being walked through my outline. "A week in AI thinking about paper" is the whole issue in eight words. The risk to watch: "I didn't expect" can calcify into its own formula if every week is a surprise, so it needs a genuinely odd week to earn it.</p>
+  </article>
+
+  <article class="spec" id="v3">
+    <div class="strip">
+      <div class="head">
+        <span class="tag">V3</span>
+        <h2 class="name">On paper vs. in fact</h2>
+      </div>
+      <dl class="ledger">
+        <div><dt>Shape</dt><dd>Week's shape, then its story</dd></div>
+        <div><dt>Opens on</dt><dd>The week</dd></div>
+        <div><dt>Person</dt><dd>None in hook</dd></div>
+        <div><dt>Hook words</dt><dd>54</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <p class="greet">Good morning, builders 👋</p>
+      <p>Welcome back to your Monday-morning dose of aiBytes_. On paper this was an infrastructure week - a price cut here, a vision model there. What everyone actually argued about was Amazon, the company that started out selling books, pulping rare ones to feed its models, and Anna's Archive racing to scan whatever survives 📚</p>
+      <div class="held">
+        <p class="held-note">Unchanged in every version</p>
+        <p><b>The week the readers pushed back</b>: the labs kept shipping, but the loudest posts of the week were people refusing to read model output - just as <a href="#">a study put a third of the web's new pages</a> down as machine-written.</p>
+        <p><b>Today:</b> the book-pulping saga, Cursor coming for GitHub's lunch, an agent that can clip your home videos, seven repos led by a literal money printer, and five essays from the week HN stopped reading.</p>
+      </div>
+    </div>
+    <p class="why"><b>Same contrast, different subject.</b> It keeps the setup-and-turn the current line is built on - the quiet infra week is still real, it is most of the issue - but the contrast is now about <b>the week rather than my draft</b>, so the reader is never asked to care about my process. "On paper" is a deliberate pun on a story about pulped books; it lands or it is too cute, and that is the call to make here. Closest to what ships today, so it is the smallest edit of the three.</p>
+  </article>
+
+  <section class="close" id="notes">
+    <h2>What the pick locked in</h2>
+    <p>Three things changed together on 2026-08-23 - the issue, the skill, and this sheet:</p>
+    <ul>
+      <li><b>Issue #6</b> - the hook was replaced in both <code>aiBytes-issue-6.html</code> and <code>aiBytes-beehiiv-export-issue-6.html</code>, which carry the same paragraph in two encodings.</li>
+      <li><b>The skill</b> - <code>generate-newsletter-content/SKILL.md</code> step 3 had prescribed the draft-that-changed shape by example ("I had this issue half-written as a price-cut roundup..."). It now prescribes the two-beat reaction shape and rules the old one out by name, so next week's issue inherits it without being asked.</li>
+      <li><b>This sheet</b> - the pick and its reason are locked into the decision block above, the way the #3 intro and the thumbnail sheets record theirs.</li>
+    </ul>
+    <p>The standing line <b>"Welcome back to your Monday-morning dose of aiBytes_."</b> was untouched throughout - it is the appointment, not the hook. Issue #3 keeps its original opener: it is published history, not a template to correct.</p>
+  </section>
+
+</div>
