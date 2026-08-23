@@ -43,7 +43,7 @@ Default to the most recently published folder under `newsletter/{yyyy}/`, unless
 
 ### 2. Choose the highlight phrase
 
-The headline is the subject line with the `aiBytes_ {NN}: ` prefix stripped, since the wordmark is already on the image and repeating it wastes the largest type on the page.
+The headline is the subject line with its leading `{emoji} ` stripped, since the wordmark is already on the image and the emoji belongs to the inbox, not the largest type on the page.
 
 Pick **two to four words** to mark in signal yellow. The right choice is the most concrete thing in the headline: a company doing something, a number, a reversal. Not a connective phrase, and not the whole headline, which defeats the point. For "DeepMind's shake-up and the week Oracle said no", `Oracle said no` is the half a reader can act on.
 
@@ -53,7 +53,7 @@ Never mark a phrase that breaks awkwardly across the line wrap. Render it and lo
 
 Always open the PNGs after generating - all three, since a background can misbehave behind one headline and not another. The check is whether the headline is readable at the size a feed card actually shows, roughly 300px wide. Things that go wrong:
 
-- **Headline too long.** Above about 60 characters the type has to wrap to four lines and the balance collapses. The title rule in `generate-newsletter-content` keeps subjects at ~62 characters including the `aiBytes_ {NN}: ` prefix, so a compliant subject always fits. If a headline overflows, shorten it with `--headline` rather than shrinking the type.
+- **Headline too long.** Above about 60 characters the type has to wrap to four lines and the balance collapses. The title rule in `generate-newsletter-content` keeps subjects at ~62 characters including the leading emoji, so a compliant subject always fits. If a headline overflows, shorten it with `--headline` rather than shrinking the type.
 - **Highlight in the wrong place**, sitting alone on its own line or splitting a phrase.
 - **Fonts not loaded.** Chrome fetches Bricolage Grotesque and JetBrains Mono from Google Fonts at render time. If the machine is offline the image still renders, in Helvetica, and looks wrong. Check the wordmark: the real face has a distinctly tight, high-contrast `a`.
 

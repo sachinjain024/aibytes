@@ -71,9 +71,9 @@ Match the template's tone: terse, builder-focused, no hype words. The intro is t
 
 The title becomes the email subject line; the description becomes the preview/subtitle text - together they decide whether the issue gets opened, so write them from the week's strongest hooks, not generically.
 
-- **Title**: `aiBytes_ {NN}: {hook one} and {hook two}`, where `{NN}` is the issue number zero-padded to two digits (e.g. "aiBytes_ 04: DeepMind's shake-up and the week Oracle said no"). Sentence case, concrete specifics, ≤ ~62 characters.
+- **Title**: `{emoji} {hook one} and {hook two}` - a single leading emoji, then the hooks (e.g. "⚡ Amazon pulps rare books and Cursor fights GitHub"). Pick an emoji that fits the story of the week; the brand bolt ⚡ is always a safe default. No `aiBytes_` prefix and no issue number - the masthead and issue tag inside the issue carry those. Sentence case, concrete specifics, ≤ ~62 characters.
 
-  **Spend the opening on content, not chrome.** A mobile inbox shows roughly 35 to 40 characters of subject line, and Beehiiv already prints "aiBytes_" in the sender field, so every character before the first hook is paid for twice. The brand underscore and the colon are the entire punctuation budget: no `#`, no ` - ` separator, and write "and" rather than `&`. Two hooks, not three - the third never survives truncation.
+  **Spend the opening on content, not chrome.** A mobile inbox shows roughly 35 to 40 characters of subject line, and Beehiiv already prints "aiBytes_" in the sender field, so the subject carries no brand prefix and no issue number - the leading emoji is the entire chrome budget. No `#`, no colon, no ` - ` separator, and write "and" rather than `&`. Two hooks, not three - the third never survives truncation.
 
 - **Description**: one sentence that **starts with "Plus"** and names 2-3 things the title does not. It extends the title, it never restates it. Never "Catch up on …", which only ever paraphrases the subject line back at the reader.
 
