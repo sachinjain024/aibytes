@@ -59,7 +59,6 @@ class TestParseIssue(unittest.TestCase):
         self.assertEqual(self.issue["num"], "4")
         self.assertEqual(self.issue["hex"], "04")
         self.assertEqual(self.issue["date"], "2026-08-10")
-        self.assertEqual(self.issue["read_min"], "5")
 
     def test_headline_drops_the_brand_prefix(self):
         # The wordmark is already on the image; repeating it wastes the big type.
@@ -68,11 +67,10 @@ class TestParseIssue(unittest.TestCase):
             "DeepMind's shake-up and the week Oracle said no",
         )
 
-    def test_sections_lead_with_news(self):
-        self.assertEqual(
-            self.issue["sections"],
-            ["NEWS FOR DEVS", "LAUNCHES", "TRENDING ON GITHUB", "HN DEEP CUTS"],
-        )
+    def test_no_foot_content_is_parsed(self):
+        # The card has no foot, so section names and read time are not read at all.
+        self.assertNotIn("sections", self.issue)
+        self.assertNotIn("read_min", self.issue)
 
 
 class TestStripBrand(unittest.TestCase):
@@ -116,7 +114,25 @@ class TestBuildHtml(unittest.TestCase):
         self.assertNotIn("{{", doc)
         self.assertIn("<mark>Oracle said no</mark>", doc)
         self.assertIn("ISSUE 0x04", doc)
-        self.assertIn("~5 MIN", doc)
+        self.assertIn("2026-08-10", doc)
+
+    def test_each_variant_sets_its_body_class(self):
+        issue = thumb.parse_issue(ISSUE_HTML)
+        for variant in thumb.VARIANTS:
+            doc = thumb.build_html(issue, "Oracle said no", variant)
+            self.assertIn(f'<body class="{variant}">', doc)
+            # Every variant's background rule ships in every page; the body
+            # class is what turns exactly one of them on.
+            self.assertIn(f"body.{variant} .card::before", doc)
+
+    def test_card_has_no_foot(self):
+        # The wordmark and the headline are the whole card; a section list and
+        # read time are unreadable at the size a feed card actually renders.
+        doc = thumb.build_html(thumb.parse_issue(ISSUE_HTML), "Oracle said no")
+        self.assertNotIn('class="foot"', doc)
+        self.assertNotIn(".foot{", doc)
+        self.assertNotIn("MIN", doc)
+        self.assertNotIn("HN DEEP CUTS", doc)
 
     def test_unfilled_token_is_an_error(self):
         with self.assertRaises(SystemExit):
@@ -152,11 +168,12 @@ class TestRender(unittest.TestCase):
         )
         self.assertEqual(proc.returncode, 0, proc.stderr)
 
-        png = out_root / "issue-4-thumbnail.png"
-        self.assertTrue(png.is_file(), f"missing {png}")
-        self.assertEqual(thumb.png_size(png), (1200, 630))
-        # Beehiiv rejects oversized uploads; flat-colour PNGs land far under this.
-        self.assertLess(png.stat().st_size, 2 * 1024 * 1024)
+        for variant in thumb.VARIANTS:
+            png = out_root / "thumbnails" / f"issue-4-thumbnail-{variant}.png"
+            self.assertTrue(png.is_file(), f"missing {png}")
+            self.assertEqual(thumb.png_size(png), (1200, 630))
+            # Beehiiv rejects oversized uploads; these land far under this.
+            self.assertLess(png.stat().st_size, 2 * 1024 * 1024)
 
 
 class TestHtmlOnly(unittest.TestCase):
@@ -174,7 +191,9 @@ class TestHtmlOnly(unittest.TestCase):
             timeout=60,
         )
         self.assertEqual(proc.returncode, 0, proc.stderr)
-        self.assertTrue((issue_dir / "issue-4-thumbnail.html").is_file())
+        for variant in thumb.VARIANTS:
+            page = issue_dir / "thumbnails" / f"issue-4-thumbnail-{variant}.html"
+            self.assertTrue(page.is_file(), f"missing {page}")
 
     def test_missing_issue_html_is_an_error(self):
         tmp = tempfile.TemporaryDirectory(prefix="thumbnail-empty-")
