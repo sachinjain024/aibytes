@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aiBytes_ 06: Amazon pulps rare books and Cursor fights GitHub</title>
+<meta name="description" content="Plus a fake think tank built to fool chatbots, a Copilot autofix that opened Snowflake's Jira, and GPT-5.6 Sol at half price.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
+    --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
+    --butter:#FFF6D9; --butter-line:#F0E2AE; --amber:#8A6A00;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--cobalt);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px 56px}
+
+  header{padding:36px 0 0}
+  .issue-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--slate);display:flex;justify-content:space-between;margin-bottom:12px}
+  .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
+  .logo em{font-style:normal;color:var(--cobalt)}
+
+  /* ── Closing block: the signature. Butter panel, notch, idea text at 500 ── */
+  .tldr{background:var(--butter);border:1px solid var(--butter-line);color:var(--ink);
+        padding:20px 22px;margin-top:18px;
+        clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}
+  .tldr .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--amber)}
+  .tldr p{font-family:var(--display);font-weight:500;font-size:17px;line-height:1.55;margin-top:8px;color:var(--ink)}
+  .tldr b{background:var(--signal);padding:0 4px;color:var(--ink);font-weight:700}
+
+  section{margin-top:34px}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--paper);background:var(--ink);padding:2px 7px}
+  .sec-title{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+  .sec-rule{flex:1;height:2px;background:var(--ink)}
+
+  /* ── Intro block ── */
+  .intro{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 22px;margin-bottom:18px}
+  .intro p{font-size:15.5px;line-height:1.65;margin-bottom:14px;color:#3A3E4A}
+  .intro p:last-child{margin-bottom:0}
+  .intro .greet{color:var(--ink)}
+  .intro b{color:var(--ink);font-weight:700}
+
+  /* ── News card ── */
+  .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
+  .news-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;color:var(--cobalt);letter-spacing:.02em;margin-bottom:14px}
+  .news-item{font-size:15.5px;margin-bottom:14px;line-height:1.6}
+  .news-item:last-of-type{margin-bottom:0}
+  .news-item b a{font-weight:700}
+  .src{font-family:var(--mono);font-size:12px;color:var(--slate)}
+  /* Attribution links stay grey and quiet - the headline link is the loud one. */
+  .src a{color:var(--slate);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+  .src a:hover{color:var(--ink)}
+  .quote{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px 18px;margin-top:18px}
+  .quote p{font-size:15px;color:#3A3E4A}
+
+  /* ── Ticker rows ── */
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .ico{width:22px;text-align:center;flex-shrink:0}
+  .row .txt{flex:1}
+  .row .txt b{font-weight:600}
+  .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
+  .stat b{color:var(--cobalt);font-weight:700}
+  .hot{background:var(--signal);padding:0 4px;font-weight:600}
+
+  footer{margin-top:48px;border-top:3px solid var(--ink);padding-top:20px;text-align:center}
+  footer p{color:var(--slate);font-size:13.5px}
+  .foot-links{margin-top:10px;font-family:var(--mono);font-size:12.5px;display:flex;gap:20px;justify-content:center}
+  @media (max-width:480px){ .row{flex-wrap:wrap} .stat{margin-left:34px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="issue-tag"><span>ISSUE 0x06 · TL;DR</span><span>2026-08-24 · ~5 MIN</span></div>
+    <div class="logo">⚡ aiBytes<em>_</em> #6</div>
+  </header>
+
+  <section>
+    <div class="intro">
+      <p class="greet">Good morning, builders 👋</p>
+      <p>Welcome back to your Monday-morning dose of aiBytes_. I had this issue sketched as a quiet infrastructure week - a price cut here, a vision model there. Then Amazon, the company that started out selling books, was caught pulping rare ones to feed its models, and Anna's Archive answered with a race to scan whatever survives 📚</p>
+      <p><b>The week the readers pushed back</b>: the labs kept shipping, but the loudest posts of the week were people refusing to read model output - just as <a href="https://techcrunch.com/2026/08/20/a-third-of-webpages-published-since-chatgpts-launch-show-signs-of-ai-authorship-study-finds/">a study put a third of the web's new pages</a> down as machine-written.</p>
+      <p><b>Today:</b> the book-pulping saga, Cursor coming for GitHub's lunch, an agent that can clip your home videos, seven repos led by a literal money printer, and five essays from the week HN stopped reading.</p>
+    </div>
+
+    <div class="news-card">
+      <div class="card-title">🌍 NEWS FOR DEVS</div>
+
+      <p class="news-item">📚 <b><a href="https://techcrunch.com/2026/08/17/amazon-once-an-online-bookseller-is-destroying-rare-books-to-train-ai-models/">Amazon, which started off selling books, is destroying rare texts to train AI</a></b> - rare print is the one corpus the models have not already eaten, so it is going into the shredder. <span class="hot">Story of the week</span> <span class="src">(TechCrunch)</span></p>
+
+      <p class="news-item">📖 <b><a href="https://annas-archive.gl/blog/physical-destruction.html">AI companies destroy physical books - let's scan rare books before it's too late</a></b> - Anna's Archive answers with a public call to digitize what is left before it is pulp. <span class="src">(Anna's Archive)</span></p>
+
+      <p class="news-item">🎭 <b><a href="https://responsiblestatecraft.org/israel-influence-chatgpt/">Israel creates fake think tank in likely attempt to dupe AI chatbots</a></b> - a content farm aimed not at readers but at the models readers ask. <span class="src">(Responsible Statecraft)</span></p>
+
+      <p class="news-item">🐙 <b><a href="https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/">Cursor capitalizes on GitHub frustration, launches rival hosting platform</a></b> - your editor vendor would now like your repos too. <span class="src">(TechCrunch)</span></p>
+
+      <p class="news-item">💸 <b><a href="https://openrouter.ai/openai/gpt-5.6-sol">GPT-5.6 Sol pricing cut by 50% on OpenRouter</a></b> - the fast tier just got half price, and the margin debate reopened on cue. <span class="src">(OpenRouter)</span></p>
+
+      <p class="news-item">🚨 <b><a href="https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug">AI-generated Copilot "Autofix" allowed compromise of Snowflake's Jira</a></b> - Wiz walks through how an unreviewed machine patch became an entry point. <span class="src">(Wiz)</span></p>
+
+      <p class="news-item">👁️ <b><a href="https://api-docs.deepseek.com/guides/vision/">DeepSeek-v4-flash-vision-exp</a></b> - DeepSeek's experimental fast vision model lands quietly in the API docs. <span class="src">(DeepSeek)</span></p>
+
+      <div class="quote">
+        <p>"We pulped the books to teach machines to write, then stopped reading what they wrote."</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Launches</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">📣</span><span class="txt"><b><a href="https://joinastute.com/">Astute</a></b> - watches the creator media your buyers trust and runs B2B creator partnerships on autopilot. <span class="src">(<a href="https://www.producthunt.com/products/astute-2">ProductHunt</a>)</span></span><span class="stat"><b>▲ 535</b></span></div>
+    <div class="row"><span class="ico">🎬</span><span class="txt"><b><a href="https://www.clipto.com/">Clipto MCP</a></b> - lets Claude and other agents pull clips and rough cuts out of terabytes of your local video. <span class="src">(<a href="https://www.producthunt.com/products/clipto-ai">ProductHunt</a>)</span></span><span class="stat"><b>▲ 528</b></span></div>
+    <div class="row"><span class="ico">📓</span><span class="txt"><b><a href="https://meridiona.com/">Meridian</a></b> - open source, on-device work journal that writes your day up and drafts your Jira updates for approval. <span class="src">(<a href="https://www.producthunt.com/products/meridian-16">ProductHunt</a>)</span></span><span class="stat"><b>▲ 463</b></span></div>
+    <div class="row"><span class="ico">🤝</span><span class="txt"><b><a href="https://clarasdr.ai/">Clara AI SDR</a></b> - qualifies, demos, handles objections, and books meetings straight from live site traffic. <span class="src">(<a href="https://www.producthunt.com/products/clara-ai-sdr">ProductHunt</a>)</span></span><span class="stat"><b>▲ 454</b></span></div>
+    <div class="row"><span class="ico">🧰</span><span class="txt"><b><a href="https://taku.ai/">Taku AI</a></b> - turns the best skills, agents, and workflows into desktop apps you can borrow and remix. <span class="src">(<a href="https://www.producthunt.com/products/taku-ai">ProductHunt</a>)</span></span><span class="stat"><b>▲ 409</b></span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">Trending on GitHub</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">💰</span><span class="txt"><b><a href="https://github.com/harry0703/MoneyPrinterTurbo">harry0703/MoneyPrinterTurbo</a></b> - one keyword in, an HD short video out, through an automated AI workflow.</span><span class="stat"><b>+11.0k</b> ★</span></div>
+    <div class="row"><span class="ico">📐</span><span class="txt"><b><a href="https://github.com/cathrynlavery/diagram-design">cathrynlavery/diagram-design</a></b> - 38 editorial diagram types for coding agents, self-contained HTML and SVG, still no Mermaid slop.</span><span class="stat"><b>+7.4k</b> ★</span></div>
+    <div class="row"><span class="ico">🧭</span><span class="txt"><b><a href="https://github.com/volcengine/OpenViking">volcengine/OpenViking</a></b> - self-evolving context database that unifies agent memory, knowledge RAG, and skills.</span><span class="stat"><b>+3.4k</b> ★</span></div>
+    <div class="row"><span class="ico">🧠</span><span class="txt"><b><a href="https://github.com/akitaonrails/ai-memory">akitaonrails/ai-memory</a></b> - long-term memory for agent coding CLIs, built for handoffs between vendors.</span><span class="stat"><b>+2.6k</b> ★</span></div>
+    <div class="row"><span class="ico">🕸️</span><span class="txt"><b><a href="https://github.com/semantica-agi/semantica">semantica-agi/semantica</a></b> - graph-native infrastructure for context and accountable AI systems.</span><span class="stat"><b>+2.5k</b> ★</span></div>
+    <div class="row"><span class="ico">🍏</span><span class="txt"><b><a href="https://github.com/jundot/omlx">jundot/omlx</a></b> - LLM inference server for Apple Silicon with continuous batching, run from the menu bar.</span><span class="stat"><b>+1.6k</b> ★</span></div>
+    <div class="row"><span class="ico">🔀</span><span class="txt"><b><a href="https://github.com/NVIDIA-NeMo/Switchyard">NVIDIA-NeMo/Switchyard</a></b> - routes LLM traffic across models and providers while staying OpenAI and Anthropic compatible.</span><span class="stat"><b>+635</b> ★</span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">HN Deep Cuts</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🙈</span><span class="txt"><b><a href="https://www.rickmanelius.com/p/aidr-ai-didnt-read">AI;DR (AI; Didn't Read)</a></b> - the week's biggest thread put a name on sending output nobody read. <span class="src">(<a href="https://news.ycombinator.com/item?id=49336573">HackerNews</a>)</span></span><span class="stat"><b>1109</b> pts · 690 💬</span></div>
+    <div class="row"><span class="ico">🚫</span><span class="txt"><b><a href="https://dontpastetheai.com/">Don't paste the AI, please</a></b> - a single-page plea that became the week's second front-page manifesto. <span class="src">(<a href="https://news.ycombinator.com/item?id=49371857">HackerNews</a>)</span></span><span class="stat"><b>1041</b> pts</span></div>
+    <div class="row"><span class="ico">🌫️</span><span class="txt"><b><a href="https://cymerys.com/w/im-becoming-ai-blind">I'm becoming AI-blind</a></b> - learning to scroll past anything that looks generated, described from the inside. <span class="src">(<a href="https://news.ycombinator.com/item?id=49386699">HackerNews</a>)</span></span><span class="stat"><b>478</b> pts</span></div>
+    <div class="row"><span class="ico">🎩</span><span class="txt"><b><a href="https://www.danielvaughn.dev/posts/huzzah/">Huzzah - a novel approach to coding with AI</a></b> - a Show HN that treats the workflow, not the model, as the thing to redesign. <span class="src">(<a href="https://news.ycombinator.com/item?id=49378768">HackerNews</a>)</span></span><span class="stat"><b>378</b> pts</span></div>
+    <div class="row"><span class="ico">🎓</span><span class="txt"><b><a href="https://www.economist.com/graphic-detail/2026/08/18/does-ai-stop-children-from-learning">AI boosted homework scores, then exam scores dropped</a></b> - the study on what outsourced practice does to learning. <span class="src">(<a href="https://news.ycombinator.com/item?id=49357530">HackerNews</a>)</span></span><span class="stat"><b>372</b> pts</span></div>
+  </section>
+
+  <div class="tldr" style="margin-top:44px">
+    <div class="kicker">ONE IDEA TO CARRY NEXT WEEK</div>
+    <p>Everyone shipped a faster way to write this week; nobody shipped a faster way to read. Until someone does, the edge goes to whoever still <b>reads</b> what they ship.</p>
+  </div>
+
+  <footer>
+    <p>Made for builders who ship with AI. See you next week. ✌️</p>
+    <div class="foot-links"><a href="#">SUBSCRIBE</a><a href="#">ARCHIVE</a><a href="#">SUGGEST A LINK</a></div>
+  </footer>
+
+</div>
+</body>
+</html>
