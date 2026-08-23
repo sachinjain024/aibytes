@@ -43,7 +43,7 @@ Default to the most recently published folder under `newsletter/{yyyy}/`, unless
 
 ### 2. Choose the highlight phrase
 
-The headline is the subject line with its leading `{emoji} ` stripped, since the wordmark is already on the image and the emoji belongs to the inbox, not the largest type on the page.
+The headline is the subject line as it ships, **emoji and all** (decided 2026-08-23). The emoji is the same glyph the reader already has in their inbox, it is the card's only colour that is not the highlight, and its width is what tips the headline from two lines onto three. Only a legacy `aiBytes_ 04:` wordmark prefix comes off.
 
 Pick **two to four words** to mark in signal yellow. The right choice is the most concrete thing in the headline: a company doing something, a number, a reversal. Not a connective phrase, and not the whole headline, which defeats the point. For "DeepMind's shake-up and the week Oracle said no", `Oracle said no` is the half a reader can act on.
 
@@ -53,7 +53,8 @@ Never mark a phrase that breaks awkwardly across the line wrap. Render it and lo
 
 Always open the PNGs after generating - all three, since a background can misbehave behind one headline and not another. The check is whether the headline is readable at the size a feed card actually shows, roughly 300px wide. Things that go wrong:
 
-- **Headline too long.** Above about 60 characters the type has to wrap to four lines and the balance collapses. The title rule in `generate-newsletter-content` keeps subjects at ~62 characters including the leading emoji, so a compliant subject always fits. If a headline overflows, shorten it with `--headline` rather than shrinking the type.
+- **Not three lines.** The card wants the headline balanced onto **three lines** - that is the layout the series is set in. At the `19ch` measure an emoji-led subject lands there across the whole compliant range (verified at 50 and 64 characters). Two lines means the subject is unusually short, four means it is too long and the balance collapses; either way fix it with a reworded `--headline`, never by shrinking the type or editing the template.
+- **Headline too long.** The title rule in `generate-newsletter-content` keeps subjects at ~62 characters including the leading emoji, so a compliant subject always fits.
 - **Highlight in the wrong place**, sitting alone on its own line or splitting a phrase.
 - **Fonts not loaded.** Chrome fetches Bricolage Grotesque and JetBrains Mono from Google Fonts at render time. If the machine is offline the image still renders, in Helvetica, and looks wrong. Check the wordmark: the real face has a distinctly tight, high-contrast `a`.
 
@@ -67,8 +68,8 @@ Set by `assets/thumbnail.html`; keep changes there so every issue's thumbnail st
 
 - **Ink canvas, paper card**, inset 18px, with the issue's signature notch cut from the top-right corner so the ink shows through. That notch is the one shape the newsletter owns, and it is what makes the card recognisable at thumbnail size.
 - **Top row**: `⚡ aiBytes_` wordmark with the cobalt underscore, and `ISSUE 0x{hex} · {date}` in mono on the right.
-- **Headline**: Bricolage Grotesque 800 at 70px, tight leading, `text-wrap: balance`, with the highlight phrase on signal yellow using `box-decoration-break: clone` so a wrapped phrase keeps its padding on both lines.
-- **No foot.** The card carries the wordmark and the headline, nothing else. The section list and read time that used to sit under a rule at the bottom are gone: they are unreadable at the ~300px a feed card actually renders at, and they spent the card's quietest space on the one thing the reader already gets from the post itself. The headline centres in the space under the top row, however many lines it takes.
+- **Headline**: the subject line with its emoji, Bricolage Grotesque 800 at 70px, tight leading, `text-wrap: balance`, measure capped at `19ch` so it balances onto three lines. The highlight phrase sits on signal yellow using `box-decoration-break: clone` so a wrapped phrase keeps its padding on both lines.
+- **No foot.** The card carries the wordmark and the headline, nothing else. The section list and read time that used to sit under a rule at the bottom are gone: they are unreadable at the ~300px a feed card actually renders at, and they spent the card's quietest space on the one thing the reader already gets from the post itself. The headline centres in the space under the top row, which is what lets three lines sit as the standing shape without the card feeling top-heavy.
 - **Three backgrounds, chosen 2026-08-17** (decision record: `artifacts/2026-Aug-17-Thumbnail-background-taste.html`). Each is a `.card::before` layer gated by a variant class on `<body>` (`dot-grid`, `cobalt-wash`, `graph-grid`), and each fades to plain paper behind the headline so the texture never competes with the type. Dot grid is slate dots (engineer's notebook, the quietest); graph grid is hairline squares with a stronger rule every fourth line; cobalt wash is a cobalt glow off the notch corner answered by signal yellow bottom-left, the only one that adds colour. A new variant means a new class in the template, its name in the script's `VARIANTS` tuple, and a fresh taste round - not an inline style on one issue.
 
 Palette matches the issue exactly: paper `#FAFAF7`, ink `#191C26`, cobalt `#2B4EF0`, signal `#FFD338`, slate `#6B7080`.

@@ -55,9 +55,13 @@ def find_chrome():
 def strip_brand(subject):
     """'aiBytes_ 04: DeepMind's shake-up ...' -> 'DeepMind's shake-up ...'
 
-    The wordmark is already on the thumbnail, so repeating it in the headline
-    wastes the largest type on the image. Also tolerates the older
-    'aiBytes_ #4 - hook' form.
+    Only the wordmark comes off, in the older 'aiBytes_ 04: hook' and
+    'aiBytes_ #4 - hook' forms, because it is already set on the card.
+
+    The subject emoji deliberately stays (decided 2026-08-23). It is the same
+    glyph the reader sees in their inbox, it makes the headline balance onto
+    three lines instead of two, and it gives the card the one bit of colour
+    the type cannot. Do not "fix" this by stripping it.
     """
     cleaned = re.sub(r"^\s*aiBytes_\s*#?\d*\s*[:\-]\s*", "", subject).strip()
     return cleaned or subject.strip()

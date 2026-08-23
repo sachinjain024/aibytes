@@ -73,6 +73,20 @@ class TestParseIssue(unittest.TestCase):
         self.assertNotIn("read_min", self.issue)
 
 
+class TestParseEmojiSubject(unittest.TestCase):
+    def test_headline_keeps_the_subject_emoji(self):
+        doc = ISSUE_HTML.replace(
+            "<title>aiBytes_ 04: DeepMind's shake-up and the week Oracle said no</title>",
+            "<title>\U0001F4DA Amazon pulps rare books and Cursor fights GitHub</title>",
+        )
+        issue = thumb.parse_issue(doc)
+        self.assertEqual(
+            issue["headline"],
+            "\U0001F4DA Amazon pulps rare books and Cursor fights GitHub",
+        )
+        self.assertEqual(issue["headline"], issue["subject"])
+
+
 class TestStripBrand(unittest.TestCase):
     def test_current_colon_format(self):
         self.assertEqual(thumb.strip_brand("aiBytes_ 04: Hooks here"), "Hooks here")
@@ -85,6 +99,28 @@ class TestStripBrand(unittest.TestCase):
 
     def test_never_returns_empty(self):
         self.assertEqual(thumb.strip_brand("aiBytes_ 04:"), "aiBytes_ 04:")
+
+    def test_subject_emoji_leads_the_headline(self):
+        # The emoji is the reader's own inbox glyph and it is what balances the
+        # headline onto three lines. It stays on the card - see strip_brand.
+        self.assertEqual(
+            thumb.strip_brand("\U0001F4DA Amazon pulps rare books"),
+            "\U0001F4DA Amazon pulps rare books",
+        )
+
+    def test_emoji_survives_a_brand_prefix(self):
+        self.assertEqual(
+            thumb.strip_brand("aiBytes_ 04: \U0001F4DA Hooks here"), "\U0001F4DA Hooks here"
+        )
+
+    def test_multi_codepoint_emoji_is_kept_whole(self):
+        # ZWJ sequences and skin-tone modifiers must not be clipped mid-sequence.
+        for subject in (
+            "\U0001F469\u200D\U0001F4BB Hooks here",
+            "\U0001F44B\U0001F3FD Hooks here",
+            "\u26A1\uFE0F Hooks here",
+        ):
+            self.assertEqual(thumb.strip_brand(subject), subject)
 
 
 class TestHighlight(unittest.TestCase):
