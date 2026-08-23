@@ -18,6 +18,7 @@
   .copy-btn{background:#FFD338;border:none;border-radius:6px;padding:6px 14px;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;font-weight:700;color:#191C26;cursor:pointer}
   .copy-btn:hover{background:#FFC800}
   .copy-btn.done{background:#7BE0A2}
+  .btn-group{display:flex;gap:8px}
   .code{display:none}
   .preview{padding:20px 22px;background:#FAFAF7}
   .meta{padding:16px 22px}
@@ -33,7 +34,7 @@
   <p class="sub">Two email-safe HTML parts (inline styles, table layout). Click <b>⧉ Copy HTML</b>, then in Beehiiv type <code>/</code> → Premium → <code>HTML Snippet</code> and paste. Each preview shows exactly what you'll get.</p>
 
   <div class="sec-block">
-    <div class="bar"><span class="name">POST TITLE &amp; DESCRIPTION</span></div>
+    <div class="bar"><span class="name">POST TITLE &amp; DESCRIPTION</span><span class="btn-group"><button class="copy-btn" type="button" data-copy=".title">⧉ Copy Title</button><button class="copy-btn" type="button" data-copy=".desc">⧉ Copy Desc</button></span></div>
     <div class="meta">
       <div class="label">TITLE - USED AS EMAIL SUBJECT</div>
       <div class="title">📚 Amazon pulps rare books and Cursor fights GitHub</div>
@@ -190,24 +191,33 @@
 
 </div>
 <script>
+  // Buttons copy either a textarea's HTML (Part 1 / Part 2) or, with data-copy,
+  // the plain text of the element it points at (title, description).
+  function copyText(text, btn, label){
+    function done(){ btn.textContent='✓ Copied'; btn.classList.add('done');
+      setTimeout(function(){ btn.textContent=label; btn.classList.remove('done'); },1500); }
+    function fallback(){
+      var tmp=document.createElement('textarea');
+      tmp.value=text; tmp.setAttribute('readonly','');
+      tmp.style.position='fixed'; tmp.style.top='0'; tmp.style.opacity='0';
+      document.body.appendChild(tmp); tmp.select();
+      try{ document.execCommand('copy'); done(); } finally { document.body.removeChild(tmp); }
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(fallback);
+    } else { fallback(); }
+  }
   document.querySelectorAll('.sec-block').forEach(function(block){
     var ta = block.querySelector('.code');
-    if (!ta) return;
     var pv = block.querySelector('.preview');
-    if (pv) pv.innerHTML = ta.value;
-    var copyBtn = block.querySelector('.copy-btn');
-    if (!copyBtn) return;
-    copyBtn.addEventListener('click', function(){
-      var btn = this;
-      function ok(){ btn.textContent='✓ Copied'; btn.classList.add('done');
-        setTimeout(function(){ btn.textContent='⧉ Copy HTML'; btn.classList.remove('done'); },1500); }
-      function fallback(){
-        ta.style.display='block'; ta.select();
-        try{ document.execCommand('copy'); ok(); } finally { ta.style.display='none'; }
-      }
-      if(navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(ta.value).then(ok).catch(fallback);
-      } else { fallback(); }
+    if (ta && pv) pv.innerHTML = ta.value;
+    block.querySelectorAll('.copy-btn').forEach(function(btn){
+      var label = btn.textContent;
+      var target = btn.dataset.copy ? block.querySelector(btn.dataset.copy) : ta;
+      if (!target) return;
+      btn.addEventListener('click', function(){
+        copyText(typeof target.value === 'string' ? target.value : target.textContent.trim(), btn, label);
+      });
     });
   });
 </script>
