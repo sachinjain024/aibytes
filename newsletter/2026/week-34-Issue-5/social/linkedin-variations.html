@@ -1,0 +1,407 @@
+<title>aiBytes_ #5 - LinkedIn variations</title>
+<meta name="description" content="Five LinkedIn zoom-in stories drawn from aiBytes_ issue 5, week 34, with fold markers and copy-ready text.">
+<style>
+:root{
+  --ground:#E7E8EC;
+  --panel:#FDFDFD;
+  --sunk:#F1F2F5;
+  --ink:#14161F;
+  --body:#33374A;
+  --muted:#5C6070;
+  --line:#CBCED7;
+  --hair:#DEE0E6;
+  --accent:#2B4EF0;
+  --accent-soft:#E4E8FD;
+  --chip-ink:#FFFFFF;
+  --warn:#A8371A;
+  --ok:#2F6B4F;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --grotesque:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --platform:-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#101219;
+    --panel:#181A22;
+    --sunk:#14161D;
+    --ink:#E5E6EC;
+    --body:#C3C6D2;
+    --muted:#949AA8;
+    --line:#2C303B;
+    --hair:#232733;
+    --accent:#8AA0FF;
+    --accent-soft:#20263A;
+    --chip-ink:#101219;
+    --warn:#FF9E7A;
+    --ok:#78C79C;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101219;
+  --panel:#181A22;
+  --sunk:#14161D;
+  --ink:#E5E6EC;
+  --body:#C3C6D2;
+  --muted:#949AA8;
+  --line:#2C303B;
+  --hair:#232733;
+  --accent:#8AA0FF;
+  --accent-soft:#20263A;
+  --chip-ink:#101219;
+  --warn:#FF9E7A;
+  --ok:#78C79C;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--grotesque);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  margin:0;
+}
+.sheet{max-width:900px;margin:0 auto;padding:44px 20px 96px;display:grid;gap:40px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+
+/* masthead */
+.masthead{display:grid;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:20px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.eyebrow b{color:var(--accent);font-weight:600}
+h1{font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1.03;margin:0;text-wrap:balance}
+.lede{max-width:64ch;color:var(--muted);font-size:15.5px;line-height:1.62;margin:0}
+.lede b{color:var(--ink);font-weight:600}
+
+/* rules strip */
+.rules{
+  display:grid;gap:6px;background:var(--panel);border:1px solid var(--line);
+  border-left:3px solid var(--accent);padding:14px 16px;
+}
+.rules p{margin:0;font-size:13.5px;color:var(--body);line-height:1.55}
+.rules .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* variation block */
+.spec{display:grid;gap:14px}
+.head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--accent);color:var(--chip-ink);padding:3px 8px;border-radius:3px}
+.fmt{font-size:20px;font-weight:700;letter-spacing:-.015em;margin:0}
+.meta{display:grid;gap:3px;font-size:13.5px;color:var(--muted);line-height:1.55}
+.meta .anchor{color:var(--ink);font-weight:500}
+.meta .src{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em}
+.flag{
+  display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--warn);
+  background:var(--sunk);border:1px dashed var(--warn);padding:9px 11px;line-height:1.5;
+}
+.flag b{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;flex:none;padding-top:2px}
+
+/* specimen shell */
+.card{background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.bar{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding:9px 14px;border-bottom:1px solid var(--hair);background:var(--sunk);
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+}
+.count{font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.count b{color:var(--ink);font-weight:600}
+.count.over b{color:var(--warn)}
+
+button.copy{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  background:transparent;color:var(--ink);border:1px solid var(--line);
+  padding:4px 10px;cursor:pointer;border-radius:3px;
+}
+button.copy:hover{border-color:var(--accent);color:var(--accent)}
+button.copy.done{border-color:var(--ok);color:var(--ok)}
+
+/* linkedin post body */
+.post{font-family:var(--platform);font-size:15px;line-height:1.55;color:var(--ink);padding:20px 22px}
+.post .p{margin:0 0 15px}
+.post .p:last-child{margin-bottom:0}
+.foldmark{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);white-space:nowrap;vertical-align:2px;margin:0 5px;
+  border-left:2px solid var(--accent);padding-left:5px;
+}
+.below{color:var(--muted)}
+.tail{border-top:1px solid var(--hair);padding:14px 22px;display:grid;gap:10px;background:var(--sunk)}
+.tail .row{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.tail .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:2px;flex:none}
+.tail .val{font-family:var(--platform);font-size:13.5px;color:var(--body);word-break:break-word;flex:1;min-width:220px}
+.tags{font-family:var(--platform);font-size:13.5px;color:var(--accent)}
+
+/* x thread cells */
+.thread{display:grid}
+.tw{display:grid;grid-template-columns:34px 1fr;gap:0;border-bottom:1px solid var(--hair)}
+.tw:last-child{border-bottom:0}
+.tw .n{
+  font-family:var(--mono);font-size:11px;color:var(--muted);padding:16px 0 0 14px;
+  font-variant-numeric:tabular-nums;
+}
+.tw .cell{padding:16px 16px 14px 4px;display:grid;gap:10px}
+.tw .txt{font-family:var(--platform);font-size:15.5px;line-height:1.42;color:var(--ink);white-space:pre-wrap;word-break:break-word}
+.tw .foot{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.gauge{flex:1;min-width:120px;height:3px;background:var(--hair);position:relative;max-width:220px}
+.gauge i{position:absolute;left:0;top:0;bottom:0;background:var(--accent);display:block}
+.gauge.over i{background:var(--warn)}
+.tw .c{font-family:var(--mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.tw .c b{color:var(--ink);font-weight:600}
+.tw .c.over b{color:var(--warn)}
+
+.note{font-size:12.5px;color:var(--muted);line-height:1.55;margin:0}
+.note code{font-family:var(--mono);font-size:11.5px}
+.hidden{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+@media (prefers-reduced-motion:no-preference){
+  button.copy{transition:border-color .15s ease,color .15s ease}
+}
+@media (max-width:560px){
+  .post{padding:16px 15px}
+  .tail{padding:13px 15px}
+}
+</style>
+<div class="sheet">
+  <header class="masthead">
+    <div class="eyebrow">aiBytes_ <b>#5</b> &middot; week 34 &middot; 2026-08-17 &middot; LINKEDIN</div>
+    <h1>Five stories, one item each</h1>
+    <p class="lede">The zoom-ins you picked, told as stories rather than roundups. Each one goes deeper on its single item than the issue could, in plain first-person English. Pick one, post it, put the link in the first comment. The specimen is set in LinkedIn's own face so the fold lands where it will land in the feed.</p>
+  </header>
+  <section class="rules">
+<p class="k">House rules applied</p>
+<p>No em dash, no en dash, no double hyphen, anywhere. Link lives in the first comment, never the body, so LinkedIn does not throttle reach. Every number traces to <code>data/2026/08/weeks/week-34/</code> or the fetched source article, and anything that needed judgment carries a Check note on its card. The marker shows where the "see more" cut lands on mobile.</p>
+</section>
+  <article class="spec">
+  <div class="head"><span class="tag">V1</span><h2 class="fmt">Why does Stripe want a router?</h2></div>
+  <div class="meta">
+<div class="anchor">Stripe reportedly acquiring OpenRouter for $7B+ (TechCrunch, Aug 16)</div>
+<div class="src">TECHCRUNCH &middot; <a href="https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/">https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-st</a></div>
+<div>The valuation jump is the hook; the routing-layer logic is the story.</div>
+</div>
+<div class="flag"><b>Check</b><span>The &#x27;50x annualized revenue&#x27; framing floating around is not in the TechCrunch piece; no revenue figures are public. The post uses the verifiable multiple instead: $1.3B Series B valuation in May against the reported $7B+ price. Deal is Bloomberg-reported, and Stripe declined to comment; the post says so.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1718</b> / 3000 chars &middot; 289 words</span>
+      <button class="copy" data-target="li-v1">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">Stripe is reportedly paying $7B+ for OpenRouter. In May, investors valued the same company at $1.3 billion. Why would a payments processor pay more than five times that, one quarter later, for an LLM<span class="foldmark">see more</span><span class="below"> router?</span></div>
+<div class="p below">First, what OpenRouter actually is. One API that sits in front of more than 400 models, with 8 million users routing their calls through it. Its CEO, Alex Atallah, describes it as &#x27;the equivalent of Stripe for AI&#x27;: a single access point across providers that keeps you from being locked into any of them. He said that before Stripe showed up with a term sheet, which makes the line read differently now.</div>
+<div class="p below">The valuation math is the loud part. OpenRouter raised $113 million from Sequoia, a16z, Menlo and CapitalG at $1.3 billion in May 2026. Bloomberg now reports a finalized deal above $7 billion. No revenue figures are public, so nobody outside the room knows what multiple Stripe actually paid. What we can see is the jump itself: 5x in about three months.</div>
+<div class="p below">Here is the logic I find persuasive. Stripe&#x27;s whole business is sitting in the middle of transactions and taking a small cut of enormous volume. Model calls are quietly becoming a transaction type: metered, routed, billed per token. The company that owns the routing layer sees demand across every provider at once, which models are rising, which workloads pay, where the switching happens. That is the position Stripe already holds in payments. Buying the router is buying the meter.</div>
+<div class="p below">Worth saying plainly: Stripe declined to comment, so this is a reported deal, not a signed announcement.</div>
+<div class="p below">The question I cannot shake: if the router becomes the payment rail, do model providers end up as interchangeable suppliers in someone else&#x27;s checkout flow?</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">The report: https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">none</span></div>
+      <div class="row"><span class="lbl"></span><button class="copy" data-target="li-v1-fc">Copy first comment</button></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v1" readonly>Stripe is reportedly paying $7B+ for OpenRouter. In May, investors valued the same company at $1.3 billion. Why would a payments processor pay more than five times that, one quarter later, for an LLM router?
+
+First, what OpenRouter actually is. One API that sits in front of more than 400 models, with 8 million users routing their calls through it. Its CEO, Alex Atallah, describes it as &#x27;the equivalent of Stripe for AI&#x27;: a single access point across providers that keeps you from being locked into any of them. He said that before Stripe showed up with a term sheet, which makes the line read differently now.
+
+The valuation math is the loud part. OpenRouter raised $113 million from Sequoia, a16z, Menlo and CapitalG at $1.3 billion in May 2026. Bloomberg now reports a finalized deal above $7 billion. No revenue figures are public, so nobody outside the room knows what multiple Stripe actually paid. What we can see is the jump itself: 5x in about three months.
+
+Here is the logic I find persuasive. Stripe&#x27;s whole business is sitting in the middle of transactions and taking a small cut of enormous volume. Model calls are quietly becoming a transaction type: metered, routed, billed per token. The company that owns the routing layer sees demand across every provider at once, which models are rising, which workloads pay, where the switching happens. That is the position Stripe already holds in payments. Buying the router is buying the meter.
+
+Worth saying plainly: Stripe declined to comment, so this is a reported deal, not a signed announcement.
+
+The question I cannot shake: if the router becomes the payment rail, do model providers end up as interchangeable suppliers in someone else&#x27;s checkout flow?</textarea>
+  <textarea class="hidden" id="li-v1-fc" readonly>The report: https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/</textarea>
+  </article>
+  <article class="spec">
+  <div class="head"><span class="tag">V2</span><h2 class="fmt">The week output got a receipt</h2></div>
+  <div class="meta">
+<div class="anchor">Anthropic watermarks Claude&#x27;s output (TechCrunch, four pieces Aug 11-16)</div>
+<div class="src">TECHCRUNCH &middot; <a href="https://techcrunch.com/2026/08/15/anthropic-shares-more-details-about-how-claudes-new-watermarks-will-work/">https://techcrunch.com/2026/08/15/anthropic-shares-more-details-about-how-clau</a></div>
+<div>One announcement became four stories in six days; the mechanism is genuinely elegant.</div>
+</div>
+
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1771</b> / 3000 chars &middot; 285 words</span>
+      <button class="copy" data-target="li-v2">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">Last week I watched one announcement turn into four stories in six days. Anthropic said it will watermark Claude&#x27;s output. Then the internet explained exactly why that scared people.</div>
+<div class="p">Tuesday: the<span class="foldmark">see more</span><span class="below"> announcement, older models included. Wednesday: the backlash, and the loudest objections were not about accuracy or privacy mechanics. They came from people who did not want anyone able to tell they were using Claude at work or in class. Saturday: Anthropic published how it works. Sunday: Dario Amodei called the whole backlash &#x27;fundamentally a crisis of trust.&#x27;</span></div>
+<div class="p below">The mechanism is worth a minute, because it is more elegant than &#x27;hidden signature&#x27; suggests. It follows the SynthID Text approach Google DeepMind published in 2024. Whenever the model faces a low-stakes choice between synonyms, &#x27;overcast&#x27; versus &#x27;grey&#x27;, it picks according to a pattern. A reader sees nothing; anyone holding the key can test for the pattern statistically. Anthropic says a watermarked response is indistinguishable from an unwatermarked one.</div>
+<div class="p below">The limits are real and Anthropic concedes them. Light editing preserves the mark; a full rewrite where every word changes removes it. Code mostly escapes, since there is little arbitrary word choice in working code, though comments can carry it. A detection API is planned with no timeline.</div>
+<div class="p below">So the technology is modest and evadable, and the fight was never really about it. The fight was about the principle that output becomes attributable at all. Other major labs signed the same Code of Practice and are expected to ship comparable marks. This is the industry&#x27;s direction, not one company&#x27;s experiment.</div>
+<div class="p below">My take, and I hold it loosely: if your work would be worth less with a &#x27;model wrote this&#x27; label attached, the label was never the problem.</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">How the watermarks work: https://techcrunch.com/2026/08/15/anthropic-shares-more-details-about-how-claudes-new-watermarks-will-work/ · The announcement: https://techcrunch.com/2026/08/11/anthropic-says-it-will-watermark-text-generated-by-its-ai-models/</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">none</span></div>
+      <div class="row"><span class="lbl"></span><button class="copy" data-target="li-v2-fc">Copy first comment</button></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v2" readonly>Last week I watched one announcement turn into four stories in six days. Anthropic said it will watermark Claude&#x27;s output. Then the internet explained exactly why that scared people.
+
+Tuesday: the announcement, older models included. Wednesday: the backlash, and the loudest objections were not about accuracy or privacy mechanics. They came from people who did not want anyone able to tell they were using Claude at work or in class. Saturday: Anthropic published how it works. Sunday: Dario Amodei called the whole backlash &#x27;fundamentally a crisis of trust.&#x27;
+
+The mechanism is worth a minute, because it is more elegant than &#x27;hidden signature&#x27; suggests. It follows the SynthID Text approach Google DeepMind published in 2024. Whenever the model faces a low-stakes choice between synonyms, &#x27;overcast&#x27; versus &#x27;grey&#x27;, it picks according to a pattern. A reader sees nothing; anyone holding the key can test for the pattern statistically. Anthropic says a watermarked response is indistinguishable from an unwatermarked one.
+
+The limits are real and Anthropic concedes them. Light editing preserves the mark; a full rewrite where every word changes removes it. Code mostly escapes, since there is little arbitrary word choice in working code, though comments can carry it. A detection API is planned with no timeline.
+
+So the technology is modest and evadable, and the fight was never really about it. The fight was about the principle that output becomes attributable at all. Other major labs signed the same Code of Practice and are expected to ship comparable marks. This is the industry&#x27;s direction, not one company&#x27;s experiment.
+
+My take, and I hold it loosely: if your work would be worth less with a &#x27;model wrote this&#x27; label attached, the label was never the problem.</textarea>
+  <textarea class="hidden" id="li-v2-fc" readonly>How the watermarks work: https://techcrunch.com/2026/08/15/anthropic-shares-more-details-about-how-claudes-new-watermarks-will-work/ · The announcement: https://techcrunch.com/2026/08/11/anthropic-says-it-will-watermark-text-generated-by-its-ai-models/</textarea>
+  </article>
+  <article class="spec">
+  <div class="head"><span class="tag">V3</span><h2 class="fmt">The number is 63%</h2></div>
+  <div class="meta">
+<div class="anchor">Google&#x27;s Gemini app surges to 1 billion users (TechCrunch, Aug 11)</div>
+<div class="src">TECHCRUNCH &middot; <a href="https://techcrunch.com/2026/08/11/googles-gemini-app-surges-to-one-billion-users/">https://techcrunch.com/2026/08/11/googles-gemini-app-surges-to-one-billion-use</a></div>
+<div>The milestone is routine; the usage-pattern numbers are the builder story.</div>
+</div>
+<div class="flag"><b>Check</b><span>63% is the share of users who use the voice feature, not the share of interactions; the post keeps that distinction. &#x27;Forgiving metric for an assistant woven into the operating system&#x27; is context, not a figure from the article.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1433</b> / 3000 chars &middot; 246 words</span>
+      <button class="copy" data-target="li-v3">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">Gemini just became Google&#x27;s 14th product to pass a billion users. The number in the announcement that actually stopped me is 63%.</div>
+<div class="p">The milestone first, for the record. Sundar Pichai announced 1<span class="foldmark">see more</span><span class="below"> billion monthly actives on August 11. Google had already reported 950 million at Q2 earnings, daily actives tripled over the past year, and ChatGPT crossed its own billion in June. So the two biggest assistants hit the same line within weeks of each other. That part is almost routine by now, and monthly active is a forgiving metric for an assistant woven into the operating system.</span></div>
+<div class="p below">The usage numbers are the interesting part. 63% of Gemini&#x27;s users talk to it with their voice 🎙️. Gemini generates more than 150 million images every day. Over 100 million of its actives are on iOS, which means a nine-figure chunk of Google&#x27;s assistant audience lives on Apple&#x27;s platform.</div>
+<div class="p below">Now hold that against how most of us build. Text-first interfaces, text-first prompts, text-first evals. Meanwhile the largest consumer AI audience on earth is majority voice-using, image-heavy, and increasingly on a platform Google does not control. The mainstream user of an assistant in 2026 does not look like the person building one.</div>
+<div class="p below">The honest caveat: users who touch voice once count in that 63%, and the article does not break out interaction share. The direction still seems hard to argue with.</div>
+<div class="p below">When did you last test your own product by speaking to it?</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">The numbers: https://techcrunch.com/2026/08/11/googles-gemini-app-surges-to-one-billion-users/</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">none</span></div>
+      <div class="row"><span class="lbl"></span><button class="copy" data-target="li-v3-fc">Copy first comment</button></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v3" readonly>Gemini just became Google&#x27;s 14th product to pass a billion users. The number in the announcement that actually stopped me is 63%.
+
+The milestone first, for the record. Sundar Pichai announced 1 billion monthly actives on August 11. Google had already reported 950 million at Q2 earnings, daily actives tripled over the past year, and ChatGPT crossed its own billion in June. So the two biggest assistants hit the same line within weeks of each other. That part is almost routine by now, and monthly active is a forgiving metric for an assistant woven into the operating system.
+
+The usage numbers are the interesting part. 63% of Gemini&#x27;s users talk to it with their voice 🎙️. Gemini generates more than 150 million images every day. Over 100 million of its actives are on iOS, which means a nine-figure chunk of Google&#x27;s assistant audience lives on Apple&#x27;s platform.
+
+Now hold that against how most of us build. Text-first interfaces, text-first prompts, text-first evals. Meanwhile the largest consumer AI audience on earth is majority voice-using, image-heavy, and increasingly on a platform Google does not control. The mainstream user of an assistant in 2026 does not look like the person building one.
+
+The honest caveat: users who touch voice once count in that 63%, and the article does not break out interaction share. The direction still seems hard to argue with.
+
+When did you last test your own product by speaking to it?</textarea>
+  <textarea class="hidden" id="li-v3-fc" readonly>The numbers: https://techcrunch.com/2026/08/11/googles-gemini-app-surges-to-one-billion-users/</textarea>
+  </article>
+  <article class="spec">
+  <div class="head"><span class="tag">V4</span><h2 class="fmt">What stops being saved</h2></div>
+  <div class="meta">
+<div class="anchor">As AI eats the web, the internet&#x27;s collective memory is disappearing (The Walrus, 936 pts / 985 comments)</div>
+<div class="src">HACKERNEWS &middot; <a href="https://thewalrus.ca/google-search-is-dying/">https://thewalrus.ca/google-search-is-dying/</a></div>
+<div>The essay&#x27;s examples are stronger than its statistics, and that is part of the point.</div>
+</div>
+
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1755</b> / 3000 chars &middot; 282 words</span>
+      <button class="copy" data-target="li-v4">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">Last week I read an essay that reframed how I think about AI eating the web. Forget bad search results; the loss is what quietly stops being saved.</div>
+<div class="p">The piece is by Vass Bednar in The Walrus, and it<span class="foldmark">see more</span><span class="below"> set off one of the biggest threads of the week on Hacker News: 936 points, 985 comments. Her argument runs past the usual complaint that AI answers are sometimes wrong, into something more structural.</span></div>
+<div class="p below">The examples are what stay with you. Google&#x27;s AI summaries inventing sunset times for a query a calendar could answer. Content farms seeding Reddit specifically to steer what AI search repeats, polluting the record at the source. Disney deleting FiveThirtyEight&#x27;s entire archive. Wikipedia&#x27;s traffic collapsing while models ingest its content directly. The Internet Archive fighting cyberattacks and litigation while news organizations block the Wayback Machine&#x27;s crawlers.</div>
+<div class="p below">The mechanism underneath is economic. The open web&#x27;s memory was always subsidized by traffic: pages stayed up, archives stayed funded, because readers arrived. Put an error-prone AI between reader and source and the clicks stop, and with them the reason to preserve anything. AI is simultaneously reducing the traffic that pays for sources and attracting pollution aimed at itself.</div>
+<div class="p below">If you build with AI, this is not abstract. Every RAG pipeline, every agent, every training run assumes the web underneath keeps existing and stays roughly truthful. Both assumptions are being weakened by the tools built on top of them.</div>
+<div class="p below">One honest note: the essay argues by example, not measurement, and Bednar offers few hard statistics. Which is itself the point. Nobody is measuring what quietly disappears.</div>
+<div class="p below">What in your stack silently assumes the open web will still be there in five years?</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">The essay: https://thewalrus.ca/google-search-is-dying/ · The thread: https://news.ycombinator.com/item?id=49250836</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">none</span></div>
+      <div class="row"><span class="lbl"></span><button class="copy" data-target="li-v4-fc">Copy first comment</button></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v4" readonly>Last week I read an essay that reframed how I think about AI eating the web. Forget bad search results; the loss is what quietly stops being saved.
+
+The piece is by Vass Bednar in The Walrus, and it set off one of the biggest threads of the week on Hacker News: 936 points, 985 comments. Her argument runs past the usual complaint that AI answers are sometimes wrong, into something more structural.
+
+The examples are what stay with you. Google&#x27;s AI summaries inventing sunset times for a query a calendar could answer. Content farms seeding Reddit specifically to steer what AI search repeats, polluting the record at the source. Disney deleting FiveThirtyEight&#x27;s entire archive. Wikipedia&#x27;s traffic collapsing while models ingest its content directly. The Internet Archive fighting cyberattacks and litigation while news organizations block the Wayback Machine&#x27;s crawlers.
+
+The mechanism underneath is economic. The open web&#x27;s memory was always subsidized by traffic: pages stayed up, archives stayed funded, because readers arrived. Put an error-prone AI between reader and source and the clicks stop, and with them the reason to preserve anything. AI is simultaneously reducing the traffic that pays for sources and attracting pollution aimed at itself.
+
+If you build with AI, this is not abstract. Every RAG pipeline, every agent, every training run assumes the web underneath keeps existing and stays roughly truthful. Both assumptions are being weakened by the tools built on top of them.
+
+One honest note: the essay argues by example, not measurement, and Bednar offers few hard statistics. Which is itself the point. Nobody is measuring what quietly disappears.
+
+What in your stack silently assumes the open web will still be there in five years?</textarea>
+  <textarea class="hidden" id="li-v4-fc" readonly>The essay: https://thewalrus.ca/google-search-is-dying/ · The thread: https://news.ycombinator.com/item?id=49250836</textarea>
+  </article>
+  <article class="spec">
+  <div class="head"><span class="tag">V5</span><h2 class="fmt">Taste, at 15,600 stars a week</h2></div>
+  <div class="meta">
+<div class="anchor">cathrynlavery/diagram-design (+15,600 stars this week, 19,554 total)</div>
+<div class="src">GITHUB &middot; <a href="https://github.com/cathrynlavery/diagram-design">https://github.com/cathrynlavery/diagram-design</a></div>
+<div>The week&#x27;s biggest star spike went to opinions, not capability.</div>
+</div>
+<div class="flag"><b>Check</b><span>Our weekly snapshot (and the repo&#x27;s GitHub description) says 29 diagram types; the live README currently enumerates 28. The post uses the snapshot figure. Star counts are the snapshot&#x27;s, the repo has kept climbing since.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1677</b> / 3000 chars &middot; 286 words</span>
+      <button class="copy" data-target="li-v5">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">One repo earned 15,600 GitHub stars in seven days last week, just under four fifths of everything it has ever earned. It ships no model and no framework. It ships opinions about how diagrams should<span class="foldmark">see more</span><span class="below"> look.</span></div>
+<div class="p below">cathrynlavery/diagram-design is 29 editorial diagram types for Claude Code 📐, from architecture and sequence diagrams to consultant 2x2s and Gantt charts, each generated as a self-contained HTML and SVG file. You install it as a plugin, ask in plain language for &#x27;an architecture diagram&#x27;, and it picks the type and builds the file. It even onboards your brand by pulling color and typography from your website.</div>
+<div class="p below">The README is a manifesto in miniature: &#x27;No Figma. No generic rounded boxes. No 30-minute color-picking sessions.&#x27; The repo description names the enemy outright: no Mermaid-slop.</div>
+<div class="p below">For scale: the number two riser on the week&#x27;s AI trending chart, PrimeIntellect&#x27;s prime-agent, added 6,435 stars. First beat second by about 2.4x, and first place is a style guide.</div>
+<div class="p below">Here is what I think the spike is telling us. Star surges usually follow capability: a new model, a new agent framework. This one followed taste. The models are now good enough that the visible difference between two teams&#x27; output is rarely what the model could do; it is what the result looked like when it landed. Thousands of engineers looked at a pack of opinionated templates and recognized their actual bottleneck.</div>
+<div class="p below">The caveat I would attach: a week of stars measures attention, not retention, and a repo made of opinions ages exactly as well as its opinions.</div>
+<div class="p below">What is the ugliest artifact your agent shipped this week, and would you have starred the repo that fixed it?</div>
+<div class="p below tags">#claudecode #github</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">The repo: https://github.com/cathrynlavery/diagram-design</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">#claudecode #github</span></div>
+      <div class="row"><span class="lbl"></span><button class="copy" data-target="li-v5-fc">Copy first comment</button></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v5" readonly>One repo earned 15,600 GitHub stars in seven days last week, just under four fifths of everything it has ever earned. It ships no model and no framework. It ships opinions about how diagrams should look.
+
+cathrynlavery/diagram-design is 29 editorial diagram types for Claude Code 📐, from architecture and sequence diagrams to consultant 2x2s and Gantt charts, each generated as a self-contained HTML and SVG file. You install it as a plugin, ask in plain language for &#x27;an architecture diagram&#x27;, and it picks the type and builds the file. It even onboards your brand by pulling color and typography from your website.
+
+The README is a manifesto in miniature: &#x27;No Figma. No generic rounded boxes. No 30-minute color-picking sessions.&#x27; The repo description names the enemy outright: no Mermaid-slop.
+
+For scale: the number two riser on the week&#x27;s AI trending chart, PrimeIntellect&#x27;s prime-agent, added 6,435 stars. First beat second by about 2.4x, and first place is a style guide.
+
+Here is what I think the spike is telling us. Star surges usually follow capability: a new model, a new agent framework. This one followed taste. The models are now good enough that the visible difference between two teams&#x27; output is rarely what the model could do; it is what the result looked like when it landed. Thousands of engineers looked at a pack of opinionated templates and recognized their actual bottleneck.
+
+The caveat I would attach: a week of stars measures attention, not retention, and a repo made of opinions ages exactly as well as its opinions.
+
+What is the ugliest artifact your agent shipped this week, and would you have starred the repo that fixed it?
+
+#claudecode #github</textarea>
+  <textarea class="hidden" id="li-v5-fc" readonly>The repo: https://github.com/cathrynlavery/diagram-design</textarea>
+  </article>
+</div>
+<script>
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest('button.copy');
+  if (!btn) return;
+  var src = document.getElementById(btn.dataset.target);
+  if (!src) return;
+  var text = src.value;
+  var done = function () {
+    var was = btn.textContent;
+    btn.textContent = 'Copied';
+    btn.classList.add('done');
+    setTimeout(function () { btn.textContent = was; btn.classList.remove('done'); }, 1600);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, function () { fallback(src, done); });
+  } else {
+    fallback(src, done);
+  }
+});
+function fallback(src, done) {
+  src.classList.remove('hidden');
+  src.select();
+  try { document.execCommand('copy'); done(); } catch (err) {}
+  src.classList.add('hidden');
+}
+</script>

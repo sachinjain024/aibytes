@@ -1,0 +1,948 @@
+<title>aiBytes_ #5 - X variations</title>
+<meta name="description" content="Five X threads drawn from aiBytes_ issue 5, week 34, with per-tweet character counts and copy-ready text.">
+<style>
+:root{
+  --ground:#E7E8EC;
+  --panel:#FDFDFD;
+  --sunk:#F1F2F5;
+  --ink:#14161F;
+  --body:#33374A;
+  --muted:#5C6070;
+  --line:#CBCED7;
+  --hair:#DEE0E6;
+  --accent:#6A3AB2;
+  --accent-soft:#EFE7FB;
+  --chip-ink:#FFFFFF;
+  --warn:#A8371A;
+  --ok:#2F6B4F;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --grotesque:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --platform:"TwitterChirp",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#101219;
+    --panel:#181A22;
+    --sunk:#14161D;
+    --ink:#E5E6EC;
+    --body:#C3C6D2;
+    --muted:#949AA8;
+    --line:#2C303B;
+    --hair:#232733;
+    --accent:#C0A2F5;
+    --accent-soft:#241C33;
+    --chip-ink:#101219;
+    --warn:#FF9E7A;
+    --ok:#78C79C;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101219;
+  --panel:#181A22;
+  --sunk:#14161D;
+  --ink:#E5E6EC;
+  --body:#C3C6D2;
+  --muted:#949AA8;
+  --line:#2C303B;
+  --hair:#232733;
+  --accent:#C0A2F5;
+  --accent-soft:#241C33;
+  --chip-ink:#101219;
+  --warn:#FF9E7A;
+  --ok:#78C79C;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--grotesque);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  margin:0;
+}
+.sheet{max-width:900px;margin:0 auto;padding:44px 20px 96px;display:grid;gap:40px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+
+/* masthead */
+.masthead{display:grid;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:20px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.eyebrow b{color:var(--accent);font-weight:600}
+h1{font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1.03;margin:0;text-wrap:balance}
+.lede{max-width:64ch;color:var(--muted);font-size:15.5px;line-height:1.62;margin:0}
+.lede b{color:var(--ink);font-weight:600}
+
+/* rules strip */
+.rules{
+  display:grid;gap:6px;background:var(--panel);border:1px solid var(--line);
+  border-left:3px solid var(--accent);padding:14px 16px;
+}
+.rules p{margin:0;font-size:13.5px;color:var(--body);line-height:1.55}
+.rules .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* variation block */
+.spec{display:grid;gap:14px}
+.head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--accent);color:var(--chip-ink);padding:3px 8px;border-radius:3px}
+.fmt{font-size:20px;font-weight:700;letter-spacing:-.015em;margin:0}
+.meta{display:grid;gap:3px;font-size:13.5px;color:var(--muted);line-height:1.55}
+.meta .anchor{color:var(--ink);font-weight:500}
+.meta .src{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em}
+.flag{
+  display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--warn);
+  background:var(--sunk);border:1px dashed var(--warn);padding:9px 11px;line-height:1.5;
+}
+.flag b{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;flex:none;padding-top:2px}
+
+/* specimen shell */
+.card{background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.bar{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding:9px 14px;border-bottom:1px solid var(--hair);background:var(--sunk);
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+}
+.count{font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.count b{color:var(--ink);font-weight:600}
+.count.over b{color:var(--warn)}
+
+button.copy{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  background:transparent;color:var(--ink);border:1px solid var(--line);
+  padding:4px 10px;cursor:pointer;border-radius:3px;
+}
+button.copy:hover{border-color:var(--accent);color:var(--accent)}
+button.copy.done{border-color:var(--ok);color:var(--ok)}
+
+/* linkedin post body */
+.post{font-family:var(--platform);font-size:15px;line-height:1.55;color:var(--ink);padding:20px 22px}
+.post .p{margin:0 0 15px}
+.post .p:last-child{margin-bottom:0}
+.foldmark{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);white-space:nowrap;vertical-align:2px;margin:0 5px;
+  border-left:2px solid var(--accent);padding-left:5px;
+}
+.below{color:var(--muted)}
+.tail{border-top:1px solid var(--hair);padding:14px 22px;display:grid;gap:10px;background:var(--sunk)}
+.tail .row{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.tail .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:2px;flex:none}
+.tail .val{font-family:var(--platform);font-size:13.5px;color:var(--body);word-break:break-word;flex:1;min-width:220px}
+.tags{font-family:var(--platform);font-size:13.5px;color:var(--accent)}
+
+/* x thread cells */
+.thread{display:grid}
+.tw{display:grid;grid-template-columns:34px 1fr;gap:0;border-bottom:1px solid var(--hair)}
+.tw:last-child{border-bottom:0}
+.tw .n{
+  font-family:var(--mono);font-size:11px;color:var(--muted);padding:16px 0 0 14px;
+  font-variant-numeric:tabular-nums;
+}
+.tw .cell{padding:16px 16px 14px 4px;display:grid;gap:10px}
+.tw .txt{font-family:var(--platform);font-size:15.5px;line-height:1.42;color:var(--ink);white-space:pre-wrap;word-break:break-word}
+.tw .foot{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.gauge{flex:1;min-width:120px;height:3px;background:var(--hair);position:relative;max-width:220px}
+.gauge i{position:absolute;left:0;top:0;bottom:0;background:var(--accent);display:block}
+.gauge.over i{background:var(--warn)}
+.tw .c{font-family:var(--mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.tw .c b{color:var(--ink);font-weight:600}
+.tw .c.over b{color:var(--warn)}
+
+.note{font-size:12.5px;color:var(--muted);line-height:1.55;margin:0}
+.note code{font-family:var(--mono);font-size:11.5px}
+.hidden{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+@media (prefers-reduced-motion:no-preference){
+  button.copy{transition:border-color .15s ease,color .15s ease}
+}
+@media (max-width:560px){
+  .post{padding:16px 15px}
+  .tail{padding:13px 15px}
+}
+</style>
+<div class="sheet">
+  <header class="masthead">
+    <div class="eyebrow">aiBytes_ <b>#5</b> &middot; week 34 &middot; 2026-08-17 &middot; X / TWITTER</div>
+    <h1>Five threads, one item each</h1>
+    <p class="lede">The same five anchors as the LinkedIn deck, rewritten for a feed that rewards one idea per line. Copy a single tweet or the whole thread. Every cell is counted against 280 the way the composer counts it.</p>
+  </header>
+  <section class="rules">
+<p class="k">House rules applied</p>
+<p>No em dash, no en dash, no double hyphen, no hashtags, no thread emoji. Tweet 1 stands alone when someone quotes it. Counts follow X's rule that any link costs 23 characters whatever its length, so a cell showing raw links is longer on the page than in the composer.</p>
+<p class="note">Replace <code>[link to aiBytes_ #5]</code> with the live issue URL before posting. Post tweet 1 first, then reply down the stack in order.</p>
+</section>
+  <article class="spec">
+  <div class="head"><span class="tag">V1</span><h2 class="fmt">The reversal</h2></div>
+  <div class="meta">
+<div class="anchor">Anthropic watermarks Claude&#x27;s output</div>
+<div class="src">TECHCRUNCH &middot; <a href="https://techcrunch.com/2026/08/11/anthropic-says-it-will-watermark-text-generated-by-its-ai-models/">https://techcrunch.com/2026/08/11/anthropic-says-it-will-watermark-text-genera</a></div>
+<div>The week&#x27;s capability news and its provenance news, told as one turn.</div>
+</div>
+
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>6</b> tweets</span>
+      <button class="copy" data-target="x-v1-all">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">Four frontier models shipped in three days last week. Qwen 3.8, GLM-5.3, DeepSeek V4 Pro, Gemini 3.7 Flash.
+
+None of them was the story.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:49%"></i></span>
+      <span class="c"><b>136</b>/280</span>
+      <button class="copy" data-target="x-v1-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-1" readonly>Four frontier models shipped in three days last week. Qwen 3.8, GLM-5.3, DeepSeek V4 Pro, Gemini 3.7 Flash.
+
+None of them was the story.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">The story built all week.
+
+Tue: Anthropic says it will watermark Claude&#x27;s output, older models included.
+Wed: users angry the marks would reveal them at work and school.
+Sat: more detail on how the marks work.
+Sun: Amodei calls the backlash a crisis of trust.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:92%"></i></span>
+      <span class="c"><b>259</b>/280</span>
+      <button class="copy" data-target="x-v1-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-2" readonly>The story built all week.
+
+Tue: Anthropic says it will watermark Claude&#x27;s output, older models included.
+Wed: users angry the marks would reveal them at work and school.
+Sat: more detail on how the marks work.
+Sun: Amodei calls the backlash a crisis of trust.</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">Look at the shape of the objection. It was mostly not about false positives or detection mechanics.
+
+It was that the output could be traced at all. A lot of people had priced invisibility into how they work, and said so in public.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:82%"></i></span>
+      <span class="c"><b>230</b>/280</span>
+      <button class="copy" data-target="x-v1-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-3" readonly>Look at the shape of the objection. It was mostly not about false positives or detection mechanics.
+
+It was that the output could be traced at all. A lot of people had priced invisibility into how they work, and said so in public.</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">Meanwhile four model releases in three days read like scoreboard updates. Capability is routine now.
+
+The contested ground is provenance: who gets to know a text came from a model, and who loses something once that is knowable.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:81%"></i></span>
+      <span class="c"><b>227</b>/280</span>
+      <button class="copy" data-target="x-v1-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-4" readonly>Meanwhile four model releases in three days read like scoreboard updates. Capability is routine now.
+
+The contested ground is provenance: who gets to know a text came from a model, and who loses something once that is knowable.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">Caveat: details are thin, and text watermarks have a history of dying under paraphrase. This one may not survive a determined editor.
+
+But this week&#x27;s fight was about the principle, not the robustness.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:72%"></i></span>
+      <span class="c"><b>201</b>/280</span>
+      <button class="copy" data-target="x-v1-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-5" readonly>Caveat: details are thin, and text watermarks have a history of dying under paraphrase. This one may not survive a determined editor.
+
+But this week&#x27;s fight was about the principle, not the robustness.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">The announcement: https://techcrunch.com/2026/08/11/anthropic-says-it-will-watermark-text-generated-by-its-ai-models/
+The backlash: https://techcrunch.com/2026/08/12/some-claude-users-are-mad-that-anthropics-new-watermarks-will-catch-them-cheating-at-their-jobs-classes/
+
+Full week: [link to aiBytes_ #5]</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:40%"></i></span>
+      <span class="c"><b>113</b>/280</span>
+      <button class="copy" data-target="x-v1-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-6" readonly>The announcement: https://techcrunch.com/2026/08/11/anthropic-says-it-will-watermark-text-generated-by-its-ai-models/
+The backlash: https://techcrunch.com/2026/08/12/some-claude-users-are-mad-that-anthropics-new-watermarks-will-catch-them-cheating-at-their-jobs-classes/
+
+Full week: [link to aiBytes_ #5]</textarea></div>
+  </div>
+  <textarea class="hidden" id="x-v1-all" readonly>Four frontier models shipped in three days last week. Qwen 3.8, GLM-5.3, DeepSeek V4 Pro, Gemini 3.7 Flash.
+
+None of them was the story.
+
+
+The story built all week.
+
+Tue: Anthropic says it will watermark Claude&#x27;s output, older models included.
+Wed: users angry the marks would reveal them at work and school.
+Sat: more detail on how the marks work.
+Sun: Amodei calls the backlash a crisis of trust.
+
+
+Look at the shape of the objection. It was mostly not about false positives or detection mechanics.
+
+It was that the output could be traced at all. A lot of people had priced invisibility into how they work, and said so in public.
+
+
+Meanwhile four model releases in three days read like scoreboard updates. Capability is routine now.
+
+The contested ground is provenance: who gets to know a text came from a model, and who loses something once that is knowable.
+
+
+Caveat: details are thin, and text watermarks have a history of dying under paraphrase. This one may not survive a determined editor.
+
+But this week&#x27;s fight was about the principle, not the robustness.
+
+
+The announcement: https://techcrunch.com/2026/08/11/anthropic-says-it-will-watermark-text-generated-by-its-ai-models/
+The backlash: https://techcrunch.com/2026/08/12/some-claude-users-are-mad-that-anthropics-new-watermarks-will-catch-them-cheating-at-their-jobs-classes/
+
+Full week: [link to aiBytes_ #5]</textarea>
+  </article>
+  <article class="spec">
+  <div class="head"><span class="tag">V2</span><h2 class="fmt">The teardown</h2></div>
+  <div class="meta">
+<div class="anchor">Ito - AI code review that runs your code</div>
+<div class="src">PRODUCTHUNT &middot; <a href="https://www.producthunt.com/products/ito-ai-code-review-that-runs-code">https://www.producthunt.com/products/ito-ai-code-review-that-runs-code</a></div>
+<div>What the sandbox replaces, what it costs, who should skip it.</div>
+</div>
+
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>6</b> tweets</span>
+      <button class="copy" data-target="x-v2-all">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">Ito, an AI code reviewer that boots your app in a disposable environment and clicks through the flows your PR touches before it says a word about the diff.
+
+445 upvotes on Product Hunt. The interesting part is what the sandbox replaces.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:84%"></i></span>
+      <span class="c"><b>236</b>/280</span>
+      <button class="copy" data-target="x-v2-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-1" readonly>Ito, an AI code reviewer that boots your app in a disposable environment and clicks through the flows your PR touches before it says a word about the diff.
+
+445 upvotes on Product Hunt. The interesting part is what the sandbox replaces.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">Diff-only review, human or model, is prediction. You read code and guess what the runtime will do.
+
+Most incidents live in the gap: the migration that locks a table, the config that breaks under real routing, the contract that changed two services away.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:90%"></i></span>
+      <span class="c"><b>253</b>/280</span>
+      <button class="copy" data-target="x-v2-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-2" readonly>Diff-only review, human or model, is prediction. You read code and guess what the runtime will do.
+
+Most incidents live in the gap: the migration that locks a table, the config that breaks under real routing, the contract that changed two services away.</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">Ito&#x27;s move: run the app, exercise the touched flows, attach runtime evidence to the review.
+
+&#x27;This looks wrong&#x27; becomes &#x27;this broke, here, when I did this.&#x27;</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:56%"></i></span>
+      <span class="c"><b>156</b>/280</span>
+      <button class="copy" data-target="x-v2-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-3" readonly>Ito&#x27;s move: run the app, exercise the touched flows, attach runtime evidence to the review.
+
+&#x27;This looks wrong&#x27; becomes &#x27;this broke, here, when I did this.&#x27;</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">The cost. Your app must boot hermetically: no prod data, no real third-party creds. For many teams that alone is a quarter of unfinished platform work.
+
+And every PR pays the boot time.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:66%"></i></span>
+      <span class="c"><b>185</b>/280</span>
+      <button class="copy" data-target="x-v2-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-4" readonly>The cost. Your app must boot hermetically: no prod data, no real third-party creds. For many teams that alone is a quarter of unfinished platform work.
+
+And every PR pays the boot time.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">The quieter limit: a flow validator only catches what it exercises. If the broken path is not in the validated set, runtime evidence is silence.
+
+Skip it if your bottleneck is design arguments. No sandbox settles architecture.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:81%"></i></span>
+      <span class="c"><b>226</b>/280</span>
+      <button class="copy" data-target="x-v2-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-5" readonly>The quieter limit: a flow validator only catches what it exercises. If the broken path is not in the validated set, runtime evidence is silence.
+
+Skip it if your bottleneck is design arguments. No sandbox settles architecture.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">Ito: https://www.ito.ai/
+Launch: https://www.producthunt.com/products/ito-ai-code-review-that-runs-code
+
+Rest of the week: [link to aiBytes_ #5]</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:36%"></i></span>
+      <span class="c"><b>101</b>/280</span>
+      <button class="copy" data-target="x-v2-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-6" readonly>Ito: https://www.ito.ai/
+Launch: https://www.producthunt.com/products/ito-ai-code-review-that-runs-code
+
+Rest of the week: [link to aiBytes_ #5]</textarea></div>
+  </div>
+  <textarea class="hidden" id="x-v2-all" readonly>Ito, an AI code reviewer that boots your app in a disposable environment and clicks through the flows your PR touches before it says a word about the diff.
+
+445 upvotes on Product Hunt. The interesting part is what the sandbox replaces.
+
+
+Diff-only review, human or model, is prediction. You read code and guess what the runtime will do.
+
+Most incidents live in the gap: the migration that locks a table, the config that breaks under real routing, the contract that changed two services away.
+
+
+Ito&#x27;s move: run the app, exercise the touched flows, attach runtime evidence to the review.
+
+&#x27;This looks wrong&#x27; becomes &#x27;this broke, here, when I did this.&#x27;
+
+
+The cost. Your app must boot hermetically: no prod data, no real third-party creds. For many teams that alone is a quarter of unfinished platform work.
+
+And every PR pays the boot time.
+
+
+The quieter limit: a flow validator only catches what it exercises. If the broken path is not in the validated set, runtime evidence is silence.
+
+Skip it if your bottleneck is design arguments. No sandbox settles architecture.
+
+
+Ito: https://www.ito.ai/
+Launch: https://www.producthunt.com/products/ito-ai-code-review-that-runs-code
+
+Rest of the week: [link to aiBytes_ #5]</textarea>
+  </article>
+  <article class="spec">
+  <div class="head"><span class="tag">V3</span><h2 class="fmt">The number</h2></div>
+  <div class="meta">
+<div class="anchor">cathrynlavery/diagram-design, +15,600 stars in a week</div>
+<div class="src">GITHUB &middot; <a href="https://github.com/cathrynlavery/diagram-design">https://github.com/cathrynlavery/diagram-design</a></div>
+<div>The ratio between first and second place is the story.</div>
+</div>
+
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>6</b> tweets</span>
+      <button class="copy" data-target="x-v3-all">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">One repo added 15,600 GitHub stars in seven days, just under four fifths of everything it has ever earned.
+
+cathrynlavery/diagram-design: 29 editorial diagram templates for Claude Code, in plain HTML and SVG.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:74%"></i></span>
+      <span class="c"><b>208</b>/280</span>
+      <button class="copy" data-target="x-v3-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-1" readonly>One repo added 15,600 GitHub stars in seven days, just under four fifths of everything it has ever earned.
+
+cathrynlavery/diagram-design: 29 editorial diagram templates for Claude Code, in plain HTML and SVG.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">The number two riser on the week&#x27;s AI trending chart, prime-agent, added 6,435.
+
+First beat second by about 2.4x. And the winner is a style pack whose README names its enemy: &#x27;no shadows, no Mermaid-slop.&#x27;</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:73%"></i></span>
+      <span class="c"><b>205</b>/280</span>
+      <button class="copy" data-target="x-v3-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-2" readonly>The number two riser on the week&#x27;s AI trending chart, prime-agent, added 6,435.
+
+First beat second by about 2.4x. And the winner is a style pack whose README names its enemy: &#x27;no shadows, no Mermaid-slop.&#x27;</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">Star spikes usually track capability announcements. This one tracks taste.
+
+Thousands of engineers decided the bottleneck in their agent workflow is how the output looks when it lands, and starred accordingly.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:75%"></i></span>
+      <span class="c"><b>209</b>/280</span>
+      <button class="copy" data-target="x-v3-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-3" readonly>Star spikes usually track capability announcements. This one tracks taste.
+
+Thousands of engineers decided the bottleneck in their agent workflow is how the output looks when it lands, and starred accordingly.</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">The agent tooling market is splitting in two:
+
+capability: models, harnesses, memory
+quality control: skills, styles, review
+
+This week quality control outdrew capability by a multiple.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:66%"></i></span>
+      <span class="c"><b>185</b>/280</span>
+      <button class="copy" data-target="x-v3-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-4" readonly>The agent tooling market is splitting in two:
+
+capability: models, harnesses, memory
+quality control: skills, styles, review
+
+This week quality control outdrew capability by a multiple.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">Caveat: one week of stars measures attention, not retention. A skill pack is cheap to star and cheap to abandon, and a repo made of opinions ages exactly as well as the opinions do.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:65%"></i></span>
+      <span class="c"><b>181</b>/280</span>
+      <button class="copy" data-target="x-v3-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-5" readonly>Caveat: one week of stars measures attention, not retention. A skill pack is cheap to star and cheap to abandon, and a repo made of opinions ages exactly as well as the opinions do.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">The repo: https://github.com/cathrynlavery/diagram-design
+
+The week&#x27;s full trending list: [link to aiBytes_ #5]</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:31%"></i></span>
+      <span class="c"><b>87</b>/280</span>
+      <button class="copy" data-target="x-v3-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-6" readonly>The repo: https://github.com/cathrynlavery/diagram-design
+
+The week&#x27;s full trending list: [link to aiBytes_ #5]</textarea></div>
+  </div>
+  <textarea class="hidden" id="x-v3-all" readonly>One repo added 15,600 GitHub stars in seven days, just under four fifths of everything it has ever earned.
+
+cathrynlavery/diagram-design: 29 editorial diagram templates for Claude Code, in plain HTML and SVG.
+
+
+The number two riser on the week&#x27;s AI trending chart, prime-agent, added 6,435.
+
+First beat second by about 2.4x. And the winner is a style pack whose README names its enemy: &#x27;no shadows, no Mermaid-slop.&#x27;
+
+
+Star spikes usually track capability announcements. This one tracks taste.
+
+Thousands of engineers decided the bottleneck in their agent workflow is how the output looks when it lands, and starred accordingly.
+
+
+The agent tooling market is splitting in two:
+
+capability: models, harnesses, memory
+quality control: skills, styles, review
+
+This week quality control outdrew capability by a multiple.
+
+
+Caveat: one week of stars measures attention, not retention. A skill pack is cheap to star and cheap to abandon, and a repo made of opinions ages exactly as well as the opinions do.
+
+
+The repo: https://github.com/cathrynlavery/diagram-design
+
+The week&#x27;s full trending list: [link to aiBytes_ #5]</textarea>
+  </article>
+  <article class="spec">
+  <div class="head"><span class="tag">V4</span><h2 class="fmt">The field note</h2></div>
+  <div class="meta">
+<div class="anchor">Stealing Reasoning Traces from Proprietary LLM APIs</div>
+<div class="src">HACKERNEWS &middot; <a href="https://stolen-thoughts.com/">https://stolen-thoughts.com/</a></div>
+<div>The assumption it breaks, not the technique.</div>
+</div>
+<div class="flag"><b>Check</b><span>Tweet 2 says the reasoning channel &#x27;never made it into my threat model&#x27;. Anchored in the problem, and tweet 5 states the attack was read, not reproduced. Confirm the framing fits before posting.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>6</b> tweets</span>
+      <button class="copy" data-target="x-v4-all">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">&#x27;Stealing Reasoning Traces from Proprietary LLM APIs&#x27; did 696 points on Hacker News this week.
+
+The technique is interesting. The assumption it breaks is the part I cannot put down.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:65%"></i></span>
+      <span class="c"><b>181</b>/280</span>
+      <button class="copy" data-target="x-v4-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-1" readonly>&#x27;Stealing Reasoning Traces from Proprietary LLM APIs&#x27; did 696 points on Hacker News this week.
+
+The technique is interesting. The assumption it breaks is the part I cannot put down.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">My mental model of a hosted LLM had a quiet clause in it: what the provider hides stays hidden.
+
+The reasoning channel never appears in a response, so it never made it into my threat model.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:68%"></i></span>
+      <span class="c"><b>189</b>/280</span>
+      <button class="copy" data-target="x-v4-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-2" readonly>My mental model of a hosted LLM had a quiet clause in it: what the provider hides stays hidden.
+
+The reasoning channel never appears in a response, so it never made it into my threat model.</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">Look at what pools in that channel: the system prompt, retrieval context, intermediate scaffold steps, the business logic in how you decompose a task.
+
+We treat visible output as the exposure surface and reasoning as exhaust.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:80%"></i></span>
+      <span class="c"><b>225</b>/280</span>
+      <button class="copy" data-target="x-v4-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-3" readonly>Look at what pools in that channel: the system prompt, retrieval context, intermediate scaffold steps, the business logic in how you decompose a task.
+
+We treat visible output as the exposure surface and reasoning as exhaust.</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">The failure mode is invisible by construction. If someone pulls traces out of your product&#x27;s API calls, nothing breaks and no alert fires.
+
+You find out from someone else&#x27;s paper. For somebody, this was that paper.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:76%"></i></span>
+      <span class="c"><b>214</b>/280</span>
+      <button class="copy" data-target="x-v4-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-4" readonly>The failure mode is invisible by construction. If someone pulls traces out of your product&#x27;s API calls, nothing breaks and no alert fires.
+
+You find out from someone else&#x27;s paper. For somebody, this was that paper.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">For the record, I have read the write-up and the thread, not reproduced the attack.
+
+What I would change Monday anyway: nothing enters the context window that I cannot afford a motivated caller to recover. No secrets in system prompts.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:84%"></i></span>
+      <span class="c"><b>235</b>/280</span>
+      <button class="copy" data-target="x-v4-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-5" readonly>For the record, I have read the write-up and the thread, not reproduced the attack.
+
+What I would change Monday anyway: nothing enters the context window that I cannot afford a motivated caller to recover. No secrets in system prompts.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">&#x27;The provider hides it&#x27; and &#x27;an attacker cannot get it&#x27; are different sentences.
+
+Paper: https://stolen-thoughts.com/
+Thread: https://news.ycombinator.com/item?id=49257876
+
+Full week: [link to aiBytes_ #5]</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:64%"></i></span>
+      <span class="c"><b>178</b>/280</span>
+      <button class="copy" data-target="x-v4-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-6" readonly>&#x27;The provider hides it&#x27; and &#x27;an attacker cannot get it&#x27; are different sentences.
+
+Paper: https://stolen-thoughts.com/
+Thread: https://news.ycombinator.com/item?id=49257876
+
+Full week: [link to aiBytes_ #5]</textarea></div>
+  </div>
+  <textarea class="hidden" id="x-v4-all" readonly>&#x27;Stealing Reasoning Traces from Proprietary LLM APIs&#x27; did 696 points on Hacker News this week.
+
+The technique is interesting. The assumption it breaks is the part I cannot put down.
+
+
+My mental model of a hosted LLM had a quiet clause in it: what the provider hides stays hidden.
+
+The reasoning channel never appears in a response, so it never made it into my threat model.
+
+
+Look at what pools in that channel: the system prompt, retrieval context, intermediate scaffold steps, the business logic in how you decompose a task.
+
+We treat visible output as the exposure surface and reasoning as exhaust.
+
+
+The failure mode is invisible by construction. If someone pulls traces out of your product&#x27;s API calls, nothing breaks and no alert fires.
+
+You find out from someone else&#x27;s paper. For somebody, this was that paper.
+
+
+For the record, I have read the write-up and the thread, not reproduced the attack.
+
+What I would change Monday anyway: nothing enters the context window that I cannot afford a motivated caller to recover. No secrets in system prompts.
+
+
+&#x27;The provider hides it&#x27; and &#x27;an attacker cannot get it&#x27; are different sentences.
+
+Paper: https://stolen-thoughts.com/
+Thread: https://news.ycombinator.com/item?id=49257876
+
+Full week: [link to aiBytes_ #5]</textarea>
+  </article>
+  <article class="spec">
+  <div class="head"><span class="tag">V5</span><h2 class="fmt">The argument</h2></div>
+  <div class="meta">
+<div class="anchor">AI is removing the middle class of software engineering?</div>
+<div class="src">HACKERNEWS &middot; <a href="https://blog.florianherrengt.com/ai-removing-middle-class-software-engineering.html">https://blog.florianherrengt.com/ai-removing-middle-class-software-engineering</a></div>
+<div>931 comments of genuine disagreement, given both sides at strength.</div>
+</div>
+
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>7</b> tweets</span>
+      <button class="copy" data-target="x-v5-all">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">The loudest AI thread of the week had no model in it.
+
+&#x27;AI is removing the middle class of software engineering?&#x27;: 996 points, 931 comments. More comments than Qwen 3.8&#x27;s launch.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:64%"></i></span>
+      <span class="c"><b>178</b>/280</span>
+      <button class="copy" data-target="x-v5-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-1" readonly>The loudest AI thread of the week had no model in it.
+
+&#x27;AI is removing the middle class of software engineering?&#x27;: 996 points, 931 comments. More comments than Qwen 3.8&#x27;s launch.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">The essay&#x27;s case at full strength:
+
+mid-level engineering was competent implementation of a specified thing. Models do that now. A junior plus a model covers it; seniors keep direction and review. The middle compresses from both ends.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:84%"></i></span>
+      <span class="c"><b>234</b>/280</span>
+      <button class="copy" data-target="x-v5-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-2" readonly>The essay&#x27;s case at full strength:
+
+mid-level engineering was competent implementation of a specified thing. Models do that now. A junior plus a model covers it; seniors keep direction and review. The middle compresses from both ends.</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">The counter at full strength:
+
+the middle of the ladder is where judgment gets built, and nobody arrives senior. Automate the learning rungs and the shortage in five years is people qualified to review what the models wrote.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:80%"></i></span>
+      <span class="c"><b>224</b>/280</span>
+      <button class="copy" data-target="x-v5-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-3" readonly>The counter at full strength:
+
+the middle of the ladder is where judgment gets built, and nobody arrives senior. Automate the learning rungs and the shortage in five years is people qualified to review what the models wrote.</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">History gets a vote. Compilers, frameworks and cloud were each supposed to delete the middle of this profession.
+
+Each time the middle moved instead of vanishing. The open question is whether this wave differs in kind or only in speed.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:84%"></i></span>
+      <span class="c"><b>235</b>/280</span>
+      <button class="copy" data-target="x-v5-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-4" readonly>History gets a vote. Compilers, frameworks and cloud were each supposed to delete the middle of this profession.
+
+Each time the middle moved instead of vanishing. The open question is whether this wave differs in kind or only in speed.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">Where I land: both right, on different clocks.
+
+Two years out, the essay wins; the compression already shows in hiring.
+Ten years out, the counter wins; the seniors of 2036 have to come from somewhere.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:72%"></i></span>
+      <span class="c"><b>201</b>/280</span>
+      <button class="copy" data-target="x-v5-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-5" readonly>Where I land: both right, on different clocks.
+
+Two years out, the essay wins; the compression already shows in hiring.
+Ten years out, the counter wins; the seniors of 2036 have to come from somewhere.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">Companies optimize the two-year clock. The ten-year clock is nobody&#x27;s problem until it is everyone&#x27;s.
+
+No clean answer. 931 comments is what that looks like.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:56%"></i></span>
+      <span class="c"><b>157</b>/280</span>
+      <button class="copy" data-target="x-v5-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-6" readonly>Companies optimize the two-year clock. The ten-year clock is nobody&#x27;s problem until it is everyone&#x27;s.
+
+No clean answer. 931 comments is what that looks like.</textarea>
+<div class="tw">
+  <div class="n">7</div>
+  <div class="cell">
+    <div class="txt">Essay: https://blog.florianherrengt.com/ai-removing-middle-class-software-engineering.html
+Thread: https://news.ycombinator.com/item?id=49271994
+
+Full week: [link to aiBytes_ #5]</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:34%"></i></span>
+      <span class="c"><b>96</b>/280</span>
+      <button class="copy" data-target="x-v5-7">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-7" readonly>Essay: https://blog.florianherrengt.com/ai-removing-middle-class-software-engineering.html
+Thread: https://news.ycombinator.com/item?id=49271994
+
+Full week: [link to aiBytes_ #5]</textarea></div>
+  </div>
+  <textarea class="hidden" id="x-v5-all" readonly>The loudest AI thread of the week had no model in it.
+
+&#x27;AI is removing the middle class of software engineering?&#x27;: 996 points, 931 comments. More comments than Qwen 3.8&#x27;s launch.
+
+
+The essay&#x27;s case at full strength:
+
+mid-level engineering was competent implementation of a specified thing. Models do that now. A junior plus a model covers it; seniors keep direction and review. The middle compresses from both ends.
+
+
+The counter at full strength:
+
+the middle of the ladder is where judgment gets built, and nobody arrives senior. Automate the learning rungs and the shortage in five years is people qualified to review what the models wrote.
+
+
+History gets a vote. Compilers, frameworks and cloud were each supposed to delete the middle of this profession.
+
+Each time the middle moved instead of vanishing. The open question is whether this wave differs in kind or only in speed.
+
+
+Where I land: both right, on different clocks.
+
+Two years out, the essay wins; the compression already shows in hiring.
+Ten years out, the counter wins; the seniors of 2036 have to come from somewhere.
+
+
+Companies optimize the two-year clock. The ten-year clock is nobody&#x27;s problem until it is everyone&#x27;s.
+
+No clean answer. 931 comments is what that looks like.
+
+
+Essay: https://blog.florianherrengt.com/ai-removing-middle-class-software-engineering.html
+Thread: https://news.ycombinator.com/item?id=49271994
+
+Full week: [link to aiBytes_ #5]</textarea>
+  </article>
+</div>
+<script>
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest('button.copy');
+  if (!btn) return;
+  var src = document.getElementById(btn.dataset.target);
+  if (!src) return;
+  var text = src.value;
+  var done = function () {
+    var was = btn.textContent;
+    btn.textContent = 'Copied';
+    btn.classList.add('done');
+    setTimeout(function () { btn.textContent = was; btn.classList.remove('done'); }, 1600);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, function () { fallback(src, done); });
+  } else {
+    fallback(src, done);
+  }
+});
+function fallback(src, done) {
+  src.classList.remove('hidden');
+  src.select();
+  try { document.execCommand('copy'); done(); } catch (err) {}
+  src.classList.add('hidden');
+}
+</script>

@@ -1,0 +1,157 @@
+{
+  "source": "techcrunch",
+  "section": "ai-news",
+  "fetched_at": "2026-08-17",
+  "window": {
+    "after": "2026-08-10",
+    "before": "2026-08-18"
+  },
+  "query_params": {
+    "category": "artificial-intelligence",
+    "count": 10,
+    "ranking": "hackernews_points,recency"
+  },
+  "totalCount": 46,
+  "articles": [
+    {
+      "title": "Some Claude users are mad that Anthropic\u2019s new watermarks will catch them using it at their jobs, classes",
+      "description": "Is Anthropic's new watermarking system a travesty? Some have taken to social media to complain that it is.",
+      "url": "https://techcrunch.com/2026/08/12/some-claude-users-are-mad-that-anthropics-new-watermarks-will-catch-them-cheating-at-their-jobs-classes/",
+      "published_at": "2026-08-12T22:26:37Z",
+      "author": "Lucas Ropek",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/06/Claude-photo.jpg?w=1024",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 64,
+        "num_comments": 92,
+        "hn_url": "https://news.ycombinator.com/item?id=49283891"
+      }
+    },
+    {
+      "title": "OpenAI launches ChatGPT desktop app for Linux",
+      "description": "OpenAI is finally bringing a dedicated ChatGPT desktop app to Linux operating systems.",
+      "url": "https://techcrunch.com/2026/08/11/openai-launches-chatgpt-desktop-app-for-linux/",
+      "published_at": "2026-08-11T19:15:35Z",
+      "author": "Lucas Ropek",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/02/EU-ai-1258475609.jpg?w=1024",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 58,
+        "num_comments": 30,
+        "hn_url": "https://news.ycombinator.com/item?id=49264334"
+      }
+    },
+    {
+      "title": "Amazon will train on Twitch streamers\u2019 content by default, unless they opt out",
+      "description": "\"If this was opt-in, nobody would opt in,\" Twitch CPO Mike Minton said on a livestream responding to user feedback. \"That's honestly the answer.\"",
+      "url": "https://techcrunch.com/2026/08/12/amazon-will-train-on-twitch-streamers-content-by-default-unless-they-opt-out/",
+      "published_at": "2026-08-12T20:10:40Z",
+      "author": "Amanda Silberling",
+      "image": "https://techcrunch.com/wp-content/uploads/2024/03/twitch-reflection.jpg?resize=1200,799",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 37,
+        "num_comments": 13,
+        "hn_url": "https://news.ycombinator.com/item?id=49289304"
+      }
+    },
+    {
+      "title": "Stripe will reportedly acquire AI gateway startup OpenRouter for $7B+",
+      "description": "OpenRouter's CEO recently described the startup as Stripe for AI.",
+      "url": "https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/",
+      "published_at": "2026-08-16T20:57:04Z",
+      "author": "Anthony Ha",
+      "image": "https://techcrunch.com/wp-content/uploads/2024/04/Stripe-resized.webp?resize=1200,674",
+      "reading_time": "1 minute",
+      "hackernews": {
+        "points": 11,
+        "num_comments": 2,
+        "hn_url": "https://news.ycombinator.com/item?id=49324712"
+      }
+    },
+    {
+      "title": "Anthropic CEO says AI backlash is \u2018fundamentally a crisis of trust\u2019",
+      "description": "Dario Amodei is pushing back against the idea that he's been painting an overly pessimistic picture of AI.",
+      "url": "https://techcrunch.com/2026/08/16/anthropic-ceo-says-ai-backlash-is-fundamentally-a-crisis-of-trust/",
+      "published_at": "2026-08-16T16:53:51Z",
+      "author": "Anthony Ha",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/02/GettyImages-2261514463.jpg?w=1024",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 11,
+        "num_comments": 4,
+        "hn_url": "https://news.ycombinator.com/item?id=49323245"
+      }
+    },
+    {
+      "title": "Anthropic shares more details about how Claude\u2019s new watermarks will work",
+      "description": "How will the watermarking actually work? Can it be hidden with editing? And how does this affect code?",
+      "url": "https://techcrunch.com/2026/08/15/anthropic-shares-more-details-about-how-claudes-new-watermarks-will-work/",
+      "published_at": "2026-08-15T18:58:39Z",
+      "author": "Anthony Ha",
+      "image": "https://techcrunch.com/wp-content/uploads/2024/01/Magnifying-glasses.jpg?resize=1200,840",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 9,
+        "num_comments": 6,
+        "hn_url": "https://news.ycombinator.com/item?id=49314738"
+      }
+    },
+    {
+      "title": "Woman claims her stepfather used Grok to transform childhood photo into explicit imagery",
+      "description": "The woman claimed that AI tools are \"taking everyday life and turning it into child sexual abuse.\"",
+      "url": "https://techcrunch.com/2026/08/15/woman-claims-her-stepfather-used-grok-to-transform-childhood-photo-into-explicit-imagery/",
+      "published_at": "2026-08-15T21:29:19Z",
+      "author": "Anthony Ha",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/03/grok-getty.jpg?resize=1200,800",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 7,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49319697"
+      }
+    },
+    {
+      "title": "OpenAI reportedly completed a $7 billion employee tender offer",
+      "description": "San Francisco's housing market is in trouble again.",
+      "url": "https://techcrunch.com/2026/08/10/openai-reportedly-completed-a-7-billion-employee-tender-offer/",
+      "published_at": "2026-08-11T00:03:18Z",
+      "author": "Tim Fernholz",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/OpenAI-logo-green.jpg?w=1024",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 6,
+        "num_comments": 1,
+        "hn_url": "https://news.ycombinator.com/item?id=49253450"
+      }
+    },
+    {
+      "title": "Google\u2019s Gemini app surges to 1 billion users",
+      "description": "Google also shared numbers of how people are actually using the chatbot, with 63% of Gemini users talking directly to the assistant using the voice feature. Plus, Gemini now generates more than 150 million images every day, according to Google.\u00a0",
+      "url": "https://techcrunch.com/2026/08/11/googles-gemini-app-surges-to-one-billion-users/",
+      "published_at": "2026-08-11T18:49:12Z",
+      "author": "Lauren Forristal",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/06/gemini-app-GettyImages-2276204472-1.jpg?w=1024",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 5,
+        "num_comments": 1,
+        "hn_url": "https://news.ycombinator.com/item?id=49263923"
+      }
+    },
+    {
+      "title": "Anthropic says it will watermark text generated by its AI models",
+      "description": "Anthropic will extend support for watermarking AI generations for older models as well.",
+      "url": "https://techcrunch.com/2026/08/11/anthropic-says-it-will-watermark-text-generated-by-its-ai-models/",
+      "published_at": "2026-08-11T12:13:47Z",
+      "author": "Ivan Mehta",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2278736523.jpeg?resize=1200,798",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 5,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49258620"
+      }
+    }
+  ]
+}
