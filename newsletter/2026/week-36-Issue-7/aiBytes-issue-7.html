@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔌 OpenAI cuts off Cursor and Nvidia circles Hugging Face</title>
+<meta name="description" content="Plus GLM-5.3 arrives with open weights, Android apps get a memory budget, and a usage meter for Claude's rate limits.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
+    --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
+    --butter:#FFF6D9; --butter-line:#F0E2AE; --amber:#8A6A00;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--cobalt);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px 56px}
+
+  header{padding:36px 0 0}
+  .issue-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--slate);display:flex;justify-content:space-between;margin-bottom:12px}
+  .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
+  .logo em{font-style:normal;color:var(--cobalt)}
+
+  /* ── Closing block: the signature. Butter panel, notch, idea text at 500 ── */
+  .tldr{background:var(--butter);border:1px solid var(--butter-line);color:var(--ink);
+        padding:20px 22px;margin-top:18px;
+        clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}
+  .tldr .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--amber)}
+  .tldr p{font-family:var(--display);font-weight:500;font-size:17px;line-height:1.55;margin-top:8px;color:var(--ink)}
+  .tldr b{background:var(--signal);padding:0 4px;color:var(--ink);font-weight:700}
+
+  section{margin-top:34px}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--paper);background:var(--ink);padding:2px 7px}
+  .sec-title{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+  .sec-rule{flex:1;height:2px;background:var(--ink)}
+
+  /* ── Intro block ── */
+  .intro{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 22px;margin-bottom:18px}
+  .intro p{font-size:15.5px;line-height:1.65;margin-bottom:14px;color:#3A3E4A}
+  .intro p:last-child{margin-bottom:0}
+  .intro .greet{color:var(--ink)}
+  .intro b{color:var(--ink);font-weight:700}
+
+  /* ── My Favourite Picks: the publisher's shortlist, drawn from any section ──
+       Ink border with a signal spine. The pick name is INK and undecorated - the
+       numeral is the marker, and cobalt is left to the sections that report. ── */
+  .picks{background:var(--card);border:1px solid var(--ink);border-left:5px solid var(--signal);padding:18px 20px;margin-bottom:18px}
+  .picks .card-title{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+  .picks ol{list-style:none;margin:0;padding:0}
+  .picks li{display:flex;gap:11px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--line)}
+  .picks li:last-child{border-bottom:none;padding-bottom:0}
+  .picks .n{font-family:var(--mono);font-size:11px;font-weight:700;background:var(--signal);color:var(--ink);padding:1px 5px;flex-shrink:0}
+  .picks .t{flex:1}
+  .picks .t a{color:var(--ink);text-decoration:none;font-weight:600}
+  .picks .t a:hover{color:var(--cobalt)}
+  .picks .from{font-family:var(--mono);font-size:11px;color:var(--slate);white-space:nowrap}
+
+  /* ── News card ── */
+  .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
+  .news-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;color:var(--cobalt);letter-spacing:.02em;margin-bottom:14px}
+  .news-item{font-size:15.5px;margin-bottom:14px;line-height:1.6}
+  .news-item:last-of-type{margin-bottom:0}
+  .news-item b a{font-weight:700}
+  .src{font-family:var(--mono);font-size:12px;color:var(--slate)}
+  /* Attribution links stay grey and quiet - the headline link is the loud one. */
+  .src a{color:var(--slate);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+  .src a:hover{color:var(--ink)}
+  .quote{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px 18px;margin-top:18px}
+  .quote p{font-size:15px;color:#3A3E4A}
+
+  /* ── Ticker rows ── */
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .ico{width:22px;text-align:center;flex-shrink:0}
+  .row .txt{flex:1}
+  .row .txt b{font-weight:600}
+  .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
+  .stat b{color:var(--cobalt);font-weight:700}
+  .hot{background:var(--signal);padding:0 4px;font-weight:600}
+
+  footer{margin-top:48px;border-top:3px solid var(--ink);padding-top:20px;text-align:center}
+  footer p{color:var(--slate);font-size:13.5px}
+  .foot-links{margin-top:10px;font-family:var(--mono);font-size:12.5px;display:flex;gap:20px;justify-content:center}
+  @media (max-width:480px){ .row{flex-wrap:wrap} .stat{margin-left:34px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="issue-tag"><span>ISSUE 0x07 · TL;DR</span><span>2026-08-31 · ~5 MIN</span></div>
+    <div class="logo">⚡ aiBytes<em>_</em> #7</div>
+  </header>
+
+  <section>
+    <div class="intro">
+      <p class="greet">Good morning, builders 👋</p>
+      <p>Welcome back to your Monday-morning dose of aiBytes_. I have always liked Cursor because it gave access to all models unlike Codex & Claude Code but now that's going away. SpaceX bought Cursor, and in an interesting AI war OpenAI decided to not support its model inside Cursor. Will that make Cursor less useful? Yet to see!!</p>
+      <p><b>The neutral ground is getting bought</b>: Cursor was the editor where you could pick any model, and Hugging Face is the platform where the open weights live. Cursor now belongs to SpaceX; Hugging Face has <a href="https://www.businessinsider.com/nvidia-in-talks-to-buy-hugging-face-13-billion-dollars-2026-8">Nvidia reportedly circling it</a> for $13B.</p>
+      <p><b>Today:</b> Cursor losing its OpenAI models, two courts pointing at Anthropic, five launches and seven repos, and the developers who got replaced by AI and open-sourced an AI CEO in return.</p>
+    </div>
+
+    <div class="picks">
+      <div class="card-title">My Favourite Picks</div>
+      <ol>
+        <li><span class="n">01</span><span class="t"><a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/">OpenAI is cutting its models from Cursor</a></span><span class="from">News</span></li>
+        <li><span class="n">02</span><span class="t"><a href="https://www.businessinsider.com/nvidia-in-talks-to-buy-hugging-face-13-billion-dollars-2026-8">Nvidia in talks to buy Hugging Face</a></span><span class="from">News</span></li>
+        <li><span class="n">03</span><span class="t"><a href="https://github.com/Alishahryar1/free-claude-code">Alishahryar1/free-claude-code</a></span><span class="from">GitHub</span></li>
+        <li><span class="n">04</span><span class="t"><a href="https://larsfaye.com/articles/ai-coding-will-prevent-expertise">Coding expertise is going to collapse from AI reliance</a></span><span class="from">HN</span></li>
+      </ol>
+    </div>
+
+    <div class="news-card">
+      <div class="card-title">🌍 NEWS FOR DEVS</div>
+
+            <p class="news-item">🔌 <b><a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/">OpenAI is cutting Cursor off from its models</a></b> - SpaceX bought the editor, and OpenAI named November 12 as the day its models stop serving it. Your own API key still works. <span class="hot">Story of the week</span> <span class="src">(OpenAI)</span></p>
+      <p class="news-item">🤗 <b><a href="https://www.businessinsider.com/nvidia-in-talks-to-buy-hugging-face-13-billion-dollars-2026-8">Nvidia is reportedly in talks to buy Hugging Face for $13B</a></b> - The default home for open weights would belong to the company that makes the chips they run on. <span class="src">(Business Insider)</span></p>
+      <p class="news-item">🧠 <b><a href="https://huggingface.co/zai-org/GLM-5.3">GLM-5.3 is now open-weight</a></b> - Z.ai published the full weights days after shipping the Flash variant. <span class="src">(Hugging Face)</span></p>
+      <p class="news-item">⚖️ <b><a href="https://techcrunch.com/2026/08/29/sony-music-warner-sue-anthropic-alleging-a-brazen-campaign-of-intellectual-property-theft/">Sony Music and Warner are suing Anthropic</a></b> - The complaint leans on piracy rather than fair use, which makes it broader than the training cases before it. <span class="src">(TechCrunch)</span></p>
+      <p class="news-item">🧑‍⚖️ <b><a href="https://www.nytimes.com/2026/08/27/technology/anthropic-government-blacklisting-ruling.html">A judge ruled the blacklisting of Anthropic illegal</a></b> - The Trump administration's move to bar the company from federal work did not survive review. <span class="src">(The New York Times)</span></p>
+      <p class="news-item">📱 <b><a href="https://techcrunch.com/2026/08/27/ais-memory-crunch-is-coming-for-android-apps/">AI's memory crunch is coming for Android apps</a></b> - Google is capping app memory use as data centre demand squeezes RAM out of cheaper phones. <span class="src">(TechCrunch)</span></p>
+      <p class="news-item">📈 <b><a href="https://techcrunch.com/2026/08/26/amazon-just-tripled-its-order-of-nvidia-chips-over-surging-demand/">Amazon tripled its Nvidia order</a></b> - Another two million GPUs into its data centres over the next two years. <span class="src">(TechCrunch)</span></p>
+
+      <div class="quote">
+        <p>"Every neutral layer in this stack stays neutral exactly as long as nobody can afford to buy it."</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Launches</h2><div class="sec-rule"></div></div>
+        <div class="row"><span class="ico">📱</span><span class="txt"><b><a href="https://x1.new">x1</a></b> - Describe an iPhone app step by step and ship it to the App Store. <span class="src">(<a href="https://www.producthunt.com/products/x1-2">ProductHunt</a>)</span></span><span class="stat"><b>▲ 501</b></span></div>
+    <div class="row"><span class="ico">💳</span><span class="txt"><b><a href="https://www.paymentkit.com/">PaymentKit</a></b> - Multi-processor billing that keeps charging when one processor cuts you off. <span class="src">(<a href="https://www.producthunt.com/products/paymentkit">ProductHunt</a>)</span></span><span class="stat"><b>▲ 457</b></span></div>
+    <div class="row"><span class="ico">🗂️</span><span class="txt"><b><a href="https://akta.pro">akta.pro</a></b> - Private company data and event signals as a pay-as-you-go API for agents. <span class="src">(<a href="https://www.producthunt.com/products/akta-pro">ProductHunt</a>)</span></span><span class="stat"><b>▲ 429</b></span></div>
+    <div class="row"><span class="ico">☁️</span><span class="txt"><b><a href="https://skydive.com/">Skydive</a></b> - Cloud agents that work across your tools and report back in Slack or email. <span class="src">(<a href="https://www.producthunt.com/products/skydive">ProductHunt</a>)</span></span><span class="stat"><b>▲ 417</b></span></div>
+    <div class="row"><span class="ico">🥤</span><span class="txt"><b><a href="https://www.dietclaude.com/">Diet Claude</a></b> - A live meter for how much of your Claude session is left. <span class="src">(<a href="https://www.producthunt.com/products/diet-claude">ProductHunt</a>)</span></span><span class="stat"><b>▲ 411</b></span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">Trending on GitHub</h2><div class="sec-rule"></div></div>
+        <div class="row"><span class="ico">📐</span><span class="txt"><b><a href="https://github.com/tt-a1i/archify">tt-a1i/archify</a></b> - Agent skill that renders architecture, sequence and data-flow diagrams as self-contained HTML.</span><span class="stat"><b>+14.9k</b> ★</span></div>
+    <div class="row"><span class="ico">🎨</span><span class="txt"><b><a href="https://github.com/freestylefly/awesome-gpt-image-2">freestylefly/awesome-gpt-image-2</a></b> - 530+ reverse-engineered GPT-Image2 prompts, packaged as templates and skills.</span><span class="stat"><b>+13.1k</b> ★</span></div>
+    <div class="row"><span class="ico">⌨️</span><span class="txt"><b><a href="https://github.com/openai/codex">openai/codex</a></b> - OpenAI's lightweight terminal coding agent, written in Rust.</span><span class="stat"><b>+7.8k</b> ★</span></div>
+    <div class="row"><span class="ico">💼</span><span class="txt"><b><a href="https://github.com/MadsLorentzen/ai-job-search">MadsLorentzen/ai-job-search</a></b> - Claude Code framework that scores postings, tailors your CV and preps interviews on your machine.</span><span class="stat"><b>+5.1k</b> ★</span></div>
+    <div class="row"><span class="ico">🆓</span><span class="txt"><b><a href="https://github.com/Alishahryar1/free-claude-code">Alishahryar1/free-claude-code</a></b> - Points Claude Code, Codex and OpenCode at free token allowances from your terminal or phone.</span><span class="stat"><b>+4.9k</b> ★</span></div>
+    <div class="row"><span class="ico">🔬</span><span class="txt"><b><a href="https://github.com/K-Dense-AI/scientific-agent-skills">K-Dense-AI/scientific-agent-skills</a></b> - 165 validated skills that aim an agent at biology, chemistry and medical databases.</span><span class="stat"><b>+3.6k</b> ★</span></div>
+    <div class="row"><span class="ico">🔀</span><span class="txt"><b><a href="https://github.com/tashfeenahmed/freellmapi">tashfeenahmed/freellmapi</a></b> - 34 free model providers behind one OpenAI-compatible /v1 endpoint, with failover.</span><span class="stat"><b>+2.7k</b> ★</span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">HN Deep Cuts</h2><div class="sec-rule"></div></div>
+        <div class="row"><span class="ico">🤖</span><span class="txt"><b><a href="https://github.com/SenteLabsAI/OpenExecutive">OpenExecutive</a></b> - A CEO fired developers to make room for AI, so developers open-sourced an AI CEO. <span class="src">(<a href="https://news.ycombinator.com/item?id=49458418">HackerNews</a>)</span></span><span class="stat"><b>1022</b> pts · 710 💬</span></div>
+    <div class="row"><span class="ico">🗣️</span><span class="txt"><b><a href="https://louisabraham.github.io/load-bearing/">The load-bearing vocabulary of Claude</a></b> - Which words are actually holding your prompt up. <span class="src">(<a href="https://news.ycombinator.com/item?id=49461817">HackerNews</a>)</span></span><span class="stat"><b>676</b> pts</span></div>
+    <div class="row"><span class="ico">🌶️</span><span class="txt"><b><a href="https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia">OpenAI Jalapeño: better than Nvidia Blackwell</a></b> - SemiAnalysis on the silicon OpenAI is building to stop renting. <span class="src">(<a href="https://news.ycombinator.com/item?id=49434378">HackerNews</a>)</span></span><span class="stat"><b>584</b> pts</span></div>
+    <div class="row"><span class="ico">📉</span><span class="txt"><b><a href="https://larsfaye.com/articles/ai-coding-will-prevent-expertise">Coding expertise is going to collapse from AI reliance</a></b> - The argument that the juniors never get the reps. <span class="src">(<a href="https://news.ycombinator.com/item?id=49421554">HackerNews</a>)</span></span><span class="stat"><b>558</b> pts · 545 💬</span></div>
+    <div class="row"><span class="ico">🚫</span><span class="txt"><b><a href="https://blog.luanti.org/2026/08/27/luanti-dmca-tracer-ai/">Luanti removed from Google Play over a baseless AI copyright notice</a></b> - An automated DMCA tracer took down an open source game. <span class="src">(<a href="https://news.ycombinator.com/item?id=49475079">HackerNews</a>)</span></span><span class="stat"><b>513</b> pts</span></div>
+  </section>
+
+  <div class="tldr" style="margin-top:44px">
+    <div class="kicker">ONE IDEA TO CARRY NEXT WEEK</div>
+    <p>The layer worth hardening is the one you have never had to think about. Your model provider, your weights host, your editor's defaults - each was <b>neutral</b> right up until someone bought it.</p>
+  </div>
+
+  <footer>
+    <p>Made for builders who ship with AI. See you next week. ✌️</p>
+    <div class="foot-links"><a href="#">SUBSCRIBE</a><a href="#">ARCHIVE</a><a href="#">SUGGEST A LINK</a></div>
+  </footer>
+
+</div>
+</body>
+</html>
