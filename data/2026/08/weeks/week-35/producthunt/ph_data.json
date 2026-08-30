@@ -1,0 +1,632 @@
+{
+  "source": "producthunt",
+  "fetched_at": "2026-08-24",
+  "window": {
+    "postedAfter": "2026-08-17T00:00:00Z",
+    "postedBefore": "2026-08-25T00:00:00Z"
+  },
+  "query_params": {
+    "first": 5,
+    "order": "VOTES",
+    "featured": true
+  },
+  "totalCount": 131,
+  "posts": [
+    {
+      "id": "1224395",
+      "name": "Astute",
+      "tagline": "Automate your B2B brand going viral, with new media creators",
+      "description": "Astute is the first B2B new media platform, starting with creator partnerships. We monitor your presence in the new media, build a data-backed strategy around the creators your buyers trust, and run the partnerships on autopilot. All within minutes.",
+      "slug": "astute-2",
+      "votesCount": 535,
+      "commentsCount": 165,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 1,
+      "weeklyRank": 1,
+      "url": "https://www.producthunt.com/products/astute-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/T27HYYATJQRXUQ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-08-19T07:01:00Z",
+      "createdAt": "2026-08-19T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/d472f0a2-bcd4-42b5-bbc6-d8d86e68b7d7.jpeg?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/ffb8da08-6306-448d-b87b-eacff30e80ec.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/e6d72bc8-c1a6-469d-8109-f33b4d54c752.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/8b102584-8b60-40e4-a5d2-7d5060781029.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/26f20ec5-edce-42e6-8177-3d3f56669da8.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/dc82b37c-c0e5-4bc6-9aa1-9af47562daf9.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/4d750275-7c90-4fb7-b63c-3504d16b730a.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/93c51dc1-e37a-47bf-9cd6-9366ca917476.jpeg?auto=format",
+          "videoUrl": "https://youtu.be/_HVpbBNSFMY"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/DS3LVMAJPPXBFW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/T27HYYATJQRXUQ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/YL2RCVWX6G2ZRZ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/S4VF3MXGQBGVK4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Social Media",
+            "slug": "social-media"
+          },
+          {
+            "name": "Marketing",
+            "slug": "marketing"
+          },
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "Vida Stanic",
+          "username": "vida_stanic1",
+          "headline": "co-founder & ceo of joinastute.com",
+          "url": "https://www.producthunt.com/@vida_stanic1?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        },
+        {
+          "name": "Abhishek Manikandan",
+          "username": "abhishek_manikandan",
+          "headline": "Co-founder and CTO of Astute",
+          "url": "https://www.producthunt.com/@abhishek_manikandan?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        },
+        {
+          "name": "Shehroz Tariq",
+          "username": "shehroz_astute",
+          "headline": "Founding Engineer",
+          "url": "https://www.producthunt.com/@shehroz_astute?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        },
+        {
+          "name": "Ishan Kalra",
+          "username": "ishan_kalra1",
+          "headline": "Founding Engineer",
+          "url": "https://www.producthunt.com/@ishan_kalra1?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        },
+        {
+          "name": "Rizwan Khan",
+          "username": "rizzykicks",
+          "headline": "Founding Operator ",
+          "url": "https://www.producthunt.com/@rizzykicks?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": "RizzyKicks"
+        }
+      ],
+      "user": {
+        "name": "Vedran Rasic",
+        "username": "vedranrasic",
+        "headline": "Founder @LeadDelta - Golden Kitty 2022\ud83c\udfc6",
+        "url": "https://www.producthunt.com/@vedranrasic?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1202963",
+      "name": "Clipto MCP",
+      "tagline": "Let agents source clips from terabytes of your local video",
+      "description": "Clipto MCP gives Claude, ChatGPT, and other AI agents the ability to source clips and more from inside the videos, photos, and audio recordings stored on your computer. Instead of manually browsing files, simply describe what you need. For example, turn a script into a video by matching each sentence with your local footage; find every scene where someone mentioned a topic; create rough cuts; or search years of media as if you have a dedicated assistant editor.",
+      "slug": "clipto-mcp",
+      "votesCount": 528,
+      "commentsCount": 117,
+      "reviewsRating": 4.57,
+      "reviewsCount": 9,
+      "dailyRank": 2,
+      "weeklyRank": 2,
+      "url": "https://www.producthunt.com/products/clipto-ai?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/OTKPG4D4Y4NG66?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-08-19T07:01:00Z",
+      "createdAt": "2026-08-19T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/307c181c-9d5c-4825-b49b-a2ccf4f23c2a.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/0af3e036-edaf-4650-8638-1b78a44b6dde.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/d143333b-3435-49fd-8c78-04680f1ef126.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/281c6db9-02c7-43ea-95ad-369a164ef1be.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/6878f842-9acf-4ee4-9f3f-b1a5267e851a.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/537c5431-37dc-492d-a23e-ced0bbd9506d.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/e03dd6eb-6f15-4d2b-b220-e7905e4dfb12.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/66f32670-ae50-4887-ae53-a0de68e0d3a8.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/bb835663-eee1-49f6-97af-c5f2453ef88c.jpeg?auto=format",
+          "videoUrl": "https://youtu.be/3ioYe2-kU4U"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Facebook",
+          "url": "https://www.producthunt.com/r/AUMKKPJULUHBTT?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Instagram",
+          "url": "https://www.producthunt.com/r/35LIHMNCOLKSDL?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/UPJ5Y3YVWD723F?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/3PMYHAGCQLEOAQ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/OTKPG4D4Y4NG66?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Productivity",
+            "slug": "productivity"
+          },
+          {
+            "name": "Search",
+            "slug": "search"
+          },
+          {
+            "name": "Video",
+            "slug": "video"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Freya Fang",
+          "username": "tongxinn",
+          "headline": "AI Product",
+          "url": "https://www.producthunt.com/@tongxinn?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Chris Messina",
+        "username": "chrismessina",
+        "headline": "\ud83c\udfc6 #1 Hunter!",
+        "url": "https://www.producthunt.com/@chrismessina?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1222691",
+      "name": "Meridian",
+      "tagline": "Don't let your work go unnoticed. Get promoted!",
+      "description": "Meridian is an open-source AI work journal that runs entirely on your device. It writes your work up in plain English as the day goes, so by the end of the day you have a summary of everything you did. Meridian automatically drafts your updates for your project management tools like Jira, ready to post once you approve them. Do the work. Let the remembering take care of itself. No cloud, no account. MIT-licensed, free.",
+      "slug": "meridian-19",
+      "votesCount": 463,
+      "commentsCount": 81,
+      "reviewsRating": 4.5,
+      "reviewsCount": 2,
+      "dailyRank": 1,
+      "weeklyRank": 3,
+      "url": "https://www.producthunt.com/products/meridian-16?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/Q3UR7I2PIWKD7D?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-08-17T07:01:00Z",
+      "createdAt": "2026-08-17T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/bcb773ff-2def-41ac-aae2-a83145d6b201.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/321b8078-2b3e-474b-8fa4-ad6d027527c2.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/dd69b959-9bf4-461f-ad0a-37cb0ad762a8.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/005a48a9-529b-4639-a69e-eb60c0007838.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/eee98cae-4f48-4ac8-80a0-5f096b3c5d17.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/870cd118-1ce2-4b38-b21e-980001eecce4.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/067f8201-1087-4908-bb8b-57d7df54b4ed.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/4bcc9972-559c-4370-9d2b-0328501e0a16.jpeg?auto=format",
+          "videoUrl": "https://youtu.be/jtb-35qsX5M"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/HIUTO7PTQZFKL7?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Github",
+          "url": "https://www.producthunt.com/r/J2UG3KKBUJDRP3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/Q3UR7I2PIWKD7D?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Instagram",
+          "url": "https://www.producthunt.com/r/NQYO4OJYICN6PJ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "LinkedIn",
+          "url": "https://www.producthunt.com/r/LXAMKE4AZ5WKRT?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Productivity",
+            "slug": "productivity"
+          },
+          {
+            "name": "Open Source",
+            "slug": "open-source"
+          },
+          {
+            "name": "Developer Tools",
+            "slug": "developer-tools"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Kamal Bothra",
+          "username": "kamal_bothra",
+          "headline": "Entrepreneur | Growth Hacker | CMO",
+          "url": "https://www.producthunt.com/@kamal_bothra?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Rohan Chaubey",
+        "username": "rohanrecommends",
+        "headline": "\ud83e\udd47 Top Hunter | Author | Startup Advisor",
+        "url": "https://www.producthunt.com/@rohanrecommends?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1220249",
+      "name": "Clara AI SDR",
+      "tagline": "Turn website visitors into qualified pipeline",
+      "description": "Clara is an AI SDR that converts inbound website traffic into pipeline - engaging, qualifying, demoing, handling objections, and booking meetings in real time. No forms. No waiting. No extra headcount. 24/7 selling with seamless CRM integration.",
+      "slug": "clara-ai-sdr",
+      "votesCount": 454,
+      "commentsCount": 46,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 1,
+      "weeklyRank": 4,
+      "url": "https://www.producthunt.com/products/clara-ai-sdr?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/GUZOAGUD6W6XFS?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-08-18T07:01:00Z",
+      "createdAt": "2026-08-18T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/b9165beb-a873-4975-bb5f-6fcd2fa4c76f.svg?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/245b5448-ea2d-4cc7-b363-6e795e8bd5ee.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/facc303a-973a-443c-af22-c710c832bc87.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/4e74b304-511e-44c2-979a-561dc9bd2fa5.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/48601ad7-7702-4cf8-a476-a4d8541456a5.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/b29a5bdb-9d52-484d-a6b5-492f98297946.jpeg?auto=format",
+          "videoUrl": "https://youtu.be/yS0C5jcUD5k?si=MIc_xlsuh-OUMaH7"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/GUZOAGUD6W6XFS?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/JT7GO5MD33JXE3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Developer Tools",
+            "slug": "developer-tools"
+          },
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Hari Govind",
+          "username": "harigovind11",
+          "headline": "CTO @ Trugen.AI",
+          "url": "https://www.producthunt.com/@harigovind11?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Zac Zuo",
+        "username": "zaczuo",
+        "headline": "Flowtica & AI Frontiers",
+        "url": "https://www.producthunt.com/@zaczuo?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1224258",
+      "name": "Taku AI",
+      "tagline": "Borrow the best AI setups and make them yours.",
+      "description": "AI is getting insanely powerful \u2014 and somehow harder to use. Taku fixes the last mile. It turns the best skills, agents, and workflows into real desktop apps anyone can run, remix, and make their own. Borrow setups from the pros, skip GitHub and setup, or just tell Taku what you want and watch it assemble the stack. The more you work, the more Taku learns what you need \u2014 and brings the right tools to you.",
+      "slug": "taku-ai",
+      "votesCount": 409,
+      "commentsCount": 59,
+      "reviewsRating": 4.0,
+      "reviewsCount": 1,
+      "dailyRank": 2,
+      "weeklyRank": 5,
+      "url": "https://www.producthunt.com/products/taku-ai?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/4SO4LDF6AEJUCI?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-08-18T07:01:00Z",
+      "createdAt": "2026-08-18T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/b9270f28-26bd-404d-be41-06c76c26438f.vnd.microsoft.icon?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/102d5f12-5c5b-474c-bc17-2d1cfe31ef85.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/0c24b279-6c40-482e-85d3-e47e53db7fe0.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/0a7997c0-5e83-4409-a075-a71edcf32c08.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/e0771ac5-e093-4dd9-86c6-5ed23104f156.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/39bf69fc-52ee-4dd3-ac3e-a80d36f7883d.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/84c6d541-c335-492b-bd7a-ff74a7d8a3fd.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/02e26a57-9e4f-4c4c-9ce9-35277f9f5eec.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/bb3a626e-f25d-4dad-b702-ab22a9bd9d21.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/ab063710-18fd-46ef-9b64-64230d31e865.jpeg?auto=format",
+          "videoUrl": "https://youtu.be/DADpBILD1V8"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/RLUHJ4VVBZGK4C?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/4SO4LDF6AEJUCI?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/G2CHGAH5XO7ANF?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Productivity",
+            "slug": "productivity"
+          },
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          },
+          {
+            "name": "No-Code",
+            "slug": "no-code"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Emily L",
+          "username": "emilymini",
+          "headline": "Wanna build something fun.",
+          "url": "https://www.producthunt.com/@emilymini?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Zac Zuo",
+        "username": "zaczuo",
+        "headline": "Flowtica & AI Frontiers",
+        "url": "https://www.producthunt.com/@zaczuo?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    }
+  ]
+}

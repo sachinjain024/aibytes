@@ -51,3 +51,8 @@ Add `AIBYTES_SKIP_LIVE=1` to skip the tests that hit live APIs.
 ---
 
 For working conventions and repo structure, see [CLAUDE.md](CLAUDE.md).
+
+## Weekly Newsletter Generation Workflow
+- Generate Content - /generate-newsletter-content
+- Generate Thumbnail - /generate-followup-thumbnail
+- Generate Social Media Content - /generate-followup-social-content

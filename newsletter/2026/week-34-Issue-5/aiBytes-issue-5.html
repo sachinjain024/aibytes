@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>aiBytes_ 05: Stripe's $7B+ OpenRouter deal and Claude watermarks</title>
+<meta name="description" content="Plus an argument about the disappearing middle of software engineering, code review that boots your app first, and a 14MB model built for wearables.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
+    --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
+    --butter:#FFF6D9; --butter-line:#F0E2AE; --amber:#8A6A00;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--cobalt);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px 56px}
+
+  header{padding:36px 0 0}
+  .issue-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--slate);display:flex;justify-content:space-between;margin-bottom:12px}
+  .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
+  .logo em{font-style:normal;color:var(--cobalt)}
+
+  /* ── Closing block: the signature. Butter panel, notch, idea text at 500 ── */
+  .tldr{background:var(--butter);border:1px solid var(--butter-line);color:var(--ink);
+        padding:20px 22px;margin-top:18px;
+        clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}
+  .tldr .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--amber)}
+  .tldr p{font-family:var(--display);font-weight:500;font-size:17px;line-height:1.55;margin-top:8px;color:var(--ink)}
+  .tldr b{background:var(--signal);padding:0 4px;color:var(--ink);font-weight:700}
+
+  section{margin-top:34px}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--paper);background:var(--ink);padding:2px 7px}
+  .sec-title{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+  .sec-rule{flex:1;height:2px;background:var(--ink)}
+
+  /* ── Intro block ── */
+  .intro{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 22px;margin-bottom:18px}
+  .intro p{font-size:15.5px;line-height:1.65;margin-bottom:14px;color:#3A3E4A}
+  .intro p:last-child{margin-bottom:0}
+  .intro .greet{color:var(--ink)}
+  .intro b{color:var(--ink);font-weight:700}
+
+  /* ── News card ── */
+  .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
+  .news-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;color:var(--cobalt);letter-spacing:.02em;margin-bottom:14px}
+  .news-item{font-size:15.5px;margin-bottom:14px;line-height:1.6}
+  .news-item:last-of-type{margin-bottom:0}
+  .news-item b a{font-weight:700}
+  .src{font-family:var(--mono);font-size:12px;color:var(--slate)}
+  /* Attribution links stay grey and quiet - the headline link is the loud one. */
+  .src a{color:var(--slate);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+  .src a:hover{color:var(--ink)}
+  .quote{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px 18px;margin-top:18px}
+  .quote p{font-size:15px;color:#3A3E4A}
+
+  /* ── Ticker rows ── */
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .ico{width:22px;text-align:center;flex-shrink:0}
+  .row .txt{flex:1}
+  .row .txt b{font-weight:600}
+  .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
+  .stat b{color:var(--cobalt);font-weight:700}
+  .hot{background:var(--signal);padding:0 4px;font-weight:600}
+
+  footer{margin-top:48px;border-top:3px solid var(--ink);padding-top:20px;text-align:center}
+  footer p{color:var(--slate);font-size:13.5px}
+  .foot-links{margin-top:10px;font-family:var(--mono);font-size:12.5px;display:flex;gap:20px;justify-content:center}
+  @media (max-width:480px){ .row{flex-wrap:wrap} .stat{margin-left:34px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="issue-tag"><span>ISSUE 0x05 · TL;DR</span><span>2026-08-17 · ~5 MIN</span></div>
+    <div class="logo">⚡ aiBytes<em>_</em> #5</div>
+  </header>
+
+  <section>
+    <div class="intro">
+      <p class="greet">Good morning, builders 👋</p>
+      <p>Welcome back to your Monday-morning dose of aiBytes_. I had this one filed as a model-drop week - Qwen, GLM, DeepSeek and Gemini all shipped inside three days, and I was ready to call it a scoreboard issue. Then Anthropic said it would start watermarking Claude's output, and the angriest replies came from people whose objection was, essentially, that they did not want anyone to be able to tell 🫠</p>
+      <p><b>The output is starting to carry a receipt</b>: watermarking landed in the same week researchers showed <a href="https://stolen-thoughts.com/">reasoning traces can be pulled straight out of a proprietary API</a>, and Stripe moved on the router most of those calls already go through.</p>
+      <p><b>Today:</b> a $7B+ deal for the router in your .env, four frontier models in three days, an open source voice stack you can self-host, and a repo that makes diagrams that do not look generated.</p>
+    </div>
+
+    <div class="news-card">
+      <div class="card-title">🌍 NEWS FOR DEVS</div>
+
+      <p class="news-item">🧾 <b><a href="https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/">Stripe will reportedly acquire AI gateway startup OpenRouter for $7B+</a></b> - the router half your side projects call is about to sit inside a payments company. <span class="hot">Story of the week</span> <span class="src">(TechCrunch)</span></p>
+
+      <p class="news-item">💧 <b><a href="https://techcrunch.com/2026/08/11/anthropic-says-it-will-watermark-text-generated-by-its-ai-models/">Anthropic says it will watermark text generated by its AI models</a></b> - Claude output starts carrying a traceable mark, with older models getting it too. <span class="src">(TechCrunch)</span></p>
+
+      <p class="news-item">🫥 <b><a href="https://techcrunch.com/2026/08/12/some-claude-users-are-mad-that-anthropics-new-watermarks-will-catch-them-cheating-at-their-jobs-classes/">Some Claude users are mad that Anthropic's new watermarks will catch them</a></b> - the objection that carried furthest came from people who did not want the output traced back. <span class="src">(TechCrunch)</span></p>
+
+      <p class="news-item">🧠 <b><a href="https://huggingface.co/Qwen/Qwen3.8-27B-FP8">Qwen 3.8 27B</a></b> - open weights at FP8, and the week's most-discussed drop. <span class="src">(Hugging Face)</span></p>
+
+      <p class="news-item">🛠️ <b><a href="https://z.ai/blog/glm-5.3">GLM-5.3: frontier coding with emergent cyber capabilities</a></b> - Z.ai puts the security framing in its own release notes rather than waiting for someone else to. <span class="src">(Z.ai)</span></p>
+
+      <p class="news-item">🐋 <b><a href="https://openrouter.ai/deepseek/deepseek-v4-pro-0813">DeepSeek V4 Pro 0813</a></b> - the Pro tier lands mid-week, hosted on the gateway Stripe is now buying. <span class="src">(OpenRouter)</span></p>
+
+      <p class="news-item">⚡ <b><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/">Gemini 3.7 Flash</a></b> - Google refreshes the cheap fast tier the same week the Gemini app crossed a billion users. <span class="src">(Google)</span></p>
+
+      <div class="quote">
+        <p>"Four labs shipped a faster model this week. One shipped a way to tell that the output was theirs."</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Launches</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🎙️</span><span class="txt"><b><a href="https://dograh.com/">Dograh</a></b> - open source voice agents: visual flow builder, your own model keys, telephony and human transfer. <span class="src">(<a href="https://www.producthunt.com/products/dograh">ProductHunt</a>)</span></span><span class="stat"><b>▲ 545</b></span></div>
+    <div class="row"><span class="ico">🤖</span><span class="txt"><b><a href="https://x.com/i/grok">Grok Bot</a></b> - bots that sign into your tools, use them like you do, and come back with finished work. <span class="src">(<a href="https://www.producthunt.com/products/grok">ProductHunt</a>)</span></span><span class="stat"><b>▲ 496</b></span></div>
+    <div class="row"><span class="ico">🧪</span><span class="txt"><b><a href="https://www.testmuai.com/">Kane CLI</a></b> - describe a test in plain English, run it in real Chrome from the terminal, get pass or fail with proof. <span class="src">(<a href="https://www.producthunt.com/products/lambdatest">ProductHunt</a>)</span></span><span class="stat"><b>▲ 459</b></span></div>
+    <div class="row"><span class="ico">🔬</span><span class="txt"><b><a href="https://www.ito.ai/">Ito</a></b> - code review that boots your app in an ephemeral environment before it reads the diff. <span class="src">(<a href="https://www.producthunt.com/products/ito-ai-code-review-that-runs-code">ProductHunt</a>)</span></span><span class="stat"><b>▲ 445</b></span></div>
+    <div class="row"><span class="ico">🔐</span><span class="txt"><b><a href="https://www.tines.com/">Tines 3B</a></b> - isolated runtime for agents and automations, with credentials kept out of their reach. <span class="src">(<a href="https://www.producthunt.com/products/tines">ProductHunt</a>)</span></span><span class="stat"><b>▲ 414</b></span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">Trending on GitHub</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">📐</span><span class="txt"><b><a href="https://github.com/cathrynlavery/diagram-design">cathrynlavery/diagram-design</a></b> - 29 editorial diagram types for Claude Code, self-contained HTML and SVG, no Mermaid slop.</span><span class="stat"><b>+15.6k</b> ★</span></div>
+    <div class="row"><span class="ico">🔁</span><span class="txt"><b><a href="https://github.com/PrimeIntellect-ai/prime-agent">PrimeIntellect-ai/prime-agent</a></b> - a self-improving RLM agent built for coding workflows and long-running autonomous tasks.</span><span class="stat"><b>+6.4k</b> ★</span></div>
+    <div class="row"><span class="ico">🕸️</span><span class="txt"><b><a href="https://github.com/semantica-agi/semantica">semantica-agi/semantica</a></b> - graph-native infrastructure for context and accountable AI systems.</span><span class="stat"><b>+5.3k</b> ★</span></div>
+    <div class="row"><span class="ico">🧠</span><span class="txt"><b><a href="https://github.com/TencentCloud/TencentDB-Agent-Memory">TencentCloud/TencentDB-Agent-Memory</a></b> - team-level memory hub for agents, on the charts a second week running.</span><span class="stat"><b>+3.6k</b> ★</span></div>
+    <div class="row"><span class="ico">🪡</span><span class="txt"><b><a href="https://github.com/cactus-compute/needle">cactus-compute/needle</a></b> - a 14MB foundation model for phones, wearables, smart home and robots.</span><span class="stat"><b>+3.0k</b> ★</span></div>
+    <div class="row"><span class="ico">🧰</span><span class="txt"><b><a href="https://github.com/addyosmani/agent-skills">addyosmani/agent-skills</a></b> - production-grade engineering skills for AI coding agents.</span><span class="stat"><b>+2.9k</b> ★</span></div>
+    <div class="row"><span class="ico">🦥</span><span class="txt"><b><a href="https://github.com/unslothai/unsloth">unslothai/unsloth</a></b> - local UI to run and train LLMs and diffusion models, Qwen3.8 and DeepSeek-V4 included.</span><span class="stat"><b>+2.6k</b> ★</span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">HN Deep Cuts</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🏚️</span><span class="txt"><b><a href="https://blog.florianherrengt.com/ai-removing-middle-class-software-engineering.html">AI is removing the middle class of software engineering?</a></b> - the loudest argument of the week, and it was not about a model. <span class="src">(<a href="https://news.ycombinator.com/item?id=49271994">HackerNews</a>)</span></span><span class="stat"><b>996</b> pts · 931 💬</span></div>
+    <div class="row"><span class="ico">🕰️</span><span class="txt"><b><a href="https://thewalrus.ca/google-search-is-dying/">As AI eats the web, the internet's collective memory is disappearing</a></b> - what stops getting written down once nobody clicks through. <span class="src">(<a href="https://news.ycombinator.com/item?id=49250836">HackerNews</a>)</span></span><span class="stat"><b>936</b> pts · 985 💬</span></div>
+    <div class="row"><span class="ico">🔧</span><span class="txt"><b><a href="https://deepseek.com/harness/en/">DeepSeek Harness developer preview</a></b> - DeepSeek ships its own agent harness for developers to try. <span class="src">(<a href="https://news.ycombinator.com/item?id=49285244">HackerNews</a>)</span></span><span class="stat"><b>732</b> pts</span></div>
+    <div class="row"><span class="ico">🏎️</span><span class="txt"><b><a href="https://www.cerebras.ai/blog/accelerating-gpt-5-6-sol-ultrafast-with-openai">Accelerating GPT-5.6 Sol Ultrafast</a></b> - Cerebras on what it actually took to make the fast tier fast. <span class="src">(<a href="https://news.ycombinator.com/item?id=49289844">HackerNews</a>)</span></span><span class="stat"><b>711</b> pts</span></div>
+    <div class="row"><span class="ico">🧵</span><span class="txt"><b><a href="https://stolen-thoughts.com/">Stealing Reasoning Traces from Proprietary LLM APIs</a></b> - the hidden chain of thought turns out to be extractable through the API you already pay for. <span class="src">(<a href="https://news.ycombinator.com/item?id=49257876">HackerNews</a>)</span></span><span class="stat"><b>696</b> pts</span></div>
+  </section>
+
+  <div class="tldr" style="margin-top:44px">
+    <div class="kicker">ONE IDEA TO CARRY NEXT WEEK</div>
+    <p>Watermarking only reads as a threat if the plan was to pass the output off as yours. The question worth sitting with is not whether the mark can be stripped - it is which parts of your work would still stand up if every line shipped with a <b>label</b>.</p>
+  </div>
+
+  <footer>
+    <p>Made for builders who ship with AI. See you next week. ✌️</p>
+    <div class="foot-links"><a href="#">SUBSCRIBE</a><a href="#">ARCHIVE</a><a href="#">SUGGEST A LINK</a></div>
+  </footer>
+
+</div>
+</body>
+</html>

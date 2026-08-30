@@ -1,0 +1,406 @@
+<title>aiBytes_ #6 - LinkedIn variations</title>
+<meta name="description" content="Five LinkedIn zoom-in stories drawn from aiBytes_ issue 6, week 35, with fold markers and copy-ready text.">
+<style>
+:root{
+  --ground:#E7E8EC;
+  --panel:#FDFDFD;
+  --sunk:#F1F2F5;
+  --ink:#14161F;
+  --body:#33374A;
+  --muted:#5C6070;
+  --line:#CBCED7;
+  --hair:#DEE0E6;
+  --accent:#2B4EF0;
+  --accent-soft:#E4E8FD;
+  --chip-ink:#FFFFFF;
+  --warn:#A8371A;
+  --ok:#2F6B4F;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --grotesque:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --platform:-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#101219;
+    --panel:#181A22;
+    --sunk:#14161D;
+    --ink:#E5E6EC;
+    --body:#C3C6D2;
+    --muted:#949AA8;
+    --line:#2C303B;
+    --hair:#232733;
+    --accent:#8AA0FF;
+    --accent-soft:#20263A;
+    --chip-ink:#101219;
+    --warn:#FF9E7A;
+    --ok:#78C79C;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101219;
+  --panel:#181A22;
+  --sunk:#14161D;
+  --ink:#E5E6EC;
+  --body:#C3C6D2;
+  --muted:#949AA8;
+  --line:#2C303B;
+  --hair:#232733;
+  --accent:#8AA0FF;
+  --accent-soft:#20263A;
+  --chip-ink:#101219;
+  --warn:#FF9E7A;
+  --ok:#78C79C;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--grotesque);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  margin:0;
+}
+.sheet{max-width:900px;margin:0 auto;padding:44px 20px 96px;display:grid;gap:40px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+
+.masthead{display:grid;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:20px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.eyebrow b{color:var(--accent);font-weight:600}
+h1{font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1.03;margin:0;text-wrap:balance}
+.lede{max-width:64ch;color:var(--muted);font-size:15.5px;line-height:1.62;margin:0}
+.lede b{color:var(--ink);font-weight:600}
+
+.rules{
+  display:grid;gap:6px;background:var(--panel);border:1px solid var(--line);
+  border-left:3px solid var(--accent);padding:14px 16px;
+}
+.rules p{margin:0;font-size:13.5px;color:var(--body);line-height:1.55}
+.rules .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+.spec{display:grid;gap:14px}
+.head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--accent);color:var(--chip-ink);padding:3px 8px;border-radius:3px}
+.fmt{font-size:20px;font-weight:700;letter-spacing:-.015em;margin:0}
+.meta{display:grid;gap:3px;font-size:13.5px;color:var(--muted);line-height:1.55}
+.meta .anchor{color:var(--ink);font-weight:500}
+.meta .src{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;overflow-x:auto}
+.flag{
+  display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--warn);
+  background:var(--sunk);border:1px dashed var(--warn);padding:9px 11px;line-height:1.5;
+}
+.flag b{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;flex:none;padding-top:2px}
+
+.card{background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.bar{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding:9px 14px;border-bottom:1px solid var(--hair);background:var(--sunk);
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+}
+.count{font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.count b{color:var(--ink);font-weight:600}
+.count.over b{color:var(--warn)}
+
+button.copy{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  background:transparent;color:var(--ink);border:1px solid var(--line);
+  padding:4px 10px;cursor:pointer;border-radius:3px;
+}
+button.copy:hover{border-color:var(--accent);color:var(--accent)}
+button.copy.done{border-color:var(--ok);color:var(--ok)}
+
+.post{font-family:var(--platform);font-size:15px;line-height:1.55;color:var(--ink);padding:20px 22px}
+.post .p{margin:0 0 15px}
+.post .p:last-child{margin-bottom:0}
+.foldmark{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);white-space:nowrap;vertical-align:2px;margin:0 5px;
+  border-left:2px solid var(--accent);padding-left:5px;
+}
+.below{color:var(--muted)}
+.tail{border-top:1px solid var(--hair);padding:14px 22px;display:grid;gap:10px;background:var(--sunk)}
+.tail .row{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.tail .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:2px;flex:none}
+.tail .val{font-family:var(--platform);font-size:13.5px;color:var(--body);word-break:break-word;flex:1;min-width:220px}
+.tags{font-family:var(--platform);font-size:13.5px;color:var(--accent)}
+
+.thread{display:grid}
+.tw{display:grid;grid-template-columns:34px 1fr;gap:0;border-bottom:1px solid var(--hair)}
+.tw:last-child{border-bottom:0}
+.tw .n{
+  font-family:var(--mono);font-size:11px;color:var(--muted);padding:16px 0 0 14px;
+  font-variant-numeric:tabular-nums;
+}
+.tw .cell{padding:16px 16px 14px 4px;display:grid;gap:10px}
+.tw .txt{font-family:var(--platform);font-size:15.5px;line-height:1.42;color:var(--ink);white-space:pre-wrap;word-break:break-word}
+.tw .foot{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.gauge{flex:1;min-width:120px;height:3px;background:var(--hair);position:relative;max-width:220px}
+.gauge i{position:absolute;left:0;top:0;bottom:0;background:var(--accent);display:block}
+.gauge.over i{background:var(--warn)}
+.tw .c{font-family:var(--mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.tw .c b{color:var(--ink);font-weight:600}
+.tw .c.over b{color:var(--warn)}
+
+.note{font-size:12.5px;color:var(--muted);line-height:1.55;margin:0}
+.note code{font-family:var(--mono);font-size:11.5px}
+.hidden{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+@media (prefers-reduced-motion:no-preference){
+  button.copy{transition:border-color .15s ease,color .15s ease}
+}
+@media (max-width:560px){
+  .post{padding:16px 15px}
+  .tail{padding:13px 15px}
+}
+</style>
+<div class="sheet">
+  <header class="masthead">
+    <div class="eyebrow">aiBytes_ <b>#6</b> &middot; week 35 &middot; 2026-08-24 &middot; LINKEDIN</div>
+    <h1>Five stories, one item each</h1>
+    <p class="lede">The zoom-ins you picked, told as stories rather than roundups. Each one goes further on its single item than the issue could, in plain first-person English. Pick one, post it, put the link in the first comment. The specimen is set in LinkedIn's own face so the fold lands where it will land in the feed.</p>
+  </header>
+  <section class="rules">
+<p class="k">House rules applied</p>
+<p>No em dash, no en dash, no double hyphen, anywhere, including inside the copy buttons. The link lives in the first comment, never the body, so LinkedIn does not throttle reach. Every number traces to <code>data/2026/08/weeks/week-35/</code> or to a source fetched this morning, and anything that needed a judgment call carries a Check note on its card. The marker shows where the "see more" cut lands on mobile.</p>
+</section>
+<article class="spec">
+  <div class="head"><span class="tag">V1</span><h2 class="fmt">Amazon is shredding the last clean corpus</h2></div>
+  <div class="meta">
+<div class="anchor">Amazon, which started off selling books, is destroying rare texts to train AI (TechCrunch, Aug 17)</div>
+<div class="src">TECHCRUNCH &middot; <a href="https://techcrunch.com/2026/08/17/amazon-once-an-online-bookseller-is-destroying-rare-books-to-train-ai-models/">https://techcrunch.com/2026/08/17/amazon-once-an-online-bookseller-is-destroying-rare-books-to-train-ai-models/</a></div>
+<div>Story of the week, told with the Anna&#x27;s Archive counter-move as the second half.</div>
+</div>
+  <div class="flag"><b>Check</b><span>Amazon&#x27;s statement and the Las Vegas facility detail come from 404 Media&#x27;s investigation as reported by TechCrunch. The Project Panama claim and the crime-against-humanity line are Anna&#x27;s Archive&#x27;s own words in a post that is also a recruitment pitch, and the post says so rather than repeating them as established fact.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1667</b> / 3000 chars &middot; 290 words</span>
+      <button class="copy" data-target="li-v1">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">Amazon started out selling books. This week 404 Media reported that it is now buying rare ones, cutting the spines off, and scanning the pages to train models.</div>
+<div class="p">The reason is specific, and if you think<span class="foldmark">see more</span><span class="below"> about training data for a living it is hard to argue with. Nothing published before 2022 could have been written by an LLM. Rare print is the last large corpus that is guaranteed clean, and clean is what you need to stop a model from eating its own output. Amazon&#x27;s line to 404 Media was that it &quot;purchases books through commercial channels to improve the products and services customers use.&quot; The scanning runs out of a Las Vegas facility whose logo is a dinosaur holding a book.</span></div>
+<div class="p below">Then Anna&#x27;s Archive answered, and that thread took 616 points and 894 comments on Hacker News. Their post calls the practice &quot;an extremely serious crime against humanity&quot;, says Anthropic ran the same play under the name Project Panama before its $1.5 billion copyright settlement, and asks for volunteers: &quot;If every person scans a book, and there are 10 million volunteers worldwide, we can obtain 10 million pieces of invaluable wealth.&quot;</div>
+<div class="p below">Worth separating what is documented from what is argued. The destructive scanning is reported. The Project Panama framing is Anna&#x27;s Archive&#x27;s telling, in a post that is also a recruitment drive for a shadow library.</div>
+<div class="p below">Here is the part that stays with me. A destructive scan is not preservation, it is conversion. The atoms are gone, the copy is private, and the book has not been saved so much as moved behind an API.</div>
+<div class="p below">If the only surviving version of a rare text sits inside a private training corpus, in what sense does that text still exist?</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">404 Media&#x27;s findings via TechCrunch: https://techcrunch.com/2026/08/17/amazon-once-an-online-bookseller-is-destroying-rare-books-to-train-ai-models/ and Anna&#x27;s Archive&#x27;s call to scan: https://annas-archive.gl/blog/physical-destruction.html</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">#trainingdata #digitalpreservation</span></div>
+      <div class="row"><span class="lbl"></span><button class="copy" data-target="li-v1-fc">Copy first comment</button></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v1" readonly>Amazon started out selling books. This week 404 Media reported that it is now buying rare ones, cutting the spines off, and scanning the pages to train models.
+
+The reason is specific, and if you think about training data for a living it is hard to argue with. Nothing published before 2022 could have been written by an LLM. Rare print is the last large corpus that is guaranteed clean, and clean is what you need to stop a model from eating its own output. Amazon&#x27;s line to 404 Media was that it &quot;purchases books through commercial channels to improve the products and services customers use.&quot; The scanning runs out of a Las Vegas facility whose logo is a dinosaur holding a book.
+
+Then Anna&#x27;s Archive answered, and that thread took 616 points and 894 comments on Hacker News. Their post calls the practice &quot;an extremely serious crime against humanity&quot;, says Anthropic ran the same play under the name Project Panama before its $1.5 billion copyright settlement, and asks for volunteers: &quot;If every person scans a book, and there are 10 million volunteers worldwide, we can obtain 10 million pieces of invaluable wealth.&quot;
+
+Worth separating what is documented from what is argued. The destructive scanning is reported. The Project Panama framing is Anna&#x27;s Archive&#x27;s telling, in a post that is also a recruitment drive for a shadow library.
+
+Here is the part that stays with me. A destructive scan is not preservation, it is conversion. The atoms are gone, the copy is private, and the book has not been saved so much as moved behind an API.
+
+If the only surviving version of a rare text sits inside a private training corpus, in what sense does that text still exist?
+
+#trainingdata #digitalpreservation</textarea>
+  <textarea class="hidden" id="li-v1-fc" readonly>404 Media&#x27;s findings via TechCrunch: https://techcrunch.com/2026/08/17/amazon-once-an-online-bookseller-is-destroying-rare-books-to-train-ai-models/ and Anna&#x27;s Archive&#x27;s call to scan: https://annas-archive.gl/blog/physical-destruction.html</textarea>
+  </article>
+<article class="spec">
+  <div class="head"><span class="tag">V2</span><h2 class="fmt">The week the readers went on strike</h2></div>
+  <div class="meta">
+<div class="anchor">AI;DR (AI; Didn&#x27;t Read) - 1,109 points, 690 comments on Hacker News</div>
+<div class="src">HACKERNEWS &middot; <a href="https://www.rickmanelius.com/p/aidr-ai-didnt-read">https://www.rickmanelius.com/p/aidr-ai-didnt-read</a></div>
+<div>Zooms into AI;DR, with the two neighbouring threads as evidence that it was a week, not a post.</div>
+</div>
+  <div class="flag"><b>Check</b><span>The one-third-of-web-pages figure is the TechCrunch headline claim from the study covered on Aug 20, carried as an estimate rather than a measurement. Point and comment counts are from the week-35 HackerNews snapshot.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1594</b> / 3000 chars &middot; 283 words</span>
+      <button class="copy" data-target="li-v2">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">Three of last week&#x27;s biggest Hacker News threads were not about a model. They were about people refusing to read what models wrote.</div>
+<div class="p">AI;DR, by Rick Manelius, took the top spot with 1,109 points and 690<span class="foldmark">see more</span><span class="below"> comments. &quot;Don&#x27;t paste the AI, please&quot; landed at 1,041 points. &quot;I&#x27;m becoming AI-blind&quot; took 478. Three separate essays, one position, all on the front page inside four days.</span></div>
+<div class="p below">The argument is smaller and sharper than the headline suggests. Manelius is not against using the tools. He is against shipping the output unread. His line is &quot;If you&#x27;re not bothered enough to review and edit it, then I&#x27;m not going to bother reading it.&quot; The examples are mundane and familiar: unedited Claude output pasted into a Slack thread, a newsletter with the tells still in it, a post under someone&#x27;s name that the someone plainly did not finish reading.</div>
+<div class="p below">What the coverage mostly missed is that this is a cost transfer, not a taste complaint. Writing got close to free this year. Reading did not get cheaper by a single second. Every paragraph you send unread moves the work of judging it onto the person receiving it, and they can tell.</div>
+<div class="p below">The same week, TechCrunch covered a study estimating that a third of web pages published since ChatGPT launched show signs of AI authorship. So the reading strike is not a mood. It is a rational response to a supply shock.</div>
+<div class="p below">The line I hold for my own work: the tool can write the draft, but if I have not read every sentence I am about to put my name on, I have not written anything. I have forwarded something.</div>
+<div class="p below">Where is your line between AI-assisted and AI-abandoned?</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">AI;DR: https://www.rickmanelius.com/p/aidr-ai-didnt-read and the thread: https://news.ycombinator.com/item?id=49336573</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">none</span></div>
+      <div class="row"><span class="lbl"></span><button class="copy" data-target="li-v2-fc">Copy first comment</button></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v2" readonly>Three of last week&#x27;s biggest Hacker News threads were not about a model. They were about people refusing to read what models wrote.
+
+AI;DR, by Rick Manelius, took the top spot with 1,109 points and 690 comments. &quot;Don&#x27;t paste the AI, please&quot; landed at 1,041 points. &quot;I&#x27;m becoming AI-blind&quot; took 478. Three separate essays, one position, all on the front page inside four days.
+
+The argument is smaller and sharper than the headline suggests. Manelius is not against using the tools. He is against shipping the output unread. His line is &quot;If you&#x27;re not bothered enough to review and edit it, then I&#x27;m not going to bother reading it.&quot; The examples are mundane and familiar: unedited Claude output pasted into a Slack thread, a newsletter with the tells still in it, a post under someone&#x27;s name that the someone plainly did not finish reading.
+
+What the coverage mostly missed is that this is a cost transfer, not a taste complaint. Writing got close to free this year. Reading did not get cheaper by a single second. Every paragraph you send unread moves the work of judging it onto the person receiving it, and they can tell.
+
+The same week, TechCrunch covered a study estimating that a third of web pages published since ChatGPT launched show signs of AI authorship. So the reading strike is not a mood. It is a rational response to a supply shock.
+
+The line I hold for my own work: the tool can write the draft, but if I have not read every sentence I am about to put my name on, I have not written anything. I have forwarded something.
+
+Where is your line between AI-assisted and AI-abandoned?</textarea>
+  <textarea class="hidden" id="li-v2-fc" readonly>AI;DR: https://www.rickmanelius.com/p/aidr-ai-didnt-read and the thread: https://news.ycombinator.com/item?id=49336573</textarea>
+  </article>
+<article class="spec">
+  <div class="head"><span class="tag">V3</span><h2 class="fmt">A think tank built for the chatbots</h2></div>
+  <div class="meta">
+<div class="anchor">Israel creates fake think tank in likely attempt to dupe AI chatbots - 1,054 points, 863 comments</div>
+<div class="src">RESPONSIBLE STATECRAFT &middot; <a href="https://responsiblestatecraft.org/israel-influence-chatgpt/">https://responsiblestatecraft.org/israel-influence-chatgpt/</a></div>
+<div>The politics is the surface. The story for builders is that retrieval credibility now has a price tag.</div>
+</div>
+  <div class="flag"><b>Check</b><span>Every figure traces to the Responsible Statecraft investigation: $900,000, 100+ reports since Aug 6, no bylines, GPTZero flagging 11 of 12 sampled articles. The Copilot and Gemini line is that outlet&#x27;s reference to separate investigations, and the post marks it as unconfirmed rather than folding it in.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1743</b> / 3000 chars &middot; 283 words</span>
+      <button class="copy" data-target="li-v3">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">A PR firm built a think tank that does not exist, published more than 100 unsigned reports through it, and aimed the whole operation at chatbots rather than at readers.</div>
+<div class="p">Responsible Statecraft named it<span class="foldmark">see more</span><span class="below"> last week: the Hanover Institute for Public Policy, created by Piro, Inc., commissioned by the Israeli Government Advertising Agency and subcontracted through Havas Media, for $900,000. Over 100 reports since August 6, no byline on any of them. GPTZero flagged 11 of 12 randomly sampled articles as AI-written with high confidence. What exposed it was a disclaimer sitting in the site&#x27;s own footer.</span></div>
+<div class="p below">The part worth sitting with is the business line, not the politics. Piro&#x27;s website advertises &quot;AI Story Optimization&quot; and content &quot;engineered for how LLMs evaluate credibility.&quot; One of its co-founders framed the job as making sure &quot;AI knows how to tell them.&quot; That is not a content farm chasing clicks. It is a supply-side product aimed squarely at retrieval.</div>
+<div class="p below">So think about what your agent actually checks when it cites a source. Domain shape. Institutional naming. Citation density. An about page. A consistent publishing cadence. Every one of those signals is purchasable, and this week we got a price: $900,000 buys a hundred reports and an institute that reads as credible.</div>
+<div class="p below">The outlet also points to separate investigations where Microsoft Copilot and Google Gemini picked up material from sites of this kind. That is the piece I would want confirmed independently before repeating it as settled.</div>
+<div class="p below">Where I land: &quot;cites its sources&quot; has quietly stopped being a safety property. It is a formatting choice, unless something in your pipeline knows who the source is.</div>
+<div class="p below">What does your retrieval layer verify, beyond the shape of the domain?</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">The investigation: https://responsiblestatecraft.org/israel-influence-chatgpt/</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">#rag #aisecurity</span></div>
+      <div class="row"><span class="lbl"></span><button class="copy" data-target="li-v3-fc">Copy first comment</button></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v3" readonly>A PR firm built a think tank that does not exist, published more than 100 unsigned reports through it, and aimed the whole operation at chatbots rather than at readers.
+
+Responsible Statecraft named it last week: the Hanover Institute for Public Policy, created by Piro, Inc., commissioned by the Israeli Government Advertising Agency and subcontracted through Havas Media, for $900,000. Over 100 reports since August 6, no byline on any of them. GPTZero flagged 11 of 12 randomly sampled articles as AI-written with high confidence. What exposed it was a disclaimer sitting in the site&#x27;s own footer.
+
+The part worth sitting with is the business line, not the politics. Piro&#x27;s website advertises &quot;AI Story Optimization&quot; and content &quot;engineered for how LLMs evaluate credibility.&quot; One of its co-founders framed the job as making sure &quot;AI knows how to tell them.&quot; That is not a content farm chasing clicks. It is a supply-side product aimed squarely at retrieval.
+
+So think about what your agent actually checks when it cites a source. Domain shape. Institutional naming. Citation density. An about page. A consistent publishing cadence. Every one of those signals is purchasable, and this week we got a price: $900,000 buys a hundred reports and an institute that reads as credible.
+
+The outlet also points to separate investigations where Microsoft Copilot and Google Gemini picked up material from sites of this kind. That is the piece I would want confirmed independently before repeating it as settled.
+
+Where I land: &quot;cites its sources&quot; has quietly stopped being a safety property. It is a formatting choice, unless something in your pipeline knows who the source is.
+
+What does your retrieval layer verify, beyond the shape of the domain?
+
+#rag #aisecurity</textarea>
+  <textarea class="hidden" id="li-v3-fc" readonly>The investigation: https://responsiblestatecraft.org/israel-influence-chatgpt/</textarea>
+  </article>
+<article class="spec">
+  <div class="head"><span class="tag">V4</span><h2 class="fmt">Week two of the taste layer</h2></div>
+  <div class="meta">
+<div class="anchor">cathrynlavery/diagram-design (+7,368 stars this week, 25,575 total)</div>
+<div class="src">GITHUB &middot; <a href="https://github.com/cathrynlavery/diagram-design">https://github.com/cathrynlavery/diagram-design</a></div>
+<div>This repo also ran in the issue 5 deck. This is deliberately the second-week angle: what changed, and what a 25k-star style guide means.</div>
+</div>
+  <div class="flag"><b>Check</b><span>Two-week share is arithmetic from our own snapshots: week 34 recorded 19,554 total with 15,600 gained, so roughly 3,954 predated the run, and 21,621 of 25,575 arrived in the two weeks (about 85%). Diagram count: the repo description says 38, the README&#x27;s list runs to 39 after v2.5.10. The post uses 38, the number in our snapshot.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1633</b> / 3000 chars &middot; 279 words</span>
+      <button class="copy" data-target="li-v4">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">A week ago, cathrynlavery/diagram-design was the fastest-rising AI repo on GitHub with 15,600 stars in seven days. This week it added another 7,368 and sits at 25,575.</div>
+<div class="p">Run the arithmetic and roughly 85%<span class="foldmark">see more</span><span class="below"> of its lifetime stars arrived inside those two weeks. It is not a model. It is not a framework. It is 38 editorial diagram types shipped as self-contained HTML and SVG, with a README whose whole thesis is &quot;Editorial diagrams your designer won&#x27;t hate.&quot;</span></div>
+<div class="p below">What changed between the two weeks is the interesting part. Version 2.5.10 added ten new layouts, among them Sankey, Wardley map, fishbone, kanban and database schema. And it now installs as a plugin across four agent CLIs: Claude Code, Codex, Factory Droid and Pi, each with its own one-line marketplace command. A taste layer is being distributed like a dependency.</div>
+<div class="p below">The rules are the actual product. &quot;The highest-quality move is usually deletion. Every node earns its place.&quot; One accent color, reserved for one or two focal elements. Target density of 4 out of 10. Hairline borders, no shadows. And the rule I keep thinking about: every coordinate, width and gap has to be divisible by 4, which the README calls non-negotiable. That exists because off-grid spacing is the visual tell of generated work. Somebody sat down and wrote a spec for not looking like a machine made it.</div>
+<div class="p below">The open question I cannot resolve: 25,000 stars on a style guide is either a standard forming or a monoculture forming, and you will only be able to tell in about six months, when every architecture diagram on the internet has hairlines and a 4px grid.</div>
+<div class="p below">Which one do you think we are watching?</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">The repo: https://github.com/cathrynlavery/diagram-design</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">#claudecode #devtools</span></div>
+      <div class="row"><span class="lbl"></span><button class="copy" data-target="li-v4-fc">Copy first comment</button></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v4" readonly>A week ago, cathrynlavery/diagram-design was the fastest-rising AI repo on GitHub with 15,600 stars in seven days. This week it added another 7,368 and sits at 25,575.
+
+Run the arithmetic and roughly 85% of its lifetime stars arrived inside those two weeks. It is not a model. It is not a framework. It is 38 editorial diagram types shipped as self-contained HTML and SVG, with a README whose whole thesis is &quot;Editorial diagrams your designer won&#x27;t hate.&quot;
+
+What changed between the two weeks is the interesting part. Version 2.5.10 added ten new layouts, among them Sankey, Wardley map, fishbone, kanban and database schema. And it now installs as a plugin across four agent CLIs: Claude Code, Codex, Factory Droid and Pi, each with its own one-line marketplace command. A taste layer is being distributed like a dependency.
+
+The rules are the actual product. &quot;The highest-quality move is usually deletion. Every node earns its place.&quot; One accent color, reserved for one or two focal elements. Target density of 4 out of 10. Hairline borders, no shadows. And the rule I keep thinking about: every coordinate, width and gap has to be divisible by 4, which the README calls non-negotiable. That exists because off-grid spacing is the visual tell of generated work. Somebody sat down and wrote a spec for not looking like a machine made it.
+
+The open question I cannot resolve: 25,000 stars on a style guide is either a standard forming or a monoculture forming, and you will only be able to tell in about six months, when every architecture diagram on the internet has hairlines and a 4px grid.
+
+Which one do you think we are watching?
+
+#claudecode #devtools</textarea>
+  <textarea class="hidden" id="li-v4-fc" readonly>The repo: https://github.com/cathrynlavery/diagram-design</textarea>
+  </article>
+<article class="spec">
+  <div class="head"><span class="tag">V5</span><h2 class="fmt">Your editor vendor wants your repos</h2></div>
+  <div class="meta">
+<div class="anchor">Cursor capitalizes on GitHub frustration, launches rival hosting platform (TechCrunch, Aug 18)</div>
+<div class="src">TECHCRUNCH &middot; <a href="https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/">https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/</a></div>
+<div>Outages are the wedge. The repo as agent context is the actual play.</div>
+</div>
+  <div class="flag"><b>Check</b><span>Outage count (257 in a year), the six-hour launch-day outage with a near-20% error rate, the ~180 million developer figure as of October 2025, and the SpaceX acquisition closing August 15 all come from the TechCrunch piece. The acquisition is corroborated by a second TechCrunch story in the same week-35 snapshot.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>1657</b> / 3000 chars &middot; 291 words</span>
+      <button class="copy" data-target="li-v5">Copy post</button>
+    </div>
+    <div class="post">
+<div class="p">GitHub had a worldwide outage that ran over six hours, with error rates near 20%. Cursor launched a competing code host the same day.</div>
+<div class="p">The product is called Origin, and it does what you use GitHub for:<span class="foldmark">see more</span><span class="below"> store repos, browse and edit them, collaborate, handle pull requests. The pitch is not that it does any of that better. It is that &quot;your GitHub repos can sit alongside the ones Cursor hosts&quot;, so you connect, pick your org, and sync. Migration by adjacency instead of by cutover.</span></div>
+<div class="p below">The frustration it aims at is measurable. TechCrunch counts 257 GitHub outages in the past year, and the launch-day one degraded functions worldwide for over six hours. When your source of truth goes down that often, a second one starts sounding like insurance rather than a bet.</div>
+<div class="p below">But the outages are the wedge, not the strategy. Code hosting has been a commodity for a decade. The thing that stopped being a commodity this year is the index an agent reads before it edits: your PR history, your review comments, your CI results, your issue threads. That context is what makes an agent good at your codebase specifically rather than good at code in general. Whoever hosts it owns the most valuable input to every coding agent you run.</div>
+<div class="p below">Two things worth holding at once. GitHub has around 180 million developers, and every bot, policy and integration you own points at it, which makes this the stickiest migration in software. And Cursor became part of SpaceX on August 15, so this is not a scrappy editor startup poking at Microsoft.</div>
+<div class="p below">The question I would ask before syncing an org: when your editor, your agent and your repo host are one vendor, what does leaving look like?</div>
+</div>
+    <div class="tail">
+      <div class="row"><span class="lbl">First comment</span><span class="val">TechCrunch on Origin: https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/</span></div>
+      <div class="row"><span class="lbl">Hashtags</span><span class="val tags">#devtools</span></div>
+      <div class="row"><span class="lbl"></span><button class="copy" data-target="li-v5-fc">Copy first comment</button></div>
+    </div>
+  </div>
+  <textarea class="hidden" id="li-v5" readonly>GitHub had a worldwide outage that ran over six hours, with error rates near 20%. Cursor launched a competing code host the same day.
+
+The product is called Origin, and it does what you use GitHub for: store repos, browse and edit them, collaborate, handle pull requests. The pitch is not that it does any of that better. It is that &quot;your GitHub repos can sit alongside the ones Cursor hosts&quot;, so you connect, pick your org, and sync. Migration by adjacency instead of by cutover.
+
+The frustration it aims at is measurable. TechCrunch counts 257 GitHub outages in the past year, and the launch-day one degraded functions worldwide for over six hours. When your source of truth goes down that often, a second one starts sounding like insurance rather than a bet.
+
+But the outages are the wedge, not the strategy. Code hosting has been a commodity for a decade. The thing that stopped being a commodity this year is the index an agent reads before it edits: your PR history, your review comments, your CI results, your issue threads. That context is what makes an agent good at your codebase specifically rather than good at code in general. Whoever hosts it owns the most valuable input to every coding agent you run.
+
+Two things worth holding at once. GitHub has around 180 million developers, and every bot, policy and integration you own points at it, which makes this the stickiest migration in software. And Cursor became part of SpaceX on August 15, so this is not a scrappy editor startup poking at Microsoft.
+
+The question I would ask before syncing an org: when your editor, your agent and your repo host are one vendor, what does leaving look like?
+
+#devtools</textarea>
+  <textarea class="hidden" id="li-v5-fc" readonly>TechCrunch on Origin: https://techcrunch.com/2026/08/18/cursor-capitalizes-on-github-frustration-launches-rival-hosting-platform/</textarea>
+  </article>
+</div>
+<script>
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest('button.copy');
+  if (!btn) return;
+  var src = document.getElementById(btn.dataset.target);
+  if (!src) return;
+  var text = src.value;
+  var done = function () {
+    var was = btn.textContent;
+    btn.textContent = 'Copied';
+    btn.classList.add('done');
+    setTimeout(function () { btn.textContent = was; btn.classList.remove('done'); }, 1600);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, function () { fallback(src, done); });
+  } else {
+    fallback(src, done);
+  }
+});
+function fallback(src, done) {
+  src.classList.remove('hidden');
+  src.select();
+  try { document.execCommand('copy'); done(); } catch (err) {}
+  src.classList.add('hidden');
+}
+</script>

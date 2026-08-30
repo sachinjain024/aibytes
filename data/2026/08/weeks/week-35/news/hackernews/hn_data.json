@@ -1,0 +1,120 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-08-24",
+  "window": {
+    "after": "2026-08-17",
+    "before": "2026-08-25"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 51,
+  "poolCount": 369,
+  "stories": [
+    {
+      "title": "AI;DR (AI; Didn't Read)",
+      "url": "https://www.rickmanelius.com/p/aidr-ai-didnt-read",
+      "type": "story",
+      "points": 1109,
+      "num_comments": 690,
+      "author": "mooreds",
+      "created_at": "2026-08-17T19:47:15Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49336573"
+    },
+    {
+      "title": "Israel creates fake think tank in likely attempt to dupe AI chatbots",
+      "url": "https://responsiblestatecraft.org/israel-influence-chatgpt/",
+      "type": "story",
+      "points": 1054,
+      "num_comments": 863,
+      "author": "DeepLogin",
+      "created_at": "2026-08-17T20:46:10Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49337392"
+    },
+    {
+      "title": "Don't paste the AI, please",
+      "url": "https://dontpastetheai.com/",
+      "type": "story",
+      "points": 1041,
+      "num_comments": 579,
+      "author": "pjerem",
+      "created_at": "2026-08-20T08:20:44Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49371857"
+    },
+    {
+      "title": "GPT-5.6 Sol Pricing Cut by 50% on OpenRouter",
+      "url": "https://openrouter.ai/openai/gpt-5.6-sol",
+      "type": "story",
+      "points": 634,
+      "num_comments": 448,
+      "author": "Topfi",
+      "created_at": "2026-08-17T21:03:18Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49337602"
+    },
+    {
+      "title": "AI companies destroy physical books \u2013 let's scan rare books before it's too late",
+      "url": "https://annas-archive.gl/blog/physical-destruction.html",
+      "type": "story",
+      "points": 616,
+      "num_comments": 894,
+      "author": "Cider9986",
+      "created_at": "2026-08-21T02:37:47Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49383026"
+    },
+    {
+      "title": "DeepSeek-v4-flash-vision-exp",
+      "url": "https://api-docs.deepseek.com/guides/vision/",
+      "type": "story",
+      "points": 494,
+      "num_comments": 153,
+      "author": "dares2573",
+      "created_at": "2026-08-21T10:33:56Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49386163"
+    },
+    {
+      "title": "I'm becoming AI-blind",
+      "url": "https://cymerys.com/w/im-becoming-ai-blind",
+      "type": "story",
+      "points": 478,
+      "num_comments": 484,
+      "author": "rcymerys",
+      "created_at": "2026-08-21T11:48:05Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49386699"
+    },
+    {
+      "title": "AI-Generated GitHub Copilot \u201cAutofix\u201d Allowed Compromise of Snowflake's Jira",
+      "url": "https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug",
+      "type": "story",
+      "points": 424,
+      "num_comments": 157,
+      "author": "galnagli",
+      "created_at": "2026-08-17T14:18:38Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49331423"
+    },
+    {
+      "title": "Show HN: Huzzah \u2013 a novel approach to coding with AI",
+      "url": "https://www.danielvaughn.dev/posts/huzzah/",
+      "type": "show_hn",
+      "points": 378,
+      "num_comments": 209,
+      "author": "danielvaughn",
+      "created_at": "2026-08-20T19:05:36Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49378768"
+    },
+    {
+      "title": "AI boosted homework scores, then exam scores dropped: study",
+      "url": "https://www.economist.com/graphic-detail/2026/08/18/does-ai-stop-children-from-learning",
+      "type": "story",
+      "points": 372,
+      "num_comments": 372,
+      "author": "dash2",
+      "created_at": "2026-08-19T06:13:31Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49357530"
+    }
+  ]
+}

@@ -25,7 +25,7 @@
     position:absolute;inset:18px;
     background:var(--paper);color:var(--ink);
     padding:56px 64px 52px;
-    display:flex;flex-direction:column;justify-content:space-between;
+    display:flex;flex-direction:column;
     clip-path:polygon(0 0,calc(100% - 64px) 0,100% 64px,100% 100%,0 100%);
   }
 
@@ -34,10 +34,13 @@
   .wordmark em{font-style:normal;color:var(--cobalt)}
   .meta{font-family:var(--mono);font-size:15px;letter-spacing:.1em;color:var(--slate);white-space:nowrap}
 
+  /* No foot: the card carries the wordmark and the headline, nothing else. The
+     headline centres in the space under the top row however many lines it takes. */
   h1{
     font-family:var(--display);font-weight:800;
     font-size:70px;line-height:1.05;letter-spacing:-.032em;
     text-wrap:balance;max-width:19ch;
+    margin:auto 0;
   }
   h1 mark{
     background:var(--signal);color:var(--ink);
@@ -45,15 +48,42 @@
     -webkit-box-decoration-break:clone;box-decoration-break:clone;
   }
 
-  .foot{
-    display:flex;align-items:baseline;justify-content:space-between;gap:24px;
-    border-top:2px solid var(--ink);padding-top:18px;
-    font-family:var(--mono);font-size:14.5px;letter-spacing:.09em;color:var(--slate);
-  }
-  .foot .now{color:var(--ink);font-weight:500}
+  /* ── Backgrounds ──────────────────────────────────────────────────────────
+     Three treatments, keyed off the {{VARIANT}} class on <body>. Every run
+     renders all three; the pick happens at upload time in Beehiiv. Each one
+     paints on .card::before and fades to plain paper behind the headline, so
+     the type never fights the texture. Chosen 2026-08-17; see
+     artifacts/2026-Aug-17-Thumbnail-background-taste.html for the rejects. */
+  .card>.top,.card>h1{position:relative;z-index:1}
+
+  /* Dot grid: slate dots, engineer's notebook. The quietest of the three. */
+  body.dot-grid .card::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:radial-gradient(circle,rgba(107,112,128,.30) 1.6px,transparent 1.6px);
+    background-size:28px 28px;background-position:14px 14px;
+    -webkit-mask-image:radial-gradient(760px 560px at 34% 58%,transparent 0 34%,#000 78%);
+    mask-image:radial-gradient(760px 560px at 34% 58%,transparent 0 34%,#000 78%);}
+
+  /* Graph grid: hairline squares, a stronger rule every fourth line. */
+  body.graph-grid .card::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:
+      linear-gradient(rgba(25,28,38,.20) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(25,28,38,.20) 1px,transparent 1px),
+      linear-gradient(rgba(228,228,220,.9) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(228,228,220,.9) 1px,transparent 1px);
+    background-size:128px 128px,128px 128px,32px 32px,32px 32px;
+    -webkit-mask-image:radial-gradient(820px 620px at 36% 56%,transparent 0 30%,#000 80%);
+    mask-image:radial-gradient(820px 620px at 36% 56%,transparent 0 30%,#000 80%);}
+
+  /* Cobalt wash: a glow off the notch corner, answered in signal yellow.
+     The only one that adds colour; no mask, the gradients die out on their own. */
+  body.cobalt-wash .card::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(780px 600px at 96% 0%,rgba(43,78,240,.17),transparent 62%),
+      radial-gradient(620px 480px at 0% 104%,rgba(255,211,56,.28),transparent 58%);}
+
 </style>
 </head>
-<body>
+<body class="{{VARIANT}}">
   <div class="card">
     <div class="top">
       <div class="wordmark">⚡ aiBytes<em>_</em></div>
@@ -61,11 +91,6 @@
     </div>
 
     <h1>{{HEADLINE_HTML}}</h1>
-
-    <div class="foot">
-      <span class="now">{{SECTIONS}}</span>
-      <span>~{{READ_MIN}} MIN</span>
-    </div>
   </div>
 </body>
 </html>

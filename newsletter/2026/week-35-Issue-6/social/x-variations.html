@@ -1,0 +1,935 @@
+<title>aiBytes_ #6 - X variations</title>
+<meta name="description" content="Five X threads drawn from aiBytes_ issue 6, week 35, with per-tweet character counts and copy-ready text.">
+<style>
+:root{
+  --ground:#E7E8EC;
+  --panel:#FDFDFD;
+  --sunk:#F1F2F5;
+  --ink:#14161F;
+  --body:#33374A;
+  --muted:#5C6070;
+  --line:#CBCED7;
+  --hair:#DEE0E6;
+  --accent:#6A3AB2;
+  --accent-soft:#EFE7FB;
+  --chip-ink:#FFFFFF;
+  --warn:#A8371A;
+  --ok:#2F6B4F;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  --grotesque:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --platform:-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#101219;
+    --panel:#181A22;
+    --sunk:#14161D;
+    --ink:#E5E6EC;
+    --body:#C3C6D2;
+    --muted:#949AA8;
+    --line:#2C303B;
+    --hair:#232733;
+    --accent:#C0A2F5;
+    --accent-soft:#241C33;
+    --chip-ink:#101219;
+    --warn:#FF9E7A;
+    --ok:#78C79C;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101219;
+  --panel:#181A22;
+  --sunk:#14161D;
+  --ink:#E5E6EC;
+  --body:#C3C6D2;
+  --muted:#949AA8;
+  --line:#2C303B;
+  --hair:#232733;
+  --accent:#C0A2F5;
+  --accent-soft:#241C33;
+  --chip-ink:#101219;
+  --warn:#FF9E7A;
+  --ok:#78C79C;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--grotesque);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  margin:0;
+}
+.sheet{max-width:900px;margin:0 auto;padding:44px 20px 96px;display:grid;gap:40px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+
+.masthead{display:grid;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:20px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.eyebrow b{color:var(--accent);font-weight:600}
+h1{font-size:clamp(28px,5vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1.03;margin:0;text-wrap:balance}
+.lede{max-width:64ch;color:var(--muted);font-size:15.5px;line-height:1.62;margin:0}
+.lede b{color:var(--ink);font-weight:600}
+
+.rules{
+  display:grid;gap:6px;background:var(--panel);border:1px solid var(--line);
+  border-left:3px solid var(--accent);padding:14px 16px;
+}
+.rules p{margin:0;font-size:13.5px;color:var(--body);line-height:1.55}
+.rules .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+.spec{display:grid;gap:14px}
+.head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--accent);color:var(--chip-ink);padding:3px 8px;border-radius:3px}
+.fmt{font-size:20px;font-weight:700;letter-spacing:-.015em;margin:0}
+.meta{display:grid;gap:3px;font-size:13.5px;color:var(--muted);line-height:1.55}
+.meta .anchor{color:var(--ink);font-weight:500}
+.meta .src{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;overflow-x:auto}
+.flag{
+  display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--warn);
+  background:var(--sunk);border:1px dashed var(--warn);padding:9px 11px;line-height:1.5;
+}
+.flag b{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;flex:none;padding-top:2px}
+
+.card{background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.bar{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  padding:9px 14px;border-bottom:1px solid var(--hair);background:var(--sunk);
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+}
+.count{font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.count b{color:var(--ink);font-weight:600}
+.count.over b{color:var(--warn)}
+
+button.copy{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  background:transparent;color:var(--ink);border:1px solid var(--line);
+  padding:4px 10px;cursor:pointer;border-radius:3px;
+}
+button.copy:hover{border-color:var(--accent);color:var(--accent)}
+button.copy.done{border-color:var(--ok);color:var(--ok)}
+
+.post{font-family:var(--platform);font-size:15px;line-height:1.55;color:var(--ink);padding:20px 22px}
+.post .p{margin:0 0 15px}
+.post .p:last-child{margin-bottom:0}
+.foldmark{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);white-space:nowrap;vertical-align:2px;margin:0 5px;
+  border-left:2px solid var(--accent);padding-left:5px;
+}
+.below{color:var(--muted)}
+.tail{border-top:1px solid var(--hair);padding:14px 22px;display:grid;gap:10px;background:var(--sunk)}
+.tail .row{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.tail .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:2px;flex:none}
+.tail .val{font-family:var(--platform);font-size:13.5px;color:var(--body);word-break:break-word;flex:1;min-width:220px}
+.tags{font-family:var(--platform);font-size:13.5px;color:var(--accent)}
+
+.thread{display:grid}
+.tw{display:grid;grid-template-columns:34px 1fr;gap:0;border-bottom:1px solid var(--hair)}
+.tw:last-child{border-bottom:0}
+.tw .n{
+  font-family:var(--mono);font-size:11px;color:var(--muted);padding:16px 0 0 14px;
+  font-variant-numeric:tabular-nums;
+}
+.tw .cell{padding:16px 16px 14px 4px;display:grid;gap:10px}
+.tw .txt{font-family:var(--platform);font-size:15.5px;line-height:1.42;color:var(--ink);white-space:pre-wrap;word-break:break-word}
+.tw .foot{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.gauge{flex:1;min-width:120px;height:3px;background:var(--hair);position:relative;max-width:220px}
+.gauge i{position:absolute;left:0;top:0;bottom:0;background:var(--accent);display:block}
+.gauge.over i{background:var(--warn)}
+.tw .c{font-family:var(--mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.tw .c b{color:var(--ink);font-weight:600}
+.tw .c.over b{color:var(--warn)}
+
+.note{font-size:12.5px;color:var(--muted);line-height:1.55;margin:0}
+.note code{font-family:var(--mono);font-size:11.5px}
+.hidden{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+@media (prefers-reduced-motion:no-preference){
+  button.copy{transition:border-color .15s ease,color .15s ease}
+}
+@media (max-width:560px){
+  .post{padding:16px 15px}
+  .tail{padding:13px 15px}
+}
+</style>
+<div class="sheet">
+  <header class="masthead">
+    <div class="eyebrow">aiBytes_ <b>#6</b> &middot; week 35 &middot; 2026-08-24 &middot; X / TWITTER</div>
+    <h1>Five threads, five formats</h1>
+    <p class="lede">Five different anchors from issue 6, each written in a different shape: a reversal, a teardown, a number, a field note and an argument. None of them repeats a LinkedIn anchor, so the two decks together cover ten items from the week. Copy a single tweet or the whole thread.</p>
+  </header>
+  <section class="rules">
+<p class="k">House rules applied</p>
+<p>No em dash, no en dash, no double hyphen, no hashtags, no thread emoji. Tweet 1 stands alone when someone quotes it and stays under 240. Counts follow X's rule that any link costs 23 characters whatever its length, so a cell showing raw links reads longer on this page than in the composer. Threads run past four tweets, so they carry <code>1/</code> numbering.</p>
+</section>
+<article class="spec">
+  <div class="head"><span class="tag">V1</span><h2 class="fmt">The reversal</h2></div>
+  <div class="meta">
+<div class="anchor">GPT-5.6 Sol pricing cut by 50% on OpenRouter (634 pts / 448 comments)</div>
+<div class="src">OPENROUTER &middot; <a href="https://openrouter.ai/openai/gpt-5.6-sol">https://openrouter.ai/openai/gpt-5.6-sol</a></div>
+<div>The week read as a price war until three essays about not reading turned it into something else.</div>
+</div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>6</b> tweets</span>
+      <button class="copy" data-target="x-v1-all">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">1/ GPT-5.6 Sol is now $2 per million in, $10 per million out on OpenRouter. Half what it was.
+
+The cheapest week yet to generate text was also the week people started refusing to read it.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:67%"></i></span>
+      <span class="c"><b>187</b>/280</span>
+      <button class="copy" data-target="x-v1-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-1" readonly>1/ GPT-5.6 Sol is now $2 per million in, $10 per million out on OpenRouter. Half what it was.
+
+The cheapest week yet to generate text was also the week people started refusing to read it.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">2/ The numbers: $4/$20 down to $2/$10 per million tokens. Cache reads at $0.20/M. A 1,050,000 token context window, 128k completion.
+
+634 points on HN, 448 comments, most of them arguing about margins.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:72%"></i></span>
+      <span class="c"><b>201</b>/280</span>
+      <button class="copy" data-target="x-v1-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-2" readonly>2/ The numbers: $4/$20 down to $2/$10 per million tokens. Cache reads at $0.20/M. A 1,050,000 token context window, 128k completion.
+
+634 points on HN, 448 comments, most of them arguing about margins.</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">3/ Same week, DeepSeek slid v4-flash-vision-exp into its API docs with no announcement and took 494 points.
+
+Supply gets cheaper and faster on a weekly cadence now.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:59%"></i></span>
+      <span class="c"><b>164</b>/280</span>
+      <button class="copy" data-target="x-v1-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-3" readonly>3/ Same week, DeepSeek slid v4-flash-vision-exp into its API docs with no announcement and took 494 points.
+
+Supply gets cheaper and faster on a weekly cadence now.</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">4/ Then the week turned.
+
+AI;DR: 1,109 points.
+Don&#x27;t paste the AI, please: 1,041.
+I&#x27;m becoming AI-blind: 478.
+
+Three front-page essays in four days, none of them about price.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:62%"></i></span>
+      <span class="c"><b>174</b>/280</span>
+      <button class="copy" data-target="x-v1-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-4" readonly>4/ Then the week turned.
+
+AI;DR: 1,109 points.
+Don&#x27;t paste the AI, please: 1,041.
+I&#x27;m becoming AI-blind: 478.
+
+Three front-page essays in four days, none of them about price.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">5/ Generation cost fell 50% this week. The cost of a human reading your output fell 0%.
+
+That gap is the real constraint on everything you ship, and no provider has a lever on it.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:64%"></i></span>
+      <span class="c"><b>179</b>/280</span>
+      <button class="copy" data-target="x-v1-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-5" readonly>5/ Generation cost fell 50% this week. The cost of a human reading your output fell 0%.
+
+That gap is the real constraint on everything you ship, and no provider has a lever on it.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">6/ The price page: https://openrouter.ai/openai/gpt-5.6-sol
+
+AI;DR: https://www.rickmanelius.com/p/aidr-ai-didnt-read
+
+Both ran in aiBytes_ #6.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:36%"></i></span>
+      <span class="c"><b>100</b>/280</span>
+      <button class="copy" data-target="x-v1-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v1-6" readonly>6/ The price page: https://openrouter.ai/openai/gpt-5.6-sol
+
+AI;DR: https://www.rickmanelius.com/p/aidr-ai-didnt-read
+
+Both ran in aiBytes_ #6.</textarea></div>
+  </div>
+  <textarea class="hidden" id="x-v1-all" readonly>1/ GPT-5.6 Sol is now $2 per million in, $10 per million out on OpenRouter. Half what it was.
+
+The cheapest week yet to generate text was also the week people started refusing to read it.
+
+2/ The numbers: $4/$20 down to $2/$10 per million tokens. Cache reads at $0.20/M. A 1,050,000 token context window, 128k completion.
+
+634 points on HN, 448 comments, most of them arguing about margins.
+
+3/ Same week, DeepSeek slid v4-flash-vision-exp into its API docs with no announcement and took 494 points.
+
+Supply gets cheaper and faster on a weekly cadence now.
+
+4/ Then the week turned.
+
+AI;DR: 1,109 points.
+Don&#x27;t paste the AI, please: 1,041.
+I&#x27;m becoming AI-blind: 478.
+
+Three front-page essays in four days, none of them about price.
+
+5/ Generation cost fell 50% this week. The cost of a human reading your output fell 0%.
+
+That gap is the real constraint on everything you ship, and no provider has a lever on it.
+
+6/ The price page: https://openrouter.ai/openai/gpt-5.6-sol
+
+AI;DR: https://www.rickmanelius.com/p/aidr-ai-didnt-read
+
+Both ran in aiBytes_ #6.</textarea>
+  </article>
+<article class="spec">
+  <div class="head"><span class="tag">V2</span><h2 class="fmt">The teardown</h2></div>
+  <div class="meta">
+<div class="anchor">Clipto MCP (Product Hunt, 528 upvotes, 4.57 from 9 reviews)</div>
+<div class="src">PRODUCTHUNT &middot; <a href="https://www.producthunt.com/products/clipto-ai">https://www.producthunt.com/products/clipto-ai</a></div>
+<div>What the MCP server actually hands an agent, and the drive you are handing it.</div>
+</div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>6</b> tweets</span>
+      <button class="copy" data-target="x-v2-all">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">1/ Clipto MCP took 528 upvotes on Product Hunt. It indexes every video, photo and audio file on your machine, locally, then hands an agent a search tool over the result.
+
+2TB in 24 hours on an M5 MacBook Pro.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:74%"></i></span>
+      <span class="c"><b>208</b>/280</span>
+      <button class="copy" data-target="x-v2-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-1" readonly>1/ Clipto MCP took 528 upvotes on Product Hunt. It indexes every video, photo and audio file on your machine, locally, then hands an agent a search tool over the result.
+
+2TB in 24 hours on an M5 MacBook Pro.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">2/ How it works: it auto-tags people, dialogue and scenes as it indexes, so you find a moment by describing it instead of scrubbing for it.
+
+The makers&#x27; line is &quot;Like Google Photos, but fully local.&quot;</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:71%"></i></span>
+      <span class="c"><b>199</b>/280</span>
+      <button class="copy" data-target="x-v2-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-2" readonly>2/ How it works: it auto-tags people, dialogue and scenes as it indexes, so you find a moment by describing it instead of scrubbing for it.
+
+The makers&#x27; line is &quot;Like Google Photos, but fully local.&quot;</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">3/ The feature doing the work is the MCP server. Claude or ChatGPT gets a tool that reaches inside your files.
+
+Turn a script into a rough cut by matching each sentence to footage you already shot.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:70%"></i></span>
+      <span class="c"><b>197</b>/280</span>
+      <button class="copy" data-target="x-v2-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-3" readonly>3/ The feature doing the work is the MCP server. Claude or ChatGPT gets a tool that reaches inside your files.
+
+Turn a script into a rough cut by matching each sentence to footage you already shot.</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">4/ The cost, said plainly: you are giving an agent semantic search over every meeting recording and every family video on the drive.
+
+Local indexing means nothing is uploaded. It does not mean nothing is read.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:75%"></i></span>
+      <span class="c"><b>209</b>/280</span>
+      <button class="copy" data-target="x-v2-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-4" readonly>4/ The cost, said plainly: you are giving an agent semantic search over every meeting recording and every family video on the drive.
+
+Local indexing means nothing is uploaded. It does not mean nothing is read.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">5/ Who should skip it: anyone whose disk holds client footage under NDA, or recordings the other people in them did not know would be indexed.
+
+4.57 from 9 reviews, and one reviewer&#x27;s import bug sat unresolved for weeks.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:79%"></i></span>
+      <span class="c"><b>220</b>/280</span>
+      <button class="copy" data-target="x-v2-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-5" readonly>5/ Who should skip it: anyone whose disk holds client footage under NDA, or recordings the other people in them did not know would be indexed.
+
+4.57 from 9 reviews, and one reviewer&#x27;s import bug sat unresolved for weeks.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">6/ Clipto MCP: https://www.producthunt.com/products/clipto-ai
+
+The product: https://www.clipto.com/
+
+Number two launch of the week in aiBytes_ #6.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:44%"></i></span>
+      <span class="c"><b>123</b>/280</span>
+      <button class="copy" data-target="x-v2-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v2-6" readonly>6/ Clipto MCP: https://www.producthunt.com/products/clipto-ai
+
+The product: https://www.clipto.com/
+
+Number two launch of the week in aiBytes_ #6.</textarea></div>
+  </div>
+  <textarea class="hidden" id="x-v2-all" readonly>1/ Clipto MCP took 528 upvotes on Product Hunt. It indexes every video, photo and audio file on your machine, locally, then hands an agent a search tool over the result.
+
+2TB in 24 hours on an M5 MacBook Pro.
+
+2/ How it works: it auto-tags people, dialogue and scenes as it indexes, so you find a moment by describing it instead of scrubbing for it.
+
+The makers&#x27; line is &quot;Like Google Photos, but fully local.&quot;
+
+3/ The feature doing the work is the MCP server. Claude or ChatGPT gets a tool that reaches inside your files.
+
+Turn a script into a rough cut by matching each sentence to footage you already shot.
+
+4/ The cost, said plainly: you are giving an agent semantic search over every meeting recording and every family video on the drive.
+
+Local indexing means nothing is uploaded. It does not mean nothing is read.
+
+5/ Who should skip it: anyone whose disk holds client footage under NDA, or recordings the other people in them did not know would be indexed.
+
+4.57 from 9 reviews, and one reviewer&#x27;s import bug sat unresolved for weeks.
+
+6/ Clipto MCP: https://www.producthunt.com/products/clipto-ai
+
+The product: https://www.clipto.com/
+
+Number two launch of the week in aiBytes_ #6.</textarea>
+  </article>
+<article class="spec">
+  <div class="head"><span class="tag">V3</span><h2 class="fmt">The number</h2></div>
+  <div class="meta">
+<div class="anchor">harry0703/MoneyPrinterTurbo (+10,953 stars this week, 114,851 total)</div>
+<div class="src">GITHUB &middot; <a href="https://github.com/harry0703/MoneyPrinterTurbo">https://github.com/harry0703/MoneyPrinterTurbo</a></div>
+<div>The ratio between first and third place says more than either number.</div>
+</div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>6</b> tweets</span>
+      <button class="copy" data-target="x-v3-all">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">1/ The fastest-rising AI repo on GitHub this week gained 10,953 stars.
+
+It is called MoneyPrinterTurbo. You give it a keyword, it gives you an HD short video. 114,851 stars total.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:64%"></i></span>
+      <span class="c"><b>179</b>/280</span>
+      <button class="copy" data-target="x-v3-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-1" readonly>1/ The fastest-rising AI repo on GitHub this week gained 10,953 stars.
+
+It is called MoneyPrinterTurbo. You give it a keyword, it gives you an HD short video. 114,851 stars total.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">2/ The ratio is the story. 10,953 stars for the video generator against 3,447 for OpenViking, a self-evolving context database for agents.
+
+The money printer beat the agent infrastructure by more than 3 to 1.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:74%"></i></span>
+      <span class="c"><b>208</b>/280</span>
+      <button class="copy" data-target="x-v3-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-2" readonly>2/ The ratio is the story. 10,953 stars for the video generator against 3,447 for OpenViking, a self-evolving context database for agents.
+
+The money printer beat the agent infrastructure by more than 3 to 1.</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">3/ What it does end to end: writes the script, matches footage, generates subtitles and background music, renders 1080x1920 or 1920x1080, then auto-publishes to TikTok, Instagram and YouTube.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:68%"></i></span>
+      <span class="c"><b>191</b>/280</span>
+      <button class="copy" data-target="x-v3-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-3" readonly>3/ What it does end to end: writes the script, matches footage, generates subtitles and background music, renders 1080x1920 or 1920x1080, then auto-publishes to TikTok, Instagram and YouTube.</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">4/ It ships adapters for 11 LLM backends and 8 text-to-speech providers. MIT licensed, 745 commits.
+
+This is not a weekend toy. It is a production line.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:54%"></i></span>
+      <span class="c"><b>152</b>/280</span>
+      <button class="copy" data-target="x-v3-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-4" readonly>4/ It ships adapters for 11 LLM backends and 8 text-to-speech providers. MIT licensed, 745 commits.
+
+This is not a weekend toy. It is a production line.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">5/ Put the week&#x27;s two numbers side by side. HN spent 2,628 points across three threads arguing that nobody should have to read machine output.
+
+GitHub spent its biggest week starring a machine that makes more of it.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:77%"></i></span>
+      <span class="c"><b>215</b>/280</span>
+      <button class="copy" data-target="x-v3-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-5" readonly>5/ Put the week&#x27;s two numbers side by side. HN spent 2,628 points across three threads arguing that nobody should have to read machine output.
+
+GitHub spent its biggest week starring a machine that makes more of it.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">6/ The repo: https://github.com/harry0703/MoneyPrinterTurbo
+
+The runner-up, and the more useful project: https://github.com/volcengine/OpenViking
+
+Both in aiBytes_ #6.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:45%"></i></span>
+      <span class="c"><b>127</b>/280</span>
+      <button class="copy" data-target="x-v3-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v3-6" readonly>6/ The repo: https://github.com/harry0703/MoneyPrinterTurbo
+
+The runner-up, and the more useful project: https://github.com/volcengine/OpenViking
+
+Both in aiBytes_ #6.</textarea></div>
+  </div>
+  <textarea class="hidden" id="x-v3-all" readonly>1/ The fastest-rising AI repo on GitHub this week gained 10,953 stars.
+
+It is called MoneyPrinterTurbo. You give it a keyword, it gives you an HD short video. 114,851 stars total.
+
+2/ The ratio is the story. 10,953 stars for the video generator against 3,447 for OpenViking, a self-evolving context database for agents.
+
+The money printer beat the agent infrastructure by more than 3 to 1.
+
+3/ What it does end to end: writes the script, matches footage, generates subtitles and background music, renders 1080x1920 or 1920x1080, then auto-publishes to TikTok, Instagram and YouTube.
+
+4/ It ships adapters for 11 LLM backends and 8 text-to-speech providers. MIT licensed, 745 commits.
+
+This is not a weekend toy. It is a production line.
+
+5/ Put the week&#x27;s two numbers side by side. HN spent 2,628 points across three threads arguing that nobody should have to read machine output.
+
+GitHub spent its biggest week starring a machine that makes more of it.
+
+6/ The repo: https://github.com/harry0703/MoneyPrinterTurbo
+
+The runner-up, and the more useful project: https://github.com/volcengine/OpenViking
+
+Both in aiBytes_ #6.</textarea>
+  </article>
+<article class="spec">
+  <div class="head"><span class="tag">V4</span><h2 class="fmt">The field note</h2></div>
+  <div class="meta">
+<div class="anchor">AI-generated Copilot &quot;Autofix&quot; allowed compromise of Snowflake&#x27;s Jira (Wiz, 424 pts)</div>
+<div class="src">WIZ &middot; <a href="https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug">https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug</a></div>
+<div>The failure mode is a null object used as a security control, with an AI review that waved it through.</div>
+</div>
+  <div class="flag"><b>Check</b><span>Tweet 1 opens with a first-person claim about your own codebases. Confirm it is true for you before posting, or swap the first line for &quot;Most codebases have at least one CI workflow that drops untrusted text straight into a shell line.&quot; Tweet 5 deliberately narrows the headline: Wiz&#x27;s update says it is unclear whether the vulnerable change itself was AI-assisted, and Autofix&#x27;s documented contribution in that PR was to a different file.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>7</b> tweets</span>
+      <button class="copy" data-target="x-v4-all">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">1/ Every codebase I have worked in has at least one CI workflow that drops untrusted text straight into a shell line.
+
+Wiz just published what that costs. At Snowflake it was read access to the bug bounty Jira.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:75%"></i></span>
+      <span class="c"><b>210</b>/280</span>
+      <button class="copy" data-target="x-v4-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-1" readonly>1/ Every codebase I have worked in has at least one CI workflow that drops untrusted text straight into a shell line.
+
+Wiz just published what that costs. At Snowflake it was read access to the bug bounty Jira.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">2/ The regression, in one line. A safe pattern passing the issue title through env vars and jq was swapped for direct interpolation:
+
+TITLE=$(echo &#x27;${{ github.event.issue.title }}&#x27;)
+
+A single quote in the title ends the string. The rest runs.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:86%"></i></span>
+      <span class="c"><b>242</b>/280</span>
+      <button class="copy" data-target="x-v4-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-2" readonly>2/ The regression, in one line. A safe pattern passing the issue title through env vars and jq was swapped for direct interpolation:
+
+TITLE=$(echo &#x27;${{ github.event.issue.title }}&#x27;)
+
+A single quote in the title ends the string. The rest runs.</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">3/ The guard that should have caught it compared github.event.pull_request.user.login against a bot name.
+
+On issues events, github.event.pull_request is null. The comparison is always true. Everyone passes.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:74%"></i></span>
+      <span class="c"><b>207</b>/280</span>
+      <button class="copy" data-target="x-v4-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-3" readonly>3/ The guard that should have caught it compared github.event.pull_request.user.login against a bot name.
+
+On issues events, github.event.pull_request is null. The comparison is always true. Everyone passes.</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">4/ Wiz put a curl into an issue title and walked out with JIRA_API_TOKEN, JIRA_USER_EMAIL and JIRA_BASE_URL.
+
+The token authenticated as qa@snowflake.net across engineering, security compliance and bug bounty projects.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:78%"></i></span>
+      <span class="c"><b>218</b>/280</span>
+      <button class="copy" data-target="x-v4-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-4" readonly>4/ Wiz put a curl into an issue title and walked out with JIRA_API_TOKEN, JIRA_USER_EMAIL and JIRA_BASE_URL.
+
+The token authenticated as qa@snowflake.net across engineering, security compliance and bug bounty projects.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">5/ The AI part is narrower than the headline. Copilot reviewed the PR and called it all-clear. Autofix&#x27;s documented contribution was to a different file in the same PR.
+
+Wiz&#x27;s own update says it is unclear whether the bad change was AI-assisted.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:88%"></i></span>
+      <span class="c"><b>245</b>/280</span>
+      <button class="copy" data-target="x-v4-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-5" readonly>5/ The AI part is narrower than the headline. Copilot reviewed the PR and called it all-clear. Autofix&#x27;s documented contribution was to a different file in the same PR.
+
+Wiz&#x27;s own update says it is unclear whether the bad change was AI-assisted.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">6/ Timeline: merged June 18. Found, exploited and reported June 23, patched the same day. Token rotated June 24. Public August 17.
+
+Snowflake found no evidence of access beyond the Wiz test.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:68%"></i></span>
+      <span class="c"><b>190</b>/280</span>
+      <button class="copy" data-target="x-v4-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-6" readonly>6/ Timeline: merged June 18. Found, exploited and reported June 23, patched the same day. Token rotated June 24. Public August 17.
+
+Snowflake found no evidence of access beyond the Wiz test.</textarea>
+<div class="tw">
+  <div class="n">7</div>
+  <div class="cell">
+    <div class="txt">7/ Monday job: grep your workflows for github.event inside a run block, and check every security condition against what the event payload is actually null on.
+
+The writeup: https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:70%"></i></span>
+      <span class="c"><b>196</b>/280</span>
+      <button class="copy" data-target="x-v4-7">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v4-7" readonly>7/ Monday job: grep your workflows for github.event inside a run block, and check every security condition against what the event payload is actually null on.
+
+The writeup: https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug</textarea></div>
+  </div>
+  <textarea class="hidden" id="x-v4-all" readonly>1/ Every codebase I have worked in has at least one CI workflow that drops untrusted text straight into a shell line.
+
+Wiz just published what that costs. At Snowflake it was read access to the bug bounty Jira.
+
+2/ The regression, in one line. A safe pattern passing the issue title through env vars and jq was swapped for direct interpolation:
+
+TITLE=$(echo &#x27;${{ github.event.issue.title }}&#x27;)
+
+A single quote in the title ends the string. The rest runs.
+
+3/ The guard that should have caught it compared github.event.pull_request.user.login against a bot name.
+
+On issues events, github.event.pull_request is null. The comparison is always true. Everyone passes.
+
+4/ Wiz put a curl into an issue title and walked out with JIRA_API_TOKEN, JIRA_USER_EMAIL and JIRA_BASE_URL.
+
+The token authenticated as qa@snowflake.net across engineering, security compliance and bug bounty projects.
+
+5/ The AI part is narrower than the headline. Copilot reviewed the PR and called it all-clear. Autofix&#x27;s documented contribution was to a different file in the same PR.
+
+Wiz&#x27;s own update says it is unclear whether the bad change was AI-assisted.
+
+6/ Timeline: merged June 18. Found, exploited and reported June 23, patched the same day. Token rotated June 24. Public August 17.
+
+Snowflake found no evidence of access beyond the Wiz test.
+
+7/ Monday job: grep your workflows for github.event inside a run block, and check every security condition against what the event payload is actually null on.
+
+The writeup: https://www.wiz.io/blog/red-agent-snowflake-copilot-cicd-bug</textarea>
+  </article>
+<article class="spec">
+  <div class="head"><span class="tag">V5</span><h2 class="fmt">The argument</h2></div>
+  <div class="meta">
+<div class="anchor">AI boosted homework scores, then exam scores dropped (Economist, 372 pts)</div>
+<div class="src">HACKERNEWS &middot; <a href="https://news.ycombinator.com/item?id=49357530">https://news.ycombinator.com/item?id=49357530</a></div>
+<div>Both sides get their strongest version. It lands on no clean answer, because there isn&#x27;t one yet.</div>
+</div>
+  <div class="flag"><b>Check</b><span>The Economist page is paywalled and could not be fetched. The figures (26,811 students in grades 7 to 12, homework +18%, homework time -30%, monthly exams -20%, entrance exams -18% to -24%, about 80% outsourcing, CEPR working paper from Stockholm University and the University of Hong Kong) come from Fortune&#x27;s coverage of the same paper. Tweet 5 says out loud that the identification strategy has not been read.</span></div>
+  <div class="card">
+    <div class="bar">
+      <span class="count"><b>7</b> tweets</span>
+      <button class="copy" data-target="x-v5-all">Copy thread</button>
+    </div>
+    <div class="thread"><div class="tw">
+  <div class="n">1</div>
+  <div class="cell">
+    <div class="txt">1/ AI raised homework scores 18% and cut exam scores 20%. Same 26,811 students, grades 7 to 12, in China.
+
+The best argument of the week was about what that actually proves.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:62%"></i></span>
+      <span class="c"><b>173</b>/280</span>
+      <button class="copy" data-target="x-v5-1">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-1" readonly>1/ AI raised homework scores 18% and cut exam scores 20%. Same 26,811 students, grades 7 to 12, in China.
+
+The best argument of the week was about what that actually proves.</textarea>
+<div class="tw">
+  <div class="n">2</div>
+  <div class="cell">
+    <div class="txt">2/ The case that this is cheating, measured: about 80% of AI users finished assignments fast and still scored high. Homework time fell 30%.
+
+The practice was where the learning happened. They skipped the practice.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:76%"></i></span>
+      <span class="c"><b>213</b>/280</span>
+      <button class="copy" data-target="x-v5-2">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-2" readonly>2/ The case that this is cheating, measured: about 80% of AI users finished assignments fast and still scored high. Homework time fell 30%.
+
+The practice was where the learning happened. They skipped the practice.</textarea>
+<div class="tw">
+  <div class="n">3</div>
+  <div class="cell">
+    <div class="txt">3/ The case that this is a broken measurement: homework was always a proxy for practice, and AI broke the proxy.
+
+An exam that rewards recall under time pressure is its own questionable proxy for knowing something.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:76%"></i></span>
+      <span class="c"><b>214</b>/280</span>
+      <button class="copy" data-target="x-v5-3">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-3" readonly>3/ The case that this is a broken measurement: homework was always a proxy for practice, and AI broke the proxy.
+
+An exam that rewards recall under time pressure is its own questionable proxy for knowing something.</textarea>
+<div class="tw">
+  <div class="n">4</div>
+  <div class="cell">
+    <div class="txt">4/ Where side two gets weak: the effect compounds. College entrance results fell 18 to 24 percent, worst after two years.
+
+A measurement artifact does not usually get worse the longer you look at it.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:71%"></i></span>
+      <span class="c"><b>199</b>/280</span>
+      <button class="copy" data-target="x-v5-4">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-4" readonly>4/ Where side two gets weak: the effect compounds. College entrance results fell 18 to 24 percent, worst after two years.
+
+A measurement artifact does not usually get worse the longer you look at it.</textarea>
+<div class="tw">
+  <div class="n">5</div>
+  <div class="cell">
+    <div class="txt">5/ Where side one gets weak: nobody randomized who used AI. The 80% who outsourced may be the students who would have outsourced to anything.
+
+I have not read the working paper&#x27;s identification strategy and the coverage does not describe it.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:86%"></i></span>
+      <span class="c"><b>241</b>/280</span>
+      <button class="copy" data-target="x-v5-5">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-5" readonly>5/ Where side one gets weak: nobody randomized who used AI. The 80% who outsourced may be the students who would have outsourced to anything.
+
+I have not read the working paper&#x27;s identification strategy and the coverage does not describe it.</textarea>
+<div class="tw">
+  <div class="n">6</div>
+  <div class="cell">
+    <div class="txt">6/ Where I land: no clean answer, but one fact I cannot argue away.
+
+The same students got measurably better at the graded thing and measurably worse at the tested thing. That gap is not a school problem. That is every engineer running an agent.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:88%"></i></span>
+      <span class="c"><b>245</b>/280</span>
+      <button class="copy" data-target="x-v5-6">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-6" readonly>6/ Where I land: no clean answer, but one fact I cannot argue away.
+
+The same students got measurably better at the graded thing and measurably worse at the tested thing. That gap is not a school problem. That is every engineer running an agent.</textarea>
+<div class="tw">
+  <div class="n">7</div>
+  <div class="cell">
+    <div class="txt">7/ The paper: a CEPR working paper out of Stockholm University and the University of Hong Kong.
+
+The thread: https://news.ycombinator.com/item?id=49357530
+
+Covered in aiBytes_ #6.</div>
+    <div class="foot">
+      <span class="gauge"><i style="width:56%"></i></span>
+      <span class="c"><b>157</b>/280</span>
+      <button class="copy" data-target="x-v5-7">Copy</button>
+    </div>
+  </div>
+</div>
+<textarea class="hidden" id="x-v5-7" readonly>7/ The paper: a CEPR working paper out of Stockholm University and the University of Hong Kong.
+
+The thread: https://news.ycombinator.com/item?id=49357530
+
+Covered in aiBytes_ #6.</textarea></div>
+  </div>
+  <textarea class="hidden" id="x-v5-all" readonly>1/ AI raised homework scores 18% and cut exam scores 20%. Same 26,811 students, grades 7 to 12, in China.
+
+The best argument of the week was about what that actually proves.
+
+2/ The case that this is cheating, measured: about 80% of AI users finished assignments fast and still scored high. Homework time fell 30%.
+
+The practice was where the learning happened. They skipped the practice.
+
+3/ The case that this is a broken measurement: homework was always a proxy for practice, and AI broke the proxy.
+
+An exam that rewards recall under time pressure is its own questionable proxy for knowing something.
+
+4/ Where side two gets weak: the effect compounds. College entrance results fell 18 to 24 percent, worst after two years.
+
+A measurement artifact does not usually get worse the longer you look at it.
+
+5/ Where side one gets weak: nobody randomized who used AI. The 80% who outsourced may be the students who would have outsourced to anything.
+
+I have not read the working paper&#x27;s identification strategy and the coverage does not describe it.
+
+6/ Where I land: no clean answer, but one fact I cannot argue away.
+
+The same students got measurably better at the graded thing and measurably worse at the tested thing. That gap is not a school problem. That is every engineer running an agent.
+
+7/ The paper: a CEPR working paper out of Stockholm University and the University of Hong Kong.
+
+The thread: https://news.ycombinator.com/item?id=49357530
+
+Covered in aiBytes_ #6.</textarea>
+  </article>
+</div>
+<script>
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest('button.copy');
+  if (!btn) return;
+  var src = document.getElementById(btn.dataset.target);
+  if (!src) return;
+  var text = src.value;
+  var done = function () {
+    var was = btn.textContent;
+    btn.textContent = 'Copied';
+    btn.classList.add('done');
+    setTimeout(function () { btn.textContent = was; btn.classList.remove('done'); }, 1600);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, function () { fallback(src, done); });
+  } else {
+    fallback(src, done);
+  }
+});
+function fallback(src, done) {
+  src.classList.remove('hidden');
+  src.select();
+  try { document.execCommand('copy'); done(); } catch (err) {}
+  src.classList.add('hidden');
+}
+</script>

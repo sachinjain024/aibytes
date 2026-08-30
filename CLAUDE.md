@@ -11,7 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `.claude/skills/ph-download-api-specs/` — skill that mirrors the ProductHunt GraphQL v2 API docs site for offline use. Its script is `scripts/download_ph_docs.py` (stdlib-only Python 3, no dependencies).
 - `.claude/skills/fetch-weekly-items/` — parent skill that invokes the weekly fetch skills for ProductHunt, HackerNews, TechCrunch, and GitHub in one run. Its child registry lives in `scripts/fetch_weekly_items.py`.
 - `.claude/skills/shared/` — Python helpers shared by skill scripts (not a skill itself). `ai_keywords.py` holds the AI-topic keyword vocabulary used by the HackerNews and GitHub fetch scripts; extend shared vocabulary there, source-specific extras in each script.
-- `.claude/skills/generate-followup-thumbnail/` — renders an issue's 1200x630 Beehiiv thumbnail from `assets/thumbnail.html` via headless Chrome, saved next to the issue as `issue-{num}-thumbnail.png`. Its script is `scripts/generate_thumbnail.py` (stdlib-only; Chrome is the one external dependency).
+- `.claude/skills/generate-followup-thumbnail/` — renders an issue's 1200x630 Beehiiv thumbnails from `assets/thumbnail.html` via headless Chrome: three background variants (dot grid, cobalt wash, graph grid) saved in the issue's `thumbnails/` folder as `issue-{num}-thumbnail-{variant}.png`. Its script is `scripts/generate_thumbnail.py` (stdlib-only; Chrome is the one external dependency).
 - `sources/producthunt/graphql-v2/specs/` — the generated offline mirror (~70 HTML pages: queries, mutations, objects, enums, etc.). This is committed output, not hand-written; regenerate it with the skill rather than editing files in it.
 - `apis/aibytes/` — Requestly project mirroring the HTTP calls the fetch skills make (ProductHunt, TechCrunch, HackerNews, GitHub collections + environments). See its `AGENTS.md` for the on-disk format and `PROJECT.md` for conventions; keep collections in sync with the skill scripts.
 - `.agents/skills` — symlink to `.claude/skills`. The SKILL.md format is the open Agent Skills standard (agentskills.io); this symlink lets OpenAI Codex and other compatible tools discover the same skills at their standard path. `.claude/skills/` stays the canonical location — never put real files under `.agents/`.
@@ -64,3 +64,13 @@ AIBYTES_SKIP_LIVE=1 python3 -m unittest discover -s tests -v
   - **Other skill scripts**: give them their own `tests/test_<skill>.py` with offline unit tests for the parsing/templating logic and one end-to-end test, skipped when an external tool it needs is missing (see `tests/test_thumbnail.py`, which skips its render test without Chrome).
 - Skill scripts that write snapshots must support `--output-root` (and a `--date`/as-of flag) so tests can redirect output to a temp dir, and must not assume the output path is inside the repo.
 - Downloaded/mirrored reference material goes under `sources/<provider>/<api>/`.
+
+## Git workflow for weekly newsletter content
+
+Weekly newsletter content never lands on `main` directly - it goes through a topic branch and a PR:
+
+1. Start from an up-to-date `main` and create a topic branch named for the issue, e.g. `issue-06` (add a suffix like `issue-06-social` if follow-up content lands separately).
+2. Commit all generated output for the week there: the `data/` snapshots, the `newsletter/{yyyy}/week-NN-Issue-{num}/` folder, social posts, and thumbnails.
+3. Push the branch and open a PR against `main` with `gh pr create`, then merge via the PR once reviewed.
+
+This applies to everything produced by the weekly skills (`fetch-weekly-items`, `generate-newsletter-content`, `generate-followup-social-content`, `generate-followup-thumbnail`). Changes to the repo's tooling (skills, scripts, tests) are separate from weekly content commits.

@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Render a 1200x630 Beehiiv thumbnail for one aiBytes_ issue.
+"""Render the 1200x630 Beehiiv thumbnails for one aiBytes_ issue.
 
-Reads a generated issue HTML, pulls the issue number, date, read time and
-subject line out of it, fills assets/thumbnail.html, and screenshots that with
-headless Chrome at 2x before downsampling to exactly 1200x630.
+Reads a generated issue HTML, pulls the issue number, hex tag, date and
+subject line out of it, fills assets/thumbnail.html once per background
+variant, and screenshots each with headless Chrome at 2x before downsampling
+to exactly 1200x630. Every run writes all three variants into the issue's
+thumbnails/ folder; the pick happens at upload time in Beehiiv.
 
 Stdlib only. The only external dependency is Google Chrome, which every macOS
 box running this repo already has; --html-only skips it entirely.
@@ -22,6 +24,10 @@ import tempfile
 
 WIDTH, HEIGHT = 1200, 630
 SCALE = 2
+
+# One card, three backgrounds - all rendered every run, chosen at upload time.
+# Each name is a class on <body> gating its .card::before rule in the template.
+VARIANTS = ("dot-grid", "cobalt-wash", "graph-grid")
 
 SKILL_DIR = pathlib.Path(__file__).resolve().parents[1]
 TEMPLATE = SKILL_DIR / "assets" / "thumbnail.html"
@@ -49,9 +55,13 @@ def find_chrome():
 def strip_brand(subject):
     """'aiBytes_ 04: DeepMind's shake-up ...' -> 'DeepMind's shake-up ...'
 
-    The wordmark is already on the thumbnail, so repeating it in the headline
-    wastes the largest type on the image. Also tolerates the older
-    'aiBytes_ #4 - hook' form.
+    Only the wordmark comes off, in the older 'aiBytes_ 04: hook' and
+    'aiBytes_ #4 - hook' forms, because it is already set on the card.
+
+    The subject emoji deliberately stays (decided 2026-08-23). It is the same
+    glyph the reader sees in their inbox, it makes the headline balance onto
+    three lines instead of two, and it gives the card the one bit of colour
+    the type cannot. Do not "fix" this by stripping it.
     """
     cleaned = re.sub(r"^\s*aiBytes_\s*#?\d*\s*[:\-]\s*", "", subject).strip()
     return cleaned or subject.strip()
@@ -70,34 +80,22 @@ def parse_issue(doc):
     num = grab(r'<div class="logo">.*?#(\d+)\s*</div>')
     hex_num = grab(r"ISSUE\s+0x([0-9A-Fa-f]{2})")
     date = ""
-    read_min = ""
     date_match = re.search(r"(\d{4}-\d{2}-\d{2})", tag_text)
     if date_match:
         date = date_match.group(1)
-    read_match = re.search(r"~\s*(\d+)\s*MIN", tag_text, re.I)
-    if read_match:
-        read_min = read_match.group(1)
 
     if not num and hex_num:
         num = str(int(hex_num, 16))
     if not hex_num and num:
         hex_num = f"{int(num):02X}"
 
-    sections = [
-        title.strip().upper()
-        for title in re.findall(r'<h2 class="sec-title">(.*?)</h2>', doc, re.S)
-    ]
-    if re.search(r"NEWS FOR DEVS", doc):
-        sections.insert(0, "NEWS FOR DEVS")
-
+    # The card has no foot, so the section list and read time are not read here.
     return {
         "subject": subject,
         "headline": strip_brand(subject),
         "num": num,
         "hex": hex_num,
         "date": date,
-        "read_min": read_min or "5",
-        "sections": sections,
     }
 
 
@@ -120,16 +118,14 @@ def highlight(headline, phrase):
     )
 
 
-def build_html(issue, phrase=None, template=None):
+def build_html(issue, phrase=None, variant=VARIANTS[0], template=None):
     doc = (template or TEMPLATE.read_text())
-    sections = issue["sections"] or ["NEWS", "LAUNCHES", "GITHUB", "HN DEEP CUTS"]
     tokens = {
         "{{HEADLINE_HTML}}": highlight(issue["headline"], phrase),
         "{{ISSUE_HEX}}": issue["hex"],
         "{{ISSUE_NUM}}": issue["num"],
         "{{DATE_ISO}}": issue["date"],
-        "{{READ_MIN}}": issue["read_min"],
-        "{{SECTIONS}}": " &middot; ".join(sections),
+        "{{VARIANT}}": variant,
     }
     for token, value in tokens.items():
         doc = doc.replace(token, value)
@@ -209,28 +205,32 @@ def main(argv=None):
     if not issue["num"]:
         raise SystemExit(f"could not read an issue number from {matches[0]}")
 
-    doc = build_html(issue, args.highlight)
-    out_dir = pathlib.Path(args.output_root) if args.output_root else issue_dir
+    root = pathlib.Path(args.output_root) if args.output_root else issue_dir
+    out_dir = root / "thumbnails"
     out_dir.mkdir(parents=True, exist_ok=True)
 
+    docs = {v: build_html(issue, args.highlight, v) for v in VARIANTS}
+
     if args.html_only:
-        out = out_dir / f"issue-{issue['num']}-thumbnail.html"
-        out.write_text(doc)
-        print(f"wrote {out} (html only, not rendered)")
+        for variant, doc in docs.items():
+            out = out_dir / f"issue-{issue['num']}-thumbnail-{variant}.html"
+            out.write_text(doc)
+            print(f"wrote {out} (html only, not rendered)")
         return 0
 
     chrome = find_chrome()
     if not chrome:
         raise SystemExit(
             "Chrome not found. Install Google Chrome, or rerun with --html-only "
-            "and screenshot the page at 1200x630 by hand."
+            "and screenshot the pages at 1200x630 by hand."
         )
 
-    out = out_dir / f"issue-{issue['num']}-thumbnail.png"
-    width, height = render_png(doc, out, chrome)
-    if (width, height) != (WIDTH, HEIGHT):
-        raise SystemExit(f"expected {WIDTH}x{HEIGHT}, got {width}x{height}")
-    print(f"wrote {out} ({width}x{height}, {out.stat().st_size // 1024} KB)")
+    for variant, doc in docs.items():
+        out = out_dir / f"issue-{issue['num']}-thumbnail-{variant}.png"
+        width, height = render_png(doc, out, chrome)
+        if (width, height) != (WIDTH, HEIGHT):
+            raise SystemExit(f"{variant}: expected {WIDTH}x{HEIGHT}, got {width}x{height}")
+        print(f"wrote {out} ({width}x{height}, {out.stat().st_size // 1024} KB)")
     print(f"  headline: {issue['headline']}")
     return 0
 
