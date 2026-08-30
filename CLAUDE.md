@@ -64,3 +64,13 @@ AIBYTES_SKIP_LIVE=1 python3 -m unittest discover -s tests -v
   - **Other skill scripts**: give them their own `tests/test_<skill>.py` with offline unit tests for the parsing/templating logic and one end-to-end test, skipped when an external tool it needs is missing (see `tests/test_thumbnail.py`, which skips its render test without Chrome).
 - Skill scripts that write snapshots must support `--output-root` (and a `--date`/as-of flag) so tests can redirect output to a temp dir, and must not assume the output path is inside the repo.
 - Downloaded/mirrored reference material goes under `sources/<provider>/<api>/`.
+
+## Git workflow for weekly newsletter content
+
+Weekly newsletter content never lands on `main` directly - it goes through a topic branch and a PR:
+
+1. Start from an up-to-date `main` and create a topic branch named for the issue, e.g. `issue-06` (add a suffix like `issue-06-social` if follow-up content lands separately).
+2. Commit all generated output for the week there: the `data/` snapshots, the `newsletter/{yyyy}/week-NN-Issue-{num}/` folder, social posts, and thumbnails.
+3. Push the branch and open a PR against `main` with `gh pr create`, then merge via the PR once reviewed.
+
+This applies to everything produced by the weekly skills (`fetch-weekly-items`, `generate-newsletter-content`, `generate-followup-social-content`, `generate-followup-thumbnail`). Changes to the repo's tooling (skills, scripts, tests) are separate from weekly content commits.
