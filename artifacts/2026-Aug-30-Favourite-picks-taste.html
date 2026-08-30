@@ -1,0 +1,358 @@
+<title>Three Frames for Favourite Picks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#E7E8EC;
+    --panel:#FDFDFD;
+    --ink:#14161F;
+    --muted:#5C6070;
+    --line:#CBCED7;
+    --hair:#D9DCE3;
+    --cobalt:#2B4EF0;
+    --signal:#FFD338;
+    --chip-ink:#FFFFFF;
+
+    /* Specimen tokens: an inbox always renders light, so these never invert. */
+    --mail-paper:#FAFAF7;
+    --mail-card:#FFFFFF;
+    --mail-line:#E4E4DC;
+    --mail-ink:#191C26;
+    --mail-body:#3A3E4A;
+    --mail-link:#2B4EF0;
+    --mail-slate:#6B7080;
+    --mail-signal:#FFD338;
+    --mail-butter:#FFF6D9;
+    --mail-butter-line:#F0E2AE;
+    --mail-amber:#8A6A00;
+    --mail-held:#9DA1AD;
+
+    --mono:'JetBrains Mono',ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --grotesque:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mail-display:'Bricolage Grotesque',Helvetica,Arial,sans-serif;
+    --mail-face:'Instrument Sans',Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#101219;
+      --panel:#181A22;
+      --ink:#E5E6EC;
+      --muted:#949AA8;
+      --line:#2C303B;
+      --hair:#242832;
+      --cobalt:#8AA0FF;
+      --chip-ink:#101219;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#101219;
+    --panel:#181A22;
+    --ink:#E5E6EC;
+    --muted:#949AA8;
+    --line:#2C303B;
+    --hair:#242832;
+    --cobalt:#8AA0FF;
+    --chip-ink:#101219;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;background:var(--ground)}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    background:var(--ground);
+    color:var(--ink);
+    font-family:var(--grotesque);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.5;
+    margin:0;
+  }
+  .sheet{max-width:820px;margin:0 auto;padding:48px 24px 72px;display:grid;gap:44px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:2px}
+
+  /* ── masthead ── */
+  .masthead{display:grid;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:22px}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .eyebrow b{color:var(--cobalt);font-weight:600}
+  h1{font-size:clamp(30px,5.2vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.02;text-wrap:balance;margin:0}
+  .lede{max-width:62ch;color:var(--muted);font-size:16px;line-height:1.6;margin:0}
+  .lede b{color:var(--ink);font-weight:600}
+
+  /* ── contents ── */
+  .spec,.close,.decision,.axes{scroll-margin-top:20px}
+  .toc{display:grid;gap:11px;border-left:2px solid var(--cobalt);padding-left:18px}
+  .toc h2{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:0}
+  .toc ul{list-style:none;display:grid;gap:7px;margin:0;padding:0}
+  .toc li{display:flex;align-items:baseline;gap:11px}
+  .toc .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);min-width:3.4em}
+  .toc a{color:var(--ink);text-decoration:none;font-size:15px;border-bottom:1px solid transparent}
+  .toc a:hover{border-bottom-color:var(--cobalt)}
+
+  /* ── pending decision ── */
+  .decision{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--signal);border-radius:4px;padding:22px 24px;display:grid;gap:14px}
+  .decision .head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .decision h2{font-size:22px;font-weight:700;letter-spacing:-.015em;margin:0}
+  .decision p{margin:0;max-width:62ch;font-size:15px;line-height:1.62;color:var(--muted)}
+  .decision p b{color:var(--ink);font-weight:600}
+  .tag.pending{background:var(--signal);color:#191C26}
+
+  /* ── the open questions table ── */
+  .axes{display:grid;gap:14px}
+  .axes h2{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:600;margin:0}
+  .tablewrap{overflow-x:auto;border:1px solid var(--hair);border-radius:4px}
+  table{border-collapse:collapse;width:100%;min-width:520px;font-size:14px}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hair);vertical-align:top}
+  th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--panel)}
+  tr:last-child td{border-bottom:none}
+  td b{color:var(--ink);font-weight:600}
+  td{color:var(--muted)}
+
+  /* ── variation block ── */
+  .spec{display:grid;gap:16px}
+  .strip{display:grid;gap:10px}
+  .head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .tag{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--cobalt);color:var(--chip-ink);padding:3px 8px;border-radius:3px}
+  .name{font-size:20px;font-weight:700;letter-spacing:-.015em;margin:0}
+  .ledger{display:flex;flex-wrap:wrap;gap:4px 26px;font-family:var(--mono);font-size:11.5px;line-height:1.5;color:var(--muted);border-top:1px solid var(--hair);padding-top:9px;margin:0}
+  .ledger > div{display:flex;gap:7px}
+  .ledger dt{letter-spacing:.08em;text-transform:uppercase;opacity:.72}
+  .ledger dd{margin:0;color:var(--ink)}
+
+  /* ── specimen frame: the issue as it renders in the inbox ── */
+  .mail{
+    max-width:640px;background:var(--mail-paper);border:1px solid var(--mail-line);border-radius:6px;
+    padding:24px;box-shadow:0 1px 2px rgba(20,22,31,.06),0 8px 24px -18px rgba(20,22,31,.5);
+  }
+
+  /* section header, as used by Launches / GitHub / HN */
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--mail-paper);background:var(--mail-ink);padding:2px 7px}
+  .sec-title{font-family:var(--mail-display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase;color:var(--mail-ink);margin:0}
+  .sec-rule{flex:1;height:2px;background:var(--mail-ink)}
+
+  /* V1 - twin of the news card */
+  .picks-v1{border:2px solid var(--mail-link);border-radius:14px;padding:20px 22px;background:var(--mail-card)}
+  .picks-v1 .card-title{font-family:var(--mail-display);font-weight:800;font-size:20px;color:var(--mail-link);letter-spacing:.02em;margin-bottom:14px}
+  .picks-v1 .pick{font-family:var(--mail-face);font-size:15.5px;line-height:1.6;margin:0 0 10px 0;color:var(--mail-ink)}
+  .picks-v1 .pick:last-child{margin-bottom:0}
+  .picks-v1 .pick a{color:var(--mail-link);text-decoration:none;font-weight:700}
+
+  /* V2 - butter panel, the publisher's own voice */
+  .picks-v2{background:var(--mail-butter);border:1px solid var(--mail-butter-line);padding:20px 22px;
+            clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}
+  .picks-v2 .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--mail-amber)}
+  .picks-v2 ol{list-style:none;margin:10px 0 0 0;padding:0;display:grid;gap:0}
+  .picks-v2 li{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--mail-butter-line)}
+  .picks-v2 li:last-child{border-bottom:none;padding-bottom:0}
+  .picks-v2 .n{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--mail-amber);flex-shrink:0}
+  .picks-v2 a{font-family:var(--mail-face);font-size:15.5px;line-height:1.5;color:var(--mail-ink);text-decoration:none;font-weight:600}
+  .picks-v2 a:hover{text-decoration:underline}
+
+  /* V3 - ink card with a signal spine and provenance chips */
+  .picks-v3{background:var(--mail-card);border:1px solid var(--mail-ink);border-left:5px solid var(--mail-signal);padding:18px 20px}
+  .picks-v3 .card-title{font-family:var(--mail-display);font-weight:800;font-size:17px;letter-spacing:.06em;text-transform:uppercase;color:var(--mail-ink);margin-bottom:12px}
+  .picks-v3 ol{list-style:none;margin:0;padding:0}
+  .picks-v3 li{display:flex;gap:11px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--mail-line)}
+  .picks-v3 li:last-child{border-bottom:none;padding-bottom:0}
+  .picks-v3 .n{font-family:var(--mono);font-size:11px;font-weight:700;background:var(--mail-signal);color:var(--mail-ink);padding:1px 5px;flex-shrink:0}
+  .picks-v3 .t{flex:1;font-family:var(--mail-face);font-size:15.5px;line-height:1.5}
+  .picks-v3 .t a{color:var(--mail-ink);text-decoration:none;font-weight:600}
+  .picks-v3 .t a:hover{color:var(--mail-link)}
+  .picks-v3 .from{font-family:var(--mono);font-size:11px;color:var(--mail-slate);white-space:nowrap}
+
+  /* held-back context: the news card that follows, greyed so the eye stays on the picks */
+  .held{border-top:1px dashed var(--mail-line);margin-top:18px;padding-top:14px}
+  .held-note{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mail-held);margin:0 0 10px 0}
+  .held .news-card{border:2px solid var(--mail-held);border-radius:14px;padding:16px 18px;background:var(--mail-card);opacity:.72}
+  .held .card-title{font-family:var(--mail-display);font-weight:800;font-size:18px;color:var(--mail-held);letter-spacing:.02em;margin-bottom:10px}
+  .held p.news-item{font-family:var(--mail-face);font-size:14.5px;line-height:1.55;color:var(--mail-held);margin:0 0 8px 0}
+  .held p.news-item:last-child{margin-bottom:0}
+  .held b{color:var(--mail-held);font-weight:700}
+
+  .tag.sel{background:var(--signal);color:#191C26}
+  .spec.picked .tag{background:var(--signal);color:#191C26}
+  .spec.picked .mail{border-color:var(--cobalt);border-width:2px;padding:23px}
+  .badge{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt);border:1px solid currentColor;border-radius:2px;padding:1px 6px}
+  .toc .mark{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:var(--signal);color:#191C26;padding:1px 6px;border-radius:2px;margin-left:2px}
+  .decision .ledger{border-top-color:var(--line)}
+  .why{max-width:640px;font-size:14.5px;line-height:1.6;color:var(--muted);margin:0;padding-left:14px;border-left:2px solid var(--signal)}
+  .why b{color:var(--ink);font-weight:600}
+
+  /* ── close ── */
+  .close{border-top:1px solid var(--hair);padding-top:22px;display:grid;gap:12px;max-width:62ch;font-size:14.5px;line-height:1.6;color:var(--muted)}
+  .close h2{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:600;margin:0}
+  .close b{color:var(--ink);font-weight:600}
+  .close ul{margin:0;padding-left:18px;display:grid;gap:7px}
+  code{font-family:var(--mono);font-size:.9em;color:var(--ink)}
+</style>
+
+<div class="sheet">
+
+  <header class="masthead">
+    <div class="eyebrow"><b>aiBytes_ #7</b> &middot; my favourite picks &middot; proof sheet &middot; 2026-08-30</div>
+    <h1>Three frames for a shortlist</h1>
+    <p class="lede">A new section carrying <b>your four picks as bare single lines</b> - no context sentence, no stat, no source label. The picks are identical in all three; what moves is the <b>frame</b>: which existing part of the issue this section borrows its authority from. Each specimen is followed by the greyed-back <b>News for Devs</b> card that sits under it, because the real risk here is a second bordered card that reads as a duplicate.</p>
+  </header>
+
+  <nav class="toc" aria-label="Contents">
+    <h2>Contents</h2>
+    <ul>
+      <li><span class="lbl">-</span><a href="#decision">The pick, locked</a></li>
+      <li><span class="lbl">-</span><a href="#axes">What separates them</a></li>
+      <li><span class="lbl">V1</span><a href="#v1">Twin card</a></li>
+      <li><span class="lbl">V2</span><a href="#v2">Editor's shortlist</a></li>
+      <li><span class="lbl">V3</span><a href="#v3">Marked up</a><span class="mark">selected</span></li>
+      <li><span class="lbl">-</span><a href="#notes">Two calls to make with it</a></li>
+    </ul>
+  </nav>
+
+  <section class="decision" id="decision">
+    <div class="head">
+      <span class="tag sel">SELECTED</span>
+      <h2>V3 - Marked up</h2>
+    </div>
+    <p><b>Why this one.</b> It is the only frame that admits the picks come from <b>three different sections</b> of the issue. The grey chip names each one in a single word without becoming a description, so the shortlist reads as a <b>route map through the issue</b> rather than a fifth content bucket sitting on top of it. V1 stacked a second cobalt card directly above the news card it was quoting from; V2 read well but spent the butter panel a second time, and butter earns its force in this design by appearing exactly once.</p>
+    <p><b>Amended on selection: no underline on the pick names.</b> They render as <b>ink, weight 600, undecorated</b> - the signal numeral marks the row and the row itself is the target. This is a deliberate departure from the issue's usual cobalt link, and it keeps the card quiet enough to sit above the fold without competing with the masthead. The trade to watch: nothing but the cursor now signals that a pick is clickable, so the section leans on readers understanding that a shortlist is a list of links.</p>
+    <dl class="ledger">
+      <div><dt>Locked</dt><dd>2026-08-30</dd></div>
+      <div><dt>Ships in</dt><dd>aiBytes_ #7</dd></div>
+      <div><dt>Standing in</dt><dd>generate-newsletter-content</dd></div>
+      <div><dt>Link style</dt><dd>Ink, no underline</dd></div>
+    </dl>
+  </section>
+
+  <section class="axes" id="axes">
+    <h2>What separates them</h2>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>&nbsp;</th><th>V1 Twin card</th><th>V2 Editor's shortlist</th><th>V3 Marked up</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>Border</b></td><td>2px cobalt, radius 14</td><td>1px butter hairline, notched</td><td>1px ink, 5px signal spine</td></tr>
+          <tr><td><b>Fill</b></td><td>White card</td><td>Butter #FFF6D9</td><td>White card</td></tr>
+          <tr><td><b>Marker</b></td><td>Emoji, per pick</td><td>Amber numerals 01-04</td><td>Signal-highlighted numerals</td></tr>
+          <tr><td><b>Borrows from</b></td><td>News for Devs</td><td>The closing idea panel</td><td>The ticker sections</td></tr>
+          <tr><td><b>Reads as</b></td><td>More news</td><td>The publisher speaking</td><td>A scanned shortlist</td></tr>
+          <tr><td><b>Provenance</b></td><td>None</td><td>None</td><td>Grey chip per row</td></tr>
+          <tr><td><b>Pick name</b></td><td>Cobalt, bold</td><td>Ink, bold</td><td><b>Ink, bold, no underline</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <article class="spec" id="v1">
+    <div class="strip">
+      <div class="head">
+        <span class="tag">V1</span>
+        <h2 class="name">Twin card</h2>
+      </div>
+      <dl class="ledger">
+        <div><dt>Frame</dt><dd>Cobalt card</dd></div>
+        <div><dt>Marker</dt><dd>Emoji</dd></div>
+        <div><dt>Provenance</dt><dd>None</dd></div>
+        <div><dt>New tokens</dt><dd>0</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <div class="picks-v1">
+        <div class="card-title">⭐ MY FAVOURITE PICKS</div>
+        <p class="pick">🔌 <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/">OpenAI is cutting its models from Cursor</a></p>
+        <p class="pick">🤗 <a href="https://www.businessinsider.com/nvidia-in-talks-to-buy-hugging-face-13-billion-dollars-2026-8">Nvidia in talks to buy Hugging Face</a></p>
+        <p class="pick">🆓 <a href="https://github.com/Alishahryar1/free-claude-code">Alishahryar1/free-claude-code</a></p>
+        <p class="pick">📉 <a href="https://larsfaye.com/articles/ai-coding-will-prevent-expertise">Coding expertise is going to collapse from AI reliance</a></p>
+      </div>
+      <div class="held">
+        <p class="held-note">What sits directly underneath, in every version</p>
+        <div class="news-card">
+          <div class="card-title">🌍 NEWS FOR DEVS</div>
+          <p class="news-item">🔌 <b>OpenAI is cutting Cursor off from its models</b> - SpaceX bought the editor, and OpenAI named November 12 as the day its models stop serving it.</p>
+          <p class="news-item">🤗 <b>Nvidia is reportedly in talks to buy Hugging Face for $13B</b> - the default home for open weights would belong to the company that makes the chips.</p>
+        </div>
+      </div>
+    </div>
+    <p class="why"><b>Maximum consistency, and that is the whole problem.</b> It costs nothing to build - same border, same radius, same title treatment - so the section arrives looking native on day one. But two cobalt cards stacked back to back read as <b>one long news block that changed its mind</b>, and the top two picks are literally the top two news rows, restated. The emoji even repeat. If the picks are going to sit above the news, this frame makes the reader parse the same items twice before the issue has properly started.</p>
+  </article>
+
+  <article class="spec" id="v2">
+    <div class="strip">
+      <div class="head">
+        <span class="tag">V2</span>
+        <h2 class="name">Editor's shortlist</h2>
+      </div>
+      <dl class="ledger">
+        <div><dt>Frame</dt><dd>Butter panel</dd></div>
+        <div><dt>Marker</dt><dd>Numerals</dd></div>
+        <div><dt>Provenance</dt><dd>None</dd></div>
+        <div><dt>New tokens</dt><dd>0</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <div class="picks-v2">
+        <div class="kicker">MY FAVOURITE PICKS</div>
+        <ol>
+          <li><span class="n">01</span><a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/">OpenAI is cutting its models from Cursor</a></li>
+          <li><span class="n">02</span><a href="https://www.businessinsider.com/nvidia-in-talks-to-buy-hugging-face-13-billion-dollars-2026-8">Nvidia in talks to buy Hugging Face</a></li>
+          <li><span class="n">03</span><a href="https://github.com/Alishahryar1/free-claude-code">Alishahryar1/free-claude-code</a></li>
+          <li><span class="n">04</span><a href="https://larsfaye.com/articles/ai-coding-will-prevent-expertise">Coding expertise is going to collapse from AI reliance</a></li>
+        </ol>
+      </div>
+      <div class="held">
+        <p class="held-note">What sits directly underneath, in every version</p>
+        <div class="news-card">
+          <div class="card-title">🌍 NEWS FOR DEVS</div>
+          <p class="news-item">🔌 <b>OpenAI is cutting Cursor off from its models</b> - SpaceX bought the editor, and OpenAI named November 12 as the day its models stop serving it.</p>
+          <p class="news-item">🤗 <b>Nvidia is reportedly in talks to buy Hugging Face for $13B</b> - the default home for open weights would belong to the company that makes the chips.</p>
+        </div>
+      </div>
+    </div>
+    <p class="why"><b>The one frame that says whose picks these are.</b> In this design system butter already means <b>the publisher talking</b> - it is the closing idea, the one block that is opinion rather than report. Reusing it here makes the section legible before a word is read: cobalt is what happened, butter is what I think. The notch is already the issue's signature, so the shortlist inherits it for free. Two things to weigh: it puts <b>two butter panels</b> in one issue, which spends a colour that currently gets its force from being used exactly once; and numerals imply a ranking, so 01 has to genuinely be your top pick.</p>
+  </article>
+
+  <article class="spec picked" id="v3">
+    <div class="strip">
+      <div class="head">
+        <span class="tag">V3</span>
+        <h2 class="name">Marked up</h2>
+        <span class="badge">Selected &middot; ships in #7</span>
+      </div>
+      <dl class="ledger">
+        <div><dt>Frame</dt><dd>Ink + signal spine</dd></div>
+        <div><dt>Marker</dt><dd>Highlighted numerals</dd></div>
+        <div><dt>Provenance</dt><dd>Grey chip</dd></div>
+        <div><dt>Link</dt><dd>Ink, bare</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <div class="picks-v3">
+        <div class="card-title">My Favourite Picks</div>
+        <ol>
+          <li><span class="n">01</span><span class="t"><a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/">OpenAI is cutting its models from Cursor</a></span><span class="from">News</span></li>
+          <li><span class="n">02</span><span class="t"><a href="https://www.businessinsider.com/nvidia-in-talks-to-buy-hugging-face-13-billion-dollars-2026-8">Nvidia in talks to buy Hugging Face</a></span><span class="from">News</span></li>
+          <li><span class="n">03</span><span class="t"><a href="https://github.com/Alishahryar1/free-claude-code">Alishahryar1/free-claude-code</a></span><span class="from">GitHub</span></li>
+          <li><span class="n">04</span><span class="t"><a href="https://larsfaye.com/articles/ai-coding-will-prevent-expertise">Coding expertise is going to collapse from AI reliance</a></span><span class="from">HN</span></li>
+        </ol>
+      </div>
+      <div class="held">
+        <p class="held-note">What sits directly underneath, in every version</p>
+        <div class="news-card">
+          <div class="card-title">🌍 NEWS FOR DEVS</div>
+          <p class="news-item">🔌 <b>OpenAI is cutting Cursor off from its models</b> - SpaceX bought the editor, and OpenAI named November 12 as the day its models stop serving it.</p>
+          <p class="news-item">🤗 <b>Nvidia is reportedly in talks to buy Hugging Face for $13B</b> - the default home for open weights would belong to the company that makes the chips.</p>
+        </div>
+      </div>
+    </div>
+    <p class="why"><b>The only one that admits the picks come from four different places.</b> Your four span news, GitHub and HN, and the grey chip says so in one word without becoming a description - so the section reads as a <b>route map through the issue</b> rather than a fifth content bucket. The signal spine borrows the highlight already used by the Story of the week badge, which is the issue's existing mark for <em>this one matters most</em>. It is the most graphically assertive of the three, and the ink border is a heavier object than anything currently above the fold - if you want the picks to feel like a quiet aside rather than a second masthead, this is the wrong one.</p>
+  </article>
+
+  <section class="close" id="notes">
+    <h2>Two calls to make with it</h2>
+    <p><b>Where it sits.</b> All three specimens assume the section goes <b>directly after the intro, above News for Devs</b> - the shortlist is the TL;DR of a TL;DR issue, and burying it under four sections wastes it. The cost is the duplication you can see in the greyed card: two of your four picks are also the top two news rows. Putting it last instead turns it into a recap and removes the collision. Say which you want.</p>
+    <p><b>Whether it takes a hex number.</b> News for Devs is a card with no <code>0x</code> number; Launches, GitHub and HN are numbered sections. If picks stay a card, nothing shifts. If it becomes a numbered section it takes <code>0x02</code> and pushes Launches, GitHub and HN to <code>0x03</code>, <code>0x04</code> and <code>0x05</code>.</p>
+    <ul>
+      <li><b>Copy is yours, verbatim.</b> The four lines are exactly as you wrote them; only the larsfaye link needed a title, taken from its HN submission.</li>
+      <li><b>No new tokens in any variation</b> - every colour is already in the palette, so the Beehiiv export stays inline-safe with no new pattern to maintain.</li>
+      <li><b>Spelling.</b> The section is written "Favourite" throughout, matching how you wrote it.</li>
+    </ul>
+  </section>
+
+</div>
