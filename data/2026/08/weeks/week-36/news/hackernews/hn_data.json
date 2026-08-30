@@ -1,0 +1,120 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-08-31",
+  "window": {
+    "after": "2026-08-24",
+    "before": "2026-09-01"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 63,
+  "poolCount": 373,
+  "stories": [
+    {
+      "title": "Nvidia agrees to acquire Hugging Face for $13B",
+      "url": "https://www.businessinsider.com/nvidia-in-talks-to-buy-hugging-face-13-billion-dollars-2026-8",
+      "type": "story",
+      "points": 1965,
+      "num_comments": 905,
+      "author": "mfiguiere",
+      "created_at": "2026-08-27T01:12:55Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49458161"
+    },
+    {
+      "title": "GLM-5.3-Flash",
+      "url": "https://z.ai/blog/glm-5.3-flash",
+      "type": "story",
+      "points": 1126,
+      "num_comments": 574,
+      "author": "Philpax",
+      "created_at": "2026-08-26T14:08:50Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49449507"
+    },
+    {
+      "title": "CEO fired developers to make room for AI. Developers create open source AI CEO",
+      "url": "https://github.com/SenteLabsAI/OpenExecutive",
+      "type": "story",
+      "points": 1022,
+      "num_comments": 710,
+      "author": "GrumpySciGuy",
+      "created_at": "2026-08-27T01:46:22Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49458418"
+    },
+    {
+      "title": "Our decision on Cursor following its acquisition by SpaceX",
+      "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/",
+      "type": "story",
+      "points": 793,
+      "num_comments": 492,
+      "author": "meetpateltech",
+      "created_at": "2026-08-29T01:47:53Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49486172"
+    },
+    {
+      "title": "GLM-5.3 is now open-weight",
+      "url": "https://huggingface.co/zai-org/GLM-5.3",
+      "type": "story",
+      "points": 781,
+      "num_comments": 268,
+      "author": "jeudesprits",
+      "created_at": "2026-08-28T15:20:13Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49479878"
+    },
+    {
+      "title": "Show HN: The load-bearing vocabulary of Claude",
+      "url": "https://louisabraham.github.io/load-bearing/",
+      "type": "show_hn",
+      "points": 676,
+      "num_comments": 320,
+      "author": "Labo333",
+      "created_at": "2026-08-27T08:59:49Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49461817"
+    },
+    {
+      "title": "Judge rules Trump administration\u2019s blacklisting of Anthropic was illegal",
+      "url": "https://www.nytimes.com/2026/08/27/technology/anthropic-government-blacklisting-ruling.html",
+      "type": "story",
+      "points": 608,
+      "num_comments": 423,
+      "author": "jbegley",
+      "created_at": "2026-08-28T02:03:38Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49473522"
+    },
+    {
+      "title": "OpenAI Jalape\u00f1o: Better than Nvidia Blackwell",
+      "url": "https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia",
+      "type": "story",
+      "points": 584,
+      "num_comments": 380,
+      "author": "bmulholland",
+      "created_at": "2026-08-25T14:06:02Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49434378"
+    },
+    {
+      "title": "Coding expertise is going to collapse from AI reliance",
+      "url": "https://larsfaye.com/articles/ai-coding-will-prevent-expertise",
+      "type": "story",
+      "points": 558,
+      "num_comments": 545,
+      "author": "larsfaye",
+      "created_at": "2026-08-24T15:52:33Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49421554"
+    },
+    {
+      "title": "Luanti removed from Google Play due to baseless AI copyright notice",
+      "url": "https://blog.luanti.org/2026/08/27/luanti-dmca-tracer-ai/",
+      "type": "story",
+      "points": 513,
+      "num_comments": 151,
+      "author": "miniBill",
+      "created_at": "2026-08-28T06:33:57Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49475079"
+    }
+  ]
+}

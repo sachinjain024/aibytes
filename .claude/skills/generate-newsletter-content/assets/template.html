@@ -47,6 +47,20 @@
   .intro .greet{color:var(--ink)}
   .intro b{color:var(--ink);font-weight:700}
 
+  /* ── My Favourite Picks: the publisher's shortlist, drawn from any section ──
+       Ink border with a signal spine. The pick name is INK and undecorated - the
+       numeral is the marker, and cobalt is left to the sections that report. ── */
+  .picks{background:var(--card);border:1px solid var(--ink);border-left:5px solid var(--signal);padding:18px 20px;margin-bottom:18px}
+  .picks .card-title{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+  .picks ol{list-style:none;margin:0;padding:0}
+  .picks li{display:flex;gap:11px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--line)}
+  .picks li:last-child{border-bottom:none;padding-bottom:0}
+  .picks .n{font-family:var(--mono);font-size:11px;font-weight:700;background:var(--signal);color:var(--ink);padding:1px 5px;flex-shrink:0}
+  .picks .t{flex:1}
+  .picks .t a{color:var(--ink);text-decoration:none;font-weight:600}
+  .picks .t a:hover{color:var(--cobalt)}
+  .picks .from{font-family:var(--mono);font-size:11px;color:var(--slate);white-space:nowrap}
+
   /* ── News card ── */
   .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
   .news-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;color:var(--cobalt);letter-spacing:.02em;margin-bottom:14px}
@@ -101,6 +115,22 @@
       <p>Welcome back to your {{WEEKDAY}}-morning dose of aiBytes_. {{INTRO_HOOK}}</p>
       <p><b>{{INTRO_STORYLINE_LEAD}}</b>: {{INTRO_STORYLINE}}</p>
       <p><b>Today:</b> {{INTRO_TODAY}}</p>
+    </div>
+
+    <!-- My Favourite Picks: the publisher's own shortlist, pulled from anywhere in
+         the issue. SINGLE LINES ONLY - no context sentence, no stat, no source label.
+         The name renders INK with no underline (the signal numeral is the marker, and
+         cobalt stays with the sections that report); the trailing .from chip names the
+         section the pick came from in one word: News, Launches, GitHub or HN. Numerals
+         imply a ranking, so 01 is the top pick. Omit the whole block if there are no
+         picks for the week. Pattern:
+    <li><span class="n">01</span><span class="t"><a href="URL">Pick title</a></span><span class="from">News</span></li>
+    -->
+    <div class="picks">
+      <div class="card-title">My Favourite Picks</div>
+      <ol>
+{{PICK_ROWS}}
+      </ol>
     </div>
 
     <div class="news-card">

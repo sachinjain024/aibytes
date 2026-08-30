@@ -1,0 +1,157 @@
+{
+  "source": "techcrunch",
+  "section": "ai-news",
+  "fetched_at": "2026-08-31",
+  "window": {
+    "after": "2026-08-24",
+    "before": "2026-09-01"
+  },
+  "query_params": {
+    "category": "artificial-intelligence",
+    "count": 10,
+    "ranking": "hackernews_points,recency"
+  },
+  "totalCount": 50,
+  "articles": [
+    {
+      "title": "OpenAI to start showing ads on ChatGPT\u2019s free and Go tiers in India",
+      "description": "OpenAI has more than 100 million weekly active ChatGPT users in India, a huge chunk of whom are on the free or the lower-priced Go tiers.",
+      "url": "https://techcrunch.com/2026/08/27/openai-to-start-showing-ads-on-chatgpts-free-and-go-tiers-in-india/",
+      "published_at": "2026-08-27T11:35:59Z",
+      "author": "Ivan Mehta",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/02/chatgpt-india-jagmeet-singh-techcrunch.jpg?resize=1200,800",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 7,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49466027"
+      }
+    },
+    {
+      "title": "Hugging Face is selling a cute $399 open source duck robot, Microduck",
+      "description": "Clem Delangue, CEO of Hugging Face, said the Microduck is an \u201copen-source robot you can teach new tricks with reinforcement learning.\u201d",
+      "url": "https://techcrunch.com/2026/08/27/hugging-face-is-selling-a-cute-399-open-source-duck-robot-microduck/",
+      "published_at": "2026-08-27T14:56:52Z",
+      "author": "Rebecca Bellan",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/08/microduck-morning.jpg?resize=1200,750",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 6,
+        "num_comments": 1,
+        "hn_url": "https://news.ycombinator.com/item?id=49473773"
+      }
+    },
+    {
+      "title": "Plaud\u2019s new earphones come with an eSIM-enabled case for talking to AI agents",
+      "description": "Called Plaud One, these adopt the simple bare-bones style of Apple's AirPods, and can record calls, while their case can be used to record in-person conversations or take notes.",
+      "url": "https://techcrunch.com/2026/08/27/plauds-new-earphones-come-with-an-esim-enabled-case-for-talking-to-ai-agents/",
+      "published_at": "2026-08-27T13:00:00Z",
+      "author": "Ivan Mehta",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/08/169-KV-Clean-2.jpeg?resize=1200,675",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 6,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49464558"
+      }
+    },
+    {
+      "title": "An Anthropic researcher just gave us a peek at self-improving AI",
+      "description": "Given 10 benchmarks for specific misaligned behaviors, the automated systems were able to improve performance on every single one without degrading overall performance.",
+      "url": "https://techcrunch.com/2026/08/28/an-anthropic-researcher-just-gave-us-a-peek-at-self-improving-ai/",
+      "published_at": "2026-08-28T19:30:38Z",
+      "author": "Russell Brandom",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/08/GettyImages-2287646148.jpg?resize=1200,901",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 4,
+        "num_comments": 1,
+        "hn_url": "https://news.ycombinator.com/item?id=49484813"
+      }
+    },
+    {
+      "title": "AI\u2019s memory crunch is coming for Android apps",
+      "description": "Google is setting new memory-use limits for Android apps as AI data centers contribute to hardware shortages that could leave lower-cost phones with less memory.",
+      "url": "https://techcrunch.com/2026/08/27/ais-memory-crunch-is-coming-for-android-apps/",
+      "published_at": "2026-08-27T14:27:04Z",
+      "author": "Sarah Perez",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/08/Pixel-11-Pro-XL-main.jpg?resize=1200,675",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 4,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49471721"
+      }
+    },
+    {
+      "title": "Amazon just tripled its order of Nvidia chips over \u2018surging demand\u2019",
+      "description": "Amazon is adding another 2 million Nvidia GPU chips to its data centers over the next two years. But this extended partnerships stretches beyond buying more chips.",
+      "url": "https://techcrunch.com/2026/08/26/amazon-just-tripled-its-order-of-nvidia-chips-over-surging-demand/",
+      "published_at": "2026-08-26T23:47:18Z",
+      "author": "Rebecca Bellan, Kirsten Korosec",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/08/jense-nvidi-chip-GettyImages-2266485392.jpg?resize=1200,800",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 4,
+        "num_comments": 1,
+        "hn_url": "https://news.ycombinator.com/item?id=49457836"
+      }
+    },
+    {
+      "title": "Hugging Face reportedly in talks to be acquired for $13B",
+      "description": "Hugging Face has reportedly been fielding acquisition offers that would value the company at around $13B. But with the founders' feeling of responsibility to community, doubts arise as to whether a sale will happen.",
+      "url": "https://techcrunch.com/2026/08/24/hugging-face-reportedly-in-talks-to-be-acquired-for-13b/",
+      "published_at": "2026-08-24T13:47:26Z",
+      "author": "Rebecca Bellan",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/hugging-face-logo-smartphone.jpg?resize=1200,800",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 4,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49432043"
+      }
+    },
+    {
+      "title": "Hearing tech startup Legato emerges from stealth with $12M and a peek at its AI hearing glasses",
+      "description": "The glasses, called Legato Frames, integrate the company\u2019s patented hearing-assistance technology into the arms of eyewear frames.",
+      "url": "https://techcrunch.com/2026/08/26/hearing-tech-startup-legato-emerges-from-stealth-with-12m-and-a-peek-at-its-ai-hearing-glasses/",
+      "published_at": "2026-08-26T12:00:00Z",
+      "author": "Aisha Malik",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/08/legato.png?resize=1200,751",
+      "reading_time": "5 minutes",
+      "hackernews": {
+        "points": 3,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49452197"
+      }
+    },
+    {
+      "title": "Gamma acquires Accel-backed design startup Lica",
+      "description": "Lica co-founders are going to work on Gamma's new research team.",
+      "url": "https://techcrunch.com/2026/08/25/gamma-acquires-accel-backed-design-startup-lica/",
+      "published_at": "2026-08-25T15:00:00Z",
+      "author": "Ivan Mehta",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/08/R6II0507.jpg?resize=1200,960",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 3,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49436877"
+      }
+    },
+    {
+      "title": "Sony Music, Warner sue Anthropic, alleging a \u201cbrazen campaign\u201d of intellectual property theft",
+      "description": "This latest lawsuit is particularly broad and homes in on accusations of illegal piracy.",
+      "url": "https://techcrunch.com/2026/08/29/sony-music-warner-sue-anthropic-alleging-a-brazen-campaign-of-intellectual-property-theft/",
+      "published_at": "2026-08-29T18:41:59Z",
+      "author": "Kirsten Korosec",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/03/Dario-Amodei-Anthropic-1.jpg?w=1024",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 2,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49493735"
+      }
+    }
+  ]
+}

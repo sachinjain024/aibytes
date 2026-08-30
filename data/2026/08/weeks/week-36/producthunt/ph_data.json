@@ -1,0 +1,706 @@
+{
+  "source": "producthunt",
+  "fetched_at": "2026-08-31",
+  "window": {
+    "postedAfter": "2026-08-24T00:00:00Z",
+    "postedBefore": "2026-09-01T00:00:00Z"
+  },
+  "query_params": {
+    "first": 5,
+    "order": "VOTES",
+    "featured": true
+  },
+  "totalCount": 131,
+  "posts": [
+    {
+      "id": "1231551",
+      "name": "x1",
+      "tagline": "Lovable for iPhone apps go from idea to App Store",
+      "description": "X1 is an AI app builder that takes you from an idea to an iPhone app you can publish on the App Store. Instead of trying to generate the entire app from one prompt, X1 guides you step by step. It asks focused questions, designs each screen for you to review and edit, then builds the app in stages. Preview and test it on your iPhone as you go. When it\u2019s ready, X1 prepares your App Store listing, screenshots, and submission. No coding required.",
+      "slug": "x1-2",
+      "votesCount": 501,
+      "commentsCount": 76,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 1,
+      "weeklyRank": 1,
+      "url": "https://www.producthunt.com/products/x1-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/HRIWQ6DBNJOZ7W?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-08-26T07:01:00Z",
+      "createdAt": "2026-08-26T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/24e5fd64-645c-4346-825a-ee9fa5905236.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/b97cff53-6cd1-4c26-b8e2-14fbb42c8411.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/6ab9b6f5-8939-46ba-9d02-732cc8088654.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/a97f675c-cf33-47ff-8c43-d0318a5bbede.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/b5fa12f2-2ff5-469a-929e-772e5ba408cc.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/035d7bb8-d3ca-4d71-8048-28b97e9ae66a.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/1c3c29aa-b190-4146-82da-530ac9086a8e.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/82884020-2f6f-46b4-a20e-72755355a10f.jpeg?auto=format",
+          "videoUrl": "https://www.youtube.com/watch?v=e8Spa3tA848"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/HRIWQ6DBNJOZ7W?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/7XNZXNO3C5XDGJ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "iOS",
+            "slug": "ios"
+          },
+          {
+            "name": "No-Code",
+            "slug": "no-code"
+          },
+          {
+            "name": "Vibe coding",
+            "slug": "vibe-coding"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "Tushar Chopra",
+          "username": "tusharbecoding",
+          "headline": "Founding engineer @ x1",
+          "url": "https://www.producthunt.com/@tusharbecoding?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        },
+        {
+          "name": "Muhammad Inamullah",
+          "username": "cyan_334",
+          "headline": "Founding Engineer @ x1 | Startup junky",
+          "url": "https://www.producthunt.com/@cyan_334?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        },
+        {
+          "name": "Manil Lakabi",
+          "username": "manil_lakabi1",
+          "headline": "Turning ideas into iPhone apps",
+          "url": "https://www.producthunt.com/@manil_lakabi1?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": "lakabimanil_"
+        }
+      ],
+      "user": {
+        "name": "Garry Tan",
+        "username": "garrytan",
+        "headline": "President & CEO, Y Combinator",
+        "url": "https://www.producthunt.com/@garrytan?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1227796",
+      "name": "PaymentKit",
+      "tagline": "Billing that survives a processor shutdown",
+      "description": "PaymentKit is a multi-processor billing platform for SaaS and e-commerce. It routes payments across processors, vaults tokens independently, and keeps subscriptions billing even if a MID gets shut down. No code to launch, full API when you need it.",
+      "slug": "paymentkit",
+      "votesCount": 457,
+      "commentsCount": 108,
+      "reviewsRating": 4.5,
+      "reviewsCount": 2,
+      "dailyRank": 1,
+      "weeklyRank": 2,
+      "url": "https://www.producthunt.com/products/paymentkit?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/VBME2QKKZVBULI?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-08-24T07:01:00Z",
+      "createdAt": "2026-08-24T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/a2d8eca7-1611-49e8-9806-26ffea9ec546.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/36334bde-50fb-4b8d-860b-5bb280836ff9.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/d801a6fd-5948-44dc-86b1-bbe07b1c521c.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/d5e8f63b-9605-444d-aaa8-da1b2d5c7e43.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/e8957521-4ee5-48ba-9d9f-a4a98124e08c.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/155a9b1b-5639-47bc-97ff-90b21c373e53.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/41e335ee-c405-47ab-ac7c-d259f26d5d85.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/2d100f76-ae49-428f-bb4f-97c3aac6cedd.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/2b45a772-a292-4a42-860b-f3b862f186ec.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/b6fbdeda-9efb-4925-9147-215143bc9761.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/cd0f6526-13f2-4e9b-ac2c-0b47ed2ef1ed.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/674493bb-c788-4921-813d-5b466086d428.jpeg?auto=format",
+          "videoUrl": "https://youtu.be/yzNM0FNifek?si=gnnfXZFUlOAs6b6F"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "LinkedIn",
+          "url": "https://www.producthunt.com/r/FL6SADUKYXM6BC?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/VBME2QKKZVBULI?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Fintech",
+            "slug": "fintech"
+          },
+          {
+            "name": "SaaS",
+            "slug": "saas"
+          },
+          {
+            "name": "E-Commerce",
+            "slug": "e-commerce"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Nate Rosen",
+          "username": "nate_rosen",
+          "headline": "Head of Partnerships at PaymentKit",
+          "url": "https://www.producthunt.com/@nate_rosen?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Ben Lang",
+        "username": "benln",
+        "headline": "Cursor",
+        "url": "https://www.producthunt.com/@benln?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1216588",
+      "name": "akta.pro",
+      "tagline": "Private company data and signals API for the agent economy",
+      "description": "Private company data with 4x the depth and 2x the coverage of PitchBook, plus 100+ event signals and news across companies, industries, and topics. Source and diligence deals or make outreach lists and trigger outbound. Built for financial services and GTM teams, pay-as-you-go.",
+      "slug": "akta-pro",
+      "votesCount": 429,
+      "commentsCount": 85,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 1,
+      "weeklyRank": 3,
+      "url": "https://www.producthunt.com/products/akta-pro?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/7VLENQJQZQK4EG?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-08-25T07:01:00Z",
+      "createdAt": "2026-08-25T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/d096a90c-a4f0-414d-992a-d1803381c3f8.x-icon?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/37968db6-2d1b-4496-b860-f96d27b11af9.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/d8b1485a-5fbf-47f0-91d0-e9a5c1e8e47c.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/fd2e6e2a-c9d0-4a7b-989b-280629d0308c.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/9f984c54-6b8b-4413-b11c-08d9ee123789.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/de8ae6e6-2fd5-4722-b54c-703b6eb6d271.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/ebfc05a0-092b-4478-90a3-f5813e488c8e.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/3f5a3318-1b4c-4bf1-b3a2-a9a6eabbc08b.jpeg?auto=format",
+          "videoUrl": "https://youtu.be/o6jUUFZSa7U"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/TWQYUIM4R6TB6L?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/7VLENQJQZQK4EG?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/BRQ3QXZN226AT7?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "LinkedIn",
+          "url": "https://www.producthunt.com/r/DT6HNCVWOOSK3J?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "API",
+            "slug": "api-1"
+          },
+          {
+            "name": "Developer Tools",
+            "slug": "developer-tools"
+          },
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Neeraj Kanoi",
+          "username": "neerajkanoi",
+          "headline": "A growth geek",
+          "url": "https://www.producthunt.com/@neerajkanoi?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Rohan Chaubey",
+        "username": "rohanrecommends",
+        "headline": "\ud83e\udd47 Top Hunter | Author | Startup Advisor",
+        "url": "https://www.producthunt.com/@rohanrecommends?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1214277",
+      "name": "Skydive",
+      "tagline": "Build cloud agents that work across your tools",
+      "description": "Build cloud agent coworkers that take on real, multi-step work across the tools you already use. Describe the outcome you want, and Skydive creates a working agent in minutes. No code, no prompt engineering, no workflow wiring required. Skydive agents live in your stack, execute repeatable work, and get sharper over time.",
+      "slug": "skydive",
+      "votesCount": 417,
+      "commentsCount": 117,
+      "reviewsRating": 4.75,
+      "reviewsCount": 4,
+      "dailyRank": 1,
+      "weeklyRank": 4,
+      "url": "https://www.producthunt.com/products/skydive?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/YLZ2MF3E6WGU67?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-08-27T07:01:00Z",
+      "createdAt": "2026-08-27T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/c20d7d46-fdf8-4764-9105-ef07d8e034ef.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/aa941090-e357-44a8-a87f-7d446573efc5.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/f8325615-2971-4e4c-83bc-1c3b129aa804.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/ea20cecf-ba5a-410c-b80d-f2c20c163463.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/52b35898-ce72-4e1b-8682-f5c6a01e1389.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/e56aca38-e423-48e2-810e-a2f9553c485f.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/2f10ded8-bcf5-4db2-b7bf-d7282e4bb0f9.jpeg?auto=format",
+          "videoUrl": "https://www.youtube.com/watch?v=t-e9DUjsDKo"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/BL34LRITGU7AJ7?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/YLZ2MF3E6WGU67?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/JH4IJ6VQLKFQSM?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Amy Fraser",
+          "username": "amy_fraser1",
+          "headline": "people person @ skydive ",
+          "url": "https://www.producthunt.com/@amy_fraser1?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": "amy_fraser_"
+        }
+      ],
+      "user": {
+        "name": "Ben Lang",
+        "username": "benln",
+        "headline": "Cursor",
+        "url": "https://www.producthunt.com/@benln?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1229322",
+      "name": "Diet Claude",
+      "tagline": "Never get blindsided by Claude's usage limits again",
+      "description": "Hitting Claude's limit mid-work is annoying af. Diet Claude gives a live usage meter shows how much of your session you\u2019ve used, how much time is left, and when your limits reset. It helps optimise token usage by context trimming, tightening prompts, suggesting apt models. And when you do run dry, it carries your conversation and context over to another LLM instead of starting from scratch.",
+      "slug": "diet-claude",
+      "votesCount": 411,
+      "commentsCount": 47,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 2,
+      "weeklyRank": 5,
+      "url": "https://www.producthunt.com/products/diet-claude?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/FBBFOTHWP2O4QH?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-08-25T07:01:00Z",
+      "createdAt": "2026-08-25T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/a128ff6b-cc8e-4abc-98e6-1b8d59df2afd.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/a91b20f7-2789-4ffb-bb85-3bd54ce276f1.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/b025ed92-8c0d-4d1b-8663-d8c6f2c0a444.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/c7bfa006-4665-42d4-a656-ba895b215ea6.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/6381cc5a-40af-42b0-a552-41b302e0cf9a.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/c653edd0-8925-4a7f-aa85-3cfec9733105.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/6e357823-dc79-4a7a-b2e8-56bf0cc377ad.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/e8560c88-c23d-42a4-8208-f98955b1f68d.jpeg?auto=format",
+          "videoUrl": "https://youtu.be/HaObIpjTBN8"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/Z3YECJRKO3RDT4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Chrome",
+          "url": "https://www.producthunt.com/r/AQRGEUTB3NV3QH?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/TA5RQDEQEI53Z7?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/FBBFOTHWP2O4QH?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Chrome Extensions",
+            "slug": "chrome-extensions"
+          },
+          {
+            "name": "Productivity",
+            "slug": "productivity"
+          },
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "Surbhi Singla",
+          "username": "surbhi_singla2",
+          "headline": "building diet claude & fun projects",
+          "url": "https://www.producthunt.com/@surbhi_singla2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Akhil BVS",
+        "username": "akhilbvs",
+        "headline": "",
+        "url": "https://www.producthunt.com/@akhilbvs?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    }
+  ]
+}

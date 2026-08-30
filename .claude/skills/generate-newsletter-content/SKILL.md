@@ -13,6 +13,7 @@ Turn raw weekly material in `data/` into a finished aiBytes_ issue - a single se
 
 Read every JSON file in the `data/` directory of the working folder (ask the user to connect a folder if none is). Each file holds content fetched from one source - Product Hunt, TechCrunch, HackerNews, GitHub Trending, etc. - usually identifiable from the filename (e.g. `producthunt.json`, `hackernews.json`). Field names vary by source and fetcher, so inspect each file's shape rather than assuming a schema; pull out title, URL, description, and the source's popularity metric (upvotes, points, stars). Then curate - don't dump everything. Rank by the popularity metric and relevance to AI builders, and map sources to the newsletter's buckets:
 
+- **My Favourite Picks** (3-5 items) - the publisher's own shortlist, pulled from any of the buckets below. This one is **not derived from the data**: ask the user for their picks, or carry forward the picks they last gave. Omit the section entirely if they have none for the week.
 - **News for devs** (5-7 items) - TechCrunch stories plus major HackerNews news items
 - **Launches** (top ~5) - Product Hunt, with upvote counts
 - **Trending on GitHub** (top ~7) - GitHub repositories, with star growth
@@ -41,9 +42,12 @@ Copy `assets/template.html` and replace every `{{TOKEN}}`. The template is the c
 
      The "I" is **reacting to the news, never narrating how the issue got written**. Do not open with the draft-that-changed shape - "I had this issue half-written as X / sketched as Y - then Z". It shipped in #3 and #6, and by the third use the reader hears the template instead of the news; it also spends the opening words on a week that did not happen. Vary the reaction clause every issue too ("I did not expect…" is one phrasing of the beat, not the beat itself) - what repeats is the shape, not the words. The surprise has to be genuine; if the week held none, state the week's shape plainly rather than manufacturing one.
   3. **Storyline** - a `<b>`-led sentence naming the thread that connects the week's items (one inline link allowed).
+
+     **Name the thing, don't describe it.** Products, platforms and companies get their actual names in the intro, not generic stand-ins: "Cursor", not "the editor"; "Hugging Face", not "the hub where open weights live". Pairing the name with its category is good where the reader may not know it ("the Cursor editor", "the Hugging Face platform"), but the name always appears. A reader skimming the intro should be able to tell which products the week is about without decoding a description. This applies to the **Today:** line too.
   4. **Today** - `<b>Today:</b>` plus a comma-joined menu of what's below, in reading order, four or five clauses ending on the lightest one ("…and seven repos worth your weekend."). This is the closer: there is no "Let's dive in." sign-off any more.
 
   The hook should make skipping the issue feel expensive; the storyline should make the item list feel inevitable rather than miscellaneous; the Today line should make the scroll feel worth starting.
+- **My Favourite Picks**: sits directly under the intro, **above** News for Devs, and is a card like News for Devs rather than a numbered section - so Launches, Trending on GitHub and HN Deep Cuts keep `0x02`, `0x03` and `0x04`. Ink border with a 5px signal spine on the left. Each pick is **one bare line**: a signal-highlighted numeral, the title, and a one-word `.from` chip naming the section it came from (News, Launches, GitHub or HN). No context sentence, no stat, no source label - the picks are a route map into the issue, not a fifth content bucket. The pick title renders **ink, weight 600, with no underline**: the numeral is the marker, and cobalt stays with the sections that report. Numerals imply a ranking, so `01` is the top pick. Titles are the user's own words where they gave them; supply one from the item's own headline only where they gave a bare URL.
 - **News items**: emoji + bold linked headline + one-line context + `<span class="src">(Source)</span>`. The source here is a plain text label, not a link. Mark the single biggest story with `<span class="hot">Story of the week</span>`.
 - **Quote block**: the callout text only. No attribution line, no `- aiBytes_` under it. It is the issue talking to itself, so signing it reads like a stranger.
 - **Closing block** (`.tldr`, "One idea to carry next week"): a butter panel (`--butter #FFF6D9`, hairline `--butter-line #F0E2AE`, label in `--amber #8A6A00`), never a dark slab. The notched corner is the signature and stays. The idea text is weight **500**, not bold - the only emphasis is the pivotal word, wrapped in `<b>` so it picks up the signal-yellow highlight that the "Story of the week" badge uses. Email drops the notch, so the fill and hairline carry the shape there.
@@ -54,6 +58,7 @@ Copy `assets/template.html` and replace every `{{TOKEN}}`. The template is the c
 
 | Section | Bold name links to | Trailing link |
 |---|---|---|
+| My Favourite Picks | the pick's own destination (same URL that item uses in its home section) | none, the `.from` chip is a plain label |
 | News for devs | the article | none, `(Source)` is a plain label |
 | Launches | the product's **own website** | `(ProductHunt)` to the launch page |
 | Trending on GitHub | the repo | none, the name is already the source |
@@ -89,7 +94,7 @@ The user publishes on Beehiiv, whose HTML Snippet block strips `<style>` tags - 
 
 For each section of the issue (masthead, intro, news card, launches, Trending on GitHub, HN deep cuts, closing idea), rebuild the content as an email-safe snippet - inline styles only, `<table>` layout, no flexbox/clip-path/classes. The exact pattern for every section is in `references/beehiiv-patterns.html`; read it and fill the tokens with the same content as the main file.
 
-Then take `assets/beehiiv-export-template.html` and fill its tokens: `{{PART1_HTML}}` with the merged snippets for masthead + intro + news card, `{{PART2_HTML}}` with launches + Trending on GitHub + HN deep cuts + closing idea (sections joined by a blank line, in reading order), plus `{{EMAIL_SUBJECT}}`, `{{EMAIL_DESCRIPTION}}`, and `{{ISSUE_NUM}}`. The page shows the title panel - carrying its own **Copy Title** and **Copy Desc** buttons, since those two are typed into Beehiiv's title and subtitle fields as plain text rather than pasted as a snippet - then two HTML copy buttons, Part 1 and Part 2, each with a live preview. Two parts rather than one because the user pastes native Beehiiv blocks (subscribe form, ads, polls) between them.
+Then take `assets/beehiiv-export-template.html` and fill its tokens: `{{PART1_HTML}}` with the merged snippets for masthead + intro + My Favourite Picks + news card, `{{PART2_HTML}}` with launches + Trending on GitHub + HN deep cuts + closing idea (sections joined by a blank line, in reading order), plus `{{EMAIL_SUBJECT}}`, `{{EMAIL_DESCRIPTION}}`, and `{{ISSUE_NUM}}`. The page shows the title panel - carrying its own **Copy Title** and **Copy Desc** buttons, since those two are typed into Beehiiv's title and subtitle fields as plain text rather than pasted as a snippet - then two HTML copy buttons, Part 1 and Part 2, each with a live preview. Two parts rather than one because the user pastes native Beehiiv blocks (subscribe form, ads, polls) between them.
 
 ### 6. Save the output
 
@@ -105,6 +110,8 @@ Create the directories if they don't exist. Then present both files to the user 
 ### 7. Verify
 
 Open both generated files and check: no `{{` tokens remain, every link came from the data, sections with no data were removed cleanly (including their `sec-head`), the hex issue number matches the decimal one, the title/description are filled in both files, and the export page contains no `<style>`-dependent markup inside its textareas (inline styles only) with content matching the main file section for section.
+
+Check My Favourite Picks too: every pick's URL matches the URL that same item carries in its home section, each row has a `.from` chip, and no row has grown a description or a stat.
 
 Then check the links specifically: no URL carries a `ref` or `utm_*` parameter, no launch name still points at a `producthunt.com/r/` redirect, every HN deep cut name points at the article rather than the thread, and the quote block has no attribution line. Strip the template's fill-in comments from both output files before saving.
 
