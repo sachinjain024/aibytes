@@ -3,10 +3,10 @@ format: longclaw.ticket/v1
 id: 12e2e1b3-feb6-4eae-94a2-99a79d912c93
 key: AIB-2
 title: "Issue #4"
-status: in_progress
+status: done
 priority: none
 created_at: 2026-08-09T00:26:09.863Z
-updated_at: 2026-08-09T00:26:09.863Z
+updated_at: 2026-08-23T08:51:57.022Z
 ---
 
 - [x] Generate the Issue #4 Content
@@ -71,4 +71,19 @@ actor:
 Fetched the week-33 snapshots for all four sources, then built
 `newsletter/2026/week-33-Issue-4/` with the issue HTML and the Beehiiv export.
 Intro still needs your review.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f3b4e73c
+kind: update
+occurred_at: 2026-08-23T08:51:57.022Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: status
+    from: in_progress
+    to: done
+-->
+### You updated this ticket
 <!-- /longclaw:event -->
