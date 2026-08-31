@@ -8,7 +8,7 @@ priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-08-31T15:05:00Z
+updated_at: 2026-09-01T02:10:00Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -578,4 +578,39 @@ other CLI test relies on to stay offline.
 Re-verified on the real week-36 snapshots with the network stubbed to raise
 during `build`. The only diffs against the pre-review edition are the nine
 un-re-encoded TechCrunch image URLs.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8c2f4b17
+kind: update
+occurred_at: 2026-09-01T02:10:00Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: description
+-->
+### Claude Code updated this ticket
+
+Second review pass, this time over the fixes themselves. The delegated reviewer
+failed twice on this branch - an API error when the machine slept, then a stall -
+so this was a hand review of the fix commit.
+
+Three issues, and the first is worth remembering: **the fix commit reintroduced
+the defect class it had just removed.** Round one fixed two crashes where a
+clean refusal was intended (a dateless index entry, a malformed --date). The
+link cache that round one added to fix a different finding validated that its
+`resolved` key was a dict but not what was inside it - so a hand-edited value
+became an item's `url` and dedup raised an AttributeError. New code written in a
+hurry to fix old code does not inherit the old code's lessons; every new file
+that reads something off disk needs the same "refuse, do not crash" pass.
+
+The other two: `prepare`'s docstring still claimed "No writes" after it started
+writing the cache, and the resolved-link count was computed and discarded.
+`draft` now reports it, so the one network call the pipeline makes is visible in
+the log rather than silent - which matters once phase 3 runs it unattended.
+
+231 tests. Re-verified on the real week-36 snapshots with the network stubbed to
+raise during build; the edition is byte-identical to the previously verified one.
 <!-- /longclaw:event -->
