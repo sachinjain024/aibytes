@@ -1,0 +1,45 @@
+<!-- @dsCard group="Components" viewport="700x1030" name="Header, Edition Bar & Navigation" subtitle="Sticky header, the signature edition bar, chips, side nav rail, calendar popover, footer" -->
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:10px;display:flex;flex-direction:column;gap:8px}
+.pane{border:1px solid var(--border);border-radius:10px;background:var(--bg);color:var(--text);overflow:hidden}
+.pane--pad{padding:12px;display:flex;flex-direction:column;gap:8px}
+.row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.lbl{font-family:var(--font-mono);font-size:11px;color:var(--text-2);letter-spacing:.02em;padding:0 12px 10px}
+.pane--pad .lbl{padding:0}
+.calwrap .ldg-cal{position:static;transform:none;margin:0 auto}
+.navpane .ldg-sidenav{display:flex;position:static;height:auto;width:auto;border-right:none;padding:4px 0}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:8px}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const { Header, EditionBar, CalendarPopover, Chip, SideNav, Footer } = window.LedgerAiBytesDesignSystem_b1be4f;
+const cats = [{key:"launches",label:"Launches",count:12},{key:"repos",label:"Repos",count:9},{key:"news",label:"News",count:7},{key:"hn",label:"HN Threads",count:11}];
+const editions = [{date:"2026-08-27",label:"Wed, Aug 27",count:16},{date:"2026-08-26",label:"Tue, Aug 26",count:8},{date:"2026-08-25",label:"Mon, Aug 25",count:11},{date:"2026-08-22",label:"Fri, Aug 22",count:9}];
+ReactDOM.createRoot(document.getElementById("root")).render(<React.Fragment>
+  <div className="pane"><Header categories={cats} activeCategory="all"/><span className="lbl">signed-out · wordmark --font-display 800 · chips Inter 13/500 · toggles 32px targets</span></div>
+  <div className="pane" data-theme="dark"><Header categories={cats} activeCategory="repos" savedCount={3} signedIn tagCount={2}/><span className="lbl">signed-in dark · Saved chip appears once anything is saved · active = --accent on --accent-tint</span></div>
+  <div className="pane"><EditionBar dateLabel="Wed, Aug 27, 2026" itemCount={16} updatedAgo="4h ago" prevLabel="Aug 26" asH1={false}/><span className="lbl">the signature element · JetBrains Mono · date is the page h1 · next arrow disabled on latest</span></div>
+  <div className="pane" data-theme="dark"><EditionBar dateLabel="Tue, Aug 26, 2026" itemCount={8} updatedAgo="1d ago" prevLabel="Aug 25" nextLabel="Aug 27" asH1={false}/></div>
+  <div className="duo">
+    <div className="pane pane--pad">
+      <div className="row"><Chip label="All" active/><Chip label="Repos" count={9}/><Chip label="News" disabled/><Chip label="Tags ▾" count={2} active/></div>
+      <span className="lbl">chip states: active / default+count / disabled / dropdown trigger</span>
+      <div className="row" data-theme="dark" style={{background:"var(--bg)",padding:10,borderRadius:8}}><Chip label="All" active/><Chip label="Repos" count={9}/><Chip label="News" disabled/></div>
+    </div>
+    <div className="pane pane--pad calwrap" style={{position:"relative"}}>
+      <CalendarPopover editions={editions} currentDate="2026-08-27"/>
+      <span className="lbl">calendar popover · available editions only, missing days absent (no Aug 23–24)</span>
+    </div>
+  </div>
+  <div className="duo">
+    <div className="pane pane--pad navpane"><SideNav dateMain="Today" dateNote="(Aug 27, 2026)" prevLabel="Yesterday" editions={editions} currentDate="2026-08-27" categories={cats} activeCategory="all" allCount={39} savedCount={3}/><span className="lbl">side nav rail · date widget + categories + Library · replaces chips & edition bar; hidden &lt;900px</span></div>
+    <div className="pane pane--pad navpane" data-theme="dark" style={{background:"var(--bg)"}}><SideNav dateMain="Aug 25" dateSub="Aug 25, 2026 · 2 days ago" prevLabel="Aug 22" nextLabel="Latest" editions={editions} currentDate="2026-08-25" categories={cats} activeCategory="repos" allCount={11} savedCount={3}/><span className="lbl">dark · older edition: mono sub-line + Latest → · active row = inset accent bar</span></div>
+  </div>
+  <div className="pane"><Footer/><span className="lbl">footer · Chrome Extension · GitHub · X · Advertise · “Join 1K+ developers” subscribe blurb</span></div>
+</React.Fragment>);
+</script></body></html>

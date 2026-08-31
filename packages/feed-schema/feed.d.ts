@@ -6,8 +6,7 @@
  *
  *   https://sachinjain024.github.io/aibytes/feed/index.json
  *
- * Copy this file into the consuming repo (aibytes-hub) or fetch it alongside
- * the feed. Keep it in step with feed.schema.json, which is the contract of
+ * Consumers import this from the workspace, or fetch it alongside the feed. Keep it in step with feed.schema.json, which is the contract of
  * record.
  *
  * A shipped Chrome extension cannot be hotfixed, so treat every field as

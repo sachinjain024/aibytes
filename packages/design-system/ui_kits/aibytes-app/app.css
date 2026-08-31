@@ -1,0 +1,22 @@
+/* aiBytes_ app layout (screen-level; components come from the Ledger bundle — incl. SideNav) */
+.app-main{max-width:var(--content-max);margin:0 auto;padding:20px;display:flex;flex-direction:column;gap:var(--section-gap)}
+.app-sec{display:flex;flex-direction:column;gap:12px}
+.app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:var(--grid-gap)}
+.app-grid--one{grid-template-columns:1fr}
+.app-rows{border:var(--border-w) solid var(--border);border-radius:var(--radius-card);overflow:hidden;background:var(--surface)}
+.app-rows .ldg-row:last-child{border-bottom:none}
+.app-pop{position:absolute;right:max(20px,calc((100% - var(--content-max))/2 + 20px));top:calc(100% + 6px);z-index:var(--z-popover);background:var(--surface);border:var(--border-w) solid var(--border);border-radius:var(--radius-card);padding:14px;width:540px;max-width:calc(100vw - 40px);display:flex;flex-direction:column;gap:12px}
+.app-pop__label{font-family:var(--font-mono);font-size:11px;color:var(--text-2);letter-spacing:.04em;text-transform:uppercase}
+.app-pop__chips{display:flex;flex-wrap:wrap;gap:6px}
+.app-shell{background:var(--bg);color:var(--text);min-height:100vh;font-family:var(--font-body);font-size:var(--text-14);line-height:var(--lh-14)}
+.app-sticky{position:relative;z-index:var(--z-header)}
+@media (min-width:700px){.app-sticky{position:sticky;top:0}}
+.app-shell .ldg-footer{position:sticky;bottom:0;z-index:var(--z-header);background:var(--bg)}
+.app-shell .ldg-footer__in{padding:12px 20px}
+.app-phone{width:375px;margin:0 auto;min-height:100vh;border-inline:var(--border-w) solid var(--border)}
+/* — side nav layout (Navigation tweak): full-page, SideNav rail pinned left — */
+.app-shell--full .ldg-header__in,.app-shell--full .ldg-edbar__in,.app-shell--full .ldg-banner__in,.app-shell--full .ldg-footer__in{max-width:none}
+.app-shell--full .app-pop{right:20px}
+.app-cols{display:flex;align-items:flex-start}
+.app-cols .app-main{max-width:none;margin:0;flex:1;min-width:0;padding:20px 28px}
+.app-cols .app-grid{grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}

@@ -1,0 +1,15 @@
+/* Ledger spacing (4px base), shape, motion, z-index. */
+:root{
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px;
+  --space-5:20px; --space-6:24px; --space-8:32px; --space-10:40px;
+  --space-12:48px; --space-16:64px;
+  --card-pad:16px; --grid-gap:16px; --section-gap:40px;
+  --radius-card:10px; --radius-chip:6px; --radius-img:8px;
+  --border-w:1px;                 /* 1px everywhere; hover swaps --border for --accent */
+  --focus-w:2px; --focus-offset:2px;
+  --transition:120ms ease; /* @kind other */
+  --lift:translateY(-1px); /* @kind other */ /* hover lift; dropped under prefers-reduced-motion */
+  --z-header:100; /* @kind other */ --z-popover:200; /* @kind other */ --z-banner:50; /* @kind other */
+  --content-max:1200px; --gutter-mobile:20px;
+  --img-slot:40px; --img-slot-list:24px;
+}

@@ -1,14 +1,25 @@
-# aibytes-agents
+# aiBytes_
 
-The workspace behind aiBytes_: the weekly newsletter, and the app and Chrome
-extension that surface the same data. Claude Code skills fetch the top AI
-content from around the web and save it as JSON snapshots in this repo.
+The workspace behind **aiBytes_** — a curated feed of AI resources for
+developers: launches, repos, threads, and news, with nothing else mixed in.
+
+The same curation reaches three surfaces:
+
+- a **weekly newsletter**, written from the snapshots in this repo
+- a **daily web app** at `aibytes.io`, served as static JSON *(in progress)*
+- a **Chrome new-tab extension** on the same JSON *(planned)*
+
+Claude Code skills fetch the top AI content from around the web and commit it
+here as dated JSON snapshots. The pipeline is deliberately boring: stdlib-only
+Python, no database, no server, content as files in git.
 
 | Path | What it is |
 |---|---|
 | `newsletter/` | The newsletter pipeline: issues, data snapshots, source mirrors, decision records |
-| `packages/design-system/` | Design tokens + Web Components for the app and extension |
 | `packages/fetchers/` | Shared, cadence-agnostic fetch machinery for every data source |
+| `packages/feed-schema/` | The JSON contract between the producer and the app + extension |
+| `packages/design-system/` | Ledger — design tokens + React components for the app and extension |
+| `docs/` | The app product spec and the design-system brief |
 
 ## Skills
 
@@ -22,10 +33,11 @@ content from around the web and save it as JSON snapshots in this repo.
 
 Each skill lives in `.claude/skills/` and is a thin Python 3 wrapper over
 `packages/fetchers` — stdlib only, no dependencies. Only ProductHunt needs an
-API key (`PH_API_KEY` in `.env`).
-The skills follow the open [Agent Skills](https://agentskills.io) format, and
-a `.agents/skills` symlink makes them work in OpenAI Codex and other
-compatible tools too.
+API key (`PH_API_KEY` in a git-ignored `.env`); every other source is public.
+
+The skills follow the open [Agent Skills](https://agentskills.io) format, and a
+`.agents/skills` symlink makes them work in OpenAI Codex and other compatible
+tools too.
 
 ## Usage
 
@@ -59,8 +71,15 @@ never collide with the weekly newsletter tree.
 
 ## Design system
 
-`packages/design-system` holds the tokens and Web Components shared by the app
-and the Chrome extension. Rebuild the generated CSS with `npm run build:tokens`.
+`packages/design-system` is **Ledger**, the system shared by the app and the
+Chrome extension: authored CSS tokens (`styles.css` + `tokens/`), React
+components, per-source marks, and the nine app screens in `ui_kits/`. There is
+no build step. Browse it with:
+
+```bash
+npm run preview:design-system   # http://localhost:4300/ui_kits/aibytes-app/
+```
+
 The newsletter deliberately does not consume it — email HTML cannot load a
 stylesheet, so its palette stays inline in the newsletter templates.
 
@@ -72,11 +91,25 @@ python3 -m unittest discover -s tests -v
 
 Add `AIBYTES_SKIP_LIVE=1` to skip the tests that hit live APIs.
 
+## Weekly newsletter workflow
+
+1. `/generate-newsletter-content` — the issue HTML and the Beehiiv export
+2. `/generate-followup-thumbnail` — the 1200×630 cover
+3. `/generate-followup-social-content` — the LinkedIn and X follow-ups
+
+## Status and licence
+
+This is a personal working repo, public so the pipeline can be read and
+borrowed from, not a supported project. Expect the structure to move.
+
+**No licence yet.** Without one, default copyright applies and no reuse rights
+are granted — which is the honest state today rather than a considered "all
+rights reserved". If you want to use something here, open an issue and ask.
+
+Note that the newsletter issues, social copy, thumbnails, and the aiBytes_ brand
+and Ledger design system are editorial and brand work, and would stay reserved
+under any licence that lands later.
+
 ---
 
 For working conventions and repo structure, see [CLAUDE.md](CLAUDE.md).
-
-## Weekly Newsletter Generation Workflow
-- Generate Content - /generate-newsletter-content
-- Generate Thumbnail - /generate-followup-thumbnail
-- Generate Social Media Content - /generate-followup-social-content

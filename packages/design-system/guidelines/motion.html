@@ -1,0 +1,7 @@
+<!-- @dsCard group="Spacing" viewport="700x160" name="Motion — 120ms ease" subtitle="Color, border, and lift only · prefers-reduced-motion drops the lift, keeps the color" -->
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;padding:14px;background:var(--bg);color:var(--text);font-family:var(--font-body)}
+.lbl{font-family:var(--font-mono);font-size:11px;color:var(--text-2);letter-spacing:.02em}
+.row{display:flex;align-items:baseline;gap:14px}
+.card{width:220px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px;font-size:14px;transition:border-color 120ms ease,transform 120ms ease;cursor:pointer}.card:hover{border-color:var(--accent);transform:translateY(-1px)}@media (prefers-reduced-motion:reduce){.card:hover{transform:none}}</style></head><body><div style="display:flex;gap:16px;align-items:center"><div class="card">Hover me — border → <span style="font-family:var(--font-mono);font-size:12px">--accent</span>, 1px lift, 120ms</div><span class="lbl">--transition: 120ms ease<br>no fades-on-scroll, no bounces,<br>no shadows at any state</span></div></body></html>

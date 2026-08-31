@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://sachinjain024.github.io/aibytes/feed/feed.schema.json",
   "title": "aiBytes published feed",
-  "description": "The contract between the producer (packages/fetchers, run on a schedule) and the consumers (the aibytes-hub extension and web app, which fetch this over HTTP from GitHub Pages). Breaking this breaks a shipped Chrome extension that cannot be hotfixed - add fields, never rename or remove them.",
+  "description": "The contract between the producer (packages/fetchers, run on a schedule) and the consumers (the aiBytes_ web app and Chrome extension, which fetch this over HTTP from GitHub Pages). Breaking this breaks a shipped Chrome extension that cannot be hotfixed - add fields, never rename or remove them.",
   "type": "object",
   "required": [
     "schemaVersion",
