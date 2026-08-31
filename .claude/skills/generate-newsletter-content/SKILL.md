@@ -5,13 +5,13 @@ description: Generate the weekly "aiBytes_" (AI Bytes) newsletter as a styled HT
 
 # Generate Newsletter Content (aiBytes_)
 
-Turn raw weekly material in `data/` into a finished aiBytes_ issue - a single self-contained HTML file in the v3 "TL;DR" design - saved under `newsletter/{yyyy}/week-{week_num}-Issue-{num}/`.
+Turn raw weekly material in `newsletter/data/` into a finished aiBytes_ issue - a single self-contained HTML file in the v3 "TL;DR" design - saved under `newsletter/issues/{yyyy}/week-{week_num}-Issue-{num}/`.
 
 ## Workflow
 
 ### 1. Read the raw data
 
-Read every JSON file in the `data/` directory of the working folder (ask the user to connect a folder if none is). Each file holds content fetched from one source - Product Hunt, TechCrunch, HackerNews, GitHub Trending, etc. - usually identifiable from the filename (e.g. `producthunt.json`, `hackernews.json`). Field names vary by source and fetcher, so inspect each file's shape rather than assuming a schema; pull out title, URL, description, and the source's popularity metric (upvotes, points, stars). Then curate - don't dump everything. Rank by the popularity metric and relevance to AI builders, and map sources to the newsletter's buckets:
+Read every JSON file in the `newsletter/data/` directory of the working folder (ask the user to connect a folder if none is). Each file holds content fetched from one source - Product Hunt, TechCrunch, HackerNews, GitHub Trending, etc. - usually identifiable from the filename (e.g. `producthunt.json`, `hackernews.json`). Field names vary by source and fetcher, so inspect each file's shape rather than assuming a schema; pull out title, URL, description, and the source's popularity metric (upvotes, points, stars). Then curate - don't dump everything. Rank by the popularity metric and relevance to AI builders, and map sources to the newsletter's buckets:
 
 - **My Favourite Picks** (3-5 items) - the publisher's own shortlist, pulled from any of the buckets below. This one is **not derived from the data**: ask the user for their picks, or carry forward the picks they last gave. Omit the section entirely if they have none for the week.
 - **News for devs** (5-7 items) - TechCrunch stories plus major HackerNews news items
@@ -29,7 +29,7 @@ If a bucket has no data at all, omit that section from the output rather than in
 - `issue_date`: the Monday it sends. Today if today is a Monday; otherwise the upcoming Monday, unless the user names a date. Fills `{{DATE_ISO}}`.
 - `weekday`: **always `Monday`.** Fills `{{WEEKDAY}}` in the intro's welcome line. Do not run `date +%A` for this - building an issue on a Wednesday would ship "Wednesday-morning" to a Monday list. Only change it if the user says this particular issue sends on a different day.
 - `yyyy` and `week_num`: the year and ISO week **of `issue_date`**, not of today: `date -j -f "%Y-%m-%d" "<issue_date>" "+%G %V"`. This matters most on a Sunday, where today's week number is one behind the issue's.
-- `num` (issue number): count existing folders under `newsletter/` across all years and add 1. If none exist, it's issue 1. The user can override any of these.
+- `num` (issue number): count existing folders under `newsletter/issues/` across all years and add 1. If none exist, it's issue 1. The user can override any of these.
 
 ### 3. Build the HTML from the template
 
@@ -101,8 +101,8 @@ Then take `assets/beehiiv-export-template.html` and fill its tokens: `{{PART1_HT
 Write both files to:
 
 ```
-newsletter/{yyyy}/week-{week_num}-Issue-{num}/aiBytes-issue-{num}.html
-newsletter/{yyyy}/week-{week_num}-Issue-{num}/aiBytes-beehiiv-export-issue-{num}.html
+newsletter/issues/{yyyy}/week-{week_num}-Issue-{num}/aiBytes-issue-{num}.html
+newsletter/issues/{yyyy}/week-{week_num}-Issue-{num}/aiBytes-beehiiv-export-issue-{num}.html
 ```
 
 Create the directories if they don't exist. Then present both files to the user and, if an artifact/preview mechanism is available, render the main issue so they can see it immediately.

@@ -46,7 +46,7 @@ Options:
 
 ## Output
 
-Written to `data/<yyyy>/<mm>/weeks/week-<NN>/news/techcrunch/tc_data.json`,
+Written to `newsletter/data/<yyyy>/<mm>/weeks/week-<NN>/news/techcrunch/tc_data.json`,
 where `yyyy`, `mm`, and ISO week `NN` come from the as-of date (same layout as
 the ProductHunt snapshot, under a `news/` subtree for newsletter news sources).
 The file is self-describing: it records `fetched_at`, the date window, the

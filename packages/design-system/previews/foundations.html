@@ -1,0 +1,43 @@
+<!-- @dsCard group="Foundations" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>aiBytes_ foundations</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../dist/tokens.css">
+<style>
+  body { margin:0; padding:32px; background:var(--aib-surface); color:var(--aib-text); font-family:var(--aib-font-body); }
+  h2 { font-family:var(--aib-font-display); font-size:var(--aib-text-xl); letter-spacing:-.02em; margin:32px 0 12px; }
+  h2:first-child { margin-top:0; }
+  .swatches { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:12px; }
+  .sw { border:1px solid var(--aib-border); border-radius:var(--aib-radius-md); overflow:hidden; }
+  .sw i { display:block; height:56px; }
+  .sw span { display:block; padding:8px 10px; font-family:var(--aib-font-mono); font-size:var(--aib-text-xs); }
+  .scale > * { margin:0 0 8px; font-family:var(--aib-font-display); letter-spacing:-.02em; }
+</style>
+</head>
+<body>
+  <h2>Semantic colours</h2>
+  <div class="swatches">
+    <div class="sw"><i style="background:var(--aib-surface)"></i><span>--aib-surface</span></div>
+    <div class="sw"><i style="background:var(--aib-surface-raised)"></i><span>--aib-surface-raised</span></div>
+    <div class="sw"><i style="background:var(--aib-text)"></i><span>--aib-text</span></div>
+    <div class="sw"><i style="background:var(--aib-text-muted)"></i><span>--aib-text-muted</span></div>
+    <div class="sw"><i style="background:var(--aib-accent)"></i><span>--aib-accent</span></div>
+    <div class="sw"><i style="background:var(--aib-highlight)"></i><span>--aib-highlight</span></div>
+    <div class="sw"><i style="background:var(--aib-danger)"></i><span>--aib-danger</span></div>
+    <div class="sw"><i style="background:var(--aib-success)"></i><span>--aib-success</span></div>
+  </div>
+
+  <h2>Type scale</h2>
+  <div class="scale">
+    <p style="font-size:var(--aib-text-2xl)">Display 2xl / 32px</p>
+    <p style="font-size:var(--aib-text-xl)">Heading xl / 24px</p>
+    <p style="font-size:var(--aib-text-lg)">Heading lg / 18px</p>
+    <p style="font-size:var(--aib-text-md);font-family:var(--aib-font-body)">Body md / 15px</p>
+    <p style="font-size:var(--aib-text-sm);font-family:var(--aib-font-mono)">Mono sm / 13px</p>
+  </div>
+</body>
+</html>

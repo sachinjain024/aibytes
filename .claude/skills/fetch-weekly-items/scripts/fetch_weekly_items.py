@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
-"""Run every weekly AIBytes source fetch skill and verify its snapshot."""
+"""Run every AIBytes source fetch skill and verify its snapshot.
+
+Defaults to the weekly newsletter cadence. Pass --cadence daily to drive the
+same child skills for the app feed; the cadence is forwarded to every child, so
+the snapshots land under the matching period folder.
+
+The source list, aliases and snapshot layout all come from packages/fetchers -
+this script only orchestrates the child processes.
+"""
 
 import argparse
 import datetime as dt
@@ -11,49 +19,70 @@ from dataclasses import dataclass
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[4]
 SKILLS_ROOT = REPO_ROOT / ".claude" / "skills"
+sys.path.insert(0, str(REPO_ROOT / "packages" / "fetchers"))
+
+from aibytes_fetchers import layout, registry, window as window_mod
 
 
 @dataclass(frozen=True)
 class SkillSpec:
+    """A child skill paired with the packages/fetchers source it wraps."""
+
     name: str
     script: str
-    snapshot: str
-    aliases: tuple
+    source_name: str
     supports_days: bool = False
     supports_github_since: bool = False
     supports_github_languages: bool = False
     supports_techcrunch_no_hn: bool = False
 
+    @property
+    def source(self):
+        return registry.resolve(self.source_name)
 
-# Add new weekly source fetch skills here and update SKILL.md/tests together.
+    @property
+    def snapshot(self):
+        """Path fragment below the period folder, e.g. news/hackernews/hn_data.json."""
+        return "/".join((*self.source.SUBPATH, self.source.FILENAME))
+
+    @property
+    def aliases(self):
+        source = self.source
+        return tuple(
+            sorted(
+                {source.NAME}
+                | {a for a, canonical in registry.ALIASES.items() if canonical == source.NAME}
+            )
+        )
+
+
+# Add new source fetch skills here and update SKILL.md/tests together. The
+# snapshot path and aliases are derived from the source module, so a new source
+# only needs its name and script here.
 SKILLS = (
     SkillSpec(
         name="ph-fetch-items",
         script="fetch_ph_items.py",
-        snapshot="producthunt/ph_data.json",
-        aliases=("ph", "producthunt", "product-hunt"),
+        source_name="producthunt",
         supports_days=True,
     ),
     SkillSpec(
         name="hn-fetch-items",
         script="fetch_hn_items.py",
-        snapshot="news/hackernews/hn_data.json",
-        aliases=("hn", "hackernews", "hacker-news"),
+        source_name="hackernews",
         supports_days=True,
     ),
     SkillSpec(
         name="tc-fetch-items",
         script="fetch_tc_items.py",
-        snapshot="news/techcrunch/tc_data.json",
-        aliases=("tc", "techcrunch", "tech-crunch"),
+        source_name="techcrunch",
         supports_days=True,
         supports_techcrunch_no_hn=True,
     ),
     SkillSpec(
         name="gh-fetch-items",
         script="fetch_gh_items.py",
-        snapshot="github/gh_data.json",
-        aliases=("gh", "github", "github-trending"),
+        source_name="github",
         supports_github_since=True,
         supports_github_languages=True,
     ),
@@ -103,15 +132,10 @@ def output_root_path(output_root):
     return REPO_ROOT / root
 
 
-def snapshot_path(output_root, as_of, spec):
-    _, week, _ = as_of.isocalendar()
-    return (
-        output_root_path(output_root)
-        / f"{as_of.year:04d}"
-        / f"{as_of.month:02d}"
-        / "weeks"
-        / f"week-{week:02d}"
-        / spec.snapshot
+def snapshot_path(output_root, as_of, spec, cadence=window_mod.DEFAULT_CADENCE):
+    source = spec.source
+    return layout.snapshot_path(
+        output_root, as_of, cadence, source.SUBPATH, source.FILENAME, repo_root=REPO_ROOT
     )
 
 
@@ -125,11 +149,15 @@ def build_command(spec, args):
         "--output-root",
         args.output_root,
     ]
+    cadence = getattr(args, "cadence", None)
+    if cadence:
+        cmd.extend(["--cadence", cadence])
     if args.count is not None:
         cmd.extend(["--count", str(args.count)])
     if spec.supports_days and args.days is not None:
         cmd.extend(["--days", str(args.days)])
-    if spec.supports_github_since:
+    # Unset means "follow the cadence", which the child resolves itself.
+    if spec.supports_github_since and args.github_since:
         cmd.extend(["--since", args.github_since])
     if spec.supports_github_languages and args.github_languages:
         cmd.append("--languages")
@@ -147,7 +175,8 @@ def display_path(path):
 
 
 def run_skill(spec, args, as_of):
-    expected = snapshot_path(args.output_root, as_of, spec)
+    expected = snapshot_path(args.output_root, as_of, spec, getattr(args, "cadence", None)
+                             or window_mod.DEFAULT_CADENCE)
     cmd = build_command(spec, args)
 
     print(f"==> {spec.name}")
@@ -174,7 +203,13 @@ def run_skill(spec, args, as_of):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--date", help="as-of date, YYYY-MM-DD (default today)")
-    parser.add_argument("--output-root", default="data", help="root data directory (default data)")
+    parser.add_argument(
+        "--cadence",
+        choices=sorted(window_mod.CADENCES),
+        default=window_mod.DEFAULT_CADENCE,
+        help=f"cadence forwarded to every child skill (default {window_mod.DEFAULT_CADENCE})",
+    )
+    parser.add_argument("--output-root", default="newsletter/data", help="root data directory (default newsletter/data)")
     parser.add_argument("--count", type=int, help="override item count for every child skill")
     parser.add_argument(
         "--days",
@@ -196,8 +231,8 @@ def main():
     parser.add_argument(
         "--github-since",
         choices=("daily", "weekly", "monthly"),
-        default="weekly",
-        help="GitHub trending window passed to gh-fetch-items (default weekly)",
+        default=None,
+        help="GitHub trending window passed to gh-fetch-items (default: follows --cadence)",
     )
     parser.add_argument(
         "--github-languages",
@@ -221,7 +256,7 @@ def main():
     if not selected:
         raise SystemExit("no sources selected")
 
-    print(f"fetching {len(selected)} source(s) for {args.date}")
+    print(f"fetching {len(selected)} source(s) for {args.date} ({args.cadence})")
     results = []
     for spec in selected:
         ok, expected = run_skill(spec, args, as_of)

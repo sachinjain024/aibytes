@@ -1,0 +1,11 @@
+{
+  "name": "@aibytes/fetchers",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Shared Python fetch machinery for aiBytes data sources. Entry point: python3 packages/fetchers/fetch.py",
+  "scripts": {
+    "fetch:daily": "python3 fetch.py --cadence daily",
+    "fetch:weekly": "python3 fetch.py --cadence weekly",
+    "test": "cd ../.. && python3 -m unittest tests.test_fetchers -v"
+  }
+}

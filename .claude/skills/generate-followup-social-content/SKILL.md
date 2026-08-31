@@ -1,6 +1,6 @@
 ---
 name: generate-followup-social-content
-description: Generate follow-up LinkedIn and X (Twitter) posts that go deep on one item from a published aiBytes_ issue - a news story, a GitHub repo, or a product launch - and ship them as two review artifacts under newsletter/{yyyy}/{week-folder}/social/. Use whenever the user wants social media content, LinkedIn posts, tweets, X threads, or promo copy for the newsletter - triggers include "social posts for this week", "write the LinkedIn post", "make the X thread", "follow-up content for issue N", or "/generate-followup-social-content".
+description: Generate follow-up LinkedIn and X (Twitter) posts that go deep on one item from a published aiBytes_ issue - a news story, a GitHub repo, or a product launch - and ship them as two review artifacts under newsletter/issues/{yyyy}/{week-folder}/social/. Use whenever the user wants social media content, LinkedIn posts, tweets, X threads, or promo copy for the newsletter - triggers include "social posts for this week", "write the LinkedIn post", "make the X thread", "follow-up content for issue N", or "/generate-followup-social-content".
 ---
 
 # Generate Follow-up Social Content (aiBytes_)
@@ -9,15 +9,15 @@ The newsletter is the roundup. Social is the deep dive.
 
 Each week, after an issue ships, pick single items out of it and go further than the issue could - explain the mechanism, unpack the number, take a side. Produce **LinkedIn story posts for the items the user picks** (one post per item, chosen by the user from a shortlist you offer) and **5 X (Twitter) variations**, presented as two review artifacts so the user can read them side by side and pick.
 
-Output goes to `newsletter/{yyyy}/{week-folder}/social/`, where `{week-folder}` is the issue folder that already exists (e.g. `newsletter/2026/week-32-Issue-3/social/`).
+Output goes to `newsletter/issues/{yyyy}/{week-folder}/social/`, where `{week-folder}` is the issue folder that already exists (e.g. `newsletter/issues/2026/week-32-Issue-3/social/`).
 
 ## Workflow
 
 ### 1. Find the issue and load its raw data
 
-- The default target is the **most recently published issue**: the highest-numbered folder under `newsletter/{yyyy}/`. The user can name a different issue or week.
+- The default target is the **most recently published issue**: the highest-numbered folder under `newsletter/issues/{yyyy}/`. The user can name a different issue or week.
 - Read the issue HTML (`aiBytes-issue-{num}.html`) for the curated items, the intro's storyline, and the closing idea. That tells you what the week was *about*.
-- Read the matching raw snapshots under `data/{yyyy}/{mm}/weeks/week-{NN}/` (producthunt, github, news/hackernews, news/techcrunch). The issue carries one line per item; the raw JSON carries the full description, the vote and star and point counts, the comment counts and the canonical URL. **The deep dive lives in the raw data**, so never write from the issue alone.
+- Read the matching raw snapshots under `newsletter/data/{yyyy}/{mm}/weeks/week-{NN}/` (producthunt, github, news/hackernews, news/techcrunch). The issue carries one line per item; the raw JSON carries the full description, the vote and star and point counts, the comment counts and the canonical URL. **The deep dive lives in the raw data**, so never write from the issue alone.
 - Every number and link in a post must be traceable to that data. Do not round, inflate, or invent. If a detail would strengthen a post and is not in the data, either leave it out or fetch the source page and cite what it actually says.
 
 ### 2. Pick 5 anchor items (X deck)
@@ -53,7 +53,7 @@ Structure per post:
 - **Opener**: one or two lines that set the scene as a story, not a headline. Two shapes that work: the personal-discovery opener ("Last week, I read a thread on HackerNews that would not leave me alone.") and the big-news-plus-question opener ("Stripe is reportedly buying OpenRouter for $7B+. Why does a payments company want an LLM router?"). The opener must work as the only thing a scrolling reader sees.
 - **The fold**: LinkedIn truncates around 200 characters on mobile. The opener must land a complete thought before the cut, and the line just after the cut has to be worth expanding for.
 - **Arc**: tell it in sequence rather than in labeled sections - what happened, with the concrete details and numbers from the data; the mechanism or context most coverage skips; why a builder should care; then an honest open question or a stated take. 150 to 350 words. The post must go deeper on its one item than the newsletter blurb did, or it has no reason to exist.
-- **Facts**: insightful and factually correct beats punchy. Every number and claim must trace to `data/` or a fetched source. If the story wants a figure that is not in the data (a revenue multiple, a valuation, a user count), fetch the source and cite what it actually says, or leave it out - never estimate one into existence.
+- **Facts**: insightful and factually correct beats punchy. Every number and claim must trace to `newsletter/data/` or a fetched source. If the story wants a figure that is not in the data (a revenue multiple, a valuation, a user count), fetch the source and cite what it actually says, or leave it out - never estimate one into existence.
 - **Close**: a real question or a stated position. Never "What do you think? Comment below."
 - **Link handling**: LinkedIn suppresses posts with external links in the body. Put the URL in a `First comment:` line instead, and say what the link is.
 - **Newsletter mention**: at most one, at the end, phrased as where the rest of the week lives. Not a pitch.
@@ -90,11 +90,11 @@ Read every draft back against a plain test: would this person say this out loud 
 
 ### 7. Build the two artifacts
 
-Two self-contained HTML files, one per platform, in `newsletter/{yyyy}/{week-folder}/social/`:
+Two self-contained HTML files, one per platform, in `newsletter/issues/{yyyy}/{week-folder}/social/`:
 
 ```
-newsletter/{yyyy}/{week-folder}/social/linkedin-variations.html
-newsletter/{yyyy}/{week-folder}/social/x-variations.html
+newsletter/issues/{yyyy}/{week-folder}/social/linkedin-variations.html
+newsletter/issues/{yyyy}/{week-folder}/social/x-variations.html
 ```
 
 Each page carries, for every variation: the format name, the anchor item and its source link, the post rendered in a platform-shaped specimen, a metadata ledger, and a **copy button that copies the exact post text** (plain text, the characters that get pasted, no markup and no dashes the rules ban).
@@ -111,7 +111,7 @@ Then publish both as artifacts so the user can read them in the browser, and tel
 ### 8. Verify before handing over
 
 - Grep both files for `—`, `–`, and `--`. Any hit is a bug, including inside the copy-button payload.
-- Every number in every post appears in `data/` or in the issue HTML.
+- Every number in every post appears in `newsletter/data/` or in the issue HTML.
 - Every link resolves to a URL taken from the data, not typed from memory.
 - No LinkedIn post has a URL in its body; each has a `First comment:` line.
 - No tweet exceeds 280 characters; tweet 1 is under 240.

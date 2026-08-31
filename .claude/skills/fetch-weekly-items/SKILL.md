@@ -31,12 +31,13 @@ Common options:
 
 ```bash
 --date YYYY-MM-DD       # as-of date for every child skill; default today
---output-root DIR       # root data dir passed to every child; default data
+--output-root DIR       # root data dir passed to every child; default newsletter/data
+--cadence CADENCE       # daily | weekly | monthly, forwarded to every child; default weekly
 --count N               # optional count override passed to every child
 --days N                # optional window override for ProductHunt, HN, and TechCrunch
 --skip SOURCE           # skip one source; repeatable: producthunt, hackernews, techcrunch, github
 --keep-going            # continue after a child skill fails, then exit nonzero if any failed
---github-since WINDOW   # daily | weekly | monthly, passed to gh-fetch-items; default weekly
+--github-since WINDOW   # daily | weekly | monthly, passed to gh-fetch-items; default: follows --cadence
 --github-languages L [L...]  # extra GitHub language trending pages to merge
 --techcrunch-no-hn      # pass --no-hn to tc-fetch-items for faster smoke runs
 --dry-run               # print child commands and expected snapshots without running
@@ -44,13 +45,31 @@ Common options:
 
 The runner verifies each expected output file after the child script exits.
 Snapshots are written by the child skills under
-`data/<yyyy>/<mm>/weeks/week-<NN>/`.
+`newsletter/data/<yyyy>/<mm>/weeks/week-<NN>/`.
+
+## Cadence
+
+The default is the weekly newsletter cadence. `--cadence daily` runs the same
+child skills against a one-day window and files the snapshots under
+`<yyyy>/<mm>/days/<yyyy-mm-dd>/` instead. For an unattended scheduled run,
+prefer the in-process entry point, which skips the subprocess-per-source
+overhead:
+
+```bash
+python3 packages/fetchers/fetch.py --cadence daily --output-root feed
+```
+
+Use this skill when you want per-source isolation (one source failing does not
+stop the others) or `--skip`/`--dry-run`.
 
 ## Maintenance
 
-When adding a new weekly fetch skill, update the `SKILLS` registry in
-`scripts/fetch_weekly_items.py`, add the new child skill to the list above, and
-extend the parent-skill smoke test in `tests/test_skill_scripts.py`.
+The fetch logic itself lives in `packages/fetchers`, not in these scripts - the
+child skills are thin CLI wrappers over `aibytes_fetchers.sources.*`. When
+adding a new source, write the source module first (see
+`.claude/rules/fetchers.md`), then register it in `registry.py`, add a
+`SkillSpec` to `scripts/fetch_weekly_items.py`, add the child skill to the list
+above, and extend the parent-skill smoke test in `tests/test_skill_scripts.py`.
 
 This skill is stored in `.claude/skills`, which is the canonical Claude Code
 location in this repo. Codex discovers the same skill through the existing

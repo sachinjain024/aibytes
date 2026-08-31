@@ -60,7 +60,7 @@ backfill past weeks.
 
 ## Output
 
-Written to `data/<yyyy>/<mm>/weeks/week-<NN>/github/gh_data.json`, where
+Written to `newsletter/data/<yyyy>/<mm>/weeks/week-<NN>/github/gh_data.json`, where
 `yyyy`, `mm`, and ISO week `NN` come from the as-of date (same layout as the
 ProductHunt snapshot; GitHub repos are their own newsletter section, so they
 sit outside the `news/` subtree). The file is self-describing: it records

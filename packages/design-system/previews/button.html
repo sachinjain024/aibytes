@@ -1,0 +1,27 @@
+<!-- @dsCard group="Actions" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>aib-button</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../dist/tokens.css">
+<style>
+  body { margin:0; padding:32px; background:var(--aib-surface); font-family:var(--aib-font-body); }
+  .row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:16px; }
+</style>
+<script type="module" src="../components/aib-button.js"></script>
+</head>
+<body>
+  <div class="row">
+    <aib-button>Primary</aib-button>
+    <aib-button variant="secondary">Secondary</aib-button>
+    <aib-button variant="ghost">Ghost</aib-button>
+    <aib-button disabled>Disabled</aib-button>
+  </div>
+  <div class="row">
+    <aib-button size="sm">Small primary</aib-button>
+    <aib-button size="sm" variant="secondary">Small secondary</aib-button>
+  </div>
+</body>
+</html>

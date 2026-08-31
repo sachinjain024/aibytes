@@ -1,0 +1,19 @@
+{
+  "name": "aibytes",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "build:tokens": "npm run build -w @aibytes/design-system",
+    "dev:web": "npm run dev -w @aibytes/web",
+    "dev:extension": "npm run dev -w @aibytes/extension",
+    "package:extension": "npm run package -w @aibytes/extension"
+  },
+  "devDependencies": {
+    "vite": "^7.0.0"
+  }
+}
