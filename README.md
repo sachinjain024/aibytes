@@ -17,8 +17,9 @@ Python, no database, no server, content as files in git.
 |---|---|
 | `newsletter/` | The newsletter pipeline: issues, data snapshots, source mirrors, decision records |
 | `packages/fetchers/` | Shared, cadence-agnostic fetch machinery for every data source |
-| `packages/feed-schema/` | The JSON contract between the producer and the app + extension |
+| `packages/feed-schema/` | The contract for `content/`: schemas, TypeScript types, a validator |
 | `packages/design-system/` | Ledger — design tokens + React components for the app and extension |
+| `content/` | The published data the app and extension read — editions, index, tags, hide log |
 | `docs/` | The app product spec and the design-system brief |
 
 ## Skills
@@ -68,6 +69,27 @@ python3 packages/fetchers/fetch.py --cadence daily --output-root feed
 
 Daily snapshots file under `<year>/<month>/days/<yyyy-mm-dd>/` instead, so they
 never collide with the weekly newsletter tree.
+
+## Published content
+
+Raw snapshots become one curated **edition** per day under `content/`, which is
+what the app and the extension read over HTTP — no database, no server:
+
+| File | What it is |
+|---|---|
+| `content/editions/YYYY-MM-DD.json` | One day's items: title, summary, category, tags, image, signals |
+| `content/index.json` | Every edition that exists, newest first |
+| `content/tags.json` | The fixed tag vocabulary the curation step draws from |
+| `content/hidden.json` | The admin hide log |
+
+`packages/feed-schema` holds the schemas, the TypeScript types, and a
+stdlib validator that checks each file and how they agree with each other:
+
+```bash
+python3 packages/feed-schema/validate.py
+```
+
+The editions and index are empty until the daily runner lands.
 
 ## Design system
 

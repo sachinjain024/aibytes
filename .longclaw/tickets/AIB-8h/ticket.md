@@ -33,6 +33,7 @@ Locked in, so later phases do not reopen them:
 | Repo visibility | **Public.** Answers spec §14.3. Edition JSON and the rejected-items log are public too |
 | aiBytes-hub | **Out of scope entirely.** A separate project; not referenced anywhere in this repo unless explicitly called out |
 | Licence | **None for now.** Default copyright applies; no reuse rights granted. The README says so plainly rather than implying "all rights reserved" was considered. Newsletter issues, social copy, thumbnails, and the brand/Ledger system would stay reserved under any licence that lands later |
+| Tag vocabulary | **49 tags**, in `content/tags.json` grouped as spec §4. Near-synonyms merged, the subjective Format tags cut, four gaps added. Items carry display names; the file also carries each tag's URL slug so the app and the extension cannot disagree |
 | Commit identity | **`The Infin8y <the.infin8y@gmail.com>`**, set as repo-local git config. Existing history keeps the personal address and is **not** rewritten, including when the repo goes public |
 
 ## Where things live
@@ -122,8 +123,10 @@ in the package rather than forked here.
 - **iMac availability at 13:30 IST** — if it is not reliably awake, the `pmset`
   wake schedule and the Actions fallback are needed from day one, not later.
   *(spec §14.5, unresolved)*
-- **Tag list** — worth a last pass before it goes into the curation prompt, since
-  changing it later re-tags history. *(spec §14.4, unresolved)*
+- ~~**Tag list**~~ — settled in phase 1. `content/tags.json` ships 49 tags: §4's
+  list with the near-synonyms merged (Library→Framework, CLI→Dev Tool, SDK→API),
+  the subjective Format tags cut (Opinion, Interview, Hot Take), and four gaps
+  added (Reasoning, Multimodal, Robotics, Safety). *(spec §14.4)*
 
 ## Checklist
 
@@ -148,12 +151,12 @@ in the package rather than forked here.
 
 ### Phase 1 — The edition contract
 
-- [ ] Rewrite `packages/feed-schema` as the edition schema from product spec §5
-- [ ] Add `index.json` (available editions + counts) and `tags.json` (the fixed tag list)
-- [ ] Add `hidden.json` and the `hide.py <id>` admin script
-- [ ] Update `validate.py` and `feed.d.ts` to match
-- [ ] Point the schema `$id` at the real GitHub Pages URL
-- [ ] Update `tests/test_feed_schema.py` for the new contract
+- [x] Rewrite `packages/feed-schema` as the edition schema from product spec §5
+- [x] Add `index.json` (available editions + counts) and `tags.json` (the fixed tag list)
+- [x] Add `hidden.json` and the `hide.py <id>` admin script
+- [x] Update `validate.py` and `feed.d.ts` to match
+- [x] Point the schema `$id` at the real GitHub Pages URL
+- [x] Update `tests/test_feed_schema.py` for the new contract
 
 ### Phase 2 — The curate step
 
@@ -321,4 +324,119 @@ licence.
 The README is rewritten for a public reader — what aiBytes_ is, the three
 surfaces, and an honest note that this is a personal working repo whose
 structure will move.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_c1d40f8a
+kind: update
+occurred_at: 2026-08-31T12:45:12Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: description
+  - field: checklist
+-->
+### Claude Code updated this ticket
+
+Phase 1 is complete. `packages/feed-schema` is now the contract for a new
+top-level `content/` tree, on branch `aib-8h-phase-1-edition-contract`.
+
+Four schemas replace the single unproduced `feed.schema.json`: `edition`,
+`index`, `tags`, `hidden`. Keys are snake_case per spec §5. Every file carries
+`schema_version`, since a shipped extension cannot be hotfixed.
+
+The decisions worth recording, because later phases inherit them:
+
+- **Item ids end with their edition's date** (`ph-chatcut-2026-08-27`), which is
+  what makes a save (`item_id` + `edition_date`) resolvable and catches an item
+  carried forward from yesterday. The validator enforces the suffix.
+- **`counts` is the visible tally**, hidden excluded — so hiding an item must
+  decrement it, and `hide.py` recomputes rather than adjusts.
+- **The v1.1 categories are deliberately absent** from the enum. Adding one is a
+  conscious edit to the schema, `counts`, and every consumer's chip list.
+- **Tags are not enumerated in the schema.** `tags.json` is the single source, so
+  the list can grow without a schema change; `validate.py` cross-checks
+  membership when given the list.
+
+`validate.py` grew from an index checker into a validator for all four
+documents plus the cross-file invariants JSON Schema cannot express: an index
+that has fallen behind the editions on disk, a stale total, a hide logged but
+not applied. It is also a CLI — `python3 packages/feed-schema/validate.py`, or
+`npm run validate:content`.
+
+`hide.py <id>` moves the item flag, the edition's counts, the index's total, and
+the hide log together, validating in memory before it writes anything. `--unhide`
+reverses it.
+
+The tag list question (spec §14.4) is closed: 49 tags, the tightened variant.
+The tightening was Library→Framework, CLI→Dev Tool, SDK→API; Opinion, Interview
+and Hot Take cut as not reliably assignable; Reasoning, Multimodal, Robotics and
+Safety added. Safety is model behaviour and alignment, distinct from the infosec
+Security tag.
+
+Verified beyond the unit tests: the 35 real items in the week-30 snapshots map
+into the edition shape and validate, and a hide/unhide round-trips on them. The
+suite is 143 tests, all passing.
+
+Three open questions remain, all for later phases: the newsletter URL, edition
+retention, and iMac availability at 13:30 IST.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_9f2ab417
+kind: update
+occurred_at: 2026-08-31T13:25:20Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: description
+-->
+### Claude Code updated this ticket
+
+Reviewed the phase 1 branch and fixed six findings before merging. One was a
+real defect, and it is the kind phase 2 would have inherited:
+
+**`index.json`'s `path` was never validated against the file it names.** Index
+entries were matched to editions by `date` alone, so an entry whose `path`
+pointed at the wrong edition — or at nothing — validated clean. `path` is the
+field consumers actually dereference: the app resolves it against the index URL
+and fetches it. So the one field that could 404 the app was the one field with
+no check. Since phase 2's curate step generates `path`, this needed to be caught
+before anything produced it.
+
+Two schema descriptions contradicted the code, and in both cases the code was
+right:
+
+- `index.json`'s own `generated_at` claimed to be "the run that last rewrote
+  this index", but `hide.py` rewrites the file to correct a total and
+  deliberately leaves the timestamp alone — nothing was curated, and the edition
+  bar's "updated 4h ago" must not reset because of a hide.
+- `hidden.json` called itself an append-only record, but `--unhide` removes the
+  entry, and has to: an entry whose item is no longer flagged hidden would make
+  the tree contradict itself. It is a log of what is currently hidden, not a
+  history.
+
+Three gaps in what the suite checked:
+
+- `meta: {}` was accepted while `signals: {}` was rejected, on identical
+  "omit rather than emit empty" reasoning.
+- The drift test compared the id, path, and slug patterns but not `httpUrl`
+  against `URL_RE`, and never compared the three date patterns against
+  `DATE_RE`.
+- Nothing ever read the schema files *as schemas*, so a malformed one would have
+  shipped silently. An optional test class now runs all four through a real
+  JSON Schema engine and asserts the hand-written validator is never *laxer*
+  than the contract of record, across 24 fixtures. `jsonschema` is not a
+  dependency, so it skips when absent.
+
+The suite is 149 tests. The 35 real week-30 items still map into the edition
+shape and validate, and hide/unhide still round-trips on them.
+
+Merged to `main` as PR #6. Phase 1 is done; phase 2 (the `curate-edition` skill)
+is next, and it now has a contract that checks its output rather than trusting
+it.
 <!-- /longclaw:event -->

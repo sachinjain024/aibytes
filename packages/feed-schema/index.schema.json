@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sachinjain024.github.io/aibytes/content/index.schema.json",
+  "title": "aiBytes edition index",
+  "description": "content/index.json - the list of editions that exist. Drives the edition bar's prev/next arrows and the calendar popover, and is the one file a consumer must fetch before it knows what to fetch next. Deliberately lean: it carries what the bar and the calendar render, and nothing that would duplicate an edition file and drift from it.",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "editions"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Bumped only for a breaking change. Consumers must refuse a version they do not know."
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "UTC timestamp of the curate run that last changed which editions exist. A hide rewrites this file to correct a total but does not touch this, because nothing was curated."
+    },
+    "editions": {
+      "type": "array",
+      "description": "Newest first, strictly descending by date with no duplicates - editions[0] is the latest, which is what `/` resolves to and what disables the next arrow. An empty array is valid: it is what the index says before the first edition is generated.",
+      "items": {
+        "type": "object",
+        "required": ["date", "path", "total", "generated_at"],
+        "additionalProperties": false,
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "description": "The edition's date, matching the `date` inside the edition file."
+          },
+          "path": {
+            "type": "string",
+            "pattern": "^(?!.*\\.\\.)[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*\\.json$",
+            "description": "Path to the edition, relative to this index. Must stay relative with no parent-directory segments - a consumer resolves it against the index URL, so an absolute or escaping path would point off the site."
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Visible items in the edition - the sum of its counts, excluding hidden. This is the '39 items' in the edition bar, so hide.py updates it here as well as in the edition."
+          },
+          "generated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The edition's own generated_at, copied here so the bar can render 'updated 4h ago' without fetching the edition."
+          }
+        }
+      }
+    }
+  }
+}

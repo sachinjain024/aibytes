@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sachinjain024.github.io/aibytes/content/tags.schema.json",
+  "title": "aiBytes tag list",
+  "description": "content/tags.json - the fixed vocabulary the curate step tags from and the tag filter renders. Hand-maintained, not generated. It lives in content/ rather than in the pipeline so the list can grow without a deploy; cutting or renaming a tag is the expensive direction, because it re-tags history.",
+  "type": "object",
+  "required": ["schema_version", "groups"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Bumped only for a breaking change. Adding a tag or a group is not breaking."
+    },
+    "groups": {
+      "type": "array",
+      "minItems": 1,
+      "description": "In the order the multi-select dropdown shows them.",
+      "items": {
+        "type": "object",
+        "required": ["name", "tags"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "minLength": 1, "description": "Group heading in the dropdown." },
+          "tags": {
+            "type": "array",
+            "minItems": 1,
+            "description": "In display order.",
+            "items": {
+              "type": "object",
+              "required": ["name", "slug"],
+              "additionalProperties": false,
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "The display name, and the exact string an edition item carries in its tags array. Unique across every group - a tag in two groups would break the filter."
+                },
+                "slug": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+                  "description": "The URL form, as in ?t=agents,open-source. Stored rather than derived so the app and the extension cannot disagree on what 'Voice / Speech' slugs to - shareable URLs are part of the contract. Unique across every group."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

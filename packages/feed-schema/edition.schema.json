@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sachinjain024.github.io/aibytes/content/edition.schema.json",
+  "title": "aiBytes edition",
+  "description": "One day's curated edition: content/editions/YYYY-MM-DD.json. Written by the curate step from the raw source snapshots, committed, and served as static JSON. Consumers are the aiBytes_ web app, the Chrome extension, and the weekly newsletter skill. A shipped extension cannot be hotfixed, so this contract is append-only: add fields, never rename or remove them, and bump schema_version for anything breaking. Keys are snake_case throughout, following the shape in the product spec.",
+  "type": "object",
+  "required": ["schema_version", "date", "generated_at", "counts", "items"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Bumped only for a breaking change. Consumers must refuse a version they do not know rather than guess."
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "description": "The edition date, and the file's name. One edition per day; a missed day has no file and the edition bar shows the gap rather than a fake edition."
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "UTC timestamp of the curate run. Drives the edition bar's 'updated 4h ago'."
+    },
+    "counts": {
+      "type": "object",
+      "description": "Visible items per category. Excludes hidden items, because the app skips those - so hide.py must decrement here too. All four v1 categories are always present, even at zero, so consumers never branch on undefined.",
+      "required": ["launches", "repos", "news", "hn"],
+      "additionalProperties": false,
+      "properties": {
+        "launches": { "type": "integer", "minimum": 0 },
+        "repos": { "type": "integer", "minimum": 0 },
+        "news": { "type": "integer", "minimum": 0 },
+        "hn": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "items": {
+      "type": "array",
+      "description": "Every item that passed the relevance filter - there is no per-category cap, the filter is the editorial line. Written in category order (launches, repos, news, hn) then by rank within the category, so a re-run diffs cleanly; consumers re-sort for their own views rather than relying on it. Rejected items and their reasons go to rejected.json, not here.",
+      "items": { "$ref": "#/$defs/item" }
+    }
+  },
+  "$defs": {
+    "item": {
+      "type": "object",
+      "required": ["id", "title", "summary", "url", "source", "source_url", "category", "tags", "image", "hidden"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*-\\d{4}-\\d{2}-\\d{2}$",
+          "description": "Stable id, unique within the edition and globally: <source-prefix>-<slug>-<edition date>, e.g. ph-chatcut-2026-08-27. The date suffix must equal this edition's date - that is what makes saves (item_id + edition_date) resolvable and catches an item copied forward from yesterday."
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Links to `url`, which for a product or article is the destination rather than the source page."
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200,
+          "description": "One line, written by the curate step in Ledger's voice: plain, factual, no hype. Capped so it stays two lines on a card."
+        },
+        "url": { "$ref": "#/$defs/httpUrl", "description": "Where the title links: the product site, the article, the repo." },
+        "source": {
+          "type": "string",
+          "enum": ["producthunt", "hackernews", "techcrunch", "github"],
+          "description": "The fetcher that produced the item. Matches a source module's NAME in packages/fetchers, which the tests assert. Drives the card's image rules and mark fallback."
+        },
+        "source_url": {
+          "$ref": "#/$defs/httpUrl",
+          "description": "The source page the source name links to: the PH page, the HN thread, the GitHub repo. Equal to `url` where the source is the destination (TechCrunch, and GitHub or HN when the item is the thing itself). Always present so the UI never has to fall back."
+        },
+        "category": {
+          "type": "string",
+          "enum": ["launches", "repos", "news", "hn"],
+          "description": "Exactly one per item; the primary filter chip and the section heading. Show HN stories are launches, not hn. The v1.1 categories (discussions, releases, research) are deliberately absent - adding one is a conscious change here, in counts, and in every consumer's chip list."
+        },
+        "tags": {
+          "type": "array",
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Zero to four, drawn only from the display names in tags.json - never free-form, or the filter stops being clean. The list is not enumerated here on purpose: tags.json is the single source and can grow without a schema change. validate.py cross-checks membership when it is given the tag list."
+        },
+        "image": { "$ref": "#/$defs/image" },
+        "signals": {
+          "type": "object",
+          "description": "Present only when the source reports something. Rendered in this order: upvotes or points, stars gained, comments. Omitted entirely rather than emitted empty, so a re-run diffs cleanly.",
+          "minProperties": 1,
+          "additionalProperties": false,
+          "properties": {
+            "upvotes": { "type": "integer", "minimum": 0, "description": "Product Hunt votesCount." },
+            "points": { "type": "integer", "minimum": 0, "description": "Hacker News points." },
+            "comments": { "type": "integer", "minimum": 0, "description": "Comment count on the source page." },
+            "stars": { "type": "integer", "minimum": 0, "description": "GitHub total stars." },
+            "stars_gained": { "type": "integer", "minimum": 0, "description": "GitHub stars gained over the window." },
+            "forks": { "type": "integer", "minimum": 0, "description": "GitHub forks." }
+          }
+        },
+        "meta": {
+          "type": "object",
+          "description": "Small per-source extras the card meta row shows. A locked set rather than a free bucket: adding a field is a deliberate edit here, which is the point of a contract. Omit a key rather than writing null, and omit the object entirely rather than emitting it empty, so a re-run diffs cleanly.",
+          "minProperties": 1,
+          "additionalProperties": false,
+          "properties": {
+            "language": { "type": ["string", "null"], "description": "GitHub repo language; shown as a dot plus name." },
+            "author": { "type": ["string", "null"], "description": "HN submitter or article byline." },
+            "reading_time": { "type": ["string", "null"], "description": "TechCrunch reading time, as the source phrases it." }
+          }
+        },
+        "published_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "When the source published it. Absent for GitHub trending, which has no publish date - so consumers must not sort on it alone."
+        },
+        "hidden": {
+          "type": "boolean",
+          "description": "Always written, even as false, so hide.py flips one line and the commit reads clearly. The site and the newsletter both skip hidden items, and counts excludes them."
+        }
+      }
+    },
+    "image": {
+      "type": "object",
+      "description": "The 40px card image. `type` picks the treatment: logo is rounded (Product Hunt), avatar is a circle (GitHub owner), thumbnail is cropped square (TechCrunch og:image), none means the source mark fills the slot instead (Hacker News). Every type keeps the same footprint so cards align.",
+      "required": ["type"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "type": "string", "enum": ["logo", "avatar", "thumbnail", "none"] },
+        "url": { "$ref": "#/$defs/httpUrl" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "type": { "const": "none" } }, "required": ["type"] },
+          "then": { "not": { "required": ["url"] } },
+          "else": { "required": ["url"] }
+        }
+      ]
+    },
+    "httpUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://[^\\s]+$"
+    }
+  }
+}

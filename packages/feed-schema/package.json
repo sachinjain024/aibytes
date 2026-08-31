@@ -1,0 +1,11 @@
+{
+  "name": "@aibytes/feed-schema",
+  "private": true,
+  "version": "0.0.0",
+  "description": "The JSON contract between the curate producer and the app, extension, and newsletter consumers. Schemas, TypeScript types, a stdlib validator, and the hide.py admin script.",
+  "types": "feed.d.ts",
+  "scripts": {
+    "validate": "cd ../.. && python3 packages/feed-schema/validate.py",
+    "test": "cd ../.. && python3 -m unittest tests.test_feed_schema tests.test_hide -v"
+  }
+}

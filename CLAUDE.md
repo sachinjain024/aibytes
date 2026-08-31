@@ -17,7 +17,8 @@ matching files — this file stays a map.
 | `docs/` | The app product spec and the design-system brief — the source documents for the app and extension |
 | `packages/design-system/` | **Ledger**: tokens + React components for the app and extension (**not** the newsletter) |
 | `packages/fetchers/` | Shared, cadence-agnostic Python fetch machinery for every data source |
-| `packages/feed-schema/` | The JSON contract between the fetch/curate producer and the app + extension consumers |
+| `packages/feed-schema/` | The contract for everything in `content/`: schemas, `feed.d.ts`, `validate.py`, `hide.py` |
+| `content/` | The published data — `editions/YYYY-MM-DD.json`, `index.json`, `tags.json`, `hidden.json` |
 | `.claude/skills/` | Claude Code skills. Stays at the repo root — nested skill dirs are not in autocomplete until a file in them is touched |
 | `.claude/rules/` | Path-scoped conventions, loaded on demand |
 | `apps/web/` | *(planned, AIB-8h)* the aibytes.io daily-edition app — Vite + React, static build, GitHub Pages |
@@ -40,6 +41,12 @@ python3 .claude/skills/fetch-weekly-items/scripts/fetch_weekly_items.py --skip p
 
 # Preview the Ledger design system and the nine app screens
 npm run preview:design-system   # then open http://localhost:4300/ui_kits/aibytes-app/
+
+# Check the published content tree against its contract
+python3 packages/feed-schema/validate.py
+
+# Hide one item from a published edition (moves the edition, index, and log together)
+python3 packages/feed-schema/hide.py ph-chatcut-2026-08-27 --reason "duplicate launch"
 
 # Tests. AIBYTES_SKIP_LIVE=1 skips the ones that hit live APIs.
 python3 -m unittest discover -s tests -v
@@ -79,6 +86,9 @@ user will call that out explicitly — do not infer the connection yourself.
   the tool is missing (see `tests/test_thumbnail.py`).
 - Fetch logic belongs in `packages/fetchers`, not in a skill script. See
   `.claude/rules/fetchers.md`.
+- Anything under `content/` is a published contract read by a shipped Chrome
+  extension that cannot be hotfixed. Add fields, never rename or remove them,
+  and run `validate.py` before committing. See `.claude/rules/feed-schema.md`.
 
 ## Git workflow
 
