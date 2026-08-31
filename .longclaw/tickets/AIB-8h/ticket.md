@@ -8,7 +8,7 @@ priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-08-31T14:20:00Z
+updated_at: 2026-08-31T15:05:00Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -518,4 +518,64 @@ Phase 3 is next, and it is now a smaller job than it looked: the entry point
 drives Claude Code through this skill rather than reimplementing curation.
 Three open questions are unchanged - the newsletter URL, edition retention, and
 whether the iMac is reliably awake at 13:30 IST, which phase 3 has to answer.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_5a91c7e3
+kind: update
+occurred_at: 2026-08-31T15:05:00Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: description
+-->
+### Claude Code updated this ticket
+
+Reviewed the phase 2 branch and fixed eight findings. Three would have reached
+published output, and one of those changes how the curate step is built.
+
+**`clean_url` was rewriting URLs it had no business touching.** Every query was
+round-tripped through parse_qsl/urlencode, so TechCrunch's real og:image shape
+`?resize=1200,800` shipped as `?resize=1200%2C800` - ten of ten news items in
+the verification edition - and a valueless `?flag` became `?flag=`, a different
+query. These are contract strings read by an extension that cannot be hotfixed.
+The lesson generalises: a normaliser should be a no-op when it has nothing to
+normalise.
+
+**Link resolution and dedup are entangled, and the fix is a cache.** `build`
+was re-running the Product Hunt lookups over the network, and resolution ran
+before dedup - so a timeout at build time could change which items were in the
+edition, and the writer would get "no summary written" for an item they never
+saw. The first fix, moving resolution after dedup, was wrong and the tests
+caught it: a Show HN and the Product Hunt launch of the same product only
+collide once the launch points at the product's own URL, so dedup-first
+publishes the same product twice. Resolution still comes first; what makes it
+deterministic is `links.json`, written by `draft` beside the snapshots and
+reused by `build`. A build after a draft now makes no request at all. Recorded
+in the rule file, because the obvious "fix" is the wrong one.
+
+**A `null` summaries entry passed every check and then crashed the merge.** It
+is present, so the missing-item scan did not see it, and a guard meant to skip
+already-reported ids swallowed it - a traceback instead of the documented
+"nothing was written" refusal.
+
+The rest: an index entry with no `date` crashed the sort before the validator
+could report it; `--date` was never checked against the contract's pattern, so
+a malformed date exited with a traceback; `--cadence weekly` wrote every date
+in a week to the same `curation.json`, silently clobbering the first; a source
+missing from the relevance table was waved through instead of filtered; and the
+TechCrunch docstring claimed a signal merge that does not exist and should not.
+
+The suite is 229 tests, 80 on curate. All eleven behaviours were
+mutation-checked individually, with bytecode caches purged between runs - the
+first batch run reported failures that turned out to be stale `.pyc` files, and
+the clean run found two genuine gaps: nothing pinned the resolve-then-dedup
+order inside `prepare`, and nothing covered `--no-resolve-links`, which every
+other CLI test relies on to stay offline.
+
+Re-verified on the real week-36 snapshots with the network stubbed to raise
+during `build`. The only diffs against the pre-review edition are the nine
+un-re-encoded TechCrunch image URLs.
 <!-- /longclaw:event -->
