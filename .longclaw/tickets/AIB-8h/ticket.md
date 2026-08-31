@@ -8,7 +8,7 @@ priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-09-01T02:10:00Z
+updated_at: 2026-09-01T04:45:00Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -613,4 +613,36 @@ the log rather than silent - which matters once phase 3 runs it unattended.
 
 231 tests. Re-verified on the real week-36 snapshots with the network stubbed to
 raise during build; the edition is byte-identical to the previously verified one.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_b640d9a2
+kind: update
+occurred_at: 2026-09-01T04:45:00Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: description
+-->
+### Claude Code updated this ticket
+
+Phase 2 is merged to `main` as PR #7 (merge commit `adc5f90`). 231 tests pass on
+`main` and the content tree validates.
+
+Phase 3 is next, and two things found this round should shape it:
+
+- **There is no CI in this repo** - no `.github/workflows` at all - so nothing
+  re-verifies the suite on merge. That mattered here because the delegated
+  reviewer failed twice and the second review pass was done by hand. A test
+  workflow belongs early in phase 3, not late.
+- **`test_thumbnail` drives real headless Chrome** and timed out once under
+  load. It passes given time, but a scheduled job that runs the suite needs to
+  account for it.
+
+Phase 3 is also smaller than the original plan assumed: the entry point drives
+Claude Code through the `curate-edition` skill rather than reimplementing
+curation. The three open questions are unchanged - the newsletter URL, edition
+retention, and whether the iMac is reliably awake at 13:30 IST.
 <!-- /longclaw:event -->
