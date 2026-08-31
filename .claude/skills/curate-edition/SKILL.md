@@ -167,11 +167,13 @@ items link to the products rather than to Product Hunt.
   thin. It sits beside the raw snapshots, not in `content/`, because it is
   about the inputs.
 - **Only Product Hunt needs the network.** A launch's real website only exists
-  behind a `producthunt.com/r/` redirect, so the script follows it once per
-  launch. `--no-resolve-links` skips that, and the item keeps its launch page
-  as the destination.
-- **Re-running is safe.** The same snapshots and the same summaries produce a
-  byte-identical edition apart from `generated_at`, so a re-run diffs cleanly.
+  behind a `producthunt.com/r/` redirect, so `draft` follows it once per launch
+  and caches the answers in `links.json` beside the snapshots. `build` reuses
+  that cache, so it publishes the URLs you saw in `curation.json` and needs no
+  network at all. `--no-resolve-links` skips the lookups entirely, and the item
+  keeps its launch page as the destination.
+- **Re-running is safe.** The same snapshots, link cache and summaries produce
+  a byte-identical edition apart from `generated_at`, so a re-run diffs cleanly.
 - **`--cadence weekly`** reads the weekly newsletter snapshots instead of the
   daily ones, which is how an edition can be built from a past week's data.
 - This is the curation half of what `generate-newsletter-content` used to do

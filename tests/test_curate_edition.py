@@ -217,6 +217,20 @@ class UrlAndSlugTests(unittest.TestCase):
         self.assertEqual(adapters.clean_url("https://x.com/a?source=rss"),
                          "https://x.com/a?source=rss")
 
+    def test_a_query_with_nothing_to_strip_is_left_byte_for_byte(self):
+        # These end up in published `url` and `image.url` values, read by an
+        # extension that cannot be hotfixed, so re-encoding them is a contract
+        # change with no upside. The comma is the real TechCrunch og:image
+        # shape; "?flag" and "?flag=" are genuinely different queries.
+        for url in (
+            "https://techcrunch.com/a.jpg?resize=1200,800",
+            "https://x.com/s?q=hello%20world",
+            "https://x.com/a?flag",
+            "https://x.com/a?b=1&c=2",
+        ):
+            with self.subTest(url=url):
+                self.assertEqual(adapters.clean_url(url), url)
+
     def test_non_http_urls_are_refused(self):
         for bad in ("javascript:alert(1)", "", None, "ftp://x.com/a", "not a url"):
             with self.subTest(url=bad):
@@ -345,6 +359,12 @@ class SummariesTests(unittest.TestCase):
         ):
             with self.subTest(document=document):
                 self.assertEqual(summaries_mod.load(document)["a"]["summary"], "x")
+
+    def test_an_entry_written_as_null_is_fatal(self):
+        # It is present, so the missing-item scan does not see it; it must
+        # still be validated rather than skipped, or merge() crashes on it.
+        problems, _ = self.check({self.item_id: None})
+        self.assertTrue(any("must be an object" in p for p in problems), problems)
 
     def test_a_missing_item_is_fatal(self):
         problems, _ = self.check({})
@@ -481,6 +501,31 @@ class AssemblyTests(unittest.TestCase):
         # The index's own timestamp moves, because this run did curate.
         self.assertEqual(again["generated_at"], "2026-08-31T09:00:00Z")
 
+    def test_an_index_entry_with_no_date_does_not_crash_the_sort(self):
+        # A hand-edited index.json should be refused by the validator, which it
+        # cannot do if update_index raises while sorting first.
+        index = {"schema_version": 1, "generated_at": "x",
+                 "editions": [{"path": "editions/2026-08-30.json"}]}
+        updated = edition_mod.update_index(
+            index, edition_mod.build([], DATE, "2026-08-31T08:00:00Z"))
+        self.assertEqual(updated["editions"][0]["date"], DATE)
+
+    def test_a_malformed_date_is_refused_by_name(self):
+        for bad in ("31-08-2026", "20260824", "2026-13-01", "", None):
+            with self.subTest(date=bad):
+                with self.assertRaises(edition_mod.CurateError):
+                    edition_mod.parse_date(bad)
+
+    def test_two_dates_in_one_week_get_their_own_curation_request(self):
+        # Only the daily layout has a folder per date; under any other cadence
+        # the period folder covers a range, so the date must be in the name.
+        for cadence, expect_same in (("daily", False), ("weekly", True)):
+            with self.subTest(cadence=cadence):
+                first = edition_mod.day_path("d", "2026-08-24", "curation.json", cadence)
+                second = edition_mod.day_path("d", "2026-08-26", "curation.json", cadence)
+                self.assertNotEqual(first, second)
+                self.assertEqual(first.parent == second.parent, expect_same)
+
     def test_the_index_entry_points_at_the_file_it_names(self):
         document = edition_mod.build(
             [{"id": f"ph-a-{DATE}", "category": "launches", "hidden": False}],
@@ -495,6 +540,54 @@ class AssemblyTests(unittest.TestCase):
 # --------------------------------------------------------------------------
 # The two commands, end to end
 # --------------------------------------------------------------------------
+
+class LinkCacheTests(unittest.TestCase):
+    """Resolution runs before dedup, so the cache is what keeps it honest."""
+
+    def test_a_launch_and_its_show_hn_dedup_once_the_launch_is_resolved(self):
+        # Unresolved, the launch points at producthunt.com and the two look
+        # like different things. This is why resolution comes first.
+        raw = dict(ph=[ph_post()],
+                   hn=[hn_story(type="show_hn",
+                                title="Show HN: ChatCut, an AI video editor",
+                                url="https://chatcut.ai")])
+        offline, _ = relevance.apply(drafts_from(**raw))
+        self.assertEqual(len(offline), 2)
+
+        resolved = drafts_from(**raw)
+        links.resolve(resolved, follow_fn=lambda url: "https://chatcut.ai")
+        kept, rejected = relevance.apply(resolved)
+        self.assertEqual(len(kept), 1)
+        self.assertEqual(kept[0].source, "producthunt")
+        self.assertEqual(rejected[0]["reason"], "duplicate")
+
+    def test_a_cached_lookup_is_not_repeated(self):
+        drafts = drafts_from(ph=[ph_post()])
+        cache = {drafts[0].link_hint: "https://chatcut.ai"}
+
+        def explode(url):
+            raise AssertionError("the network was called for a cached hint")
+
+        self.assertEqual(links.resolve(drafts, cache, follow_fn=explode), 1)
+        self.assertEqual(drafts[0].item["url"], "https://chatcut.ai")
+
+    def test_a_failed_lookup_is_not_cached(self):
+        # A failure is a network condition, not a fact about the launch, so the
+        # next run should try again rather than inherit it.
+        drafts = drafts_from(ph=[ph_post()])
+        cache = {}
+        links.resolve(drafts, cache, follow_fn=lambda url: None)
+        self.assertEqual(cache, {})
+
+    def test_an_unknown_source_is_filtered_rather_than_waved_through(self):
+        # The drift test below is the real guard, but if a source ever slips
+        # past it, the strict vocabulary must be what it falls back to.
+        draft = drafts_from(gh=[gh_repo()])[0]
+        draft.item["source"] = "reddit"
+        draft.text = "a thread about sourdough starters"
+        self.assertNotIn("reddit", relevance.PREDICATES)
+        self.assertFalse(relevance.is_ai(draft))
+
 
 class CommandTests(unittest.TestCase):
     """A whole run against temp roots, with no network and no repo writes."""
@@ -527,13 +620,13 @@ class CommandTests(unittest.TestCase):
         for name, path in edition_mod.snapshot_paths(self.data_root, DATE, "daily").items():
             self.write(path, payload[name])
 
-    def run_cli(self, *argv, expect=0):
+    def run_cli(self, *argv, expect=0, resolve_links=False):
         out, err = io.StringIO(), io.StringIO()
+        flags = [] if resolve_links else ["--no-resolve-links"]
         with redirect_stdout(out), redirect_stderr(err):
-            code = cli.main(list(argv) + [
+            code = cli.main(list(argv) + flags + [
                 "--data-root", str(self.data_root),
                 "--content-root", str(self.content_root),
-                "--no-resolve-links",
             ])
         self.assertEqual(code, expect, msg=out.getvalue() + err.getvalue())
         return out.getvalue() + err.getvalue()
@@ -607,6 +700,80 @@ class CommandTests(unittest.TestCase):
         self.run_cli("build", "--date", DATE,
                      "--summaries", self.summaries_for([d.id for d in drafts]))
         self.assertEqual(len(self.edition()["items"]), 4)
+
+    def test_a_launch_and_its_show_hn_dedup_through_the_cache(self):
+        # Pins the order inside prepare(): links are resolved before dedup, or
+        # the two never collide and the edition ships the same product twice.
+        # Only the cache is applied here, so this needs no network.
+        self.write_snapshots(
+            ph=[ph_post()],
+            hn=[hn_story(type="show_hn", title="Show HN: ChatCut, an AI video editor",
+                         url="https://chatcut.ai")])
+        self.write(edition_mod.day_path(self.data_root, DATE, "links.json", "daily"),
+                   {"generated_at": "2026-08-31T08:00:00Z",
+                    "resolved": {"https://www.producthunt.com/r/ABC123":
+                                 "https://chatcut.ai"}})
+
+        self.run_cli("draft", "--date", DATE)
+        items = self.curation()["items"]
+        self.assertEqual([i["source"] for i in items], ["producthunt"])
+        self.assertEqual(items[0]["url"], "https://chatcut.ai")
+
+        rejected = json.loads(edition_mod.day_path(
+            self.data_root, DATE, "rejected.json", "daily").read_text())["rejected"]
+        self.assertEqual(rejected[0]["reason"], "duplicate")
+
+    def test_no_resolve_links_really_makes_no_request(self):
+        # Every other CLI test relies on this flag to stay offline, so if it
+        # ever stops working the suite would quietly start calling Product Hunt.
+        real_follow = links.follow
+        self.addCleanup(setattr, links, "follow", real_follow)
+
+        def explode(url, **kwargs):
+            raise AssertionError("--no-resolve-links still went to the network")
+
+        links.follow = explode
+        self.run_cli("draft", "--date", DATE)
+        published = next(i for i in self.curation()["items"] if i["source"] == "producthunt")
+        self.assertEqual(published["url"], "https://www.producthunt.com/products/chatcut")
+
+    def test_draft_fills_the_link_cache_and_build_spends_no_network(self):
+        # The whole point of the cache: build publishes the URL the writer saw
+        # in curation.json, without asking the network again and maybe getting
+        # a different answer.
+        real_follow = links.follow
+        self.addCleanup(setattr, links, "follow", real_follow)
+
+        links.follow = lambda url, **kwargs: "https://chatcut.ai"
+        self.run_cli("draft", "--date", DATE, resolve_links=True)
+
+        cache_path = edition_mod.day_path(self.data_root, DATE, "links.json", "daily")
+        self.assertTrue(cache_path.exists())
+        self.assertIn("https://chatcut.ai",
+                      json.loads(cache_path.read_text())["resolved"].values())
+
+        def explode(url, **kwargs):
+            raise AssertionError("build went to the network for a cached hint")
+
+        links.follow = explode
+        ids = [i["id"] for i in self.curation()["items"]]
+        self.run_cli("build", "--date", DATE, "--summaries", self.summaries_for(ids),
+                     resolve_links=True)
+        published = next(i for i in self.edition()["items"] if i["source"] == "producthunt")
+        self.assertEqual(published["url"], "https://chatcut.ai")
+
+    def test_a_malformed_date_is_reported_not_raised(self):
+        output = self.run_cli("draft", "--date", "31-08-2026", expect=1)
+        self.assertIn("not a YYYY-MM-DD date", output)
+
+    def test_an_entry_written_as_null_publishes_nothing(self):
+        self.run_cli("draft", "--date", DATE)
+        ids = [i["id"] for i in self.curation()["items"]]
+        output = self.run_cli("build", "--date", DATE,
+                              "--summaries", self.summaries_for(ids, **{ids[0]: None}),
+                              expect=1)
+        self.assertIn("must be an object", output)
+        self.assertFalse((self.content_root / "editions" / f"{DATE}.json").exists())
 
     def test_the_index_is_updated_to_match(self):
         self.run_cli("draft", "--date", DATE)
@@ -713,6 +880,11 @@ class DriftTests(unittest.TestCase):
         # items silently never reach an edition.
         self.assertEqual(set(registry.names()), set(adapters.ADAPTERS))
         self.assertEqual(set(registry.names()), set(adapters.ORDER))
+
+    def test_every_source_has_a_relevance_predicate(self):
+        # A source with no entry would skip the editorial line entirely, and
+        # nothing would be logged to rejected.json to say so.
+        self.assertEqual(set(relevance.PREDICATES), set(registry.names()))
 
     def test_the_source_names_are_the_contracts_source_names(self):
         self.assertEqual(set(adapters.PREFIXES), set(contract.SOURCES))

@@ -96,13 +96,16 @@ def clean_url(url):
     parts = urllib.parse.urlsplit(url.strip())
     if parts.scheme not in ("http", "https") or not parts.netloc:
         return None
-    kept = [
-        (k, v) for k, v in urllib.parse.parse_qsl(parts.query, keep_blank_values=True)
-        if k.lower() not in TRACKING_PARAMS
-    ]
+    pairs = urllib.parse.parse_qsl(parts.query, keep_blank_values=True)
+    kept = [(k, v) for k, v in pairs if k.lower() not in TRACKING_PARAMS]
+    # Only rebuild the query when something actually went. Round-tripping it
+    # otherwise rewrites URLs that were already clean - "?resize=1200,800"
+    # becomes "?resize=1200%2C800", and a valueless "?flag" becomes "?flag=",
+    # which is a different query. These strings are a published contract read
+    # by an extension that cannot be hotfixed.
+    query = parts.query if len(kept) == len(pairs) else urllib.parse.urlencode(kept)
     return urllib.parse.urlunsplit((
-        parts.scheme, parts.netloc, parts.path,
-        urllib.parse.urlencode(kept), parts.fragment,
+        parts.scheme, parts.netloc, parts.path, query, parts.fragment,
     ))
 
 
@@ -323,8 +326,14 @@ def from_techcrunch(envelope, date, used=None):
 
     The snapshot's `hackernews` block is the fetcher's ranking aid, not a
     signal worth showing - a story with 7 points would render a number that
-    means nothing. When the same article is genuinely on the HN front page it
-    arrives through the HN snapshot too, and dedup merges those points across.
+    means nothing - so a news card carries no signals at all, which is what
+    spec section 4 asks for (TechCrunch's signal is the publish date).
+
+    When the same article is also an HN front-page story it arrives through the
+    HN snapshot too. Dedup keeps this copy, for the image, byline and reading
+    time the HN row does not have, and drops the other outright: the HN points
+    are not merged in, because the comment count beside a TechCrunch source
+    name would be counting a discussion happening somewhere else.
     """
     used = used if used is not None else set()
     drafts, dropped = [], []

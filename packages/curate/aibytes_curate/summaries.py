@@ -127,9 +127,9 @@ def check(summaries, drafts, tag_names):
         problems.append(f"{extra}: not an item in this edition")
 
     for item_id in wanted:
-        entry = summaries.get(item_id)
-        if entry is None:
-            continue
+        if item_id not in summaries:
+            continue  # already reported as missing above
+        entry = summaries[item_id]
         if not isinstance(entry, dict):
             problems.append(f"{item_id}: must be an object with summary and tags")
             continue

@@ -53,6 +53,16 @@ reimplemented. Two are deliberately different:
 Every drop is logged to `rejected.json` with a reason. That file sits beside the
 raw snapshots, not in `content/`, because it is about the inputs.
 
+## Resolution happens before dedup, so it goes through a cache
+
+A Show HN and the Product Hunt launch of the same product only collide once the
+launch points at the product's own URL rather than its launch page - so links
+must be resolved before `relevance.apply`. That would otherwise make which items
+are in the edition depend on a network call. `draft` resolves once and writes
+`links.json` beside the snapshots; `build` reuses it. Never move the resolution
+after dedup to "make it deterministic" - the cache is what makes it
+deterministic, and moving it publishes the same product twice.
+
 ## Nothing is written until everything validates
 
 The edition and the index are assembled and checked in memory, then written

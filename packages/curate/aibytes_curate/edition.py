@@ -21,10 +21,27 @@ DEFAULT_CADENCE = "daily"
 
 CURATION_FILENAME = "curation.json"
 REJECTED_FILENAME = "rejected.json"
+LINKS_FILENAME = "links.json"
 
 
 class CurateError(Exception):
     """Something is wrong with the inputs or the result; nothing was written."""
+
+
+def parse_date(date):
+    """The edition date as a date object, or CurateError.
+
+    Checked against the contract's own pattern rather than left to
+    fromisoformat, which on 3.11+ also accepts compact forms like 20260824 -
+    those would pass here and only fail at the end of build, when the item ids
+    built from them are rejected.
+    """
+    if not (isinstance(date, str) and contract.DATE_RE.match(date)):
+        raise CurateError(f"--date {date!r} is not a YYYY-MM-DD date")
+    try:
+        return dt.date.fromisoformat(date)
+    except ValueError as exc:
+        raise CurateError(f"--date {date!r} is not a real date: {exc}") from exc
 
 
 def now_stamp(now=None):
@@ -43,7 +60,7 @@ def snapshot_paths(data_root, date, cadence=DEFAULT_CADENCE):
     Derived from the fetchers' own SUBPATH and FILENAME rather than restated,
     so curate always reads exactly where fetch writes.
     """
-    as_of = dt.date.fromisoformat(date)
+    as_of = parse_date(date)
     return {
         name: layout.snapshot_path(
             data_root, as_of, cadence, module.SUBPATH, module.FILENAME,
@@ -54,8 +71,17 @@ def snapshot_paths(data_root, date, cadence=DEFAULT_CADENCE):
 
 
 def day_path(data_root, date, filename, cadence=DEFAULT_CADENCE):
-    """A file beside the day's snapshots - the curation request, or rejected.json."""
-    as_of = dt.date.fromisoformat(date)
+    """A file beside the day's snapshots - the curation request, or rejected.json.
+
+    Only the daily layout gets a folder per date. Under any other cadence the
+    period folder covers a range, so the date goes in the filename instead -
+    otherwise drafting two dates from one week would silently overwrite the
+    first date's curation request and rejection log.
+    """
+    as_of = parse_date(date)
+    if cadence != "daily":
+        stem, _, suffix = filename.rpartition(".")
+        filename = f"{stem}-{date}.{suffix}"
     return layout.snapshot_path(data_root, as_of, cadence, (), filename, repo_root=REPO_ROOT)
 
 
@@ -75,6 +101,29 @@ def load_snapshots(data_root, date, cadence=DEFAULT_CADENCE):
         except ValueError as exc:
             raise CurateError(f"{path} is not valid JSON: {exc}") from exc
     return snapshots, missing
+
+
+def read_links(path):
+    """The day's resolved-link map, or an empty one.
+
+    Cached beside the snapshots because it is a fetched fact about the day, the
+    same kind of thing a snapshot is - which is what lets `build` publish the
+    URLs `draft` resolved rather than asking the network again and maybe
+    getting a different answer.
+    """
+    path = pathlib.Path(path)
+    if not path.exists():
+        return {}
+    try:
+        document = json.loads(path.read_text())
+    except ValueError:
+        return {}  # a corrupt cache is a slow run, not a failed one
+    resolved = document.get("resolved") if isinstance(document, dict) else None
+    return dict(resolved) if isinstance(resolved, dict) else {}
+
+
+def links_document(generated_at, cache):
+    return {"generated_at": generated_at, "resolved": dict(sorted(cache.items()))}
 
 
 def read_json(path, what):
@@ -170,7 +219,9 @@ def update_index(index, edition):
     ]
     editions = sorted(
         others + [entry],
-        key=lambda e: e.get("date") if isinstance(e, dict) else "",
+        # A dict with no date sorts last rather than raising; validate_index
+        # is what reports it, and it cannot do that if we crash first.
+        key=lambda e: (e.get("date") or "") if isinstance(e, dict) else "",
         reverse=True,
     )
     return {

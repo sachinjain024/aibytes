@@ -75,13 +75,19 @@ def _producthunt_is_ai(draft):
     return bool(keywords.DOMAINS.search(host))
 
 
-# Source -> the predicate that decides whether it is AI. None means the feed is
-# already topic-scoped at the source and its own judgement stands.
+def _topic_scoped(draft):
+    """The feed is already scoped at the source, so its judgement stands."""
+    return True
+
+
+# Source -> the predicate that decides whether it is AI. Every source has an
+# entry, and `_topic_scoped` is spelled out rather than left as None: a missing
+# key has to mean "nobody decided", not "let it through".
 PREDICATES = {
     "producthunt": _producthunt_is_ai,
     "hackernews": lambda draft: hackernews.is_ai_story(draft.raw),
     "github": lambda draft: github.is_ai_repo(draft.raw),
-    "techcrunch": None,
+    "techcrunch": _topic_scoped,
 }
 
 # Why an item was dropped, per source, for the rejection log.
@@ -93,10 +99,14 @@ NOT_AI_DETAIL = {
 
 
 def is_ai(draft):
-    """True when this source's own predicate says the item is AI."""
-    predicate = PREDICATES.get(draft.source)
-    if predicate is None:
-        return True
+    """True when this source's own predicate says the item is AI.
+
+    A source with no entry in PREDICATES falls back to the shared vocabulary
+    rather than being waved through - a new fetcher must not bypass the
+    editorial line just because nobody added it here. A drift test catches the
+    omission at test time; this is what happens if one ever slips past it.
+    """
+    predicate = PREDICATES.get(draft.source, _producthunt_is_ai)
     try:
         return bool(predicate(draft))
     except (KeyError, TypeError, AttributeError):

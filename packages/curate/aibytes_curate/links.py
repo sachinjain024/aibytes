@@ -11,6 +11,11 @@ suppressed, read `Location`, done. No page to scrape and no HTML to parse.
 This is the only part of curate that touches the network, so it is isolated
 here and skippable. When it is off, or when a lookup fails, the item keeps the
 launch page as its `url` - a correct destination, just not the best one.
+
+Lookups are separated from applying them so a resolved map can be cached beside
+the day's snapshots. That is what lets `build` publish the same URLs the writer
+saw in `curation.json` without repeating the requests, and lets it run with no
+network at all once `draft` has been through.
 """
 
 import urllib.error
@@ -64,19 +69,36 @@ def follow(url, timeout=TIMEOUT, user_agent=None):
     return None if host in REDIRECT_HOSTS else resolved
 
 
-def resolve(drafts, follow_fn=None):
-    """Upgrade each draft's `url` to the product's own site where it resolves.
+def lookup(drafts, cache, follow_fn=None):
+    """Resolve the hints not already in `cache`, adding successes to it.
 
-    Returns the number upgraded. `follow_fn` is the seam the tests use; the
-    default is the real request.
+    A failed lookup is deliberately not cached: it is a network condition, not
+    a fact about the launch, and the next run should try again.
     """
     follow_fn = follow_fn or follow
+    for draft in drafts:
+        hint = draft.link_hint
+        if hint and hint not in cache:
+            resolved = follow_fn(hint)
+            if resolved:
+                cache[hint] = resolved
+    return cache
+
+
+def apply_cache(drafts, cache):
+    """Upgrade each draft's `url` from an already-resolved map."""
     upgraded = 0
     for draft in drafts:
-        if not draft.link_hint:
-            continue
-        resolved = follow_fn(draft.link_hint)
+        resolved = cache.get(draft.link_hint) if draft.link_hint else None
         if resolved and resolved != draft.item["url"]:
             draft.item["url"] = resolved
             upgraded += 1
     return upgraded
+
+
+def resolve(drafts, cache=None, follow_fn=None):
+    """Look up whatever is missing, then apply the whole map. Returns the
+    number of urls upgraded; `cache` is updated in place."""
+    cache = {} if cache is None else cache
+    lookup(drafts, cache, follow_fn)
+    return apply_cache(drafts, cache)

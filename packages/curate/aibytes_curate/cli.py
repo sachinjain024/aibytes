@@ -28,10 +28,36 @@ def prepare(args):
             f"({args.cadence}); run the fetchers first")
 
     drafts, unusable = adapters.adapt_all(snapshots, args.date)
-    if not args.no_resolve_links:
-        links.resolve([d for d in drafts if d.link_hint])
+    # Links are resolved before dedup, because a Show HN and the Product Hunt
+    # launch of the same product only collide once the launch points at the
+    # product's own URL rather than at its launch page. That would make
+    # membership depend on a network call, which is exactly what the cache is
+    # for: draft resolves once and writes the map, build reuses it, and the two
+    # cannot disagree about which items are in the edition.
+    _resolve_links(args, drafts)
     kept, rejected = relevance.apply(drafts)
     return kept, unusable + rejected, missing
+
+
+def _resolve_links(args, drafts):
+    """Upgrade Product Hunt launches to their own site, through the day's cache.
+
+    `draft` fills the cache; `build` reuses it, so the published URL is the one
+    the writer saw in curation.json, dedup reaches the same answer both times,
+    and a build after a draft needs no network at all. A hint the cache does
+    not know is still looked up, so `build` on its own still works.
+    """
+    path = edition_mod.day_path(args.data_root, args.date,
+                                edition_mod.LINKS_FILENAME, args.cadence)
+    cache = edition_mod.read_links(path)
+    before = dict(cache)
+    if not args.no_resolve_links:
+        links.lookup(drafts, cache)
+    upgraded = links.apply_cache(drafts, cache)
+    if cache != before:
+        edition_mod.write_json(path, edition_mod.links_document(
+            edition_mod.now_stamp(), cache))
+    return upgraded
 
 
 def cmd_draft(args):

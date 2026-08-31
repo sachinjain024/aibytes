@@ -9,7 +9,7 @@ Stdlib only, like the rest of this repo's Python.
 ## Two commands, and Claude in the middle
 
 ```
-draft   snapshots             -> curation.json + rejected.json
+draft   snapshots             -> curation.json + rejected.json + links.json
         Claude writes summaries.json against curation.json
 build   snapshots + that file -> content/editions/DATE.json + index.json
 ```
@@ -34,7 +34,7 @@ draft cannot change what gets published.
 | `adapters.py` | Four raw snapshot shapes into the contract's one shape: ids, category, images, signals, meta |
 | `relevance.py` | Which items are in the edition, and why the rest are not: the AI filter and dedup |
 | `summaries.py` | The handover to Claude: the curation request, and the checks on what comes back |
-| `links.py` | Product Hunt's `/r/` redirect into the product's real URL. The only network call |
+| `links.py` | Product Hunt's `/r/` redirect into the product's real URL, and the day's resolved-link cache. The only network call |
 | `edition.py` | Counts, `index.json`, carrying a hide forward, and reading and writing files |
 | `cli.py` | The two commands |
 
@@ -55,5 +55,13 @@ draft cannot change what gets published.
   is fetched from TechCrunch's AI category and is not keyword-filtered on top;
   Product Hunt has no topic filter at all and is where the filter does its
   work. See the module docstring in `relevance.py`.
+- **Links are resolved before dedup, through a cache.** A Show HN and the
+  Product Hunt launch of the same product only collide once the launch points
+  at the product's own URL, so resolution has to come first - which would make
+  membership depend on a network call. `draft` resolves once and writes
+  `links.json` beside the snapshots; `build` reuses it, so the two cannot
+  disagree about which items are in the edition, and a build after a draft
+  needs no network at all. A failed lookup is never cached: it is a network
+  condition, not a fact about the launch.
 - **Re-running is byte-identical** apart from `generated_at`, so a re-run
   diffs cleanly.
