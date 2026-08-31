@@ -8,7 +8,7 @@ priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-08-31T10:48:26Z
+updated_at: 2026-09-01T02:10:00Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -34,6 +34,7 @@ Locked in, so later phases do not reopen them:
 | aiBytes-hub | **Out of scope entirely.** A separate project; not referenced anywhere in this repo unless explicitly called out |
 | Licence | **None for now.** Default copyright applies; no reuse rights granted. The README says so plainly rather than implying "all rights reserved" was considered. Newsletter issues, social copy, thumbnails, and the brand/Ledger system would stay reserved under any licence that lands later |
 | Tag vocabulary | **49 tags**, in `content/tags.json` grouped as spec §4. Near-synonyms merged, the subjective Format tags cut, four gaps added. Items carry display names; the file also carries each tag's URL slug so the app and the extension cannot disagree |
+| Daily runner | **A scheduled Claude job**, not a Python script that shells out to an LLM. `launchd` starts Claude Code, which runs `curate-edition`: `draft`, write the summaries, `build`. The scripts never call an LLM themselves, which is why they stay testable offline |
 | Commit identity | **`The Infin8y <the.infin8y@gmail.com>`**, set as repo-local git config. Existing history keeps the personal address and is **not** rewritten, including when the repo goes public |
 
 ## Where things live
@@ -160,14 +161,14 @@ in the package rather than forked here.
 
 ### Phase 2 — The curate step
 
-- [ ] Split curation out of `generate-newsletter-content` into a `curate-edition` skill
-- [ ] Dedup across sources, apply the relevance filter, assign one category per item
-- [ ] Tag from the fixed list in `tags.json` only, 1–4 tags per item
-- [ ] Write the one-line summary in Ledger's voice (plain, factual, no hype)
-- [ ] Resolve card images: PH logo, GitHub avatar, TechCrunch og:image, HN none
-- [ ] Log rejected items with reasons to `rejected.json`
-- [ ] Support `--date` and `--output-root`, per the skill-script convention
-- [ ] Cover it in `tests/test_curate_edition.py`
+- [x] Split curation out of `generate-newsletter-content` into a `curate-edition` skill
+- [x] Dedup across sources, apply the relevance filter, assign one category per item
+- [x] Tag from the fixed list in `tags.json` only, 1–4 tags per item
+- [x] Write the one-line summary in Ledger's voice (plain, factual, no hype)
+- [x] Resolve card images: PH logo, GitHub avatar, TechCrunch og:image, HN none
+- [x] Log rejected items with reasons to `rejected.json`
+- [x] Support `--date` and `--output-root`, per the skill-script convention
+- [x] Cover it in `tests/test_curate_edition.py`
 
 ### Phase 3 — The daily runner
 
@@ -439,4 +440,177 @@ shape and validate, and hide/unhide still round-trips on them.
 Merged to `main` as PR #6. Phase 1 is done; phase 2 (the `curate-edition` skill)
 is next, and it now has a contract that checks its output rather than trusting
 it.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_3d7e1a25
+kind: update
+occurred_at: 2026-08-31T14:20:00Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: description
+  - field: checklist
+-->
+### Claude Code updated this ticket
+
+Phase 2 is complete. `packages/curate` plus the `curate-edition` skill turn a
+day's raw snapshots into one published edition, on branch
+`aib-8h-phase-2-curate-edition` (PR #7).
+
+The shape of the split was the decision that drove everything else. Claude is
+the caller, not something the script invokes: the daily job runs the skill,
+which runs `draft`, writes the copy, then runs `build`. So no Python here ever
+calls an LLM, the whole pipeline stays testable offline, and the voice and
+tagging rules live in SKILL.md where they can be edited rather than in a string
+literal. Recorded in the decisions table, since phase 3 inherits it.
+
+`build` re-derives its items from the snapshots rather than reading
+curation.json, so the snapshots stay the single source of truth and a stale
+draft cannot change what gets published.
+
+What the work turned up:
+
+- **The relevance filter should not be uniform.** Running one AI vocabulary
+  over all four sources dropped two real TechCrunch stories - "Amazon just
+  tripled its order of Nvidia chips", "Gamma acquires design startup Lica" -
+  because their headlines do not use our words. TechCrunch is fetched from
+  TechCrunch's own artificial-intelligence category, so the source has already
+  made the call, and overruling it with a worse filter is not an improvement.
+  Each source now runs its own fetcher's predicate, imported rather than
+  restated. Product Hunt is the one source with no topic filter at fetch
+  (`featured: true` only), and the one where the filter does real work.
+- **A Product Hunt launch can link to the product after all.** The newsletter
+  skill documents scraping the launch page because the `/r/` redirect "returns
+  403 to curl". It does not - it answers 301 with the real URL, to our own user
+  agent. One request per launch, no HTML parsing, and the cards now point at
+  x1.new and akta.pro rather than back at Product Hunt.
+- **A hide has to survive a re-curate.** Re-running a date rebuilds items from
+  snapshots that know nothing about an editorial decision, so hidden.json is
+  applied to the new items. If a logged hide names an item the run no longer
+  produces, `build` refuses rather than publishing a tree where hidden.json
+  describes an item that is not there.
+- **Using the skill found a gap in its own instructions.** HN items carry only
+  a title as source text, so "write from the source's facts" and "never restate
+  the title" pull against each other. SKILL.md now says how to resolve that,
+  and that a flat line beats a confident wrong one.
+
+Verified end to end on the real week-36 snapshots with the summaries written by
+hand against the skill's rules: 35 raw items in, one rejected as not-AI, 34
+published across all four categories, the tree valid, hide/unhide round-tripping
+with counts and the index total following it down and back, and a re-run
+byte-identical apart from `generated_at`.
+
+The suite is 214 tests, 65 new. They were mutation-checked rather than assumed:
+filing Show HN as a thread, counting hidden items, dropping the hide
+carry-forward, making dedup blind to a `www.` prefix, accepting a tag outside
+tags.json, and keyword-filtering TechCrunch are each caught by a named test.
+
+Two things deliberately not done. `generate-newsletter-content` is untouched:
+its curation picks a week's shortlist from raw `data/`, and removing that before
+phase 5 gives it edition JSON to read would break the weekly issue, so rewiring
+it stays phase 5 as the checklist has it. And `content/editions/` stays empty -
+committing a real edition is the daily runner's job in phase 3.
+
+Phase 3 is next, and it is now a smaller job than it looked: the entry point
+drives Claude Code through this skill rather than reimplementing curation.
+Three open questions are unchanged - the newsletter URL, edition retention, and
+whether the iMac is reliably awake at 13:30 IST, which phase 3 has to answer.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_5a91c7e3
+kind: update
+occurred_at: 2026-08-31T15:05:00Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: description
+-->
+### Claude Code updated this ticket
+
+Reviewed the phase 2 branch and fixed eight findings. Three would have reached
+published output, and one of those changes how the curate step is built.
+
+**`clean_url` was rewriting URLs it had no business touching.** Every query was
+round-tripped through parse_qsl/urlencode, so TechCrunch's real og:image shape
+`?resize=1200,800` shipped as `?resize=1200%2C800` - ten of ten news items in
+the verification edition - and a valueless `?flag` became `?flag=`, a different
+query. These are contract strings read by an extension that cannot be hotfixed.
+The lesson generalises: a normaliser should be a no-op when it has nothing to
+normalise.
+
+**Link resolution and dedup are entangled, and the fix is a cache.** `build`
+was re-running the Product Hunt lookups over the network, and resolution ran
+before dedup - so a timeout at build time could change which items were in the
+edition, and the writer would get "no summary written" for an item they never
+saw. The first fix, moving resolution after dedup, was wrong and the tests
+caught it: a Show HN and the Product Hunt launch of the same product only
+collide once the launch points at the product's own URL, so dedup-first
+publishes the same product twice. Resolution still comes first; what makes it
+deterministic is `links.json`, written by `draft` beside the snapshots and
+reused by `build`. A build after a draft now makes no request at all. Recorded
+in the rule file, because the obvious "fix" is the wrong one.
+
+**A `null` summaries entry passed every check and then crashed the merge.** It
+is present, so the missing-item scan did not see it, and a guard meant to skip
+already-reported ids swallowed it - a traceback instead of the documented
+"nothing was written" refusal.
+
+The rest: an index entry with no `date` crashed the sort before the validator
+could report it; `--date` was never checked against the contract's pattern, so
+a malformed date exited with a traceback; `--cadence weekly` wrote every date
+in a week to the same `curation.json`, silently clobbering the first; a source
+missing from the relevance table was waved through instead of filtered; and the
+TechCrunch docstring claimed a signal merge that does not exist and should not.
+
+The suite is 229 tests, 80 on curate. All eleven behaviours were
+mutation-checked individually, with bytecode caches purged between runs - the
+first batch run reported failures that turned out to be stale `.pyc` files, and
+the clean run found two genuine gaps: nothing pinned the resolve-then-dedup
+order inside `prepare`, and nothing covered `--no-resolve-links`, which every
+other CLI test relies on to stay offline.
+
+Re-verified on the real week-36 snapshots with the network stubbed to raise
+during `build`. The only diffs against the pre-review edition are the nine
+un-re-encoded TechCrunch image URLs.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8c2f4b17
+kind: update
+occurred_at: 2026-09-01T02:10:00Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: description
+-->
+### Claude Code updated this ticket
+
+Second review pass, this time over the fixes themselves. The delegated reviewer
+failed twice on this branch - an API error when the machine slept, then a stall -
+so this was a hand review of the fix commit.
+
+Three issues, and the first is worth remembering: **the fix commit reintroduced
+the defect class it had just removed.** Round one fixed two crashes where a
+clean refusal was intended (a dateless index entry, a malformed --date). The
+link cache that round one added to fix a different finding validated that its
+`resolved` key was a dict but not what was inside it - so a hand-edited value
+became an item's `url` and dedup raised an AttributeError. New code written in a
+hurry to fix old code does not inherit the old code's lessons; every new file
+that reads something off disk needs the same "refuse, do not crash" pass.
+
+The other two: `prepare`'s docstring still claimed "No writes" after it started
+writing the cache, and the resolved-link count was computed and discarded.
+`draft` now reports it, so the one network call the pipeline makes is visible in
+the log rather than silent - which matters once phase 3 runs it unattended.
+
+231 tests. Re-verified on the real week-36 snapshots with the network stubbed to
+raise during build; the edition is byte-identical to the previously verified one.
 <!-- /longclaw:event -->

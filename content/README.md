@@ -17,5 +17,8 @@ which also holds the validator:
 python3 packages/feed-schema/validate.py
 ```
 
-`editions/` and `index.json` are empty until the daily runner lands (AIB-8h
-phase 3). `tags.json` is real now — it is what the curate step tags from.
+The curate step that writes `editions/` and `index.json` exists now - it is
+`packages/curate`, run through the [`curate-edition`](../.claude/skills/curate-edition)
+skill. They stay empty here until the daily runner starts committing an edition
+a day (AIB-8h phase 3). `tags.json` is real now: it is what the curate step
+tags from, and the only vocabulary it accepts.

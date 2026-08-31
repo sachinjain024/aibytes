@@ -1,0 +1,9 @@
+{
+  "name": "@aibytes/curate",
+  "private": true,
+  "version": "0.0.0",
+  "description": "The curate step: one day's raw source snapshots become one published edition. Dedup, the relevance filter, category, card images, and the contract handling around the summaries and tags Claude writes.",
+  "scripts": {
+    "test": "cd ../.. && python3 -m unittest tests.test_curate_edition -v"
+  }
+}
