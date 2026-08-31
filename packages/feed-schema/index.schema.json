@@ -15,7 +15,7 @@
     "generated_at": {
       "type": "string",
       "format": "date-time",
-      "description": "UTC timestamp of the run that last rewrote this index."
+      "description": "UTC timestamp of the curate run that last changed which editions exist. A hide rewrites this file to correct a total but does not touch this, because nothing was curated."
     },
     "editions": {
       "type": "array",

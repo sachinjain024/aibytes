@@ -23,6 +23,11 @@ sys.path.insert(0, str(REPO_ROOT / "packages" / "fetchers"))
 import validate as contract
 from aibytes_fetchers import registry
 
+try:
+    from jsonschema import Draft202012Validator
+except ImportError:  # not a dependency - this repo's Python is stdlib only
+    Draft202012Validator = None
+
 PUBLISHED_URL = "https://sachinjain024.github.io/aibytes/"
 
 
@@ -155,6 +160,19 @@ class TestValidatorMatchesSchemas(unittest.TestCase):
             self.hidden["properties"]["hidden"]["items"]["properties"]["id"]["pattern"],
             contract.ID_RE.pattern,
         )
+        self.assertEqual(self.edition["$defs"]["httpUrl"]["pattern"], contract.URL_RE.pattern)
+
+    def test_every_date_pattern_agrees(self):
+        # Three files carry a date, and all three must mean the same thing.
+        for schema, pattern in (
+            (self.edition, self.edition["properties"]["date"]["pattern"]),
+            (self.index,
+             self.index["properties"]["editions"]["items"]["properties"]["date"]["pattern"]),
+            (self.hidden,
+             self.hidden["properties"]["hidden"]["items"]["properties"]["edition_date"]["pattern"]),
+        ):
+            with self.subTest(schema=schema["title"]):
+                self.assertEqual(pattern, contract.DATE_RE.pattern)
 
     def test_caps_agree(self):
         properties = self.item["properties"]
@@ -291,10 +309,14 @@ class TestValidateEdition(unittest.TestCase):
                 with self.assertRaises(contract.FeedValidationError):
                     contract.validate_edition(edition(items=[item(image=bad)]))
 
-    def test_signals_are_omitted_rather_than_empty(self):
-        with self.assertRaises(contract.FeedValidationError) as ctx:
-            contract.validate_edition(edition(items=[item(signals={})]))
-        self.assertIn("omitted rather than empty", str(ctx.exception))
+    def test_signals_and_meta_are_omitted_rather_than_empty(self):
+        # Both are optional, so an empty object is a producer slip that would
+        # show up as noise in the diff on every re-run.
+        for key in ("signals", "meta"):
+            with self.subTest(key=key):
+                with self.assertRaises(contract.FeedValidationError) as ctx:
+                    contract.validate_edition(edition(items=[item(**{key: {}})]))
+                self.assertIn(f"{key} must be omitted rather than empty", str(ctx.exception))
 
     def test_rejects_unknown_signal_and_meta_keys(self):
         with self.assertRaises(contract.FeedValidationError):
@@ -462,6 +484,28 @@ class TestValidateContentRoot(unittest.TestCase):
             contract.validate_content_root(self.root)
         self.assertIn("counts sum to 1", str(ctx.exception))
 
+    def test_a_path_pointing_at_the_wrong_edition_is_caught(self):
+        # `path` is what a consumer dereferences, so a wrong one is a 404 in
+        # the app even though every file is individually valid.
+        self.write("editions/2026-08-26.json", edition(
+            date="2026-08-26",
+            generated_at="2026-08-26T08:04:12Z",
+            items=[item(id="ph-chatcut-2026-08-26")]))
+        newer = dict(index()["editions"][0], path="editions/2026-08-26.json")
+        older = {"date": "2026-08-26", "path": "editions/2026-08-26.json",
+                 "total": 1, "generated_at": "2026-08-26T08:04:12Z"}
+        self.write("index.json", index(editions=[newer, older]))
+        with self.assertRaises(contract.FeedValidationError) as ctx:
+            contract.validate_content_root(self.root)
+        self.assertIn("that edition is at editions/2026-08-27.json", str(ctx.exception))
+
+    def test_a_path_pointing_at_nothing_is_caught(self):
+        entry = dict(index()["editions"][0], path="editions/nope.json")
+        self.write("index.json", index(editions=[entry]))
+        with self.assertRaises(contract.FeedValidationError) as ctx:
+            contract.validate_content_root(self.root)
+        self.assertIn("path is 'editions/nope.json'", str(ctx.exception))
+
     def test_a_stale_generated_at_is_caught(self):
         entry = dict(index()["editions"][0], generated_at="2026-08-27T23:59:00Z")
         self.write("index.json", index(editions=[entry]))
@@ -505,6 +549,98 @@ class TestValidateContentRoot(unittest.TestCase):
         with self.assertRaises(contract.FeedValidationError) as ctx:
             contract.validate_content_root(self.root)
         self.assertIn("tags.json: missing", str(ctx.exception))
+
+
+@unittest.skipUnless(Draft202012Validator, "jsonschema is not installed")
+class TestSchemasAgainstARealEngine(unittest.TestCase):
+    """Everything else here exercises the hand-written validator.
+
+    jsonschema is deliberately not a dependency, so these skip when it is
+    absent. They cover the two things the hand-written validator cannot tell us
+    about itself: that the schema files are well-formed at all, and that the
+    validator is never *laxer* than the contract of record. Stricter is fine and
+    expected - the cross-field invariants are the whole reason it exists.
+    """
+
+    def cases(self):
+        """(label, schema, validator, document, is_valid) - documents of both kinds."""
+        return [
+            ("a well-formed edition", "edition", contract.validate_edition,
+             edition(), True),
+            ("an item missing a key", "edition", contract.validate_edition,
+             edition(items=[{k: v for k, v in item().items() if k != "url"}]), False),
+            ("an unknown item key", "edition", contract.validate_edition,
+             edition(items=[item(score=9)]), False),
+            ("an id that is not shaped like one", "edition", contract.validate_edition,
+             edition(items=[item(id="ChatCut")]), False),
+            ("a summary over the cap", "edition", contract.validate_edition,
+             edition(items=[item(summary="x" * 201)]), False),
+            ("five tags", "edition", contract.validate_edition,
+             edition(items=[item(tags=["A", "B", "C", "D", "E"])]), False),
+            ("repeated tags", "edition", contract.validate_edition,
+             edition(items=[item(tags=["A", "A"])]), False),
+            ("image none carrying a url", "edition", contract.validate_edition,
+             edition(items=[item(image={"type": "none", "url": "https://a/b.png"})]), False),
+            ("image logo without a url", "edition", contract.validate_edition,
+             edition(items=[item(image={"type": "logo"})]), False),
+            ("empty signals", "edition", contract.validate_edition,
+             edition(items=[item(signals={})]), False),
+            ("empty meta", "edition", contract.validate_edition,
+             edition(items=[item(meta={})]), False),
+            ("an unknown signal key", "edition", contract.validate_edition,
+             edition(items=[item(signals={"claps": 3})]), False),
+            ("an unknown category", "edition", contract.validate_edition,
+             edition(items=[item(category="discussions")]), False),
+            ("an unknown source", "edition", contract.validate_edition,
+             edition(items=[item(source="reddit")]), False),
+            ("a negative count", "edition", contract.validate_edition,
+             edition(counts={"launches": -1, "repos": 0, "news": 0, "hn": 0}), False),
+            ("a well-formed index", "index", contract.validate_index, index(), True),
+            ("an empty index", "index", contract.validate_index, index(editions=[]), True),
+            ("an escaping edition path", "index", contract.validate_index,
+             index(editions=[dict(index()["editions"][0], path="../secrets.json")]), False),
+            ("an unknown index entry key", "index", contract.validate_index,
+             index(editions=[dict(index()["editions"][0], counts={})]), False),
+            ("a well-formed tag list", "tags", contract.validate_tags, tags(), True),
+            ("a slug that is not url-safe", "tags", contract.validate_tags,
+             tags(groups=[{"name": "Domain",
+                           "tags": [{"name": "X", "slug": "Voice / Speech"}]}]), False),
+            ("an empty tag group", "tags", contract.validate_tags,
+             tags(groups=[{"name": "Domain", "tags": []}]), False),
+            ("an empty hide log", "hidden", contract.validate_hidden, hidden(), True),
+            ("a hide entry missing its timestamp", "hidden", contract.validate_hidden,
+             hidden(hidden=[{"id": "ph-x-2026-08-27", "edition_date": "2026-08-27"}]), False),
+        ]
+
+    def test_every_schema_is_well_formed(self):
+        # A malformed schema would otherwise ship silently, since nothing else
+        # here reads the schema files as schemas.
+        for name in ("edition", "index", "tags", "hidden"):
+            with self.subTest(schema=name):
+                Draft202012Validator.check_schema(contract.load_schema(name))
+
+    def test_the_validator_is_never_laxer_than_the_schema(self):
+        for label, name, validate, document, _ in self.cases():
+            with self.subTest(case=label):
+                engine_ok = Draft202012Validator(contract.load_schema(name)).is_valid(document)
+                try:
+                    validate(document)
+                    validator_ok = True
+                except contract.FeedValidationError:
+                    validator_ok = False
+                if not engine_ok:
+                    self.assertFalse(
+                        validator_ok,
+                        f"the schema rejects {label} but validate.py accepts it",
+                    )
+
+    def test_both_accept_the_well_formed_documents(self):
+        for label, name, validate, document, is_valid in self.cases():
+            if not is_valid:
+                continue
+            with self.subTest(case=label):
+                Draft202012Validator(contract.load_schema(name)).validate(document)
+                self.assertIsNotNone(validate(document))
 
 
 class TestCommittedContent(unittest.TestCase):

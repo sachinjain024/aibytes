@@ -46,7 +46,12 @@ The schema files are the contract of record; `validate.py` is a hand-written
 stdlib check of the same rules, plus the invariants JSON Schema cannot express.
 **Change both together.** `tests/test_feed_schema.py` compares every enum,
 pattern, required-key list, and cap across the two, so a one-sided edit fails
-the suite rather than shipping.
+the suite rather than shipping. It also runs the schema files through a real
+JSON Schema engine when `jsonschema` happens to be installed — checking they
+are well-formed, and that the validator is never *laxer* than the schema.
+Stricter is fine and expected; the cross-field invariants are why it exists.
+`jsonschema` is **not** a dependency (this repo's Python is stdlib only), so
+those tests skip when it is absent.
 
 `feed.d.ts` is the third face of the same contract. Update it in the same pass.
 

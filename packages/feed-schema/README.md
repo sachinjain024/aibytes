@@ -27,7 +27,9 @@ stdlib check of what they declare, plus the cross-file invariants JSON Schema
 cannot express — counts that have drifted from their items, an index that has
 fallen behind the editions on disk, a tag nobody put in `tags.json`.
 `tests/test_feed_schema.py` asserts the two agree on every enum, pattern, and
-required key, so they cannot drift apart silently.
+required key, so they cannot drift apart silently, and — where `jsonschema` is
+installed — that the schema files are well-formed and the validator is never
+laxer than they are.
 
 ```bash
 python3 packages/feed-schema/validate.py

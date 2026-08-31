@@ -116,13 +116,15 @@ class TestHide(HideTestCase):
         self.hide("ph-chatcut-2026-08-27")
         self.assertTrue(contract.validate_content_root(self.root))
 
-    def test_the_edition_generated_at_is_not_touched(self):
-        # A hide is not a curate run, so "updated 4h ago" must not reset.
+    def test_no_generated_at_is_touched(self):
+        # A hide is not a curate run: "updated 4h ago" must not reset, and the
+        # index's own timestamp tracks which editions exist, which is unchanged.
         self.hide("ph-chatcut-2026-08-27")
         self.assertEqual(self.read("editions/2026-08-27.json")["generated_at"],
                          "2026-08-27T08:04:12Z")
         self.assertEqual(self.read("index.json")["editions"][0]["generated_at"],
                          "2026-08-27T08:04:12Z")
+        self.assertEqual(self.read("index.json")["generated_at"], "2026-08-27T08:04:12Z")
 
     def test_a_reason_is_optional(self):
         self.hide("ph-chatcut-2026-08-27")

@@ -141,6 +141,7 @@ export interface EditionRef {
 /** `content/index.json` - what drives the edition bar and the calendar popover. */
 export interface EditionIndex {
   schema_version: SchemaVersion;
+  /** The curate run that last changed which editions exist; a hide does not touch it. */
   generated_at: string;
   /** Newest first, strictly descending. `editions[0]` is what `/` resolves to. */
   editions: EditionRef[];
@@ -174,7 +175,10 @@ export interface HiddenEntry {
   reason?: string;
 }
 
-/** `content/hidden.json` - the admin hide log, newest first. */
+/**
+ * `content/hidden.json` - what is currently hidden, newest first. It tracks the
+ * flag rather than accumulating history: an unhide removes the entry.
+ */
 export interface HiddenLog {
   schema_version: SchemaVersion;
   hidden: HiddenEntry[];

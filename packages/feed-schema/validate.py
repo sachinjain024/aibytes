@@ -268,7 +268,8 @@ def _meta_problems(meta):
         return []
     if not isinstance(meta, dict):
         return ["meta must be an object"]
-    problems = []
+    # Omitted rather than empty, so a re-run diffs cleanly - as for signals.
+    problems = [] if meta else ["meta must be omitted rather than empty"]
     for key, value in meta.items():
         if key not in META_KEYS:
             problems.append(f"meta: unknown key: {key}")
@@ -533,7 +534,7 @@ def validate_content_root(root):
         except ValueError as exc:
             problems.append(f"editions/{path.name}: not valid JSON: {exc}")
             continue
-        editions[path.name] = edition
+        editions[f"editions/{path.name}"] = edition
         try:
             validate_edition(edition, tag_names=tags_doc)
         except FeedValidationError as exc:
@@ -554,6 +555,7 @@ def validate_content_root(root):
 
 
 def _index_agrees_with_editions(index, editions):
+    """`editions` is keyed by each file's path relative to the index."""
     if not isinstance(index, dict) or not isinstance(index.get("editions"), list):
         return []
     problems = []
@@ -563,18 +565,26 @@ def _index_agrees_with_editions(index, editions):
             listed[entry["date"]] = entry
 
     on_disk = {
-        edition["date"]: edition
-        for edition in editions.values()
+        edition["date"]: path
+        for path, edition in editions.items()
         if isinstance(edition, dict) and isinstance(edition.get("date"), str)
     }
 
     for date in sorted(set(listed) - set(on_disk)):
         problems.append(f"index.json: lists {date} but content/editions/{date}.json is missing")
     for date in sorted(set(on_disk) - set(listed)):
-        problems.append(f"index.json: does not list editions/{date}.json")
+        problems.append(f"index.json: does not list {on_disk[date]}")
 
     for date in sorted(set(listed) & set(on_disk)):
-        entry, edition = listed[date], on_disk[date]
+        entry, edition = listed[date], editions[on_disk[date]]
+        # `path` is the field a consumer actually dereferences - it resolves it
+        # against the index URL and fetches it - so a path that points at the
+        # wrong edition, or at nothing, is a 404 in the app.
+        if entry.get("path") != on_disk[date]:
+            problems.append(
+                f"index.json: {date} path is {entry.get('path')!r} but that "
+                f"edition is at {on_disk[date]}"
+            )
         counts = edition.get("counts")
         if isinstance(counts, dict):
             total = sum(v for v in counts.values() if _is_count(v))
