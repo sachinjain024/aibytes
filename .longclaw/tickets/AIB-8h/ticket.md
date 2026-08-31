@@ -383,3 +383,60 @@ suite is 143 tests, all passing.
 Three open questions remain, all for later phases: the newsletter URL, edition
 retention, and iMac availability at 13:30 IST.
 <!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_9f2ab417
+kind: update
+occurred_at: 2026-08-31T13:25:20Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: description
+-->
+### Claude Code updated this ticket
+
+Reviewed the phase 1 branch and fixed six findings before merging. One was a
+real defect, and it is the kind phase 2 would have inherited:
+
+**`index.json`'s `path` was never validated against the file it names.** Index
+entries were matched to editions by `date` alone, so an entry whose `path`
+pointed at the wrong edition — or at nothing — validated clean. `path` is the
+field consumers actually dereference: the app resolves it against the index URL
+and fetches it. So the one field that could 404 the app was the one field with
+no check. Since phase 2's curate step generates `path`, this needed to be caught
+before anything produced it.
+
+Two schema descriptions contradicted the code, and in both cases the code was
+right:
+
+- `index.json`'s own `generated_at` claimed to be "the run that last rewrote
+  this index", but `hide.py` rewrites the file to correct a total and
+  deliberately leaves the timestamp alone — nothing was curated, and the edition
+  bar's "updated 4h ago" must not reset because of a hide.
+- `hidden.json` called itself an append-only record, but `--unhide` removes the
+  entry, and has to: an entry whose item is no longer flagged hidden would make
+  the tree contradict itself. It is a log of what is currently hidden, not a
+  history.
+
+Three gaps in what the suite checked:
+
+- `meta: {}` was accepted while `signals: {}` was rejected, on identical
+  "omit rather than emit empty" reasoning.
+- The drift test compared the id, path, and slug patterns but not `httpUrl`
+  against `URL_RE`, and never compared the three date patterns against
+  `DATE_RE`.
+- Nothing ever read the schema files *as schemas*, so a malformed one would have
+  shipped silently. An optional test class now runs all four through a real
+  JSON Schema engine and asserts the hand-written validator is never *laxer*
+  than the contract of record, across 24 fixtures. `jsonschema` is not a
+  dependency, so it skips when absent.
+
+The suite is 149 tests. The 35 real week-30 items still map into the edition
+shape and validate, and hide/unhide still round-trips on them.
+
+Merged to `main` as PR #6. Phase 1 is done; phase 2 (the `curate-edition` skill)
+is next, and it now has a contract that checks its output rather than trusting
+it.
+<!-- /longclaw:event -->
