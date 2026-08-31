@@ -7,7 +7,7 @@ absolute links to relative ones so the copy works from file:// or when
 hosted under any subpath.
 
 Usage: python3 download_ph_docs.py [output_dir]
-Default output_dir: sources/producthunt/graphql-v2/specs (relative to CWD)
+Default output_dir: newsletter/sources/producthunt/graphql-v2/specs (relative to CWD)
 """
 
 import os
@@ -18,7 +18,7 @@ import urllib.request
 from urllib.parse import urlsplit, urljoin
 
 BASE = "http://api-v2-docs.producthunt.com.s3-website-us-east-1.amazonaws.com"
-DEFAULT_OUT = os.path.join("sources", "producthunt", "graphql-v2", "specs")
+DEFAULT_OUT = os.path.join("newsletter", "sources", "producthunt", "graphql-v2", "specs")
 
 LINK_RE = re.compile(r'(href|src)="([^"]+)"')
 CSS_URL_RE = re.compile(r'url\((["\']?)([^)"\']+)\1\)')

@@ -41,7 +41,7 @@ Options:
 
 ## Output
 
-Written to `data/<yyyy>/<mm>/weeks/week-<NN>/producthunt/ph_data.json`, where
+Written to `newsletter/data/<yyyy>/<mm>/weeks/week-<NN>/producthunt/ph_data.json`, where
 `yyyy`, `mm`, and ISO week `NN` come from the as-of date. The file is
 self-describing: it records `fetched_at`, the date window, and the query params
 alongside the posts. Re-running for the same week overwrites in place.

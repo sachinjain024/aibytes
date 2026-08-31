@@ -1,8 +1,14 @@
 # aibytes-agents
 
-Tooling behind the weekly AIBytes newsletter. A set of Claude Code skills
-fetches the week's top AI content from around the web and saves it as JSON
-snapshots in this repo.
+The workspace behind aiBytes_: the weekly newsletter, and the app and Chrome
+extension that surface the same data. Claude Code skills fetch the top AI
+content from around the web and save it as JSON snapshots in this repo.
+
+| Path | What it is |
+|---|---|
+| `newsletter/` | The newsletter pipeline: issues, data snapshots, source mirrors, decision records |
+| `packages/design-system/` | Design tokens + Web Components for the app and extension |
+| `packages/fetchers/` | Shared, cadence-agnostic fetch machinery for every data source |
 
 ## Skills
 
@@ -14,8 +20,9 @@ snapshots in this repo.
 | `/tc-fetch-items` | Most popular TechCrunch AI articles |
 | `/gh-fetch-items` | Trending AI-related GitHub repositories |
 
-Each skill lives in `.claude/skills/` and is a plain Python 3 script — no
-dependencies. Only ProductHunt needs an API key (`PH_API_KEY` in `.env`).
+Each skill lives in `.claude/skills/` and is a thin Python 3 wrapper over
+`packages/fetchers` — stdlib only, no dependencies. Only ProductHunt needs an
+API key (`PH_API_KEY` in `.env`).
 The skills follow the open [Agent Skills](https://agentskills.io) format, and
 a `.agents/skills` symlink makes them work in OpenAI Codex and other
 compatible tools too.
@@ -36,9 +43,26 @@ python3 .claude/skills/fetch-weekly-items/scripts/fetch_weekly_items.py --skip p
 
 ## Data
 
-Snapshots land under `data/<year>/<month>/weeks/week-<NN>/`, one folder per
-source. Run the skills at the end of each week; re-running overwrites that
-week's snapshot.
+Snapshots land under `newsletter/data/<year>/<month>/weeks/week-<NN>/`, one
+folder per source. Run the skills at the end of each week; re-running overwrites
+that week's snapshot.
+
+The same fetchers run at any cadence. For a scheduled job, use the in-process
+entry point:
+
+```bash
+python3 packages/fetchers/fetch.py --cadence daily --output-root feed
+```
+
+Daily snapshots file under `<year>/<month>/days/<yyyy-mm-dd>/` instead, so they
+never collide with the weekly newsletter tree.
+
+## Design system
+
+`packages/design-system` holds the tokens and Web Components shared by the app
+and the Chrome extension. Rebuild the generated CSS with `npm run build:tokens`.
+The newsletter deliberately does not consume it — email HTML cannot load a
+stylesheet, so its palette stays inline in the newsletter templates.
 
 ## Tests
 

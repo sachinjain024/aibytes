@@ -13,16 +13,16 @@ Every run renders the same card with **three background treatments** - dot grid,
 
 ```bash
 python3 .claude/skills/generate-followup-thumbnail/scripts/generate_thumbnail.py \
-  --issue-dir newsletter/2026/week-33-Issue-4 \
+  --issue-dir newsletter/issues/2026/week-33-Issue-4 \
   --highlight "Oracle said no"
 ```
 
 Writes three PNGs, each exactly 1200x630, into the issue's `thumbnails/` folder:
 
 ```
-newsletter/2026/week-33-Issue-4/thumbnails/issue-4-thumbnail-dot-grid.png
-newsletter/2026/week-33-Issue-4/thumbnails/issue-4-thumbnail-cobalt-wash.png
-newsletter/2026/week-33-Issue-4/thumbnails/issue-4-thumbnail-graph-grid.png
+newsletter/issues/2026/week-33-Issue-4/thumbnails/issue-4-thumbnail-dot-grid.png
+newsletter/issues/2026/week-33-Issue-4/thumbnails/issue-4-thumbnail-cobalt-wash.png
+newsletter/issues/2026/week-33-Issue-4/thumbnails/issue-4-thumbnail-graph-grid.png
 ```
 
 | Flag | What it does |
@@ -39,7 +39,7 @@ The script reads the issue number, hex tag and date straight out of the issue HT
 
 ### 1. Find the issue
 
-Default to the most recently published folder under `newsletter/{yyyy}/`, unless the user names one. The issue HTML must already exist.
+Default to the most recently published folder under `newsletter/issues/{yyyy}/`, unless the user names one. The issue HTML must already exist.
 
 ### 2. Choose the highlight phrase
 
@@ -70,7 +70,7 @@ Set by `assets/thumbnail.html`; keep changes there so every issue's thumbnail st
 - **Top row**: `⚡ aiBytes_` wordmark with the cobalt underscore, and `ISSUE 0x{hex} · {date}` in mono on the right.
 - **Headline**: the subject line with its emoji, Bricolage Grotesque 800 at 70px, tight leading, `text-wrap: balance`, measure capped at `19ch` so it balances onto three lines. The highlight phrase sits on signal yellow using `box-decoration-break: clone` so a wrapped phrase keeps its padding on both lines.
 - **No foot.** The card carries the wordmark and the headline, nothing else. The section list and read time that used to sit under a rule at the bottom are gone: they are unreadable at the ~300px a feed card actually renders at, and they spent the card's quietest space on the one thing the reader already gets from the post itself. The headline centres in the space under the top row, which is what lets three lines sit as the standing shape without the card feeling top-heavy.
-- **Three backgrounds, chosen 2026-08-17** (decision record: `artifacts/2026-Aug-17-Thumbnail-background-taste.html`). Each is a `.card::before` layer gated by a variant class on `<body>` (`dot-grid`, `cobalt-wash`, `graph-grid`), and each fades to plain paper behind the headline so the texture never competes with the type. Dot grid is slate dots (engineer's notebook, the quietest); graph grid is hairline squares with a stronger rule every fourth line; cobalt wash is a cobalt glow off the notch corner answered by signal yellow bottom-left, the only one that adds colour. A new variant means a new class in the template, its name in the script's `VARIANTS` tuple, and a fresh taste round - not an inline style on one issue.
+- **Three backgrounds, chosen 2026-08-17** (decision record: `newsletter/artifacts/2026-Aug-17-Thumbnail-background-taste.html`). Each is a `.card::before` layer gated by a variant class on `<body>` (`dot-grid`, `cobalt-wash`, `graph-grid`), and each fades to plain paper behind the headline so the texture never competes with the type. Dot grid is slate dots (engineer's notebook, the quietest); graph grid is hairline squares with a stronger rule every fourth line; cobalt wash is a cobalt glow off the notch corner answered by signal yellow bottom-left, the only one that adds colour. A new variant means a new class in the template, its name in the script's `VARIANTS` tuple, and a fresh taste round - not an inline style on one issue.
 
 Palette matches the issue exactly: paper `#FAFAF7`, ink `#191C26`, cobalt `#2B4EF0`, signal `#FFD338`, slate `#6B7080`.
 
