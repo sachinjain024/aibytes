@@ -1,0 +1,40 @@
+/* Ledger color tokens — light is default, dark via [data-theme="dark"].
+   To follow system by default in Astro, add data-theme from a tiny inline script,
+   or duplicate the dark block under @media (prefers-color-scheme: dark). */
+:root{
+  --bg:#F7F7F4;
+  --surface:#FFFFFF;
+  --surface-2:#F0F0EB;
+  --border:#E3E3DC;
+  --text:#15171C;
+  --text-2:#5E6370;
+  --accent:#2B4EF0;
+  --accent-hover:#1F3FD6;
+  --accent-active:#1733B3;
+  --accent-fg:#FFFFFF;            /* text on accent fill */
+  --accent-tint:#EAEDFD;          /* active chip bg = accent 8% on surface */
+  --hot:#FF5C1A;
+  --hot-tint:#FFEFE7;             /* top-today bg wash, optional */
+  --save:#FFB800;
+  --disabled:#A9ACB5;             /* disabled fg */
+  --focus-ring:var(--accent);
+  color-scheme:light;
+}
+[data-theme="dark"]{
+  --bg:#0F1115;
+  --surface:#171A21;
+  --surface-2:#1F232C;
+  --border:#2A2F3A;
+  --text:#ECEDF0;
+  --text-2:#9AA0AD;
+  --accent:#6C86FF;
+  --accent-hover:#8598FF;
+  --accent-active:#5A73E8;
+  --accent-fg:#0F1115;            /* dark text on lifted accent passes AA */
+  --accent-tint:#1D2438;
+  --hot:#FF7A45;
+  --hot-tint:#2A1D18;
+  --save:#FFC94D;
+  --disabled:#5C6270;
+  color-scheme:dark;
+}

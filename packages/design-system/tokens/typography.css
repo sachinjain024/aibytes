@@ -1,0 +1,16 @@
+/* Ledger type tokens. Scale: 13 / 14 / 16 / 20 / 28 (+12 for mono meta). */
+:root{
+  --font-display:'Bricolage Grotesque',system-ui,sans-serif; /* logo, headings, section titles; 500/700/800 */
+  --font-body:'Inter',system-ui,sans-serif;                  /* body, UI, card text; Linear-style tight tracking */
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;       /* meta, signals, tags, dates, edition bar */
+  --text-12:12px; --lh-12:16px;   /* meta, mono only */
+  --text-13:13px; --lh-13:18px;
+  --text-14:14px; --lh-14:20px;   /* summary 14/400 */
+  --text-16:16px; --lh-16:22px;   /* card title 16/600 */
+  --text-20:20px; --lh-20:26px;   /* section heading 20/700 */
+  --text-28:28px; --lh-28:34px;   /* page-level wordmark 28/800 */
+  --tracking-heading:-0.02em;     /* headings slightly tight */
+  --tracking-body:-0.01em;        /* Linear-style tight body/UI tracking */
+  --tracking-mono:0.02em;         /* mono slightly loose */
+  --mono-features:"tnum" 1,"zero" 1; /* @kind font */ /* tabular numerals on ALL mono so counts align */
+}

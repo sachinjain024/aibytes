@@ -4,14 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ],
   "scripts": {
     "build": "npm run build --workspaces --if-present",
-    "build:tokens": "npm run build -w @aibytes/design-system",
     "dev:web": "npm run dev -w @aibytes/web",
+    "build:web": "npm run build -w @aibytes/web",
     "dev:extension": "npm run dev -w @aibytes/extension",
-    "package:extension": "npm run package -w @aibytes/extension"
+    "package:extension": "npm run package -w @aibytes/extension",
+    "preview:design-system": "npm run preview -w @aibytes/design-system"
   },
   "devDependencies": {
     "vite": "^7.0.0"

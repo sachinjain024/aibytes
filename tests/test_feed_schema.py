@@ -1,7 +1,8 @@
 """Offline unit tests for the published feed contract (packages/feed-schema).
 
-The feed is the boundary between this repo's producer and the aibytes-hub
-extension, which cannot be hotfixed once shipped. These tests guard the two
+The feed is the boundary between this repo's producer and its consumers,
+the aiBytes_ web app and Chrome extension. A shipped extension cannot be
+hotfixed. These tests guard the two
 things that would break it: the hand-written validator drifting from
 feed.schema.json, and a breaking change slipping through unversioned.
 """

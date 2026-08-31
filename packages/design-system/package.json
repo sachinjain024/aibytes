@@ -1,18 +1,21 @@
 {
   "name": "@aibytes/design-system",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "Ledger — the aiBytes_ design system for the web app and Chrome extension. Not consumed by the newsletter.",
   "type": "module",
-  "main": "./components/index.js",
+  "sideEffects": ["*.css"],
   "exports": {
-    ".": "./components/index.js",
-    "./tokens.css": "./dist/tokens.css",
-    "./tokens.js": "./dist/tokens.js",
-    "./components/*": "./components/*"
+    "./styles.css": "./styles.css",
+    "./tokens/*": "./tokens/*",
+    "./components/*": "./components/*",
+    "./assets/*": "./assets/*"
   },
-  "files": ["components", "dist", "tokens"],
+  "files": ["styles.css", "tokens", "components", "assets", "guidelines", "readme.md"],
+  "peerDependencies": {
+    "react": ">=18"
+  },
   "scripts": {
-    "build": "node scripts/build-tokens.mjs",
     "preview": "python3 -m http.server -d . 4300"
   }
 }

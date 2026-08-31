@@ -14,10 +14,14 @@ matching files — this file stays a map.
 | Path | What it is |
 |---|---|
 | `newsletter/` | The whole newsletter pipeline: `issues/`, `data/` snapshots, `sources/` mirrors, `apis/` Requestly project, `artifacts/` decision records |
-| `packages/design-system/` | Tokens + Web Components for the app and extension (**not** the newsletter) |
+| `docs/` | The app product spec and the design-system brief — the source documents for the app and extension |
+| `packages/design-system/` | **Ledger**: tokens + React components for the app and extension (**not** the newsletter) |
 | `packages/fetchers/` | Shared, cadence-agnostic Python fetch machinery for every data source |
+| `packages/feed-schema/` | The JSON contract between the fetch/curate producer and the app + extension consumers |
 | `.claude/skills/` | Claude Code skills. Stays at the repo root — nested skill dirs are not in autocomplete until a file in them is touched |
 | `.claude/rules/` | Path-scoped conventions, loaded on demand |
+| `apps/web/` | *(planned, AIB-8h)* the aibytes.io daily-edition app — Vite + React, static build, GitHub Pages |
+| `apps/extension/` | *(planned, AIB-8h)* the Chrome new-tab extension, on the same edition JSON |
 | `tests/` | stdlib `unittest` suite for the Python side |
 
 `.agents/skills` is a symlink to `.claude/skills` so Codex and other tools using
@@ -34,8 +38,8 @@ python3 packages/fetchers/fetch.py --cadence daily --output-root feed
 python3 .claude/skills/fetch-weekly-items/scripts/fetch_weekly_items.py
 python3 .claude/skills/fetch-weekly-items/scripts/fetch_weekly_items.py --skip producthunt
 
-# Design tokens (regenerates packages/design-system/dist/)
-npm run build:tokens
+# Preview the Ledger design system and the nine app screens
+npm run preview:design-system   # then open http://localhost:4300/ui_kits/aibytes-app/
 
 # Tests. AIBYTES_SKIP_LIVE=1 skips the ones that hit live APIs.
 python3 -m unittest discover -s tests -v
@@ -43,6 +47,23 @@ AIBYTES_SKIP_LIVE=1 python3 -m unittest discover -s tests -v
 ```
 
 Only ProductHunt needs credentials (`PH_API_KEY` in `.env`).
+
+## This repo is public
+
+It is deployed to GitHub Pages, so treat everything here as world-readable.
+Secrets live only in a git-ignored `.env` or the macOS Keychain, never in a
+committed file, a skill script default, a test fixture, or a Requestly
+environment. `newsletter/apis/aibytes/environments/local.json` is git-ignored for
+exactly this reason. Before adding a file that carries a token, an email
+address, or a subscriber list, assume it will be indexed.
+
+## aiBytes-hub is a separate project
+
+`aiBytes-hub` is a different repo with its own Chrome extension backed by
+Firebase APIs. It is **not** part of this workspace and must not be referenced
+in code, docs, comments, or schemas here. Nothing in this repo consumes it and
+nothing here is built for it. If work ever genuinely needs to cross into it, the
+user will call that out explicitly — do not infer the connection yourself.
 
 ## Conventions
 

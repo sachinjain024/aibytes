@@ -1,0 +1,7 @@
+/* Ledger base — minimal defaults consumers can drop into Astro. */
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:var(--text-14);line-height:var(--lh-14);letter-spacing:var(--tracking-body,0);margin:0;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none;transition:color var(--transition)}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+:focus-visible{outline:var(--focus-w) solid var(--focus-ring);outline-offset:var(--focus-offset);border-radius:2px}
+.mono{font-family:var(--font-mono);letter-spacing:var(--tracking-mono);font-feature-settings:var(--mono-features)}
+@media (prefers-reduced-motion:reduce){*{transition-duration:0ms!important;animation:none!important}}

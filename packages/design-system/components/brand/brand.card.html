@@ -1,0 +1,24 @@
+<!-- @dsCard group="Components" viewport="700x290" name="Brand — Wordmark & Source Marks" subtitle="Typographic wordmark (no drawn logo); per-source 40px marks, both themes" -->
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:10px}#root{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pane{border:1px solid var(--border);border-radius:10px;padding:14px;background:var(--bg);color:var(--text);display:flex;flex-direction:column;gap:12px}
+.row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.lbl{font-family:var(--font-mono);font-size:11px;color:var(--text-2);letter-spacing:.02em}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const { Wordmark, SourceMark } = window.LedgerAiBytesDesignSystem_b1be4f;
+const Pane = ({dark}) => (
+  <div className="pane" data-theme={dark ? "dark" : undefined}>
+    <div className="row"><Wordmark variant="full"/><Wordmark variant="compact"/><Wordmark variant="icon"/></div>
+    <span className="lbl">Bricolage Grotesque 800 · underscore --accent · full 28 / compact 20 / icon 40</span>
+    <div className="row"><SourceMark source="producthunt"/><SourceMark source="hackernews"/><SourceMark source="github"/><SourceMark source="techcrunch"/><SourceMark source="hackernews" size={24}/><SourceMark source="github" size={24}/></div>
+    <span className="lbl">40px slot marks · HN tile --hot · Octocat --text · 24px list size</span>
+  </div>);
+ReactDOM.createRoot(document.getElementById("root")).render(<React.Fragment><Pane/><Pane dark/></React.Fragment>);
+</script></body></html>

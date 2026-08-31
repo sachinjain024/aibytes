@@ -1,0 +1,372 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/brand/**",
+              "components/content/**",
+              "components/forms/**",
+              "components/navigation/**",
+              "ui_kits/aibytes-app/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Bricolage Grotesque|Inter|JetBrains Mono))/i]",
+        "message": "Font not provided by the design system. Available: Bricolage Grotesque, Inter, JetBrains Mono."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: variant."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|secondary|ghost|google)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'secondary' | 'ghost' | 'google'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CalendarPopover'] > JSXAttribute > JSXIdentifier[name!=/^(?:editions|currentDate|onSelect|key|ref|className|style|children)$/]",
+        "message": "<CalendarPopover> doesn't accept that prop. Declared props: editions, currentDate, onSelect."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EditionItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:id|title|summary|url|source|source_url|category|tags|image|signals|meta|key|ref|className|style|children)$/]",
+        "message": "<EditionItem> doesn't accept that prop. Declared props: id, title, summary, url, source, source_url, category, tags, image, signals, meta."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EditionItem'] > JSXAttribute[name.name='source'] > Literal[value!=/^(?:producthunt|hackernews|github|techcrunch)$/]",
+        "message": "<EditionItem> source must be one of 'producthunt' | 'hackernews' | 'github' | 'techcrunch'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EditionItem'] > JSXAttribute[name.name='category'] > Literal[value!=/^(?:launches|repos|news|hn)$/]",
+        "message": "<EditionItem> category must be one of 'launches' | 'repos' | 'news' | 'hn'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CardMenu'] > JSXAttribute > JSXIdentifier[name!=/^(?:item|up|key|ref|className|style|children)$/]",
+        "message": "<CardMenu> doesn't accept that prop. Declared props: item, up."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Chip'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|active|disabled|count|onClick|key|ref|className|style|children)$/]",
+        "message": "<Chip> doesn't accept that prop. Declared props: label, active, disabled, count, onClick."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EditionBar'] > JSXAttribute > JSXIdentifier[name!=/^(?:dateLabel|itemCount|updatedAgo|prevLabel|nextLabel|onPrev|onNext|onDateClick|calendarOpen|editions|currentDate|onSelectEdition|asH1|compact|key|ref|className|style|children)$/]",
+        "message": "<EditionBar> doesn't accept that prop. Declared props: dateLabel, itemCount, updatedAgo, prevLabel, nextLabel, onPrev, onNext, onDateClick, calendarOpen, editions, currentDate, onSelectEdition, asH1, compact."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EmptyState'] > JSXAttribute > JSXIdentifier[name!=/^(?:category|prevLabel|prevCount|onPrev|key|ref|className|style|children)$/]",
+        "message": "<EmptyState> doesn't accept that prop. Declared props: category, prevLabel, prevCount, onPrev."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EndCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:dateLabel|prevLabel|onPrev|key|ref|className|style|children)$/]",
+        "message": "<EndCard> doesn't accept that prop. Declared props: dateLabel, prevLabel, onPrev."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Footer'] > JSXAttribute > JSXIdentifier[name!=/^(?:links|blurb|onSubscribe|key|ref|className|style|children)$/]",
+        "message": "<Footer> doesn't accept that prop. Declared props: links, blurb, onSubscribe."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Header'] > JSXAttribute > JSXIdentifier[name!=/^(?:categories|activeCategory|onCategory|savedCount|savedActive|onSaved|tagCount|onOpenTags|sourceCount|onOpenSources|view|onView|theme|onToggleTheme|signedIn|userInitial|onSignIn|mode|onMode|compact|showCategories|tagline|key|ref|className|style|children)$/]",
+        "message": "<Header> doesn't accept that prop. Declared props: categories, activeCategory, onCategory, savedCount, savedActive, onSaved, tagCount, onOpenTags, sourceCount, onOpenSources, view, onView, theme, onToggleTheme, signedIn, userInitial, onSignIn, mode, onMode, compact, showCategories, tagline."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Header'] > JSXAttribute[name.name='view'] > Literal[value!=/^(?:grid|list)$/]",
+        "message": "<Header> view must be one of 'grid' | 'list'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Header'] > JSXAttribute[name.name='theme'] > Literal[value!=/^(?:light|dark)$/]",
+        "message": "<Header> theme must be one of 'light' | 'dark'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Header'] > JSXAttribute[name.name='mode'] > Literal[value!=/^(?:ranked|grouped)$/]",
+        "message": "<Header> mode must be one of 'ranked' | 'grouped'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ListRow'] > JSXAttribute > JSXIdentifier[name!=/^(?:item|saved|onToggleSave|key|ref|className|style|children)$/]",
+        "message": "<ListRow> doesn't accept that prop. Declared props: item, saved, onToggleSave."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SaveBanner'] > JSXAttribute > JSXIdentifier[name!=/^(?:onSignIn|onDismiss|key|ref|className|style|children)$/]",
+        "message": "<SaveBanner> doesn't accept that prop. Declared props: onSignIn, onDismiss."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SaveStar'] > JSXAttribute > JSXIdentifier[name!=/^(?:saved|onToggle|className|key|ref|className|style|children)$/]",
+        "message": "<SaveStar> doesn't accept that prop. Declared props: saved, onToggle, className."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SectionHeading'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|count|id|key|ref|className|style|children)$/]",
+        "message": "<SectionHeading> doesn't accept that prop. Declared props: name, count, id."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SideNavEditionRef'] > JSXAttribute > JSXIdentifier[name!=/^(?:date|label|count|key|ref|className|style|children)$/]",
+        "message": "<SideNavEditionRef> doesn't accept that prop. Declared props: date, label, count."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SourceMark'] > JSXAttribute > JSXIdentifier[name!=/^(?:source|size|className|key|ref|className|style|children)$/]",
+        "message": "<SourceMark> doesn't accept that prop. Declared props: source, size, className."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='SourceMark'] > JSXAttribute[name.name='source'] > Literal[value!=/^(?:producthunt|hackernews|github|techcrunch)$/]",
+        "message": "<SourceMark> source must be one of 'producthunt' | 'hackernews' | 'github' | 'techcrunch'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tag'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|key|ref|className|style|children)$/]",
+        "message": "<Tag> doesn't accept that prop. Declared props: children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Wordmark'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|href|key|ref|className|style|children)$/]",
+        "message": "<Wordmark> doesn't accept that prop. Declared props: variant, href."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Wordmark'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:full|compact|icon)$/]",
+        "message": "<Wordmark> variant must be one of 'full' | 'compact' | 'icon'."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Button": {
+        "replaces": []
+      },
+      "CalendarPopover": {
+        "replaces": []
+      },
+      "EditionItem": {
+        "replaces": []
+      },
+      "CardMenu": {
+        "replaces": []
+      },
+      "Chip": {
+        "replaces": []
+      },
+      "EditionBar": {
+        "replaces": []
+      },
+      "EmptyState": {
+        "replaces": []
+      },
+      "EndCard": {
+        "replaces": []
+      },
+      "Footer": {
+        "replaces": []
+      },
+      "Header": {
+        "replaces": []
+      },
+      "Input": {
+        "replaces": []
+      },
+      "ListRow": {
+        "replaces": []
+      },
+      "SaveBanner": {
+        "replaces": []
+      },
+      "SaveStar": {
+        "replaces": []
+      },
+      "SectionHeading": {
+        "replaces": []
+      },
+      "SideNavEditionRef": {
+        "replaces": []
+      },
+      "SourceMark": {
+        "replaces": []
+      },
+      "Tag": {
+        "replaces": []
+      },
+      "Wordmark": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--accent",
+      "--accent-active",
+      "--accent-fg",
+      "--accent-hover",
+      "--accent-tint",
+      "--bg",
+      "--border",
+      "--border-w",
+      "--card-pad",
+      "--content-max",
+      "--disabled",
+      "--focus-offset",
+      "--focus-ring",
+      "--focus-w",
+      "--font-body",
+      "--font-display",
+      "--font-mono",
+      "--grid-gap",
+      "--gutter-mobile",
+      "--hot",
+      "--hot-tint",
+      "--img-slot",
+      "--img-slot-list",
+      "--lang-cpp",
+      "--lang-go",
+      "--lang-jupyter",
+      "--lang-other",
+      "--lang-python",
+      "--lang-rust",
+      "--lang-shell",
+      "--lang-ts",
+      "--lh-12",
+      "--lh-13",
+      "--lh-14",
+      "--lh-16",
+      "--lh-20",
+      "--lh-28",
+      "--lift",
+      "--mono-features",
+      "--radius-card",
+      "--radius-chip",
+      "--radius-img",
+      "--save",
+      "--section-gap",
+      "--space-1",
+      "--space-10",
+      "--space-12",
+      "--space-16",
+      "--space-2",
+      "--space-3",
+      "--space-4",
+      "--space-5",
+      "--space-6",
+      "--space-8",
+      "--surface",
+      "--surface-2",
+      "--text",
+      "--text-12",
+      "--text-13",
+      "--text-14",
+      "--text-16",
+      "--text-2",
+      "--text-20",
+      "--text-28",
+      "--tracking-body",
+      "--tracking-heading",
+      "--tracking-mono",
+      "--transition",
+      "--z-banner",
+      "--z-header",
+      "--z-popover"
+    ],
+    "tokenKinds": {
+      "--bg": "color",
+      "--surface": "color",
+      "--surface-2": "color",
+      "--border": "color",
+      "--text": "font",
+      "--text-2": "font",
+      "--accent": "color",
+      "--accent-hover": "color",
+      "--accent-active": "color",
+      "--accent-fg": "color",
+      "--accent-tint": "color",
+      "--hot": "color",
+      "--hot-tint": "color",
+      "--save": "color",
+      "--disabled": "color",
+      "--focus-ring": "color",
+      "--font-display": "font",
+      "--font-body": "font",
+      "--font-mono": "font",
+      "--text-12": "font",
+      "--lh-12": "spacing",
+      "--text-13": "font",
+      "--lh-13": "spacing",
+      "--text-14": "font",
+      "--lh-14": "spacing",
+      "--text-16": "font",
+      "--lh-16": "spacing",
+      "--text-20": "font",
+      "--lh-20": "spacing",
+      "--text-28": "font",
+      "--lh-28": "spacing",
+      "--tracking-heading": "font",
+      "--tracking-body": "font",
+      "--tracking-mono": "font",
+      "--mono-features": "font",
+      "--space-1": "spacing",
+      "--space-2": "spacing",
+      "--space-3": "spacing",
+      "--space-4": "spacing",
+      "--space-5": "spacing",
+      "--space-6": "spacing",
+      "--space-8": "spacing",
+      "--space-10": "spacing",
+      "--space-12": "spacing",
+      "--space-16": "spacing",
+      "--card-pad": "spacing",
+      "--grid-gap": "spacing",
+      "--section-gap": "spacing",
+      "--radius-card": "radius",
+      "--radius-chip": "radius",
+      "--radius-img": "radius",
+      "--border-w": "spacing",
+      "--focus-w": "spacing",
+      "--focus-offset": "spacing",
+      "--transition": "other",
+      "--lift": "other",
+      "--z-header": "other",
+      "--z-popover": "other",
+      "--z-banner": "other",
+      "--content-max": "spacing",
+      "--gutter-mobile": "spacing",
+      "--img-slot": "spacing",
+      "--img-slot-list": "spacing",
+      "--lang-python": "color",
+      "--lang-ts": "color",
+      "--lang-rust": "color",
+      "--lang-go": "color",
+      "--lang-cpp": "color",
+      "--lang-shell": "color",
+      "--lang-jupyter": "color",
+      "--lang-other": "color"
+    },
+    "fontFamilies": [
+      "Bricolage Grotesque",
+      "Inter",
+      "JetBrains Mono"
+    ]
+  }
+}
