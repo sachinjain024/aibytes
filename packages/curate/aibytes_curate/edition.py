@@ -119,7 +119,15 @@ def read_links(path):
     except ValueError:
         return {}  # a corrupt cache is a slow run, not a failed one
     resolved = document.get("resolved") if isinstance(document, dict) else None
-    return dict(resolved) if isinstance(resolved, dict) else {}
+    if not isinstance(resolved, dict):
+        return {}
+    # Every value here becomes a published `url`, so an entry that is not an
+    # http(s) URL is dropped rather than carried into the edition. Without this
+    # a hand-edited cache crashes dedup on the way to the contract check.
+    return {
+        hint: url for hint, url in resolved.items()
+        if isinstance(hint, str) and isinstance(url, str) and contract.URL_RE.match(url)
+    }
 
 
 def links_document(generated_at, cache):

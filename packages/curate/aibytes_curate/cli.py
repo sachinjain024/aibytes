@@ -20,7 +20,11 @@ from .edition import contract, CurateError, REPO_ROOT
 
 
 def prepare(args):
-    """Snapshots -> (kept drafts, rejections, missing sources). No writes."""
+    """Snapshots -> (kept drafts, rejections, missing sources).
+
+    Writes nothing under content/. It may write the day's link cache beside the
+    snapshots, which is a fetched fact about the day rather than an output.
+    """
     snapshots, missing = edition_mod.load_snapshots(args.data_root, args.date, args.cadence)
     if not snapshots:
         raise CurateError(
@@ -34,9 +38,9 @@ def prepare(args):
     # membership depend on a network call, which is exactly what the cache is
     # for: draft resolves once and writes the map, build reuses it, and the two
     # cannot disagree about which items are in the edition.
-    _resolve_links(args, drafts)
+    resolved = _resolve_links(args, drafts)
     kept, rejected = relevance.apply(drafts)
-    return kept, unusable + rejected, missing
+    return kept, unusable + rejected, missing, resolved
 
 
 def _resolve_links(args, drafts):
@@ -61,7 +65,7 @@ def _resolve_links(args, drafts):
 
 
 def cmd_draft(args):
-    kept, rejected, missing = prepare(args)
+    kept, rejected, missing, resolved = prepare(args)
     stamp = edition_mod.now_stamp()
     tags_doc = edition_mod.read_json(
         pathlib.Path(args.content_root) / "tags.json", "tags.json")
@@ -77,6 +81,8 @@ def cmd_draft(args):
         edition_mod.rejected_document(args.date, stamp, rejected, len(kept)))
 
     _report_sources(missing)
+    if resolved:
+        print(f"resolved {resolved} launch link(s) to the product's own site")
     print(f"wrote {_shown(request_path)} ({len(kept)} item(s) needing a summary and tags)")
     print(f"wrote {_shown(rejected_path)} ({len(rejected)} rejected)")
     _report_counts(edition_mod.tally([d.item for d in kept]))
@@ -87,7 +93,9 @@ def cmd_draft(args):
 
 
 def cmd_build(args):
-    kept, rejected, missing = prepare(args)
+    # The resolved-link count is draft's news, not build's: by here the cache
+    # normally answers every hint and nothing was looked up.
+    kept, rejected, missing, _ = prepare(args)
     stamp = edition_mod.now_stamp()
     content_root = pathlib.Path(args.content_root)
 

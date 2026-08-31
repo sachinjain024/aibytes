@@ -579,6 +579,28 @@ class LinkCacheTests(unittest.TestCase):
         links.resolve(drafts, cache, follow_fn=lambda url: None)
         self.assertEqual(cache, {})
 
+    def test_a_corrupt_cache_entry_is_dropped_rather_than_published(self):
+        # Every value in the cache becomes a published `url`. A hand-edited or
+        # half-written file must not crash dedup on its way to the contract
+        # check, and must never put a non-URL on a card.
+        import tempfile
+        root = pathlib.Path(tempfile.mkdtemp())
+        path = root / "links.json"
+        path.write_text(json.dumps({"generated_at": "2026-08-31T08:00:00Z", "resolved": {
+            "https://www.producthunt.com/r/GOOD": "https://chatcut.ai",
+            "https://www.producthunt.com/r/INT": 123,
+            "https://www.producthunt.com/r/SCHEME": "javascript:alert(1)",
+            "https://www.producthunt.com/r/NULL": None,
+        }}))
+        self.assertEqual(edition_mod.read_links(path),
+                         {"https://www.producthunt.com/r/GOOD": "https://chatcut.ai"})
+
+    def test_a_cache_that_is_not_json_is_ignored_not_fatal(self):
+        import tempfile
+        path = pathlib.Path(tempfile.mkdtemp()) / "links.json"
+        path.write_text("{not json")
+        self.assertEqual(edition_mod.read_links(path), {})
+
     def test_an_unknown_source_is_filtered_rather_than_waved_through(self):
         # The drift test below is the real guard, but if a source ever slips
         # past it, the strict vocabulary must be what it falls back to.
