@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sachinjain024.github.io/aibytes/content/hidden.schema.json",
+  "title": "aiBytes hidden items",
+  "description": "content/hidden.json - the admin hide log. An item is hidden by flipping hidden: true in its edition, which is what the site reads; this file is the append-only record of every such flip, so the weekly newsletter skill can exclude the same items without opening every edition. Entries carry when and why rather than being bare ids, because an unexplained hide is unreviewable later.",
+  "type": "object",
+  "required": ["schema_version", "hidden"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Bumped only for a breaking change."
+    },
+    "hidden": {
+      "type": "array",
+      "description": "Newest first. Empty is valid and is the normal state.",
+      "items": {
+        "type": "object",
+        "required": ["id", "edition_date", "hidden_at"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]*-\\d{4}-\\d{2}-\\d{2}$",
+            "description": "The item id, as it appears in the edition. Unique in this file."
+          },
+          "edition_date": {
+            "type": "string",
+            "format": "date",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "description": "Which edition the item is in. Redundant with the id's date suffix by design - it must match, which makes a malformed entry loud, and it saves the newsletter skill parsing ids."
+          },
+          "hidden_at": { "type": "string", "format": "date-time", "description": "UTC timestamp of the hide." },
+          "reason": { "type": "string", "minLength": 1, "description": "Why. Free text, for the human reading this back." }
+        }
+      }
+    }
+  }
+}
