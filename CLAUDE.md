@@ -18,6 +18,7 @@ matching files — this file stays a map.
 | `packages/design-system/` | **Ledger**: tokens + React components for the app and extension (**not** the newsletter) |
 | `packages/fetchers/` | Shared, cadence-agnostic Python fetch machinery for every data source |
 | `packages/curate/` | The curate step: a day's raw snapshots become one published edition |
+| `packages/runner/` | The daily runner: the scheduled job that publishes an edition, its launchd agents, and the watchdog |
 | `packages/feed-schema/` | The contract for everything in `content/`: schemas, `feed.d.ts`, `validate.py`, `hide.py` |
 | `content/` | The published data — `editions/YYYY-MM-DD.json`, `index.json`, `tags.json`, `hidden.json` |
 | `.claude/skills/` | Claude Code skills. Stays at the repo root — nested skill dirs are not in autocomplete until a file in them is touched |
@@ -48,6 +49,13 @@ npm run preview:design-system   # then open http://localhost:4300/ui_kits/aibyte
 python3 packages/curate/curate.py draft --date 2026-08-31
 python3 packages/curate/curate.py build --date 2026-08-31 --summaries summaries.json
 
+# The daily runner: fetch -> curate -> validate -> commit -> push, then Slack.
+# This is what launchd calls at 13:30; --date backfills or re-runs a day.
+python3 packages/runner/run.py --date 2026-08-31
+python3 packages/runner/run.py --skip-fetch --no-push   # rehearse, change nothing
+python3 packages/runner/check.py                        # is today's edition published?
+bash packages/runner/aibytes_runner/launchd/install.sh  # (re)install the two agents
+
 # Check the published content tree against its contract
 python3 packages/feed-schema/validate.py
 
@@ -59,14 +67,17 @@ python3 -m unittest discover -s tests -v
 AIBYTES_SKIP_LIVE=1 python3 -m unittest discover -s tests -v
 ```
 
-Only ProductHunt needs credentials (`PH_API_KEY` in `.env`).
+ProductHunt needs `PH_API_KEY` in `.env`, and the daily runner reads
+`AIBYTES_SLACK_WEBHOOK` from the same file. Both are credentials; see below.
 
 ## This repo is public
 
 It is deployed to GitHub Pages, so treat everything here as world-readable.
 Secrets live only in a git-ignored `.env` or the macOS Keychain, never in a
 committed file, a skill script default, a test fixture, or a Requestly
-environment. `newsletter/apis/aibytes/environments/local.json` is git-ignored for
+environment. A Slack incoming-webhook URL is a bearer credential - anyone
+holding it can post into the workspace - so `AIBYTES_SLACK_WEBHOOK` is treated
+exactly like an API key. `newsletter/apis/aibytes/environments/local.json` is git-ignored for
 exactly this reason. Before adding a file that carries a token, an email
 address, or a subscriber list, assume it will be indexed.
 
@@ -112,6 +123,9 @@ Two exceptions:
 
 - **Tooling changes** (skills, packages, tests) are separate from content
   commits, on their own branch and PR.
-- **Scheduled fetches** are automated and cannot open PRs. The daily job pushes
-  its output straight to `main`; that is the one case where generated content
-  bypasses review.
+- **The daily edition** is automated and cannot open PRs.
+  `packages/runner/run.py`, started by launchd at 13:30 IST, pushes
+  `content/` and `newsletter/data/` straight to `main`; GitHub Pages deploys on
+  push. That is the one case where generated content bypasses review. It stages
+  only those two paths - never `git add -A` - and it refuses to push from any
+  branch but `main`.

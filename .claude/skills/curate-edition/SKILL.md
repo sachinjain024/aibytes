@@ -7,8 +7,8 @@ description: Turn one day's raw source snapshots into a published aiBytes_ editi
 
 Turn the day's raw snapshots in `newsletter/data/` into one edition of the
 aiBytes_ app: `content/editions/YYYY-MM-DD.json`, with `content/index.json`
-kept in step. The app, the Chrome extension, and (from AIB-8h phase 5) the
-weekly newsletter all read that file.
+kept in step. The app and the Chrome extension read that file. The weekly
+newsletter does not - it keeps curating from raw `newsletter/data/`.
 
 The script does everything mechanical and refuses to publish anything the
 contract rejects. **You write the summaries and pick the tags** - that is the
@@ -177,5 +177,5 @@ items link to the products rather than to Product Hunt.
 - **`--cadence weekly`** reads the weekly newsletter snapshots instead of the
   daily ones, which is how an edition can be built from a past week's data.
 - This is the curation half of what `generate-newsletter-content` used to do
-  alone. That skill still reads raw `data/` for the weekly issue; pointing it
-  at these editions is AIB-8h phase 5.
+  alone. That skill keeps reading raw `data/` for the weekly issue and is not
+  being pointed at these editions - the two surfaces curate independently.

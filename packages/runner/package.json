@@ -1,0 +1,9 @@
+{
+  "name": "@aibytes/runner",
+  "private": true,
+  "version": "0.0.0",
+  "description": "The daily runner: the scheduled job that turns a day's snapshots into one published edition, and the watchdog that notices when it never ran.",
+  "scripts": {
+    "test": "cd ../.. && python3 -m unittest tests.test_runner -v"
+  }
+}
