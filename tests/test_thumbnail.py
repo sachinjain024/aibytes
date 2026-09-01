@@ -1,11 +1,13 @@
 """Tests for the generate-followup-thumbnail skill script.
 
 The parsing and templating tests are offline and always run. The render test
-drives real headless Chrome, so it skips when Chrome is not installed.
+drives real headless Chrome and then `sips`, so it skips when either is
+missing.
 """
 
 import importlib.util
 import pathlib
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -177,7 +179,18 @@ class TestBuildHtml(unittest.TestCase):
             )
 
 
-@unittest.skipIf(thumb.find_chrome() is None, "Chrome not installed")
+# The render needs two external tools: Chrome to screenshot, and `sips` to
+# resize. `sips` is macOS-only, which was invisible while the suite ran only on
+# the iMac and failed on the first CI run. The convention here is that an
+# external-tool test skips when the tool is missing - so guard on both.
+RENDER_BLOCKED = (
+    "Chrome not installed" if thumb.find_chrome() is None
+    else "sips not available (macOS only)" if shutil.which("sips") is None
+    else None
+)
+
+
+@unittest.skipIf(RENDER_BLOCKED is not None, RENDER_BLOCKED or "")
 class TestRender(unittest.TestCase):
     def test_renders_exactly_1200x630(self):
         tmp = tempfile.TemporaryDirectory(prefix="thumbnail-test-")
