@@ -198,7 +198,7 @@ in the package rather than forked here.
 - [x] A `tests` workflow, so the suite is re-verified on merge (there was no CI)
 - [x] Record the daily push-to-main exception in CLAUDE.md
 - [x] Cover it in `tests/test_runner.py`
-- [ ] **Sachin: create the Slack incoming webhook** — see below
+- [ ] **Sachin: create the Slack incoming webhook** — see below. *Deliberately deferred on 2026-09-01; the runner ships without it and reports to nobody until it lands*
 - [ ] Sachin: run `bash packages/runner/aibytes_runner/launchd/install.sh`
 - [ ] Add `ANTHROPIC_API_KEY` and `PH_API_KEY` repo secrets, if the Actions fallback is wanted
 
