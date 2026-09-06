@@ -1,0 +1,153 @@
+{
+  "source": "techcrunch",
+  "section": "ai-news",
+  "fetched_at": "2026-09-07",
+  "window": {
+    "after": "2026-08-31",
+    "before": "2026-09-08"
+  },
+  "query_params": {
+    "category": "artificial-intelligence",
+    "count": 10,
+    "ranking": "hackernews_points,recency"
+  },
+  "totalCount": 51,
+  "articles": [
+    {
+      "title": "US government sides with OpenAI on issue of training LLMs on copyrighted material",
+      "description": "\"The United States has a strong interest in continuing to develop a robust and competitive artificial intelligence industry that sets the standard for the practice and procedure of AI use globally,\" the brief reads.",
+      "url": "https://techcrunch.com/2026/09/02/u-s-government-sides-with-openai-on-issue-of-training-llms-on-copyrighted-material/",
+      "published_at": "2026-09-02T17:09:06Z",
+      "author": "Amanda Silberling",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/08/GettyImages-2263890424.jpg?w=1024",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 49,
+        "num_comments": 28,
+        "hn_url": "https://news.ycombinator.com/item?id=49544650"
+      }
+    },
+    {
+      "title": "OpenAI\u2019s new reasoning technique alarms AI safety experts",
+      "description": "OpenAI\u2019s new Astra model will use \u201crecurrent depth,\u201d a technique that allows the model to operate outside of the sequential thinking that characterizes most reasoning models.",
+      "url": "https://techcrunch.com/2026/09/02/openais-new-reasoning-technique-alarms-ai-safety-experts/",
+      "published_at": "2026-09-02T20:19:14Z",
+      "author": "Russell Brandom",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/07/OpenAI-logo-in-Seoul.jpg?w=1024",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 39,
+        "num_comments": 19,
+        "hn_url": "https://news.ycombinator.com/item?id=49552395"
+      }
+    },
+    {
+      "title": "OpenAI launches Astra, its powerful (and controversial) new model",
+      "description": "OpenAI claims that Astra represents \"a new frontier on computer and browser use,\" and that it handles tasks with unmatched \"speed, accuracy, and safety.\"",
+      "url": "https://techcrunch.com/2026/09/03/openai-launches-astra-its-powerful-and-controversial-new-model/",
+      "published_at": "2026-09-03T18:01:45Z",
+      "author": "Lucas Ropek",
+      "image": "https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2182154299.jpg?w=1024",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 6,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49554566"
+      }
+    },
+    {
+      "title": "Abliteration.ai is making a business out of removing AI guardrails",
+      "description": "Abliteration.AI is making powerful AI models without guardrails easier to access, arguing that giving defenders the same tools as bad actors could ultimately improve cybersecurity.",
+      "url": "https://techcrunch.com/2026/09/03/abliteration-ai-is-making-a-business-out-of-removing-ai-guardrails/",
+      "published_at": "2026-09-03T18:37:57Z",
+      "author": "Rebecca Bellan",
+      "image": "https://techcrunch.com/wp-content/uploads/2024/09/vpn-privacy-cybersecurity-red-bright.jpg?resize=1200,831",
+      "reading_time": "6 minutes",
+      "hackernews": {
+        "points": 5,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49571001"
+      }
+    },
+    {
+      "title": "HiddenLayer nabs $100M as enterprises rush to secure their AI deployments",
+      "description": "Security companies are scrambling to build products that can monitor not just agents but also the tools and add-ons they use.",
+      "url": "https://techcrunch.com/2026/09/02/hiddenlayer-nabs-100m-as-enterprises-rush-to-secure-their-ai-deployments/",
+      "published_at": "2026-09-02T15:01:23Z",
+      "author": "Ram Iyer",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/09/hiddenlayer.jpg?resize=1200,900",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 5,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49540933"
+      }
+    },
+    {
+      "title": "The Pentagon now has its own version of ChatGPT and Grok",
+      "description": "Versions of OpenAI's ChatGPT and SpaceXAI's Grok will join Google's Gemini on the Pentagon's central portal for AI tools.",
+      "url": "https://techcrunch.com/2026/08/31/the-pentagon-now-has-its-own-version-of-chatgpt-and-grok/",
+      "published_at": "2026-08-31T20:13:45Z",
+      "author": "Kirsten Korosec",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/08/GettyImages-2263890424.jpg?w=1024",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 5,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49536992"
+      }
+    },
+    {
+      "title": "Hikers rescued after using Google Gemini for planning",
+      "description": "The sheriff\u2019s office said the hikers \u201cwere advised by Gemini to bring far less food and water than their group required.\"",
+      "url": "https://techcrunch.com/2026/09/05/hikers-rescued-after-using-google-gemini-for-planning/",
+      "published_at": "2026-09-05T19:35:24Z",
+      "author": "Anthony Ha",
+      "image": "https://techcrunch.com/wp-content/uploads/2017/11/gettyimages-677147499.jpg?resize=1200,600",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 4,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49581600"
+      }
+    },
+    {
+      "title": "Another swarm of OpenAI agents reached the open internet without the frontier lab\u2019s knowledge",
+      "description": "It's the latest failure of OpenAI's internal monitoring and security systems.",
+      "url": "https://techcrunch.com/2026/09/04/another-swarm-of-openai-agents-reached-the-open-internet-without-the-frontier-labs-knowledge/",
+      "published_at": "2026-09-04T16:21:11Z",
+      "author": "Tim Fernholz",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/09/Screenshot-2026-09-04-at-8.49.39-AM-e1788537064907.png?w=839",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 4,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49572683"
+      }
+    },
+    {
+      "title": "AfterQuery reportedly becomes Y Combinator\u2019s fastest-ever unicorn, now valued at $3.2B",
+      "description": "AI model-training startup AfterQuery has reportedly raised a round that valued it at $3.2 billion, just five months after announcing its $30 million Series A at a $300 million valuation in April.",
+      "url": "https://techcrunch.com/2026/09/01/afterquery-reportedly-becomes-y-combinators-fastest-ever-unicorn-now-valued-at-3-2b/",
+      "published_at": "2026-09-01T22:08:24Z",
+      "author": "Julie Bort",
+      "image": "https://techcrunch.com/wp-content/uploads/2023/10/GettyImages-1569337822.jpg?resize=1200,800",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 2,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49580207"
+      }
+    },
+    {
+      "title": "Seattle Times and Newsday are the latest publications to sue OpenAI and Microsoft",
+      "description": "Two more news organizations are suing OpenAI and Microsoft over the supposed use of their journalism to train AI.",
+      "url": "https://techcrunch.com/2026/09/05/seattle-times-and-newsday-are-the-latest-publications-to-sue-openai-and-microsoft/",
+      "published_at": "2026-09-05T22:49:55Z",
+      "author": "Anthony Ha",
+      "image": "https://techcrunch.com/wp-content/uploads/2023/03/artifact-newspaper-icon.jpg?resize=1200,645",
+      "reading_time": "2 minutes",
+      "hackernews": null
+    }
+  ]
+}
