@@ -53,13 +53,16 @@
   .picks{background:var(--card);border:1px solid var(--ink);border-left:5px solid var(--signal);padding:18px 20px;margin-bottom:18px}
   .picks .card-title{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
   .picks ol{list-style:none;margin:0;padding:0}
-  .picks li{display:flex;gap:11px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--line)}
+  .picks li{display:grid;grid-template-columns:auto 1fr;gap:3px 11px;padding:8px 0;border-bottom:1px solid var(--line)}
   .picks li:last-child{border-bottom:none;padding-bottom:0}
-  .picks .n{font-family:var(--mono);font-size:11px;font-weight:700;background:var(--signal);color:var(--ink);padding:1px 5px;flex-shrink:0}
+  .picks .n{grid-column:1;grid-row:1;align-self:start;margin-top:2px;font-family:var(--mono);font-size:11px;font-weight:700;background:var(--signal);color:var(--ink);padding:1px 5px}
+  .picks .line{grid-column:2;grid-row:1;display:flex;gap:12px;align-items:baseline}
   .picks .t{flex:1}
   .picks .t a{color:var(--ink);text-decoration:none;font-weight:600}
   .picks .t a:hover{color:var(--cobalt)}
-  .picks .from{font-family:var(--mono);font-size:11px;color:var(--slate);white-space:nowrap}
+  .picks .from{font-family:var(--mono);font-size:11px;color:var(--slate);white-space:nowrap;flex-shrink:0}
+  /* Description hangs under the title, clear of the numeral. One to two lines. */
+  .picks .d{grid-column:2;grid-row:2;font-size:13.5px;line-height:1.5;color:var(--slate)}
 
   /* ── News card ── */
   .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
@@ -118,13 +121,15 @@
     </div>
 
     <!-- My Favourite Picks: the publisher's own shortlist, pulled from anywhere in
-         the issue. SINGLE LINES ONLY - no context sentence, no stat, no source label.
-         The name renders INK with no underline (the signal numeral is the marker, and
+         the issue. TWO LINES PER PICK - a title line and a description; no stat, no
+         source label. The name renders INK with no underline (the signal numeral is the marker, and
          cobalt stays with the sections that report); the trailing .from chip names the
-         section the pick came from in one word: News, Launches, GitHub or HN. Numerals
+         section the pick came from in one word: News, Launches, GitHub or HN. The .d line
+         hangs under the title: a NEUTRAL SUMMARY of one to two lines (~155 chars max) -
+         what the item is, not why it was picked. No stat, no source label. Numerals
          imply a ranking, so 01 is the top pick. Omit the whole block if there are no
          picks for the week. Pattern:
-    <li><span class="n">01</span><span class="t"><a href="URL">Pick title</a></span><span class="from">News</span></li>
+    <li><span class="n">01</span><span class="line"><span class="t"><a href="URL">Pick title</a></span><span class="from">News</span></span><span class="d">One or two lines saying what it is.</span></li>
     -->
     <div class="picks">
       <div class="card-title">My Favourite Picks</div>

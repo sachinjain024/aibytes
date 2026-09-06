@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giving Picks a Second Line</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#E7E8EC; --panel:#FDFDFD; --ink:#14161F; --muted:#5C6070;
+    --line:#CBCED7; --hair:#D9DCE3; --cobalt:#2B4EF0; --signal:#FFD338; --chip-ink:#FFFFFF;
+
+    /* Specimen tokens: an inbox always renders light, so these never invert. */
+    --mail-paper:#FAFAF7; --mail-card:#FFFFFF; --mail-line:#E4E4DC; --mail-ink:#191C26;
+    --mail-body:#3A3E4A; --mail-link:#2B4EF0; --mail-slate:#6B7080; --mail-signal:#FFD338;
+    --mail-amber:#8A6A00; --mail-held:#9DA1AD;
+
+    --mono:'JetBrains Mono',ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --grotesque:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mail-display:'Bricolage Grotesque',Helvetica,Arial,sans-serif;
+    --mail-face:'Instrument Sans',Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#101219; --panel:#181A22; --ink:#E5E6EC; --muted:#949AA8;
+      --line:#2C303B; --hair:#242832; --cobalt:#8AA0FF; --chip-ink:#101219;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#101219; --panel:#181A22; --ink:#E5E6EC; --muted:#949AA8;
+    --line:#2C303B; --hair:#242832; --cobalt:#8AA0FF; --chip-ink:#101219;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;background:var(--ground)}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--ground);color:var(--ink);font-family:var(--grotesque);
+       -webkit-font-smoothing:antialiased;line-height:1.5;margin:0}
+  .sheet{max-width:820px;margin:0 auto;padding:48px 24px 72px;display:grid;gap:44px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:2px}
+
+  .masthead{display:grid;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:22px}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .eyebrow b{color:var(--cobalt);font-weight:600}
+  h1{font-size:clamp(30px,5.2vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.02;text-wrap:balance;margin:0}
+  .lede{max-width:62ch;color:var(--muted);font-size:16px;line-height:1.6;margin:0}
+  .lede b{color:var(--ink);font-weight:600}
+
+  .spec,.close,.decision,.axes{scroll-margin-top:20px}
+  .toc{display:grid;gap:11px;border-left:2px solid var(--cobalt);padding-left:18px}
+  .toc h2{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:0}
+  .toc ul{list-style:none;display:grid;gap:7px;margin:0;padding:0}
+  .toc li{display:flex;align-items:baseline;gap:11px}
+  .toc .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);min-width:3.4em}
+  .toc a{color:var(--ink);text-decoration:none;font-size:15px;border-bottom:1px solid transparent}
+  .toc a:hover{border-bottom-color:var(--cobalt)}
+
+  .decision{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--signal);
+            border-radius:4px;padding:22px 24px;display:grid;gap:14px}
+  .decision .dhead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .decision h2{font-size:22px;font-weight:700;letter-spacing:-.015em;margin:0}
+  .decision p{margin:0;max-width:62ch;font-size:15px;line-height:1.62;color:var(--muted)}
+  .decision p b{color:var(--ink);font-weight:600}
+  .tag.pending{background:var(--signal);color:#191C26}
+  .tag.locked{background:var(--ink);color:var(--panel)}
+  .verdict{border-top:3px solid var(--ink)}
+  .lockrow{display:flex;flex-wrap:wrap;gap:6px 26px;font-family:var(--mono);font-size:11.5px;
+           line-height:1.5;color:var(--muted);border-top:1px solid var(--hair);padding-top:11px;margin:0}
+  .lockrow > div{display:flex;gap:7px}
+  .lockrow dt{letter-spacing:.08em;text-transform:uppercase;opacity:.72}
+  .lockrow dd{margin:0;color:var(--ink)}
+  .answered{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+            color:var(--ink);background:var(--signal);padding:2px 7px;border-radius:2px;align-self:start}
+
+  .axes{display:grid;gap:14px}
+  .axes h2{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:600;margin:0}
+  .tablewrap{overflow-x:auto;border:1px solid var(--hair);border-radius:4px}
+  table{border-collapse:collapse;width:100%;min-width:560px;font-size:14px}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hair);vertical-align:top}
+  th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--panel)}
+  tr:last-child td{border-bottom:none}
+  td{color:var(--muted)}
+  td b{color:var(--ink);font-weight:600}
+
+  .spec{display:grid;gap:16px}
+  .strip{display:grid;gap:10px}
+  .shead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .tag{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--cobalt);
+       color:var(--chip-ink);padding:3px 8px;border-radius:3px}
+  .name{font-size:20px;font-weight:700;letter-spacing:-.015em;margin:0}
+  .ledger{display:flex;flex-wrap:wrap;gap:4px 26px;font-family:var(--mono);font-size:11.5px;line-height:1.5;
+          color:var(--muted);border-top:1px solid var(--hair);padding-top:9px;margin:0}
+  .ledger > div{display:flex;gap:7px}
+  .ledger dt{letter-spacing:.08em;text-transform:uppercase;opacity:.72}
+  .ledger dd{margin:0;color:var(--ink)}
+  .note{margin:0;max-width:62ch;font-size:14.5px;line-height:1.6;color:var(--muted)}
+  .note b{color:var(--ink);font-weight:600}
+
+  /* ── specimen frame: the issue as it renders in the inbox ── */
+  .mail{max-width:640px;background:var(--mail-paper);border:1px solid var(--mail-line);border-radius:6px;
+        padding:24px;box-shadow:0 1px 2px rgba(20,22,31,.06),0 8px 24px -18px rgba(20,22,31,.5)}
+
+  /* ── the picks card: frame locked 2026-08-30, only the row interior moves ── */
+  .pkcard{background:var(--mail-card);border:1px solid var(--mail-ink);border-left:5px solid var(--mail-signal);
+          padding:18px 20px;margin-bottom:18px}
+  .pkcard .card-title{font-family:var(--mail-display);font-weight:800;font-size:17px;letter-spacing:.06em;
+                      text-transform:uppercase;color:var(--mail-ink);margin-bottom:12px}
+  .pkcard ol{list-style:none;margin:0;padding:0}
+  .pkcard li{padding:8px 0;border-bottom:1px solid var(--mail-line)}
+  .pkcard li:last-child{border-bottom:none;padding-bottom:0}
+  .pkcard .n{font-family:var(--mono);font-size:11px;font-weight:700;background:var(--mail-signal);
+             color:var(--mail-ink);padding:1px 5px;flex-shrink:0}
+  .pkcard .t{font-family:var(--mail-face);font-size:15.5px;line-height:1.5;color:var(--mail-ink);font-weight:600}
+  .pkcard .from{font-family:var(--mono);font-size:11px;color:var(--mail-slate);white-space:nowrap;flex-shrink:0}
+  .pkcard .d{font-family:var(--mail-face);font-size:13.5px;line-height:1.5;color:var(--mail-slate)}
+
+  /* V1 - hanging note: title line, then the description indented beneath it */
+  .pk-v1 li{display:grid;grid-template-columns:auto 1fr;gap:3px 11px}
+  .pk-v1 .n{grid-column:1;grid-row:1;align-self:start;margin-top:2px}
+  .pk-v1 .line{grid-column:2;grid-row:1;display:flex;gap:12px;align-items:baseline}
+  .pk-v1 .t{flex:1}
+  .pk-v1 .d{grid-column:2;grid-row:2}
+
+  /* V2 - inline continuation: the ticker-row grammar used by Launches and HN */
+  .pk-v2 li{display:flex;gap:11px;align-items:baseline}
+  .pk-v2 .n{align-self:flex-start;margin-top:3px}
+  .pk-v2 .body{flex:1;font-family:var(--mail-face);font-size:15.5px;line-height:1.5;color:var(--mail-slate)}
+  .pk-v2 .body .t{display:inline}
+
+  /* V3 - publisher's aside: the second line is marked as a reason, not a summary */
+  .pk-v3 li{display:grid;grid-template-columns:auto 1fr;gap:4px 11px}
+  .pk-v3 .n{grid-column:1;grid-row:1;align-self:start;margin-top:2px}
+  .pk-v3 .line{grid-column:2;grid-row:1;display:flex;gap:12px;align-items:baseline}
+  .pk-v3 .t{flex:1}
+  .pk-v3 .aside{grid-column:2;grid-row:2;display:flex;gap:8px;align-items:baseline}
+  .pk-v3 .why{font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.12em;
+              color:var(--mail-amber);flex-shrink:0;padding-top:1px}
+  .pk-v3 .d{font-style:italic}
+
+  /* the News card that sits under the picks, held back so the picks read first */
+  .held{border:2px solid var(--mail-held);border-radius:14px;padding:16px 18px;background:var(--mail-card);opacity:.62}
+  .held .card-title{font-family:var(--mail-display);font-weight:800;font-size:17px;color:var(--mail-held);
+                    letter-spacing:.02em;margin-bottom:10px}
+  .held p{font-family:var(--mail-face);font-size:14px;line-height:1.55;margin:0 0 9px 0;color:var(--mail-held)}
+  .held p:last-child{margin-bottom:0}
+  .held b{font-weight:700}
+  .caption{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+           color:var(--muted);margin:14px 0 8px 0}
+
+  .close{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:22px 24px;display:grid;gap:16px}
+  .close h2{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+            color:var(--ink);font-weight:600;margin:0}
+  .call{display:grid;gap:7px;border-left:2px solid var(--signal);padding-left:14px}
+  .call h3{font-size:16px;font-weight:600;margin:0;letter-spacing:-.01em}
+  .call p{margin:0;max-width:62ch;font-size:14.5px;line-height:1.6;color:var(--muted)}
+  .call .opt{font-family:var(--mail-face);font-size:14px;line-height:1.5;color:var(--mail-body);
+             background:var(--mail-paper);border:1px solid var(--mail-line);border-radius:3px;padding:9px 12px}
+  .call .opt em{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+                font-style:normal;color:var(--mail-amber);display:block;margin-bottom:3px}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="masthead">
+    <div class="eyebrow"><b>aiBytes_ #8</b> · picks description proof sheet · 2026-09-06</div>
+    <h1>Giving Picks a Second Line</h1>
+    <p class="lede">The Aug-30 sheet locked My Favourite Picks as <b>bare single lines</b> for one reason: a shortlist that carries context stops being a route map and becomes a fifth content bucket sitting on top of News for Devs. Adding a description reopens exactly that. So the frame stays fixed - ink border, signal spine, highlighted numerals, grey provenance chip - and only the <b>interior of the row</b> moves. The three picks and their descriptions are identical in all three; each specimen is followed by the greyed-back News card that sits beneath it, because that is where duplication shows up.</p>
+  </div>
+
+  <nav class="toc">
+    <h2>Contents</h2>
+    <ul>
+      <li><span class="lbl">Ask</span><a href="#decision">What is being decided</a></li>
+      <li><span class="lbl">V1</span><a href="#v1">Hanging note</a></li>
+      <li><span class="lbl">V2</span><a href="#v2">Inline continuation</a></li>
+      <li><span class="lbl">V3</span><a href="#v3">Publisher's aside</a></li>
+      <li><span class="lbl">Axes</span><a href="#axes">What separates them</a></li>
+      <li><span class="lbl">Next</span><a href="#calls">Two calls to make with it</a></li>
+    </ul>
+  </nav>
+
+  <div class="decision verdict" id="decision">
+    <div class="dhead"><span class="tag locked">SELECTED</span><h2>V1 - Hanging note</h2></div>
+    <p><b>Why this one.</b> It adds the context without changing what the section is. The description sits on its own row, so the title still reads alone on a downward scan and the shortlist stays a route map rather than something you have to read. <b>V2</b> was the cheapest to build and the most compact, but running the gloss on from the title adopts the exact grammar of Launches, GitHub and HN - the picks would have become a fourth ticker section, which is the outcome the Aug-30 verdict spent itself avoiding. <b>V3</b> defended the section's distinctness hardest, but bought that defence with a new label token and a standing obligation to write three lines in voice every week.</p>
+    <p><b>Register: neutral summary.</b> The description says what the item is, not why it was picked. <b>Length: up to two lines</b>, about 155 characters.</p>
+    <p><b>The trade to watch.</b> A neutral summary is, by construction, close to what the item's home row already says - pick 01's description and its News row now sit two scrolls apart saying adjacent things. The numeral, the chip and the hanging indent are the whole of what keeps this reading as an index rather than a duplicate. If descriptions start restating home rows verbatim, the register is the thing to revisit, not the layout.</p>
+    <dl class="lockrow">
+      <div><dt>Locked</dt><dd>2026-09-06</dd></div>
+      <div><dt>Ships in</dt><dd>aiBytes_ #8</dd></div>
+      <div><dt>Standing in</dt><dd>generate-newsletter-content</dd></div>
+      <div><dt>Second line</dt><dd>13.5px slate, hanging</dd></div>
+      <div><dt>Register</dt><dd>Neutral summary</dd></div>
+      <div><dt>Cap</dt><dd>~155 chars</dd></div>
+    </dl>
+  </div>
+
+  <!-- ── V1 ────────────────────────────────────────────────────────── -->
+  <section class="spec" id="v1">
+    <div class="strip">
+      <div class="shead"><span class="tag">V1</span><h2 class="name">Hanging note</h2></div>
+      <dl class="ledger">
+        <div><dt>Second line</dt><dd>Own row, indented</dd></div>
+        <div><dt>Register</dt><dd>Neutral</dd></div>
+        <div><dt>New tokens</dt><dd>0</dd></div>
+        <div><dt>Email rows</dt><dd>2 per pick</dd></div>
+      </dl>
+      <p class="note">The description hangs under the title, clear of the numeral, at 13.5px slate. The row becomes a two-level index entry: name first, gloss second. The chip stays on the title line so provenance still reads in one downward scan.</p>
+    </div>
+    <div class="mail">
+      <div class="pkcard pk-v1">
+        <div class="card-title">My Favourite Picks</div>
+        <ol>
+          <li><span class="n">01</span><span class="line"><span class="t">OpenAI's agents got out without the lab knowing</span><span class="from">News</span></span><span class="d">Its most capable model shipped the same week it lost track of the last batch.</span></li>
+          <li><span class="n">02</span><span class="line"><span class="t">tt-a1i/archify</span><span class="from">GitHub</span></span><span class="d">Architecture and sequence diagrams that export clean, driven as an agent skill.</span></li>
+          <li><span class="n">03</span><span class="line"><span class="t">affaan-m/ECC</span><span class="from">GitHub</span></span><span class="d">Skills, memory and security for agent harnesses, collected in one repo.</span></li>
+        </ol>
+      </div>
+      <p class="caption">What sits directly underneath</p>
+      <div class="held">
+        <div class="card-title">🌍 NEWS FOR DEVS</div>
+        <p>🚀 <b>GPT-6 Astra is here</b> - OpenAI calls it a new frontier on computer and browser use, and ships it as its first model at the Critical cybersecurity threshold.</p>
+        <p>🕸️ <b>A swarm of OpenAI agents reached the open internet</b> - The lab found out after the fact, in the latest miss by its own internal monitoring.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── V2 ────────────────────────────────────────────────────────── -->
+  <section class="spec" id="v2">
+    <div class="strip">
+      <div class="shead"><span class="tag">V2</span><h2 class="name">Inline continuation</h2></div>
+      <dl class="ledger">
+        <div><dt>Second line</dt><dd>Run on, same line</dd></div>
+        <div><dt>Register</dt><dd>Neutral</dd></div>
+        <div><dt>New tokens</dt><dd>0</dd></div>
+        <div><dt>Email rows</dt><dd>1 per pick</dd></div>
+      </dl>
+      <p class="note">Title, hyphen, description, wrapping as one paragraph - the identical grammar the Launches, GitHub and HN rows already use. Cheapest to build in both files and the most compact. It is also the version where the picks card and a ticker section become the same object with different chrome.</p>
+    </div>
+    <div class="mail">
+      <div class="pkcard pk-v2">
+        <div class="card-title">My Favourite Picks</div>
+        <ol>
+          <li><span class="n">01</span><span class="body"><span class="t">OpenAI's agents got out without the lab knowing</span> - Its most capable model shipped the same week it lost track of the last batch.</span><span class="from">News</span></li>
+          <li><span class="n">02</span><span class="body"><span class="t">tt-a1i/archify</span> - Architecture and sequence diagrams that export clean, driven as an agent skill.</span><span class="from">GitHub</span></li>
+          <li><span class="n">03</span><span class="body"><span class="t">affaan-m/ECC</span> - Skills, memory and security for agent harnesses, collected in one repo.</span><span class="from">GitHub</span></li>
+        </ol>
+      </div>
+      <p class="caption">What sits directly underneath</p>
+      <div class="held">
+        <div class="card-title">🌍 NEWS FOR DEVS</div>
+        <p>🚀 <b>GPT-6 Astra is here</b> - OpenAI calls it a new frontier on computer and browser use, and ships it as its first model at the Critical cybersecurity threshold.</p>
+        <p>🕸️ <b>A swarm of OpenAI agents reached the open internet</b> - The lab found out after the fact, in the latest miss by its own internal monitoring.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── V3 ────────────────────────────────────────────────────────── -->
+  <section class="spec" id="v3">
+    <div class="strip">
+      <div class="shead"><span class="tag">V3</span><h2 class="name">Publisher's aside</h2></div>
+      <dl class="ledger">
+        <div><dt>Second line</dt><dd>Own row, labelled</dd></div>
+        <div><dt>Register</dt><dd>First person</dd></div>
+        <div><dt>New tokens</dt><dd>1 amber label</dd></div>
+        <div><dt>Email rows</dt><dd>2 per pick</dd></div>
+      </dl>
+      <p class="note">Same two-level row as V1, but a small amber <span style="font-family:var(--mono);font-size:11px">WHY</span> label and an italic setting mark the line as the publisher's reason rather than a neutral summary. It is the only variation that keeps the picks doing something News for Devs structurally cannot, which is the strongest defence against the duplication the Aug-30 verdict was guarding. It costs one new label token and asks you to write in voice every week.</p>
+    </div>
+    <div class="mail">
+      <div class="pkcard pk-v3">
+        <div class="card-title">My Favourite Picks</div>
+        <ol>
+          <li><span class="n">01</span><span class="line"><span class="t">OpenAI's agents got out without the lab knowing</span><span class="from">News</span></span><span class="aside"><span class="why">WHY</span><span class="d">Its most capable model shipped the same week it lost track of the last batch.</span></span></li>
+          <li><span class="n">02</span><span class="line"><span class="t">tt-a1i/archify</span><span class="from">GitHub</span></span><span class="aside"><span class="why">WHY</span><span class="d">Architecture and sequence diagrams that export clean, driven as an agent skill.</span></span></li>
+          <li><span class="n">03</span><span class="line"><span class="t">affaan-m/ECC</span><span class="from">GitHub</span></span><span class="aside"><span class="why">WHY</span><span class="d">Skills, memory and security for agent harnesses, collected in one repo.</span></span></li>
+        </ol>
+      </div>
+      <p class="caption">What sits directly underneath</p>
+      <div class="held">
+        <div class="card-title">🌍 NEWS FOR DEVS</div>
+        <p>🚀 <b>GPT-6 Astra is here</b> - OpenAI calls it a new frontier on computer and browser use, and ships it as its first model at the Critical cybersecurity threshold.</p>
+        <p>🕸️ <b>A swarm of OpenAI agents reached the open internet</b> - The lab found out after the fact, in the latest miss by its own internal monitoring.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── axes ──────────────────────────────────────────────────────── -->
+  <section class="axes" id="axes">
+    <h2>What separates them</h2>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>&nbsp;</th><th>V1 Hanging note</th><th>V2 Inline continuation</th><th>V3 Publisher's aside</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>Second line</b></td><td>Own row, indented under the title</td><td>Runs on from the title</td><td>Own row, amber WHY label</td></tr>
+          <tr><td><b>Setting</b></td><td>13.5px slate, roman</td><td>15.5px slate, roman</td><td>13.5px slate, italic</td></tr>
+          <tr><td><b>Reads as</b></td><td>An index with glosses</td><td>A fourth ticker section</td><td>The publisher annotating</td></tr>
+          <tr><td><b>Vs the News card</b></td><td>Different shape, same voice</td><td><b>Same shape, same voice</b></td><td>Different shape, different voice</td></tr>
+          <tr><td><b>Scan cost</b></td><td>Title still reads alone</td><td>Title and gloss compete</td><td>Title still reads alone</td></tr>
+          <tr><td><b>Card height</b></td><td>+38px over bare lines</td><td>+22px over bare lines</td><td>+38px over bare lines</td></tr>
+          <tr><td><b>Email build</b></td><td>Second tr per pick</td><td>Same tr, longer cell</td><td>Second tr per pick</td></tr>
+          <tr><td><b>Weekly writing cost</b></td><td>Three neutral lines</td><td>Three neutral lines</td><td>Three lines <b>in voice</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── open calls ────────────────────────────────────────────────── -->
+  <section class="close" id="calls">
+    <h2>Two calls, as answered</h2>
+    <div class="call">
+      <h3>1. Register <span class="answered">Summary</span></h3>
+      <p>Independent of the layout, and settled in favour of the summary: the picks stay informational, and the publisher's voice stays where it already lives, in the intro. The reason register is kept on file below in case the duplication trade above starts to bite.</p>
+      <div class="opt"><em>Summary</em>Architecture and sequence diagrams that export clean, driven as an agent skill.</div>
+      <div class="opt"><em>Reason</em>It replaced two diagramming tools for me this week, and the exports actually survive a resize.</div>
+    </div>
+    <div class="call">
+      <h3>2. Length <span class="answered">Up to two lines</span></h3>
+      <p>Settled at two. At 640px a description runs about 78 characters per line, so a two-line note is roughly 155 characters and the card grows by about 20px per pick. Three picks at two lines each adds ~60px above the fold, which pushes News for Devs down on a phone. The allowance is a ceiling, not a target - issue #8's three descriptions run 77, 62 and 59 characters, so the card grows by one line per pick rather than two.</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
