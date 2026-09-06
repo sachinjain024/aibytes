@@ -53,21 +53,30 @@ anything, including the trailing (HackerNews) and (ProductHunt) links.
   <p style="margin:0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;"><b style="color:#191C26;">Today:</b> {{INTRO_TODAY}}</p>
 </div>
 
-<!-- ═══ PATTERN: My Favourite Picks (single lines, no description) ═══ -->
+<!-- ═══ PATTERN: My Favourite Picks (title line + description line) ═══ -->
 <!-- Ink border with a 5px signal spine on the left. The pick name is INK, weight 600,
      with NO underline - the signal numeral is the marker, and cobalt is reserved for
      the sections that report. The right-hand cell names the section the pick came from
      in one word (News / Launches / GitHub / HN). If a client drops the border-left, the
-     ink border still carries the shape. Last row omits border-bottom. Repeat the <tr>. -->
+     ink border still carries the shape.
+     EACH PICK IS TWO <tr>s: the title row, then the description row whose empty first
+     cell keeps the text hanging under the title, clear of the numeral. The description
+     is a neutral summary of one to two lines (~155 chars max) - what the item is, not
+     why it was picked. No rowspan: Outlook mishandles it. The hairline lives on the
+     DESCRIPTION row's cells, and the last pick omits it. Repeat both <tr>s per pick. -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;background-color:#FFFFFF;border:1px solid #191C26;border-left:5px solid #FFD338;margin-bottom:18px;">
   <tr>
     <td style="padding:18px 20px;">
       <div style="font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:800;font-size:17px;letter-spacing:.06em;text-transform:uppercase;color:#191C26;margin-bottom:12px;">My Favourite Picks</div>
       <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
         <tr>
-          <td width="1" valign="top" style="padding:8px 11px 8px 0;border-bottom:1px solid #E4E4DC;"><span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11px;font-weight:700;background-color:#FFD338;color:#191C26;padding:1px 5px;">{{NN}}</span></td>
-          <td valign="top" style="padding:8px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.5;"><a href="{{URL}}" style="color:#191C26;text-decoration:none;font-weight:600;">{{PICK_TITLE}}</a></td>
-          <td align="right" valign="top" style="padding:8px 0 8px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11px;color:#6B7080;white-space:nowrap;">{{FROM}}</td>
+          <td width="1" valign="top" style="padding:8px 11px 0 0;"><span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11px;font-weight:700;background-color:#FFD338;color:#191C26;padding:1px 5px;">{{NN}}</span></td>
+          <td valign="top" style="padding:8px 0 0 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.5;"><a href="{{URL}}" style="color:#191C26;text-decoration:none;font-weight:600;">{{PICK_TITLE}}</a></td>
+          <td align="right" valign="top" style="padding:8px 0 0 12px;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11px;color:#6B7080;white-space:nowrap;">{{FROM}}</td>
+        </tr>
+        <tr>
+          <td style="padding:0;border-bottom:1px solid #E4E4DC;">&nbsp;</td>
+          <td colspan="2" style="padding:3px 0 8px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:13.5px;line-height:1.5;color:#6B7080;">{{PICK_DESCRIPTION}}</td>
         </tr>
       </table>
     </td>
