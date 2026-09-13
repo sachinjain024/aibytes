@@ -14,11 +14,11 @@ Turn raw weekly material in `newsletter/data/` into a finished aiBytes_ issue - 
 Read every JSON file in the `newsletter/data/` directory of the working folder (ask the user to connect a folder if none is). Each file holds content fetched from one source - Product Hunt, TechCrunch, HackerNews, GitHub Trending, etc. - usually identifiable from the filename (e.g. `producthunt.json`, `hackernews.json`). Field names vary by source and fetcher, so inspect each file's shape rather than assuming a schema; pull out title, URL, description, and the source's popularity metric (upvotes, points, stars). Then curate - don't dump everything. Rank by the popularity metric and relevance to AI builders, and map sources to the newsletter's buckets:
 
 - **My Favourite Picks** (3-5 items) - the publisher's own shortlist, pulled from any of the buckets below. This one is **not derived from the data**: ask the user for their picks, or carry forward the picks they last gave. Omit the section entirely if they have none for the week.
-- **News for devs** (5-7 items) - TechCrunch stories plus major HackerNews news items
-- **Launches** (top ~5) - Product Hunt, with upvote counts
-- **Trending on GitHub** (top ~7) - GitHub repositories, with star growth
-- **HN Deep Cuts** (top ~5) - HackerNews posts that are interesting but aren't headline news, with points/comments
-- **Quote / closing idea** - a pull-quote and one takeaway thought (write these yourself from the week's themes if the data doesn't include them)
+- **AI News** (5-7 items) - TechCrunch stories plus major HackerNews news items
+- **New AI Products** (top ~5) - Product Hunt, with upvote counts
+- **Trending Github Projects** (top ~7) - GitHub repositories, with star growth
+- **HN Deep Stories** (top ~5) - HackerNews posts that are interesting but aren't headline news, with points/comments
+- **Quote** - a pull-quote in the news card (write it from the week's themes if the data does not include one)
 
 If a bucket has no data at all, omit that section from the output rather than inventing items. Never fabricate links, upvote counts, or star numbers - only use what's in the data.
 
@@ -27,7 +27,6 @@ If a bucket has no data at all, omit that section from the output rather than in
 **aiBytes_ goes out to subscribers on Monday morning.** Everything dated flows from the send Monday, never from the day you happen to be building the issue.
 
 - `issue_date`: the Monday it sends. Today if today is a Monday; otherwise the upcoming Monday, unless the user names a date. Fills `{{DATE_ISO}}`.
-- `weekday`: **always `Monday`.** Fills `{{WEEKDAY}}` in the intro's welcome line. Do not run `date +%A` for this - building an issue on a Wednesday would ship "Wednesday-morning" to a Monday list. Only change it if the user says this particular issue sends on a different day.
 - `yyyy` and `week_num`: the year and ISO week **of `issue_date`**, not of today: `date -j -f "%Y-%m-%d" "<issue_date>" "+%G %V"`. This matters most on a Sunday, where today's week number is one behind the issue's.
 - `num` (issue number): count existing folders under `newsletter/issues/` across all years and add 1. If none exist, it's issue 1. The user can override any of these.
 
@@ -35,10 +34,10 @@ If a bucket has no data at all, omit that section from the output rather than in
 
 Copy `assets/template.html` and replace every `{{TOKEN}}`. The template is the complete, styled v3 design - do not alter its CSS, fonts, or structure; only fill content. Key conventions, visible in the template's inline examples:
 
-- **Masthead**: the logo line reads `⚡ aiBytes_ #{num}` - the brand is always written "aiBytes_" (lowercase a, capital B, trailing underscore), and the issue number must match the auto-incremented `num` from step 2. There is deliberately no TL;DR summary block and no separate issue-header rule; the intro block opens the issue right after the masthead.
+- **Masthead**: the logo line reads `⚡ aiBytes_ #{num}` - the masthead brand is written "aiBytes_" (lowercase a, capital B, trailing underscore), and the issue number must match the auto-incremented `num` from step 2. There is deliberately no TL;DR summary block and no separate issue-header rule; the intro block opens the issue right after the masthead.
 - **Intro block**: the publisher talking to the reader - four short paragraphs, warm and first-person. Never quote a comment, upvote, or star count anywhere in the intro: it argues, the item rows carry the receipts (write "set off the loudest argument of the week", not "drew 1,746 comments").
-  1. **Greeting** - fixed copy: `Good morning, builders 👋`, rendered in ink via `class="greet"`. "builders" is the standing name for the audience; never swap it issue to issue.
-  2. **Welcome + hook** - opens with the standing line `Welcome back to your Monday-morning dose of aiBytes_.` (the newsletter always lands Monday morning, per step 2), then a **first-person hook** in two beats: **the surprise stated as a reaction, then the story that caused it** - "I did not expect to spend a week in AI thinking about paper. But Amazon, the company that started out selling books, is pulping rare ones to feed its models, and Anna's Archive is racing to scan whatever survives 📚". The reaction is a feeling in past tense; the story takes whatever tense it is actually in (present if it is still unfolding). Publisher's voice, one light emoji allowed.
+  1. **Greeting** - fixed copy: `Hello, builders 👋`, rendered in ink via `class="greet"`. "builders" is the standing name for the audience; never swap it issue to issue.
+  2. **Welcome + hook** - opens with the standing line `Welcome back to your weekly dose of AI Bytes.`, then a **first-person hook** in two beats: **the surprise stated as a reaction, then the story that caused it** - "I did not expect to spend a week in AI thinking about paper. But Amazon, the company that started out selling books, is pulping rare ones to feed its models, and Anna's Archive is racing to scan whatever survives 📚". The reaction is a feeling in past tense; the story takes whatever tense it is actually in (present if it is still unfolding). Publisher's voice, one light emoji allowed.
 
      The "I" is **reacting to the news, never narrating how the issue got written**. Do not open with the draft-that-changed shape - "I had this issue half-written as X / sketched as Y - then Z". It shipped in #3 and #6, and by the third use the reader hears the template instead of the news; it also spends the opening words on a week that did not happen. Vary the reaction clause every issue too ("I did not expect…" is one phrasing of the beat, not the beat itself) - what repeats is the shape, not the words. The surprise has to be genuine; if the week held none, state the week's shape plainly rather than manufacturing one.
   3. **Storyline** - a `<b>`-led sentence naming the thread that connects the week's items (one inline link allowed).
@@ -47,11 +46,10 @@ Copy `assets/template.html` and replace every `{{TOKEN}}`. The template is the c
   4. **Today** - `<b>Today:</b>` plus a comma-joined menu of what's below, in reading order, four or five clauses ending on the lightest one ("…and seven repos worth your weekend."). This is the closer: there is no "Let's dive in." sign-off any more.
 
   The hook should make skipping the issue feel expensive; the storyline should make the item list feel inevitable rather than miscellaneous; the Today line should make the scroll feel worth starting.
-- **My Favourite Picks**: sits directly under the intro, **above** News for Devs, and is a card like News for Devs rather than a numbered section - so Launches, Trending on GitHub and HN Deep Cuts keep `0x02`, `0x03` and `0x04`. Ink border with a 5px signal spine on the left. Each pick is **two lines**. The title line carries a signal-highlighted numeral, the title, and a one-word `.from` chip naming the section it came from (News, Launches, GitHub or HN); the description hangs beneath it, indented clear of the numeral, at 13.5px slate. The description is a **neutral summary of one to two lines** (~155 characters max) - what the item is, not why it was picked. No stat and no source label: the chip carries provenance, and the picks stay a route map into the issue rather than a fifth content bucket. The pick title renders **ink, weight 600, with no underline**: the numeral is the marker, and cobalt stays with the sections that report. Numerals imply a ranking, so `01` is the top pick. Titles are the user's own words where they gave them; supply one from the item's own headline only where they gave a bare URL. The same goes for descriptions - where the user's picks arrived with their own gloss, use it verbatim and only write one for the picks that came bare.
+- **My Favourite Picks**: sits directly under the intro, **above** AI News, and is a card like AI News rather than a numbered section - so New AI Products, Trending Github Projects and HN Deep Stories keep `0x02`, `0x03` and `0x04`. Ink border with a 5px signal spine on the left. Each pick is **two lines**. The title line carries a signal-highlighted numeral, the title, and a one-word `.from` chip naming the section it came from (News, Products, GitHub or HN); the description hangs beneath it, indented clear of the numeral, at 13.5px slate. The description is a **neutral summary of one to two lines** (~155 characters max) - what the item is, not why it was picked. No stat and no source label: the chip carries provenance, and the picks stay a route map into the issue rather than a fifth content bucket. The pick title renders **ink, weight 600, with no underline**: the numeral is the marker, and cobalt stays with the sections that report. Numerals imply a ranking, so `01` is the top pick. Titles are the user's own words where they gave them; supply one from the item's own headline only where they gave a bare URL. The same goes for descriptions - where the user's picks arrived with their own gloss, use it verbatim and only write one for the picks that came bare.
 - **News items**: emoji + bold linked headline + one-line context + `<span class="src">(Source)</span>`. The source here is a plain text label, not a link. Mark the single biggest story with `<span class="hot">Story of the week</span>`.
 - **Quote block**: the callout text only. No attribution line, no `- aiBytes_` under it. It is the issue talking to itself, so signing it reads like a stranger.
-- **Closing block** (`.tldr`, "One idea to carry next week"): a butter panel (`--butter #FFF6D9`, hairline `--butter-line #F0E2AE`, label in `--amber #8A6A00`), never a dark slab. The notched corner is the signature and stays. The idea text is weight **500**, not bold - the only emphasis is the pivotal word, wrapped in `<b>` so it picks up the signal-yellow highlight that the "Story of the week" badge uses. Email drops the notch, so the fill and hairline carry the shape there.
-- **Launches / Trending on GitHub / HN rows**: emoji, bold linked name, hyphen, description, right-aligned stat (`▲ upvotes`, `+N.Nk ★`, `N pts`). Engagement numbers belong here and in the news rows - never in the intro.
+- **New AI Products / Trending Github Projects / HN rows**: emoji, bold linked name, hyphen, description, right-aligned stat (`▲ upvotes`, `+N.Nk ★`, `N pts`). Engagement numbers belong here and in the news rows - never in the intro.
 - **Issue tag**: `ISSUE 0x{num in hex, 2 digits} · TL;DR` and date + estimated read time.
 
 **Where each row's links point.** A row has one destination link (the thing the reader wants) and, for two of the sections, a trailing attribution link:
@@ -59,10 +57,10 @@ Copy `assets/template.html` and replace every `{{TOKEN}}`. The template is the c
 | Section | Bold name links to | Trailing link |
 |---|---|---|
 | My Favourite Picks | the pick's own destination (same URL that item uses in its home section) | none, the `.from` chip is a plain label |
-| News for devs | the article | none, `(Source)` is a plain label |
-| Launches | the product's **own website** | `(ProductHunt)` to the launch page |
-| Trending on GitHub | the repo | none, the name is already the source |
-| HN Deep Cuts | the **article**, not the thread | `(HackerNews)` to the thread |
+| AI News | the article | none, `(Source)` is a plain label |
+| New AI Products | the product's **own website** | `(ProductHunt)` to the launch page |
+| Trending Github Projects | the repo | none, the name is already the source |
+| HN Deep Stories | the **article**, not the thread | `(HackerNews)` to the thread |
 
 Attribution links use the same `<span class="src">` styling as the news source, with only the word inside the anchor: `<span class="src">(<a href="...">HackerNews</a>)</span>`. They render **grey with a hairline underline**, never cobalt - they are a quiet second door, and the bold name link stays the loud one. In the Beehiiv export that means `style="color:#6B7080;text-decoration:underline;"` on the anchor.
 
@@ -84,7 +82,7 @@ The title becomes the email subject line; the description becomes the preview/su
 
 - **Description**: one sentence that **starts with "Plus"** and names 2-3 things the title does not. It extends the title, it never restates it. Never "Catch up on …", which only ever paraphrases the subject line back at the reader.
 
-  Check it against the intro's **Today:** line too, not just the title. Those are the issue's other menu, so pulling from the same four items three times is the same repetition in a different place. Reach for what neither one mentions: a launch, a repo, an HN thread, or the closing question.
+  Check it against the intro's **Today:** line too, not just the title. Those are the issue's other menu, so pulling from the same four items three times is the same repetition in a different place. Reach for what neither one mentions: a product, a repo, or an HN thread.
 
 Fill `{{EMAIL_SUBJECT}}` and `{{EMAIL_DESCRIPTION}}` in the main template (`<title>` and meta description) and in the export page's title panel.
 
@@ -92,9 +90,9 @@ Fill `{{EMAIL_SUBJECT}}` and `{{EMAIL_DESCRIPTION}}` in the main template (`<tit
 
 The user publishes on Beehiiv, whose HTML Snippet block strips `<style>` tags - so the main file's CSS classes won't survive a paste. Alongside the main HTML, always generate a second file: a copy-paste export page.
 
-For each section of the issue (masthead, intro, news card, launches, Trending on GitHub, HN deep cuts, closing idea), rebuild the content as an email-safe snippet - inline styles only, `<table>` layout, no flexbox/clip-path/classes. The exact pattern for every section is in `references/beehiiv-patterns.html`; read it and fill the tokens with the same content as the main file.
+For each section of the issue (masthead, intro, news card, New AI Products, Trending Github Projects, HN Deep Stories), rebuild the content as an email-safe snippet - inline styles only, `<table>` layout, no flexbox/clip-path/classes. The exact pattern for every section is in `references/beehiiv-patterns.html`; read it and fill the tokens with the same content as the main file.
 
-Then take `assets/beehiiv-export-template.html` and fill its tokens: `{{PART1_HTML}}` with the merged snippets for masthead + intro + My Favourite Picks + news card, `{{PART2_HTML}}` with launches + Trending on GitHub + HN deep cuts + closing idea (sections joined by a blank line, in reading order), plus `{{EMAIL_SUBJECT}}`, `{{EMAIL_DESCRIPTION}}`, and `{{ISSUE_NUM}}`. The page shows the title panel - carrying its own **Copy Title** and **Copy Desc** buttons, since those two are typed into Beehiiv's title and subtitle fields as plain text rather than pasted as a snippet - then two HTML copy buttons, Part 1 and Part 2, each with a live preview. Two parts rather than one because the user pastes native Beehiiv blocks (subscribe form, ads, polls) between them.
+Then take `assets/beehiiv-export-template.html` and fill its tokens: `{{PART1_HTML}}` with the merged snippets for masthead + intro + My Favourite Picks + news card, `{{PART2_HTML}}` with New AI Products + Trending Github Projects + HN Deep Stories (sections joined by a blank line, in reading order), plus `{{EMAIL_SUBJECT}}`, `{{EMAIL_DESCRIPTION}}`, and `{{ISSUE_NUM}}`. The page shows the title panel - carrying its own **Copy Title** and **Copy Desc** buttons, since those two are typed into Beehiiv's title and subtitle fields as plain text rather than pasted as a snippet - then two HTML copy buttons, Part 1 and Part 2, each with a live preview. Two parts rather than one because the user pastes native Beehiiv blocks (subscribe form, ads, polls) between them.
 
 ### 6. Save the output
 

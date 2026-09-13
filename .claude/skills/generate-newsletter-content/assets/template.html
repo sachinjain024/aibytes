@@ -11,7 +11,6 @@
   :root{
     --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
     --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
-    --butter:#FFF6D9; --butter-line:#F0E2AE; --amber:#8A6A00;
     --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -26,13 +25,6 @@
   .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
   .logo em{font-style:normal;color:var(--cobalt)}
 
-  /* ── Closing block: the signature. Butter panel, notch, idea text at 500 ── */
-  .tldr{background:var(--butter);border:1px solid var(--butter-line);color:var(--ink);
-        padding:20px 22px;margin-top:18px;
-        clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}
-  .tldr .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--amber)}
-  .tldr p{font-family:var(--display);font-weight:500;font-size:17px;line-height:1.55;margin-top:8px;color:var(--ink)}
-  .tldr b{background:var(--signal);padding:0 4px;color:var(--ink);font-weight:700}
 
   section{margin-top:34px}
   .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
@@ -104,18 +96,18 @@
   <section>
     <!-- Intro: the publisher greeting the reader, then four beats. Never quote a
          comment/upvote/star count anywhere in here - say what the number meant.
-         1. GREETING - fixed line, "Good morning, builders 👋". "builders" is the
+         1. GREETING - fixed line, "Hello, builders 👋". "builders" is the
             standing name for the audience; do not swap it issue to issue.
-         2. WELCOME + HOOK - the standing "dose of aiBytes_" line ({{WEEKDAY}} is
-            Monday; the newsletter always sends Monday morning), then a first-person
+         2. WELCOME + HOOK - the standing "Welcome back to your weekly dose of AI Bytes."
+            line, then a first-person
             hook: what surprised you while putting the issue together, in your own
             voice. One light emoji is fine.
          3. STORYLINE - the thread connecting the week's items; <b> lead + one inline link.
          4. TODAY - a menu of what's below, so a skimmer knows what they're scrolling
             into. This replaces the old "Let's dive in." sign-off; do not add one. -->
     <div class="intro">
-      <p class="greet">Good morning, builders 👋</p>
-      <p>Welcome back to your {{WEEKDAY}}-morning dose of aiBytes_. {{INTRO_HOOK}}</p>
+      <p class="greet">Hello, builders 👋</p>
+      <p>Welcome back to your weekly dose of AI Bytes. {{INTRO_HOOK}}</p>
       <p><b>{{INTRO_STORYLINE_LEAD}}</b>: {{INTRO_STORYLINE}}</p>
       <p><b>Today:</b> {{INTRO_TODAY}}</p>
     </div>
@@ -124,7 +116,7 @@
          the issue. TWO LINES PER PICK - a title line and a description; no stat, no
          source label. The name renders INK with no underline (the signal numeral is the marker, and
          cobalt stays with the sections that report); the trailing .from chip names the
-         section the pick came from in one word: News, Launches, GitHub or HN. The .d line
+         section the pick came from in one word: News, Products, GitHub or HN. The .d line
          hangs under the title: a NEUTRAL SUMMARY of one to two lines (~155 chars max) -
          what the item is, not why it was picked. No stat, no source label. Numerals
          imply a ranking, so 01 is the top pick. Omit the whole block if there are no
@@ -139,7 +131,7 @@
     </div>
 
     <div class="news-card">
-      <div class="card-title">🌍 NEWS FOR DEVS</div>
+      <div class="card-title">🌍 AI NEWS</div>
 
       <!-- Repeat per news item. Mark the top story with the .hot badge. Pattern:
       <p class="news-item">🔥 <b><a href="URL">Headline</a></b> one-line context <span class="hot">Story of the week</span> <span class="src">(Source)</span></p>
@@ -154,7 +146,7 @@
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Launches</h2><div class="sec-rule"></div></div>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">New AI Products</h2><div class="sec-rule"></div></div>
     <!-- Repeat per launch. The name links to the product's OWN website; the trailing
     (ProductHunt) links to the launch page. Plain URLs, no tracking params. Pattern:
     <div class="row"><span class="ico">🎬</span><span class="txt"><b><a href="SITE_URL">Name</a></b> - one-line description. <span class="src">(<a href="PH_LAUNCH_URL">ProductHunt</a>)</span></span><span class="stat"><b>▲ 776</b></span></div>
@@ -163,7 +155,7 @@
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">Trending on GitHub</h2><div class="sec-rule"></div></div>
+    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">Trending Github Projects</h2><div class="sec-rule"></div></div>
     <!-- Repeat per repo. Pattern:
     <div class="row"><span class="ico">📎</span><span class="txt"><b><a href="URL">repo-name</a></b> - one-line description.</span><span class="stat"><b>+6.4k</b> ★</span></div>
     -->
@@ -171,19 +163,13 @@
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">HN Deep Cuts</h2><div class="sec-rule"></div></div>
+    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">HN Deep Stories</h2><div class="sec-rule"></div></div>
     <!-- Repeat per post. The title links to the ARTICLE; the trailing (HackerNews)
     links to the thread. Pattern:
     <div class="row"><span class="ico">📊</span><span class="txt"><b><a href="ARTICLE_URL">Post title</a></b> optional context. <span class="src">(<a href="HN_THREAD_URL">HackerNews</a>)</span></span><span class="stat"><b>699</b> pts</span></div>
     Add "· N 💬" to the stat when the comment count is itself the story. -->
     {{HN_ROWS}}
   </section>
-
-  <div class="tldr" style="margin-top:44px">
-    <div class="kicker">ONE IDEA TO CARRY NEXT WEEK</div>
-    <!-- One forward-looking thought drawn from the week's themes; <b> the pivotal word. -->
-    <p>{{CLOSING_IDEA}}</p>
-  </div>
 
   <footer>
     <p>Made for builders who ship with AI. See you next week. ✌️</p>
