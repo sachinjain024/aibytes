@@ -3,10 +3,10 @@ format: longclaw.ticket/v1
 id: 0e435759-7865-4d12-9732-540a9ff7613a
 key: AIB-17j
 title: "Issue #9: 13th Sep 2026"
-status: in_progress
+status: done
 priority: none
 created_at: 2026-09-13T01:25:15.774Z
-updated_at: 2026-09-13T09:05:15.699Z
+updated_at: 2026-09-13T10:46:15.846Z
 ---
 
 ## Checklist
@@ -16,8 +16,8 @@ updated_at: 2026-09-13T09:05:15.699Z
 - [x] Update the Content <!-- longclaw:item=ck_1b0975d5 -->
 - [x] Finalize Title & Desciption <!-- longclaw:item=ck_c6115ae7 -->
 - [x] Update Intro Content <!-- longclaw:item=ck_f534aef1 -->
-- [ ] Generate Thumbnail <!-- longclaw:item=ck_784cacbd -->
-- [ ] Send the newsletter <!-- longclaw:item=ck_9d3a2d7f -->
+- [x] Generate Thumbnail <!-- longclaw:item=ck_784cacbd -->
+- [x] Send the newsletter <!-- longclaw:item=ck_9d3a2d7f -->
 - [x] Create the LC Tickets for AI Learning Backlog <!-- longclaw:item=ck_1af56096 -->
 
 ## Activity
@@ -222,6 +222,51 @@ changes:
   - field: checklist.ck_f534aef1.checked
     from: "false"
     to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_03e73e93
+kind: update
+occurred_at: 2026-09-13T10:46:09.021Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_9d3a2d7f.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8dbe4b47
+kind: update
+occurred_at: 2026-09-13T10:46:09.905Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_784cacbd.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_205ecce3
+kind: update
+occurred_at: 2026-09-13T10:46:15.846Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: status
+    from: in_progress
+    to: done
 -->
 ### You updated this ticket
 <!-- /longclaw:event -->
