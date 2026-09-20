@@ -1,0 +1,120 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-09-20",
+  "window": {
+    "after": "2026-09-13",
+    "before": "2026-09-21"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 102,
+  "poolCount": 453,
+  "stories": [
+    {
+      "title": "AI-generated posters don\u2019t have to be horrible",
+      "url": "https://john.hartnup.uk/2026/06/07/ai-event-posters.html",
+      "type": "story",
+      "points": 1623,
+      "num_comments": 853,
+      "author": "ereiamjh",
+      "created_at": "2026-09-19T09:20:58Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49764791"
+    },
+    {
+      "title": "Microsoft exec called AI scraping 'the largest theft of labor in human history'",
+      "url": "https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal/",
+      "type": "story",
+      "points": 931,
+      "num_comments": 820,
+      "author": "pluc",
+      "created_at": "2026-09-18T09:45:07Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49752056"
+    },
+    {
+      "title": "Everyone should slow down AI development except for me",
+      "url": "https://xeiaso.net/notes/2026/everyone-slowdown-but-me/",
+      "type": "story",
+      "points": 811,
+      "num_comments": 455,
+      "author": "xena",
+      "created_at": "2026-09-13T00:30:44Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49678683"
+    },
+    {
+      "title": "Claude Code now reads AGENTS.md if there is no Claude.md",
+      "url": "https://code.claude.com/docs/en/changelog",
+      "type": "story",
+      "points": 721,
+      "num_comments": 271,
+      "author": "datadrivenangel",
+      "created_at": "2026-09-18T21:00:32Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49760187"
+    },
+    {
+      "title": "A single firm is behind OpenAI, Anthropic, and Meta hacking scandals",
+      "url": "https://www.effort.news/irregular",
+      "type": "story",
+      "points": 690,
+      "num_comments": 254,
+      "author": "yusufozkan",
+      "created_at": "2026-09-14T21:15:01Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49704132"
+    },
+    {
+      "title": "How to Write with an LLM",
+      "url": "https://sockpuppet.org/blog/2026/09/17/how-to-write-with-an-llm/",
+      "type": "story",
+      "points": 678,
+      "num_comments": 395,
+      "author": "joeriddles",
+      "created_at": "2026-09-17T21:48:38Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49747070"
+    },
+    {
+      "title": "Why are AI agents lying, cheating and coordinating?",
+      "url": "https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating",
+      "type": "story",
+      "points": 657,
+      "num_comments": 695,
+      "author": "jonifico",
+      "created_at": "2026-09-13T01:22:31Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49678969"
+    },
+    {
+      "title": "Bend \u2013 a language that blocks AI mistakes via proof and runs on GPUs",
+      "url": "https://bend-lang.com/",
+      "type": "story",
+      "points": 606,
+      "num_comments": 309,
+      "author": "nicolas-siplis",
+      "created_at": "2026-09-17T20:36:13Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49746163"
+    },
+    {
+      "title": "Mistral X Mozilla: Private, Multilingual AI Browsing",
+      "url": "https://mistral.ai/news/mistral-x-mozilla/",
+      "type": "story",
+      "points": 588,
+      "num_comments": 205,
+      "author": "vertigoruntime",
+      "created_at": "2026-09-16T08:08:57Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49723408"
+    },
+    {
+      "title": "Astra for Law",
+      "url": "https://openai.com/index/astra-for-law/",
+      "type": "story",
+      "points": 581,
+      "num_comments": 679,
+      "author": "vertigoruntime",
+      "created_at": "2026-09-17T20:17:48Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49745940"
+    }
+  ]
+}

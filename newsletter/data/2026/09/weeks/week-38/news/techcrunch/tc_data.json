@@ -1,0 +1,157 @@
+{
+  "source": "techcrunch",
+  "section": "ai-news",
+  "fetched_at": "2026-09-20",
+  "window": {
+    "after": "2026-09-13",
+    "before": "2026-09-21"
+  },
+  "query_params": {
+    "category": "artificial-intelligence",
+    "count": 10,
+    "ranking": "hackernews_points,recency"
+  },
+  "totalCount": 84,
+  "articles": [
+    {
+      "title": "Microsoft exec called AI scraping \u2018the largest theft of labor in human history,\u2019 new unredacted filings reveal",
+      "description": "Newly unsealed court filings show Microsoft privately called OpenAI's data practices \"theft\" while both companies scraped paywalled Times content, built datasets from it, and warned internally it would gut publishers.",
+      "url": "https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal/",
+      "published_at": "2026-09-17T19:46:08Z",
+      "author": "Rebecca Bellan",
+      "image": "https://techcrunch.com/wp-content/uploads/2023/11/GettyImages-1778706504.jpg?resize=1200,783",
+      "reading_time": "5 minutes",
+      "hackernews": {
+        "points": 931,
+        "num_comments": 820,
+        "hn_url": "https://news.ycombinator.com/item?id=49752056"
+      }
+    },
+    {
+      "title": "OpenAI buys smartphone camera maker Glass Imaging for $300 million, report says",
+      "description": "Glass Imaging was founded by a pair of former Apple engineers who previously led the team that developed Apple's Portrait Mode.",
+      "url": "https://techcrunch.com/2026/09/14/openai-buys-smartphone-camera-maker-glass-imaging-for-300-million-report-says/",
+      "published_at": "2026-09-14T20:44:14Z",
+      "author": "Amanda Silberling",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/09/GettyImages-1252369470.jpg?resize=1200,802",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 130,
+        "num_comments": 97,
+        "hn_url": "https://news.ycombinator.com/item?id=49711240"
+      }
+    },
+    {
+      "title": "The FAA\u2019s plan to fix air traffic? $875M worth of AI",
+      "description": "A new AI-based software program is being launched to help air traffic controllers better navigate their jobs as the crossing guards of America's skies.",
+      "url": "https://techcrunch.com/2026/09/17/the-faas-plan-to-fix-air-traffic-875-million-worth-of-ai/",
+      "published_at": "2026-09-17T22:14:59Z",
+      "author": "Lucas Ropek",
+      "image": "https://techcrunch.com/wp-content/uploads/2025/04/NYC_Archer_United_3.png?resize=1200,802",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 27,
+        "num_comments": 17,
+        "hn_url": "https://news.ycombinator.com/item?id=49748387"
+      }
+    },
+    {
+      "title": "AI hallucination nearly triggers US military operation",
+      "description": "\u201cIt\u2019s important for service members to understand the uncertainty inherent to LLMs,\" a GovAI research scholar warns.",
+      "url": "https://techcrunch.com/2026/09/18/ai-hallucination-nearly-triggers-us-military-operation/",
+      "published_at": "2026-09-18T23:12:32Z",
+      "author": "Aditya Mehta",
+      "image": "https://techcrunch.com/wp-content/uploads/2020/07/GettyImages-567072595.jpg?w=1000",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 19,
+        "num_comments": 5,
+        "hn_url": "https://news.ycombinator.com/item?id=49764435"
+      }
+    },
+    {
+      "title": "Nvidia CEO Jensen Huang tells Trump \u2018we\u2019re not going to let [an AI slowdown] happen\u2019",
+      "description": "Though Elon Musk and Sam Altman have supported Dario Amodei's calls to slow the pace of AI development, Jensen Huang seems to feel differently.",
+      "url": "https://techcrunch.com/2026/09/14/nvidia-ceo-jensen-huang-tells-trump-were-not-going-to-let-an-ai-slowdown-happen/",
+      "published_at": "2026-09-14T21:51:02Z",
+      "author": "Amanda Silberling",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/01/GettyImages-2256813240.jpg?resize=1200,800",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 11,
+        "num_comments": 6,
+        "hn_url": "https://news.ycombinator.com/item?id=49705286"
+      }
+    },
+    {
+      "title": "AI safety conversations have gotten unbelievable",
+      "description": "This week two conversations about AI safety went viral that demonstrate just how hard it is to discern AI fact from fiction.",
+      "url": "https://techcrunch.com/2026/09/19/ai-safety-conversations-have-gotten-unbelievable/",
+      "published_at": "2026-09-19T15:00:00Z",
+      "author": "Julie Bort",
+      "image": "https://techcrunch.com/wp-content/uploads/2024/07/GettyImages-1662708140-e1721664527112.jpg?resize=1200,676",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 9,
+        "num_comments": 2,
+        "hn_url": "https://news.ycombinator.com/item?id=49770971"
+      }
+    },
+    {
+      "title": "Superhuman acquires YC-backed notetaker Fathom as productivity platforms push for agentic work",
+      "description": "The notetaker offers a generous free plan, and that has resulted in over 400,000 monthly active users. The company said that over 1 million people have recorded meetings until now.",
+      "url": "https://techcrunch.com/2026/09/14/superhuman-acquires-yc-backed-notetaker-fathom-as-productivity-platforms-push-for-agentic-work/",
+      "published_at": "2026-09-14T14:45:44Z",
+      "author": "Ivan Mehta",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/04/fathom_product-graphic_my-calls.jpeg?resize=1200,675",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 8,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49699127"
+      }
+    },
+    {
+      "title": "A new kind of AI model from a ChatGPT inventor is thrilling developers",
+      "description": "Jev, a new kind of AI model, is showing developers a cheaper and faster path to software intelligence.",
+      "url": "https://techcrunch.com/2026/09/18/a-new-kind-of-ai-model-from-a-chatgpt-inventor-is-thrilling-developers/",
+      "published_at": "2026-09-18T18:49:30Z",
+      "author": "Tim Fernholz",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/09/typesafe-ai.jpg?resize=1174,1200",
+      "reading_time": "5 minutes",
+      "hackernews": {
+        "points": 5,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49763045"
+      }
+    },
+    {
+      "title": "We don\u2019t need AI regulation \u2014 leave safety to us, Nvidia\u2019s Jensen Huang says",
+      "description": "AI isn't some new form of \"alien mind,\" according to Jensen Huang. It's just hardware and software, so safety can be engineered by each AI product maker.",
+      "url": "https://techcrunch.com/2026/09/15/we-dont-need-ai-regulation-leave-safety-to-us-nvidias-jensen-huang-says/",
+      "published_at": "2026-09-16T00:20:39Z",
+      "author": "Julie Bort",
+      "image": "https://techcrunch.com/wp-content/uploads/2025/07/GettyImages-2219673294.jpg?resize=1200,750",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 4,
+        "num_comments": 4,
+        "hn_url": "https://news.ycombinator.com/item?id=49722761"
+      }
+    },
+    {
+      "title": "UN turns to Google to make its global data ready for AI agents",
+      "description": "The shift comes after a UNICEF test found leading AI models struggled to accurately retrieve global development statistics.",
+      "url": "https://techcrunch.com/2026/09/17/un-turns-to-google-to-make-its-global-data-ready-for-ai-agents/",
+      "published_at": "2026-09-17T20:00:00Z",
+      "author": "Jagmeet Singh",
+      "image": "https://techcrunch.com/wp-content/uploads/2025/02/GettyImages-2196352264.jpg?w=1024",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 3,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49750622"
+      }
+    }
+  ]
+}

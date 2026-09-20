@@ -6,6 +6,11 @@ clients don't support flexbox, clip-path, or external CSS. So every snippet
 below uses ONLY inline styles and <table> layout. Keep it that way - no
 classes, no <style>, no flex, no clip-path, no <script>.
 
+Paragraph spacing: every <p> must explicitly set padding:0 to prevent
+Beehiiv paragraph padding from adding to our margins. Use margin:0 0 14px 0
+between intro paragraphs and news items, and margin:0 on the last paragraph
+in each group and the quote. Recheck the last paragraph after content edits.
+
 Shared palette (inline everywhere):
   paper #FAFAF7 · ink #191C26 · cobalt #2B4EF0 · signal #FFD338
   slate #6B7080 · line #E4E4DC · card #FFFFFF · quote text #3A3E4A
@@ -46,10 +51,10 @@ anything, including the trailing (HackerNews) and (ProductHunt) links.
      No comment/upvote/star counts anywhere in the intro. No "Let's dive in." - the
      Today line is the closer. -->
 <div style="border:1px solid #E4E4DC;border-radius:14px;background-color:#FFFFFF;padding:20px 22px;margin-bottom:18px;">
-  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#191C26;">Hello, builders 👋</p>
-  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;">Welcome back to your weekly dose of AI Bytes. {{INTRO_HOOK}}</p>
-  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;"><b style="color:#191C26;">{{INTRO_STORYLINE_LEAD}}</b>: {{INTRO_STORYLINE}}</p>
-  <p style="margin:0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;"><b style="color:#191C26;">Today:</b> {{INTRO_TODAY}}</p>
+  <p style="padding:0;margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#191C26;">Hello, builders 👋</p>
+  <p style="padding:0;margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;">Welcome back to your weekly dose of AI Bytes. {{INTRO_HOOK}}</p>
+  <p style="padding:0;margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;"><b style="color:#191C26;">{{INTRO_STORYLINE_LEAD}}</b>: {{INTRO_STORYLINE}}</p>
+  <p style="padding:0;margin:0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;"><b style="color:#191C26;">Today:</b> {{INTRO_TODAY}}</p>
 </div>
 
 <!-- ═══ PATTERN: My Favourite Picks (title line + description line) ═══ -->
@@ -85,11 +90,11 @@ anything, including the trailing (HackerNews) and (ProductHunt) links.
 <!-- ═══ PATTERN: news card (repeat the <p> per item; last item margin:0) ═══ -->
 <div style="border:2px solid #2B4EF0;border-radius:14px;padding:20px 22px;background-color:#FFFFFF;">
   <div style="font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:800;font-size:20px;color:#2B4EF0;letter-spacing:.02em;margin-bottom:14px;">🌍 AI NEWS</div>
-  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">{{EMOJI}} <a href="{{URL}}" style="color:#2B4EF0;text-decoration:none;font-weight:700;">{{HEADLINE}}</a> - {{CONTEXT}} <span style="background-color:#FFD338;padding:0 4px;font-weight:600;">Story of the week</span> <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">({{SOURCE}})</span></p>
+  <p style="padding:0;margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">{{EMOJI}} <a href="{{URL}}" style="color:#2B4EF0;text-decoration:none;font-weight:700;">{{HEADLINE}}</a> - {{CONTEXT}} <span style="background-color:#FFD338;padding:0 4px;font-weight:600;">Story of the week</span> <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">({{SOURCE}})</span></p>
   <!-- hot badge span only on the top story -->
   <!-- Callout only - no attribution line under the quote. -->
   <div style="border:1px solid #E4E4DC;border-radius:10px;background-color:#FAFAF7;padding:16px 18px;margin-top:18px;">
-    <p style="margin:0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;color:#3A3E4A;">"{{QUOTE_TEXT}}"</p>
+    <p style="padding:0;margin:0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;color:#3A3E4A;">"{{QUOTE_TEXT}}"</p>
   </div>
 </div>
 
