@@ -92,6 +92,8 @@ The user publishes on Beehiiv, whose HTML Snippet block strips `<style>` tags - 
 
 For each section of the issue (masthead, intro, news card, New AI Products, Trending Github Projects, HN Deep Stories), rebuild the content as an email-safe snippet - inline styles only, `<table>` layout, no flexbox/clip-path/classes. The exact pattern for every section is in `references/beehiiv-patterns.html`; read it and fill the tokens with the same content as the main file.
 
+Every exported `<p>` must include inline `padding:0`; Beehiiv otherwise adds paragraph padding on top of our margins (confirmed in issue #10). Keep `margin:0 0 14px 0` between intro paragraphs and news items, but use `margin:0` on the final paragraph in each group and on the quote. If an edit removes the last intro paragraph, reset the new last paragraph too. Apply these resets inside the snippets, not just in the export page CSS.
+
 Then take `assets/beehiiv-export-template.html` and fill its tokens: `{{PART1_HTML}}` with the merged snippets for masthead + intro + My Favourite Picks + news card, `{{PART2_HTML}}` with New AI Products + Trending Github Projects + HN Deep Stories (sections joined by a blank line, in reading order), plus `{{EMAIL_SUBJECT}}`, `{{EMAIL_DESCRIPTION}}`, and `{{ISSUE_NUM}}`. The page shows the title panel - carrying its own **Copy Title** and **Copy Desc** buttons, since those two are typed into Beehiiv's title and subtitle fields as plain text rather than pasted as a snippet - then two HTML copy buttons, Part 1 and Part 2, each with a live preview. Two parts rather than one because the user pastes native Beehiiv blocks (subscribe form, ads, polls) between them.
 
 ### 6. Save the output
@@ -108,6 +110,8 @@ Create the directories if they don't exist. Then present both files to the user 
 ### 7. Verify
 
 Open both generated files and check: no `{{` tokens remain, every link came from the data, sections with no data were removed cleanly (including their `sec-head`), the hex issue number matches the decimal one, the title/description are filled in both files, and the export page contains no `<style>`-dependent markup inside its textareas (inline styles only) with content matching the main file section for section.
+
+Check exported paragraph spacing: every `<p>` has inline `padding:0`, and the final intro paragraph, final news item and quote have `margin:0`.
 
 Check My Favourite Picks too: every pick's URL matches the URL that same item carries in its home section, each row has a `.from` chip and a description of no more than two lines, and no row has grown a stat.
 
