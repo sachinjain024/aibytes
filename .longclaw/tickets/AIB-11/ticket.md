@@ -52,3 +52,17 @@ changes:
 
 Replaced the generic link line with typed source links.
 <!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8f79d535
+kind: comment
+occurred_at: 2026-09-13T02:30:20.689Z
+actor:
+  type: agent
+  id: codex
+  name: Codex
+-->
+### Codex commented
+
+Selected again for the learning backlog from aiBytes_ #9 (2026-09-14), Trending on GitHub. Reused this existing ticket. Issue tracker: AIB-17j.
+<!-- /longclaw:event -->

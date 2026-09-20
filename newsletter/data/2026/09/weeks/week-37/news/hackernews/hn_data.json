@@ -1,10 +1,10 @@
 {
   "source": "hackernews",
   "section": "ai-news",
-  "fetched_at": "2026-09-07",
+  "fetched_at": "2026-09-13",
   "window": {
-    "after": "2026-08-31",
-    "before": "2026-09-08"
+    "after": "2026-09-06",
+    "before": "2026-09-14"
   },
   "query_params": {
     "tags": "story",
@@ -13,108 +13,108 @@
     "topic": "ai",
     "ranking": "points,recency"
   },
-  "totalCount": 80,
-  "poolCount": 401,
+  "totalCount": 100,
+  "poolCount": 437,
   "stories": [
     {
-      "title": "GPT-6 Astra",
-      "url": "https://openai.com/index/gpt-6-astra/",
+      "title": "On the Navier\u2013Stokes Millennium Prize Problem",
+      "url": "https://openai.com/index/navier-stokes-solution/",
       "type": "story",
-      "points": 2239,
-      "num_comments": 2047,
-      "author": "kibae",
-      "created_at": "2026-09-03T18:41:05Z",
-      "hn_url": "https://news.ycombinator.com/item?id=49554643"
+      "points": 1340,
+      "num_comments": 1135,
+      "author": "tedsanders",
+      "created_at": "2026-09-08T17:13:21Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49613262"
     },
     {
-      "title": "Discovery of a new OpenAI agent message board",
-      "url": "https://collusion.wiki/",
+      "title": "Claude, change the \u201cAdd to Cart\u201d button to blue",
+      "url": "https://opusfived.dev/",
       "type": "story",
-      "points": 2219,
-      "num_comments": 1561,
-      "author": "moultano",
-      "created_at": "2026-09-04T11:54:53Z",
-      "hn_url": "https://news.ycombinator.com/item?id=49563355"
+      "points": 1196,
+      "num_comments": 448,
+      "author": "matthieu_bl",
+      "created_at": "2026-09-09T09:39:46Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49623754"
     },
     {
-      "title": "Claude Fable 5.1 and Claude Mythos 5.1",
-      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "title": "A misalignment of AI in mathematics",
+      "url": "https://mathandai.org/",
       "type": "story",
-      "points": 1415,
-      "num_comments": 1387,
-      "author": "denysvitali",
-      "created_at": "2026-09-01T17:53:53Z",
-      "hn_url": "https://news.ycombinator.com/item?id=49525378"
+      "points": 1179,
+      "num_comments": 1141,
+      "author": "meredydd",
+      "created_at": "2026-09-11T17:45:12Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49662371"
     },
     {
-      "title": "Gemini 3.8 Flash and 3.8 Flash Cyber",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+      "title": "DeepSeek v4.1 Flash",
+      "url": "https://twitter.com/deepseek_ai/status/2097930608790167907",
       "type": "story",
-      "points": 1156,
-      "num_comments": 664,
-      "author": "bratao",
-      "created_at": "2026-09-02T15:12:40Z",
-      "hn_url": "https://news.ycombinator.com/item?id=49537553"
+      "points": 1005,
+      "num_comments": 574,
+      "author": "Liwink",
+      "created_at": "2026-09-10T06:11:05Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49639090"
     },
     {
-      "title": "How accurate have Ed Zitron's AI skeptic predictions been?",
-      "url": "https://danluu.com/zitron/",
+      "title": "OpenAI agents carried out an undisclosed attack on RubyGems",
+      "url": "https://www.rubyhack.ai/",
       "type": "story",
-      "points": 873,
-      "num_comments": 1052,
-      "author": "jatins",
-      "created_at": "2026-09-01T18:35:15Z",
-      "hn_url": "https://news.ycombinator.com/item?id=49526069"
+      "points": 924,
+      "num_comments": 577,
+      "author": "chao-",
+      "created_at": "2026-09-11T23:17:42Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49666735"
     },
     {
-      "title": "Formalizing Fermat's Last Theorem",
-      "url": "https://www.anthropic.com/research/formalizing-fermats-last-theorem",
+      "title": "More questions about whether researchers can trust OpenAI with unpublished math",
+      "url": "https://mathstodon.xyz/@andreasthom/117240535270608201",
       "type": "story",
-      "points": 758,
-      "num_comments": 494,
-      "author": "jlebar",
-      "created_at": "2026-09-04T18:42:56Z",
-      "hn_url": "https://news.ycombinator.com/item?id=49568506"
+      "points": 864,
+      "num_comments": 813,
+      "author": "pred_",
+      "created_at": "2026-09-10T06:49:43Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49639408"
     },
     {
-      "title": "Qwen 3.8 27B available on Cerebras at 1500 tokens/s",
-      "url": "https://inference-docs.cerebras.ai/models/overview",
+      "title": "Mistral raises \u20ac3B",
+      "url": "https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/",
       "type": "story",
-      "points": 688,
-      "num_comments": 226,
-      "author": "altertable",
-      "created_at": "2026-09-03T18:32:13Z",
-      "hn_url": "https://news.ycombinator.com/item?id=49554520"
+      "points": 848,
+      "num_comments": 602,
+      "author": "kuberwastaken",
+      "created_at": "2026-09-08T05:06:23Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49605767"
     },
     {
-      "title": "I trained a small transformer in 1.5hrs and it beats many LLMs",
-      "url": "https://mvakde.github.io/blog/44-on-arc-1/",
-      "type": "story",
-      "points": 668,
-      "num_comments": 166,
-      "author": "porridgeraisin",
-      "created_at": "2026-09-01T09:52:45Z",
-      "hn_url": "https://news.ycombinator.com/item?id=49519939"
+      "title": "Ask HN: Can we please limit the AI news flood?",
+      "url": "https://news.ycombinator.com/item?id=49657850",
+      "type": "ask_hn",
+      "points": 816,
+      "num_comments": 382,
+      "author": "cromka",
+      "created_at": "2026-09-11T13:11:04Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49657850"
     },
     {
-      "title": "Three sites made 215,128 \u201cbest software\u201d pages for AI. Perplexity cites them",
-      "url": "https://trellner.com/reports/manufactured-sources-behind-ai-recommendations/",
+      "title": "I resigned from Anthropic today",
+      "url": "https://twitter.com/hilbertspaess/status/2097476196791709843#m",
       "type": "story",
-      "points": 516,
-      "num_comments": 250,
-      "author": "jakobgreenfeld",
-      "created_at": "2026-09-02T13:59:59Z",
-      "hn_url": "https://news.ycombinator.com/item?id=49536375"
+      "points": 730,
+      "num_comments": 1011,
+      "author": "yurivish",
+      "created_at": "2026-09-09T00:40:40Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49619227"
     },
     {
-      "title": "Apple caught off guard by AI demand for Mac Mini and Mac Studio",
-      "url": "https://www.macrumors.com/2026/08/30/apple-unexpected-mac-mini-and-studio-demand/",
+      "title": "Your intellectual fly is open when you use an LLM to author a post (2025)",
+      "url": "https://bcantrill.dtrace.org/2025/12/05/your-intellectual-fly-is-open/",
       "type": "story",
-      "points": 501,
-      "num_comments": 595,
-      "author": "thm",
-      "created_at": "2026-08-31T12:41:22Z",
-      "hn_url": "https://news.ycombinator.com/item?id=49508982"
+      "points": 729,
+      "num_comments": 433,
+      "author": "cyb0rg0",
+      "created_at": "2026-09-06T11:56:43Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49585644"
     }
   ]
 }
