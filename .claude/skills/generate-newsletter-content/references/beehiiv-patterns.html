@@ -9,7 +9,6 @@ classes, no <style>, no flex, no clip-path, no <script>.
 Shared palette (inline everywhere):
   paper #FAFAF7 · ink #191C26 · cobalt #2B4EF0 · signal #FFD338
   slate #6B7080 · line #E4E4DC · card #FFFFFF · quote text #3A3E4A
-  butter #FFF6D9 · butter line #F0E2AE · amber #8A6A00  (closing block only)
 Font stacks (email clients fall back gracefully):
   display: 'Bricolage Grotesque',Helvetica,Arial,sans-serif
   body:    'Instrument Sans',Helvetica,Arial,sans-serif
@@ -33,7 +32,7 @@ anything, including the trailing (HackerNews) and (ProductHunt) links.
 <!-- Brand is always written "aiBytes_" (lowercase a, capital B, trailing underscore in cobalt).
      No separate issue-header rule - the intro block follows the masthead directly. -->
 
-<!-- ═══ PATTERN: numbered section header (Launches, Trending on GitHub, HN) ═══ -->
+<!-- ═══ PATTERN: numbered section header (New AI Products, Trending Github Projects, HN) ═══ -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-top:34px;margin-bottom:12px;">
   <tr>
     <td width="1" style="background-color:#191C26;color:#FAFAF7;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-weight:700;font-size:12px;padding:2px 7px;white-space:nowrap;">0x{{SEC_NUM}}</td>
@@ -47,8 +46,8 @@ anything, including the trailing (HackerNews) and (ProductHunt) links.
      No comment/upvote/star counts anywhere in the intro. No "Let's dive in." - the
      Today line is the closer. -->
 <div style="border:1px solid #E4E4DC;border-radius:14px;background-color:#FFFFFF;padding:20px 22px;margin-bottom:18px;">
-  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#191C26;">Good morning, builders 👋</p>
-  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;">Welcome back to your {{WEEKDAY}}-morning dose of aiBytes_. {{INTRO_HOOK}}</p>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#191C26;">Hello, builders 👋</p>
+  <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;">Welcome back to your weekly dose of AI Bytes. {{INTRO_HOOK}}</p>
   <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;"><b style="color:#191C26;">{{INTRO_STORYLINE_LEAD}}</b>: {{INTRO_STORYLINE}}</p>
   <p style="margin:0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.65;color:#3A3E4A;"><b style="color:#191C26;">Today:</b> {{INTRO_TODAY}}</p>
 </div>
@@ -57,7 +56,7 @@ anything, including the trailing (HackerNews) and (ProductHunt) links.
 <!-- Ink border with a 5px signal spine on the left. The pick name is INK, weight 600,
      with NO underline - the signal numeral is the marker, and cobalt is reserved for
      the sections that report. The right-hand cell names the section the pick came from
-     in one word (News / Launches / GitHub / HN). If a client drops the border-left, the
+     in one word (News / Products / GitHub / HN). If a client drops the border-left, the
      ink border still carries the shape.
      EACH PICK IS TWO <tr>s: the title row, then the description row whose empty first
      cell keeps the text hanging under the title, clear of the numeral. The description
@@ -85,7 +84,7 @@ anything, including the trailing (HackerNews) and (ProductHunt) links.
 
 <!-- ═══ PATTERN: news card (repeat the <p> per item; last item margin:0) ═══ -->
 <div style="border:2px solid #2B4EF0;border-radius:14px;padding:20px 22px;background-color:#FFFFFF;">
-  <div style="font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:800;font-size:20px;color:#2B4EF0;letter-spacing:.02em;margin-bottom:14px;">🌍 NEWS FOR DEVS</div>
+  <div style="font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:800;font-size:20px;color:#2B4EF0;letter-spacing:.02em;margin-bottom:14px;">🌍 AI NEWS</div>
   <p style="margin:0 0 14px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15.5px;line-height:1.6;color:#191C26;">{{EMOJI}} <a href="{{URL}}" style="color:#2B4EF0;text-decoration:none;font-weight:700;">{{HEADLINE}}</a> - {{CONTEXT}} <span style="background-color:#FFD338;padding:0 4px;font-weight:600;">Story of the week</span> <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">({{SOURCE}})</span></p>
   <!-- hot badge span only on the top story -->
   <!-- Callout only - no attribution line under the quote. -->
@@ -94,7 +93,7 @@ anything, including the trailing (HackerNews) and (ProductHunt) links.
   </div>
 </div>
 
-<!-- ═══ PATTERN: ticker row table (Launches ▲ N · GitHub +N.Nk ★ · HN N pts) ═══ -->
+<!-- ═══ PATTERN: ticker row table (New AI Products ▲ N · GitHub +N.Nk ★ · HN N pts) ═══ -->
 <!-- {{URL}} is the destination the reader wants: the product's own website for a
      launch, the article for an HN deep cut, the repo for GitHub. The trailing span is
      the attribution link - (ProductHunt) to the launch page, (HackerNews) to the
@@ -109,20 +108,6 @@ anything, including the trailing (HackerNews) and (ProductHunt) links.
     <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">{{STAT_BOLD}}</b> {{STAT_REST}}</td>
   </tr>
   <!-- repeat <tr>; drop border-bottom on the last row's two tds -->
-</table>
-
-<!-- ═══ PATTERN: closing idea (butter panel; no clip-path notch in email) ═══ -->
-<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-top:44px;">
-  <tr>
-    <td style="background-color:#FFF6D9;border:1px solid #F0E2AE;padding:20px 22px;">
-      <div style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11px;letter-spacing:.14em;color:#8A6A00;">ONE IDEA TO CARRY NEXT WEEK</div>
-      <p style="margin:8px 0 0 0;font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:500;font-size:17px;line-height:1.55;color:#191C26;">{{CLOSING_IDEA_WITH_B_HIGHLIGHTED}}</p>
-      <!-- Email drops the notch, so the butter fill and the hairline border carry the
-           shape on their own. Idea text is weight 500, not bold; only the pivotal word
-           is emphasised, and it is highlighted rather than recoloured:
-           <b style="background-color:#FFD338;padding:0 4px;color:#191C26;">word</b> -->
-    </td>
-  </tr>
 </table>
 
 <!-- Footer: skip it - Beehiiv appends its own compliant footer. -->
