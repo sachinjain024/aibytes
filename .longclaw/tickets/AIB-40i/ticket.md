@@ -5,11 +5,35 @@ key: AIB-40i
 title: "Issue #11: 27 Sep 2026"
 status: in_progress
 priority: urgent
+type: newsletter
 due: 2026-09-27
 created_at: 2026-09-20T12:42:28.919Z
-updated_at: 2026-09-26T13:52:29.572Z
+updated_at: 2026-09-26T16:55:09.311Z
 ---
 
+Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest on X / Official Announcements, added in AIB-44s).
+
+- Send date: Monday 28 Sep 2026 (ISO week 40)
+- Branch: `issue-11-27-sep-weekly-newsletter` → PR against `main`
+- Source data: `newsletter/data/2026/09/weeks/week-39/` (ProductHunt, HackerNews, TechCrunch, GitHub, X)
+- Output: `newsletter/issues/2026/week-40-Issue-11/` (issue HTML, Beehiiv export, thumbnails, social)
+
+
+## Checklist
+
+- [ ] Fetch weekly sources (ProductHunt, HackerNews, TechCrunch, GitHub) <!-- longclaw:item=ck_0ee4c3b5 -->
+- [ ] Shortlist X posts for Loudest on X <!-- longclaw:item=ck_e08fedab -->
+- [ ] Decide whether to include the Official Announcements section from X <!-- longclaw:item=ck_8fbe27ac -->
+- [ ] Generate Weekly Content <!-- longclaw:item=ck_52ffd93d -->
+- [ ] Identify Favourite Picks <!-- longclaw:item=ck_430378f7 -->
+- [ ] Update the Content <!-- longclaw:item=ck_56f6cb33 -->
+- [ ] Finalize Title & Description <!-- longclaw:item=ck_a0eed594 -->
+- [ ] Update Intro Content <!-- longclaw:item=ck_85407930 -->
+- [ ] Generate Thumbnail <!-- longclaw:item=ck_a62a6db7 -->
+- [ ] Send the newsletter <!-- longclaw:item=ck_6450aa62 -->
+- [ ] Generate Social Media Posts <!-- longclaw:item=ck_e3818c91 -->
+- [ ] Create the LC Tickets for AI Learning Backlog <!-- longclaw:item=ck_82343e89 -->
+- [ ] Commit the issue output and open a PR against main <!-- longclaw:item=ck_2aeb2fe9 -->
 ## Activity
 
 <!-- longclaw:event
@@ -95,4 +119,48 @@ changes:
     to: 2026-09-27
 -->
 ### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_fc5c603c
+kind: update
+occurred_at: 2026-09-26T16:55:09.311Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: type
+    to: newsletter
+  - field: description
+  - field: checklist.ck_0ee4c3b5.added
+    to: Fetch weekly sources (ProductHunt, HackerNews, TechCrunch, GitHub)
+  - field: checklist.ck_e08fedab.added
+    to: Shortlist X posts for Loudest on X
+  - field: checklist.ck_8fbe27ac.added
+    to: Decide whether to include the Official Announcements section from X
+  - field: checklist.ck_52ffd93d.added
+    to: Generate Weekly Content
+  - field: checklist.ck_430378f7.added
+    to: Identify Favourite Picks
+  - field: checklist.ck_56f6cb33.added
+    to: Update the Content
+  - field: checklist.ck_a0eed594.added
+    to: Finalize Title & Description
+  - field: checklist.ck_85407930.added
+    to: Update Intro Content
+  - field: checklist.ck_a62a6db7.added
+    to: Generate Thumbnail
+  - field: checklist.ck_6450aa62.added
+    to: Send the newsletter
+  - field: checklist.ck_e3818c91.added
+    to: Generate Social Media Posts
+  - field: checklist.ck_82343e89.added
+    to: Create the LC Tickets for AI Learning Backlog
+  - field: checklist.ck_2aeb2fe9.added
+    to: Commit the issue output and open a PR against main
+-->
+### Claude Code updated this ticket
+
+Added the issue details and a checklist based on Issues #9 and #10, plus the X steps for this issue.
 <!-- /longclaw:event -->
