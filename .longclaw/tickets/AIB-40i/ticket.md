@@ -8,7 +8,7 @@ priority: urgent
 type: newsletter
 due: 2026-09-27
 created_at: 2026-09-20T12:42:28.919Z
-updated_at: 2026-09-26T17:17:20.309Z
+updated_at: 2026-09-26T17:28:34.459Z
 ---
 
 Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest on X / Official Announcements, added in AIB-44s).
@@ -32,7 +32,7 @@ Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest 
 - [ ] Generate Thumbnail <!-- longclaw:item=ck_a62a6db7 -->
 - [ ] Send the newsletter <!-- longclaw:item=ck_6450aa62 -->
 - [ ] Generate Social Media Posts <!-- longclaw:item=ck_e3818c91 -->
-- [ ] Create the LC Tickets for AI Learning Backlog <!-- longclaw:item=ck_82343e89 -->
+- [x] Create the LC Tickets for AI Learning Backlog <!-- longclaw:item=ck_82343e89 -->
 - [ ] Commit the issue output and open a PR against main <!-- longclaw:item=ck_2aeb2fe9 -->
 ## Activity
 
@@ -291,4 +291,22 @@ actor:
 ### Claude Code commented
 
 Restored the Supabase and OpenAI math advisory group items. AI News now has 9 items.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_975589c4
+kind: update
+occurred_at: 2026-09-26T17:28:34.459Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_82343e89.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Created 13 learning backlog tickets, AIB-47b to AIB-59f. Favourites: AIB-47b, AIB-52a, AIB-53i, AIB-57m.
 <!-- /longclaw:event -->
