@@ -8,7 +8,7 @@ priority: urgent
 type: newsletter
 due: 2026-09-27
 created_at: 2026-09-20T12:42:28.919Z
-updated_at: 2026-09-26T16:55:09.311Z
+updated_at: 2026-09-26T16:58:15.109Z
 ---
 
 Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest on X / Official Announcements, added in AIB-44s).
@@ -21,7 +21,7 @@ Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest 
 
 ## Checklist
 
-- [ ] Fetch weekly sources (ProductHunt, HackerNews, TechCrunch, GitHub) <!-- longclaw:item=ck_0ee4c3b5 -->
+- [x] Fetch weekly sources (ProductHunt, HackerNews, TechCrunch, GitHub) <!-- longclaw:item=ck_0ee4c3b5 -->
 - [ ] Shortlist X posts for Loudest on X <!-- longclaw:item=ck_e08fedab -->
 - [ ] Decide whether to include the Official Announcements section from X <!-- longclaw:item=ck_8fbe27ac -->
 - [ ] Generate Weekly Content <!-- longclaw:item=ck_52ffd93d -->
@@ -163,4 +163,22 @@ changes:
 ### Claude Code updated this ticket
 
 Added the issue details and a checklist based on Issues #9 and #10, plus the X steps for this issue.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f750edae
+kind: update
+occurred_at: 2026-09-26T16:58:15.109Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_0ee4c3b5.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Fetched ProductHunt, HackerNews, TechCrunch and GitHub into newsletter/data/2026/09/weeks/week-39/.
 <!-- /longclaw:event -->
