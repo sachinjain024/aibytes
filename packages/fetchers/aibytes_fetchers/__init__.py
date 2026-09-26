@@ -10,4 +10,4 @@ the newsletter still runs it weekly, the app feed runs the same code daily.
 Stdlib-only, like the scripts it replaces.
 """
 
-__all__ = ["envelope", "http", "layout", "keywords", "registry", "runner", "window"]
+__all__ = ["envelope", "http", "layout", "keywords", "registry", "runner", "window", "x_paste", "x_render"]

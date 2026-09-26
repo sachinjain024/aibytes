@@ -1,0 +1,498 @@
+<title>Release Notes Proof Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#E7E8EC;
+    --panel:#FDFDFD;
+    --ink:#14161F;
+    --muted:#5C6070;
+    --line:#CBCED7;
+    --hair:#D9DCE3;
+    --cobalt:#2B4EF0;
+    --signal:#FFD338;
+    --chip-ink:#FFFFFF;
+
+    /* Specimen tokens: an inbox always renders light, so these never invert. */
+    --mail-paper:#FAFAF7;
+    --mail-card:#FFFFFF;
+    --mail-line:#E4E4DC;
+    --mail-ink:#191C26;
+    --mail-body:#3A3E4A;
+    --mail-link:#2B4EF0;
+    --mail-slate:#6B7080;
+    --mail-signal:#FFD338;
+
+    --mono:'JetBrains Mono',ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --grotesque:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mail-display:'Bricolage Grotesque',Helvetica,Arial,sans-serif;
+    --mail-face:'Instrument Sans',Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      color-scheme:dark;
+      --ground:#101219;
+      --panel:#181A22;
+      --ink:#E5E6EC;
+      --muted:#949AA8;
+      --line:#2C303B;
+      --hair:#242832;
+      --cobalt:#8AA0FF;
+      --chip-ink:#101219;
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --ground:#101219;
+    --panel:#181A22;
+    --ink:#E5E6EC;
+    --muted:#949AA8;
+    --line:#2C303B;
+    --hair:#242832;
+    --cobalt:#8AA0FF;
+    --chip-ink:#101219;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;background:var(--ground)}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--ground);color:var(--ink);font-family:var(--grotesque);-webkit-font-smoothing:antialiased;line-height:1.5;margin:0}
+  .sheet{max-width:820px;margin:0 auto;padding:48px 20px 72px;display:grid;gap:44px}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:2px}
+  code{font-family:var(--mono);font-size:.9em;color:var(--ink)}
+
+  /* ── masthead ── */
+  .masthead{display:grid;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:22px}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .eyebrow b{color:var(--cobalt);font-weight:600}
+  h1{font-size:clamp(30px,5.2vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.02;text-wrap:balance;margin:0}
+  .lede{max-width:62ch;color:var(--muted);font-size:16px;line-height:1.6;margin:0}
+  .lede b{color:var(--ink);font-weight:600}
+
+  /* ── contents + width toggle ── */
+  .spec,.close,.decision,.axes{scroll-margin-top:20px}
+  .toc{display:grid;gap:11px;border-left:2px solid var(--cobalt);padding-left:18px}
+  .toc h2{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:0}
+  .toc ul{list-style:none;display:grid;gap:7px;margin:0;padding:0}
+  .toc li{display:flex;align-items:baseline;gap:11px}
+  .toc .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);min-width:3.4em}
+  .toc a{color:var(--ink);text-decoration:none;font-size:15px;border-bottom:1px solid transparent}
+  .toc a:hover{border-bottom-color:var(--cobalt)}
+  .widths{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .widths button{font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:5px 10px;cursor:pointer}
+  .widths button[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+
+  /* ── pending decision ── */
+  .decision{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--signal);border-radius:4px;padding:22px 24px;display:grid;gap:14px}
+  .decision .head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .decision h2{font-size:22px;font-weight:700;letter-spacing:-.015em;margin:0}
+  .decision p{margin:0;max-width:62ch;font-size:15px;line-height:1.62;color:var(--muted)}
+  .decision p b{color:var(--ink);font-weight:600}
+  .tag.pending,.tag.sel{background:var(--signal);color:#191C26}
+  .spec.picked .tag{background:var(--signal);color:#191C26}
+  .spec.picked .mail{border-color:var(--cobalt);border-width:2px;padding:23px}
+  .sheet.phone .spec.picked .mail{padding:19px 15px}
+  .badge{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt);border:1px solid currentColor;border-radius:2px;padding:1px 6px}
+  .toc .mark{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:var(--signal);color:#191C26;padding:1px 6px;border-radius:2px;margin-left:2px}
+
+  /* ── comparison table ── */
+  .axes{display:grid;gap:14px}
+  .axes h2,.close h2{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:600;margin:0}
+  .tablewrap{overflow-x:auto;border:1px solid var(--hair);border-radius:4px}
+  table{border-collapse:collapse;width:100%;min-width:620px;font-size:14px}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hair);vertical-align:top}
+  th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--panel)}
+  tr:last-child td{border-bottom:none}
+  td{color:var(--muted)}
+  td b{color:var(--ink);font-weight:600}
+
+  /* ── variation block ── */
+  .spec{display:grid;gap:16px}
+  .strip{display:grid;gap:10px}
+  .head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .tag{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--cobalt);color:var(--chip-ink);padding:3px 8px;border-radius:3px}
+  .name{font-size:20px;font-weight:700;letter-spacing:-.015em;margin:0}
+  .ledger{display:flex;flex-wrap:wrap;gap:4px 26px;font-family:var(--mono);font-size:11.5px;line-height:1.5;color:var(--muted);border-top:1px solid var(--hair);padding-top:9px;margin:0}
+  .ledger > div{display:flex;gap:7px}
+  .ledger dt{letter-spacing:.08em;text-transform:uppercase;opacity:.72}
+  .ledger dd{margin:0;color:var(--ink)}
+  .why{max-width:640px;font-size:14.5px;line-height:1.6;color:var(--muted);margin:0;padding-left:14px;border-left:2px solid var(--signal)}
+  .why b{color:var(--ink);font-weight:600}
+
+  /* ── specimen frame: the section as it renders in the inbox ── */
+  .mail{max-width:640px;background:var(--mail-paper);border:1px solid var(--mail-line);border-radius:6px;padding:24px;
+        box-shadow:0 1px 2px rgba(20,22,31,.06),0 8px 24px -18px rgba(20,22,31,.5);transition:max-width .25s ease;color:var(--mail-ink);font-family:var(--mail-face)}
+  .sheet.phone .mail{max-width:375px;padding:20px 16px}
+  @media (prefers-reduced-motion:reduce){.mail{transition:none}}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--mail-paper);background:var(--mail-ink);padding:2px 7px}
+  .sec-title{font-family:var(--mail-display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase;color:var(--mail-ink);margin:0;white-space:nowrap}
+  .sec-rule{flex:1;height:2px;background:var(--mail-ink)}
+  .sec-sub{font-size:14px;line-height:1.5;color:var(--mail-slate);margin:0 0 12px 0}
+  .mail a{color:var(--mail-link);text-decoration:none}
+  .mail a:hover{text-decoration:underline;text-underline-offset:3px}
+
+  /* shared post parts */
+  .who{font-size:14.5px;line-height:1.4}
+  .who b{font-weight:700;color:var(--mail-ink)}
+  .meta{font-family:var(--mono);font-size:11.5px;color:var(--mail-slate)}
+  .kind{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;color:var(--mail-slate);border:1px solid var(--mail-line);padding:0 4px;margin-left:4px;vertical-align:1px}
+  .txt{white-space:pre-line;font-size:15px;line-height:1.55;color:var(--mail-body);margin:0}
+  .cut{color:var(--mail-slate)}
+  .card-link{font-family:var(--mono);font-size:12px;word-break:break-all}
+  .qp{border-left:2px solid var(--mail-line);padding:2px 0 2px 10px;font-size:13.5px;line-height:1.5;color:var(--mail-slate);margin:0}
+  .qp b{color:var(--mail-body);font-weight:600}
+  .likes{font-family:var(--mono);font-size:11.5px;color:var(--mail-slate);white-space:nowrap}
+  .likes b{color:var(--mail-link);font-weight:700}
+
+  /* V1 - a card per post */
+  .v1{display:grid;gap:12px}
+  .v1 .post{background:var(--mail-card);border:1px solid var(--mail-line);border-radius:10px;padding:14px 16px;display:grid;gap:9px}
+  .v1 .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--mail-line);padding-top:8px}
+
+  /* V2 - top two side by side, then rows. No media query: Beehiiv strips <style>. */
+  .v2 .pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px}
+  .v2 .post{background:var(--mail-card);border:1px solid var(--mail-line);border-radius:10px;padding:12px 13px;display:grid;gap:8px;align-content:start;min-width:0}
+  .v2 .post .txt{font-size:14px}
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--mail-line)}
+  .row:last-child{border-bottom:none}
+  .row .rtxt{flex:1;font-size:15px;line-height:1.5;color:var(--mail-body);min-width:0}
+  .row .rtxt b{color:var(--mail-ink);font-weight:600}
+  .sheet.phone .row{flex-wrap:wrap}
+  .sheet.phone .row .likes{margin-left:0}
+
+  /* V3 - ticker rows, same as Products / GitHub / HN */
+  .v3 .rtxt a.q{color:var(--mail-body)}
+
+  /* V4 - quote column: the post's own words lead, attribution follows */
+  .v4 ol{list-style:none;margin:0;padding:0}
+  .v4 li{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;padding:14px 0;border-bottom:1px solid var(--mail-line)}
+  .v4 li:first-child{padding-top:4px}
+  .v4 li:last-child{border-bottom:none;padding-bottom:0}
+  .v4 .n{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--mail-slate);padding-top:4px}
+  .v4 .body{display:grid;gap:8px;min-width:0}
+  .v4 .txt{font-family:var(--mail-display);font-weight:500;font-size:17px;line-height:1.45;color:var(--mail-ink);letter-spacing:-.005em}
+  .v4 .by{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+
+  /* ── close ── */
+  .close{border-top:1px solid var(--hair);padding-top:22px;display:grid;gap:12px;max-width:66ch;font-size:14.5px;line-height:1.6;color:var(--muted)}
+  .close b{color:var(--ink);font-weight:600}
+  .close ol,.close ul{margin:0;padding-left:20px;display:grid;gap:9px}
+  @media (max-width:480px){ .mail{padding:18px 14px} .decision{padding:18px} }
+  /* ── Official Announcements sheet ── */
+  .names{display:grid;gap:14px}
+  .nm{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start}
+  .nm + .nm{border-top:1px dashed var(--mail-line);padding-top:14px}
+  .nk{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--mail-slate);padding-top:3px}
+  .nm .sec-sub{margin:0}
+  .sheet.phone .sec-title{white-space:normal}
+  .co{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--mail-slate);text-transform:uppercase}
+  .src{font-family:var(--mono);font-size:12px;color:var(--mail-slate)}
+  .mail .src a{color:var(--mail-slate);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+  .day{font-family:var(--mono);font-size:11px;color:var(--mail-slate);white-space:nowrap;letter-spacing:.04em}
+  .oa-card{border:2px solid var(--mail-ink);border-radius:14px;padding:20px 22px;background:var(--mail-card)}
+  .oa-card .card-title{font-family:var(--mail-display);font-weight:800;font-size:20px;color:var(--mail-ink);letter-spacing:.02em;margin-bottom:14px}
+  .oa-item{font-size:15.5px;line-height:1.6;margin:0 0 12px 0;color:var(--mail-body)}
+  .oa-item:last-child{margin-bottom:0}
+  .oa-item b a{color:var(--mail-link);font-weight:700}
+  .stacks{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .stack{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:14px 16px}
+  .sk{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);font-weight:600;margin-bottom:10px}
+  .stack ol{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+  .stack li{display:flex;justify-content:space-between;gap:10px;font-size:14px;color:var(--muted);border:1px solid var(--hair);border-radius:3px;padding:5px 9px}
+  .stack li span{font-family:var(--mono);font-size:11px}
+  .stack li.oa{color:var(--ink);font-weight:600;border-color:var(--cobalt)}
+  .stack li.news{color:var(--ink)}
+  .oa-post{display:grid;gap:6px;padding:12px 0;border-bottom:1px solid var(--mail-line)}
+  .oa-post:first-of-type{padding-top:0}
+  .oa-post:last-child{border-bottom:none;padding-bottom:0}
+  .oa-by{font-size:14.5px;line-height:1.4}
+  .oa-by b a{color:var(--mail-ink);font-weight:700}
+  /* ── card styling variations ── */
+  .oa2{border:1.5px solid var(--mail-ink);border-radius:14px;padding:20px 22px;background:var(--mail-card)}
+  .sheet.phone .oa2{padding:16px 14px}
+  .oa2 .card-title{font-family:var(--mail-display);font-weight:800;font-size:20px;color:var(--mail-ink);letter-spacing:.02em;margin:0}
+  .oa-sub{font-size:13.5px;color:var(--mail-slate);margin:2px 0 6px 0}
+  .s-p{font-size:15px;line-height:1.55;color:var(--mail-body);margin:0 0 8px 0}
+  .s1-l{font-family:var(--mono);font-size:11.5px;color:var(--mail-slate)}
+  .s1-l a{color:var(--mail-link)}
+  .s1-l .dot{color:var(--mail-line)}
+  .s1-e,.s3-e{padding:14px 0;border-bottom:1px solid var(--mail-line)}
+  .s1-e:last-child,.s3-e:last-child,.s2-e:last-child{border-bottom:none;padding-bottom:0}
+  .s1-k{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--mail-slate);margin-bottom:6px}
+  .s1-k b{color:var(--mail-ink);font-weight:700;letter-spacing:.1em}
+  .s2-e{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--mail-line)}
+  .sheet.phone .s2-e{grid-template-columns:78px 1fr;gap:10px}
+  .s2-c{display:grid;gap:2px;align-content:start}
+  .s2-c b{font-family:var(--mail-display);font-size:15px;font-weight:700;color:var(--mail-ink)}
+  .s2-c span{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--mail-slate)}
+  .s2-b{min-width:0}
+  .s3-by{font-size:14.5px;margin-bottom:8px}
+  .s3-by b{color:var(--mail-ink)}
+  .s3-by span{font-family:var(--mono);font-size:11px;color:var(--mail-slate)}
+  .s3-q{background:var(--mail-paper);border:1px solid var(--mail-line);border-radius:10px;padding:12px 14px 4px;margin-bottom:8px}
+</style>
+
+<div class="sheet" id="sheet">
+  <header class="masthead">
+    <div class="eyebrow"><b>aiBytes_</b> &middot; official announcements &middot; proof sheet &middot; 2026-09-26</div>
+    <h1>Naming and framing the week's launches</h1>
+    <p class="lede">A new section for <b>what the AI companies announced themselves</b>: releases, benchmarks, pricing, feature and policy updates, taken from their own posts on X. Once a story is here, AI News leaves it out. Three calls on one sheet: <b>the name</b>, <b>the layout</b>, and <b>where it sits next to AI News</b>. Every specimen uses week 39's five shortlisted announcements, in their own words.</p>
+  </header>
+
+  <nav class="toc" aria-label="Contents">
+    <h2>Contents</h2>
+    <ul>
+      <li><span class="lbl">-</span><a href="#decision">The picks, locked</a></li>
+      <li><span class="lbl">S1-S3</span><a href="#styling">Styling the card</a><span class="mark">S3 selected</span></li>
+      <li><span class="lbl">N1-N5</span><a href="#names">Names</a></li>
+      <li><span class="lbl">L1</span><a href="#l1">Ticker rows, like Loudest on X</a></li>
+      <li><span class="lbl">L2</span><a href="#l2">Release log</a></li>
+      <li><span class="lbl">L3</span><a href="#l3">Twin card</a><span class="mark">selected</span></li>
+      <li><span class="lbl">P1-P2</span><a href="#placement">Placement</a></li>
+      <li><span class="lbl">-</span><a href="#notes">Knock-on changes</a></li>
+    </ul>
+  </nav>
+
+  <div class="widths" role="group" aria-label="Specimen width">
+    <span>Specimen width</span>
+    <button type="button" id="w-desk" aria-pressed="true">Desktop 640px</button>
+    <button type="button" id="w-phone" aria-pressed="false">Phone 375px</button>
+  </div>
+
+  <section class="decision" id="decision">
+    <div class="head">
+      <span class="tag sel">SELECTED</span>
+      <h2>N1 Official Announcements · L3 Twin card · P1 after AI News</h2>
+    </div>
+    <p><b>Why this combination.</b> The top of the issue becomes two cards in the same language: AI News for what happened, then Official Announcements for what the companies shipped, in their own words. The name says exactly what the card holds, and keeping it as a card rather than a numbered section lets it sit right under AI News without breaking the <code>0x</code> sequence.</p>
+    <p><b>Amended on selection: the whole post, word for word.</b> Each entry is the company name in bold, linked to the post on X, the posting account in grey, the official page the post links to, and then the <b>entire post exactly as written</b>, line breaks included. No release name or headline of ours, and no cut: this week's announcements run 88 to 403 characters, and NVIDIA's model is only named in its second paragraph. The long-post rule from Loudest on X (past 600 characters, cut at the author's own paragraph break and link to the rest) applies only if a post runs that long. Entries are in likes order, with no stat shown.</p>
+    <p><b>Styled as S3, inset statements.</b> Each entry is a byline (company in bold, then the posting account and day in grey mono), the whole post in a paper-coloured inset with the same border and radius as the quote at the foot of AI News, and a mono footer: <code>Post on X ↗ · anthropic.com ↗</code>. The inset is what marks the words as the company's, not ours. The card has a 1.5px ink border and the subtitle "This week's launches, in the companies' own words."</p>
+    <p><b>Numbers that follow from it.</b> Both cards are unnumbered, so Loudest on X is <code>0x02</code>, then Products <code>0x03</code>, GitHub <code>0x04</code>, HN <code>0x05</code>. AI News loses launch stories to this card, so its story of the week goes to the best remaining story.</p>
+    <dl class="ledger">
+      <div><dt>Locked</dt><dd>2026-09-26</dd></div>
+      <div><dt>Posts</dt><dd>5 announcements, week 39</dd></div>
+      <div><dt>Size</dt><dd>3 to 5 a week</dd></div>
+      <div><dt>Built as</dt><dd>Beehiiv HTML snippet</dd></div>
+    </dl>
+  </section>
+
+  <!-- ═══ STYLING ═══ -->
+  <section class="axes" id="styling">
+    <h2>Styling the card: S1-S3 (S3 selected)</h2>
+    <p class="lede">Same card, same verbatim posts. What changes is how each entry is introduced, where its links go, and how the paragraphs breathe. In all three, a post's blank lines become paragraph spacing and its single line breaks stay line breaks, so Logan's bullet list keeps its shape. A subtitle joins the card title, like Loudest on X has.</p>
+  </section>
+  <article class="spec" id="s1">
+    <div class="strip">
+      <div class="head"><span class="tag">S1</span><h2 class="name">Byline and footer</h2></div>
+      <dl class="ledger"><div><dt>Byline</dt><dd>Company caps, handle, day</dd></div><div><dt>Links</dt><dd>Footer: post + official page</dd></div><div><dt>Frame</dt><dd>Ink hairline card</dd></div></dl>
+    </div>
+    <div class="mail">
+      <div class="oa2 s1"><div class="card-title">📣 OFFICIAL ANNOUNCEMENTS</div><p class="oa-sub">This week's launches, in the companies' own words.</p>
+<div class="s1-e"><div class="s1-k"><b>ANTHROPIC</b> <span>@claudeai · TUE 22</span></div><p class="s-p">Introducing Claude Opus 5.5, the first model in our new Claude 5.5 family.</p><p class="s-p">It performs at the level of Claude Fable 5.1 for most tasks, and costs 40% less to run than Opus 5.</p><div class="s1-l"><a href="https://x.com/claudeai/status/2102435511222890900">Post on X ↗</a> <span class="dot">·</span> <a href="https://www.anthropic.com/claude-opus-5-5">anthropic.com ↗</a></div></div>
+<div class="s1-e"><div class="s1-k"><b>OPENAI</b> <span>@OpenAI · TUE 22</span></div><p class="s-p">Please welcome GPT-6 Sol and GPT-6 Luna to the GPT-6 universe.</p><p class="s-p">GPT-6 Sol and Luna build on the advances behind GPT-6 Astra, bringing much of its strengths into faster and more affordable models to support work at scale.</p><p class="s-p">We’ve also made caching and inference more efficient, and we’re passing the savings directly to you: 50% lower API prices for Sol and Luna compared with GPT‑5.6 promotional pricing.</p><div class="s1-l"><a href="https://x.com/OpenAI/status/2102460975790137662">Post on X ↗</a> <span class="dot">·</span> <a href="https://openai.com/index/introducing-gpt-6-sol-and-luna">openai.com ↗</a></div></div>
+<div class="s1-e"><div class="s1-k"><b>XAI</b> <span>@SpaceXAI · MON 21</span></div><p class="s-p">Grok 4.7 is here.</p><p class="s-p">It&#x27;s a notable improvement over Grok 4.6 at the same price and speed.</p><div class="s1-l"><a href="https://x.com/SpaceXAI/status/2102069815225586149">Post on X ↗</a> <span class="dot">·</span> <a href="https://x.ai/news/grok-4-7">x.ai ↗</a></div></div>
+<div class="s1-e"><div class="s1-k"><b>NVIDIA</b> <span>@NVIDIAAI · WED 23</span></div><p class="s-p">When several people talk at once, a transcript can get messy fast.</p><p class="s-p">Our new Nemotron 3 Diarization model tracks who spoke when, even when voices overlap. It handles up to eight speakers, has 100M parameters, and is now available on @huggingface 🤗</p><div class="s1-l"><a href="https://x.com/NVIDIAAI/status/2102775666366435450">Post on X ↗</a> <span class="dot">·</span> <a href="https://huggingface.co/blog/nvidia/nemotron-diarization">Hugging Face ↗</a></div></div>
+<div class="s1-e"><div class="s1-k"><b>GOOGLE</b> <span>@OfficialLoganK · WED 23</span></div><p class="s-p">Introducing Gemini 3.8 Flash and Flash-Lite TTS, our new SOTA text to speech model with:</p><p class="s-p">- a new voice design experience<br>- 2,000+ production ready voices<br>- voice replication <br>- support for 100 languages<br>- voice remixing (soon)<br>- #1 spot on Hume AI&#x27;s voice benchmarks</p><p class="s-p">and more!!</p><div class="s1-l"><a href="https://x.com/OfficialLoganK/status/2102785495726219305">Post on X ↗</a> <span class="dot">·</span> <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/">blog.google ↗</a></div></div>
+      </div>
+    </div>
+    <p class="why"><b>The calmest of the three.</b> A small caps company byline with the account and day, the post as clean paragraphs, and the two links tucked into a quiet footer line. Every entry has the same three parts in the same place, so the eye learns the pattern by the second entry. Nothing competes with the companies' own words.</p>
+  </article>
+  <article class="spec" id="s2">
+    <div class="strip">
+      <div class="head"><span class="tag">S2</span><h2 class="name">Company column</h2></div>
+      <dl class="ledger"><div><dt>Byline</dt><dd>Left column: company + day</dd></div><div><dt>Links</dt><dd>Under the post</dd></div><div><dt>Frame</dt><dd>Ink hairline card</dd></div></dl>
+    </div>
+    <div class="mail">
+      <div class="oa2 s2"><div class="card-title">📣 OFFICIAL ANNOUNCEMENTS</div><p class="oa-sub">This week's launches, in the companies' own words.</p>
+<div class="s2-e"><div class="s2-c"><b>Anthropic</b><span>TUE 22</span></div><div class="s2-b"><p class="s-p">Introducing Claude Opus 5.5, the first model in our new Claude 5.5 family.</p><p class="s-p">It performs at the level of Claude Fable 5.1 for most tasks, and costs 40% less to run than Opus 5.</p><div class="s1-l"><a href="https://x.com/claudeai/status/2102435511222890900">Post on X ↗</a> <span class="dot">·</span> <a href="https://www.anthropic.com/claude-opus-5-5">anthropic.com ↗</a></div></div></div>
+<div class="s2-e"><div class="s2-c"><b>OpenAI</b><span>TUE 22</span></div><div class="s2-b"><p class="s-p">Please welcome GPT-6 Sol and GPT-6 Luna to the GPT-6 universe.</p><p class="s-p">GPT-6 Sol and Luna build on the advances behind GPT-6 Astra, bringing much of its strengths into faster and more affordable models to support work at scale.</p><p class="s-p">We’ve also made caching and inference more efficient, and we’re passing the savings directly to you: 50% lower API prices for Sol and Luna compared with GPT‑5.6 promotional pricing.</p><div class="s1-l"><a href="https://x.com/OpenAI/status/2102460975790137662">Post on X ↗</a> <span class="dot">·</span> <a href="https://openai.com/index/introducing-gpt-6-sol-and-luna">openai.com ↗</a></div></div></div>
+<div class="s2-e"><div class="s2-c"><b>xAI</b><span>MON 21</span></div><div class="s2-b"><p class="s-p">Grok 4.7 is here.</p><p class="s-p">It&#x27;s a notable improvement over Grok 4.6 at the same price and speed.</p><div class="s1-l"><a href="https://x.com/SpaceXAI/status/2102069815225586149">Post on X ↗</a> <span class="dot">·</span> <a href="https://x.ai/news/grok-4-7">x.ai ↗</a></div></div></div>
+<div class="s2-e"><div class="s2-c"><b>NVIDIA</b><span>WED 23</span></div><div class="s2-b"><p class="s-p">When several people talk at once, a transcript can get messy fast.</p><p class="s-p">Our new Nemotron 3 Diarization model tracks who spoke when, even when voices overlap. It handles up to eight speakers, has 100M parameters, and is now available on @huggingface 🤗</p><div class="s1-l"><a href="https://x.com/NVIDIAAI/status/2102775666366435450">Post on X ↗</a> <span class="dot">·</span> <a href="https://huggingface.co/blog/nvidia/nemotron-diarization">Hugging Face ↗</a></div></div></div>
+<div class="s2-e"><div class="s2-c"><b>Google</b><span>WED 23</span></div><div class="s2-b"><p class="s-p">Introducing Gemini 3.8 Flash and Flash-Lite TTS, our new SOTA text to speech model with:</p><p class="s-p">- a new voice design experience<br>- 2,000+ production ready voices<br>- voice replication <br>- support for 100 languages<br>- voice remixing (soon)<br>- #1 spot on Hume AI&#x27;s voice benchmarks</p><p class="s-p">and more!!</p><div class="s1-l"><a href="https://x.com/OfficialLoganK/status/2102785495726219305">Post on X ↗</a> <span class="dot">·</span> <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/">blog.google ↗</a></div></div></div>
+      </div>
+    </div>
+    <p class="why"><b>The most scannable.</b> The company sits in its own left column, so a reader runs down it to find the launches they care about. In email it is a two-cell table row, which holds up in every client. At 375px the text column narrows to about 200px and the longer posts get tall; switch the specimen width to judge it.</p>
+  </article>
+  <article class="spec picked" id="s3">
+    <div class="strip">
+      <div class="head"><span class="tag">S3</span><h2 class="name">Inset statements</h2><span class="badge">Selected</span></div>
+      <dl class="ledger"><div><dt>Byline</dt><dd>Company, handle, day</dd></div><div><dt>Post</dt><dd>Paper inset, like the news quote</dd></div><div><dt>Frame</dt><dd>Ink hairline card</dd></div></dl>
+    </div>
+    <div class="mail">
+      <div class="oa2 s3"><div class="card-title">📣 OFFICIAL ANNOUNCEMENTS</div><p class="oa-sub">This week's launches, in the companies' own words.</p>
+<div class="s3-e"><div class="s3-by"><b>Anthropic</b> <span>@claudeai · TUE 22</span></div><div class="s3-q"><p class="s-p">Introducing Claude Opus 5.5, the first model in our new Claude 5.5 family.</p><p class="s-p">It performs at the level of Claude Fable 5.1 for most tasks, and costs 40% less to run than Opus 5.</p></div><div class="s1-l"><a href="https://x.com/claudeai/status/2102435511222890900">Post on X ↗</a> <span class="dot">·</span> <a href="https://www.anthropic.com/claude-opus-5-5">anthropic.com ↗</a></div></div>
+<div class="s3-e"><div class="s3-by"><b>OpenAI</b> <span>@OpenAI · TUE 22</span></div><div class="s3-q"><p class="s-p">Please welcome GPT-6 Sol and GPT-6 Luna to the GPT-6 universe.</p><p class="s-p">GPT-6 Sol and Luna build on the advances behind GPT-6 Astra, bringing much of its strengths into faster and more affordable models to support work at scale.</p><p class="s-p">We’ve also made caching and inference more efficient, and we’re passing the savings directly to you: 50% lower API prices for Sol and Luna compared with GPT‑5.6 promotional pricing.</p></div><div class="s1-l"><a href="https://x.com/OpenAI/status/2102460975790137662">Post on X ↗</a> <span class="dot">·</span> <a href="https://openai.com/index/introducing-gpt-6-sol-and-luna">openai.com ↗</a></div></div>
+<div class="s3-e"><div class="s3-by"><b>xAI</b> <span>@SpaceXAI · MON 21</span></div><div class="s3-q"><p class="s-p">Grok 4.7 is here.</p><p class="s-p">It&#x27;s a notable improvement over Grok 4.6 at the same price and speed.</p></div><div class="s1-l"><a href="https://x.com/SpaceXAI/status/2102069815225586149">Post on X ↗</a> <span class="dot">·</span> <a href="https://x.ai/news/grok-4-7">x.ai ↗</a></div></div>
+<div class="s3-e"><div class="s3-by"><b>NVIDIA</b> <span>@NVIDIAAI · WED 23</span></div><div class="s3-q"><p class="s-p">When several people talk at once, a transcript can get messy fast.</p><p class="s-p">Our new Nemotron 3 Diarization model tracks who spoke when, even when voices overlap. It handles up to eight speakers, has 100M parameters, and is now available on @huggingface 🤗</p></div><div class="s1-l"><a href="https://x.com/NVIDIAAI/status/2102775666366435450">Post on X ↗</a> <span class="dot">·</span> <a href="https://huggingface.co/blog/nvidia/nemotron-diarization">Hugging Face ↗</a></div></div>
+<div class="s3-e"><div class="s3-by"><b>Google</b> <span>@OfficialLoganK · WED 23</span></div><div class="s3-q"><p class="s-p">Introducing Gemini 3.8 Flash and Flash-Lite TTS, our new SOTA text to speech model with:</p><p class="s-p">- a new voice design experience<br>- 2,000+ production ready voices<br>- voice replication <br>- support for 100 languages<br>- voice remixing (soon)<br>- #1 spot on Hume AI&#x27;s voice benchmarks</p><p class="s-p">and more!!</p></div><div class="s1-l"><a href="https://x.com/OfficialLoganK/status/2102785495726219305">Post on X ↗</a> <span class="dot">·</span> <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/">blog.google ↗</a></div></div>
+      </div>
+    </div>
+    <p class="why"><b>Marks the words as theirs.</b> Each post sits in a paper-coloured inset, the same treatment as the quote at the foot of AI News, so it reads as a statement being quoted rather than aiBytes_ talking. The cost is five boxes inside a box: busier than S1, and the inset repeats the quote block's meaning five times.</p>
+  </article>
+
+  <!-- ═══ NAMES ═══ -->
+  <section class="spec" id="names">
+    <div class="strip">
+      <div class="head"><span class="tag">N1-N5</span><h2 class="name">Names</h2></div>
+      <dl class="ledger">
+        <div><dt>Header</dt><dd>Same numbered header as every section</dd></div>
+        <div><dt>Subtitle</dt><dd>One line, like Loudest on X</dd></div>
+      </dl>
+    </div>
+    <div class="mail names">
+      <div class="nm"><span class="nk">N1 ✓</span><div><div class="sec-head"><span class="sec-hex">0x02</span><h3 class="sec-title">Official Announcements</h3><div class="sec-rule"></div></div><p class="sec-sub">What the AI companies announced this week, in their own words.</p></div></div>
+      <div class="nm"><span class="nk">N2</span><div><div class="sec-head"><span class="sec-hex">0x02</span><h3 class="sec-title">From the Labs</h3><div class="sec-rule"></div></div><p class="sec-sub">This week's releases, posted by the labs that shipped them.</p></div></div>
+      <div class="nm"><span class="nk">N3</span><div><div class="sec-head"><span class="sec-hex">0x02</span><h3 class="sec-title">Straight from the Source</h3><div class="sec-rule"></div></div><p class="sec-sub">This week's launches, as the companies announced them.</p></div></div>
+      <div class="nm"><span class="nk">N4</span><div><div class="sec-head"><span class="sec-hex">0x02</span><h3 class="sec-title">Release Notes</h3><div class="sec-rule"></div></div><p class="sec-sub">What the AI companies shipped this week, in their own words.</p></div></div>
+      <div class="nm"><span class="nk">N5</span><div><div class="sec-head"><span class="sec-hex">0x02</span><h3 class="sec-title">Shipped This Week</h3><div class="sec-rule"></div></div><p class="sec-sub">The week's releases, straight from the companies behind them.</p></div></div>
+    </div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>&nbsp;</th><th>Says</th><th>Catch</th></tr></thead>
+        <tbody>
+          <tr><td><b>N1 Official Announcements</b></td><td>Exactly what it is. The working name.</td><td>The longest header in the issue, and "official" sounds like a press office.</td></tr>
+          <tr><td><b>N2 From the Labs</b></td><td>Short, and names who is talking.</td><td>Cursor, Google and NVIDIA's product accounts aren't labs.</td></tr>
+          <tr><td><b>N3 Straight from the Source</b></td><td>The contrast with AI News: no retelling.</td><td>Long, and a phrase more than a name.</td></tr>
+          <tr><td><b>N4 Release Notes</b></td><td>Developer vocabulary. Covers models, pricing and feature changes.</td><td>Could read as aiBytes_'s own changelog on first sight; the subtitle settles it.</td></tr>
+          <tr><td><b>N5 Shipped This Week</b></td><td>Plain, active.</td><td>Policy and benchmark posts aren't "shipped". Close to AI News in meaning.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══ L1 ═══ -->
+  <article class="spec" id="l1">
+    <div class="strip">
+      <div class="head"><span class="tag">L1</span><h2 class="name">Ticker rows, like Loudest on X</h2></div>
+      <dl class="ledger">
+        <div><dt>Label</dt><dd>Account name</dd></div>
+        <div><dt>Text</dt><dd>First line, verbatim</dd></div>
+        <div><dt>Stat</dt><dd>♥︎ likes</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <div class="sec-head"><span class="sec-hex">0x02</span><h3 class="sec-title">Release Notes</h3><div class="sec-rule"></div></div>
+      <p class="sec-sub">What the AI companies shipped this week, in their own words.</p>
+      <div class="row"><span class="rtxt"><b>Claude</b> <a class="q" href="https://x.com/claudeai/status/2102435511222890900">Introducing Claude Opus 5.5, the first model in our new Claude 5.5 family.</a></span><span class="likes"><b>♥︎ 95.7k</b></span></div>
+      <div class="row"><span class="rtxt"><b>OpenAI</b> <a class="q" href="https://x.com/OpenAI/status/2102460975790137662">Please welcome GPT-6 Sol and GPT-6 Luna to the GPT-6 universe.</a></span><span class="likes"><b>♥︎ 53.3k</b></span></div>
+      <div class="row"><span class="rtxt"><b>SpaceXAI</b> <a class="q" href="https://x.com/SpaceXAI/status/2102069815225586149">Grok 4.7 is here.</a></span><span class="likes"><b>♥︎ 28.6k</b></span></div>
+      <div class="row"><span class="rtxt"><b>NVIDIA AI</b> <a class="q" href="https://x.com/NVIDIAAI/status/2102775666366435450">When several people talk at once, a transcript can get messy fast.</a></span><span class="likes"><b>♥︎ 9.6k</b></span></div>
+      <div class="row"><span class="rtxt"><b>Logan Kilpatrick</b> <a class="q" href="https://x.com/OfficialLoganK/status/2102785495726219305">Introducing Gemini 3.8 Flash and Flash-Lite TTS, our new SOTA text to speech model with:</a></span><span class="likes"><b>♥︎ 4.5k</b></span></div>
+    </div>
+    <p class="why"><b>Zero new rules, and two rows fail.</b> It reads as a sibling of Loudest on X, which makes the pair look like one idea split in two. But NVIDIA's row never says what launched, and Logan's row is a person's name standing in for Google. Likes also mislead here: Claude at 95.7k against Gemini at 4.5k measures follower counts, not how much each launch matters.</p>
+  </article>
+
+  <!-- ═══ L2 ═══ -->
+  <article class="spec" id="l2">
+    <div class="strip">
+      <div class="head"><span class="tag">L2</span><h2 class="name">Release log</h2></div>
+      <dl class="ledger">
+        <div><dt>Label</dt><dd>Company + release name</dd></div>
+        <div><dt>Text</dt><dd>First line, verbatim</dd></div>
+        <div><dt>Stat</dt><dd>Day posted</dd></div>
+        <div><dt>Links</dt><dd>Post on X + official page</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <div class="sec-head"><span class="sec-hex">0x02</span><h3 class="sec-title">Release Notes</h3><div class="sec-rule"></div></div>
+      <p class="sec-sub">What the AI companies shipped this week, in their own words.</p>
+      <div class="row"><span class="rtxt"><span class="co">Anthropic</span> <b><a href="https://x.com/claudeai/status/2102435511222890900">Claude Opus 5.5</a></b> Introducing Claude Opus 5.5, the first model in our new Claude 5.5 family. <span class="src">(<a href="https://www.anthropic.com/claude-opus-5-5">anthropic.com</a>)</span></span><span class="day">TUE 22</span></div>
+      <div class="row"><span class="rtxt"><span class="co">OpenAI</span> <b><a href="https://x.com/OpenAI/status/2102460975790137662">GPT-6 Sol and GPT-6 Luna</a></b> Please welcome GPT-6 Sol and GPT-6 Luna to the GPT-6 universe. <span class="src">(<a href="https://openai.com/index/introducing-gpt-6-sol-and-luna">openai.com</a>)</span></span><span class="day">TUE 22</span></div>
+      <div class="row"><span class="rtxt"><span class="co">xAI</span> <b><a href="https://x.com/SpaceXAI/status/2102069815225586149">Grok 4.7</a></b> Grok 4.7 is here. <span class="src">(<a href="https://x.ai/news/grok-4-7">x.ai</a>)</span></span><span class="day">MON 21</span></div>
+      <div class="row"><span class="rtxt"><span class="co">NVIDIA</span> <b><a href="https://x.com/NVIDIAAI/status/2102775666366435450">Nemotron 3 Diarization</a></b> When several people talk at once, a transcript can get messy fast. <span class="src">(<a href="https://huggingface.co/blog/nvidia/nemotron-diarization">Hugging Face</a>)</span></span><span class="day">WED 23</span></div>
+      <div class="row"><span class="rtxt"><span class="co">Google</span> <b><a href="https://x.com/OfficialLoganK/status/2102785495726219305">Gemini 3.8 Flash TTS</a></b> Introducing Gemini 3.8 Flash and Flash-Lite TTS, our new SOTA text to speech model with: <span class="src">(<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/">blog.google</a>)</span></span><span class="day">WED 23</span></div>
+    </div>
+    <p class="why"><b>Built for a reader deciding what to try.</b> The company is a grey label, the release name is the bold link (to the post on X), the company's own first line follows, and the trailing source link goes to the official page, the same way Products ends with <code>(ProductHunt)</code>. The day replaces likes because a launch matters for what it is, not its reach. Rows stay in likes order, so the biggest launch still leads. The cost: one short name per row is written by us, copied from the post.</p>
+  </article>
+
+  <!-- ═══ L3 ═══ -->
+  <article class="spec picked" id="l3">
+    <div class="strip">
+      <div class="head"><span class="tag">L3</span><h2 class="name">Twin card</h2><span class="badge">Selected</span></div>
+      <dl class="ledger">
+        <div><dt>Frame</dt><dd>Ink card, sibling of AI News</dd></div>
+        <div><dt>Text</dt><dd>Whole post, verbatim</dd></div>
+        <div><dt>Header</dt><dd>Unnumbered card title</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <div class="oa-card">
+        <div class="card-title">📣 OFFICIAL ANNOUNCEMENTS</div>
+        <div class="oa-post"><div class="oa-by"><b><a href="https://x.com/claudeai/status/2102435511222890900">Anthropic</a></b> <span class="meta">@claudeai</span> <span class="src">(<a href="https://www.anthropic.com/claude-opus-5-5">anthropic.com</a>)</span></div><p class="txt">Introducing Claude Opus 5.5, the first model in our new Claude 5.5 family.
+
+It performs at the level of Claude Fable 5.1 for most tasks, and costs 40% less to run than Opus 5.</p></div>
+        <div class="oa-post"><div class="oa-by"><b><a href="https://x.com/OpenAI/status/2102460975790137662">OpenAI</a></b> <span class="meta">@OpenAI</span> <span class="src">(<a href="https://openai.com/index/introducing-gpt-6-sol-and-luna">openai.com</a>)</span></div><p class="txt">Please welcome GPT-6 Sol and GPT-6 Luna to the GPT-6 universe.
+
+GPT-6 Sol and Luna build on the advances behind GPT-6 Astra, bringing much of its strengths into faster and more affordable models to support work at scale.
+
+We’ve also made caching and inference more efficient, and we’re passing the savings directly to you: 50% lower API prices for Sol and Luna compared with GPT‑5.6 promotional pricing.</p></div>
+        <div class="oa-post"><div class="oa-by"><b><a href="https://x.com/SpaceXAI/status/2102069815225586149">xAI</a></b> <span class="meta">@SpaceXAI</span> <span class="src">(<a href="https://x.ai/news/grok-4-7">x.ai</a>)</span></div><p class="txt">Grok 4.7 is here.
+
+It&#x27;s a notable improvement over Grok 4.6 at the same price and speed.</p></div>
+        <div class="oa-post"><div class="oa-by"><b><a href="https://x.com/NVIDIAAI/status/2102775666366435450">NVIDIA</a></b> <span class="meta">@NVIDIAAI</span> <span class="src">(<a href="https://huggingface.co/blog/nvidia/nemotron-diarization">Hugging Face</a>)</span></div><p class="txt">When several people talk at once, a transcript can get messy fast.
+
+Our new Nemotron 3 Diarization model tracks who spoke when, even when voices overlap. It handles up to eight speakers, has 100M parameters, and is now available on @huggingface 🤗</p></div>
+        <div class="oa-post"><div class="oa-by"><b><a href="https://x.com/OfficialLoganK/status/2102785495726219305">Google</a></b> <span class="meta">@OfficialLoganK</span> <span class="src">(<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/">blog.google</a>)</span></div><p class="txt">Introducing Gemini 3.8 Flash and Flash-Lite TTS, our new SOTA text to speech model with:
+
+- a new voice design experience
+- 2,000+ production ready voices
+- voice replication 
+- support for 100 languages
+- voice remixing (soon)
+- #1 spot on Hume AI&#x27;s voice benchmarks
+
+and more!!</p></div>
+      </div>
+    </div>
+    <p class="why"><b>Reads as part of the news, which is both its pull and its problem.</b> Paired with the AI News card, the top of the issue becomes "launches, then everything else", in the same card language. But two big cards back to back make a long wall before the first numbered section, and an unnumbered card breaks the <code>0x</code> sequence: Loudest on X would become <code>0x02</code> again.</p>
+  </article>
+
+  <!-- ═══ PLACEMENT ═══ -->
+  <section class="spec" id="placement">
+    <div class="strip">
+      <div class="head"><span class="tag">P1-P2</span><h2 class="name">Placement</h2></div>
+      <dl class="ledger">
+        <div><dt>Fixed</dt><dd>Loudest on X comes after both</dd></div>
+      </dl>
+    </div>
+    <div class="stacks">
+      <div class="stack">
+        <div class="sk">P1 · After AI News ✓</div>
+        <ol>
+          <li>Intro</li><li>My Favourite Picks</li><li class="news">AI News <span>card</span></li><li class="oa">Official Announcements <span>card</span></li><li>Loudest on X <span>0x02</span></li><li>Products · GitHub · HN <span>0x03–05</span></li>
+        </ol>
+      </div>
+      <div class="stack">
+        <div class="sk">P2 · Before AI News</div>
+        <ol>
+          <li>Intro</li><li>My Favourite Picks</li><li class="oa">Release Notes <span>card</span></li><li class="news">AI News</li><li>Loudest on X <span>0x02</span></li><li>Products · GitHub · HN <span>0x03–05</span></li>
+        </ol>
+      </div>
+    </div>
+    <p class="why"><b>P1 keeps the issue's shape; P2 leads with the launches.</b> Moving launches out of AI News takes its usual story of the week with them (this week, Opus 5.5), so in P1 AI News opens with the best remaining story and the launches follow straight after. P2 puts them first, but a numbered header above the AI News card would look like it owns that card, so P2 only works with L3. P1 works with any of the three. <b>Chosen: L3 in P1</b>, two cards back to back, so Loudest on X becomes <code>0x02</code>.</p>
+  </section>
+
+  <section class="close" id="notes">
+    <h2>Knock-on changes, whichever wins</h2>
+    <ol>
+      <li><b>Section numbers shift.</b> Products, GitHub and HN each move down one or two. The template, the Beehiiv patterns and the export template all carry the numbers, and they change together in the template step.</li>
+      <li><b>The Today line in the intro</b> gains two entries, and the intro may still mention a launch in its storyline. That's allowed: the rule is that AI News drops the story, not the intro.</li>
+      <li><b>The company label</b> in L1 is the posting account; in L2 and L3 it is the company (Logan Kilpatrick's post files under Google, SpaceXAI under xAI). That matches the contract's "all of a company's accounts count as one".</li>
+    </ol>
+  </section>
+</div>
+
+<script>
+  (function(){
+    var sheet=document.getElementById('sheet');
+    var desk=document.getElementById('w-desk'), phone=document.getElementById('w-phone');
+    function set(isPhone){
+      sheet.classList.toggle('phone',isPhone);
+      desk.setAttribute('aria-pressed',String(!isPhone));
+      phone.setAttribute('aria-pressed',String(isPhone));
+    }
+    desk.addEventListener('click',function(){set(false)});
+    phone.addEventListener('click',function(){set(true)});
+  })();
+</script>
