@@ -228,6 +228,7 @@ def shortlisted_snapshot():
         [f"https://x.com/{h}/status/{s}" for h, s in (("alice", 3), ("bob", 4), ("carol", 5), ("dave", 6), ("erin", 7))],
         ["https://x.com/lab/status/1", "https://x.com/otherlab/status/2"],
     )
+    x_paste.set_emoji(snap, list(zip(snap["shortlist"]["insight"], ["🔬", "🎞️", "💸", "🏷️", "🛠️"])))
     return snap
 
 
@@ -313,6 +314,25 @@ class TestRender(unittest.TestCase):
         self.assertIn("…", row)
         self.assertIn(x_render.HEART + " 3.0k", row)
 
+    def test_x_row_opens_with_emoji_and_linked_handle(self):
+        post = self.by_url["https://x.com/alice/status/3"]
+        row = x_render.x_row_html(post)
+        self.assertTrue(row.startswith('<div class="row"><span class="ico">🔬</span>'), row)
+        self.assertIn('<b><a href="https://x.com/alice">@alice</a></b>', row)
+        self.assertNotIn(post["author_name"], row)
+        row = x_render.x_row_beehiiv(post)
+        self.assertIn('text-align:center;">🔬</span>', row)
+        self.assertIn(f'<a href="https://x.com/alice" style="color:{x_render.COBALT};text-decoration:none;font-weight:600;">@alice</a>', row)
+
+    def test_missing_emoji_warns(self):
+        del self.by_url["https://x.com/bob/status/4"]["emoji"]
+        _, warnings = x_render.render(self.snap)
+        self.assertEqual(warnings, ["https://x.com/bob/status/4: no emoji; set one with x_items.py emoji"])
+
+    def test_emoji_only_for_shortlisted_insights(self):
+        with self.assertRaises(ValueError):
+            x_paste.set_emoji(self.snap, [("https://x.com/lab/status/1", "🚀")])
+
     def test_short_x_row_has_no_ellipsis(self):
         self.assertNotIn("…", x_render.x_row_html(self.by_url["https://x.com/bob/status/4"]))
 
@@ -321,13 +341,14 @@ class TestRender(unittest.TestCase):
         for block in blocks.values():
             self.assertNotIn("class=", block)
             self.assertNotIn("<style", block)
-        self.assertIn("0x02", blocks["loudest"])
+        self.assertIn("0x02", blocks["viral"])
+        self.assertIn("VIRAL ON X", blocks["viral"])
         # The last row of each table drops its hairline.
-        self.assertEqual(blocks["loudest"].count("border-bottom"), 2 * 4)
+        self.assertEqual(blocks["viral"].count("border-bottom"), 2 * 4)
 
     def test_render_keeps_shortlist_order(self):
         blocks, warnings = x_render.render(self.snap)
-        order = [blocks["loudest"].find(f"/{h}/status/") for h in ("alice", "bob", "carol", "dave", "erin")]
+        order = [blocks["viral"].find(f"/{h}/status/") for h in ("alice", "bob", "carol", "dave", "erin")]
         self.assertEqual(order, sorted(order))
         self.assertEqual(warnings, [])
 
@@ -341,7 +362,7 @@ class TestVerify(unittest.TestCase):
     def setUp(self):
         self.snap = shortlisted_snapshot()
         blocks, _ = x_render.render(self.snap)
-        self.page = f"<main>{blocks['announcements']}<section>{blocks['loudest']}</section></main>"
+        self.page = f"<main>{blocks['announcements']}<section>{blocks['viral']}</section></main>"
 
     def test_a_page_built_from_render_passes(self):
         self.assertEqual(x_render.verify(self.snap, self.page), [])
@@ -358,7 +379,7 @@ class TestVerify(unittest.TestCase):
 
     def test_beehiiv_export_is_checked_against_the_beehiiv_format(self):
         blocks, _ = x_render.render(self.snap, "beehiiv")
-        export = f"<textarea>{blocks['announcements']}\n\n{blocks['loudest']}</textarea>"
+        export = f"<textarea>{blocks['announcements']}\n\n{blocks['viral']}</textarea>"
         self.assertEqual(x_render.verify(self.snap, export, "beehiiv"), [])
         self.assertNotEqual(x_render.verify(self.snap, export, "html"), [])
 
@@ -419,6 +440,12 @@ class TestScript(unittest.TestCase):
         self.run_script("save", "--input", "-", stdin=json.dumps(paste()))
         insight = [f"https://x.com/{h}/status/{s}" for h, s in (("alice", 3), ("bob", 4), ("carol", 5), ("dave", 6), ("erin", 7))]
         self.run_script("shortlist", "--insight", *insight, "--announcement", "https://x.com/lab/status/1", "https://x.com/otherlab/status/2")
+        proc = self.run_script("emoji", "https://x.com/alice/status/3", "🔬", "https://x.com/bob/status/4")
+        self.assertEqual(proc.returncode, 1)
+        self.assertIn("give each url its emoji", proc.stderr)
+        proc = self.run_script("emoji", "https://x.com/alice/status/3", "🔬")
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        self.assertEqual(json.loads(self.snapshot.read_text())["posts"][2]["emoji"], "🔬")
         proc = self.run_script("render", "--section", "both")
         self.assertEqual(proc.returncode, 0, proc.stderr)
         self.assertIn("<!-- x_render: announcements -->", proc.stdout)

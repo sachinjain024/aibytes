@@ -236,6 +236,22 @@ def set_shortlist(snapshot, insight, announcement):
     return warnings
 
 
+
+def set_emoji(snapshot, pairs):
+    """Give shortlisted Viral on X posts the emoji their row opens with.
+
+    `pairs` is [(url, emoji), ...]. The emoji is ours, not the author's, so it
+    lives in its own field and `text` is never touched. Raises on a url that
+    isn't a shortlisted insight.
+    """
+    insight = set((snapshot.get("shortlist") or {}).get("insight", []))
+    unknown = [u for u, _ in pairs if u not in insight]
+    if unknown:
+        raise ValueError(f"not a shortlisted insight: {', '.join(unknown)}")
+    by_url = {p["url"]: p for p in snapshot["posts"]}
+    for url, emoji in pairs:
+        by_url[url]["emoji"] = emoji
+
 def load(path):
     return json.loads(pathlib.Path(path).read_text())
 

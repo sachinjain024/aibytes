@@ -2,8 +2,10 @@
 
 The two X sections show posts in their authors' own words, so the HTML is
 built here from x_data.json rather than retyped by the issue skill. Official
-Announcements shows each post whole; Loudest on X shows its opening words. The
-only text this module writes is labels: the company, the date, the link text.
+Announcements shows each post whole; Viral on X shows its opening words. The
+only text this module writes is labels: the company, the date, the link text,
+the author's @handle, and the row's emoji (the post's `emoji`, picked at
+shortlist time).
 
 Two formats: "html" fills the issue template's {{ANNOUNCEMENT_ITEMS}} and
 {{X_ROWS}}; "beehiiv" is the inline-styled, table-based snippet for the export
@@ -15,13 +17,14 @@ import datetime as dt
 import html
 import re
 
-EXCERPT_LIMIT = 140        # Loudest on X: about two lines at 640px
+EXCERPT_LIMIT = 140        # Viral on X: about two lines at 640px
 LONG_POST = 600            # Official Announcements: trim only past this
 LONG_POST_CUT = 400        # ...at the last paragraph break before this
 HEART = "♥︎"     # the text-style heart, so iOS Mail doesn't swap in a red emoji
 ELLIPSIS = "…"
 SUBTITLE_X = "The AI posts that drew the biggest reaction this week."
 SUBTITLE_OA = "This week's launches, in the companies' own words."
+TITLE_X = "Viral on X"
 
 # Who an account speaks for. All of a company's accounts are one company, and a
 # staff account posting its company's launch files under the company.
@@ -142,11 +145,16 @@ def announcement_html(post):
             f'<div class="oa-post">{body}</div><div class="oa-links">{links}</div></div>')
 
 
+def profile_url(post):
+    return "https://x.com/" + post["author_handle"].lstrip("@")
+
+
 def x_row_html(post):
     lines, cut = excerpt(post["text"])
     words = ' <span class="cut">/</span> '.join(_e(line) for line in lines)
     tail = f' <span class="cut">{ELLIPSIS}</span>' if cut else ""
-    return (f'<div class="row"><span class="txt"><b>{_e(post["author_name"])}</b> '
+    return (f'<div class="row"><span class="ico">{_e(post.get("emoji") or "")}</span>'
+            f'<span class="txt"><b><a href="{_a(profile_url(post))}">{_e(post["author_handle"])}</a></b> '
             f'<a class="post" href="{_a(post["url"])}">{words}</a>{tail}</span>'
             f'<span class="stat"><b>{HEART} {likes(post["likes"])}</b></span></div>')
 
@@ -179,7 +187,8 @@ def x_row_beehiiv(post, last=False):
     tail = f' <span style="color:{SLATE};">{ELLIPSIS}</span>' if cut else ""
     border = "" if last else f"border-bottom:1px solid {LINE};"
     return (f'<tr><td style="padding:9px 0;{border}font-family:{FACE};font-size:15px;line-height:1.5;color:{INK};">'
-            f'<b style="font-weight:600;">{_e(post["author_name"])}</b> '
+            f'<span style="display:inline-block;width:22px;text-align:center;">{_e(post.get("emoji") or "")}</span> '
+            f'<a href="{_a(profile_url(post))}" style="color:{COBALT};text-decoration:none;font-weight:600;">{_e(post["author_handle"])}</a> '
             f'<a href="{_a(post["url"])}" style="color:{BODY};text-decoration:none;">{words}</a>{tail}</td>'
             f'<td align="right" valign="baseline" style="padding:9px 0 9px 12px;{border}font-family:{MONO};font-size:11.5px;color:{SLATE};white-space:nowrap;">'
             f'<b style="color:{COBALT};">{HEART} {likes(post["likes"])}</b></td></tr>')
@@ -193,12 +202,12 @@ def announcements_card_beehiiv(posts):
             f'  <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">\n    {rows}\n  </table>\n</div>')
 
 
-def loudest_section_beehiiv(posts, number="0x02"):
+def viral_section_beehiiv(posts, number="0x02"):
     rows = "\n  ".join(x_row_beehiiv(p, last=i == len(posts) - 1) for i, p in enumerate(posts))
     return (f'<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-top:34px;margin-bottom:12px;">\n'
             f'  <tr>\n'
             f'    <td width="1" style="background-color:{INK};color:{PAPER};font-family:{MONO};font-weight:700;font-size:12px;padding:2px 7px;white-space:nowrap;">{_e(number)}</td>\n'
-            f'    <td style="padding-left:10px;white-space:nowrap;font-family:{DISPLAY};font-weight:700;font-size:19px;letter-spacing:.01em;color:{INK};">LOUDEST ON X</td>\n'
+            f'    <td style="padding-left:10px;white-space:nowrap;font-family:{DISPLAY};font-weight:700;font-size:19px;letter-spacing:.01em;color:{INK};">{TITLE_X.upper()}</td>\n'
             f'    <td width="100%" style="padding-left:10px;"><div style="height:2px;background-color:{INK};font-size:0;line-height:0;">&nbsp;</div></td>\n'
             f'  </tr>\n</table>\n'
             f'<p style="padding:0;margin:-4px 0 6px 0;font-family:{FACE};font-size:14px;line-height:1.5;color:{SLATE};">{_e(SUBTITLE_X)}</p>\n'
@@ -208,16 +217,17 @@ def loudest_section_beehiiv(posts, number="0x02"):
 # ── the command's two jobs ───────────────────────────────────────────────────
 
 def render(snapshot, fmt="html", number="0x02"):
-    """{"announcements": str, "loudest": str} for the shortlisted posts, plus warnings."""
+    """{"announcements": str, "viral": str} for the shortlisted posts, plus warnings."""
     oa, xs = shortlisted(snapshot, "announcement"), shortlisted(snapshot, "insight")
     warnings = [f"{p['author_handle']}: no company on file, labelled {p['author_name']!r}; add it to x_render.COMPANIES"
                 for p in oa if not company(p)[1] and p["author_type"] == "person"]
+    warnings += [f"{p['url']}: no emoji; set one with x_items.py emoji" for p in xs if not p.get("emoji")]
     if fmt == "html":
         out = {"announcements": "\n".join(announcement_html(p) for p in oa),
-               "loudest": "\n".join(x_row_html(p) for p in xs)}
+               "viral": "\n".join(x_row_html(p) for p in xs)}
     else:
         out = {"announcements": announcements_card_beehiiv(oa) if oa else "",
-               "loudest": loudest_section_beehiiv(xs, number) if xs else ""}
+               "viral": viral_section_beehiiv(xs, number) if xs else ""}
     return out, warnings
 
 
@@ -231,10 +241,10 @@ def verify(snapshot, page, fmt="html"):
     oa, xs = shortlisted(snapshot, "announcement"), shortlisted(snapshot, "insight")
     if fmt == "html":
         groups = {"Official Announcements": [announcement_html(p) for p in oa],
-                  "Loudest on X": [x_row_html(p) for p in xs]}
+                  TITLE_X: [x_row_html(p) for p in xs]}
     else:
         groups = {"Official Announcements": [announcement_beehiiv(p, i == len(oa) - 1) for i, p in enumerate(oa)],
-                  "Loudest on X": [x_row_beehiiv(p, i == len(xs) - 1) for i, p in enumerate(xs)]}
+                  TITLE_X: [x_row_beehiiv(p, i == len(xs) - 1) for i, p in enumerate(xs)]}
     for label, entries in groups.items():
         last = -1
         for entry, post in zip(entries, oa if label.startswith("Official") else xs):
