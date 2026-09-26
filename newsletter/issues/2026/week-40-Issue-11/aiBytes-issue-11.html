@@ -95,7 +95,8 @@
   .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
   .stat b{color:var(--cobalt);font-weight:700}
   .hot{background:var(--signal);padding:0 4px;font-weight:600}
-  /* Loudest on X rows: the author in ink, then the post's own words in body grey. */
+  /* Viral on X rows: emoji, the author's @handle in cobalt (linked to the profile),
+       then the post's own words in body grey. */
   .sec-sub{font-size:14px;color:var(--slate);margin:-4px 0 6px}
   .row .txt a.post{color:#3A3E4A}
   .row .txt a.post:hover{color:var(--cobalt)}
@@ -120,14 +121,25 @@
       <p class="greet">Hello, builders 👋</p>
       <p>Welcome back to your weekly dose of AI Bytes. I did not expect a language model to get credit for a biology discovery this soon. But Claude has turned up a novel enzyme system with CRISPR-like repeats, and Anthropic says humans are still checking its work in the lab 🧬</p>
       <p><b>Outside the lab, nobody was checking</b>: OpenAI's agents posted user images to the open web without the lab knowing, Australia is investigating an OpenAI hack of a government health website, and the Pentagon says <a href="https://www.bloomberg.com/graphics/2026-iran-school-attack/">overreliance on AI</a> contributed to a missile strike on a school in Iran.</p>
-      <p><b>Today:</b> Opus 5.5, GPT-6 Sol and Luna and Grok 4.7 in the companies' own words, the loudest posts on X, five launches from Clueso MCP to Arcjet, five trending repos, and four HN deep stories worth your weekend.</p>
+      <p><b>Today:</b> the posts that went viral on X, five launches from Clueso MCP to Arcjet, five trending repos, and four HN deep stories worth your weekend.</p>
     </div>
 
+    <div class="picks">
+      <div class="card-title">My Favourite Picks</div>
+      <ol>
+<li><span class="n">01</span><span class="line"><span class="t"><a href="https://techcrunch.com/2026/09/25/unsecured-openai-agents-posted-53-user-images-on-the-internet-without-the-labs-knowledge/">OpenAI's agents posted 53 user images online</a></span><span class="from">News</span></span><span class="d">Unsecured agents in OpenAI's research environment posted user images to public image hosts without the lab's knowledge.</span></li>
+<li><span class="n">02</span><span class="line"><span class="t"><a href="https://github.com/cloudflare/security-audit-skill">cloudflare/security-audit-skill</a></span><span class="from">GitHub</span></span><span class="d">A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings.</span></li>
+<li><span class="n">03</span><span class="line"><span class="t"><a href="https://github.com/dream-num/univer">dream-num/univer</a></span><span class="from">GitHub</span></span><span class="d">Spreadsheets, docs, slides and PDF in one runtime built for AI agents.</span></li>
+<li><span class="n">04</span><span class="line"><span class="t"><a href="https://arcjet.com/">Arcjet</a></span><span class="from">Products</span></span><span class="d">Runtime security for AI agents: prompt injection detection, tool-call authorization and data redaction.</span></li>
+      </ol>
+    </div>
 
     <div class="news-card">
       <div class="card-title">🌍 AI NEWS</div>
 
       <p class="news-item">🧬 <b><a href="https://www.anthropic.com/news/claude-discovers-novel-enzyme-system">Claude discovers a novel enzyme system</a></b> - The system carries CRISPR-like repeats, and Anthropic says humans are still in the loop in its biology lab. <span class="hot">Story of the week</span> <span class="src">(Anthropic)</span></p>
+<p class="news-item">🚀 <b><a href="https://www.anthropic.com/claude-opus-5-5">Anthropic releases Claude Opus 5.5</a></b> - The first model in the Claude 5.5 family performs at the level of Claude Fable 5.1 on most tasks and costs 40% less to run than Opus 5. <span class="src">(Anthropic)</span></p>
+<p class="news-item">☀️ <b><a href="https://openai.com/index/introducing-gpt-6-sol-and-luna/">OpenAI launches GPT-6 Sol and Luna</a></b> - Faster, cheaper models built on GPT-6 Astra, with API prices 50% below GPT-5.6 promotional pricing. <span class="src">(OpenAI)</span></p>
 <p class="news-item">🎯 <b><a href="https://www.bloomberg.com/graphics/2026-iran-school-attack/">Pentagon links AI to a strike on an Iranian school</a></b> - It says overreliance on AI contributed to the missile strike. <span class="src">(Bloomberg)</span></p>
 <p class="news-item">🖼️ <b><a href="https://techcrunch.com/2026/09/25/unsecured-openai-agents-posted-53-user-images-on-the-internet-without-the-labs-knowledge/">OpenAI's agents posted 53 user images online</a></b> - Unsecured agents in its research environment used public image hosts without the lab's knowledge. <span class="src">(TechCrunch)</span></p>
 <p class="news-item">🏥 <b><a href="https://techcrunch.com/2026/09/24/australia-to-investigate-if-openai-hack-of-government-health-website-broke-the-law/">Australia investigates an OpenAI hack of a health website</a></b> - The first known breach to hit a government agency; the prime minister has vowed to hold OpenAI accountable. <span class="src">(TechCrunch)</span></p>
@@ -140,25 +152,16 @@
       </div>
     </div>
 
-    <div class="oa-card">
-      <div class="card-title">📣 OFFICIAL ANNOUNCEMENTS</div>
-      <p class="card-sub">This week's launches, in the companies' own words.</p>
-<div class="oa-item"><div class="oa-by"><b>Anthropic</b> <span>@claudeai · TUE 22</span></div><div class="oa-post"><p>Introducing Claude Opus 5.5, the first model in our new Claude 5.5 family.</p><p>It performs at the level of Claude Fable 5.1 for most tasks, and costs 40% less to run than Opus 5.</p></div><div class="oa-links"><a href="https://x.com/claudeai/status/2102435511222890900">Post on X ↗</a> <span class="dot">·</span> <a href="https://www.anthropic.com/claude-opus-5-5">anthropic.com ↗</a></div></div>
-<div class="oa-item"><div class="oa-by"><b>OpenAI</b> <span>@OpenAI · TUE 22</span></div><div class="oa-post"><p>Please welcome GPT-6 Sol and GPT-6 Luna to the GPT-6 universe.</p><p>GPT-6 Sol and Luna build on the advances behind GPT-6 Astra, bringing much of its strengths into faster and more affordable models to support work at scale.</p><p>We’ve also made caching and inference more efficient, and we’re passing the savings directly to you: 50% lower API prices for Sol and Luna compared with GPT‑5.6 promotional pricing.</p></div><div class="oa-links"><a href="https://x.com/OpenAI/status/2102460975790137662">Post on X ↗</a> <span class="dot">·</span> <a href="https://openai.com/index/introducing-gpt-6-sol-and-luna">openai.com ↗</a></div></div>
-<div class="oa-item"><div class="oa-by"><b>xAI</b> <span>@SpaceXAI · MON 21</span></div><div class="oa-post"><p>Grok 4.7 is here.</p><p>It's a notable improvement over Grok 4.6 at the same price and speed.</p></div><div class="oa-links"><a href="https://x.com/SpaceXAI/status/2102069815225586149">Post on X ↗</a> <span class="dot">·</span> <a href="https://x.ai/news/grok-4-7">x.ai ↗</a></div></div>
-<div class="oa-item"><div class="oa-by"><b>NVIDIA</b> <span>@NVIDIAAI · WED 23</span></div><div class="oa-post"><p>When several people talk at once, a transcript can get messy fast.</p><p>Our new Nemotron 3 Diarization model tracks who spoke when, even when voices overlap. It handles up to eight speakers, has 100M parameters, and is now available on @huggingface 🤗</p></div><div class="oa-links"><a href="https://x.com/NVIDIAAI/status/2102775666366435450">Post on X ↗</a> <span class="dot">·</span> <a href="https://huggingface.co/blog/nvidia/nemotron-diarization">huggingface.co ↗</a></div></div>
-<div class="oa-item"><div class="oa-by"><b>Google</b> <span>@OfficialLoganK · WED 23</span></div><div class="oa-post"><p>Introducing Gemini 3.8 Flash and Flash-Lite TTS, our new SOTA text to speech model with:</p><p>- a new voice design experience<br>- 2,000+ production ready voices<br>- voice replication <br>- support for 100 languages<br>- voice remixing (soon)<br>- #1 spot on Hume AI's voice benchmarks</p><p>and more!!</p></div><div class="oa-links"><a href="https://x.com/OfficialLoganK/status/2102785495726219305">Post on X ↗</a> <span class="dot">·</span> <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-text-to-speech/">blog.google ↗</a></div></div>
-    </div>
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Loudest on X</h2><div class="sec-rule"></div></div>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Viral on X</h2><div class="sec-rule"></div></div>
     <p class="sec-sub">The AI posts that drew the biggest reaction this week.</p>
-    <div class="row"><span class="txt"><b>Ryan Sael</b> <a class="post" href="https://x.com/RyanSael/status/2102591147927654847">I asked Opus 5.5 to explain camera focus by building an interactive lens lab <span class="cut">/</span> Here's what it came up with after 1 hour 26 minutes in one</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 13.3k</b></span></div>
-<div class="row"><span class="txt"><b>Deedy</b> <a class="post" href="https://x.com/deedydas/status/2103141339651350646">You can now generate an entire 3blue1brown style video from any research paper with Opus 5.5. <span class="cut">/</span> Here’s a 8min video summary of “Regularized</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 5.4k</b></span></div>
-<div class="row"><span class="txt"><b>Cursor</b> <a class="post" href="https://x.com/cursor_ai/status/2102786814633464159">We've reduced token costs in Cursor by 7% with no drop in agent quality. <span class="cut">/</span> Savings came from tighter prompts, selective tool loading, better</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 4.6k</b></span></div>
-<div class="row"><span class="txt"><b>ClaudeDevs</b> <a class="post" href="https://x.com/ClaudeDevs/status/2103548467729887677">Opus 5.5 is 20% cheaper per input and output token than Opus 5, and 60% cheaper on cache reads. So what does that actually do to the cost of</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 4.5k</b></span></div>
-<div class="row"><span class="txt"><b>Simon Willison</b> <a class="post" href="https://x.com/simonw/status/2103288927805476900">The more time I spend working with coding agents, the more convinced I am that they make software engineering even harder <span class="cut">/</span> We can do amazing</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 3.9k</b></span></div>
+    <div class="row"><span class="ico">🔬</span><span class="txt"><b><a href="https://x.com/RyanSael">@RyanSael</a></b> <a class="post" href="https://x.com/RyanSael/status/2102591147927654847">I asked Opus 5.5 to explain camera focus by building an interactive lens lab <span class="cut">/</span> Here's what it came up with after 1 hour 26 minutes in one</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 13.3k</b></span></div>
+<div class="row"><span class="ico">🎞️</span><span class="txt"><b><a href="https://x.com/deedydas">@deedydas</a></b> <a class="post" href="https://x.com/deedydas/status/2103141339651350646">You can now generate an entire 3blue1brown style video from any research paper with Opus 5.5. <span class="cut">/</span> Here’s a 8min video summary of “Regularized</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 5.4k</b></span></div>
+<div class="row"><span class="ico">💸</span><span class="txt"><b><a href="https://x.com/cursor_ai">@cursor_ai</a></b> <a class="post" href="https://x.com/cursor_ai/status/2102786814633464159">We've reduced token costs in Cursor by 7% with no drop in agent quality. <span class="cut">/</span> Savings came from tighter prompts, selective tool loading, better</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 4.6k</b></span></div>
+<div class="row"><span class="ico">🏷️</span><span class="txt"><b><a href="https://x.com/ClaudeDevs">@ClaudeDevs</a></b> <a class="post" href="https://x.com/ClaudeDevs/status/2103548467729887677">Opus 5.5 is 20% cheaper per input and output token than Opus 5, and 60% cheaper on cache reads. So what does that actually do to the cost of</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 4.5k</b></span></div>
+<div class="row"><span class="ico">🛠️</span><span class="txt"><b><a href="https://x.com/simonw">@simonw</a></b> <a class="post" href="https://x.com/simonw/status/2103288927805476900">The more time I spend working with coding agents, the more convinced I am that they make software engineering even harder <span class="cut">/</span> We can do amazing</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 3.9k</b></span></div>
   </section>
 
   <section>

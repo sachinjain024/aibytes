@@ -328,3 +328,17 @@ changes:
 
 Added My Favourite Picks to the export: OpenAI agents leak, cloudflare/security-audit-skill, dream-num/univer, Arcjet.
 <!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ac8d5c97
+kind: comment
+occurred_at: 2026-09-26T22:38:52.439Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Rebuilt aiBytes-issue-11.html from the approved export: no announcements card, 9 AI News items, My Favourite Picks, Viral on X with emoji and @handles. Both files pass verify --section viral.
+<!-- /longclaw:event -->
