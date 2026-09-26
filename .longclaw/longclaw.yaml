@@ -18,3 +18,27 @@ labels:
   learn-explore:
     name: Learning/Explore
     color: blue
+properties:
+  due:
+    enabled: true
+  type:
+    enabled: true
+    values:
+      bug:
+        name: Bug
+        color: red
+      feature:
+        name: Feature
+        color: cyan
+      chore:
+        name: Chore
+        color: gray
+      docs:
+        name: Docs
+        color: blue
+      spike:
+        name: Spike
+        color: purple
+      newsletter:
+        name: Newsletter
+        color: amber
