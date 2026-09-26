@@ -47,3 +47,17 @@ newsletter snapshot and the daily app feed. Add a cadence in `window.py`
 The skill scripts are thin wrappers by design: they re-export their source
 module's functions under the historical names so the offline tests keep
 reaching them. Keep them thin — logic belongs in the package.
+
+## X is pasted, not fetched
+
+`x_paste.py` is the exception. X has no API this project can call, so the
+publisher runs a Grok prompt and pastes the JSON in. There is no `fetch()`,
+so it is not a `sources/` module and doesn't use the runner or the envelope.
+It still files its snapshot through `layout`, under the same weekly path. The
+contract is in `.claude/skills/x-fetch-items/references/x-data.md`, and the
+tests are in `tests/test_x_fetch_items.py`.
+
+`x_render.py` turns the shortlist into the newsletter's HTML, because those
+sections show posts word for word and a script copies text more reliably than
+the issue skill retyping it. Its markup mirrors the generate-newsletter-content
+template and Beehiiv patterns: change them together.

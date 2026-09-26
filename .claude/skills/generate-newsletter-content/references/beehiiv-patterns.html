@@ -37,7 +37,9 @@ anything, including the trailing (HackerNews) and (ProductHunt) links.
 <!-- Brand is always written "aiBytes_" (lowercase a, capital B, trailing underscore in cobalt).
      No separate issue-header rule - the intro block follows the masthead directly. -->
 
-<!-- ═══ PATTERN: numbered section header (New AI Products, Trending Github Projects, HN) ═══ -->
+<!-- ═══ PATTERN: numbered section header (Loudest on X, New AI Products, Trending Github Projects, HN) ═══ -->
+<!-- Numbers run in order over the sections present: 0x02 Loudest on X, 0x03 Products,
+     0x04 GitHub, 0x05 HN. With no X data, Loudest on X is left out and the rest move up. -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-top:34px;margin-bottom:12px;">
   <tr>
     <td width="1" style="background-color:#191C26;color:#FAFAF7;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-weight:700;font-size:12px;padding:2px 7px;white-space:nowrap;">0x{{SEC_NUM}}</td>
@@ -98,6 +100,35 @@ anything, including the trailing (HackerNews) and (ProductHunt) links.
   </div>
 </div>
 
+<!-- ═══ PATTERN: Official Announcements card (directly after the news card) ═══ -->
+<!-- The shortlisted `announcement` posts from x/x_data.json, 3 to 5. Omit the card when
+     there is no shortlist; a story shown here is left out of AI News.
+     VERBATIM: everything inside the inset is the company's post exactly as written.
+     Split it into <p>s at blank lines and turn single line breaks into <br>; change
+     nothing else. Only past 600 characters, cut at the author's last paragraph break
+     before 400 and end with a slate "…".
+     Each entry is a TABLE ROW of its own (byline, inset, links), so Outlook keeps the
+     spacing. The hairline sits on the entry's outer <td>; the last entry omits it.
+     The inset repeats the AI News quote treatment: paper fill, #E4E4DC border, radius 10. -->
+<div style="border:1.5px solid #191C26;border-radius:14px;padding:20px 22px;background-color:#FFFFFF;margin-top:18px;">
+  <div style="font-family:'Bricolage Grotesque',Helvetica,Arial,sans-serif;font-weight:800;font-size:20px;color:#191C26;letter-spacing:.02em;">📣 OFFICIAL ANNOUNCEMENTS</div>
+  <p style="padding:0;margin:2px 0 6px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:13.5px;line-height:1.5;color:#6B7080;">This week's launches, in the companies' own words.</p>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
+    <tr>
+      <td style="padding:14px 0;border-bottom:1px solid #E4E4DC;">
+        <p style="padding:0;margin:0 0 8px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:14.5px;line-height:1.4;color:#191C26;"><b>{{COMPANY}}</b> <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11px;color:#6B7080;">{{@HANDLE}} · {{DAY}}</span></p>
+        <div style="background-color:#FAFAF7;border:1px solid #E4E4DC;border-radius:10px;padding:12px 14px 4px 14px;margin:0 0 8px 0;">
+          <p style="padding:0;margin:0 0 8px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;color:#3A3E4A;">{{PARAGRAPH_VERBATIM}}</p>
+          <!-- one <p> per paragraph of the post, same style -->
+        </div>
+        <p style="padding:0;margin:0;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;"><a href="{{POST_URL}}" style="color:#2B4EF0;text-decoration:none;">Post on X ↗</a> <span style="color:#E4E4DC;">·</span> <a href="{{LINK_URL}}" style="color:#2B4EF0;text-decoration:none;">{{LINK_DOMAIN}} ↗</a></p>
+        <!-- drop the dot and the second link when the post has no link_url -->
+      </td>
+    </tr>
+    <!-- repeat <tr> per entry; the last entry's <td> has padding:14px 0 0 0 and no border-bottom -->
+  </table>
+</div>
+
 <!-- ═══ PATTERN: ticker row table (New AI Products ▲ N · GitHub +N.Nk ★ · HN N pts) ═══ -->
 <!-- {{URL}} is the destination the reader wants: the product's own website for a
      launch, the article for an HN deep cut, the repo for GitHub. The trailing span is
@@ -111,6 +142,24 @@ anything, including the trailing (HackerNews) and (ProductHunt) links.
       <a href="{{URL}}" style="color:#2B4EF0;text-decoration:none;font-weight:600;">{{NAME}}</a> - {{DESCRIPTION}} <span style="font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;color:#6B7080;">(<a href="{{SOURCE_URL}}" style="color:#6B7080;text-decoration:underline;">{{SOURCE_NAME}}</a>)</span>
     </td>
     <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">{{STAT_BOLD}}</b> {{STAT_REST}}</td>
+  </tr>
+  <!-- repeat <tr>; drop border-bottom on the last row's two tds -->
+</table>
+
+<!-- ═══ PATTERN: Loudest on X (subtitle + rows) ═══ -->
+<!-- Goes straight under its numbered header. The 5 shortlisted `insight` posts from
+     x/x_data.json. Name in ink, then the post's opening words VERBATIM, linked to the
+     post: each line break shown as a slate "/", cut at 140 characters (about two
+     lines) on a word break, and a slate "…" when the post runs longer. No emoji column.
+     The heart is U+2665 followed by U+FE0E, which keeps iOS Mail from swapping in a
+     red emoji. Likes to one decimal of thousands. -->
+<p style="padding:0;margin:-4px 0 6px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:14px;line-height:1.5;color:#6B7080;">The AI posts that drew the biggest reaction this week.</p>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
+  <tr>
+    <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
+      <b style="font-weight:600;">{{AUTHOR_NAME}}</b> <a href="{{POST_URL}}" style="color:#3A3E4A;text-decoration:none;">{{OPENING_WORDS}} <span style="color:#6B7080;">/</span> {{MORE_WORDS}}</a> <span style="color:#6B7080;">…</span>
+    </td>
+    <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">♥︎ {{LIKES_K}}</b></td>
   </tr>
   <!-- repeat <tr>; drop border-bottom on the last row's two tds -->
 </table>
