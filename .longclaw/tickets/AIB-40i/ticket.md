@@ -278,3 +278,17 @@ actor:
 
 Added Claude Opus 5.5 and GPT-6 Sol and Luna to AI News in the export. Dropped the OpenAI math advisory group and Supabase items to stay at 7.
 <!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_56685ed3
+kind: comment
+occurred_at: 2026-09-26T17:22:56.340Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Restored the Supabase and OpenAI math advisory group items. AI News now has 9 items.
+<!-- /longclaw:event -->
