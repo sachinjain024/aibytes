@@ -8,7 +8,7 @@ priority: urgent
 type: newsletter
 due: 2026-09-27
 created_at: 2026-09-20T12:42:28.919Z
-updated_at: 2026-09-26T17:28:34.459Z
+updated_at: 2026-09-26T17:30:02.316Z
 ---
 
 Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest on X / Official Announcements, added in AIB-44s).
@@ -25,7 +25,7 @@ Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest 
 - [x] Shortlist X posts for Loudest on X <!-- longclaw:item=ck_e08fedab -->
 - [x] Decide whether to include the Official Announcements section from X <!-- longclaw:item=ck_8fbe27ac -->
 - [x] Generate Weekly Content <!-- longclaw:item=ck_52ffd93d -->
-- [ ] Identify Favourite Picks <!-- longclaw:item=ck_430378f7 -->
+- [x] Identify Favourite Picks <!-- longclaw:item=ck_430378f7 -->
 - [ ] Update the Content <!-- longclaw:item=ck_56f6cb33 -->
 - [ ] Finalize Title & Description <!-- longclaw:item=ck_a0eed594 -->
 - [ ] Update Intro Content <!-- longclaw:item=ck_85407930 -->
@@ -309,4 +309,22 @@ changes:
 ### Claude Code updated this ticket
 
 Created 13 learning backlog tickets, AIB-47b to AIB-59f. Favourites: AIB-47b, AIB-52a, AIB-53i, AIB-57m.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_dd35d236
+kind: update
+occurred_at: 2026-09-26T17:30:02.316Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_430378f7.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Added My Favourite Picks to the export: OpenAI agents leak, cloudflare/security-audit-skill, dream-num/univer, Arcjet.
 <!-- /longclaw:event -->
