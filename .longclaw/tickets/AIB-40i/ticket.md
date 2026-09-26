@@ -8,7 +8,7 @@ priority: urgent
 type: newsletter
 due: 2026-09-27
 created_at: 2026-09-20T12:42:28.919Z
-updated_at: 2026-09-26T17:05:13.951Z
+updated_at: 2026-09-26T17:17:20.309Z
 ---
 
 Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest on X / Official Announcements, added in AIB-44s).
@@ -23,7 +23,7 @@ Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest 
 
 - [x] Fetch weekly sources (ProductHunt, HackerNews, TechCrunch, GitHub) <!-- longclaw:item=ck_0ee4c3b5 -->
 - [x] Shortlist X posts for Loudest on X <!-- longclaw:item=ck_e08fedab -->
-- [ ] Decide whether to include the Official Announcements section from X <!-- longclaw:item=ck_8fbe27ac -->
+- [x] Decide whether to include the Official Announcements section from X <!-- longclaw:item=ck_8fbe27ac -->
 - [x] Generate Weekly Content <!-- longclaw:item=ck_52ffd93d -->
 - [ ] Identify Favourite Picks <!-- longclaw:item=ck_430378f7 -->
 - [ ] Update the Content <!-- longclaw:item=ck_56f6cb33 -->
@@ -245,4 +245,22 @@ actor:
 ### Claude Code commented
 
 Official Announcements dropped from the Beehiiv export. Loudest on X renamed to Viral on X, with @handles and emoji. Changes are export-only until approved; follow-up is AIB-46a.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8af752c0
+kind: update
+occurred_at: 2026-09-26T17:17:20.309Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_8fbe27ac.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Decided: no Official Announcements in Issue #11.
 <!-- /longclaw:event -->
