@@ -232,3 +232,17 @@ changes:
 
 Generated the draft issue and Beehiiv export in newsletter/issues/2026/week-40-Issue-11/. Official Announcements is included (provisional). The picks card is left out until picks are chosen. Last week's repeats are dropped from GitHub and HN.
 <!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_6d29e4e0
+kind: comment
+occurred_at: 2026-09-26T17:17:11.292Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Official Announcements dropped from the Beehiiv export. Loudest on X renamed to Viral on X, with @handles and emoji. Changes are export-only until approved; follow-up is AIB-46a.
+<!-- /longclaw:event -->
