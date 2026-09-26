@@ -1,6 +1,6 @@
 ---
 name: x-fetch-items
-description: Save the week's most-engaged AI posts on X, gathered by hand in Grok, as a weekly JSON snapshot under newsletter/data/yyyy/mm/weeks/week-NN/x/x_data.json, then shortlist the posts for the newsletter's Loudest on X and Official Announcements sections. Use when the user wants to add, paste, save, or shortlist X / Twitter posts, tweets, or Grok output for the newsletter, or asks for the Grok prompt.
+description: Save the week's most-engaged AI posts on X, gathered by hand in Grok, as a weekly JSON snapshot under newsletter/data/yyyy/mm/weeks/week-NN/x/x_data.json, then shortlist the posts for the newsletter's Viral on X and Official Announcements sections. Use when the user wants to add, paste, save, or shortlist X / Twitter posts, tweets, or Grok output for the newsletter, or asks for the Grok prompt.
 ---
 
 # x-fetch-items
@@ -10,7 +10,7 @@ Grok (the publisher has X Premium), so the run has a manual step in the
 middle. The skill hands over the prompt, waits for the publisher to paste
 Grok's JSON, then saves the file and shortlists the posts.
 
-One Grok run feeds two sections. **Loudest on X** gets practical posts for
+One Grok run feeds two sections. **Viral on X** gets practical posts for
 builders (`insight`), and **Official Announcements** gets releases,
 benchmarks, and pricing news from AI companies (`announcement`).
 
@@ -29,6 +29,7 @@ python3 $S prompt    --date 2026-09-26
 python3 $S save      --date 2026-09-26 --input paste.txt     # or --input - to read stdin
 python3 $S move      --date 2026-09-26 URL... --to announcement
 python3 $S shortlist --date 2026-09-26 --insight URL... --announcement URL...
+python3 $S emoji     --date 2026-09-26 URL EMOJI [URL EMOJI ...]
 ```
 
 Every command also takes `--output-root DIR` (default `newsletter/data`).
@@ -65,12 +66,17 @@ Every command also takes `--output-root DIR` (default `newsletter/data`).
 7. **Record the picks** with `shortlist`. It warns when a pick breaks a rule
    (list size, one per account, the company cap, wrong bucket). The
    publisher's choice wins, so a warning doesn't block it.
+8. **Give each insight its emoji** with `emoji`: one per shortlisted insight,
+   picked from what the post is about (🔬 for a demo lab, 💸 for a cost cut).
+   Each Viral on X row opens with it, like the other ticker rows. It is saved
+   as the post's `emoji` field, never in `text`. Show the publisher the five
+   alongside the shortlist.
 
 `/generate-newsletter-content` reads only the `shortlist`ed posts. A file
 with no `shortlist` has not been reviewed yet.
 
 It never types the posts itself. `render` prints them as newsletter HTML,
 word for word: `--format html` for the issue template, `--format beehiiv` for
-the export page, one `--section` (`announcements` or `loudest`) per slot.
+the export page, one `--section` (`announcements` or `viral`) per slot.
 `verify --issue ... --export ...` then checks the built issue carries every
 shortlisted post unchanged and in order, and fails if anything was retyped.

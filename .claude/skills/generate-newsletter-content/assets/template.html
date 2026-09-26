@@ -95,7 +95,8 @@
   .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
   .stat b{color:var(--cobalt);font-weight:700}
   .hot{background:var(--signal);padding:0 4px;font-weight:600}
-  /* Loudest on X rows: the author in ink, then the post's own words in body grey. */
+  /* Viral on X rows: emoji, the author's @handle in cobalt (linked to the profile),
+       then the post's own words in body grey. */
   .sec-sub{font-size:14px;color:var(--slate);margin:-4px 0 6px}
   .row .txt a.post{color:#3A3E4A}
   .row .txt a.post:hover{color:var(--cobalt)}
@@ -190,19 +191,20 @@
   </section>
 
   <!-- Section numbers run in order over the sections present: when there is no X
-       data, Loudest on X is left out and Products becomes 0x02, and so on. -->
+       data, Viral on X is left out and Products becomes 0x02, and so on. -->
   <section>
-    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Loudest on X</h2><div class="sec-rule"></div></div>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Viral on X</h2><div class="sec-rule"></div></div>
     <p class="sec-sub">The AI posts that drew the biggest reaction this week.</p>
     <!-- The 5 shortlisted `insight` posts from x/x_data.json, in the shortlist's order.
-         Omit the section when there is no shortlist. The author's display name, then
+         Omit the section when there is no shortlist. The post's emoji in the .ico
+         column, the author's @handle in bold cobalt linked to their profile, then
          the post's opening words, verbatim, linked to the post: take the text from its
          start, show each line break as <span class="cut">/</span>, and stop at 140
          characters (about two lines). If the post runs longer, cut at the last word
          break inside that and end with <span class="cut">…</span>. Never reword. The
          stat is likes as ♥︎ (U+2665 + U+FE0E, so iOS keeps it text) + one decimal of
-         thousands. No emoji column. Pattern:
-    <div class="row"><span class="txt"><b>Author Name</b> <a class="post" href="POST_URL">Opening words <span class="cut">/</span> of the post</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 13.3k</b></span></div>
+         thousands. Pattern:
+    <div class="row"><span class="ico">🔬</span><span class="txt"><b><a href="https://x.com/handle">@handle</a></b> <a class="post" href="POST_URL">Opening words <span class="cut">/</span> of the post</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 13.3k</b></span></div>
     -->
     {{X_ROWS}}
   </section>

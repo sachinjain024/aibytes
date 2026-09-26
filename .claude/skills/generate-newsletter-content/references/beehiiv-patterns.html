@@ -37,9 +37,9 @@ anything, including the trailing (HackerNews) and (ProductHunt) links.
 <!-- Brand is always written "aiBytes_" (lowercase a, capital B, trailing underscore in cobalt).
      No separate issue-header rule - the intro block follows the masthead directly. -->
 
-<!-- ═══ PATTERN: numbered section header (Loudest on X, New AI Products, Trending Github Projects, HN) ═══ -->
-<!-- Numbers run in order over the sections present: 0x02 Loudest on X, 0x03 Products,
-     0x04 GitHub, 0x05 HN. With no X data, Loudest on X is left out and the rest move up. -->
+<!-- ═══ PATTERN: numbered section header (Viral on X, New AI Products, Trending Github Projects, HN) ═══ -->
+<!-- Numbers run in order over the sections present: 0x02 Viral on X, 0x03 Products,
+     0x04 GitHub, 0x05 HN. With no X data, Viral on X is left out and the rest move up. -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;margin-top:34px;margin-bottom:12px;">
   <tr>
     <td width="1" style="background-color:#191C26;color:#FAFAF7;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-weight:700;font-size:12px;padding:2px 7px;white-space:nowrap;">0x{{SEC_NUM}}</td>
@@ -146,18 +146,19 @@ anything, including the trailing (HackerNews) and (ProductHunt) links.
   <!-- repeat <tr>; drop border-bottom on the last row's two tds -->
 </table>
 
-<!-- ═══ PATTERN: Loudest on X (subtitle + rows) ═══ -->
+<!-- ═══ PATTERN: Viral on X (subtitle + rows) ═══ -->
 <!-- Goes straight under its numbered header. The 5 shortlisted `insight` posts from
-     x/x_data.json. Name in ink, then the post's opening words VERBATIM, linked to the
-     post: each line break shown as a slate "/", cut at 140 characters (about two
-     lines) on a word break, and a slate "…" when the post runs longer. No emoji column.
+     x/x_data.json. The post's emoji in a 22px cell, the author's @handle in cobalt
+     weight 600 linked to their profile, then the post's opening words VERBATIM, linked
+     to the post: each line break shown as a slate "/", cut at 140 characters (about two
+     lines) on a word break, and a slate "…" when the post runs longer.
      The heart is U+2665 followed by U+FE0E, which keeps iOS Mail from swapping in a
      red emoji. Likes to one decimal of thousands. -->
 <p style="padding:0;margin:-4px 0 6px 0;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:14px;line-height:1.5;color:#6B7080;">The AI posts that drew the biggest reaction this week.</p>
 <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">
   <tr>
     <td style="padding:9px 0;border-bottom:1px solid #E4E4DC;font-family:'Instrument Sans',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.5;color:#191C26;">
-      <b style="font-weight:600;">{{AUTHOR_NAME}}</b> <a href="{{POST_URL}}" style="color:#3A3E4A;text-decoration:none;">{{OPENING_WORDS}} <span style="color:#6B7080;">/</span> {{MORE_WORDS}}</a> <span style="color:#6B7080;">…</span>
+      <span style="display:inline-block;width:22px;text-align:center;">{{EMOJI}}</span> <a href="https://x.com/{{HANDLE}}" style="color:#2B4EF0;text-decoration:none;font-weight:600;">@{{HANDLE}}</a> <a href="{{POST_URL}}" style="color:#3A3E4A;text-decoration:none;">{{OPENING_WORDS}} <span style="color:#6B7080;">/</span> {{MORE_WORDS}}</a> <span style="color:#6B7080;">…</span>
     </td>
     <td align="right" valign="baseline" style="padding:9px 0 9px 12px;border-bottom:1px solid #E4E4DC;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:11.5px;color:#6B7080;white-space:nowrap;"><b style="color:#2B4EF0;">♥︎ {{LIKES_K}}</b></td>
   </tr>
