@@ -8,7 +8,7 @@ priority: urgent
 type: newsletter
 due: 2026-09-27
 created_at: 2026-09-20T12:42:28.919Z
-updated_at: 2026-09-26T16:58:15.109Z
+updated_at: 2026-09-26T17:05:13.951Z
 ---
 
 Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest on X / Official Announcements, added in AIB-44s).
@@ -22,9 +22,9 @@ Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest 
 ## Checklist
 
 - [x] Fetch weekly sources (ProductHunt, HackerNews, TechCrunch, GitHub) <!-- longclaw:item=ck_0ee4c3b5 -->
-- [ ] Shortlist X posts for Loudest on X <!-- longclaw:item=ck_e08fedab -->
+- [x] Shortlist X posts for Loudest on X <!-- longclaw:item=ck_e08fedab -->
 - [ ] Decide whether to include the Official Announcements section from X <!-- longclaw:item=ck_8fbe27ac -->
-- [ ] Generate Weekly Content <!-- longclaw:item=ck_52ffd93d -->
+- [x] Generate Weekly Content <!-- longclaw:item=ck_52ffd93d -->
 - [ ] Identify Favourite Picks <!-- longclaw:item=ck_430378f7 -->
 - [ ] Update the Content <!-- longclaw:item=ck_56f6cb33 -->
 - [ ] Finalize Title & Description <!-- longclaw:item=ck_a0eed594 -->
@@ -181,4 +181,54 @@ changes:
 ### Claude Code updated this ticket
 
 Fetched ProductHunt, HackerNews, TechCrunch and GitHub into newsletter/data/2026/09/weeks/week-39/.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ac1e2ae9
+kind: update
+occurred_at: 2026-09-26T16:58:37.295Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_e08fedab.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+The week-39 X snapshot already has a reviewed shortlist (committed with AIB-44s): 5 insight posts and 5 announcements.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_c984dce4
+kind: comment
+occurred_at: 2026-09-26T17:00:53.621Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Official Announcements: included for now. Final call after reviewing the finished newsletter content.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_0c7c8ae9
+kind: update
+occurred_at: 2026-09-26T17:05:13.951Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_52ffd93d.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Generated the draft issue and Beehiiv export in newsletter/issues/2026/week-40-Issue-11/. Official Announcements is included (provisional). The picks card is left out until picks are chosen. Last week's repeats are dropped from GitHub and HN.
 <!-- /longclaw:event -->
