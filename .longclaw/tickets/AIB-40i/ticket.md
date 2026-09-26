@@ -264,3 +264,17 @@ changes:
 
 Decided: no Official Announcements in Issue #11.
 <!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_136c827c
+kind: comment
+occurred_at: 2026-09-26T17:21:02.045Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Added Claude Opus 5.5 and GPT-6 Sol and Luna to AI News in the export. Dropped the OpenAI math advisory group and Supabase items to stay at 7.
+<!-- /longclaw:event -->
