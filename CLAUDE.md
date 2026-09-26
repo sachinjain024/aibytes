@@ -108,10 +108,13 @@ Newsletter content never lands on `main` directly:
    `newsletter/issues/{yyyy}/week-NN-Issue-{num}/` folder, social posts, thumbnails.
 3. Push and open a PR against `main` with `gh pr create`; merge once reviewed.
 
-Two exceptions:
+Two special cases:
 
-- **Tooling changes** (skills, packages, tests) are separate from content
-  commits, on their own branch and PR.
+- **Tooling changes that come out of an issue** (a template, skill, package or
+  test change made because of what the week's issue needed) land on that
+  issue's branch and ship in its PR, as their own commits. Keep them out of
+  the content commits so they can be reviewed apart. Only tooling work that
+  isn't tied to an issue gets its own branch and PR.
 - **Scheduled fetches** are automated and cannot open PRs. The daily job pushes
   its output straight to `main`; that is the one case where generated content
   bypasses review.
