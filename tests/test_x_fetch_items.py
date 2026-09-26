@@ -383,6 +383,12 @@ class TestVerify(unittest.TestCase):
         self.assertEqual(x_render.verify(self.snap, export, "beehiiv"), [])
         self.assertNotEqual(x_render.verify(self.snap, export, "html"), [])
 
+    def test_an_issue_without_announcements_checks_viral_only(self):
+        blocks, _ = x_render.render(self.snap)
+        page = f"<section>{blocks['viral']}</section>"
+        self.assertTrue(x_render.verify(self.snap, page))
+        self.assertEqual(x_render.verify(self.snap, page, sections=("viral",)), [])
+
     def test_two_launches_from_one_company_warn_at_shortlist(self):
         snap = x_paste.build(paste(), AS_OF)
         snap["posts"][1]["author_handle"] = "@ClaudeDevs"

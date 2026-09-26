@@ -10,7 +10,7 @@ Thin CLI wrapper. The logic lives in packages/fetchers
     x_items.py shortlist --insight URL... --announcement URL... [--date D]
     x_items.py emoji     URL EMOJI [URL EMOJI ...] [--date D]  the emoji each Viral on X row opens with
     x_items.py render    [--format html|beehiiv] [--section S] [--number 0x02] [--date D]
-    x_items.py verify    [--issue ISSUE.html] [--export EXPORT.html] [--date D]
+    x_items.py verify    [--issue ISSUE.html] [--export EXPORT.html] [--section S] [--date D]
 
 render prints the shortlisted posts as newsletter HTML, word for word, for
 /generate-newsletter-content to paste in; verify checks a built issue carries
@@ -58,6 +58,8 @@ def main(argv=None):
     vf = sub.add_parser("verify", parents=[common], help="check an issue carries the shortlisted posts unchanged")
     vf.add_argument("--issue", help="the issue HTML (checked against the html format)")
     vf.add_argument("--export", help="the Beehiiv export page (checked against the beehiiv format)")
+    vf.add_argument("--section", choices=("announcements", "viral", "both"), default="both",
+                    help="the X sections the issue carries (default both); viral when it has no announcements card")
 
     args = parser.parse_args(argv)
     as_of = dt.date.fromisoformat(args.date)
@@ -137,7 +139,8 @@ def _verify(args, snapshot):
         return 1
     failed = False
     for file, fmt in pages:
-        problems = x_render.verify(snapshot, pathlib.Path(file).read_text(), fmt)
+        sections = ("announcements", "viral") if args.section == "both" else (args.section,)
+        problems = x_render.verify(snapshot, pathlib.Path(file).read_text(), fmt, sections)
         for line in problems:
             print(f"error: {file}: {line}", file=sys.stderr)
         failed |= bool(problems)

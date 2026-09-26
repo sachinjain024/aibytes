@@ -139,7 +139,7 @@ Check exported paragraph spacing: every `<p>` has inline `padding:0`, and the fi
 
 Check My Favourite Picks too: every pick's URL matches the URL that same item carries in its home section, each row has a `.from` chip and a description of no more than two lines, and no row has grown a stat.
 
-Check the X sections with `python3 .claude/skills/x-fetch-items/scripts/x_items.py verify --date <snapshot date> --issue <issue.html> --export <export.html>`. It fails if any shortlisted post is missing, retyped, or out of order in either file; fix it by pasting the render output again, never by editing the post. Then check by eye that no story in Official Announcements also appears in AI News, and that the section numbers run without a gap.
+Check the X sections with `python3 .claude/skills/x-fetch-items/scripts/x_items.py verify --date <snapshot date> --issue <issue.html> --export <export.html>`, adding `--section viral` when the issue has no Official Announcements card. It fails if any shortlisted post is missing, retyped, or out of order in either file; fix it by pasting the render output again, never by editing the post. Then check by eye that no story in Official Announcements also appears in AI News, and that the section numbers run without a gap.
 
 Then check the links specifically: no URL carries a `ref` or `utm_*` parameter, no launch name still points at a `producthunt.com/r/` redirect, every HN deep cut name points at the article rather than the thread, and the quote block has no attribution line. Strip the template's fill-in comments from both output files before saving.
 

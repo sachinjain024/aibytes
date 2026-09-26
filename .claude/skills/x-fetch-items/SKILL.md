@@ -80,3 +80,4 @@ word for word: `--format html` for the issue template, `--format beehiiv` for
 the export page, one `--section` (`announcements` or `viral`) per slot.
 `verify --issue ... --export ...` then checks the built issue carries every
 shortlisted post unchanged and in order, and fails if anything was retyped.
+Pass `--section viral` for an issue that leaves out Official Announcements.

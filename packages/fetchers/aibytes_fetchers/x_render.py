@@ -231,11 +231,13 @@ def render(snapshot, fmt="html", number="0x02"):
     return out, warnings
 
 
-def verify(snapshot, page, fmt="html"):
+def verify(snapshot, page, fmt="html", sections=("announcements", "viral")):
     """Problems with how `page` carries the shortlisted posts; empty when all is well.
 
     Every rendered entry must appear in the page exactly, and in shortlist
-    order. Anything the skill retyped or reordered shows up here.
+    order. Anything the skill retyped or reordered shows up here. `sections`
+    names the X sections the issue carries: Official Announcements is a
+    per-issue call, so an issue without the card checks only "viral".
     """
     problems = []
     oa, xs = shortlisted(snapshot, "announcement"), shortlisted(snapshot, "insight")
@@ -245,6 +247,8 @@ def verify(snapshot, page, fmt="html"):
     else:
         groups = {"Official Announcements": [announcement_beehiiv(p, i == len(oa) - 1) for i, p in enumerate(oa)],
                   TITLE_X: [x_row_beehiiv(p, i == len(xs) - 1) for i, p in enumerate(xs)]}
+    wanted = {"announcements": "Official Announcements", "viral": TITLE_X}
+    groups = {k: v for k, v in groups.items() if k in {wanted[s] for s in sections}}
     for label, entries in groups.items():
         last = -1
         for entry, post in zip(entries, oa if label.startswith("Official") else xs):
