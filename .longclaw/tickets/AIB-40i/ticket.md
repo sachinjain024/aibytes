@@ -8,7 +8,7 @@ priority: urgent
 type: newsletter
 due: 2026-09-27
 created_at: 2026-09-20T12:42:28.919Z
-updated_at: 2026-09-27T05:36:45.652Z
+updated_at: 2026-09-27T05:38:32.954Z
 ---
 
 Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest on X / Official Announcements, added in AIB-44s).
@@ -29,7 +29,7 @@ Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest 
 - [ ] Update the Content <!-- longclaw:item=ck_56f6cb33 -->
 - [x] Finalize Title & Description <!-- longclaw:item=ck_a0eed594 -->
 - [x] Update Intro Content <!-- longclaw:item=ck_85407930 -->
-- [ ] Generate Thumbnail <!-- longclaw:item=ck_a62a6db7 -->
+- [x] Generate Thumbnail <!-- longclaw:item=ck_a62a6db7 -->
 - [ ] Send the newsletter <!-- longclaw:item=ck_6450aa62 -->
 - [ ] Generate Social Media Posts <!-- longclaw:item=ck_e3818c91 -->
 - [x] Create the LC Tickets for AI Learning Backlog <!-- longclaw:item=ck_82343e89 -->
@@ -377,4 +377,22 @@ changes:
 ### Claude Code updated this ticket
 
 Title: 🧠 Jev turns AI calls into decisions and Opus 5.5 gets cheaper. Description: Plus Cloudflare's security-audit skill for coding agents, OpenAI's agents leaking user images, and Qwen Image 2.1.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_125f6bd1
+kind: update
+occurred_at: 2026-09-27T05:38:32.954Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_a62a6db7.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Rendered three 1200x630 thumbnails (dot grid, cobalt wash, graph grid) with 'Jev turns AI calls' highlighted.
 <!-- /longclaw:event -->
