@@ -8,7 +8,7 @@ priority: urgent
 type: newsletter
 due: 2026-09-27
 created_at: 2026-09-20T12:42:28.919Z
-updated_at: 2026-09-26T17:30:02.316Z
+updated_at: 2026-09-27T05:28:33.438Z
 ---
 
 Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest on X / Official Announcements, added in AIB-44s).
@@ -28,7 +28,7 @@ Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest 
 - [x] Identify Favourite Picks <!-- longclaw:item=ck_430378f7 -->
 - [ ] Update the Content <!-- longclaw:item=ck_56f6cb33 -->
 - [ ] Finalize Title & Description <!-- longclaw:item=ck_a0eed594 -->
-- [ ] Update Intro Content <!-- longclaw:item=ck_85407930 -->
+- [x] Update Intro Content <!-- longclaw:item=ck_85407930 -->
 - [ ] Generate Thumbnail <!-- longclaw:item=ck_a62a6db7 -->
 - [ ] Send the newsletter <!-- longclaw:item=ck_6450aa62 -->
 - [ ] Generate Social Media Posts <!-- longclaw:item=ck_e3818c91 -->
@@ -341,4 +341,22 @@ actor:
 ### Claude Code commented
 
 Rebuilt aiBytes-issue-11.html from the approved export: no announcements card, 9 AI News items, My Favourite Picks, Viral on X with emoji and @handles. Both files pass verify --section viral.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_3b96b896
+kind: update
+occurred_at: 2026-09-27T05:28:33.438Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_85407930.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Intro rewritten as a spotlight on Jev, from the publisher's draft (option 02 on the decision record). Applied to the issue page and the export.
 <!-- /longclaw:event -->
