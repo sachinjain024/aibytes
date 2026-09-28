@@ -8,7 +8,7 @@ priority: urgent
 type: newsletter
 due: 2026-09-27
 created_at: 2026-09-20T12:42:28.919Z
-updated_at: 2026-09-28T08:23:31.925Z
+updated_at: 2026-09-28T08:24:14.024Z
 ---
 
 Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest on X / Official Announcements, added in AIB-44s).
@@ -31,7 +31,7 @@ Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest 
 - [x] Update Intro Content <!-- longclaw:item=ck_85407930 -->
 - [x] Generate Thumbnail <!-- longclaw:item=ck_a62a6db7 -->
 - [x] Send the newsletter <!-- longclaw:item=ck_6450aa62 -->
-- [ ] Generate Social Media Posts <!-- longclaw:item=ck_e3818c91 -->
+- [x] Generate Social Media Posts (skipped for Issue #11) <!-- longclaw:item=ck_e3818c91 -->
 - [x] Create the LC Tickets for AI Learning Backlog <!-- longclaw:item=ck_82343e89 -->
 - [ ] Commit the issue output and open a PR against main <!-- longclaw:item=ck_2aeb2fe9 -->
 ## Activity
@@ -416,4 +416,25 @@ changes:
 ### Claude Code updated this ticket
 
 Issue #11 sent on Beehiiv.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_46b0f91b
+kind: update
+occurred_at: 2026-09-28T08:24:14.024Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_e3818c91.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_e3818c91.text
+    from: Generate Social Media Posts
+    to: "Generate Social Media Posts (skipped for Issue #11)"
+-->
+### Claude Code updated this ticket
+
+Social posts skipped for this issue, at the publisher's call.
 <!-- /longclaw:event -->
