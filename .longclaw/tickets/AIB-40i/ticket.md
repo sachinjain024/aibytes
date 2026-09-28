@@ -3,12 +3,12 @@ format: longclaw.ticket/v1
 id: c45c0008-134c-431a-a54b-6f3e9bf583b6
 key: AIB-40i
 title: "Issue #11: 27 Sep 2026"
-status: in_review
+status: done
 priority: urgent
 type: newsletter
 due: 2026-09-27
 created_at: 2026-09-20T12:42:28.919Z
-updated_at: 2026-09-28T08:29:57.466Z
+updated_at: 2026-09-28T08:30:09.145Z
 ---
 
 Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest on X / Official Announcements, added in AIB-44s).
@@ -458,4 +458,22 @@ changes:
 ### Claude Code updated this ticket
 
 All issue output committed on issue-11-27-sep-weekly-newsletter; PR #15 marked ready for review.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_5b317658
+kind: update
+occurred_at: 2026-09-28T08:30:09.145Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: status
+    from: in_review
+    to: done
+-->
+### Claude Code updated this ticket
+
+Issue #11 shipped. Marked done at the publisher's request.
 <!-- /longclaw:event -->
