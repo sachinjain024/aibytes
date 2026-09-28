@@ -8,7 +8,7 @@ priority: urgent
 type: newsletter
 due: 2026-09-27
 created_at: 2026-09-20T12:42:28.919Z
-updated_at: 2026-09-27T05:38:32.954Z
+updated_at: 2026-09-28T08:23:31.925Z
 ---
 
 Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest on X / Official Announcements, added in AIB-44s).
@@ -26,11 +26,11 @@ Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest 
 - [x] Decide whether to include the Official Announcements section from X <!-- longclaw:item=ck_8fbe27ac -->
 - [x] Generate Weekly Content <!-- longclaw:item=ck_52ffd93d -->
 - [x] Identify Favourite Picks <!-- longclaw:item=ck_430378f7 -->
-- [ ] Update the Content <!-- longclaw:item=ck_56f6cb33 -->
+- [x] Update the Content <!-- longclaw:item=ck_56f6cb33 -->
 - [x] Finalize Title & Description <!-- longclaw:item=ck_a0eed594 -->
 - [x] Update Intro Content <!-- longclaw:item=ck_85407930 -->
 - [x] Generate Thumbnail <!-- longclaw:item=ck_a62a6db7 -->
-- [ ] Send the newsletter <!-- longclaw:item=ck_6450aa62 -->
+- [x] Send the newsletter <!-- longclaw:item=ck_6450aa62 -->
 - [ ] Generate Social Media Posts <!-- longclaw:item=ck_e3818c91 -->
 - [x] Create the LC Tickets for AI Learning Backlog <!-- longclaw:item=ck_82343e89 -->
 - [ ] Commit the issue output and open a PR against main <!-- longclaw:item=ck_2aeb2fe9 -->
@@ -395,4 +395,25 @@ changes:
 ### Claude Code updated this ticket
 
 Rendered three 1200x630 thumbnails (dot grid, cobalt wash, graph grid) with 'Jev turns AI calls' highlighted.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f8403209
+kind: update
+occurred_at: 2026-09-28T08:23:31.925Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_56f6cb33.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_6450aa62.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Issue #11 sent on Beehiiv.
 <!-- /longclaw:event -->
