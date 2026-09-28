@@ -1,5 +1,5 @@
 <!-- longclaw:generated file=AGENTS.md version=1 -->
-# Working on aiBytes_ with an agent
+# Working on aiBytes github with an agent
 
 LongClaw generated this file and rewrites it whenever this project changes.
 Do not edit it — an edit here is overwritten without warning. Your own
@@ -8,7 +8,7 @@ once and never writes to again.
 
 ## This project
 
-- Name: aiBytes_
+- Name: aiBytes github
 - Key: `AIB`
 - Ticket format: `longclaw.ticket/v1`
 

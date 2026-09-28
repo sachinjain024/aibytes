@@ -8,8 +8,9 @@ Thin CLI wrapper. The logic lives in packages/fetchers
     x_items.py save      --input PASTE [--date D]            check Grok's paste and save it
     x_items.py move      URL... --to BUCKET [--date D]       re-file posts Grok put in the wrong list
     x_items.py shortlist --insight URL... --announcement URL... [--date D]
+    x_items.py emoji     URL EMOJI [URL EMOJI ...] [--date D]  the emoji each Viral on X row opens with
     x_items.py render    [--format html|beehiiv] [--section S] [--number 0x02] [--date D]
-    x_items.py verify    [--issue ISSUE.html] [--export EXPORT.html] [--date D]
+    x_items.py verify    [--issue ISSUE.html] [--export EXPORT.html] [--section S] [--date D]
 
 render prints the shortlisted posts as newsletter HTML, word for word, for
 /generate-newsletter-content to paste in; verify checks a built issue carries
@@ -47,14 +48,18 @@ def main(argv=None):
     sl = sub.add_parser("shortlist", parents=[common], help="record the posts that go into the issue")
     sl.add_argument("--insight", nargs="+", required=True, metavar="URL")
     sl.add_argument("--announcement", nargs="+", required=True, metavar="URL")
+    em = sub.add_parser("emoji", parents=[common], help="set the emoji each Viral on X row opens with")
+    em.add_argument("pairs", nargs="+", metavar="URL EMOJI", help="shortlisted insight url, then its emoji; repeatable")
     rd = sub.add_parser("render", parents=[common], help="print the shortlisted posts as newsletter HTML")
     rd.add_argument("--format", choices=("html", "beehiiv"), default="html",
                     help="html fills the issue template; beehiiv is the export snippet (default html)")
-    rd.add_argument("--section", choices=("announcements", "loudest", "both"), default="both")
-    rd.add_argument("--number", default="0x02", help="Loudest on X section number, beehiiv only (default 0x02)")
+    rd.add_argument("--section", choices=("announcements", "viral", "both"), default="both")
+    rd.add_argument("--number", default="0x02", help="Viral on X section number, beehiiv only (default 0x02)")
     vf = sub.add_parser("verify", parents=[common], help="check an issue carries the shortlisted posts unchanged")
     vf.add_argument("--issue", help="the issue HTML (checked against the html format)")
     vf.add_argument("--export", help="the Beehiiv export page (checked against the beehiiv format)")
+    vf.add_argument("--section", choices=("announcements", "viral", "both"), default="both",
+                    help="the X sections the issue carries (default both); viral when it has no announcements card")
 
     args = parser.parse_args(argv)
     as_of = dt.date.fromisoformat(args.date)
@@ -94,7 +99,13 @@ def main(argv=None):
             return 1
         return _render(args, snapshot) if args.command == "render" else _verify(args, snapshot)
     try:
-        if args.command == "move":
+        if args.command == "emoji":
+            if len(args.pairs) % 2:
+                raise ValueError("give each url its emoji: URL EMOJI [URL EMOJI ...]")
+            pairs = list(zip(args.pairs[::2], args.pairs[1::2]))
+            x_paste.set_emoji(snapshot, pairs)
+            print(f"set {len(pairs)} emoji")
+        elif args.command == "move":
             x_paste.move(snapshot, args.urls, args.to)
             print(f"moved {len(args.urls)} post(s) to {args.to}")
         else:
@@ -113,7 +124,7 @@ def _render(args, snapshot):
     blocks, warnings = x_render.render(snapshot, args.format, args.number)
     for line in warnings:
         print(f"warning: {line}", file=sys.stderr)
-    wanted = ("announcements", "loudest") if args.section == "both" else (args.section,)
+    wanted = ("announcements", "viral") if args.section == "both" else (args.section,)
     for name in wanted:
         if args.section == "both":
             print(f"<!-- x_render: {name} -->")
@@ -128,7 +139,8 @@ def _verify(args, snapshot):
         return 1
     failed = False
     for file, fmt in pages:
-        problems = x_render.verify(snapshot, pathlib.Path(file).read_text(), fmt)
+        sections = ("announcements", "viral") if args.section == "both" else (args.section,)
+        problems = x_render.verify(snapshot, pathlib.Path(file).read_text(), fmt, sections)
         for line in problems:
             print(f"error: {file}: {line}", file=sys.stderr)
         failed |= bool(problems)

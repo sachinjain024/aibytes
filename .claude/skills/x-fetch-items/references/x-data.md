@@ -2,7 +2,7 @@
 
 The data behind two newsletter sections:
 
-- **Loudest on X**: practical posts for builders (`bucket: insight`).
+- **Viral on X**: practical posts for builders (`bucket: insight`).
 - **Official Announcements**: model releases, benchmarks, and pricing and
   launch news straight from AI companies (`bucket: announcement`). Once an
   announcement lands here, no other section covers it. AI News keeps the
@@ -75,7 +75,7 @@ examples live only in the dated snapshots.
 | Field | Type | Rule |
 |---|---|---|
 | `source` | `"x"` | Fixed. |
-| `section` | `"loudest-on-x"` | Fixed. The file's name for itself, even though it feeds two sections. |
+| `section` | `"loudest-on-x"` | Fixed. The file's name for itself, even though it feeds two sections. It keeps the section's first name (renamed Viral on X in issue #11) so older snapshots still match. |
 | `fetched_at` | `YYYY-MM-DD` | The day the Grok prompt was run. Counts are a snapshot as of that day. |
 | `fetched_via` | `"grok"` | How the data was gathered. Keeps the door open for a script later. |
 | `window` | `{after, before}` | The 7 days covered: `after` inclusive, `before` exclusive. |
@@ -105,6 +105,7 @@ examples live only in the dated snapshots.
 | `why_viral` | string | yes | One sentence from Grok on why the post spread. **Context for the editor, never shown as fact.** |
 | `why_it_matters` | string | yes | One line from Grok on why a developer or founder should care. The main input for the skill's own context line, but it is also Grok's claim, so check it first. |
 | `also_covered` | string[] | no | Other qualifying posts about the same story or point that Grok merged into this one. The skill uses them to dedupe. |
+| `emoji` | string | no | Shortlisted insights only. The emoji the post's Viral on X row opens with. `/x-fetch-items` adds it with `x_items.py emoji`, since Grok never writes it. It is ours, not the author's, so it never goes into `text`. |
 
 ## Shortlisting
 
@@ -122,7 +123,7 @@ examples live only in the dated snapshots.
    (linked by `also_covered`, the same `quoted_post`, or the same subject)
    keep only the one with the most likes.
 
-**Insights: 5 posts for Loudest on X**
+**Insights: 5 posts for Viral on X**
 
 3. **Take the top 5 by likes, one post per account,** with **at most 2 from
    company accounts.** When a post would break either limit, skip it and take
