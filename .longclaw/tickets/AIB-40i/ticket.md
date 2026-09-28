@@ -3,12 +3,12 @@ format: longclaw.ticket/v1
 id: c45c0008-134c-431a-a54b-6f3e9bf583b6
 key: AIB-40i
 title: "Issue #11: 27 Sep 2026"
-status: in_progress
+status: in_review
 priority: urgent
 type: newsletter
 due: 2026-09-27
 created_at: 2026-09-20T12:42:28.919Z
-updated_at: 2026-09-28T08:24:14.024Z
+updated_at: 2026-09-28T08:29:57.466Z
 ---
 
 Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest on X / Official Announcements, added in AIB-44s).
@@ -33,7 +33,7 @@ Weekly aiBytes_ Issue #11. This is the first issue with content from X (Loudest 
 - [x] Send the newsletter <!-- longclaw:item=ck_6450aa62 -->
 - [x] Generate Social Media Posts (skipped for Issue #11) <!-- longclaw:item=ck_e3818c91 -->
 - [x] Create the LC Tickets for AI Learning Backlog <!-- longclaw:item=ck_82343e89 -->
-- [ ] Commit the issue output and open a PR against main <!-- longclaw:item=ck_2aeb2fe9 -->
+- [x] Commit the issue output and open a PR against main <!-- longclaw:item=ck_2aeb2fe9 -->
 ## Activity
 
 <!-- longclaw:event
@@ -437,4 +437,25 @@ changes:
 ### Claude Code updated this ticket
 
 Social posts skipped for this issue, at the publisher's call.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_4f88ae84
+kind: update
+occurred_at: 2026-09-28T08:29:57.466Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: status
+    from: in_progress
+    to: in_review
+  - field: checklist.ck_2aeb2fe9.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+All issue output committed on issue-11-27-sep-weekly-newsletter; PR #15 marked ready for review.
 <!-- /longclaw:event -->
