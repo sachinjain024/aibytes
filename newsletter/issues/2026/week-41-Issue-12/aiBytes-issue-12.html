@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏁 Gemini 4 Argon lands and Apple locks down your disk</title>
+<meta name="description" content="Plus GPT 6.1 Sol at a fifth of Astra's price, Karpathy on reading what your agents write, and a design language that makes coding agents better at design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
+    --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--cobalt);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px 56px}
+
+  header{padding:36px 0 0}
+  .issue-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--slate);display:flex;justify-content:space-between;margin-bottom:12px}
+  .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
+  .logo em{font-style:normal;color:var(--cobalt)}
+
+
+  section{margin-top:34px}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--paper);background:var(--ink);padding:2px 7px}
+  .sec-title{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+  .sec-rule{flex:1;height:2px;background:var(--ink)}
+
+  /* ── Intro block ── */
+  .intro{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 22px;margin-bottom:18px}
+  .intro p{font-size:15.5px;line-height:1.65;margin-bottom:14px;color:#3A3E4A}
+  .intro p:last-child{margin-bottom:0}
+  .intro .greet{color:var(--ink)}
+  .intro b{color:var(--ink);font-weight:700}
+
+  /* ── My Favourite Picks: the publisher's shortlist, drawn from any section ──
+       Ink border with a signal spine. The pick name is INK and undecorated - the
+       numeral is the marker, and cobalt is left to the sections that report. ── */
+  .picks{background:var(--card);border:1px solid var(--ink);border-left:5px solid var(--signal);padding:18px 20px;margin-bottom:18px}
+  .picks .card-title{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+  .picks ol{list-style:none;margin:0;padding:0}
+  .picks li{display:grid;grid-template-columns:auto 1fr;gap:3px 11px;padding:8px 0;border-bottom:1px solid var(--line)}
+  .picks li:last-child{border-bottom:none;padding-bottom:0}
+  .picks .n{grid-column:1;grid-row:1;align-self:start;margin-top:2px;font-family:var(--mono);font-size:11px;font-weight:700;background:var(--signal);color:var(--ink);padding:1px 5px}
+  .picks .line{grid-column:2;grid-row:1;display:flex;gap:12px;align-items:baseline}
+  .picks .t{flex:1}
+  .picks .t a{color:var(--ink);text-decoration:none;font-weight:600}
+  .picks .t a:hover{color:var(--cobalt)}
+  .picks .from{font-family:var(--mono);font-size:11px;color:var(--slate);white-space:nowrap;flex-shrink:0}
+  /* Description hangs under the title, clear of the numeral. One to two lines. */
+  .picks .d{grid-column:2;grid-row:2;font-size:13.5px;line-height:1.5;color:var(--slate)}
+
+  /* ── News card ── */
+  .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
+  .news-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;color:var(--cobalt);letter-spacing:.02em;margin-bottom:14px}
+  .news-item{font-size:15.5px;margin-bottom:14px;line-height:1.6}
+  .news-item:last-of-type{margin-bottom:0}
+  .news-item b a{font-weight:700}
+  .src{font-family:var(--mono);font-size:12px;color:var(--slate)}
+  /* Attribution links stay grey and quiet - the headline link is the loud one. */
+  .src a{color:var(--slate);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+  .src a:hover{color:var(--ink)}
+  .quote{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px 18px;margin-top:18px}
+  .quote p{font-size:15px;color:#3A3E4A}
+
+  /* ── Official Announcements: the companies' own posts on X, whole and verbatim ──
+       Ink card, sibling of the AI News card. Each entry is a byline, the post in a
+       paper inset (the same treatment as the AI News quote, so the words read as
+       theirs), and a mono footer with the post and the official page. ── */
+  .oa-card{border:1.5px solid var(--ink);border-radius:14px;padding:20px 22px;background:var(--card);margin-top:18px}
+  .oa-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.02em}
+  .oa-card .card-sub{font-size:13.5px;color:var(--slate);margin:2px 0 6px}
+  .oa-item{padding:14px 0;border-bottom:1px solid var(--line)}
+  .oa-item:last-child{border-bottom:none;padding-bottom:0}
+  .oa-by{font-size:14.5px;margin-bottom:8px}
+  .oa-by b{color:var(--ink)}
+  .oa-by span{font-family:var(--mono);font-size:11px;color:var(--slate)}
+  .oa-post{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px 4px;margin-bottom:8px}
+  .oa-post p{font-size:15px;line-height:1.55;color:#3A3E4A;margin-bottom:8px}
+  .oa-links{font-family:var(--mono);font-size:11.5px;color:var(--slate)}
+  .oa-links .dot{color:var(--line)}
+
+  /* ── Ticker rows ── */
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .ico{width:22px;text-align:center;flex-shrink:0}
+  .row .txt{flex:1}
+  .row .txt b{font-weight:600}
+  .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
+  .stat b{color:var(--cobalt);font-weight:700}
+  .hot{background:var(--signal);padding:0 4px;font-weight:600}
+  /* Viral on X rows: emoji, the author's @handle in cobalt (linked to the profile),
+       then the post's own words in body grey. */
+  .sec-sub{font-size:14px;color:var(--slate);margin:-4px 0 6px}
+  .row .txt a.post{color:#3A3E4A}
+  .row .txt a.post:hover{color:var(--cobalt)}
+  .cut{color:var(--slate)}
+
+  footer{margin-top:48px;border-top:3px solid var(--ink);padding-top:20px;text-align:center}
+  footer p{color:var(--slate);font-size:13.5px}
+  .foot-links{margin-top:10px;font-family:var(--mono);font-size:12.5px;display:flex;gap:20px;justify-content:center}
+  @media (max-width:480px){ .row{flex-wrap:wrap} .stat{margin-left:34px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="issue-tag"><span>ISSUE 0x0C · TL;DR</span><span>2026-10-05 · ~6 MIN</span></div>
+    <div class="logo">⚡ aiBytes<em>_</em> #12</div>
+  </header>
+
+  <section>
+    <div class="intro">
+      <p class="greet">Hello, builders 👋</p>
+      <p>Welcome back to your weekly dose of AI Bytes. I started reading about one model launch and ended up reading three. Google shipped Gemini 4 Argon, OpenAI shipped GPT 6.1 Sol, and Anthropic shipped Sonnet 5.5, all inside five days 🏁</p>
+      <p><b>The models got cheaper and the doors got narrower</b>: in the same week the labs shipped, Apple moved to fence AI agents out of macOS Full Disk Access and Reddit shut its RSS feeds and public API, while Cloudflare went the other way and open-weighted <a href="https://blog.cloudflare.com/clef-decision-models/">Clef</a>.</p>
+    </div>
+
+    <div class="picks">
+      <div class="card-title">My Favourite Picks</div>
+      <ol>
+        <li><span class="n">01</span><span class="line"><span class="t"><a href="https://github.com/pbakaus/impeccable">pbakaus/impeccable</a></span><span class="from">GitHub</span></span><span class="d">A design language that makes an AI coding harness better at design.</span></li>
+        <li><span class="n">02</span><span class="line"><span class="t"><a href="https://x.com/mattpocockuk/status/2105951409887949107">@mattpocockuk's /retro prompt</a></span><span class="from">X</span></span><span class="d">A slash prompt that reads your last 10 agent sessions and finds where the repo slows them down.</span></li>
+        <li><span class="n">03</span><span class="line"><span class="t"><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">Google launches Gemini 4 Argon</a></span><span class="from">News</span></span><span class="d">Google's new Gemini flagship, aimed at long-horizon software engineering, knowledge work and cyber defence.</span></li>
+        <li><span class="n">04</span><span class="line"><span class="t"><a href="https://techcrunch.com/2026/10/02/apple-says-its-tightening-macos-full-disk-access-controls-due-to-new-risks-from-ai-agents/">Apple tightens macOS Full Disk Access over AI agents</a></span><span class="from">News</span></span><span class="d">New controls on the macOS permission that hands an app your files, messages, mail and browsing history.</span></li>
+        <li><span class="n">05</span><span class="line"><span class="t"><a href="https://techcrunch.com/2026/09/30/reddit-is-killing-rss-feeds-ending-public-api-access-because-of-ai-bots/">Reddit kills RSS feeds and public API access</a></span><span class="from">News</span></span><span class="d">Reddit is ending RSS feeds and public API access, citing AI bots scraping its user posts.</span></li>
+      </ol>
+    </div>
+
+    <div class="news-card">
+      <div class="card-title">🌍 AI NEWS</div>
+
+      <p class="news-item">🏁 <b><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/">Google launches Gemini 4 Argon</a></b> - The new Gemini flagship, and the launch that set the week's pace. <span class="hot">Story of the week</span> <span class="src">(Google)</span></p>
+<p class="news-item">☀️ <b><a href="https://openai.com/index/introducing-gpt-6-1-sol/">OpenAI ships GPT 6.1 Sol</a></b> - Near-Astra intelligence for a fifth of the price, in OpenAI's own framing. <span class="src">(OpenAI)</span></p>
+<p class="news-item">🎼 <b><a href="https://www.anthropic.com/claude-sonnet-5-5">Anthropic releases Sonnet 5.5</a></b> - The Claude 5.5 family picks up a Sonnet, a week after Opus 5.5. <span class="src">(Anthropic)</span></p>
+<p class="news-item">🔁 <b><a href="https://openai.com/index/introducing-dots/">OpenAI introduces Dots, always-on agents</a></b> - Agents that keep running instead of waiting for the next prompt. <span class="src">(OpenAI)</span></p>
+<p class="news-item">🗝️ <b><a href="https://blog.cloudflare.com/clef-decision-models/">Cloudflare open-weights Clef</a></b> - Open-weight decision models, with a reinforcement-learning fine-tuning platform alongside them. <span class="src">(Cloudflare)</span></p>
+<p class="news-item">⚖️ <b><a href="https://authorsguild.org/news/ag-v-openai-top-execs-knew-mass-book-piracy-was-illegal/">Unsealed briefs say the labs knew book piracy was illegal</a></b> - From the Authors Guild's case against Microsoft and OpenAI. <span class="src">(Authors Guild)</span></p>
+<p class="news-item">🚨 <b><a href="https://techcrunch.com/2026/09/28/openai-still-doesnt-seem-to-have-a-handle-on-all-of-its-rogue-ai-activity/">OpenAI still has no handle on its rogue AI activity</a></b> - It published a site of “misalignment reports”, and the breadth of the incidents is the story. <span class="src">(TechCrunch)</span></p>
+<p class="news-item">🔒 <b><a href="https://techcrunch.com/2026/10/02/apple-says-its-tightening-macos-full-disk-access-controls-due-to-new-risks-from-ai-agents/">Apple tightens macOS Full Disk Access over AI agents</a></b> - Blanket access to files, messages, mail and browsing history gets riskier as agents get more capable. <span class="src">(TechCrunch)</span></p>
+<p class="news-item">📡 <b><a href="https://techcrunch.com/2026/09/30/reddit-is-killing-rss-feeds-ending-public-api-access-because-of-ai-bots/">Reddit kills RSS feeds and public API access</a></b> - AI bots are the stated reason; the archive of user posts closes another notch. <span class="src">(TechCrunch)</span></p>
+
+      <div class="quote">
+        <p>"The models got cheaper this week and the doors got narrower. Both are answers to the same question - how far should an agent be allowed to reach?"</p>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Viral on X</h2><div class="sec-rule"></div></div>
+    <p class="sec-sub">The AI posts that drew the biggest reaction this week.</p>
+    <div class="row"><span class="ico">📺</span><span class="txt"><b><a href="https://x.com/karpathy">@karpathy</a></b> <a class="post" href="https://x.com/karpathy/status/2105819303471976479">We'll be spending a lot more time trying to understand the outputs of language models. A few thoughts, tips &amp; tricks: <span class="cut">/</span> Writing. Something</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 49.5k</b></span></div>
+<div class="row"><span class="ico">🔐</span><span class="txt"><b><a href="https://x.com/CarterWChurch">@CarterWChurch</a></b> <a class="post" href="https://x.com/CarterWChurch/status/2105167567706816690">I used GPT-6 Astra to break an unsolved cipher to one of Napoleon's generals that had gone unread for 217 years. <span class="cut">/</span> What makes this impressive</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 11.7k</b></span></div>
+<div class="row"><span class="ico">🧭</span><span class="txt"><b><a href="https://x.com/mattpocockuk">@mattpocockuk</a></b> <a class="post" href="https://x.com/mattpocockuk/status/2105951409887949107">Prompt of the day: <span class="cut">/</span> /retro read my last 10 coding agent sessions and find ways to make my repo easier to navigate. Find where agents take too</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 5.0k</b></span></div>
+<div class="row"><span class="ico">🔓</span><span class="txt"><b><a href="https://x.com/waiting4_asi">@waiting4_asi</a></b> <a class="post" href="https://x.com/waiting4_asi/status/2106090345230635176">I've done a complete U-turn on my opinion on open source AI. We should be careful (and probably disallow release) of models on par with</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 3.2k</b></span></div>
+<div class="row"><span class="ico">💸</span><span class="txt"><b><a href="https://x.com/DavidOndrej1">@DavidOndrej1</a></b> <a class="post" href="https://x.com/DavidOndrej1/status/2105890409692143826">from my calculations, the Claude Code $200 subscription gives you 16-24x more usage than the Codex $200 does <span class="cut">/</span> (plus, Opus 5.5 is way faster)</a></span><span class="stat"><b>♥︎ 2.4k</b></span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">Trending Github Projects</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">📚</span><span class="txt"><b><a href="https://github.com/rohitg00/ai-engineering-from-scratch">rohitg00/ai-engineering-from-scratch</a></b> - An AI engineering course that builds the whole stack from first principles.</span><span class="stat"><b>+5,600</b> ★</span></div>
+<div class="row"><span class="ico">👀</span><span class="txt"><b><a href="https://github.com/Panniantong/Agent-Reach">Panniantong/Agent-Reach</a></b> - Read and search Twitter, Reddit, YouTube, GitHub and more from one CLI, with no API fees.</span><span class="stat"><b>+3,959</b> ★</span></div>
+<div class="row"><span class="ico">🎨</span><span class="txt"><b><a href="https://github.com/pbakaus/impeccable">pbakaus/impeccable</a></b> - A design language that makes an AI coding harness better at design.</span><span class="stat"><b>+3,124</b> ★</span></div>
+<div class="row"><span class="ico">🎬</span><span class="txt"><b><a href="https://github.com/harry0703/MoneyPrinterTurbo">harry0703/MoneyPrinterTurbo</a></b> - Generates HD short videos from a topic or keyword with an automated AI workflow.</span><span class="stat"><b>+2,533</b> ★</span></div>
+<div class="row"><span class="ico">🧰</span><span class="txt"><b><a href="https://github.com/alirezarezvani/claude-skills">alirezarezvani/claude-skills</a></b> - A large library of skills, agents and commands for Claude Code and other coding agents.</span><span class="stat"><b>+832</b> ★</span></div>
+<div class="row"><span class="ico">⚙️</span><span class="txt"><b><a href="https://github.com/tile-ai/tilelang">tile-ai/tilelang</a></b> - A domain-specific language for high-performance GPU, CPU and accelerator kernels.</span><span class="stat"><b>+732</b> ★</span></div>
+<div class="row"><span class="ico">🔥</span><span class="txt"><b><a href="https://github.com/pytorch/pytorch">pytorch/pytorch</a></b> - Tensors and dynamic neural networks in Python with strong GPU acceleration.</span><span class="stat"><b>+369</b> ★</span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">HN Deep Stories</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🔎</span><span class="txt"><b><a href="https://calnewport.com/its-time-to-investigate-the-ai-labs/">It's Time to Investigate the AI Labs</a></b> - Cal Newport makes the case for turning regulatory attention on the frontier labs. <span class="src">(<a href="https://news.ycombinator.com/item?id=49883471">HackerNews</a>)</span></span><span class="stat"><b>628</b> pts</span></div>
+<div class="row"><span class="ico">🎰</span><span class="txt"><b><a href="https://www.eff.org/deeplinks/2026/09/draftkings-using-ai-supercharge-harms-online-behavioral-advertising">DraftKings is using AI to behaviorally target chronic gamblers</a></b> - The EFF traces how behavioural ad targeting finds the users least able to walk away. <span class="src">(<a href="https://news.ycombinator.com/item?id=49896050">HackerNews</a>)</span></span><span class="stat"><b>570</b> pts</span></div>
+<div class="row"><span class="ico">😅</span><span class="txt"><b><a href="https://thecivilian.co.nz/2026/09/27/ai-companies-in-fierce-arms-race-to-demonstrate-their-model-is-the-most-existentially-threatening-to-humanity/">AI companies race to prove their model is the most dangerous</a></b> - Satire, and close enough to this week's actual filings to sting. <span class="src">(<a href="https://news.ycombinator.com/item?id=49875148">HackerNews</a>)</span></span><span class="stat"><b>441</b> pts</span></div>
+<div class="row"><span class="ico">🦋</span><span class="txt"><b><a href="https://jorgegarciaherrero.com/wp-content/interactivos/20260916-Prompt-like-a-butterfly-sting-like-a-tracker-(clean).pdf">A privacy analysis of web and mobile conversational AI agents</a></b> - A paper measuring what conversational agents hand off to trackers. <span class="src">(<a href="https://news.ycombinator.com/item?id=49890226">HackerNews</a>)</span></span><span class="stat"><b>425</b> pts</span></div>
+  </section>
+
+  <footer>
+    <p>Made for builders who ship with AI. See you next week. ✌️</p>
+    <div class="foot-links"><a href="#">SUBSCRIBE</a><a href="#">ARCHIVE</a><a href="#">SUGGEST A LINK</a></div>
+  </footer>
+
+</div>
+</body>
+</html>
