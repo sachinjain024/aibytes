@@ -8,7 +8,7 @@ priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-10-07T14:28:25.935Z
+updated_at: 2026-10-07T14:44:56.199Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -228,7 +228,7 @@ supported: the job still runs and still logs, it just reports to nobody.
 ### Phase 4 — The web app
 
 - [ ] Scaffold `apps/web` (Vite + React, static build, GitHub Pages base path) <!-- longclaw:item=ck_e7b619b7 -->
-- [ ] Wire Ledger in; fix the `prefers-color-scheme` gap in the package <!-- longclaw:item=ck_d6800ac4 -->
+- [x] Wire Ledger in; fix the `prefers-color-scheme` gap in the package <!-- longclaw:item=ck_d6800ac4 -->
 - [ ] One route per edition; `/` resolves to the latest <!-- longclaw:item=ck_41ef1819 -->
 - [ ] Header, the edition bar, and the calendar popover from `index.json` <!-- longclaw:item=ck_22db4814 -->
 - [ ] Grid and list views, preference in local storage <!-- longclaw:item=ck_71be2883 -->
@@ -894,4 +894,22 @@ actor:
 ### Claude Code commented
 
 Domain plan added. aibytes.io moves from Beehiiv to the app, and the newsletter moves to newsletter.aibytes.io, which also settles the open Newsletter URL question: GitHub Pages cannot hand aibytes.io/newsletter to Beehiiv without a proxy. The Hosting decision now says aibytes.io at the root, and the apps/web scaffold on aib-8h-phase-4-web is built for / rather than /aibytes/.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_9c418d8d
+kind: update
+occurred_at: 2026-10-07T14:44:56.199Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_d6800ac4.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Ledger wired into apps/web on aib-8h-phase-4-web: styles.css plus Card, EndCard and Wordmark render the latest edition, checked in light, dark and at 390px. The prefers-color-scheme gap is fixed in the package: dark follows the OS unless data-theme says light, with a test that keeps the two dark blocks in step.
 <!-- /longclaw:event -->
