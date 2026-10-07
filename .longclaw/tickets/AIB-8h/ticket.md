@@ -8,7 +8,7 @@ priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-10-07T14:23:14.997Z
+updated_at: 2026-10-07T14:28:25.935Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -162,7 +162,7 @@ in the package rather than forked here.
 - [x] Confirm `.env` and `newsletter/apis/aibytes/environments/local.json` are git-ignored and were never committed <!-- longclaw:item=ck_511ac39f -->
 - [x] Rewrite the README for a public reader, stating the no-licence position <!-- longclaw:item=ck_deae8248 -->
 - [x] Decide the licence — none for now, revisit if anyone asks to reuse the pipeline <!-- longclaw:item=ck_fec2ca3f -->
-- [ ] Flip the repo to public *(Sachin does this in GitHub settings; the sweep found nothing blocking)* <!-- longclaw:item=ck_ac912ad2 -->
+- [x] Flip the repo to public *(Sachin does this in GitHub settings; the sweep found nothing blocking)* <!-- longclaw:item=ck_ac912ad2 -->
 
 ### Phase 1 — The edition contract
 
@@ -200,8 +200,8 @@ in the package rather than forked here.
 - [x] Record the daily push-to-main exception in CLAUDE.md <!-- longclaw:item=ck_a19a1c96 -->
 - [x] Cover it in `tests/test_runner.py` <!-- longclaw:item=ck_c73697df -->
 - [x] **Sachin: create the Slack incoming webhook** — see below. *Deliberately deferred on 2026-09-01; the runner ships without it and reports to nobody until it lands* <!-- longclaw:item=ck_b1537d24 -->
-- [ ] Sachin: run `bash packages/runner/aibytes_runner/launchd/install.sh` <!-- longclaw:item=ck_db751a2d -->
-- [ ] Add `ANTHROPIC_API_KEY` and `PH_API_KEY` repo secrets, if the Actions fallback is wanted <!-- longclaw:item=ck_1b3fc1a8 -->
+- [x] Sachin: run `bash packages/runner/aibytes_runner/launchd/install.sh` <!-- longclaw:item=ck_db751a2d -->
+- [x] Add `ANTHROPIC_API_KEY` and `PH_API_KEY` repo secrets, if the Actions fallback is wanted <!-- longclaw:item=ck_1b3fc1a8 -->
 
 #### The one manual step: the Slack webhook
 
@@ -813,4 +813,55 @@ changes:
 ### Claude Code updated this ticket
 
 Slack webhook created on 2026-10-07: the aiBytes_ runner app in aibytes-workspace, posting to a private #aibytes-runs channel. AIBYTES_SLACK_WEBHOOK is in the git-ignored .env, and notify.py's test message arrived.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_83c4068d
+kind: update
+occurred_at: 2026-10-07T14:24:22.347Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_db751a2d.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_0d864faf
+kind: update
+occurred_at: 2026-10-07T14:26:17.052Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_1b3fc1a8.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Closed without adding repo secrets. The daily job runs on the iMac, where claude uses the keychain login and PH_API_KEY is in the local .env. The Actions fallback stays unconfigured for now: edition.yml fails early, saying ANTHROPIC_API_KEY is missing, if anyone runs it.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_68bcf604
+kind: update
+occurred_at: 2026-10-07T14:28:25.935Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_ac912ad2.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Repo made public on 2026-10-07. Checked first: no Slack webhook URL and no PH_API_KEY value anywhere in git history across all branches, and .env has never been committed. GitHub Pages is not enabled yet; that comes with the apps/web deploy workflow.
 <!-- /longclaw:event -->
