@@ -146,61 +146,61 @@ in the package rather than forked here.
 
 ### Phase 0 — Restructure and publish safely
 
-- [x] Move the newsletter pipeline under `newsletter/` *(PR #4)*
-- [x] Extract shared fetch machinery into `packages/fetchers` *(PR #4)*
-- [x] Land the product spec and design brief in `docs/`
-- [x] Replace `packages/design-system` with the Ledger export from Claude Design
-- [x] Retire the `aib-*` Web Components and the `tokens.json` → `build:tokens` pipeline
-- [x] Add the `aibytes-design` skill pointing at Ledger
-- [x] Rewrite `.claude/rules/design-system.md` for Ledger, recording the two injected-UI gaps
-- [x] Strip every aiBytes-hub reference and record in CLAUDE.md that it is a separate project
-- [x] Add the public-repo warning to CLAUDE.md
-- [x] Update the root `package.json` workspaces and scripts for `apps/*`
-- [x] Sweep the working tree for secrets, subscriber lists, and personal email addresses
-- [x] Sweep git history for secrets in file contents (commit metadata is settled — history is not rewritten)
-- [x] Confirm `.env` and `newsletter/apis/aibytes/environments/local.json` are git-ignored and were never committed
-- [x] Rewrite the README for a public reader, stating the no-licence position
-- [x] Decide the licence — none for now, revisit if anyone asks to reuse the pipeline
-- [ ] Flip the repo to public *(Sachin does this in GitHub settings; the sweep found nothing blocking)*
+- [x] Move the newsletter pipeline under `newsletter/` *(PR #4)* <!-- longclaw:item=ck_c19cb904 -->
+- [x] Extract shared fetch machinery into `packages/fetchers` *(PR #4)* <!-- longclaw:item=ck_3b17de6c -->
+- [x] Land the product spec and design brief in `docs/` <!-- longclaw:item=ck_9caaf386 -->
+- [x] Replace `packages/design-system` with the Ledger export from Claude Design <!-- longclaw:item=ck_4f27ba4a -->
+- [x] Retire the `aib-*` Web Components and the `tokens.json` → `build:tokens` pipeline <!-- longclaw:item=ck_2b45a937 -->
+- [x] Add the `aibytes-design` skill pointing at Ledger <!-- longclaw:item=ck_6b61cf78 -->
+- [x] Rewrite `.claude/rules/design-system.md` for Ledger, recording the two injected-UI gaps <!-- longclaw:item=ck_74814605 -->
+- [x] Strip every aiBytes-hub reference and record in CLAUDE.md that it is a separate project <!-- longclaw:item=ck_c802a2bf -->
+- [x] Add the public-repo warning to CLAUDE.md <!-- longclaw:item=ck_0d9a8a12 -->
+- [x] Update the root `package.json` workspaces and scripts for `apps/*` <!-- longclaw:item=ck_9cdc6dc0 -->
+- [x] Sweep the working tree for secrets, subscriber lists, and personal email addresses <!-- longclaw:item=ck_d069171f -->
+- [x] Sweep git history for secrets in file contents (commit metadata is settled — history is not rewritten) <!-- longclaw:item=ck_f9db2b0f -->
+- [x] Confirm `.env` and `newsletter/apis/aibytes/environments/local.json` are git-ignored and were never committed <!-- longclaw:item=ck_511ac39f -->
+- [x] Rewrite the README for a public reader, stating the no-licence position <!-- longclaw:item=ck_deae8248 -->
+- [x] Decide the licence — none for now, revisit if anyone asks to reuse the pipeline <!-- longclaw:item=ck_fec2ca3f -->
+- [ ] Flip the repo to public *(Sachin does this in GitHub settings; the sweep found nothing blocking)* <!-- longclaw:item=ck_ac912ad2 -->
 
 ### Phase 1 — The edition contract
 
-- [x] Rewrite `packages/feed-schema` as the edition schema from product spec §5
-- [x] Add `index.json` (available editions + counts) and `tags.json` (the fixed tag list)
-- [x] Add `hidden.json` and the `hide.py <id>` admin script
-- [x] Update `validate.py` and `feed.d.ts` to match
-- [x] Point the schema `$id` at the real GitHub Pages URL
-- [x] Update `tests/test_feed_schema.py` for the new contract
+- [x] Rewrite `packages/feed-schema` as the edition schema from product spec §5 <!-- longclaw:item=ck_925d5c3d -->
+- [x] Add `index.json` (available editions + counts) and `tags.json` (the fixed tag list) <!-- longclaw:item=ck_8906a7f4 -->
+- [x] Add `hidden.json` and the `hide.py <id>` admin script <!-- longclaw:item=ck_0b54f45b -->
+- [x] Update `validate.py` and `feed.d.ts` to match <!-- longclaw:item=ck_dcef20c6 -->
+- [x] Point the schema `$id` at the real GitHub Pages URL <!-- longclaw:item=ck_a49fd685 -->
+- [x] Update `tests/test_feed_schema.py` for the new contract <!-- longclaw:item=ck_6ebcd88f -->
 
 ### Phase 2 — The curate step
 
-- [x] Split curation out of `generate-newsletter-content` into a `curate-edition` skill
-- [x] Dedup across sources, apply the relevance filter, assign one category per item
-- [x] Tag from the fixed list in `tags.json` only, 1–4 tags per item
-- [x] Write the one-line summary in Ledger's voice (plain, factual, no hype)
-- [x] Resolve card images: PH logo, GitHub avatar, TechCrunch og:image, HN none
-- [x] Log rejected items with reasons to `rejected.json`
-- [x] Support `--date` and `--output-root`, per the skill-script convention
-- [x] Cover it in `tests/test_curate_edition.py`
+- [x] Split curation out of `generate-newsletter-content` into a `curate-edition` skill <!-- longclaw:item=ck_64d3bcc5 -->
+- [x] Dedup across sources, apply the relevance filter, assign one category per item <!-- longclaw:item=ck_0f3c0bb3 -->
+- [x] Tag from the fixed list in `tags.json` only, 1–4 tags per item <!-- longclaw:item=ck_d7c9df41 -->
+- [x] Write the one-line summary in Ledger's voice (plain, factual, no hype) <!-- longclaw:item=ck_0641c8b5 -->
+- [x] Resolve card images: PH logo, GitHub avatar, TechCrunch og:image, HN none <!-- longclaw:item=ck_8b90519c -->
+- [x] Log rejected items with reasons to `rejected.json` <!-- longclaw:item=ck_eed58906 -->
+- [x] Support `--date` and `--output-root`, per the skill-script convention <!-- longclaw:item=ck_990ef012 -->
+- [x] Cover it in `tests/test_curate_edition.py` <!-- longclaw:item=ck_84b11ffe -->
 
 ### Phase 3 — The daily runner
 
-- [x] Single entry point that runs fetch → curate → build → validate → commit → push, with `--date`
-- [x] Claude as one bounded step: `Read`/`Write` only, no Bash, no git, no network
-- [x] `launchd` plist at `~/Library/LaunchAgents/io.aibytes.edition.plist`, 13:30 IST
-- [x] Confirm the iMac's timezone — `Asia/Kolkata`, so 13:30 local *is* 13:30 IST
-- [x] `pmset` wake schedule — not needed: `sleep 0`, mains power, auto-login, 24x7
-- [x] Log to `logs/YYYY-MM-DD.log` (git-ignored); exit non-zero on failure
-- [x] Slack notification on success and on failure, with the re-run command in it
-- [x] Watchdog agent at 14:30, for the silent miss a failure notification cannot report
-- [x] One bad source warns instead of costing the edition (`--keep-going`)
-- [x] `workflow_dispatch`-only GitHub Actions fallback running the same script
-- [x] A `tests` workflow, so the suite is re-verified on merge (there was no CI)
-- [x] Record the daily push-to-main exception in CLAUDE.md
-- [x] Cover it in `tests/test_runner.py`
-- [ ] **Sachin: create the Slack incoming webhook** — see below. *Deliberately deferred on 2026-09-01; the runner ships without it and reports to nobody until it lands*
-- [ ] Sachin: run `bash packages/runner/aibytes_runner/launchd/install.sh`
-- [ ] Add `ANTHROPIC_API_KEY` and `PH_API_KEY` repo secrets, if the Actions fallback is wanted
+- [x] Single entry point that runs fetch → curate → build → validate → commit → push, with `--date` <!-- longclaw:item=ck_e00096af -->
+- [x] Claude as one bounded step: `Read`/`Write` only, no Bash, no git, no network <!-- longclaw:item=ck_8c66970d -->
+- [x] `launchd` plist at `~/Library/LaunchAgents/io.aibytes.edition.plist`, 13:30 IST <!-- longclaw:item=ck_876cb41c -->
+- [x] Confirm the iMac's timezone — `Asia/Kolkata`, so 13:30 local *is* 13:30 IST <!-- longclaw:item=ck_451547f3 -->
+- [x] `pmset` wake schedule — not needed: `sleep 0`, mains power, auto-login, 24x7 <!-- longclaw:item=ck_539b926a -->
+- [x] Log to `logs/YYYY-MM-DD.log` (git-ignored); exit non-zero on failure <!-- longclaw:item=ck_c2dece17 -->
+- [x] Slack notification on success and on failure, with the re-run command in it <!-- longclaw:item=ck_f73f802c -->
+- [x] Watchdog agent at 14:30, for the silent miss a failure notification cannot report <!-- longclaw:item=ck_fba1af58 -->
+- [x] One bad source warns instead of costing the edition (`--keep-going`) <!-- longclaw:item=ck_8ad8fbdd -->
+- [x] `workflow_dispatch`-only GitHub Actions fallback running the same script <!-- longclaw:item=ck_b4e1e20a -->
+- [x] A `tests` workflow, so the suite is re-verified on merge (there was no CI) <!-- longclaw:item=ck_3878393c -->
+- [x] Record the daily push-to-main exception in CLAUDE.md <!-- longclaw:item=ck_a19a1c96 -->
+- [x] Cover it in `tests/test_runner.py` <!-- longclaw:item=ck_c73697df -->
+- [ ] **Sachin: create the Slack incoming webhook** — see below. *Deliberately deferred on 2026-09-01; the runner ships without it and reports to nobody until it lands* <!-- longclaw:item=ck_b1537d24 -->
+- [ ] Sachin: run `bash packages/runner/aibytes_runner/launchd/install.sh` <!-- longclaw:item=ck_db751a2d -->
+- [ ] Add `ANTHROPIC_API_KEY` and `PH_API_KEY` repo secrets, if the Actions fallback is wanted <!-- longclaw:item=ck_1b3fc1a8 -->
 
 #### The one manual step: the Slack webhook
 
@@ -225,18 +225,18 @@ supported: the job still runs and still logs, it just reports to nobody.
 
 ### Phase 4 — The web app
 
-- [ ] Scaffold `apps/web` (Vite + React, static build, GitHub Pages base path)
-- [ ] Wire Ledger in; fix the `prefers-color-scheme` gap in the package
-- [ ] One route per edition; `/` resolves to the latest
-- [ ] Header, the edition bar, and the calendar popover from `index.json`
-- [ ] Grid and list views, preference in local storage
-- [ ] Category, tag, and source filters reflected in the URL
-- [ ] Per-source images with mark fallbacks, fixed dimensions, lazy-loaded
-- [ ] Anonymous saves in local storage, plus the save banner
-- [ ] Empty-filter state and the end-of-edition card
-- [ ] Footer: newsletter subscribe, extension link, GitHub, X
-- [ ] Pages deploy workflow on push
-- [ ] Accessibility pass: AA contrast both themes, focus rings, keyboard nav
+- [ ] Scaffold `apps/web` (Vite + React, static build, GitHub Pages base path) <!-- longclaw:item=ck_e7b619b7 -->
+- [ ] Wire Ledger in; fix the `prefers-color-scheme` gap in the package <!-- longclaw:item=ck_d6800ac4 -->
+- [ ] One route per edition; `/` resolves to the latest <!-- longclaw:item=ck_41ef1819 -->
+- [ ] Header, the edition bar, and the calendar popover from `index.json` <!-- longclaw:item=ck_22db4814 -->
+- [ ] Grid and list views, preference in local storage <!-- longclaw:item=ck_71be2883 -->
+- [ ] Category, tag, and source filters reflected in the URL <!-- longclaw:item=ck_3128a87a -->
+- [ ] Per-source images with mark fallbacks, fixed dimensions, lazy-loaded <!-- longclaw:item=ck_1c041cfb -->
+- [ ] Anonymous saves in local storage, plus the save banner <!-- longclaw:item=ck_75542f4d -->
+- [ ] Empty-filter state and the end-of-edition card <!-- longclaw:item=ck_bbebbe5c -->
+- [ ] Footer: newsletter subscribe, extension link, GitHub, X <!-- longclaw:item=ck_ee17aa27 -->
+- [ ] Pages deploy workflow on push <!-- longclaw:item=ck_1d2d1d88 -->
+- [ ] Accessibility pass: AA contrast both themes, focus rings, keyboard nav <!-- longclaw:item=ck_be0cd0e2 -->
 
 ### Phase 5 — Cut
 
@@ -244,17 +244,17 @@ Nothing to do. `generate-newsletter-content` stays on raw `data/`.
 
 ### Phase 6 — Accounts
 
-- [ ] Firebase Auth with the Google provider, client SDK only
-- [ ] Firestore `users/{uid}/saves/{itemId}`, with security rules reviewed
-- [ ] Merge local saves into the account on first sign-in, then clear local storage
-- [ ] Saved view, grouped by edition date
+- [ ] Firebase Auth with the Google provider, client SDK only <!-- longclaw:item=ck_92c6c8ad -->
+- [ ] Firestore `users/{uid}/saves/{itemId}`, with security rules reviewed <!-- longclaw:item=ck_d55f7f5f -->
+- [ ] Merge local saves into the account on first sign-in, then clear local storage <!-- longclaw:item=ck_10099f62 -->
+- [ ] Saved view, grouped by edition date <!-- longclaw:item=ck_a8a92e8c -->
 
 ### Phase 7 — The extension
 
-- [ ] Scaffold `apps/extension`
-- [ ] Emit Ledger tokens on `:host` as well as `:root`
-- [ ] New-tab page rendering the latest edition from the same JSON
-- [ ] Package and submit to the Chrome Web Store
+- [ ] Scaffold `apps/extension` <!-- longclaw:item=ck_a0336c06 -->
+- [ ] Emit Ledger tokens on `:host` as well as `:root` <!-- longclaw:item=ck_de352ef0 -->
+- [ ] New-tab page rendering the latest edition from the same JSON <!-- longclaw:item=ck_9e48e01a -->
+- [ ] Package and submit to the Chrome Web Store <!-- longclaw:item=ck_f68c7050 -->
 
 ## Activity
 
@@ -764,4 +764,18 @@ fallback is wanted. Nothing is scheduled until `install.sh` runs.
 
 Phase 4 is next. Two open questions are unchanged — the newsletter URL and
 edition retention.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_0006ff64
+kind: comment
+occurred_at: 2026-10-07T06:00:09.169Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Minted checklist item ids so the UI can tick them.
 <!-- /longclaw:event -->

@@ -9,11 +9,13 @@ created_at: 2026-08-23T08:52:34.515Z
 updated_at: 2026-08-24T05:50:38.307Z
 ---
 
-- [x] Generate the Issue Content
-- [x] Identify the main sections that I like & Add a comment
-- [x] Update the Title, Description & Intro section
-- [x] Publish on Beehiiv
-- [x] Create separate tickets for deep dive into individual items
+## Checklist
+
+- [x] Generate the Issue Content <!-- longclaw:item=ck_6ad7b7f2 -->
+- [x] Identify the main sections that I like & Add a comment <!-- longclaw:item=ck_d0e8aa36 -->
+- [x] Update the Title, Description & Intro section <!-- longclaw:item=ck_6b4b44b1 -->
+- [x] Publish on Beehiiv <!-- longclaw:item=ck_faef4dad -->
+- [x] Create separate tickets for deep dive into individual items <!-- longclaw:item=ck_070cdf1e -->
 
 ## Activity
 
@@ -98,4 +100,18 @@ changes:
     to: done
 -->
 ### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_424d2504
+kind: comment
+occurred_at: 2026-10-07T06:00:20.271Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Moved the task list under ## Checklist so the UI shows and ticks it.
 <!-- /longclaw:event -->
