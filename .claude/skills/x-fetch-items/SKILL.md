@@ -8,7 +8,8 @@ description: Save the week's most-engaged AI posts on X, gathered by hand in Gro
 Unlike the other fetch skills, this one can't call an API. X data comes from
 Grok (the publisher has X Premium), so the run has a manual step in the
 middle. The skill hands over the prompt, waits for the publisher to paste
-Grok's JSON, then saves the file and shortlists the posts.
+Grok's JSON, then saves the file and shortlists the posts. It feeds the weekly
+newsletter only. The daily edition leaves Viral on X out until AIB-74u.
 
 One Grok run feeds two sections. **Viral on X** gets practical posts for
 builders (`insight`), and **Official Announcements** gets releases,

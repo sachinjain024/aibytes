@@ -176,6 +176,9 @@ items link to the products rather than to Product Hunt.
   a byte-identical edition apart from `generated_at`, so a re-run diffs cleanly.
 - **`--cadence weekly`** reads the weekly newsletter snapshots instead of the
   daily ones, which is how an edition can be built from a past week's data.
+- **Viral on X stays in the weekly newsletter.** This skill reads Product Hunt,
+  Hacker News, TechCrunch, and GitHub. `x_data.json` is a weekly snapshot.
+  AIB-74u tracks adding viral posts to the daily edition later.
 - This is the curation half of what `generate-newsletter-content` used to do
   alone. That skill keeps reading raw `data/` for the weekly issue and is not
   being pointed at these editions - the two surfaces curate independently.
