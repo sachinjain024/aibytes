@@ -8,7 +8,7 @@ priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-10-07T15:16:33.110Z
+updated_at: 2026-10-07T15:24:52.818Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -230,7 +230,7 @@ supported: the job still runs and still logs, it just reports to nobody.
 - [ ] Scaffold `apps/web` (Vite + React, static build, GitHub Pages base path) <!-- longclaw:item=ck_e7b619b7 -->
 - [x] Wire Ledger in; fix the `prefers-color-scheme` gap in the package <!-- longclaw:item=ck_d6800ac4 -->
 - [x] One route per edition; `/` resolves to the latest <!-- longclaw:item=ck_41ef1819 -->
-- [ ] Header, the edition bar, and the calendar popover from `index.json` <!-- longclaw:item=ck_22db4814 -->
+- [x] Header, the edition bar, and the calendar popover from `index.json` <!-- longclaw:item=ck_22db4814 -->
 - [ ] Grid and list views, preference in local storage <!-- longclaw:item=ck_71be2883 -->
 - [ ] Category, tag, and source filters reflected in the URL <!-- longclaw:item=ck_3128a87a -->
 - [ ] Per-source images with mark fallbacks, fixed dimensions, lazy-loaded <!-- longclaw:item=ck_1c041cfb -->
@@ -933,4 +933,22 @@ changes:
 ### Claude Code updated this ticket
 
 Routing done on aib-8h-phase-4-web. Each edition gets a real page at build time, / resolves to the latest, unknown days and paths get a message with a link to the latest, and 404.html sends old /p/<slug> issue links to newsletter.aibytes.io, which covers that Domain item too. Router covered by node --test in CI.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_434a0cc9
+kind: update
+occurred_at: 2026-10-07T15:24:52.818Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_22db4814.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Header, edition bar and calendar popover done on aib-8h-phase-4-web. Prev/next and the calendar come from index.json, the date is the h1, and there's a theme toggle (OS default, choice remembered). Ledger's Header now draws a tools control only when its handler is passed, so unbuilt features show nothing. Clicked through in headless Chrome against a temporary second edition.
 <!-- /longclaw:event -->
