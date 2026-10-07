@@ -8,7 +8,7 @@ priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-10-07T14:44:56.199Z
+updated_at: 2026-10-07T15:16:33.110Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -229,7 +229,7 @@ supported: the job still runs and still logs, it just reports to nobody.
 
 - [ ] Scaffold `apps/web` (Vite + React, static build, GitHub Pages base path) <!-- longclaw:item=ck_e7b619b7 -->
 - [x] Wire Ledger in; fix the `prefers-color-scheme` gap in the package <!-- longclaw:item=ck_d6800ac4 -->
-- [ ] One route per edition; `/` resolves to the latest <!-- longclaw:item=ck_41ef1819 -->
+- [x] One route per edition; `/` resolves to the latest <!-- longclaw:item=ck_41ef1819 -->
 - [ ] Header, the edition bar, and the calendar popover from `index.json` <!-- longclaw:item=ck_22db4814 -->
 - [ ] Grid and list views, preference in local storage <!-- longclaw:item=ck_71be2883 -->
 - [ ] Category, tag, and source filters reflected in the URL <!-- longclaw:item=ck_3128a87a -->
@@ -249,7 +249,7 @@ workflow only works once the custom domain is set, since the app is built for `/
 
 - [ ] Move the newsletter to `newsletter.aibytes.io` in Beehiiv, with its DNS record on Cloudflare <!-- longclaw:item=ck_400ba60c -->
 - [ ] Check what old `aibytes.io/p/<slug>` issue links do after the move, and update links that point at them (Beehiiv settings, social bios) <!-- longclaw:item=ck_287f3bb4 -->
-- [ ] Redirect old issue links: the app's 404 page sends `/p/<slug>` to `newsletter.aibytes.io/p/<slug>` <!-- longclaw:item=ck_046de995 -->
+- [x] Redirect old issue links: the app's 404 page sends `/p/<slug>` to `newsletter.aibytes.io/p/<slug>` <!-- longclaw:item=ck_046de995 -->
 - [ ] Point `aibytes.io` DNS at GitHub Pages (apex A/AAAA records, `www` CNAME to `sachinjain024.github.io`) <!-- longclaw:item=ck_d14dbf8d -->
 - [ ] Set `aibytes.io` as the Pages custom domain and enforce HTTPS <!-- longclaw:item=ck_1796b533 -->
 - [ ] Move the schemas' `$id` to `https://aibytes.io/content/` <!-- longclaw:item=ck_47063f49 -->
@@ -912,4 +912,25 @@ changes:
 ### Claude Code updated this ticket
 
 Ledger wired into apps/web on aib-8h-phase-4-web: styles.css plus Card, EndCard and Wordmark render the latest edition, checked in light, dark and at 390px. The prefers-color-scheme gap is fixed in the package: dark follows the OS unless data-theme says light, with a test that keeps the two dark blocks in step.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f867f48c
+kind: update
+occurred_at: 2026-10-07T15:16:33.110Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_41ef1819.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_046de995.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Routing done on aib-8h-phase-4-web. Each edition gets a real page at build time, / resolves to the latest, unknown days and paths get a message with a link to the latest, and 404.html sends old /p/<slug> issue links to newsletter.aibytes.io, which covers that Domain item too. Router covered by node --test in CI.
 <!-- /longclaw:event -->
