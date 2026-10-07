@@ -11,3 +11,6 @@ dist/
 .vite/
 *.zip
 apps/web/src/generated/
+
+# Scheduled-job run logs (local only)
+logs/
