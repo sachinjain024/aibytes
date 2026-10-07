@@ -1,0 +1,462 @@
+<title>Four Frames for Loudest on X</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#E7E8EC;
+    --panel:#FDFDFD;
+    --ink:#14161F;
+    --muted:#5C6070;
+    --line:#CBCED7;
+    --hair:#D9DCE3;
+    --cobalt:#2B4EF0;
+    --signal:#FFD338;
+    --chip-ink:#FFFFFF;
+
+    /* Specimen tokens: an inbox always renders light, so these never invert. */
+    --mail-paper:#FAFAF7;
+    --mail-card:#FFFFFF;
+    --mail-line:#E4E4DC;
+    --mail-ink:#191C26;
+    --mail-body:#3A3E4A;
+    --mail-link:#2B4EF0;
+    --mail-slate:#6B7080;
+    --mail-signal:#FFD338;
+
+    --mono:'JetBrains Mono',ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --grotesque:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mail-display:'Bricolage Grotesque',Helvetica,Arial,sans-serif;
+    --mail-face:'Instrument Sans',Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      color-scheme:dark;
+      --ground:#101219;
+      --panel:#181A22;
+      --ink:#E5E6EC;
+      --muted:#949AA8;
+      --line:#2C303B;
+      --hair:#242832;
+      --cobalt:#8AA0FF;
+      --chip-ink:#101219;
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --ground:#101219;
+    --panel:#181A22;
+    --ink:#E5E6EC;
+    --muted:#949AA8;
+    --line:#2C303B;
+    --hair:#242832;
+    --cobalt:#8AA0FF;
+    --chip-ink:#101219;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;background:var(--ground)}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--ground);color:var(--ink);font-family:var(--grotesque);-webkit-font-smoothing:antialiased;line-height:1.5;margin:0}
+  .sheet{max-width:820px;margin:0 auto;padding:48px 20px 72px;display:grid;gap:44px}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:2px}
+  code{font-family:var(--mono);font-size:.9em;color:var(--ink)}
+
+  /* ── masthead ── */
+  .masthead{display:grid;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:22px}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .eyebrow b{color:var(--cobalt);font-weight:600}
+  h1{font-size:clamp(30px,5.2vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.02;text-wrap:balance;margin:0}
+  .lede{max-width:62ch;color:var(--muted);font-size:16px;line-height:1.6;margin:0}
+  .lede b{color:var(--ink);font-weight:600}
+
+  /* ── contents + width toggle ── */
+  .spec,.close,.decision,.axes{scroll-margin-top:20px}
+  .toc{display:grid;gap:11px;border-left:2px solid var(--cobalt);padding-left:18px}
+  .toc h2{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:0}
+  .toc ul{list-style:none;display:grid;gap:7px;margin:0;padding:0}
+  .toc li{display:flex;align-items:baseline;gap:11px}
+  .toc .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--muted);min-width:3.4em}
+  .toc a{color:var(--ink);text-decoration:none;font-size:15px;border-bottom:1px solid transparent}
+  .toc a:hover{border-bottom-color:var(--cobalt)}
+  .widths{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .widths button{font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:5px 10px;cursor:pointer}
+  .widths button[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+
+  /* ── pending decision ── */
+  .decision{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--signal);border-radius:4px;padding:22px 24px;display:grid;gap:14px}
+  .decision .head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .decision h2{font-size:22px;font-weight:700;letter-spacing:-.015em;margin:0}
+  .decision p{margin:0;max-width:62ch;font-size:15px;line-height:1.62;color:var(--muted)}
+  .decision p b{color:var(--ink);font-weight:600}
+  .tag.pending,.tag.sel{background:var(--signal);color:#191C26}
+  .spec.picked .tag{background:var(--signal);color:#191C26}
+  .spec.picked .mail{border-color:var(--cobalt);border-width:2px;padding:23px}
+  .sheet.phone .spec.picked .mail{padding:19px 15px}
+  .badge{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt);border:1px solid currentColor;border-radius:2px;padding:1px 6px}
+  .toc .mark{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:var(--signal);color:#191C26;padding:1px 6px;border-radius:2px;margin-left:2px}
+
+  /* ── comparison table ── */
+  .axes{display:grid;gap:14px}
+  .axes h2,.close h2{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:600;margin:0}
+  .tablewrap{overflow-x:auto;border:1px solid var(--hair);border-radius:4px}
+  table{border-collapse:collapse;width:100%;min-width:620px;font-size:14px}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--hair);vertical-align:top}
+  th{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--panel)}
+  tr:last-child td{border-bottom:none}
+  td{color:var(--muted)}
+  td b{color:var(--ink);font-weight:600}
+
+  /* ── variation block ── */
+  .spec{display:grid;gap:16px}
+  .strip{display:grid;gap:10px}
+  .head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .tag{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--cobalt);color:var(--chip-ink);padding:3px 8px;border-radius:3px}
+  .name{font-size:20px;font-weight:700;letter-spacing:-.015em;margin:0}
+  .ledger{display:flex;flex-wrap:wrap;gap:4px 26px;font-family:var(--mono);font-size:11.5px;line-height:1.5;color:var(--muted);border-top:1px solid var(--hair);padding-top:9px;margin:0}
+  .ledger > div{display:flex;gap:7px}
+  .ledger dt{letter-spacing:.08em;text-transform:uppercase;opacity:.72}
+  .ledger dd{margin:0;color:var(--ink)}
+  .why{max-width:640px;font-size:14.5px;line-height:1.6;color:var(--muted);margin:0;padding-left:14px;border-left:2px solid var(--signal)}
+  .why b{color:var(--ink);font-weight:600}
+
+  /* ── specimen frame: the section as it renders in the inbox ── */
+  .mail{max-width:640px;background:var(--mail-paper);border:1px solid var(--mail-line);border-radius:6px;padding:24px;
+        box-shadow:0 1px 2px rgba(20,22,31,.06),0 8px 24px -18px rgba(20,22,31,.5);transition:max-width .25s ease;color:var(--mail-ink);font-family:var(--mail-face)}
+  .sheet.phone .mail{max-width:375px;padding:20px 16px}
+  @media (prefers-reduced-motion:reduce){.mail{transition:none}}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--mail-paper);background:var(--mail-ink);padding:2px 7px}
+  .sec-title{font-family:var(--mail-display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase;color:var(--mail-ink);margin:0;white-space:nowrap}
+  .sec-rule{flex:1;height:2px;background:var(--mail-ink)}
+  .sec-sub{font-size:14px;line-height:1.5;color:var(--mail-slate);margin:0 0 12px 0}
+  .mail a{color:var(--mail-link);text-decoration:none}
+  .mail a:hover{text-decoration:underline;text-underline-offset:3px}
+
+  /* shared post parts */
+  .who{font-size:14.5px;line-height:1.4}
+  .who b{font-weight:700;color:var(--mail-ink)}
+  .meta{font-family:var(--mono);font-size:11.5px;color:var(--mail-slate)}
+  .kind{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.1em;color:var(--mail-slate);border:1px solid var(--mail-line);padding:0 4px;margin-left:4px;vertical-align:1px}
+  .txt{white-space:pre-line;font-size:15px;line-height:1.55;color:var(--mail-body);margin:0}
+  .cut{color:var(--mail-slate)}
+  .card-link{font-family:var(--mono);font-size:12px;word-break:break-all}
+  .qp{border-left:2px solid var(--mail-line);padding:2px 0 2px 10px;font-size:13.5px;line-height:1.5;color:var(--mail-slate);margin:0}
+  .qp b{color:var(--mail-body);font-weight:600}
+  .likes{font-family:var(--mono);font-size:11.5px;color:var(--mail-slate);white-space:nowrap}
+  .likes b{color:var(--mail-link);font-weight:700}
+
+  /* V1 - a card per post */
+  .v1{display:grid;gap:12px}
+  .v1 .post{background:var(--mail-card);border:1px solid var(--mail-line);border-radius:10px;padding:14px 16px;display:grid;gap:9px}
+  .v1 .foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--mail-line);padding-top:8px}
+
+  /* V2 - top two side by side, then rows. No media query: Beehiiv strips <style>. */
+  .v2 .pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:6px}
+  .v2 .post{background:var(--mail-card);border:1px solid var(--mail-line);border-radius:10px;padding:12px 13px;display:grid;gap:8px;align-content:start;min-width:0}
+  .v2 .post .txt{font-size:14px}
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--mail-line)}
+  .row:last-child{border-bottom:none}
+  .row .rtxt{flex:1;font-size:15px;line-height:1.5;color:var(--mail-body);min-width:0}
+  .row .rtxt b{color:var(--mail-ink);font-weight:600}
+  .sheet.phone .row{flex-wrap:wrap}
+  .sheet.phone .row .likes{margin-left:0}
+
+  /* V3 - ticker rows, same as Products / GitHub / HN */
+  .v3 .rtxt a.q{color:var(--mail-body)}
+
+  /* V4 - quote column: the post's own words lead, attribution follows */
+  .v4 ol{list-style:none;margin:0;padding:0}
+  .v4 li{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;padding:14px 0;border-bottom:1px solid var(--mail-line)}
+  .v4 li:first-child{padding-top:4px}
+  .v4 li:last-child{border-bottom:none;padding-bottom:0}
+  .v4 .n{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--mail-slate);padding-top:4px}
+  .v4 .body{display:grid;gap:8px;min-width:0}
+  .v4 .txt{font-family:var(--mail-display);font-weight:500;font-size:17px;line-height:1.45;color:var(--mail-ink);letter-spacing:-.005em}
+  .v4 .by{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+
+  /* ── close ── */
+  .close{border-top:1px solid var(--hair);padding-top:22px;display:grid;gap:12px;max-width:66ch;font-size:14.5px;line-height:1.6;color:var(--muted)}
+  .close b{color:var(--ink);font-weight:600}
+  .close ol,.close ul{margin:0;padding-left:20px;display:grid;gap:9px}
+  @media (max-width:480px){ .mail{padding:18px 14px} .decision{padding:18px} }
+</style>
+
+<div class="sheet" id="sheet">
+  <header class="masthead">
+    <div class="eyebrow"><b>aiBytes_</b> &middot; loudest on x &middot; proof sheet &middot; 2026-09-26</div>
+    <h1>Four frames for Loudest on X</h1>
+    <p class="lede">The same <b>five posts from this week's shortlist</b> in four layouts. The words are the authors' own, never rewritten. What changes is how much of each post shows, what frames it, and how it holds up on a phone. Official Announcements gets its own sheet next; this one is only the practical posts.</p>
+  </header>
+
+  <nav class="toc" aria-label="Contents">
+    <h2>Contents</h2>
+    <ul>
+      <li><span class="lbl">-</span><a href="#decision">The pick, locked</a></li>
+      <li><span class="lbl">-</span><a href="#axes">What separates them</a></li>
+      <li><span class="lbl">V1</span><a href="#v1">Post cards</a></li>
+      <li><span class="lbl">V2</span><a href="#v2">Top two, then rows</a></li>
+      <li><span class="lbl">V3</span><a href="#v3">Ticker rows</a><span class="mark">selected</span></li>
+      <li><span class="lbl">V4</span><a href="#v4">Quote column</a></li>
+      <li><span class="lbl">-</span><a href="#notes">Three smaller calls</a></li>
+    </ul>
+  </nav>
+
+  <div class="widths" role="group" aria-label="Specimen width">
+    <span>Specimen width</span>
+    <button type="button" id="w-desk" aria-pressed="true">Desktop 640px</button>
+    <button type="button" id="w-phone" aria-pressed="false">Phone 375px</button>
+  </div>
+
+  <section class="decision" id="decision">
+    <div class="head">
+      <span class="tag sel">SELECTED</span>
+      <h2>V3 - Ticker rows, with a heart for likes</h2>
+    </div>
+    <p><b>Why this one.</b> It matches Products, GitHub and HN, so the section looks native on day one and stays the shortest block in the issue. Each row is the author's name and the post's first line, verbatim, linked to the post on X.</p>
+    <p><b>Amended on selection: a heart, not the word "likes".</b> The stat column reads <b>♥︎ 13.3k</b>, in the same slot and style as Products' <b>▲ 776</b>. The heart is written as U+2665 plus the text selector U+FE0E, so iOS Mail draws it in the text colour instead of swapping in a red emoji.</p>
+    <p><b>Amended: about two lines per post, ending in a grey …</b> A row shows the post from its start, with each line break shown as a grey <b>/</b>, up to 140 characters of the post: about two lines in the 640px column. If the post is longer, it stops at the last word break inside that and ends with a grey <b>…</b>, so it is clear there is more on X. Nothing is reworded. The count is a character budget rather than a CSS line clamp, because Gmail ignores line clamps and Beehiiv snippets carry inline styles only; on a phone the same text runs to three or four lines.</p>
+    <dl class="ledger">
+      <div><dt>Locked</dt><dd>2026-09-26</dd></div>
+      <div><dt>Placement</dt><dd>0x02, after Official Announcements</dd></div>
+      <div><dt>Posts</dt><dd>5 practical, week 39</dd></div>
+      <div><dt>Subtitle</dt><dd>Locked 2026-09-26</dd></div>
+      <div><dt>Ships in</dt><dd>Next issue (pilot)</dd></div>
+      <div><dt>Built as</dt><dd>Beehiiv HTML snippet</dd></div>
+    </dl>
+  </section>
+
+  <section class="axes" id="axes">
+    <h2>What separates them</h2>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>&nbsp;</th><th>V1 Post cards</th><th>V2 Top two + rows</th><th>V3 Ticker rows</th><th>V4 Quote column</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>Text shown</b></td><td>Whole post (or cut)</td><td>Whole for 2, first line for 3</td><td>First line</td><td>Whole post (or cut)</td></tr>
+          <tr><td><b>Frame</b></td><td>White card each</td><td>2 cards, then hairlines</td><td>Hairlines, like other sections</td><td>Hairlines, numbered</td></tr>
+          <tr><td><b>Quote posts</b></td><td>Nested excerpt</td><td>Nested (top 2) / "quoting"</td><td>"quoting @…"</td><td>Nested excerpt</td></tr>
+          <tr><td><b>At 375px</b></td><td>Fine</td><td><b>Cards squeeze to ~150px</b></td><td>Fine</td><td>Fine</td></tr>
+          <tr><td><b>Length, this week</b></td><td>Longest</td><td>Medium</td><td>Shortest</td><td>Long</td></tr>
+          <tr><td><b>New tokens</b></td><td>0</td><td>0</td><td>0</td><td>0 (display face, weight 500)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══ V1 ═══ -->
+  <article class="spec" id="v1">
+    <div class="strip">
+      <div class="head"><span class="tag">V1</span><h2 class="name">Post cards</h2></div>
+      <dl class="ledger">
+        <div><dt>Frame</dt><dd>White card per post</dd></div>
+        <div><dt>Text</dt><dd>Verbatim, long-post cut</dd></div>
+        <div><dt>Stat</dt><dd>Likes, bottom right</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <div class="sec-head"><span class="sec-hex">0x02</span><h3 class="sec-title">Loudest on X</h3><div class="sec-rule"></div></div>
+      <p class="sec-sub">The AI posts that drew the biggest reaction this week.</p>
+      <div class="v1">
+        <div class="post">
+          <div class="who"><b>Ryan Sael</b> <span class="meta">@RyanSael · Sep 23</span><span class="kind">VIDEO</span></div>
+          <p class="txt">I asked Opus 5.5 to explain camera focus by building an interactive lens lab
+
+Here's what it came up with after 1 hour 26 minutes in one shot, $25.66 API cost
+<a class="card-link" href="https://lens.lab.sael.net">https://lens.lab.sael.net</a>
+
+Move the focus ring and you can see the glass elements shift the sharp plane through the scene</p>
+          <div class="foot"><a class="meta" href="https://x.com/RyanSael/status/2102591147927654847">View on X →</a><span class="likes"><b>13.3k</b> likes</span></div>
+        </div>
+        <div class="post">
+          <div class="who"><b>zero</b> <span class="meta">@twoclipping · Sep 24</span><span class="kind">VIDEO</span></div>
+          <p class="txt">opus 5.5 is f*cking cracked at motion design
+
+this entire video is code, 0 after effects
+
+im open sourcing the prompt template for these motion designs
+
+steal it to recreate these ↓ <span class="cut">…</span></p>
+          <div class="foot"><a class="meta" href="https://x.com/twoclipping/status/2103273003555402193">Full prompt template on X →</a><span class="likes"><b>10.1k</b> likes</span></div>
+        </div>
+        <div class="post">
+          <div class="who"><b>Cursor</b> <span class="meta">@cursor_ai · Sep 23</span><span class="kind">IMAGE</span></div>
+          <p class="txt">We've reduced token costs in Cursor by 7% with no drop in agent quality.
+
+Savings came from tighter prompts, selective tool loading, better caching, and compressed file reads.</p>
+          <div class="foot"><a class="meta" href="https://x.com/cursor_ai/status/2102786814633464159">View on X →</a><span class="likes"><b>4.6k</b> likes</span></div>
+        </div>
+        <div class="post">
+          <div class="who"><b>ClaudeDevs</b> <span class="meta">@ClaudeDevs · Sep 25</span></div>
+          <p class="txt">Opus 5.5 is 20% cheaper per input and output token than Opus 5, and 60% cheaper on cache reads. So what does that actually do to the cost of a task in Claude Code?
+
+We ran the numbers, and built a calculator so you can run yours from /usage:
+<a class="card-link" href="https://claude.dev/blog/what-a-task-costs-on-opus-5-5/">claude.dev/blog/what-a-task-costs-on-opus-5-5</a></p>
+          <div class="foot"><a class="meta" href="https://x.com/ClaudeDevs/status/2103548467729887677">View on X →</a><span class="likes"><b>4.5k</b> likes</span></div>
+        </div>
+        <div class="post">
+          <div class="who"><b>Simon Willison</b> <span class="meta">@simonw · Sep 24</span><span class="kind">QUOTE</span></div>
+          <p class="txt">The more time I spend working with coding agents, the more convinced I am that they make software engineering even harder
+
+We can do amazing things with them, but unlocking their full potential requires extraordinary discipline and knowledge</p>
+          <p class="qp"><b>@GergelyOrosz</b> Bury your head in the ground at your own risk. …</p>
+          <div class="foot"><a class="meta" href="https://x.com/simonw/status/2103288927805476900">View on X →</a><span class="likes"><b>3.9k</b> likes</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="why"><b>Each post gets to be itself.</b> Name, handle, date and a media chip on top, the post in the middle, the link and likes at the foot. It's the tallest of the four, roughly the height of AI News this week, and that's the cost. In email it's one table cell per card stacked down the page, so it can't break on a phone.</p>
+  </article>
+
+  <!-- ═══ V2 ═══ -->
+  <article class="spec" id="v2">
+    <div class="strip">
+      <div class="head"><span class="tag">V2</span><h2 class="name">Top two, then rows</h2></div>
+      <dl class="ledger">
+        <div><dt>Frame</dt><dd>2-up cards + ticker rows</dd></div>
+        <div><dt>Text</dt><dd>Whole ×2, first line ×3</dd></div>
+        <div><dt>Stat</dt><dd>Likes</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <div class="sec-head"><span class="sec-hex">0x02</span><h3 class="sec-title">Loudest on X</h3><div class="sec-rule"></div></div>
+      <p class="sec-sub">The AI posts that drew the biggest reaction this week.</p>
+      <div class="v2">
+        <div class="pair">
+          <div class="post">
+            <div class="who"><b>Ryan Sael</b><br><span class="meta">@RyanSael · Sep 23</span></div>
+            <p class="txt">I asked Opus 5.5 to explain camera focus by building an interactive lens lab
+
+Here's what it came up with after 1 hour 26 minutes in one shot, $25.66 API cost
+<a class="card-link" href="https://lens.lab.sael.net">https://lens.lab.sael.net</a>
+
+Move the focus ring and you can see the glass elements shift the sharp plane through the scene</p>
+            <span class="likes"><a href="https://x.com/RyanSael/status/2102591147927654847">View on X</a> · <b>13.3k</b></span>
+          </div>
+          <div class="post">
+            <div class="who"><b>zero</b><br><span class="meta">@twoclipping · Sep 24</span></div>
+            <p class="txt">opus 5.5 is f*cking cracked at motion design
+
+this entire video is code, 0 after effects
+
+im open sourcing the prompt template for these motion designs
+
+steal it to recreate these ↓ <span class="cut">…</span></p>
+            <span class="likes"><a href="https://x.com/twoclipping/status/2103273003555402193">Full post</a> · <b>10.1k</b></span>
+          </div>
+        </div>
+        <div class="row"><span class="rtxt"><b><a href="https://x.com/cursor_ai/status/2102786814633464159">Cursor</a></b> We've reduced token costs in Cursor by 7% with no drop in agent quality.</span><span class="likes"><b>4.6k</b> likes</span></div>
+        <div class="row"><span class="rtxt"><b><a href="https://x.com/ClaudeDevs/status/2103548467729887677">ClaudeDevs</a></b> Opus 5.5 is 20% cheaper per input and output token than Opus 5, and 60% cheaper on cache reads. …</span><span class="likes"><b>4.5k</b> likes</span></div>
+        <div class="row"><span class="rtxt"><b><a href="https://x.com/simonw/status/2103288927805476900">Simon Willison</a></b> The more time I spend working with coding agents, the more convinced I am that they make software engineering even harder</span><span class="likes"><b>3.9k</b> likes</span></div>
+      </div>
+    </div>
+    <p class="why"><b>The ticket's original idea, and it breaks on a phone.</b> Beehiiv snippets can't carry a <code>&lt;style&gt;</code> block, so there's no media query to stack the pair. Switch the specimen to 375px: each card drops to about 150px and the lens-lab post runs twenty lines. It also splits the week into two classes of post, while #3 and #4 lose everything after their first sentence.</p>
+  </article>
+
+  <!-- ═══ V3 ═══ -->
+  <article class="spec picked" id="v3">
+    <div class="strip">
+      <div class="head"><span class="tag">V3</span><h2 class="name">Ticker rows</h2><span class="badge">Selected</span></div>
+      <dl class="ledger">
+        <div><dt>Frame</dt><dd>Same as Products / GitHub / HN</dd></div>
+        <div><dt>Text</dt><dd>~2 lines verbatim, then …</dd></div>
+        <div><dt>Stat</dt><dd>♥︎ likes, right column</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <div class="sec-head"><span class="sec-hex">0x02</span><h3 class="sec-title">Loudest on X</h3><div class="sec-rule"></div></div>
+      <p class="sec-sub">The AI posts that drew the biggest reaction this week.</p>
+      <div class="v3">
+        <div class="row"><span class="rtxt"><b>Ryan Sael</b> <a class="q" href="https://x.com/RyanSael/status/2102591147927654847">I asked Opus 5.5 to explain camera focus by building an interactive lens lab <span class="cut">/</span> Here&#x27;s what it came up with after 1 hour 26 minutes in one</a> <span class="cut">…</span></span><span class="likes"><b>♥︎ 13.3k</b></span></div>
+        <div class="row"><span class="rtxt"><b>Deedy</b> <a class="q" href="https://x.com/deedydas/status/2103141339651350646">You can now generate an entire 3blue1brown style video from any research paper with Opus 5.5. <span class="cut">/</span> Here’s a 8min video summary of “Regularized</a> <span class="cut">…</span></span><span class="likes"><b>♥︎ 5.4k</b></span></div>
+        <div class="row"><span class="rtxt"><b>Cursor</b> <a class="q" href="https://x.com/cursor_ai/status/2102786814633464159">We&#x27;ve reduced token costs in Cursor by 7% with no drop in agent quality. <span class="cut">/</span> Savings came from tighter prompts, selective tool loading, better</a> <span class="cut">…</span></span><span class="likes"><b>♥︎ 4.6k</b></span></div>
+        <div class="row"><span class="rtxt"><b>ClaudeDevs</b> <a class="q" href="https://x.com/ClaudeDevs/status/2103548467729887677">Opus 5.5 is 20% cheaper per input and output token than Opus 5, and 60% cheaper on cache reads. So what does that actually do to the cost of</a> <span class="cut">…</span></span><span class="likes"><b>♥︎ 4.5k</b></span></div>
+        <div class="row"><span class="rtxt"><b>Simon Willison</b> <a class="q" href="https://x.com/simonw/status/2103288927805476900">The more time I spend working with coding agents, the more convinced I am that they make software engineering even harder <span class="cut">/</span> We can do amazing</a> <span class="cut">…</span></span><span class="likes"><b>♥︎ 3.9k</b></span></div>
+      </div>
+    </div>
+    <p class="why"><b>Native on day one, and the posts lose their point.</b> It is the shortest option and matches every other section below the news card. But a first line is a headline, not a post: #2 becomes a swear word with no template, and the lens lab loses its $25.66 and its link. The reader has to click out for the practical part, which is what the section exists to deliver.</p>
+  </article>
+
+  <!-- ═══ V4 ═══ -->
+  <article class="spec" id="v4">
+    <div class="strip">
+      <div class="head"><span class="tag">V4</span><h2 class="name">Quote column</h2></div>
+      <dl class="ledger">
+        <div><dt>Frame</dt><dd>Numbered, hairlines</dd></div>
+        <div><dt>Text</dt><dd>Verbatim in display face</dd></div>
+        <div><dt>Stat</dt><dd>Likes, under the post</dd></div>
+      </dl>
+    </div>
+    <div class="mail">
+      <div class="sec-head"><span class="sec-hex">0x02</span><h3 class="sec-title">Loudest on X</h3><div class="sec-rule"></div></div>
+      <p class="sec-sub">The AI posts that drew the biggest reaction this week.</p>
+      <div class="v4">
+        <ol>
+          <li><span class="n">01</span><div class="body">
+            <p class="txt">I asked Opus 5.5 to explain camera focus by building an interactive lens lab
+
+Here's what it came up with after 1 hour 26 minutes in one shot, $25.66 API cost
+<a class="card-link" href="https://lens.lab.sael.net">https://lens.lab.sael.net</a>
+
+Move the focus ring and you can see the glass elements shift the sharp plane through the scene</p>
+            <div class="by"><span class="who"><b>Ryan Sael</b> <span class="meta">@RyanSael · <a href="https://x.com/RyanSael/status/2102591147927654847">View on X</a></span></span><span class="likes"><b>13.3k</b> likes</span></div>
+          </div></li>
+          <li><span class="n">02</span><div class="body">
+            <p class="txt">opus 5.5 is f*cking cracked at motion design
+
+this entire video is code, 0 after effects
+
+im open sourcing the prompt template for these motion designs
+
+steal it to recreate these ↓ <span class="cut">…</span></p>
+            <div class="by"><span class="who"><b>zero</b> <span class="meta">@twoclipping · <a href="https://x.com/twoclipping/status/2103273003555402193">Full template on X</a></span></span><span class="likes"><b>10.1k</b> likes</span></div>
+          </div></li>
+          <li><span class="n">03</span><div class="body">
+            <p class="txt">We've reduced token costs in Cursor by 7% with no drop in agent quality.
+
+Savings came from tighter prompts, selective tool loading, better caching, and compressed file reads.</p>
+            <div class="by"><span class="who"><b>Cursor</b> <span class="meta">@cursor_ai · <a href="https://x.com/cursor_ai/status/2102786814633464159">View on X</a></span></span><span class="likes"><b>4.6k</b> likes</span></div>
+          </div></li>
+          <li><span class="n">04</span><div class="body">
+            <p class="txt">Opus 5.5 is 20% cheaper per input and output token than Opus 5, and 60% cheaper on cache reads. So what does that actually do to the cost of a task in Claude Code?
+
+We ran the numbers, and built a calculator so you can run yours from /usage:
+<a class="card-link" href="https://claude.dev/blog/what-a-task-costs-on-opus-5-5/">claude.dev/blog/what-a-task-costs-on-opus-5-5</a></p>
+            <div class="by"><span class="who"><b>ClaudeDevs</b> <span class="meta">@ClaudeDevs · <a href="https://x.com/ClaudeDevs/status/2103548467729887677">View on X</a></span></span><span class="likes"><b>4.5k</b> likes</span></div>
+          </div></li>
+          <li><span class="n">05</span><div class="body">
+            <p class="txt">The more time I spend working with coding agents, the more convinced I am that they make software engineering even harder
+
+We can do amazing things with them, but unlocking their full potential requires extraordinary discipline and knowledge</p>
+            <p class="qp"><b>@GergelyOrosz</b> Bury your head in the ground at your own risk. …</p>
+            <div class="by"><span class="who"><b>Simon Willison</b> <span class="meta">@simonw · <a href="https://x.com/simonw/status/2103288927805476900">View on X</a></span></span><span class="likes"><b>3.9k</b> likes</span></div>
+          </div></li>
+        </ol>
+      </div>
+    </div>
+    <p class="why"><b>The most editorial, and the loudest type in the issue.</b> Setting the posts in the display face makes them read as quotations, which suits a section built on people's own words. Two costs: 17px display type across five posts outweighs the news card above it, and lowercase, casually typed posts like #2 look odd set that large. The numerals also imply a ranking, which here is by likes, not by my judgement.</p>
+  </article>
+
+  <section class="close" id="notes">
+    <h2>Three smaller calls</h2>
+    <ol>
+      <li><b>Where it sits: decided.</b> After the AI News card and the Official Announcements card, before Products. Both cards are unnumbered (see the Official Announcements sheet), so Loudest on X is <code>0x02</code> and Products, GitHub and HN move to <code>0x03</code>&ndash;<code>0x05</code>.</li>
+      <li><b>The #2 post is out: decided.</b> zero's motion-design post opened with "f*cking", so it left the shortlist and Deedy's research-paper-to-video post (5.4k likes) took its place, after Elon Musk's post (promoting his own company's Grok 4.7 harness) and donaldjewkes's (its "full prompt:" had no prompt) were skipped. Standing rule from here: no posts with profanity, starred out or not, in the Grok prompt and the shortlisting rules. The other specimens still show the original five.</li>
+      <li><b>Likes as the only stat.</b> The specimens show likes rounded to one decimal of a thousand. Grok's like counts ran up to 12% below what X showed, and its repost counts were further off, so reposts and views stay out. Rounding also hides a count going stale between Friday's fetch and Monday's send.</li>
+    </ol>
+    <p><b>Why not X's own embed?</b> X embeds need X's script, and Beehiiv snippets can't run scripts. An embed added in Beehiiv's editor would sit outside our HTML snippet and look like X rather than aiBytes_.</p>
+  </section>
+</div>
+
+<script>
+  (function(){
+    var sheet=document.getElementById('sheet');
+    var desk=document.getElementById('w-desk'), phone=document.getElementById('w-phone');
+    function set(isPhone){
+      sheet.classList.toggle('phone',isPhone);
+      desk.setAttribute('aria-pressed',String(!isPhone));
+      phone.setAttribute('aria-pressed',String(isPhone));
+    }
+    desk.addEventListener('click',function(){set(false)});
+    phone.addEventListener('click',function(){set(true)});
+  })();
+</script>

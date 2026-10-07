@@ -11,7 +11,6 @@
   :root{
     --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
     --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
-    --butter:#FFF6D9; --butter-line:#F0E2AE; --amber:#8A6A00;
     --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -26,13 +25,6 @@
   .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
   .logo em{font-style:normal;color:var(--cobalt)}
 
-  /* ── Closing block: the signature. Butter panel, notch, idea text at 500 ── */
-  .tldr{background:var(--butter);border:1px solid var(--butter-line);color:var(--ink);
-        padding:20px 22px;margin-top:18px;
-        clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%)}
-  .tldr .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--amber)}
-  .tldr p{font-family:var(--display);font-weight:500;font-size:17px;line-height:1.55;margin-top:8px;color:var(--ink)}
-  .tldr b{background:var(--signal);padding:0 4px;color:var(--ink);font-weight:700}
 
   section{margin-top:34px}
   .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
@@ -53,13 +45,16 @@
   .picks{background:var(--card);border:1px solid var(--ink);border-left:5px solid var(--signal);padding:18px 20px;margin-bottom:18px}
   .picks .card-title{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
   .picks ol{list-style:none;margin:0;padding:0}
-  .picks li{display:flex;gap:11px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--line)}
+  .picks li{display:grid;grid-template-columns:auto 1fr;gap:3px 11px;padding:8px 0;border-bottom:1px solid var(--line)}
   .picks li:last-child{border-bottom:none;padding-bottom:0}
-  .picks .n{font-family:var(--mono);font-size:11px;font-weight:700;background:var(--signal);color:var(--ink);padding:1px 5px;flex-shrink:0}
+  .picks .n{grid-column:1;grid-row:1;align-self:start;margin-top:2px;font-family:var(--mono);font-size:11px;font-weight:700;background:var(--signal);color:var(--ink);padding:1px 5px}
+  .picks .line{grid-column:2;grid-row:1;display:flex;gap:12px;align-items:baseline}
   .picks .t{flex:1}
   .picks .t a{color:var(--ink);text-decoration:none;font-weight:600}
   .picks .t a:hover{color:var(--cobalt)}
-  .picks .from{font-family:var(--mono);font-size:11px;color:var(--slate);white-space:nowrap}
+  .picks .from{font-family:var(--mono);font-size:11px;color:var(--slate);white-space:nowrap;flex-shrink:0}
+  /* Description hangs under the title, clear of the numeral. One to two lines. */
+  .picks .d{grid-column:2;grid-row:2;font-size:13.5px;line-height:1.5;color:var(--slate)}
 
   /* ── News card ── */
   .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
@@ -74,6 +69,23 @@
   .quote{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px 18px;margin-top:18px}
   .quote p{font-size:15px;color:#3A3E4A}
 
+  /* ── Official Announcements: the companies' own posts on X, whole and verbatim ──
+       Ink card, sibling of the AI News card. Each entry is a byline, the post in a
+       paper inset (the same treatment as the AI News quote, so the words read as
+       theirs), and a mono footer with the post and the official page. ── */
+  .oa-card{border:1.5px solid var(--ink);border-radius:14px;padding:20px 22px;background:var(--card);margin-top:18px}
+  .oa-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.02em}
+  .oa-card .card-sub{font-size:13.5px;color:var(--slate);margin:2px 0 6px}
+  .oa-item{padding:14px 0;border-bottom:1px solid var(--line)}
+  .oa-item:last-child{border-bottom:none;padding-bottom:0}
+  .oa-by{font-size:14.5px;margin-bottom:8px}
+  .oa-by b{color:var(--ink)}
+  .oa-by span{font-family:var(--mono);font-size:11px;color:var(--slate)}
+  .oa-post{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px 4px;margin-bottom:8px}
+  .oa-post p{font-size:15px;line-height:1.55;color:#3A3E4A;margin-bottom:8px}
+  .oa-links{font-family:var(--mono);font-size:11.5px;color:var(--slate)}
+  .oa-links .dot{color:var(--line)}
+
   /* ── Ticker rows ── */
   .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
   .row:last-child{border-bottom:none}
@@ -83,6 +95,12 @@
   .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
   .stat b{color:var(--cobalt);font-weight:700}
   .hot{background:var(--signal);padding:0 4px;font-weight:600}
+  /* Viral on X rows: emoji, the author's @handle in cobalt (linked to the profile),
+       then the post's own words in body grey. */
+  .sec-sub{font-size:14px;color:var(--slate);margin:-4px 0 6px}
+  .row .txt a.post{color:#3A3E4A}
+  .row .txt a.post:hover{color:var(--cobalt)}
+  .cut{color:var(--slate)}
 
   footer{margin-top:48px;border-top:3px solid var(--ink);padding-top:20px;text-align:center}
   footer p{color:var(--slate);font-size:13.5px}
@@ -101,30 +119,32 @@
   <section>
     <!-- Intro: the publisher greeting the reader, then four beats. Never quote a
          comment/upvote/star count anywhere in here - say what the number meant.
-         1. GREETING - fixed line, "Good morning, builders 👋". "builders" is the
+         1. GREETING - fixed line, "Hello, builders 👋". "builders" is the
             standing name for the audience; do not swap it issue to issue.
-         2. WELCOME + HOOK - the standing "dose of aiBytes_" line ({{WEEKDAY}} is
-            Monday; the newsletter always sends Monday morning), then a first-person
+         2. WELCOME + HOOK - the standing "Welcome back to your weekly dose of AI Bytes."
+            line, then a first-person
             hook: what surprised you while putting the issue together, in your own
             voice. One light emoji is fine.
          3. STORYLINE - the thread connecting the week's items; <b> lead + one inline link.
-         4. TODAY - a menu of what's below, so a skimmer knows what they're scrolling
+         4. THIS WEEK - a menu of what's below, so a skimmer knows what they're scrolling
             into. This replaces the old "Let's dive in." sign-off; do not add one. -->
     <div class="intro">
-      <p class="greet">Good morning, builders 👋</p>
-      <p>Welcome back to your {{WEEKDAY}}-morning dose of aiBytes_. {{INTRO_HOOK}}</p>
+      <p class="greet">Hello, builders 👋</p>
+      <p>Welcome back to your weekly dose of AI Bytes. {{INTRO_HOOK}}</p>
       <p><b>{{INTRO_STORYLINE_LEAD}}</b>: {{INTRO_STORYLINE}}</p>
-      <p><b>Today:</b> {{INTRO_TODAY}}</p>
+      <p><b>This week:</b> {{INTRO_TODAY}}</p>
     </div>
 
     <!-- My Favourite Picks: the publisher's own shortlist, pulled from anywhere in
-         the issue. SINGLE LINES ONLY - no context sentence, no stat, no source label.
-         The name renders INK with no underline (the signal numeral is the marker, and
+         the issue. TWO LINES PER PICK - a title line and a description; no stat, no
+         source label. The name renders INK with no underline (the signal numeral is the marker, and
          cobalt stays with the sections that report); the trailing .from chip names the
-         section the pick came from in one word: News, Launches, GitHub or HN. Numerals
+         section the pick came from in one word: News, Products, GitHub or HN. The .d line
+         hangs under the title: a NEUTRAL SUMMARY of one to two lines (~155 chars max) -
+         what the item is, not why it was picked. No stat, no source label. Numerals
          imply a ranking, so 01 is the top pick. Omit the whole block if there are no
          picks for the week. Pattern:
-    <li><span class="n">01</span><span class="t"><a href="URL">Pick title</a></span><span class="from">News</span></li>
+    <li><span class="n">01</span><span class="line"><span class="t"><a href="URL">Pick title</a></span><span class="from">News</span></span><span class="d">One or two lines saying what it is.</span></li>
     -->
     <div class="picks">
       <div class="card-title">My Favourite Picks</div>
@@ -134,7 +154,7 @@
     </div>
 
     <div class="news-card">
-      <div class="card-title">🌍 NEWS FOR DEVS</div>
+      <div class="card-title">🌍 AI NEWS</div>
 
       <!-- Repeat per news item. Mark the top story with the .hot badge. Pattern:
       <p class="news-item">🔥 <b><a href="URL">Headline</a></b> one-line context <span class="hot">Story of the week</span> <span class="src">(Source)</span></p>
@@ -146,10 +166,51 @@
         <p>"{{QUOTE_TEXT}}"</p>
       </div>
     </div>
+
+    <!-- Official Announcements: the shortlisted `announcement` posts from the week's
+         x/x_data.json, 3 to 5, in the shortlist's order. Omit the whole card when the
+         file is missing or has no shortlist. A story shown here is left out of AI News.
+         Every word inside .oa-post is the company's, exactly as posted: split the text
+         into <p>s at blank lines, turn single line breaks into <br>, and change nothing
+         else - no headline, no trimming, no fixes. Only past 600 characters, cut at the
+         author's last paragraph break before 400 and end with <span class="cut">…</span>.
+         Byline: the company in bold (all of a company's accounts are one company), then
+         the posting account and weekday + date. Footer: the post on X, then link_url's
+         domain when the post has one. Pattern:
+    <div class="oa-item">
+      <div class="oa-by"><b>Anthropic</b> <span>@claudeai · TUE 22</span></div>
+      <div class="oa-post"><p>First paragraph, verbatim.</p><p>Second paragraph.</p></div>
+      <div class="oa-links"><a href="POST_URL">Post on X ↗</a> <span class="dot">·</span> <a href="LINK_URL">anthropic.com ↗</a></div>
+    </div>
+    -->
+    <div class="oa-card">
+      <div class="card-title">📣 OFFICIAL ANNOUNCEMENTS</div>
+      <p class="card-sub">This week's launches, in the companies' own words.</p>
+{{ANNOUNCEMENT_ITEMS}}
+    </div>
+  </section>
+
+  <!-- Section numbers run in order over the sections present: when there is no X
+       data, Viral on X is left out and Products becomes 0x02, and so on. -->
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Viral on X</h2><div class="sec-rule"></div></div>
+    <p class="sec-sub">The AI posts that drew the biggest reaction this week.</p>
+    <!-- The 5 shortlisted `insight` posts from x/x_data.json, in the shortlist's order.
+         Omit the section when there is no shortlist. The post's emoji in the .ico
+         column, the author's @handle in bold cobalt linked to their profile, then
+         the post's opening words, verbatim, linked to the post: take the text from its
+         start, show each line break as <span class="cut">/</span>, and stop at 140
+         characters (about two lines). If the post runs longer, cut at the last word
+         break inside that and end with <span class="cut">…</span>. Never reword. The
+         stat is likes as ♥︎ (U+2665 + U+FE0E, so iOS keeps it text) + one decimal of
+         thousands. Pattern:
+    <div class="row"><span class="ico">🔬</span><span class="txt"><b><a href="https://x.com/handle">@handle</a></b> <a class="post" href="POST_URL">Opening words <span class="cut">/</span> of the post</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 13.3k</b></span></div>
+    -->
+    {{X_ROWS}}
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Launches</h2><div class="sec-rule"></div></div>
+    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">New AI Products</h2><div class="sec-rule"></div></div>
     <!-- Repeat per launch. The name links to the product's OWN website; the trailing
     (ProductHunt) links to the launch page. Plain URLs, no tracking params. Pattern:
     <div class="row"><span class="ico">🎬</span><span class="txt"><b><a href="SITE_URL">Name</a></b> - one-line description. <span class="src">(<a href="PH_LAUNCH_URL">ProductHunt</a>)</span></span><span class="stat"><b>▲ 776</b></span></div>
@@ -158,7 +219,7 @@
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">Trending on GitHub</h2><div class="sec-rule"></div></div>
+    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">Trending Github Projects</h2><div class="sec-rule"></div></div>
     <!-- Repeat per repo. Pattern:
     <div class="row"><span class="ico">📎</span><span class="txt"><b><a href="URL">repo-name</a></b> - one-line description.</span><span class="stat"><b>+6.4k</b> ★</span></div>
     -->
@@ -166,19 +227,13 @@
   </section>
 
   <section>
-    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">HN Deep Cuts</h2><div class="sec-rule"></div></div>
+    <div class="sec-head"><span class="sec-hex">0x05</span><h2 class="sec-title">HN Deep Stories</h2><div class="sec-rule"></div></div>
     <!-- Repeat per post. The title links to the ARTICLE; the trailing (HackerNews)
     links to the thread. Pattern:
     <div class="row"><span class="ico">📊</span><span class="txt"><b><a href="ARTICLE_URL">Post title</a></b> optional context. <span class="src">(<a href="HN_THREAD_URL">HackerNews</a>)</span></span><span class="stat"><b>699</b> pts</span></div>
     Add "· N 💬" to the stat when the comment count is itself the story. -->
     {{HN_ROWS}}
   </section>
-
-  <div class="tldr" style="margin-top:44px">
-    <div class="kicker">ONE IDEA TO CARRY NEXT WEEK</div>
-    <!-- One forward-looking thought drawn from the week's themes; <b> the pivotal word. -->
-    <p>{{CLOSING_IDEA}}</p>
-  </div>
 
   <footer>
     <p>Made for builders who ship with AI. See you next week. ✌️</p>

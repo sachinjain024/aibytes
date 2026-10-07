@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📋 Claude reads AGENTS.md and Mistral joins Firefox</title>
+<meta name="description" content="Plus Voiskey dictation, WeKnora’s document wiki, and Bend’s proof-checked code.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
+    --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--cobalt);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px 56px}
+
+  header{padding:36px 0 0}
+  .issue-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--slate);display:flex;justify-content:space-between;margin-bottom:12px}
+  .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
+  .logo em{font-style:normal;color:var(--cobalt)}
+
+
+  section{margin-top:34px}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--paper);background:var(--ink);padding:2px 7px}
+  .sec-title{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+  .sec-rule{flex:1;height:2px;background:var(--ink)}
+
+  /* ── Intro block ── */
+  .intro{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 22px;margin-bottom:18px}
+  .intro p{font-size:15.5px;line-height:1.65;margin-bottom:14px;color:#3A3E4A}
+  .intro p:last-child{margin-bottom:0}
+  .intro .greet{color:var(--ink)}
+  .intro b{color:var(--ink);font-weight:700}
+
+  /* ── My Favourite Picks: the publisher's shortlist, drawn from any section ──
+       Ink border with a signal spine. The pick name is INK and undecorated - the
+       numeral is the marker, and cobalt is left to the sections that report. ── */
+  .picks{background:var(--card);border:1px solid var(--ink);border-left:5px solid var(--signal);padding:18px 20px;margin-bottom:18px}
+  .picks .card-title{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+  .picks ol{list-style:none;margin:0;padding:0}
+  .picks li{display:grid;grid-template-columns:auto 1fr;gap:3px 11px;padding:8px 0;border-bottom:1px solid var(--line)}
+  .picks li:last-child{border-bottom:none;padding-bottom:0}
+  .picks .n{grid-column:1;grid-row:1;align-self:start;margin-top:2px;font-family:var(--mono);font-size:11px;font-weight:700;background:var(--signal);color:var(--ink);padding:1px 5px}
+  .picks .line{grid-column:2;grid-row:1;display:flex;gap:12px;align-items:baseline}
+  .picks .t{flex:1}
+  .picks .t a{color:var(--ink);text-decoration:none;font-weight:600}
+  .picks .t a:hover{color:var(--cobalt)}
+  .picks .from{font-family:var(--mono);font-size:11px;color:var(--slate);white-space:nowrap;flex-shrink:0}
+  /* Description hangs under the title, clear of the numeral. One to two lines. */
+  .picks .d{grid-column:2;grid-row:2;font-size:13.5px;line-height:1.5;color:var(--slate)}
+
+  /* ── News card ── */
+  .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
+  .news-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;color:var(--cobalt);letter-spacing:.02em;margin-bottom:14px}
+  .news-item{font-size:15.5px;margin-bottom:14px;line-height:1.6}
+  .news-item:last-of-type{margin-bottom:0}
+  .news-item b a{font-weight:700}
+  .src{font-family:var(--mono);font-size:12px;color:var(--slate)}
+  /* Attribution links stay grey and quiet - the headline link is the loud one. */
+  .src a{color:var(--slate);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+  .src a:hover{color:var(--ink)}
+  .quote{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px 18px;margin-top:18px}
+  .quote p{font-size:15px;color:#3A3E4A}
+
+  /* ── Ticker rows ── */
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .ico{width:22px;text-align:center;flex-shrink:0}
+  .row .txt{flex:1}
+  .row .txt b{font-weight:600}
+  .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
+  .stat b{color:var(--cobalt);font-weight:700}
+  .hot{background:var(--signal);padding:0 4px;font-weight:600}
+
+  footer{margin-top:48px;border-top:3px solid var(--ink);padding-top:20px;text-align:center}
+  footer p{color:var(--slate);font-size:13.5px}
+  .foot-links{margin-top:10px;font-family:var(--mono);font-size:12.5px;display:flex;gap:20px;justify-content:center}
+  @media (max-width:480px){ .row{flex-wrap:wrap} .stat{margin-left:34px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="issue-tag"><span>ISSUE 0x0A · TL;DR</span><span>2026-09-21 · ~5 MIN</span></div>
+    <div class="logo">⚡ aiBytes<em>_</em> #10</div>
+  </header>
+
+  <section>
+
+    <div class="intro">
+      <p class="greet">Hello, builders 👋</p>
+      <p>Welcome back to your weekly dose of AI Bytes. I was relieved to see a small bit of agent housekeeping become news. Claude Code can now read AGENTS.md when a project has no CLAUDE.md: one fewer place for shared instructions to drift 📋</p>
+      <p><b>Today:</b> Claude Code is making project instructions more portable, Mistral is bringing its models to Firefox Smart Window, and Alibaba’s open-code-review combines fixed checks with an LLM agent. The useful question is what each system lets us inspect and control.</p>
+    </div>
+
+
+
+
+    <div class="picks">
+<div class="card-title">My Favourite Picks</div>
+<ol>
+<li><span class="n">01</span><span class="line"><span class="t"><a href="https://github.com/alibaba/open-code-review">Alibaba Open-Code-Review</a></span><span class="from">GitHub</span></span><span class="d">Combines deterministic checks with LLM code review and precise line-level comments.</span></li>
+<li><span class="n">02</span><span class="line"><span class="t"><a href="https://github.com/stablyai/orca">Orca</a></span><span class="from">GitHub</span></span><span class="d">Runs parallel coding agents across desktop, mobile and remote environments.</span></li>
+<li><span class="n">03</span><span class="line"><span class="t"><a href="https://john.hartnup.uk/2026/06/07/ai-event-posters.html">AI posters beyond the default look</a></span><span class="from">HN</span></span><span class="d">A visual experiment in steering AI-generated posters away from their default aesthetic.</span></li>
+<li><span class="n">04</span><span class="line"><span class="t"><a href="https://github.com/Panniantong/Agent-Reach">Agent-Reach</a></span><span class="from">GitHub</span></span><span class="d">A CLI for agents to read and search content across social and developer platforms.</span></li>
+</ol>
+</div>
+
+<div class="news-card">
+      <div class="card-title">🌍 AI NEWS</div>
+
+
+      <p class="news-item">📋 <b><a href="https://code.claude.com/docs/en/changelog">Claude Code reads AGENTS.md</a></b> - Falls back when CLAUDE.md is absent; not yet available on Bedrock, Vertex or Foundry. <span class="hot">Story of the week</span> <span class="src">(Anthropic)</span></p>
+<p class="news-item">🗂️ <b><a href="https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal/">Microsoft’s internal scraping alarm</a></b> - Court filings reveal private concerns about training data acquisition. <span class="src">(TechCrunch)</span></p>
+<p class="news-item">🦊 <b><a href="https://mistral.ai/news/mistral-x-mozilla/">Mistral comes to Firefox Smart Window</a></b> - The browsing assistant beta adds Mistral models, with zero data retention agreed by the provider. <span class="src">(Mistral)</span></p>
+<p class="news-item">⚖️ <b><a href="https://openai.com/index/astra-for-law/">OpenAI introduces Astra for Law</a></b> - A legal research setup with a dedicated search index starts with selected law firms; API access is coming later. <span class="src">(OpenAI)</span></p>
+<p class="news-item">📷 <b><a href="https://techcrunch.com/2026/09/14/openai-buys-smartphone-camera-maker-glass-imaging-for-300-million-report-says/">OpenAI reportedly buys Glass Imaging</a></b> - The reported $300 million deal brings in a camera startup founded by former Apple engineers. <span class="src">(TechCrunch)</span></p>
+<p class="news-item">✈️ <b><a href="https://techcrunch.com/2026/09/17/the-faas-plan-to-fix-air-traffic-875-million-worth-of-ai/">FAA plans $875 million AI program</a></b> - New software is intended to help air traffic controllers navigate their work. <span class="src">(TechCrunch)</span></p>
+
+
+      <div class="quote">
+        <p>"The more work we hand to agents, the more the instructions and checks matter."</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">New AI Products</h2><div class="sec-rule"></div></div>
+
+    <div class="row"><span class="ico">💳</span><span class="txt"><b><a href="https://www.creem.io/">CREEM 2.0</a></b> - Payments, tax handling, payouts and usage billing for software and digital products. <span class="src">(<a href="https://www.producthunt.com/products/creem">ProductHunt</a>)</span></span><span class="stat"><b>▲ 575</b> </span></div>
+<div class="row"><span class="ico">🔑</span><span class="txt"><b><a href="https://tiun.io/">tiun.</a></b> - Authentication, billing, payments and customer analytics in one system. <span class="src">(<a href="https://www.producthunt.com/products/tiun-2">ProductHunt</a>)</span></span><span class="stat"><b>▲ 572</b> </span></div>
+<div class="row"><span class="ico">📬</span><span class="txt"><b><a href="https://aisdr.com/ai-gtm-agent-ami">Ami AI</a></b> - Plans sales outreach from your website and targets, then runs approved campaigns. <span class="src">(<a href="https://www.producthunt.com/products/ami-ai">ProductHunt</a>)</span></span><span class="stat"><b>▲ 532</b> </span></div>
+<div class="row"><span class="ico">🎥</span><span class="txt"><b><a href="https://naoma.ai/">Naoma AI Demo Agent V2</a></b> - An AI demo agent that walks prospects through your product and logs sessions to your CRM. <span class="src">(<a href="https://www.producthunt.com/products/naoma">ProductHunt</a>)</span></span><span class="stat"><b>▲ 520</b> </span></div>
+<div class="row"><span class="ico">🎙️</span><span class="txt"><b><a href="https://www.voiskey.ai/">Voiskey</a></b> - Voice dictation that adjusts wording and tone for the app and audience. <span class="src">(<a href="https://www.producthunt.com/products/voiskey">ProductHunt</a>)</span></span><span class="stat"><b>▲ 519</b> </span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">Trending Github Projects</h2><div class="sec-rule"></div></div>
+
+    <div class="row"><span class="ico">🔎</span><span class="txt"><b><a href="https://github.com/alibaba/open-code-review">alibaba/open-code-review</a></b> - Combines deterministic checks with LLM review and line-level comments.</span><span class="stat"><b>+15,028</b> ★</span></div>
+<div class="row"><span class="ico">🧰</span><span class="txt"><b><a href="https://github.com/affaan-m/ECC">affaan-m/ECC</a></b> - Skills, memory and security tooling for several coding-agent environments.</span><span class="stat"><b>+6,265</b> ★</span></div>
+<div class="row"><span class="ico">📝</span><span class="txt"><b><a href="https://github.com/ayghri/i-have-adhd">ayghri/i-have-adhd</a></b> - A skill that puts the answer first and keeps coding-agent output easier to scan.</span><span class="stat"><b>+5,589</b> ★</span></div>
+<div class="row"><span class="ico">🐋</span><span class="txt"><b><a href="https://github.com/stablyai/orca">stablyai/orca</a></b> - Runs parallel coding agents across desktop, mobile and remote environments.</span><span class="stat"><b>+5,404</b> ★</span></div>
+<div class="row"><span class="ico">📚</span><span class="txt"><b><a href="https://github.com/Tencent/WeKnora">Tencent/WeKnora</a></b> - Turns documents into retrieval, a reasoning agent and a maintained wiki.</span><span class="stat"><b>+4,867</b> ★</span></div>
+<div class="row"><span class="ico">🌐</span><span class="txt"><b><a href="https://github.com/Panniantong/Agent-Reach">Panniantong/Agent-Reach</a></b> - A CLI for agents to read and search content across social and developer platforms.</span><span class="stat"><b>+3,914</b> ★</span></div>
+<div class="row"><span class="ico">🛠️</span><span class="txt"><b><a href="https://github.com/addyosmani/agent-skills">addyosmani/agent-skills</a></b> - Engineering skills intended for production work with coding agents.</span><span class="stat"><b>+3,445</b> ★</span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">HN Deep Stories</h2><div class="sec-rule"></div></div>
+
+    <div class="row"><span class="ico">🎨</span><span class="txt"><b><a href="https://john.hartnup.uk/2026/06/07/ai-event-posters.html">AI posters beyond the default look</a></b> - A visual experiment in escaping the default AI poster aesthetic; a June post resurfacing on HN. <span class="src">(<a href="https://news.ycombinator.com/item?id=49764791">HackerNews</a>)</span></span><span class="stat"><b>1623</b> pts</span></div>
+<div class="row"><span class="ico">⏳</span><span class="txt"><b><a href="https://xeiaso.net/notes/2026/everyone-slowdown-but-me/">Everyone should slow down AI except me</a></b> - A critique of the double standard in calls to slow AI development. <span class="src">(<a href="https://news.ycombinator.com/item?id=49678683">HackerNews</a>)</span></span><span class="stat"><b>811</b> pts</span></div>
+<div class="row"><span class="ico">✍️</span><span class="txt"><b><a href="https://sockpuppet.org/blog/2026/09/17/how-to-write-with-an-llm/">How to write with an LLM</a></b> - Use the model to flag weak prose while keeping the wording and editorial judgment yours. <span class="src">(<a href="https://news.ycombinator.com/item?id=49747070">HackerNews</a>)</span></span><span class="stat"><b>678</b> pts</span></div>
+<div class="row"><span class="ico">🧠</span><span class="txt"><b><a href="https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating">Why agents lie, cheat and coordinate</a></b> - Yoshua Bengio examines how reward-seeking and imitation may produce deceptive agent behavior. <span class="src">(<a href="https://news.ycombinator.com/item?id=49678969">HackerNews</a>)</span></span><span class="stat"><b>657</b> pts</span></div>
+<div class="row"><span class="ico">🧮</span><span class="txt"><b><a href="https://bend-lang.com/">Bend puts proofs beside AI-written code</a></b> - A language using proofs to check declared properties, with native and GPU execution. <span class="src">(<a href="https://news.ycombinator.com/item?id=49746163">HackerNews</a>)</span></span><span class="stat"><b>606</b> pts</span></div>
+  </section>
+
+  <footer>
+    <p>Made for builders who ship with AI. See you next week. ✌️</p>
+
+  </footer>
+
+</div>
+</body>
+</html>

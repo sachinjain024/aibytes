@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💎 The RubyGems attack and Claude token theft</title>
+<meta name="description" content="Plus DeepSeek v4.1 Flash, Mistral’s €3B raise, ECC’s agent tooling, and ponytail’s push for less code.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
+    --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--cobalt);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px 56px}
+
+  header{padding:36px 0 0}
+  .issue-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--slate);display:flex;justify-content:space-between;margin-bottom:12px}
+  .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
+  .logo em{font-style:normal;color:var(--cobalt)}
+
+
+  section{margin-top:34px}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--paper);background:var(--ink);padding:2px 7px}
+  .sec-title{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+  .sec-rule{flex:1;height:2px;background:var(--ink)}
+
+  /* ── Intro block ── */
+  .intro{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 22px;margin-bottom:18px}
+  .intro p{font-size:15.5px;line-height:1.65;margin-bottom:14px;color:#3A3E4A}
+  .intro p:last-child{margin-bottom:0}
+  .intro .greet{color:var(--ink)}
+  .intro b{color:var(--ink);font-weight:700}
+
+  /* ── My Favourite Picks: the publisher's shortlist, drawn from any section ──
+       Ink border with a signal spine. The pick name is INK and undecorated - the
+       numeral is the marker, and cobalt is left to the sections that report. ── */
+  .picks{background:var(--card);border:1px solid var(--ink);border-left:5px solid var(--signal);padding:18px 20px;margin-bottom:18px}
+  .picks .card-title{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+  .picks ol{list-style:none;margin:0;padding:0}
+  .picks li{display:grid;grid-template-columns:auto 1fr;gap:3px 11px;padding:8px 0;border-bottom:1px solid var(--line)}
+  .picks li:last-child{border-bottom:none;padding-bottom:0}
+  .picks .n{grid-column:1;grid-row:1;align-self:start;margin-top:2px;font-family:var(--mono);font-size:11px;font-weight:700;background:var(--signal);color:var(--ink);padding:1px 5px}
+  .picks .line{grid-column:2;grid-row:1;display:flex;gap:12px;align-items:baseline}
+  .picks .t{flex:1}
+  .picks .t a{color:var(--ink);text-decoration:none;font-weight:600}
+  .picks .t a:hover{color:var(--cobalt)}
+  .picks .from{font-family:var(--mono);font-size:11px;color:var(--slate);white-space:nowrap;flex-shrink:0}
+  /* Description hangs under the title, clear of the numeral. One to two lines. */
+  .picks .d{grid-column:2;grid-row:2;font-size:13.5px;line-height:1.5;color:var(--slate)}
+
+  /* ── News card ── */
+  .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
+  .news-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;color:var(--cobalt);letter-spacing:.02em;margin-bottom:14px}
+  .news-item{font-size:15.5px;margin-bottom:14px;line-height:1.6}
+  .news-item:last-of-type{margin-bottom:0}
+  .news-item b a{font-weight:700}
+  .src{font-family:var(--mono);font-size:12px;color:var(--slate)}
+  /* Attribution links stay grey and quiet - the headline link is the loud one. */
+  .src a{color:var(--slate);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+  .src a:hover{color:var(--ink)}
+  .quote{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px 18px;margin-top:18px}
+  .quote p{font-size:15px;color:#3A3E4A}
+
+  /* ── Ticker rows ── */
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .ico{width:22px;text-align:center;flex-shrink:0}
+  .row .txt{flex:1}
+  .row .txt b{font-weight:600}
+  .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
+  .stat b{color:var(--cobalt);font-weight:700}
+  .hot{background:var(--signal);padding:0 4px;font-weight:600}
+
+  footer{margin-top:48px;border-top:3px solid var(--ink);padding-top:20px;text-align:center}
+  footer p{color:var(--slate);font-size:13.5px}
+  .foot-links{margin-top:10px;font-family:var(--mono);font-size:12.5px;display:flex;gap:20px;justify-content:center}
+  @media (max-width:480px){ .row{flex-wrap:wrap} .stat{margin-left:34px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="issue-tag"><span>ISSUE 0x09 · TL;DR</span><span>2026-09-14 · ~5 MIN</span></div>
+    <div class="logo">⚡ aiBytes<em>_</em> #9</div>
+  </header>
+
+  <section>
+
+    <div class="intro">
+      <p class="greet">Hello builders 👋</p>
+      <p>Sachin here! Every week, I spend a few hours exploring what’s happening in AI and picking the resources worth sharing with you. This newsletter feeds my own curiosity, too. There’s a lot to keep up with, so I put the most useful finds in one place. If it helps you, please forward it to a friend.</p>
+      <p>Today’s picks include the RubyGems investigation, DeepSeek v4.1 Flash, Mastra Factory’s delivery workflow, archify’s architecture diagrams, and a tiny challenge to keep Claude focused on making one button blue.</p>
+      <p>The RubyGems story is the one I’m still thinking about. Researchers link a May attack to OpenAI agents. Their findings leave open questions, but they give the discussion about agent safety something concrete to examine.</p>
+    </div>
+
+
+
+
+    <div class="picks">
+      <div class="card-title">My Favourite Picks</div>
+      <ol>
+<li><span class="n">01</span><span class="line"><span class="t"><a href="https://www.rubyhack.ai/">Researchers link the RubyGems attack to OpenAI agents</a></span><span class="from">News</span></span><span class="d">Researchers link a May attack on RubyGems to OpenAI agents, with questions about their motives and whether key theft succeeded still unanswered.</span></li>
+<li><span class="n">02</span><span class="line"><span class="t"><a href="https://techcrunch.com/2026/09/08/hackers-are-stealing-claude-tokens-from-subscribers/">Claude subscribers report stolen token usage</a></span><span class="from">News</span></span><span class="d">Anthropic has warned users about hackers after unexplained consumption appeared on accounts.</span></li>
+<li><span class="n">03</span><span class="line"><span class="t"><a href="https://github.com/ayghri/i-have-adhd">i-have-adhd</a></span><span class="from">GitHub</span></span><span class="d">A skill that puts the answer first and makes coding-agent output easier to scan.</span></li>
+<li><span class="n">04</span><span class="line"><span class="t"><a href="https://opusfived.dev/">Claude, make the button blue</a></span><span class="from">HN</span></span><span class="d">An interactive challenge: change “Add to Cart” to blue without letting Claude change anything else.</span></li>
+      </ol>
+    </div>
+
+    <div class="news-card">
+      <div class="card-title">🌍 AI NEWS</div>
+
+
+      <p class="news-item">💎 <b><a href="https://www.rubyhack.ai/">Researchers link the RubyGems attack to OpenAI agents</a></b> - The analysis traces malicious packages to a May incident; authors say the agents’ motives and whether key theft succeeded remain unknown. <span class="hot">Story of the week</span> <span class="src">(RubyGems investigation)</span></p>
+<p class="news-item">🧮 <b><a href="https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/">NYU mathematician disputes OpenAI’s conduct</a></b> - A dispute over credit surrounds the Navier-Stokes problem. <span class="src">(TechCrunch)</span></p>
+<p class="news-item">⚡ <b><a href="https://twitter.com/deepseek_ai/status/2097930608790167907">DeepSeek announces v4.1 Flash</a></b> - The new model announcement drew a busy HN discussion; read the original release before choosing what to test. <span class="src">(DeepSeek)</span></p>
+<p class="news-item">🇫🇷 <b><a href="https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/">Mistral raises €3B</a></b> - New funding backs its push for sovereign, open-weight AI. <span class="src">(Mistral)</span></p>
+<p class="news-item">🔑 <b><a href="https://techcrunch.com/2026/09/08/hackers-are-stealing-claude-tokens-from-subscribers/">Claude subscribers report stolen token usage</a></b> - Anthropic has warned users about hackers after unexplained consumption appeared on accounts. <span class="src">(TechCrunch)</span></p>
+<p class="news-item">🧑‍🔬 <b><a href="https://techcrunch.com/2026/09/09/gambling-with-our-lives-anthropic-researcher-quits-warns-against-self-improving-ai/">Anthropic researcher resigns over self-improving AI</a></b> - Jacob Coxon calls for pacing agreements between labs, according to TechCrunch. <span class="src">(TechCrunch)</span></p>
+
+
+      <div class="quote">
+        <p>"A finished task is only useful if you can explain what happened along the way."</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">New AI Products</h2><div class="sec-rule"></div></div>
+
+    <div class="row"><span class="ico">🏭</span><span class="txt"><b><a href="https://factory.mastra.ai/">Mastra Factory</a></b> - An open-source workspace for persistent agents, from issue intake through implementation and PR review. <span class="src">(<a href="https://www.producthunt.com/products/mastra">ProductHunt</a>)</span></span><span class="stat"><b>▲ 521</b> </span></div>
+<div class="row"><span class="ico">💬</span><span class="txt"><b><a href="https://www.flintai.dev/products/switch">Switch</a></b> - Connect agents to Slack, Teams, Discord or Telegram with shared room context. <span class="src">(<a href="https://www.producthunt.com/products/switch-11">ProductHunt</a>)</span></span><span class="stat"><b>▲ 519</b> </span></div>
+<div class="row"><span class="ico">🔎</span><span class="txt"><b><a href="https://anysite.io/">Anysite.io</a></b> - Build and enrich company and contact lists through an agent using MCP or REST. <span class="src">(<a href="https://www.producthunt.com/products/anysite">ProductHunt</a>)</span></span><span class="stat"><b>▲ 460</b> </span></div>
+<div class="row"><span class="ico">🤝</span><span class="txt"><b><a href="https://widgo.ai/">Widgo</a></b> - Answer site visitors from your docs, score leads and book demos. <span class="src">(<a href="https://www.producthunt.com/products/widgo">ProductHunt</a>)</span></span><span class="stat"><b>▲ 435</b> </span></div>
+<div class="row"><span class="ico">🗂️</span><span class="txt"><b><a href="https://www.ai-toolbox.co/">AI Toolbox 3.0</a></b> - Search, organize and export chats across ChatGPT, Claude, Gemini and Grok. <span class="src">(<a href="https://www.producthunt.com/products/chatgpt-toolbox">ProductHunt</a>)</span></span><span class="stat"><b>▲ 434</b> </span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">Trending Github Projects</h2><div class="sec-rule"></div></div>
+
+    <div class="row"><span class="ico">🎯</span><span class="txt"><b><a href="https://github.com/ayghri/i-have-adhd">ayghri/i-have-adhd</a></b> - A skill that puts the answer first and makes coding-agent output easier to scan.</span><span class="stat"><b>+15.9k</b> ★</span></div>
+<div class="row"><span class="ico">📐</span><span class="txt"><b><a href="https://github.com/tt-a1i/archify">tt-a1i/archify</a></b> - Generate architecture and workflow diagrams as self-contained HTML with export.</span><span class="stat"><b>+10.4k</b> ★</span></div>
+<div class="row"><span class="ico">🐴</span><span class="txt"><b><a href="https://github.com/DietrichGebert/ponytail">DietrichGebert/ponytail</a></b> - A skill that nudges agents toward simpler solutions and less code.</span><span class="stat"><b>+9.3k</b> ★</span></div>
+<div class="row"><span class="ico">🧰</span><span class="txt"><b><a href="https://github.com/affaan-m/ECC">affaan-m/ECC</a></b> - Skills, memory and security tooling for improving coding-agent workflows.</span><span class="stat"><b>+8.1k</b> ★</span></div>
+<div class="row"><span class="ico">📊</span><span class="txt"><b><a href="https://github.com/cathrynlavery/diagram-design">cathrynlavery/diagram-design</a></b> - A catalog of 38 diagram types rendered as HTML and SVG.</span><span class="stat"><b>+7.4k</b> ★</span></div>
+<div class="row"><span class="ico">✍️</span><span class="txt"><b><a href="https://github.com/blader/humanizer">blader/humanizer</a></b> - Edit common signs of AI-generated prose out of text.</span><span class="stat"><b>+4.1k</b> ★</span></div>
+<div class="row"><span class="ico">🛠️</span><span class="txt"><b><a href="https://github.com/obra/superpowers">obra/superpowers</a></b> - A skills framework and software development workflow for agents.</span><span class="stat"><b>+3.9k</b> ★</span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">HN Deep Stories</h2><div class="sec-rule"></div></div>
+
+    <div class="row"><span class="ico">🔵</span><span class="txt"><b><a href="https://opusfived.dev/">Claude, make the button blue</a></b> - An interactive challenge: change “Add to Cart” to blue without letting Claude change anything else. <span class="src">(<a href="https://news.ycombinator.com/item?id=49623754">HackerNews</a>)</span></span><span class="stat"><b>1196</b> pts · 448 💬</span></div>
+<div class="row"><span class="ico">🧮</span><span class="txt"><b><a href="https://mathandai.org/">A misalignment of AI in mathematics</a></b> - Mathematicians argue that solving benchmarks can undermine understanding, attribution and the development of new researchers. <span class="src">(<a href="https://news.ycombinator.com/item?id=49662371">HackerNews</a>)</span></span><span class="stat"><b>1179</b> pts · 1141 💬</span></div>
+<div class="row"><span class="ico">🔬</span><span class="txt"><b><a href="https://mathstodon.xyz/@andreasthom/117240535270608201">Can researchers trust AI labs with unpublished math?</a></b> - A researcher’s post on the trust question behind sharing unfinished work. <span class="src">(<a href="https://news.ycombinator.com/item?id=49639408">HackerNews</a>)</span></span><span class="stat"><b>864</b> pts · 813 💬</span></div>
+<div class="row"><span class="ico">🌊</span><span class="txt"><b><a href="https://news.ycombinator.com/item?id=49657850">Can HN limit the AI news flood?</a></b> - An Ask HN discussion about what belongs on the front page; the discussion itself is the source. <span class="src">(<a href="https://news.ycombinator.com/item?id=49657850">HackerNews</a>)</span></span><span class="stat"><b>816</b> pts · 382 💬</span></div>
+<div class="row"><span class="ico">✍️</span><span class="txt"><b><a href="https://bcantrill.dtrace.org/2025/12/05/your-intellectual-fly-is-open/">What LLM-authored posts reveal</a></b> - A resurfaced 2025 essay by Bryan Cantrill on writing with LLMs. <span class="src">(<a href="https://news.ycombinator.com/item?id=49585644">HackerNews</a>)</span></span><span class="stat"><b>729</b> pts · 433 💬</span></div>
+  </section>
+
+  <footer>
+    <p>Made for builders who ship with AI. See you next week. ✌️</p>
+    <div class="foot-links"><a href="#">SUBSCRIBE</a><a href="#">ARCHIVE</a><a href="#">SUGGEST A LINK</a></div>
+  </footer>
+
+</div>
+</body>
+</html>

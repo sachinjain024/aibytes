@@ -1,5 +1,5 @@
 <!-- longclaw:generated file=AGENTS.md version=1 -->
-# Working on aiBytes_ with an agent
+# Working on aiBytes github with an agent
 
 LongClaw generated this file and rewrites it whenever this project changes.
 Do not edit it — an edit here is overwritten without warning. Your own
@@ -8,7 +8,7 @@ once and never writes to again.
 
 ## This project
 
-- Name: aiBytes_
+- Name: aiBytes github
 - Key: `AIB`
 - Ticket format: `longclaw.ticket/v1`
 
@@ -88,7 +88,8 @@ it does not is refused rather than written.
 | Slug | Name |
 |---|---|
 | `app` | app |
-| `learn-article` | Learning / Article |
+| `learn-article` | Learning/Read |
+| `learn-explore` | Learning/Explore |
 | `marketing` | Marketing |
 
 `longclaw project show` prints what the project defines now. To add one:
@@ -99,10 +100,16 @@ longclaw label add --slug security --name Security --color blue
 
 ### Ticket properties
 
-`type`, `due`, `start` and `estimate` are opt-in, and this project has all
-four turned off — so a ticket here carries none of them, and a flag for one
-is refused rather than written. `longclaw project show` is where that
-changes.
+`type`, `due`, `start` and `estimate` are opt-in. This project has turned on:
+
+| Property | Accepts | Flags |
+|---|---|---|
+| `type` | one of bug, chore, docs, feature, newsletter, spike | `--type <slug>`, `--clear-type` |
+| `due` | a date, `YYYY-MM-DD` | `--due <date>`, `--clear-due` |
+
+Do not write a property that is not listed. An unlisted one is a property
+this project does not read, and a value you find under it is being hidden
+rather than deleted — keep it exactly as it is.
 
 ## Rules `longclaw help` does not state
 
@@ -145,6 +152,8 @@ directory, and nothing outside LongClaw may spend one.
 | `status` | one of `backlog`, `todo`, `in_progress`, `in_review`, `done`, `canceled` |
 | `priority` | one of `urgent`, `p1`, `p2`, `p3`, `p4`, `none` |
 | `labels` | slugs defined in `longclaw.yaml` |
+| `type` | one of bug, chore, docs, feature, newsletter, spike |
+| `due` | a date, `YYYY-MM-DD` |
 | description | any CommonMark outside the reserved sections |
 | checklist | flip `[ ]` to `[x]`, or append a task |
 | activity | append a bounded record; never edit or delete an existing one |

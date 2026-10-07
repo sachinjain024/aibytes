@@ -1,0 +1,171 @@
+<title>Naming the X Section</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#E7E8EC; --panel:#FDFDFD; --ink:#14161F; --muted:#5C6070;
+    --line:#CBCED7; --cobalt:#2B4EF0; --signal:#FFD338;
+
+    /* Specimen tokens: an inbox always renders light, so these never invert. */
+    --mail-paper:#FAFAF7; --mail-card:#FFFFFF; --mail-line:#E4E4DC; --mail-ink:#191C26;
+    --mail-body:#3A3E4A; --mail-link:#2B4EF0; --mail-slate:#6B7080; --mail-signal:#FFD338;
+
+    --mono:'JetBrains Mono',ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    --grotesque:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mail-display:'Bricolage Grotesque',Helvetica,Arial,sans-serif;
+    --mail-face:'Instrument Sans',Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      color-scheme:dark;
+      --ground:#101219; --panel:#181A22; --ink:#E5E6EC; --muted:#949AA8; --line:#2C303B; --cobalt:#8AA0FF;
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --ground:#101219; --panel:#181A22; --ink:#E5E6EC; --muted:#949AA8; --line:#2C303B; --cobalt:#8AA0FF;
+  }
+
+  *{box-sizing:border-box}
+  body{background:var(--ground);color:var(--ink);font-family:var(--grotesque);-webkit-font-smoothing:antialiased;line-height:1.5;margin:0}
+  .sheet{max-width:820px;margin:0 auto;padding:48px 20px 72px;display:grid;gap:36px}
+
+  .masthead{display:grid;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:22px}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .eyebrow b{color:var(--cobalt);font-weight:600}
+  h1{font-size:clamp(30px,5.2vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.05;text-wrap:balance;margin:0}
+  .lede{max-width:64ch;color:var(--muted);font-size:16px;line-height:1.6;margin:0}
+  .lede b{color:var(--ink);font-weight:600}
+
+  .options{display:grid;gap:28px}
+  .opt{display:grid;gap:12px}
+  .opt-head{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
+  .opt-num{font-family:var(--mono);font-weight:700;font-size:13px;background:var(--ink);color:var(--ground);padding:2px 8px}
+  .opt-name{font-size:20px;font-weight:700;letter-spacing:-.01em}
+  .opt-tag{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .opt-tag.rec{color:var(--ink);background:var(--signal);padding:1px 6px}
+  .round{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:8px 0 -8px;border-top:1px solid var(--line);padding-top:16px}
+  .decision{border:2px solid var(--ink);border-left:6px solid var(--signal);background:var(--panel);padding:18px 20px;display:grid;gap:8px}
+  .decision p{margin:0;max-width:66ch}
+  .d-name{font-size:26px;font-weight:800;letter-spacing:-.02em}
+  .d-sub,.d-why{font-size:14.5px;color:var(--muted)}
+  .d-sub b,.d-why b{color:var(--ink);font-weight:600}
+  .opt-note{margin:0;color:var(--muted);font-size:14.5px;max-width:66ch}
+  .opt-note b{color:var(--ink);font-weight:600}
+
+  /* ── Email specimen: rendered with the newsletter's own tokens ── */
+  .mail{background:var(--mail-paper);color:var(--mail-ink);font-family:var(--mail-face);font-size:15px;line-height:1.5;border:1px solid var(--line);padding:20px 22px 16px}
+  .mail a{color:var(--mail-link);text-decoration:none}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--mail-paper);background:var(--mail-ink);padding:2px 7px}
+  .sec-title{font-family:var(--mail-display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase;margin:0}
+  .sec-rule{flex:1;min-width:24px;height:2px;background:var(--mail-ink)}
+  .sub{font-size:13.5px;color:var(--mail-slate);margin:0 0 6px}
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--mail-line)}
+  .row:last-of-type{border-bottom:none}
+  .ico{width:22px;text-align:center;flex-shrink:0}
+  .txt{flex:1;color:var(--mail-body)}
+  .txt b{color:var(--mail-ink);font-weight:600}
+  .stat{font-family:var(--mono);font-size:11.5px;color:var(--mail-slate);white-space:nowrap}
+  .stat b{color:var(--mail-link);font-weight:700}
+  .today{margin:10px 0 0;padding-top:10px;border-top:1px dashed var(--mail-line);font-size:13.5px;color:var(--mail-body)}
+  .today .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mail-slate);margin-right:6px}
+  .today b{color:var(--mail-ink)}
+
+  .footnote{font-size:13.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;margin:0;max-width:66ch}
+  @media (max-width:480px){ .row{flex-wrap:wrap} .stat{margin-left:34px} .mail{padding:16px} }
+</style>
+
+<div class="sheet">
+  <header class="masthead">
+    <div class="eyebrow">aiBytes_ · <b>AIB-44s</b> · step 1 of 13 · decided 2026-09-26</div>
+    <h1>Naming the X section</h1>
+    <p class="lede">Each option is shown in the newsletter's own section header, with its subtitle, one sample row, and the way the section would appear in the intro's <b>Today:</b> line. The name has to work in both places. From round 1 you kept 03 and 05. Round 2 adds three names in the same direction: plain, and ranked by engagement. The <b>0x05</b> number is a placeholder, since placement is decided in step 7. Sample rows are placeholders, not real posts.</p>
+  </header>
+
+  <section class="decision">
+    <div class="eyebrow"><b>Decision</b></div>
+    <p class="d-name">Loudest on X</p>
+    <p class="d-sub">Subtitle: <b>The AI posts that drew the biggest reaction this week.</b> Intro phrasing: <b>the loudest posts on X</b>.</p>
+    <p class="d-why"><b>Why:</b> the name says exactly how posts are chosen, which is by engagement and nothing else. aiBytes_ does not claim these are the best or most insightful posts, only the ones that got the biggest reaction. At three words it is short, it names X, and it reads naturally in the intro. It won over 03 <i>Top AI Posts on X</i>, the other finalist, because it is more memorable. The subtitle keeps "AI" and "this week" out of the header.</p>
+    <p class="d-why"><b>Watch for:</b> "loud" can suggest hot takes. The subtitle frames it as reaction, and the posts are quoted exactly as written, so the reader can judge them.</p>
+  </section>
+
+  <section class="decision">
+    <div class="eyebrow"><b>Amended</b> · AIB-40i · issue #11 · 2026-09-26</div>
+    <p class="d-name">Viral on X</p>
+    <p class="d-sub">Renamed from Loudest on X, option 08. The subtitle is unchanged. Intro phrasing: <b>the posts that went viral on X</b>.</p>
+    <div class="mail">
+      <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Viral on X</h2><div class="sec-rule"></div></div>
+      <p class="sub">The AI posts that drew the biggest reaction this week.</p>
+      <div class="row"><span class="ico">🔬</span><span class="txt"><b><a href="#opt8">@handle</a></b> Sample post, quoted exactly as written on X. <span style="color:var(--mail-slate)">…</span></span><span class="stat"><b>♥ 12.4k</b></span></div>
+    </div>
+    <p class="d-why"><b>Why:</b> after seeing the section in the finished issue #11, the publisher preferred "viral", which is about spread and reads less cynical than "loud". The same review changed the row itself. Each row now opens with an <b>emoji</b>, like the other ticker rows. The emoji is picked per post at shortlist time and stored as the post's <code>emoji</code>, never in its text. The author shows as their <b>@handle in cobalt</b>, linked to their X profile, instead of the display name in ink, so it matches the bold cobalt names in Products, GitHub and HN.</p>
+    <p class="d-why"><b>Also decided:</b> Official Announcements is now a per-issue call rather than automatic. Issue #11 went without it, and its launches (Opus 5.5, GPT-6 Sol and Luna) went back into AI News, which is allowed to run up to nine items.</p>
+  </section>
+
+  <div class="options">
+
+    <h2 class="round">Shortlisted from round 1</h2>
+
+<article class="opt" id="opt3">
+      <div class="opt-head"><span class="opt-num">03</span><span class="opt-name">Top AI Posts on X</span></div>
+      <div class="mail">
+        <div class="sec-head"><span class="sec-hex">0x05</span><h2 class="sec-title">Top AI Posts on X</h2><div class="sec-rule"></div></div>
+        <p class="sub">The most-engaged AI posts of the week, quoted as posted.</p>
+        <div class="row"><span class="ico">𝕏</span><span class="txt"><b><a href="#opt3">@handle</a></b> "Sample post, quoted exactly as written on X."</span><span class="stat"><b>♥ 12.4k</b></span></div>
+        <p class="today"><span class="lbl">Today</span>…five repos worth starring, and <b>the top AI posts on X</b>.</p>
+      </div>
+      <p class="opt-note">The plainest option, matching <b>New AI Products</b> and <b>Trending Github Projects</b>. Nothing to decode, but also nothing memorable.</p>
+    </article>
+
+<article class="opt" id="opt5">
+      <div class="opt-head"><span class="opt-num">05</span><span class="opt-name">Loudest on X</span><span class="opt-tag rec">chosen</span></div>
+      <div class="mail">
+        <div class="sec-head"><span class="sec-hex">0x05</span><h2 class="sec-title">Loudest on X</h2><div class="sec-rule"></div></div>
+        <p class="sub">The AI posts that drew the biggest reaction this week.</p>
+        <div class="row"><span class="ico">📣</span><span class="txt"><b><a href="#opt5">@handle</a></b> "Sample post, quoted exactly as written on X."</span><span class="stat"><b>♥ 12.4k</b></span></div>
+        <p class="today"><span class="lbl">Today</span>…five repos worth starring, and <b>the loudest posts on X</b>.</p>
+      </div>
+      <p class="opt-note">This is honest about the selection method, since engagement is the only criterion. "Loud" can suggest hot takes over insight, which may be accurate but reads a bit cynical.</p>
+    </article>
+
+    <h2 class="round">Round 2 · in the same vein</h2>
+
+    <article class="opt" id="opt7">
+      <div class="opt-head"><span class="opt-num">07</span><span class="opt-name">Trending AI Posts on X</span><span class="opt-tag">new</span></div>
+      <div class="mail">
+        <div class="sec-head"><span class="sec-hex">0x05</span><h2 class="sec-title">Trending AI Posts on X</h2><div class="sec-rule"></div></div>
+        <p class="sub">The AI posts that took off on X this week.</p>
+        <div class="row"><span class="ico">𝕏</span><span class="txt"><b><a href="#opt7">@handle</a></b> "Sample post, quoted exactly as written on X."</span><span class="stat"><b>♥ 12.4k</b></span></div>
+        <p class="today"><span class="lbl">Today</span>…five repos worth starring, and <b>the trending AI posts on X</b>.</p>
+      </div>
+      <p class="opt-note">Matches <b>Trending Github Projects</b> word for word, so the two sections read as a pair. It's the plainest option in this round, and "trending" also matches X's own term.</p>
+    </article>
+
+    <article class="opt" id="opt8">
+      <div class="opt-head"><span class="opt-num">08</span><span class="opt-name">Viral on X</span><span class="opt-tag">new</span></div>
+      <div class="mail">
+        <div class="sec-head"><span class="sec-hex">0x05</span><h2 class="sec-title">Viral on X</h2><div class="sec-rule"></div></div>
+        <p class="sub">The AI posts that spread furthest this week.</p>
+        <div class="row"><span class="ico">🔥</span><span class="txt"><b><a href="#opt8">@handle</a></b> "Sample post, quoted exactly as written on X."</span><span class="stat"><b>♥ 12.4k</b></span></div>
+        <p class="today"><span class="lbl">Today</span>…five repos worth starring, and <b>what went viral on X</b>.</p>
+      </div>
+      <p class="opt-note">Uses the word from the ticket title. It's short like 05, but "viral" is about spread rather than noise, so it reads less cynical. It does promise big numbers, which could look odd in a quiet week.</p>
+    </article>
+
+    <article class="opt" id="opt9">
+      <div class="opt-head"><span class="opt-num">09</span><span class="opt-name">Most Shared on X</span><span class="opt-tag">new</span></div>
+      <div class="mail">
+        <div class="sec-head"><span class="sec-hex">0x05</span><h2 class="sec-title">Most Shared on X</h2><div class="sec-rule"></div></div>
+        <p class="sub">The AI posts people reposted most this week.</p>
+        <div class="row"><span class="ico">🔁</span><span class="txt"><b><a href="#opt9">@handle</a></b> "Sample post, quoted exactly as written on X."</span><span class="stat"><b>⟲ 3.1k</b></span></div>
+        <p class="today"><span class="lbl">Today</span>…five repos worth starring, and <b>the most-shared posts on X</b>.</p>
+      </div>
+      <p class="opt-note">The most specific option. The name commits the ranking and the stat to reposts, not likes, so the Grok prompt in step 3 would have to sort by reposts.</p>
+    </article>
+
+  </div>
+
+  <p class="footnote">Round 1 also offered What's Chirping on X, AI Chirp on X, Heard on X and On the Timeline. Only 03 and 05 made the round 1 shortlist. The section layout, its hex number and its placement are decided later in AIB-44s (step 7).</p>
+</div>
