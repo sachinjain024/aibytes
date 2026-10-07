@@ -3,12 +3,12 @@ format: longclaw.ticket/v1
 id: f51fce86-c0cf-4424-b481-dbe2ba9b8355
 key: AIB-60g
 title: "Issue #12: 04 Oct 2026"
-status: in_progress
+status: in_review
 priority: urgent
 type: newsletter
 due: 2026-10-04
 created_at: 2026-10-03T16:30:16.610Z
-updated_at: 2026-10-03T23:17:34.053Z
+updated_at: 2026-10-04T20:46:33.389Z
 ---
 
 Weekly aiBytes_ Issue #12.
@@ -34,7 +34,7 @@ Checklist copied from Issue #11 (AIB-40i), with Loudest on X renamed to Viral on
 - [ ] Send the newsletter <!-- longclaw:item=ck_eed6f3e2 -->
 - [x] Generate Social Media Posts (skipped for Issue #12) <!-- longclaw:item=ck_ac062387 -->
 - [x] Create the LC Tickets for AI Learning Backlog <!-- longclaw:item=ck_20ee69e2 -->
-- [ ] Commit the issue output and open a PR against main <!-- longclaw:item=ck_5a5b6973 -->
+- [x] Commit the issue output and open a PR against main <!-- longclaw:item=ck_5a5b6973 -->
 
 ## Activity
 
@@ -209,4 +209,25 @@ changes:
 ### Claude Code updated this ticket
 
 Rendered three 1200x630 thumbnails (dot grid, cobalt wash, graph grid) with 'Gemini 4 Argon' highlighted; all three balance onto three lines with the highlight unbroken on line one. Published a download page at https://claude.ai/artifact/5Z2vciA3PvLqNfNvpzu6xi. Social posts skipped for this issue, at the publisher's call.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_c488fb02
+kind: update
+occurred_at: 2026-10-04T20:46:33.389Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: status
+    from: in_progress
+    to: in_review
+  - field: checklist.ck_5a5b6973.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Issue #12 output committed on issue-12-04-oct-weekly-newsletter in three commits (week-40 data, the issue folder, the tickets). PR #18 open against main: https://github.com/sachinjain024/aibytes/pull/18. Test suite passes, 284 tests, 8 live-API skips.
 <!-- /longclaw:event -->
