@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>io.aibytes.edition</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>__PYTHON__</string>
+    <string>__REPO__/packages/runner/run.py</string>
+    <string>--quiet</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>__REPO__</string>
+
+  <!-- launchd does not source a shell profile, so every PATH the job needs is
+       spelled out here: homebrew for node, ~/.local/bin for claude. -->
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>__PATH__</string>
+    <key>HOME</key>
+    <string>__HOME__</string>
+    <key>LANG</key>
+    <string>en_US.UTF-8</string>
+  </dict>
+
+  <!-- 13:30 local time. This Mac is on Asia/Kolkata, so that is 13:30 IST. -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key><integer>13</integer>
+    <key>Minute</key><integer>30</integer>
+  </dict>
+
+  <key>RunAtLoad</key>
+  <false/>
+
+  <!-- The run logs itself to logs/YYYY-MM-DD.log. These two catch anything
+       that dies before that file is open - a bad interpreter path, an import
+       error - which is otherwise invisible. -->
+  <key>StandardOutPath</key>
+  <string>__REPO__/logs/launchd.edition.log</string>
+  <key>StandardErrorPath</key>
+  <string>__REPO__/logs/launchd.edition.log</string>
+
+  <key>ProcessType</key>
+  <string>Standard</string>
+</dict>
+</plist>

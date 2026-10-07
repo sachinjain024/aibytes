@@ -1,0 +1,31 @@
+name: tests
+
+# Nothing re-verified the suite on merge before this. It matters most for the
+# daily runner: a scheduled job that pushes to main unattended should not be
+# the first thing to discover a broken package.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  unittest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          # The iMac that runs the daily job is on 3.8, so that is the floor.
+          python-version: "3.8"
+
+      - name: Run the suite
+        # The live-API tests need credentials this repo deliberately does not
+        # hold; the thumbnail render skips itself when Chrome is absent.
+        env:
+          AIBYTES_SKIP_LIVE: "1"
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Validate the published content tree
+        run: python3 packages/feed-schema/validate.py

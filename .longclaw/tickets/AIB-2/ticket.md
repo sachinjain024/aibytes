@@ -9,23 +9,17 @@ created_at: 2026-08-09T00:26:09.863Z
 updated_at: 2026-08-23T08:51:57.022Z
 ---
 
-- [x] Generate the Issue #4 Content
+## Checklist
 
-- [ ] Review the Intro section
-
-- [x] Write a skill to generate 5 artifacts of LinkedIn post & X post
-
-- [x] Organize them together in one directory
-
-- [ ] Create an excel sheet to update the social links and their stats as well
-
-- [ ] Store the Social Media posts as screenshots in the directory for direct consumption by Claude
-
-- [ ] Update the last week’s social media posts in the excel
-
-- [ ] Create this week’s social media posts
-
-- [ ] Update the Links in the excel
+- [x] Generate the Issue #4 Content <!-- longclaw:item=ck_f2310912 -->
+- [ ] Review the Intro section <!-- longclaw:item=ck_364c9fc3 -->
+- [x] Write a skill to generate 5 artifacts of LinkedIn post & X post <!-- longclaw:item=ck_bf80c9f9 -->
+- [x] Organize them together in one directory <!-- longclaw:item=ck_80917bc6 -->
+- [ ] Create an excel sheet to update the social links and their stats as well <!-- longclaw:item=ck_e927ce80 -->
+- [ ] Store the Social Media posts as screenshots in the directory for direct consumption by Claude <!-- longclaw:item=ck_f3aad051 -->
+- [ ] Update the last week’s social media posts in the excel <!-- longclaw:item=ck_919dbe9d -->
+- [ ] Create this week’s social media posts <!-- longclaw:item=ck_2ba5a6f9 -->
+- [ ] Update the Links in the excel <!-- longclaw:item=ck_ba653a7e -->
 
 ## Activity
 
@@ -86,4 +80,18 @@ changes:
     to: done
 -->
 ### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_4b155876
+kind: comment
+occurred_at: 2026-10-07T06:00:20.188Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Moved the task list under ## Checklist so the UI shows and ticks it.
 <!-- /longclaw:event -->

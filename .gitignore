@@ -3,6 +3,9 @@
 .env
 __pycache__/
 *.pyc
+
+# The daily runner's logs. Local operational noise, not content.
+logs/
 newsletter/subscribers/2026.July.29_Brevo.csv
 
 # JS workspaces

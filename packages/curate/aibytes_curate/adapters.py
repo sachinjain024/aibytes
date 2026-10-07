@@ -104,8 +104,12 @@ def clean_url(url):
     # which is a different query. These strings are a published contract read
     # by an extension that cannot be hotfixed.
     query = parts.query if len(kept) == len(pairs) else urllib.parse.urlencode(kept)
+    # A trailing backslash is a submitter's typo, not part of the address -
+    # HN carried "mistral.ai/news/mistral-large-4/\" alongside the clean link,
+    # which slipped past dedup and published a broken URL.
+    path = parts.path.rstrip("\\")
     return urllib.parse.urlunsplit((
-        parts.scheme, parts.netloc, parts.path, query, parts.fragment,
+        parts.scheme, parts.netloc, path, query, parts.fragment,
     ))
 
 

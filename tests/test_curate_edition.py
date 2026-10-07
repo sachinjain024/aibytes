@@ -231,6 +231,11 @@ class UrlAndSlugTests(unittest.TestCase):
             with self.subTest(url=url):
                 self.assertEqual(adapters.clean_url(url), url)
 
+    def test_a_stray_trailing_backslash_is_dropped(self):
+        self.assertEqual(
+            adapters.clean_url("https://mistral.ai/news/mistral-large-4/\\"),
+            "https://mistral.ai/news/mistral-large-4/")
+
     def test_non_http_urls_are_refused(self):
         for bad in ("javascript:alert(1)", "", None, "ftp://x.com/a", "not a url"):
             with self.subTest(url=bad):
@@ -308,6 +313,18 @@ class RelevanceTests(unittest.TestCase):
         for first, second in pairs:
             with self.subTest(second=second):
                 self.assertEqual(relevance.dedup_key(first), relevance.dedup_key(second))
+
+    def test_a_resubmission_with_a_trailing_backslash_is_a_duplicate(self):
+        # 2026-10-07: the same Mistral post reached HN twice, once with a
+        # stray "\" on the end, and both landed in the edition.
+        url = "https://mistral.ai/news/mistral-large-4/"
+        kept, rejected = relevance.apply(drafts_from(hn=[
+            hn_story(url=url + "\\", title="Mistral Large 4", points=1862),
+            hn_story(url=url, title='Mistral Large 4: "Le Chonk"', points=519),
+        ]))
+        self.assertEqual(len(kept), 1)
+        self.assertEqual(kept[0].url, url)
+        self.assertEqual(rejected[0]["reason"], "duplicate")
 
     def test_different_articles_are_not_deduped(self):
         self.assertNotEqual(relevance.dedup_key("https://x.com/a"),

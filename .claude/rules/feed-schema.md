@@ -8,8 +8,8 @@ paths:
 
 # The content contract
 
-`content/` is what the app, the extension, and (from AIB-8h phase 5) the
-newsletter all read. `packages/feed-schema` is its contract: four schemas,
+`content/` is what the app and the extension read. The weekly newsletter does
+not - it curates from raw `newsletter/data/` and always will. `packages/feed-schema` is its contract: four schemas,
 `feed.d.ts` for the JS consumers, `validate.py`, and `hide.py`.
 
 ## Append-only
