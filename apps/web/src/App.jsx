@@ -1,20 +1,18 @@
 import React from "react";
-import { Wordmark } from "@aibytes/design-system/components/brand/Wordmark.jsx";
 import { Card } from "@aibytes/design-system/components/content/Card.jsx";
 import { EndCard } from "@aibytes/design-system/components/content/EndCard.jsx";
+import { EditionBar } from "@aibytes/design-system/components/navigation/EditionBar.jsx";
+import { Header } from "@aibytes/design-system/components/navigation/Header.jsx";
 import { loadEdition, loadIndex } from "./content.js";
-import { parseRoute, pickEdition } from "./route.js";
+import { ago, longDate, midDate, shortDate } from "./format.js";
+import { useDismiss, useMedia, useTheme } from "./hooks.js";
+import { editionPath, parseRoute, pickEdition } from "./route.js";
 
-// Long form for the page heading, e.g. "Wed, Oct 7, 2026". The edition date is
-// a calendar day, not an instant, so it is formatted in UTC to stay on that day.
-const LONG_DATE = new Intl.DateTimeFormat("en-US", {
-  weekday: "short", month: "short", day: "numeric", year: "numeric", timeZone: "UTC",
-});
-const SHORT_DATE = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
-const longDate = (date) => LONG_DATE.format(new Date(date));
+const TAGLINE = "today's AI, in one byte";
+// Ledger's sticky breakpoint (app.css); below it the header and bar go compact.
+const PHONE = "(max-width: 699px)";
 
-// The current route, kept in step with back and forward. navigate() is for the
-// edition bar; links that leave the app stay ordinary links.
+// The current route, kept in step with back and forward.
 function useRoute() {
   const [pathname, setPathname] = React.useState(window.location.pathname);
   React.useEffect(() => {
@@ -25,15 +23,18 @@ function useRoute() {
   const navigate = React.useCallback((to) => {
     window.history.pushState(null, "", to);
     setPathname(to);
+    window.scrollTo(0, 0);
   }, []);
   return [parseRoute(pathname), navigate];
 }
 
-// Ledger is wired in and every edition has its own URL. The header, the
-// edition bar, filters, and saves are the next AIB-8h phase 4 items; until
-// then the date heading stands in for the edition bar.
+// Header, edition bar, and calendar over the Ledger Card grid. Category chips,
+// filters, grid/list, saves, and sign-in are later AIB-8h phase 4 items, so the
+// header shows none of their controls yet rather than dead ones.
 export function App() {
-  const [route] = useRoute();
+  const [route, navigate] = useRoute();
+  const [theme, toggleTheme] = useTheme();
+  const compact = useMedia(PHONE);
   const [index, setIndex] = React.useState({ status: "loading" });
   const [edition, setEdition] = React.useState({ status: "loading" });
 
@@ -47,7 +48,8 @@ export function App() {
     };
   }, []);
 
-  const ref = index.status === "ready" ? pickEdition(route, index.data.editions) : null;
+  const editions = index.status === "ready" ? index.data.editions : [];
+  const ref = pickEdition(route, editions);
 
   React.useEffect(() => {
     if (!ref) return undefined;
@@ -61,25 +63,55 @@ export function App() {
     };
   }, [ref && ref.date]);
 
-  const view = viewFor(route, index, ref, edition);
   React.useEffect(() => {
-    document.title = view.date ? `aiBytes_ · ${longDate(view.date)}` : "aiBytes_";
-  }, [view.date]);
+    document.title = ref ? `aiBytes_ · ${longDate(ref.date)}` : "aiBytes_";
+  }, [ref && ref.date]);
 
   return (
     <div className="app-shell">
-      <div className="app-top">
-        <Wordmark />
-        {view.date && <h1>{longDate(view.date)}</h1>}
+      <div className="app-sticky">
+        <Header compact={compact} showCategories={false} tagline={compact ? undefined : TAGLINE}
+          theme={theme} onToggleTheme={toggleTheme} />
+        {ref && <Bar refAt={ref} editions={editions} compact={compact} navigate={navigate} />}
       </div>
-      <main className="app-main">{view.body}</main>
+      <main className="app-main">{body(route, index, ref, edition)}</main>
     </div>
   );
 }
 
-// What to show, as { date, body }. `date` is set only once an edition is on screen.
-function viewFor(route, index, ref, edition) {
-  const message = (text, extra) => ({ body: <div className="ldg-endcard" role={extra}>{text}</div> });
+// The edition bar for `refAt`. index.json is newest first, so the previous
+// (older) edition is the next entry and the newer one the entry before.
+function Bar({ refAt, editions, compact, navigate }) {
+  const [open, setOpen] = React.useState(false);
+  const close = React.useCallback(() => setOpen(false), []);
+  const wrap = React.useRef(null);
+  useDismiss(wrap, open, close);
+
+  const at = editions.findIndex((ref) => ref.date === refAt.date);
+  const older = editions[at + 1];
+  const newer = editions[at - 1];
+  const go = (date) => {
+    setOpen(false);
+    if (date !== refAt.date) navigate(editionPath(date));
+  };
+
+  return (
+    <div ref={wrap}>
+      <EditionBar compact={compact}
+        dateLabel={compact ? midDate(refAt.date) : longDate(refAt.date)}
+        itemCount={refAt.total}
+        updatedAgo={at === 0 ? ago(refAt.generated_at) : undefined}
+        prevLabel={older && shortDate(older.date)} onPrev={() => older && go(older.date)}
+        nextLabel={newer && shortDate(newer.date)} onNext={() => newer && go(newer.date)}
+        onDateClick={() => setOpen((o) => !o)} calendarOpen={open}
+        editions={editions.map((ref) => ({ date: ref.date, label: midDate(ref.date), count: ref.total }))}
+        currentDate={refAt.date} onSelectEdition={go} />
+    </div>
+  );
+}
+
+function body(route, index, ref, edition) {
+  const message = (text, role) => <div className="ldg-endcard" role={role}>{text}</div>;
   const toLatest = <a href="/">Go to the latest edition</a>;
 
   if (route.kind === "notfound") return message(<>Nothing lives at this address. {toLatest}.</>);
@@ -89,24 +121,19 @@ function viewFor(route, index, ref, edition) {
     if (route.kind === "latest") return message("No editions published yet.");
     return message(<>There is no edition for {longDate(route.date)}. {toLatest}.</>);
   }
-  if (edition.status === "loading" || edition.data?.date !== ref.date) {
-    if (edition.status === "error") return message(`Could not load the edition: ${edition.error.message}`, "alert");
-    return message("Loading the edition...");
-  }
+  if (edition.status === "error") return message(`Could not load the edition: ${edition.error.message}`, "alert");
+  if (edition.status === "loading" || edition.data.date !== ref.date) return message("Loading the edition...");
 
   // Hidden items stay in the file so a hide is reversible; readers skip them.
   const items = edition.data.items.filter((item) => !item.hidden);
-  return {
-    date: ref.date,
-    body: (
-      <>
-        <section className="app-sec" aria-label={`${items.length} items`}>
-          <div className="app-grid">
-            {items.map((item) => <Card key={item.id} item={item} signalsPos="bottom" />)}
-          </div>
-        </section>
-        <EndCard dateLabel={SHORT_DATE.format(new Date(ref.date))} />
-      </>
-    ),
-  };
+  return (
+    <>
+      <section className="app-sec" aria-label={`${items.length} items`}>
+        <div className="app-grid">
+          {items.map((item) => <Card key={item.id} item={item} signalsPos="bottom" />)}
+        </div>
+      </section>
+      <EndCard dateLabel={shortDate(ref.date)} />
+    </>
+  );
 }

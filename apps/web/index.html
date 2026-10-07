@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="The latest in AI for developers: launches, repos, threads, and news in one daily edition." />
     <title>aiBytes_</title>
+    <script>
+      // A theme the reader picked, applied before first paint (see useTheme).
+      try {
+        var theme = localStorage.getItem("aibytes-theme");
+        if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>
