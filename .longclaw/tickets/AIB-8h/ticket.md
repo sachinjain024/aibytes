@@ -29,7 +29,7 @@ Locked in, so later phases do not reopen them:
 | Ledger vs the existing design system | **Ledger replaces it.** `packages/design-system` is re-seeded from the Claude Design export; the Bitmark-era `aib-*` Web Components and the `tokens.json` → `build:tokens` pipeline are retired |
 | Web app framework | **Vite + React, static build.** Uses Ledger's JSX as-is and shares components directly with the extension. Overrides the spec's Astro suggestion (§14.2) |
 | Feed contract | **One contract.** `packages/feed-schema` keeps its name and role but its content becomes the edition JSON of product spec §5, plus `index.json` |
-| Hosting | **GitHub Pages** (`sachinjain024.github.io/aibytes`). Overrides the spec's Cloudflare Pages suggestion (§10) |
+| Hosting | **GitHub Pages, on `aibytes.io` at the root.** Changed 2026-10-07 from `sachinjain024.github.io/aibytes`: the app takes over the brand domain from Beehiiv, and the github.io address redirects to it once the custom domain is set. Overrides the spec's Cloudflare Pages suggestion (§10) |
 | Repo visibility | **Public.** Answers spec §14.3. Edition JSON and the rejected-items log are public too |
 | aiBytes-hub | **Out of scope entirely.** A separate project; not referenced anywhere in this repo unless explicitly called out |
 | Licence | **None for now.** Default copyright applies; no reuse rights granted. The README says so plainly rather than implying "all rights reserved" was considered. Newsletter issues, social copy, thumbnails, and the brand/Ledger system would stay reserved under any licence that lands later |
@@ -129,9 +129,10 @@ in the package rather than forked here.
 - **The weekly snapshot path is load-bearing.** `newsletter/data/{yyyy}/{mm}/weeks/week-NN/`
   is what every committed snapshot and every newsletter skill uses. The daily
   app feed must not disturb it.
-- **Newsletter URL** — `aibytes.io/newsletter` or `newsletter.aibytes.io`?
-  Depends on what the Beehiiv plan supports for custom domains. Subdomain is the
-  safe fallback. *(spec §14.1, unresolved)*
+- ~~**Newsletter URL**~~ — settled 2026-10-07: **`newsletter.aibytes.io`**.
+  GitHub Pages serves only this repo's files, so it cannot hand
+  `aibytes.io/newsletter` to Beehiiv without a proxy in front of it. The
+  subdomain needs nothing extra. *(spec §14.1)*
 - **Edition retention** — keep every edition forever, or archive after 90 days?
   *(spec §14.6, unresolved)*
 - ~~**iMac availability at 13:30 IST**~~ — settled in phase 3. The machine is on
@@ -238,6 +239,21 @@ supported: the job still runs and still logs, it just reports to nobody.
 - [ ] Footer: newsletter subscribe, extension link, GitHub, X <!-- longclaw:item=ck_ee17aa27 -->
 - [ ] Pages deploy workflow on push <!-- longclaw:item=ck_1d2d1d88 -->
 - [ ] Accessibility pass: AA contrast both themes, focus rings, keyboard nav <!-- longclaw:item=ck_be0cd0e2 -->
+
+### Domain — aibytes.io moves from the newsletter to the app
+
+`aibytes.io` serves the Beehiiv newsletter today. The app takes the root and
+the newsletter moves to `newsletter.aibytes.io`. Order matters: the newsletter
+moves first, or every old issue link breaks when DNS switches. The Pages deploy
+workflow only works once the custom domain is set, since the app is built for `/`.
+
+- [ ] Move the newsletter to `newsletter.aibytes.io` in Beehiiv, with its DNS record on Cloudflare <!-- longclaw:item=ck_400ba60c -->
+- [ ] Check what old `aibytes.io/p/<slug>` issue links do after the move, and update links that point at them (Beehiiv settings, social bios) <!-- longclaw:item=ck_287f3bb4 -->
+- [ ] Redirect old issue links: the app's 404 page sends `/p/<slug>` to `newsletter.aibytes.io/p/<slug>` <!-- longclaw:item=ck_046de995 -->
+- [ ] Point `aibytes.io` DNS at GitHub Pages (apex A/AAAA records, `www` CNAME to `sachinjain024.github.io`) <!-- longclaw:item=ck_d14dbf8d -->
+- [ ] Set `aibytes.io` as the Pages custom domain and enforce HTTPS <!-- longclaw:item=ck_1796b533 -->
+- [ ] Move the schemas' `$id` to `https://aibytes.io/content/` <!-- longclaw:item=ck_47063f49 -->
+- [x] Build the app for the root: Vite `base` is `/`, and `content/` is served at `/content/` <!-- longclaw:item=ck_bc69d1d6 -->
 
 ### Phase 5 — Cut
 
@@ -864,4 +880,18 @@ changes:
 ### Claude Code updated this ticket
 
 Repo made public on 2026-10-07. Checked first: no Slack webhook URL and no PH_API_KEY value anywhere in git history across all branches, and .env has never been committed. GitHub Pages is not enabled yet; that comes with the apps/web deploy workflow.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_6c3a294f
+kind: comment
+occurred_at: 2026-10-07T14:37:49.472Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Domain plan added. aibytes.io moves from Beehiiv to the app, and the newsletter moves to newsletter.aibytes.io, which also settles the open Newsletter URL question: GitHub Pages cannot hand aibytes.io/newsletter to Beehiiv without a proxy. The Hosting decision now says aibytes.io at the root, and the apps/web scaffold on aib-8h-phase-4-web is built for / rather than /aibytes/.
 <!-- /longclaw:event -->
