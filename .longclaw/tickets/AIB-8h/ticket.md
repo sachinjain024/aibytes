@@ -8,7 +8,7 @@ priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-09-01T04:45:00Z
+updated_at: 2026-10-07T06:55:13.732Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -38,6 +38,7 @@ Locked in, so later phases do not reopen them:
 | Newsletter curation | **Unchanged.** `generate-newsletter-content` keeps curating the weekly issue from raw `data/`. It is *not* rewired onto edition JSON — the daily edition and the weekly issue stay independent readers of the same snapshots. The old phase 5 is cut, not deferred |
 | Failure notification | **Slack incoming webhook**, and a watchdog. One `curl`-shaped POST, no OAuth and no SMTP; email and WhatsApp were weighed and dropped. The webhook URL is a bearer credential and lives only in the git-ignored `.env`. A failure notification cannot report a job that never ran, so a second agent checks an hour later that the edition is actually on disk |
 | Commit identity | **`The Infin8y <the.infin8y@gmail.com>`**, set as repo-local git config. Existing history keeps the personal address and is **not** rewritten, including when the repo goes public |
+| Viral on X | **Weekly newsletter only, for now.** Daily fetch and curate stay on Product Hunt, Hacker News, TechCrunch, and GitHub. The section stays with `x-fetch-items` and `generate-newsletter-content`. Follow-up is AIB-74u. |
 
 ## Where things live
 
@@ -778,4 +779,20 @@ actor:
 ### Claude Code commented
 
 Minted checklist item ids so the UI can tick them.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_9b4c5941
+kind: update
+occurred_at: 2026-10-07T06:55:13.732Z
+actor:
+  type: agent
+  id: grok
+  name: Grok
+changes:
+  - field: description
+-->
+### Grok updated this ticket
+
+Viral on X stays in the weekly newsletter for now. The daily fetch and curate cover Product Hunt, Hacker News, TechCrunch, and GitHub. Follow-up is AIB-74u, so this does not get folded into the daily runner or the app phase.
 <!-- /longclaw:event -->
