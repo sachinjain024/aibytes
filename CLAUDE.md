@@ -69,6 +69,8 @@ AIBYTES_SKIP_LIVE=1 python3 -m unittest discover -s tests -v
 
 ProductHunt needs `PH_API_KEY` in `.env`, and the daily runner reads
 `AIBYTES_SLACK_WEBHOOK` from the same file. Both are credentials; see below.
+Start from `cp .env.template .env`; the template is committed and lists every
+key, with no values.
 
 ## This repo is public
 

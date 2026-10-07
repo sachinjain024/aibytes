@@ -25,7 +25,8 @@ all of that itself, and it stages only `content/` and `newsletter/data/`, never
 
 **1. The Slack webhook.** In the aiBytes_ Slack: create an app, turn on
 Incoming Webhooks, add one to the channel you want, and copy the URL. Put it in
-the git-ignored `.env` at the repo root:
+the git-ignored `.env` at the repo root (`cp .env.template .env` if there is no
+`.env` yet):
 
 ```
 AIBYTES_SLACK_WEBHOOK=https://hooks.slack.com/services/...
