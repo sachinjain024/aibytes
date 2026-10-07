@@ -1,0 +1,157 @@
+{
+  "source": "techcrunch",
+  "section": "ai-news",
+  "fetched_at": "2026-10-03",
+  "window": {
+    "after": "2026-09-26",
+    "before": "2026-10-04"
+  },
+  "query_params": {
+    "category": "artificial-intelligence",
+    "count": 10,
+    "ranking": "hackernews_points,recency"
+  },
+  "totalCount": 81,
+  "articles": [
+    {
+      "title": "OpenAI still doesn\u2019t seem to have a handle on all of its rogue AI activity",
+      "description": "On Friday, OpenAI published a new site devoted to \u201cmisalignment reports\u201d and the breadth of the incidents is alarming.",
+      "url": "https://techcrunch.com/2026/09/28/openai-still-doesnt-seem-to-have-a-handle-on-all-of-its-rogue-ai-activity/",
+      "published_at": "2026-09-28T17:09:02Z",
+      "author": "Russell Brandom",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/02/GettyImages-2236544077.jpg?resize=1200,800",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 108,
+        "num_comments": 113,
+        "hn_url": "https://news.ycombinator.com/item?id=49881484"
+      }
+    },
+    {
+      "title": "Reddit is killing RSS feeds and ending public API access because of AI bots",
+      "description": "Reddit is ending support for RSS feeds, as the company continues tightening access to its trove of user-generated content.",
+      "url": "https://techcrunch.com/2026/09/30/reddit-is-killing-rss-feeds-ending-public-api-access-because-of-ai-bots/",
+      "published_at": "2026-09-30T17:45:00Z",
+      "author": "Sarah Perez",
+      "image": "https://techcrunch.com/wp-content/uploads/2023/06/reddit-glitch-1.jpg?resize=1200,675",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 45,
+        "num_comments": 31,
+        "hn_url": "https://news.ycombinator.com/item?id=49912499"
+      }
+    },
+    {
+      "title": "Apple says it\u2019s tightening macOS \u2018Full Disk Access\u2019 controls due to new risks from AI agents",
+      "description": "Apple says it will add new controls around macOS\u2019s Full Disk Access permission, warning that increasingly capable AI agents make broad access to users\u2019 files, messages, mail, and browsing history riskier.",
+      "url": "https://techcrunch.com/2026/10/02/apple-says-its-tightening-macos-full-disk-access-controls-due-to-new-risks-from-ai-agents/",
+      "published_at": "2026-10-02T18:11:27Z",
+      "author": "Sarah Perez",
+      "image": "https://techcrunch.com/wp-content/uploads/2022/07/CMC_1580.jpg?resize=1200,800",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 19,
+        "num_comments": 7,
+        "hn_url": "https://news.ycombinator.com/item?id=49937239"
+      }
+    },
+    {
+      "title": "Musk\u2019s AI chatbot Grok reportedly encouraged Trump to capture  Venezuela\u2019s president",
+      "description": "President Trump reportedly asked for Grok's opinion before invading Venezuela and capturing Nicol\u00e1s Maduro.",
+      "url": "https://techcrunch.com/2026/10/01/musks-ai-chatbot-grok-reportedly-encouraged-trump-to-capture-venezuelas-president/",
+      "published_at": "2026-10-01T21:08:11Z",
+      "author": "Dominic-Madori Davis",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-2297722687.jpg?w=1024",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 10,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49935794"
+      }
+    },
+    {
+      "title": "OpenAI cuts ties with 3 safety researchers, WSJ reports",
+      "description": "OpenAI has parted ways with three safety researchers after an internal investigation found they mishandled sensitive company information, report says.",
+      "url": "https://techcrunch.com/2026/10/01/openai-cuts-ties-with-three-safety-researchers-wsj-reports/",
+      "published_at": "2026-10-01T18:14:42Z",
+      "author": "Aditya Mehta",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/05/openai-logo-code-background.jpg?resize=1200,798",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 5,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49930345"
+      }
+    },
+    {
+      "title": "AMD will acquire Fei-Fei Li\u2019s World Labs for $8.2B",
+      "description": "The acquisition will see World Labs founder Fei-Fei Li join AMD as executive vice president and chief scientist.",
+      "url": "https://techcrunch.com/2026/09/28/amd-will-acquire-fei-fei-lis-world-labs-for-8-2-billion/",
+      "published_at": "2026-09-28T20:39:33Z",
+      "author": "Tim Fernholz",
+      "image": "https://techcrunch.com/wp-content/uploads/2024/10/GettyImages-1833911955.jpg?resize=1200,800",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 4,
+        "num_comments": 3,
+        "hn_url": "https://news.ycombinator.com/item?id=49891776"
+      }
+    },
+    {
+      "title": "Insurers claim AI is already increasing healthcare costs",
+      "description": "Blue Cross Blue Shield says hospital use of AI tools led to an additional $942 million in healthcare spending over a two-year period.",
+      "url": "https://techcrunch.com/2026/09/26/insurers-claim-ai-is-already-increasing-healthcare-costs/",
+      "published_at": "2026-09-26T21:02:06Z",
+      "author": "Anthony Ha",
+      "image": "https://techcrunch.com/wp-content/uploads/2021/11/GettyImages-1214954967.jpg?resize=1200,612",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 4,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49862289"
+      }
+    },
+    {
+      "title": "Anthropic\u2019s prospectus details losses, growth, and, yes, a warning that its AI could end humanity",
+      "description": "In its prospectus, Anthropic just told investors it's losing tens of billions of dollars a year, but also growing like crazy, and \u2014 oh yeah \u2014 its own AI might pose an existential risk to humanity.",
+      "url": "https://techcrunch.com/2026/09/28/anthropics-prospectus-details-losses-growth-and-yes-a-warning-that-its-ai-could-end-humanity/",
+      "published_at": "2026-09-29T05:13:43Z",
+      "author": "Connie Loizos",
+      "image": "https://techcrunch.com/wp-content/uploads/2024/12/GettyImages-1399936043.jpg?resize=1200,675",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 3,
+        "num_comments": 1,
+        "hn_url": "https://news.ycombinator.com/item?id=49891799"
+      }
+    },
+    {
+      "title": "Viral AI agent Instinct raises $1B Series C at a $10B valuation",
+      "description": "\"This funding helps us bring Instinct to more people and continue building the future of personal AI. It\u2019s an exciting, creative time, and we're just getting started,\" founder Noah Shinn said in a statement.",
+      "url": "https://techcrunch.com/2026/09/28/viral-ai-agent-instinct-raises-1b-series-c-at-a-10b-valuation/",
+      "published_at": "2026-09-28T13:38:48Z",
+      "author": "Sarah Perez",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/05/ai-agents-GettyImages-2229880232.jpg?resize=1200,675",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 3,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49879137"
+      }
+    },
+    {
+      "title": "Sean Parker is rebuilding Stability AI around music",
+      "description": "Sean Parker, who once taught the music industry what asking for forgiveness looks like, is now back with the labels' blessing and money.",
+      "url": "https://techcrunch.com/2026/10/02/sean-parker-is-rebuilding-stability-ai-around-music/",
+      "published_at": "2026-10-02T21:09:14Z",
+      "author": "Connie Loizos",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/10/Sean-Parker.jpg?w=1024",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 2,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=49945031"
+      }
+    }
+  ]
+}

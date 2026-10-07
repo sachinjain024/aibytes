@@ -1,0 +1,120 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-10-03",
+  "window": {
+    "after": "2026-09-26",
+    "before": "2026-10-04"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 89,
+  "poolCount": 433,
+  "stories": [
+    {
+      "title": "Gemini 4 Argon",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+      "type": "story",
+      "points": 1688,
+      "num_comments": 1174,
+      "author": "bradleyg223",
+      "created_at": "2026-09-30T20:04:37Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49913571"
+    },
+    {
+      "title": "GPT 6.1 Sol: Near-Astra intelligence for a fifth of the price",
+      "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "type": "story",
+      "points": 1064,
+      "num_comments": 952,
+      "author": "crorella",
+      "created_at": "2026-09-29T17:06:45Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49896586"
+    },
+    {
+      "title": "Sonnet 5.5",
+      "url": "https://www.anthropic.com/claude-sonnet-5-5",
+      "type": "story",
+      "points": 883,
+      "num_comments": 614,
+      "author": "D2OQZG8l5BI1S06",
+      "created_at": "2026-09-28T17:58:11Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49881850"
+    },
+    {
+      "title": "Dots: Always-on agents",
+      "url": "https://openai.com/index/introducing-dots/",
+      "type": "story",
+      "points": 764,
+      "num_comments": 646,
+      "author": "alvis",
+      "created_at": "2026-09-29T17:07:57Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49896604"
+    },
+    {
+      "title": "Unsealed Briefs in Authors\u2019 Case v. Microsoft/OpenAI",
+      "url": "https://authorsguild.org/news/ag-v-openai-top-execs-knew-mass-book-piracy-was-illegal/",
+      "type": "story",
+      "points": 630,
+      "num_comments": 624,
+      "author": "papergirl",
+      "created_at": "2026-09-27T06:19:33Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49863864"
+    },
+    {
+      "title": "It's Time to Investigate the AI Labs",
+      "url": "https://calnewport.com/its-time-to-investigate-the-ai-labs/",
+      "type": "story",
+      "points": 628,
+      "num_comments": 277,
+      "author": "ibobev",
+      "created_at": "2026-09-28T19:53:35Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49883471"
+    },
+    {
+      "title": "Clef: Open-weight decision models, and new RL fine-tuning platform",
+      "url": "https://blog.cloudflare.com/clef-decision-models/",
+      "type": "story",
+      "points": 622,
+      "num_comments": 215,
+      "author": "jasondavies",
+      "created_at": "2026-10-01T16:18:57Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49923692"
+    },
+    {
+      "title": "DraftKings is using AI to behaviorally target chronic gamblers",
+      "url": "https://www.eff.org/deeplinks/2026/09/draftkings-using-ai-supercharge-harms-online-behavioral-advertising",
+      "type": "story",
+      "points": 570,
+      "num_comments": 429,
+      "author": "paimapi",
+      "created_at": "2026-09-29T16:30:48Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49896050"
+    },
+    {
+      "title": "AI companies in race to demonstrate their model most threatening to humanity",
+      "url": "https://thecivilian.co.nz/2026/09/27/ai-companies-in-fierce-arms-race-to-demonstrate-their-model-is-the-most-existentially-threatening-to-humanity/",
+      "type": "story",
+      "points": 441,
+      "num_comments": 399,
+      "author": "ljewalsh",
+      "created_at": "2026-09-28T08:35:40Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49875148"
+    },
+    {
+      "title": "A Privacy Analysis of Web and Mobile Conversational AI Agents [pdf]",
+      "url": "https://jorgegarciaherrero.com/wp-content/interactivos/20260916-Prompt-like-a-butterfly-sting-like-a-tracker-(clean).pdf",
+      "type": "story",
+      "points": 425,
+      "num_comments": 140,
+      "author": "damaru2",
+      "created_at": "2026-09-29T09:03:41Z",
+      "hn_url": "https://news.ycombinator.com/item?id=49890226"
+    }
+  ]
+}
