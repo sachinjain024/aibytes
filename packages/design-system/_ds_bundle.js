@@ -1430,7 +1430,7 @@ function AiBytesApp(props) {
   });
   if (props.headerOnly) return /*#__PURE__*/React.createElement("div", {
     className: "app-shell",
-    "data-theme": theme === "dark" ? "dark" : undefined,
+    "data-theme": theme,
     style: {
       minHeight: 0
     }
@@ -1438,7 +1438,7 @@ function AiBytesApp(props) {
   return /*#__PURE__*/React.createElement("div", {
     ref: shellRef,
     className: "app-shell" + (compact ? " app-phone" : "") + (sideNav ? " app-shell--full" : ""),
-    "data-theme": theme === "dark" ? "dark" : undefined
+    "data-theme": theme
   }, cluster, banner, /*#__PURE__*/React.createElement("div", {
     className: sideNav ? "app-cols" : undefined
   }, sidenav, /*#__PURE__*/React.createElement("main", {

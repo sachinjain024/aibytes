@@ -130,9 +130,9 @@ function AiBytesApp(props) {
       savedLabel="My Starred" savedCount={saved.size} savedActive={savedView} onSaved={() => setSavedView(v => !v)} />);
   const banner = saved.size > 0 && !signedIn && <SaveBanner onSignIn={() => setSignedIn(true)} />;
   if (props.headerOnly) return (
-    <div className="app-shell" data-theme={theme === "dark" ? "dark" : undefined} style={{ minHeight: 0 }}>{cluster}{banner}</div>);
+    <div className="app-shell" data-theme={theme} style={{ minHeight: 0 }}>{cluster}{banner}</div>);
   return (
-    <div ref={shellRef} className={"app-shell" + (compact ? " app-phone" : "") + (sideNav ? " app-shell--full" : "")} data-theme={theme === "dark" ? "dark" : undefined}>
+    <div ref={shellRef} className={"app-shell" + (compact ? " app-phone" : "") + (sideNav ? " app-shell--full" : "")} data-theme={theme}>
       {cluster}{banner}
       <div className={sideNav ? "app-cols" : undefined}>
         {sidenav}
