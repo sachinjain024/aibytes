@@ -8,7 +8,7 @@ priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-10-07T06:55:13.732Z
+updated_at: 2026-10-07T14:23:14.997Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -199,7 +199,7 @@ in the package rather than forked here.
 - [x] A `tests` workflow, so the suite is re-verified on merge (there was no CI) <!-- longclaw:item=ck_3878393c -->
 - [x] Record the daily push-to-main exception in CLAUDE.md <!-- longclaw:item=ck_a19a1c96 -->
 - [x] Cover it in `tests/test_runner.py` <!-- longclaw:item=ck_c73697df -->
-- [ ] **Sachin: create the Slack incoming webhook** — see below. *Deliberately deferred on 2026-09-01; the runner ships without it and reports to nobody until it lands* <!-- longclaw:item=ck_b1537d24 -->
+- [x] **Sachin: create the Slack incoming webhook** — see below. *Deliberately deferred on 2026-09-01; the runner ships without it and reports to nobody until it lands* <!-- longclaw:item=ck_b1537d24 -->
 - [ ] Sachin: run `bash packages/runner/aibytes_runner/launchd/install.sh` <!-- longclaw:item=ck_db751a2d -->
 - [ ] Add `ANTHROPIC_API_KEY` and `PH_API_KEY` repo secrets, if the Actions fallback is wanted <!-- longclaw:item=ck_1b3fc1a8 -->
 
@@ -795,4 +795,22 @@ changes:
 ### Grok updated this ticket
 
 Viral on X stays in the weekly newsletter for now. The daily fetch and curate cover Product Hunt, Hacker News, TechCrunch, and GitHub. Follow-up is AIB-74u, so this does not get folded into the daily runner or the app phase.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_170beaaa
+kind: update
+occurred_at: 2026-10-07T14:23:14.997Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_b1537d24.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Slack webhook created on 2026-10-07: the aiBytes_ runner app in aibytes-workspace, posting to a private #aibytes-runs channel. AIBYTES_SLACK_WEBHOOK is in the git-ignored .env, and notify.py's test message arrived.
 <!-- /longclaw:event -->
