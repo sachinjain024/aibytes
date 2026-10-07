@@ -1,11 +1,13 @@
 import React from "react";
 import { Card } from "@aibytes/design-system/components/content/Card.jsx";
 import { EndCard } from "@aibytes/design-system/components/content/EndCard.jsx";
+import { ListRow } from "@aibytes/design-system/components/content/ListRow.jsx";
 import { EditionBar } from "@aibytes/design-system/components/navigation/EditionBar.jsx";
 import { Header } from "@aibytes/design-system/components/navigation/Header.jsx";
 import { loadEdition, loadIndex } from "./content.js";
 import { ago, longDate, midDate, shortDate } from "./format.js";
-import { useDismiss, useMedia, useTheme } from "./hooks.js";
+import { useChoice, useDismiss, useMedia, useTheme } from "./hooks.js";
+import { VIEW } from "./prefs.js";
 import { editionPath, parseRoute, pickEdition } from "./route.js";
 
 const TAGLINE = "today's AI, in one byte";
@@ -28,12 +30,13 @@ function useRoute() {
   return [parseRoute(pathname), navigate];
 }
 
-// Header, edition bar, and calendar over the Ledger Card grid. Category chips,
-// filters, grid/list, saves, and sign-in are later AIB-8h phase 4 items, so the
-// header shows none of their controls yet rather than dead ones.
+// Header, edition bar, and calendar over the edition as a Card grid or a
+// ListRow list. Category chips, filters, saves, and sign-in are later AIB-8h
+// phase 4 items, so the header shows none of their controls yet.
 export function App() {
   const [route, navigate] = useRoute();
   const [theme, toggleTheme] = useTheme();
+  const [view, setView] = useChoice(VIEW, "grid");
   const compact = useMedia(PHONE);
   const [index, setIndex] = React.useState({ status: "loading" });
   const [edition, setEdition] = React.useState({ status: "loading" });
@@ -71,10 +74,10 @@ export function App() {
     <div className="app-shell">
       <div className="app-sticky">
         <Header compact={compact} showCategories={false} tagline={compact ? undefined : TAGLINE}
-          theme={theme} onToggleTheme={toggleTheme} />
+          view={view} onView={setView} theme={theme} onToggleTheme={toggleTheme} />
         {ref && <Bar refAt={ref} editions={editions} compact={compact} navigate={navigate} />}
       </div>
-      <main className="app-main">{body(route, index, ref, edition)}</main>
+      <main className="app-main">{body(route, index, ref, edition, view)}</main>
     </div>
   );
 }
@@ -110,7 +113,7 @@ function Bar({ refAt, editions, compact, navigate }) {
   );
 }
 
-function body(route, index, ref, edition) {
+function body(route, index, ref, edition, view) {
   const message = (text, role) => <div className="ldg-endcard" role={role}>{text}</div>;
   const toLatest = <a href="/">Go to the latest edition</a>;
 
@@ -129,9 +132,9 @@ function body(route, index, ref, edition) {
   return (
     <>
       <section className="app-sec" aria-label={`${items.length} items`}>
-        <div className="app-grid">
-          {items.map((item) => <Card key={item.id} item={item} signalsPos="bottom" />)}
-        </div>
+        {view === "list"
+          ? <div className="app-rows">{items.map((item) => <ListRow key={item.id} item={item} />)}</div>
+          : <div className="app-grid">{items.map((item) => <Card key={item.id} item={item} signalsPos="bottom" />)}</div>}
       </section>
       <EndCard dateLabel={shortDate(ref.date)} />
     </>

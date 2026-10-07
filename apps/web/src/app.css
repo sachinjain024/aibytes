@@ -11,3 +11,5 @@
    them a grid item never shrinks below its content and the card overflows. */
 .app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:var(--grid-gap)}
 .app-grid>*{min-width:0}
+.app-rows{border:var(--border-w) solid var(--border);border-radius:var(--radius-card);overflow:hidden;background:var(--surface)}
+.app-rows .ldg-row:last-child{border-bottom:none}

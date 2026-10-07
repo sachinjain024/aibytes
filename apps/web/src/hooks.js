@@ -1,23 +1,14 @@
 import React from "react";
+import { readChoice, THEME, writeChoice } from "./prefs.js";
 
-const THEME_KEY = "aibytes-theme";
 const DARK = "(prefers-color-scheme: dark)";
-
-function stored() {
-  try {
-    const value = localStorage.getItem(THEME_KEY);
-    return value === "light" || value === "dark" ? value : null;
-  } catch {
-    return null;
-  }
-}
 
 // The theme on screen, and a toggle. With no stored choice the OS decides,
 // live, through Ledger's prefers-color-scheme tokens and no data-theme at all.
 // The toggle pins a choice on <html> and remembers it; index.html applies a
 // stored choice before first paint so it never flashes the other theme.
 export function useTheme() {
-  const [choice, setChoice] = React.useState(stored);
+  const [choice, setChoice] = React.useState(() => readChoice(THEME));
   const [systemDark, setSystemDark] = React.useState(() => window.matchMedia(DARK).matches);
 
   React.useEffect(() => {
@@ -31,14 +22,20 @@ export function useTheme() {
   const toggle = React.useCallback(() => {
     const next = theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
-    try {
-      localStorage.setItem(THEME_KEY, next);
-    } catch {
-      // Private mode: the choice holds for this page view only.
-    }
+    writeChoice(THEME, next);
     setChoice(next);
   }, [theme]);
   return [theme, toggle];
+}
+
+/** A stored choice such as VIEW, with a fallback and a setter that remembers it. */
+export function useChoice(pref, fallback) {
+  const [value, setValue] = React.useState(() => readChoice(pref) || fallback);
+  const choose = React.useCallback((next) => {
+    writeChoice(pref, next);
+    setValue(next);
+  }, [pref]);
+  return [value, choose];
 }
 
 /** True while a media query matches, e.g. the phone layout. */

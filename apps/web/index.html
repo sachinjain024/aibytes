@@ -8,7 +8,7 @@
     <script>
       // A theme the reader picked, applied before first paint (see useTheme).
       try {
-        var theme = localStorage.getItem("aibytes-theme");
+        var theme = localStorage.getItem("aibytes-theme"); // prefs.js THEME
         if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
       } catch (e) {}
     </script>
