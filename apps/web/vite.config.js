@@ -1,4 +1,4 @@
-import { cp, readdir, readFile, stat } from "node:fs/promises";
+import { cp, mkdir, readdir, readFile, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
@@ -52,7 +52,28 @@ function content() {
   };
 }
 
+// One real page per edition, so /2026-10-07 is a 200 on GitHub Pages rather
+// than a 404 that happens to render. Each is the same index.html: the app reads
+// the date from the URL. Assets are absolute (/assets/...), so the copy works
+// one directory down. 404.html catches everything else, including old
+// /p/<slug> newsletter links, which the app sends on to newsletter.aibytes.io.
+// A new edition needs a rebuild to get its page; the Pages deploy on push does that.
+function editionPages() {
+  return {
+    name: "aibytes-edition-pages",
+    async writeBundle(options) {
+      const html = await readFile(path.join(options.dir, "index.html"));
+      const index = JSON.parse(await readFile(path.join(CONTENT, "index.json"), "utf8"));
+      for (const { date } of index.editions) {
+        await mkdir(path.join(options.dir, date), { recursive: true });
+        await writeFile(path.join(options.dir, date, "index.html"), html);
+      }
+      await writeFile(path.join(options.dir, "404.html"), html);
+    },
+  };
+}
+
 export default defineConfig({
   base: BASE,
-  plugins: [react(), content()],
+  plugins: [react(), content(), editionPages()],
 });

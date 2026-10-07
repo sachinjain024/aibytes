@@ -59,7 +59,8 @@ bash packages/runner/aibytes_runner/launchd/install.sh  # (re)install the two ag
 # The web app (apps/web). Dev serves content/ live; build copies it to dist/content/
 npm install
 npm run dev:web                 # then open http://localhost:5173/
-npm run build:web               # static output in apps/web/dist
+npm run build:web               # static output in apps/web/dist, one page per edition
+npm test -w @aibytes/web        # node --test: the router
 
 # Check the published content tree against its contract
 python3 packages/feed-schema/validate.py
