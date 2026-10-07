@@ -23,7 +23,7 @@ matching files — this file stays a map.
 | `content/` | The published data — `editions/YYYY-MM-DD.json`, `index.json`, `tags.json`, `hidden.json` |
 | `.claude/skills/` | Claude Code skills. Stays at the repo root — nested skill dirs are not in autocomplete until a file in them is touched |
 | `.claude/rules/` | Path-scoped conventions, loaded on demand |
-| `apps/web/` | *(planned, AIB-8h)* the aibytes.io daily-edition app — Vite + React, static build, GitHub Pages |
+| `apps/web/` | The aibytes.io daily-edition app: Vite + React, a static build for GitHub Pages served from the root, with `content/` at `/content/` *(scaffold; AIB-8h phase 4)* |
 | `apps/extension/` | *(planned, AIB-8h)* the Chrome new-tab extension, on the same edition JSON |
 | `tests/` | stdlib `unittest` suite for the Python side |
 
@@ -55,6 +55,11 @@ python3 packages/runner/run.py --date 2026-08-31
 python3 packages/runner/run.py --skip-fetch --no-push   # rehearse, change nothing
 python3 packages/runner/check.py                        # is today's edition published?
 bash packages/runner/aibytes_runner/launchd/install.sh  # (re)install the two agents
+
+# The web app (apps/web). Dev serves content/ live; build copies it to dist/content/
+npm install
+npm run dev:web                 # then open http://localhost:5173/
+npm run build:web               # static output in apps/web/dist
 
 # Check the published content tree against its contract
 python3 packages/feed-schema/validate.py

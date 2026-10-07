@@ -1,0 +1,21 @@
+{
+  "name": "@aibytes/web",
+  "private": true,
+  "version": "0.0.0",
+  "description": "The aibytes.io daily-edition app. Vite + React, a static build for GitHub Pages, reading the edition JSON in content/.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@aibytes/design-system": "*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.0",
+    "vite": "^7.0.0"
+  }
+}
