@@ -8,7 +8,7 @@ priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-10-08T04:34:34.174Z
+updated_at: 2026-10-08T06:41:39.303Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -233,7 +233,7 @@ supported: the job still runs and still logs, it just reports to nobody.
 - [x] Grid and list views, preference in local storage <!-- longclaw:item=ck_71be2883 -->
 - [x] Category, tag, and source filters reflected in the URL <!-- longclaw:item=ck_3128a87a -->
 - [x] Per-source images with mark fallbacks, fixed dimensions, lazy-loaded <!-- longclaw:item=ck_1c041cfb -->
-- [ ] Empty-filter state and the end-of-edition card <!-- longclaw:item=ck_bbebbe5c -->
+- [x] Empty-filter state and the end-of-edition card <!-- longclaw:item=ck_bbebbe5c -->
 - [ ] Footer: newsletter subscribe, extension link, GitHub, X <!-- longclaw:item=ck_ee17aa27 -->
 - [ ] Pages deploy workflow on push <!-- longclaw:item=ck_1d2d1d88 -->
 - [ ] Accessibility pass: AA contrast both themes, focus rings, keyboard nav <!-- longclaw:item=ck_be0cd0e2 -->
@@ -1014,4 +1014,19 @@ actor:
 ### Claude Code commented
 
 Moved saves and sign-in to AIB-75v: anonymous saves plus the save banner from phase 4, and all four phase 6 items (Google sign-in, Firestore saves, merging local saves, the Saved view). This ticket ships the app without a star or a Sign in button. Also ticked the apps/web scaffold item, which was done but never checked.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_5d5fbb5c
+kind: update
+occurred_at: 2026-10-08T06:41:39.303Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_bbebbe5c.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
 <!-- /longclaw:event -->
