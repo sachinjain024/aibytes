@@ -43,8 +43,8 @@ jobs:
 
       - run: npm ci
 
-      - name: Test the web app
-        run: npm test -w @aibytes/web
+      - name: Test Ledger and the web app
+        run: npm test -w @aibytes/design-system -w @aibytes/web
 
       - name: Build the web app
         run: npm run build:web
