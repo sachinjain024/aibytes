@@ -2,11 +2,11 @@
  * The aiBytes_ content contract - types for consumers.
  *
  * The producer is the curate step in this repo, run daily on the iMac. The
- * output is committed and served as static JSON from GitHub Pages:
+ * output is committed and served as static JSON from GitHub Pages, at aibytes.io:
  *
- *   https://sachinjain024.github.io/aibytes/content/index.json
- *   https://sachinjain024.github.io/aibytes/content/editions/2026-08-27.json
- *   https://sachinjain024.github.io/aibytes/content/tags.json
+ *   https://aibytes.io/content/index.json
+ *   https://aibytes.io/content/editions/2026-08-27.json
+ *   https://aibytes.io/content/tags.json
  *
  * Consumers are the web app, the Chrome extension, and the weekly newsletter
  * skill. They import this from the workspace. Keep it in step with the

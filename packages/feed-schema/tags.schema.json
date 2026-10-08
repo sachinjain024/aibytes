@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://sachinjain024.github.io/aibytes/content/tags.schema.json",
+  "$id": "https://aibytes.io/content/tags.schema.json",
   "title": "aiBytes tag list",
   "description": "content/tags.json - the fixed vocabulary the curate step tags from and the tag filter renders. Hand-maintained, not generated. It lives in content/ rather than in the pipeline so the list can grow without a deploy; cutting or renaming a tag is the expensive direction, because it re-tags history.",
   "type": "object",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://sachinjain024.github.io/aibytes/content/hidden.schema.json",
+  "$id": "https://aibytes.io/content/hidden.schema.json",
   "title": "aiBytes hidden items",
   "description": "content/hidden.json - the admin hide log. An item is hidden by flipping hidden: true in its edition, which is what the site reads; this file is the log of what is currently hidden, so the weekly newsletter skill can exclude the same items without opening every edition. It tracks that flag rather than accumulating history: hide.py --unhide removes the entry, because an entry whose item is no longer hidden would make the tree contradict itself. Entries carry when and why rather than being bare ids, because an unexplained hide is unreviewable later.",
   "type": "object",
