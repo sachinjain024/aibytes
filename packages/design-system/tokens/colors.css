@@ -18,6 +18,7 @@
   --accent-tint:#EAEDFD;          /* active chip bg = accent 8% on surface */
   --hot:#FF5C1A;
   --hot-tint:#FFEFE7;             /* top-today bg wash, optional */
+  --hot-text:#C2410C;             /* hot as text (TOP label): --hot is 2.9:1, this is AA */
   --save:#FFB800;
   --disabled:#A9ACB5;             /* disabled fg */
   --focus-ring:var(--accent);
@@ -37,6 +38,7 @@
   --accent-tint:#1D2438;
   --hot:#FF7A45;
   --hot-tint:#2A1D18;
+  --hot-text:#FF7A45;             /* the lifted hot already passes AA as text */
   --save:#FFC94D;
   --disabled:#5C6270;
   color-scheme:dark;
@@ -56,6 +58,7 @@
     --accent-tint:#1D2438;
     --hot:#FF7A45;
     --hot-tint:#2A1D18;
+    --hot-text:#FF7A45;             /* the lifted hot already passes AA as text */
     --save:#FFC94D;
     --disabled:#5C6270;
     color-scheme:dark;

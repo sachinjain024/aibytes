@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://sachinjain024.github.io/aibytes/content/edition.schema.json",
+  "$id": "https://aibytes.io/content/edition.schema.json",
   "title": "aiBytes edition",
   "description": "One day's curated edition: content/editions/YYYY-MM-DD.json. Written by the curate step from the raw source snapshots, committed, and served as static JSON. Consumers are the aiBytes_ web app, the Chrome extension, and the weekly newsletter skill. A shipped extension cannot be hotfixed, so this contract is append-only: add fields, never rename or remove them, and bump schema_version for anything breaking. Keys are snake_case throughout, following the shape in the product spec.",
   "type": "object",

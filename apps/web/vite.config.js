@@ -9,9 +9,8 @@ const CONTENT = path.resolve(here, "../../content");
 const SCHEMAS = path.resolve(here, "../../packages/feed-schema");
 
 // The app is served from the root of aibytes.io, a custom domain on GitHub
-// Pages. Once that domain is set, sachinjain024.github.io/aibytes/ redirects
-// to it, so nothing needs the /aibytes/ prefix. Until it is set, a Pages
-// deploy will not work: see the Domain section of AIB-8h.
+// Pages, so nothing needs a path prefix. A deploy without that domain set
+// would break every URL: the build assumes "/".
 const BASE = "/";
 
 // The edition JSON is not an app asset - curate writes it and the runner

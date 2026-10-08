@@ -28,7 +28,8 @@ try:
 except ImportError:  # not a dependency - this repo's Python is stdlib only
     Draft202012Validator = None
 
-PUBLISHED_URL = "https://sachinjain024.github.io/aibytes/"
+# aibytes.io, served from GitHub Pages; the build copies the schemas into content/.
+PUBLISHED_URL = "https://aibytes.io/"
 
 
 def item(**overrides):
@@ -182,7 +183,8 @@ class TestValidatorMatchesSchemas(unittest.TestCase):
     def test_every_schema_id_points_at_the_published_url(self):
         for name in ("edition", "index", "tags", "hidden"):
             with self.subTest(schema=name):
-                self.assertTrue(contract.load_schema(name)["$id"].startswith(PUBLISHED_URL))
+                self.assertEqual(contract.load_schema(name)["$id"],
+                                 PUBLISHED_URL + "content/" + name + ".schema.json")
 
     def test_source_enum_matches_the_fetchers_that_produce_it(self):
         # The contract names the producers. If a source is added to

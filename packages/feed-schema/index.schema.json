@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://sachinjain024.github.io/aibytes/content/index.schema.json",
+  "$id": "https://aibytes.io/content/index.schema.json",
   "title": "aiBytes edition index",
   "description": "content/index.json - the list of editions that exist. Drives the edition bar's prev/next arrows and the calendar popover, and is the one file a consumer must fetch before it knows what to fetch next. Deliberately lean: it carries what the bar and the calendar render, and nothing that would duplicate an edition file and drift from it.",
   "type": "object",
