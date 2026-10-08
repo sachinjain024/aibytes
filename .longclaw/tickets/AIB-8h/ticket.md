@@ -8,7 +8,7 @@ priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-10-08T06:58:07.815Z
+updated_at: 2026-10-08T09:41:10.425Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -245,7 +245,7 @@ the newsletter moves to `newsletter.aibytes.io`. Order matters: the newsletter
 moves first, or every old issue link breaks when DNS switches. The Pages deploy
 workflow only works once the custom domain is set, since the app is built for `/`.
 
-- [ ] Move the newsletter to `newsletter.aibytes.io` in Beehiiv, with its DNS record on Cloudflare <!-- longclaw:item=ck_400ba60c -->
+- [x] Move the newsletter to `newsletter.aibytes.io` in Beehiiv, with its DNS record on Cloudflare <!-- longclaw:item=ck_400ba60c -->
 - [ ] Check what old `aibytes.io/p/<slug>` issue links do after the move, and update links that point at them (Beehiiv settings, social bios) <!-- longclaw:item=ck_287f3bb4 -->
 - [x] Redirect old issue links: the app's 404 page sends `/p/<slug>` to `newsletter.aibytes.io/p/<slug>` <!-- longclaw:item=ck_046de995 -->
 - [ ] Point `aibytes.io` DNS at GitHub Pages (apex A/AAAA records, `www` CNAME to `sachinjain024.github.io`) <!-- longclaw:item=ck_d14dbf8d -->
@@ -1044,4 +1044,21 @@ changes:
     to: "true"
 -->
 ### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_28bf1b7e
+kind: update
+occurred_at: 2026-10-08T09:41:10.425Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_400ba60c.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+Newsletter moved to newsletter.aibytes.io on 2026-10-08: CNAME newsletter -> cname.beehiiv.com (DNS only) on Cloudflare, Let's Encrypt certificate issued by Beehiiv, issues load at /p/<slug>. Old aibytes.io links return 403 until a redirect is in place (Beehiiv's Website redirect, or a Cloudflare redirect rule).
 <!-- /longclaw:event -->
