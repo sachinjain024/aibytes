@@ -6,5 +6,7 @@ export interface ChipProps {
   /** count badge, e.g. items in category */
   count?: number;
   onClick?: () => void;
+  /** set when the chip opens a panel (Tags ▾, Sources ▾): renders aria-expanded instead of aria-pressed */
+  expanded?: boolean;
 }
 export declare function Chip(props: ChipProps): JSX.Element;

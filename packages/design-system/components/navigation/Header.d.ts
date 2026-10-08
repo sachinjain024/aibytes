@@ -11,8 +11,12 @@ export interface HeaderProps {
   onSaved?: () => void;
   tagCount?: number;
   onOpenTags?: () => void;
+  /** whether the Tags panel is open, announced as aria-expanded */
+  tagsOpen?: boolean;
   sourceCount?: number;
   onOpenSources?: () => void;
+  /** whether the Sources panel is open, announced as aria-expanded */
+  sourcesOpen?: boolean;
   view?: "grid" | "list";
   onView?: (view: "grid" | "list") => void;
   theme?: "light" | "dark";

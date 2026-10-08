@@ -46,7 +46,7 @@ Design system for **aiBytes_** (`aibytes.io`): a curated daily feed of AI resour
 
 ## Open decisions (section 11) — recommendations made and shown
 
-1. **Top-today marker:** mono label `TOP` in `--hot` in the meta row + 2px `--hot` left edge on the card. Shown on the ChatCut card. (Label carries meaning; edge makes it scannable in a grid.) → simplified to **left edge stripe + mono label**, pick shown in components card.
+1. **Top-today marker:** mono label `TOP` in `--hot-text` (the AA-safe text shade of `--hot`) in the meta row + 2px `--hot` left edge on the card. Shown on the ChatCut card. (Label carries meaning; edge makes it scannable in a grid.) → simplified to **left edge stripe + mono label**, pick shown in components card.
 2. **Edition date as H1:** **yes** — the edition-bar date is the page `<h1>`; the wordmark is a link, not a heading. Encodes the truth that a page = a day.
 3. **Repo language dot:** **reduced palette** — 8 muted hues mapped from GitHub's set, defined as tokens in the Card component, so dots never outshine the accent.
 4. **Hex-numbered sections:** **no echo.** The app's section headings use name + mono count (`Repos · 9`). The mono count is the only rhyme with the newsletter's numbering.
