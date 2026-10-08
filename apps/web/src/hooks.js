@@ -64,3 +64,22 @@ export function useDismiss(ref, open, onClose) {
     };
   }, [ref, open, onClose]);
 }
+
+/** While `open`, remembers what had focus (the trigger); when it closes with
+ * focus lost to <body> - the focused popup was just removed, as on Escape or
+ * picking a date - focus goes back to that trigger. A click elsewhere keeps
+ * focus where the click put it. A layout effect, so it records the trigger
+ * before a popup's own (passive) effect moves focus into it. */
+export function useReturnFocus(open) {
+  const trigger = React.useRef(null);
+  React.useLayoutEffect(() => {
+    if (open) {
+      trigger.current = document.activeElement;
+      return;
+    }
+    const el = trigger.current;
+    trigger.current = null;
+    const lost = !document.activeElement || document.activeElement === document.body;
+    if (el && el.isConnected && lost) el.focus();
+  }, [open]);
+}

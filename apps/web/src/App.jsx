@@ -11,7 +11,7 @@ import { loadEdition, loadIndex, loadTags } from "./content.js";
 import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, SOURCES, toggle } from "./filters.js";
 import { FOOTER_LINKS, SUBSCRIBE_URL } from "./footer.js";
 import { ago, longDate, midDate, shortDate } from "./format.js";
-import { useChoice, useDismiss, useMedia, useTheme } from "./hooks.js";
+import { useChoice, useDismiss, useMedia, useReturnFocus, useTheme } from "./hooks.js";
 import { VIEW } from "./prefs.js";
 import { editionPath, olderEdition, parseRoute, pickEdition } from "./route.js";
 
@@ -56,6 +56,7 @@ export function App() {
   const closePanel = React.useCallback(() => setPanel(null), []);
   const sticky = React.useRef(null);
   useDismiss(sticky, panel !== null, closePanel);
+  useReturnFocus(panel !== null);
 
   React.useEffect(() => {
     // Only the Tags panel and tag URLs need it; if it fails, tags just do not filter.
@@ -110,11 +111,12 @@ export function App() {
 
   return (
     <div className="app-shell">
+      <a className="app-skip" href="#main">Skip to the edition</a>
       <div className="app-sticky" ref={sticky}>
         <Header compact={compact} tagline={compact ? undefined : TAGLINE}
           showCategories={filterable} categories={categories} activeCategory={filters.category}
           onCategory={(key) => setFilters({ ...filters, category: key })}
-          tagCount={filters.tags.length} onOpenTags={filterable && tagGroups.length ? () => onPanel("tags") : undefined}
+          tagCount={filters.tags.length} tagsOpen={panel === "tags"} sourcesOpen={panel === "sources"} onOpenTags={filterable && tagGroups.length ? () => onPanel("tags") : undefined}
           sourceCount={filters.sources.length} onOpenSources={filterable ? () => onPanel("sources") : undefined}
           view={view} onView={setView} theme={theme} onToggleTheme={toggleTheme} />
         {ref && <Bar refAt={ref} editions={editions} compact={compact} search={location.search} navigate={navigate} />}
@@ -125,7 +127,7 @@ export function App() {
           <Panel label="Filter by source" narrow groups={[{ name: "Sources", options: SOURCES }]}
             selected={filters.sources} onToggle={(key) => setFilters({ ...filters, sources: toggle(filters.sources, key) })} />)}
       </div>
-      <main className="app-main">
+      <main className="app-main" id="main" tabIndex={-1}>
         {body({ route, index, ref, edition, view, items, filters, older, prev, goTo, clearFilters: () => setFilters(NO_FILTERS) })}
       </main>
       <Footer links={FOOTER_LINKS} onSubscribe={() => window.location.assign(SUBSCRIBE_URL)} />
@@ -154,9 +156,16 @@ function usePrevious(ref) {
 
 // The Tags or Sources dropdown under the header: grouped multi-select chips,
 // as in the UI kit's TagPanel and SourcePanel.
+// Opening one moves focus to its first chip; App's useReturnFocus sends it back
+// to the Tags or Sources button when the panel closes.
 function Panel({ label, groups, selected, onToggle, narrow = false }) {
+  const self = React.useRef(null);
+  React.useEffect(() => {
+    const first = self.current && self.current.querySelector("button");
+    if (first) first.focus();
+  }, []);
   return (
-    <div className="app-pop" style={narrow ? { width: 300 } : undefined} role="group" aria-label={label}>
+    <section className="app-pop" ref={self} style={narrow ? { width: 300 } : undefined} aria-label={label}>
       {groups.map((group) => (
         <div key={group.name}>
           <div className="app-pop__label">{group.name}</div>
@@ -165,7 +174,7 @@ function Panel({ label, groups, selected, onToggle, narrow = false }) {
           </div>
         </div>
       ))}
-    </div>
+    </section>
   );
 }
 
@@ -176,6 +185,7 @@ function Bar({ refAt, editions, compact, search, navigate }) {
   const close = React.useCallback(() => setOpen(false), []);
   const wrap = React.useRef(null);
   useDismiss(wrap, open, close);
+  useReturnFocus(open);
 
   const at = editions.findIndex((ref) => ref.date === refAt.date);
   const older = olderEdition(editions, refAt.date);
@@ -229,7 +239,9 @@ function body({ route, index, ref, edition, view, items, filters, older, prev, g
   }
   return (
     <>
-      <section className="app-sec" aria-label={`${items.length} items`}>
+      <section className="app-sec" aria-labelledby="items-heading">
+        {/* The date in the edition bar is the h1 and card titles are h3. */}
+        <h2 className="app-sr" id="items-heading">{items.length} items</h2>
         {view === "list"
           ? <div className="app-rows">{items.map((item) => <ListRow key={item.id} item={item} />)}</div>
           : <div className="app-grid">{items.map((item) => <Card key={item.id} item={item} signalsPos="bottom" />)}</div>}

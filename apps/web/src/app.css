@@ -2,6 +2,12 @@
    (packages/design-system/ui_kits/aibytes-app/app.css). Components and tokens
    come from the package; nothing here restyles them. */
 .app-shell{background:var(--bg);color:var(--text);min-height:100vh}
+/* For screen readers only, e.g. the h2 between the edition bar's h1 and the cards' h3s. */
+.app-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+/* Hidden until focused: the first Tab stop, so keyboard users can jump past the header. */
+.app-skip{position:absolute;left:12px;top:-100px;z-index:var(--z-popover);padding:8px 12px;background:var(--accent);color:var(--accent-fg);border-radius:var(--radius-chip);font-size:var(--text-13);font-weight:600;text-decoration:none}
+.app-skip:focus{top:12px}
+.app-main:focus{outline:none}
 /* Header and edition bar stick together on wider screens. */
 .app-sticky{position:relative;z-index:var(--z-header)}
 @media (min-width:700px){.app-sticky{position:sticky;top:0}}
