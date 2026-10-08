@@ -8,7 +8,7 @@ priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-10-07T16:32:17.104Z
+updated_at: 2026-10-08T03:28:48.300Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -232,7 +232,7 @@ supported: the job still runs and still logs, it just reports to nobody.
 - [x] One route per edition; `/` resolves to the latest <!-- longclaw:item=ck_41ef1819 -->
 - [x] Header, the edition bar, and the calendar popover from `index.json` <!-- longclaw:item=ck_22db4814 -->
 - [x] Grid and list views, preference in local storage <!-- longclaw:item=ck_71be2883 -->
-- [ ] Category, tag, and source filters reflected in the URL <!-- longclaw:item=ck_3128a87a -->
+- [x] Category, tag, and source filters reflected in the URL <!-- longclaw:item=ck_3128a87a -->
 - [ ] Per-source images with mark fallbacks, fixed dimensions, lazy-loaded <!-- longclaw:item=ck_1c041cfb -->
 - [ ] Anonymous saves in local storage, plus the save banner <!-- longclaw:item=ck_75542f4d -->
 - [ ] Empty-filter state and the end-of-edition card <!-- longclaw:item=ck_bbebbe5c -->
@@ -969,4 +969,22 @@ changes:
 ### Claude Code updated this ticket
 
 Grid and list views done on aib-8h-phase-4-web: the header toggle switches between Ledger Cards and ListRows, and the choice is kept in local storage. A bad stored value falls back to grid. prefs.js validates every stored preference, the theme included.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f2dd4a0c
+kind: update
+occurred_at: 2026-10-08T03:28:48.300Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_3128a87a.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Category, tag and source filters done on aib-8h-phase-4-web: chips with counts, Tags and Sources panels, all in the URL (?c=repos&t=agents,open-source&s=github). Unknown values in a link are dropped rather than breaking it. Filter changes replace history and travel with edition navigation. Clicked through in headless Chrome, including a shared link with bad values.
 <!-- /longclaw:event -->
