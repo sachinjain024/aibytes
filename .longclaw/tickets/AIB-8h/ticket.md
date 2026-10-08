@@ -8,7 +8,7 @@ priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-10-08T10:04:48.821Z
+updated_at: 2026-10-08T10:23:31.100Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -115,16 +115,15 @@ anonymous saves from phase 4: the star, the save banner, Google sign-in,
 Firestore saves, and the Saved view ship as one feature after this ticket. The
 app here ships with no star and no Sign in button rather than dead ones.
 
-**Phase 7 — The extension.** Chrome new-tab page on the same edition JSON, no
-extra backend. Shares Ledger with the app, which is why Ledger's two
-injected-UI gaps (tokens on `:host`, dark mode without `[data-theme]`) get fixed
-in the package rather than forked here.
+**Phase 7 — The extension.** Moved to AIB-76n on 2026-10-08: a Chrome new-tab
+page on the same edition JSON, no extra backend, sharing Ledger with the app.
 
 ## Risks and open questions
 
-- **Ledger was authored for a page we own.** Its tokens land on `:root` only,
-  and dark mode is defined only under `[data-theme="dark"]`. Both break inside a
-  content script's shadow root. Fix in the package, not downstream.
+- **Ledger was authored for a page we own.** Dark mode now follows
+  `prefers-color-scheme` without `[data-theme]` (phase 4). Tokens still land on
+  `:root` only, which breaks inside a content script's shadow root; that gap
+  moved to AIB-76n with the extension. Fix in the package, not downstream.
 - **The weekly snapshot path is load-bearing.** `newsletter/data/{yyyy}/{mm}/weeks/week-NN/`
   is what every committed snapshot and every newsletter skill uses. The daily
   app feed must not disturb it.
@@ -248,8 +247,8 @@ workflow only works once the custom domain is set, since the app is built for `/
 - [x] Move the newsletter to `newsletter.aibytes.io` in Beehiiv, with its DNS record on Cloudflare <!-- longclaw:item=ck_400ba60c -->
 - [x] Check what old `aibytes.io/p/<slug>` issue links do after the move, and update links that point at them (Beehiiv settings, social bios) <!-- longclaw:item=ck_287f3bb4 -->
 - [x] Redirect old issue links: the app's 404 page sends `/p/<slug>` to `newsletter.aibytes.io/p/<slug>` <!-- longclaw:item=ck_046de995 -->
-- [ ] Point `aibytes.io` DNS at GitHub Pages (apex A/AAAA records, `www` CNAME to `sachinjain024.github.io`) <!-- longclaw:item=ck_d14dbf8d -->
-- [ ] Set `aibytes.io` as the Pages custom domain and enforce HTTPS <!-- longclaw:item=ck_1796b533 -->
+- [x] Point `aibytes.io` DNS at GitHub Pages (apex A/AAAA records, `www` CNAME to `sachinjain024.github.io`) <!-- longclaw:item=ck_d14dbf8d -->
+- [x] Set `aibytes.io` as the Pages custom domain and enforce HTTPS <!-- longclaw:item=ck_1796b533 -->
 - [ ] Move the schemas' `$id` to `https://aibytes.io/content/` <!-- longclaw:item=ck_47063f49 -->
 - [x] Build the app for the root: Vite `base` is `/`, and `content/` is served at `/content/` <!-- longclaw:item=ck_bc69d1d6 -->
 
@@ -263,10 +262,8 @@ Moved to AIB-75v, with anonymous saves from phase 4.
 
 ### Phase 7 — The extension
 
-- [ ] Scaffold `apps/extension` <!-- longclaw:item=ck_a0336c06 -->
-- [ ] Emit Ledger tokens on `:host` as well as `:root` <!-- longclaw:item=ck_de352ef0 -->
-- [ ] New-tab page rendering the latest edition from the same JSON <!-- longclaw:item=ck_9e48e01a -->
-- [ ] Package and submit to the Chrome Web Store <!-- longclaw:item=ck_f68c7050 -->
+Moved to AIB-76n.
+
 
 ## Activity
 
@@ -1093,4 +1090,103 @@ changes:
     to: "true"
 -->
 ### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_bcd4edad
+kind: update
+occurred_at: 2026-10-08T10:20:16.588Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_d14dbf8d.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_9c05e078
+kind: update
+occurred_at: 2026-10-08T10:20:18.720Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_1796b533.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_872713a3
+kind: update
+occurred_at: 2026-10-08T10:23:31.038Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_a0336c06.removed
+    from: Scaffold `apps/extension`
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_3b05b88f
+kind: update
+occurred_at: 2026-10-08T10:23:31.059Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_de352ef0.removed
+    from: Emit Ledger tokens on `:host` as well as `:root`
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8bdf17a8
+kind: update
+occurred_at: 2026-10-08T10:23:31.080Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_9e48e01a.removed
+    from: New-tab page rendering the latest edition from the same JSON
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_98b8de66
+kind: update
+occurred_at: 2026-10-08T10:23:31.100Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_f68c7050.removed
+    from: Package and submit to the Chrome Web Store
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_a4efb67a
+kind: comment
+occurred_at: 2026-10-08T10:23:31.236Z
+actor:
+  type: agent
+  id: claude-code
+-->
+### claude-code commented
+
+Phase 7 (the Chrome extension) moved to AIB-76n: scaffold, new-tab page, Ledger tokens on :host, Chrome Web Store, plus pointing the web footer at the listing. AIB-8h closes with the web app.
 <!-- /longclaw:event -->
