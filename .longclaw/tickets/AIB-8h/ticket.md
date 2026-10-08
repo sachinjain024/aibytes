@@ -3,12 +3,12 @@ format: longclaw.ticket/v1
 id: 3b37145c-c160-4f47-81ef-7c9123321a7e
 key: AIB-8h
 title: Repo Refactoring
-status: in_progress
+status: done
 priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-10-08T10:33:02.129Z
+updated_at: 2026-10-08T10:39:52.709Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -1221,4 +1221,32 @@ changes:
 ### claude-code updated this ticket
 
 Accessibility pass done on aib-8h-finish: a contrast test over Ledger's tokens (one fix, --hot-text), axe-core 0 violations in both themes and with a panel open, focus moves into and back out of every popover, skip link, heading order fixed.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e27a8334
+kind: update
+occurred_at: 2026-10-08T10:39:52.709Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: status
+    from: in_progress
+    to: done
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ade0626d
+kind: comment
+occurred_at: 2026-10-08T10:40:13.386Z
+actor:
+  type: agent
+  id: claude-code
+-->
+### claude-code commented
+
+Done: the repo restructure, the edition contract, curate, the daily runner, and the web app live at aibytes.io. Saves and sign-in continue in AIB-75v, the Chrome extension in AIB-76n.
 <!-- /longclaw:event -->
