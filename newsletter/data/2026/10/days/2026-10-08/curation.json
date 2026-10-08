@@ -1,0 +1,712 @@
+{
+  "date": "2026-10-08",
+  "generated_at": "2026-10-08T08:00:17Z",
+  "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
+  "tags": [
+    {
+      "name": "What it is",
+      "tags": [
+        {
+          "name": "Model Release",
+          "slug": "model-release"
+        },
+        {
+          "name": "Open Source",
+          "slug": "open-source"
+        },
+        {
+          "name": "Paper",
+          "slug": "paper"
+        },
+        {
+          "name": "Benchmark",
+          "slug": "benchmark"
+        },
+        {
+          "name": "Dataset",
+          "slug": "dataset"
+        },
+        {
+          "name": "Framework",
+          "slug": "framework"
+        },
+        {
+          "name": "Dev Tool",
+          "slug": "dev-tool"
+        },
+        {
+          "name": "API",
+          "slug": "api"
+        }
+      ]
+    },
+    {
+      "name": "Domain",
+      "tags": [
+        {
+          "name": "LLM",
+          "slug": "llm"
+        },
+        {
+          "name": "Agents",
+          "slug": "agents"
+        },
+        {
+          "name": "RAG",
+          "slug": "rag"
+        },
+        {
+          "name": "Fine-tuning",
+          "slug": "fine-tuning"
+        },
+        {
+          "name": "Inference",
+          "slug": "inference"
+        },
+        {
+          "name": "Local LLM",
+          "slug": "local-llm"
+        },
+        {
+          "name": "Vision",
+          "slug": "vision"
+        },
+        {
+          "name": "Voice / Speech",
+          "slug": "voice-speech"
+        },
+        {
+          "name": "Video",
+          "slug": "video"
+        },
+        {
+          "name": "Image Gen",
+          "slug": "image-gen"
+        },
+        {
+          "name": "Code Gen",
+          "slug": "code-gen"
+        },
+        {
+          "name": "Embeddings",
+          "slug": "embeddings"
+        },
+        {
+          "name": "Eval",
+          "slug": "eval"
+        },
+        {
+          "name": "Reasoning",
+          "slug": "reasoning"
+        },
+        {
+          "name": "Multimodal",
+          "slug": "multimodal"
+        },
+        {
+          "name": "Robotics",
+          "slug": "robotics"
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem",
+      "tags": [
+        {
+          "name": "OpenAI",
+          "slug": "openai"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic"
+        },
+        {
+          "name": "Google",
+          "slug": "google"
+        },
+        {
+          "name": "Meta",
+          "slug": "meta"
+        },
+        {
+          "name": "Nvidia",
+          "slug": "nvidia"
+        },
+        {
+          "name": "Hugging Face",
+          "slug": "hugging-face"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft"
+        },
+        {
+          "name": "Claude Code",
+          "slug": "claude-code"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor"
+        },
+        {
+          "name": "MCP",
+          "slug": "mcp"
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "tags": [
+        {
+          "name": "Funding",
+          "slug": "funding"
+        },
+        {
+          "name": "Acquisition",
+          "slug": "acquisition"
+        },
+        {
+          "name": "Launch",
+          "slug": "launch"
+        },
+        {
+          "name": "Pricing",
+          "slug": "pricing"
+        },
+        {
+          "name": "Policy",
+          "slug": "policy"
+        },
+        {
+          "name": "Legal",
+          "slug": "legal"
+        },
+        {
+          "name": "Security",
+          "slug": "security"
+        },
+        {
+          "name": "Privacy",
+          "slug": "privacy"
+        },
+        {
+          "name": "Safety",
+          "slug": "safety"
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "tags": [
+        {
+          "name": "Show HN",
+          "slug": "show-hn"
+        },
+        {
+          "name": "Tutorial",
+          "slug": "tutorial"
+        },
+        {
+          "name": "Deep Dive",
+          "slug": "deep-dive"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ph-irisgo-for-solopreneurs-2026-10-08",
+      "title": "IrisGo for Solopreneurs",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://irisgo.ai/solopreneur",
+      "source_url": "https://www.producthunt.com/products/irisgo-public-beta",
+      "source_text": "IrisGo for Solopreneurs AI workflow automation: show it once, let it run IrisGo helps solopreneurs automate recurring work. Get daily briefs, triage email, track to-dos, and turn demonstrated tasks into reusable workflows with Watch & Learn. Spend less time on admin and more time building your business. Free during beta. Task Management Artificial Intelligence Virtual Assistants",
+      "signals": {
+        "upvotes": 510,
+        "comments": 119
+      },
+      "published_at": "2026-10-07T07:01:00Z"
+    },
+    {
+      "id": "ph-genpage-3-0-2026-10-08",
+      "title": "GenPage 3.0",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://genpage.ai",
+      "source_url": "https://www.producthunt.com/products/genpage",
+      "source_text": "GenPage 3.0 Build, personalize, and optimize landing pages with AI Your marketing campaigns are personalized. Your landing pages should be too. GenPage learns your brand, builds dedicated pages for every ad, keyword, or target account, then continuously A-Z tests them on Autopilot - turning more traffic into pipeline and revenue. Sales Marketing Website Builder",
+      "signals": {
+        "upvotes": 497,
+        "comments": 66
+      },
+      "published_at": "2026-10-07T07:01:00Z"
+    },
+    {
+      "id": "ph-velozity-3-2026-10-08",
+      "title": "Velozity",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://getvelozity.com/",
+      "source_url": "https://www.producthunt.com/products/velozity-2",
+      "source_text": "Velozity The Multiplayer AI Office where your team and agents work. Your team chats in one app, meets in another, and every AI works alone. Velozity brings it all into one place. Chat, audio and video calls with transcripts, tasks, calendar and files, plus AI agents (Claude, Codex, etc.) on the subscriptions you already pay for. Every agent shares the same context, so work moves between people and agents without having to re-explain. For startups, teams in dev, product, sales, and ops, or solo users juggling several AIs. No second AI bill. Free to start. Productivity Meetings Artificial Intelligence",
+      "signals": {
+        "upvotes": 429,
+        "comments": 117
+      },
+      "published_at": "2026-10-07T07:01:00Z"
+    },
+    {
+      "id": "ph-databench-by-alkera-2026-10-08",
+      "title": "Databench by Alkera",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://alkera.ai",
+      "source_url": "https://www.producthunt.com/products/alkera",
+      "source_text": "Databench by Alkera Open-source collaborative agentic workspace for data teams Databench by Alkera is the open-source, multiplayer workspace for data science, analytics, and engineering. Collaborate live alongside teammates and agents in notebooks and chats, run any cell or agent on your laptop, another computer, or a GPU node and launch many agents in parallel to explore ideas. Every result traces back to the data and code behind it. Try it at https://alkera.ai with a generous free tier or host Databench yourself (https://github.com/AlkeraAI/Databench). Open Source Artificial Intelligence Data Science",
+      "signals": {
+        "upvotes": 288,
+        "comments": 15
+      },
+      "published_at": "2026-10-07T07:01:00Z"
+    },
+    {
+      "id": "ph-pegasus-1-6-by-twelvelabs-2026-10-08",
+      "title": "Pegasus 1.6 by TwelveLabs",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.twelvelabs.io/solutions/physical-ai",
+      "source_url": "https://www.producthunt.com/products/twelvelabs",
+      "source_text": "Pegasus 1.6 by TwelveLabs Transforms egocentric video into robot training data Pegasus 1.6 is the TwelveLabs model that understands video from a first-person point of view, built for the egocentric and teleoperated footage robotics and physical AI teams already collect. It recognizes entities more accurately, and produces persistent metadata across segment types. Point it at raw teleoperation or wearable footage and get back labeled, timestamped, robot-ready data. No manual labeling pass required. Robots Artificial Intelligence Video",
+      "signals": {
+        "upvotes": 271,
+        "comments": 21
+      },
+      "published_at": "2026-10-07T07:01:00Z"
+    },
+    {
+      "id": "hn-show-hn-nanomuse-an-open-source-ai-agent-for-2026-10-08",
+      "title": "Show HN: NanoMuse – An open-source AI agent for your phone and computer",
+      "category": "launches",
+      "source": "hackernews",
+      "url": "https://github.com/nano-muse/nanoMuse",
+      "source_url": "https://news.ycombinator.com/item?id=49987765",
+      "source_text": "Show HN: NanoMuse – An open-source AI agent for your phone and computer",
+      "signals": {
+        "points": 57,
+        "comments": 20
+      },
+      "meta": {
+        "author": "ilreb"
+      },
+      "published_at": "2026-10-07T03:30:44Z"
+    },
+    {
+      "id": "hn-show-hn-agent-reviews-where-ai-agents-read-and-2026-10-08",
+      "title": "Show HN: Agent.reviews – Where AI agents read and write reviews on tools",
+      "category": "launches",
+      "source": "hackernews",
+      "url": "https://agent.reviews/",
+      "source_url": "https://news.ycombinator.com/item?id=49995539",
+      "source_text": "Show HN: Agent.reviews – Where AI agents read and write reviews on tools",
+      "signals": {
+        "points": 55,
+        "comments": 44
+      },
+      "meta": {
+        "author": "screm"
+      },
+      "published_at": "2026-10-07T16:59:11Z"
+    },
+    {
+      "id": "gh-diagram-design-2026-10-08",
+      "title": "cathrynlavery/diagram-design",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "source_url": "https://github.com/cathrynlavery/diagram-design",
+      "source_text": "cathrynlavery/diagram-design Editorial diagram design for Claude Code, Codex, GitHub Copilot, Factory Droid, and Pi. 42 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop. HTML",
+      "signals": {
+        "stars": 45378,
+        "stars_gained": 825,
+        "forks": 2914
+      },
+      "meta": {
+        "language": "HTML"
+      }
+    },
+    {
+      "id": "gh-agent-skills-2026-10-08",
+      "title": "addyosmani/agent-skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills",
+      "source_text": "addyosmani/agent-skills Production-grade engineering skills for AI coding agents. JavaScript",
+      "signals": {
+        "stars": 103059,
+        "stars_gained": 677,
+        "forks": 10790
+      },
+      "meta": {
+        "language": "JavaScript"
+      }
+    },
+    {
+      "id": "gh-i-have-adhd-2026-10-08",
+      "title": "ayghri/i-have-adhd",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/ayghri/i-have-adhd",
+      "source_url": "https://github.com/ayghri/i-have-adhd",
+      "source_text": "ayghri/i-have-adhd A skill to stop your coding agent from burying the answer. ADHD-friendly output. Python",
+      "signals": {
+        "stars": 55431,
+        "stars_gained": 619,
+        "forks": 3169
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-claude-mem-2026-10-08",
+      "title": "thedotmack/claude-mem",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source_url": "https://github.com/thedotmack/claude-mem",
+      "source_text": "thedotmack/claude-mem Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More TypeScript",
+      "signals": {
+        "stars": 97945,
+        "stars_gained": 578,
+        "forks": 8613
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-security-audit-skill-2026-10-08",
+      "title": "cloudflare/security-audit-skill",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/cloudflare/security-audit-skill",
+      "source_url": "https://github.com/cloudflare/security-audit-skill",
+      "source_text": "cloudflare/security-audit-skill A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings JavaScript",
+      "signals": {
+        "stars": 26288,
+        "stars_gained": 576,
+        "forks": 1580
+      },
+      "meta": {
+        "language": "JavaScript"
+      }
+    },
+    {
+      "id": "gh-cmux-2026-10-08",
+      "title": "manaflow-ai/cmux",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/manaflow-ai/cmux",
+      "source_url": "https://github.com/manaflow-ai/cmux",
+      "source_text": "manaflow-ai/cmux Open source Ghostty-based macOS terminal with vertical tabs and notifications for AI coding agents. Built for multitasking, organization, and programmability. Swift",
+      "signals": {
+        "stars": 27961,
+        "stars_gained": 44,
+        "forks": 2467
+      },
+      "meta": {
+        "language": "Swift"
+      }
+    },
+    {
+      "id": "tc-nous-research-confirms-it-hit-1-5b-valuation-2026-10-08",
+      "title": "Nous Research confirms it hit $1.5B valuation, launches AI agents for business users",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/07/nous-research-confirms-it-hit-1-5b-valuation-launches-ai-agents-for-business-users/",
+      "source_url": "https://techcrunch.com/2026/10/07/nous-research-confirms-it-hit-1-5b-valuation-launches-ai-agents-for-business-users/",
+      "source_text": "Nous Research confirms it hit $1.5B valuation, launches AI agents for business users The developer of Hermes Agent raised a $90 million Series B.",
+      "meta": {
+        "author": "Marina Temkin",
+        "reading_time": "1 minute"
+      },
+      "published_at": "2026-10-07T20:48:45Z"
+    },
+    {
+      "id": "tc-microsoft-releases-new-nvidia-chip-ai-pcs-with-2026-10-08",
+      "title": "Microsoft releases new Nvidia-chip AI PCs with revamped Windows 11",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/07/microsoft-releases-new-nvidia-chip-ai-pcs-with-revamped-windows-11/",
+      "source_url": "https://techcrunch.com/2026/10/07/microsoft-releases-new-nvidia-chip-ai-pcs-with-revamped-windows-11/",
+      "source_text": "Microsoft releases new Nvidia-chip AI PCs with revamped Windows 11 Microsoft revealed the specs and price for its Surface Laptop Ultra, AI PCs that run on Nvidia chips that are designed to run AI models and agents.",
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-10-07T20:22:37Z"
+    },
+    {
+      "id": "tc-metas-muse-launches-on-ipad-just-a-month-after-2026-10-08",
+      "title": "Meta’s Muse launches on iPad just a month after its mobile debut",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/07/metas-muse-launches-on-ipad-just-a-month-after-its-mobile-debut/",
+      "source_url": "https://techcrunch.com/2026/10/07/metas-muse-launches-on-ipad-just-a-month-after-its-mobile-debut/",
+      "source_text": "Meta’s Muse launches on iPad just a month after its mobile debut Meta’s AI agent Muse is now available on iPad, just a month after its mobile debut, as the company rapidly expands the assistant’s reach and integrations.",
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-07T18:30:57Z"
+    },
+    {
+      "id": "tc-chatgpt-for-teens-keeps-teens-talking-even-2026-10-08",
+      "title": "ChatGPT for Teens keeps teens talking, even during mental health crises",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/07/chatgpt-for-teens-keeps-teens-talking-even-during-mental-health-crises/",
+      "source_url": "https://techcrunch.com/2026/10/07/chatgpt-for-teens-keeps-teens-talking-even-during-mental-health-crises/",
+      "source_text": "ChatGPT for Teens keeps teens talking, even during mental health crises ChatGPT’s teen safeguards are meant to protect vulnerable users, but new testing found the chatbot continues encouraging engagement during crises and potentially encourages unhealthy relationships with the AI itself.",
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-10-07T18:15:28Z"
+    },
+    {
+      "id": "tc-chatgpt-is-getting-a-lot-more-visual-with-the-2026-10-08",
+      "title": "ChatGPT is getting a lot more visual, with the launch of a new interface",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/07/chatgpt-is-getting-a-lot-more-visual-with-the-launch-of-a-new-interface/",
+      "source_url": "https://techcrunch.com/2026/10/07/chatgpt-is-getting-a-lot-more-visual-with-the-launch-of-a-new-interface/",
+      "source_text": "ChatGPT is getting a lot more visual, with the launch of a new interface OpenAI is launching a new user interface that will bring interactive visuals to ChatGPT.",
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-07T18:00:19Z"
+    },
+    {
+      "id": "tc-meta-rolls-out-new-ai-tools-to-detect-ads-that-2026-10-08",
+      "title": "Meta rolls out new AI tools to detect ads that secretly lead to child sexual abuse material",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/07/meta-rolls-out-new-ai-tools-to-detect-ads-that-secretly-lead-to-child-sexual-abuse-material/",
+      "source_url": "https://techcrunch.com/2026/10/07/meta-rolls-out-new-ai-tools-to-detect-ads-that-secretly-lead-to-child-sexual-abuse-material/",
+      "source_text": "Meta rolls out new AI tools to detect ads that secretly lead to child sexual abuse material Meta launches new AI tools after discovering ads on its platforms that may look normal but direct users to harmful content elsewhere online.",
+      "meta": {
+        "author": "Lauren Forristal",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-10-07T16:53:46Z"
+    },
+    {
+      "id": "tc-healthleap-raises-38m-for-its-ai-that-flags-2026-10-08",
+      "title": "Healthleap raises $38M for its AI that flags hospital patients who may need a closer look",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/07/healthleap-raises-38m-for-its-ai-that-flags-hospital-patients-who-may-need-a-closer-look/",
+      "source_url": "https://techcrunch.com/2026/10/07/healthleap-raises-38m-for-its-ai-that-flags-hospital-patients-who-may-need-a-closer-look/",
+      "source_text": "Healthleap raises $38M for its AI that flags hospital patients who may need a closer look The financing includes an $8M seed round co-led by Sequoia Capital and First Round Capital, and a $30 million Series A led by Hummingbird Ventures.",
+      "meta": {
+        "author": "Ram Iyer",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-10-07T15:07:08Z"
+    },
+    {
+      "id": "tc-tony-fadell-on-why-the-first-wave-of-ai-gadgets-2026-10-08",
+      "title": "Tony Fadell on why the first wave of AI gadgets failed — and what comes next",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/07/tony-fadell-on-why-the-first-wave-of-ai-gadgets-failed-and-what-comes-next/",
+      "source_url": "https://techcrunch.com/2026/10/07/tony-fadell-on-why-the-first-wave-of-ai-gadgets-failed-and-what-comes-next/",
+      "source_text": "Tony Fadell on why the first wave of AI gadgets failed — and what comes next The “father of the iPod” says the first generation of AI gadgets failed to solve real problems — and the next wave will need to earn consumers’ trust.",
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-10-07T14:41:38Z"
+    },
+    {
+      "id": "tc-google-experiments-with-an-ai-powered-gaming-2026-10-08",
+      "title": "Google experiments with an AI-powered gaming platform",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/07/google-experiments-with-an-ai-powered-gaming-platform/",
+      "source_url": "https://techcrunch.com/2026/10/07/google-experiments-with-an-ai-powered-gaming-platform/",
+      "source_text": "Google experiments with an AI-powered gaming platform Google Labs is working on a new AI-powered game-creation platform called Playground for users to build browser-based games using simple text prompts.",
+      "meta": {
+        "author": "Lauren Forristal",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-07T14:36:23Z"
+    },
+    {
+      "id": "tc-openais-alexander-embiricos-is-coming-to-2026-10-08",
+      "title": "OpenAI’s Alexander Embiricos is coming to TechCrunch Disrupt 2026 — days after the launch of Dots",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/07/openais-alexander-embiricos-is-coming-to-techcrunch-disrupt-2026-days-after-the-launch-of-dots/",
+      "source_url": "https://techcrunch.com/2026/10/07/openais-alexander-embiricos-is-coming-to-techcrunch-disrupt-2026-days-after-the-launch-of-dots/",
+      "source_text": "OpenAI’s Alexander Embiricos is coming to TechCrunch Disrupt 2026 — days after the launch of Dots OpenAI’s Alexander Embiricos is coming to the AI Stage at TechCrunch Disrupt 2026, just days after the launch of Dots. Register now to save up to $100.",
+      "meta": {
+        "author": "TechCrunch Events",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-07T14:30:00Z"
+    },
+    {
+      "id": "hn-claude-haiku-5-5-2026-10-08",
+      "title": "Claude Haiku 5.5",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.anthropic.com/claude-haiku-5-5",
+      "source_url": "https://news.ycombinator.com/item?id=49996437",
+      "source_text": "Claude Haiku 5.5",
+      "signals": {
+        "points": 841,
+        "comments": 411
+      },
+      "meta": {
+        "author": "sfkgtbor"
+      },
+      "published_at": "2026-10-07T18:01:32Z"
+    },
+    {
+      "id": "hn-gpt6-and-intelligent-ui-for-everyone-2026-10-08",
+      "title": "GPT‑6 and Intelligent UI for everyone",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://openai.com/index/gpt-6-for-everyone/",
+      "source_url": "https://news.ycombinator.com/item?id=49996425",
+      "source_text": "GPT‑6 and Intelligent UI for everyone",
+      "signals": {
+        "points": 603,
+        "comments": 322
+      },
+      "meta": {
+        "author": "joshuawright11"
+      },
+      "published_at": "2026-10-07T18:00:58Z"
+    },
+    {
+      "id": "hn-meta-and-microsoft-take-steps-to-reduce-2026-10-08",
+      "title": "Meta and Microsoft take steps to reduce employee usage of Claude AI",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.rswebsols.com/news/meta-and-microsoft-take-steps-to-reduce-employee-usage-of-claude-ai/",
+      "source_url": "https://news.ycombinator.com/item?id=49997161",
+      "source_text": "Meta and Microsoft take steps to reduce employee usage of Claude AI",
+      "signals": {
+        "points": 338,
+        "comments": 328
+      },
+      "meta": {
+        "author": "speckx"
+      },
+      "published_at": "2026-10-07T18:49:40Z"
+    },
+    {
+      "id": "hn-ai-assisted-proof-of-optimal-packing-for-11-2026-10-08",
+      "title": "AI-assisted proof of optimal packing for 11 squares",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://github.com/Queuingtheorydotcom/11SquaresFormalized",
+      "source_url": "https://news.ycombinator.com/item?id=49993121",
+      "source_text": "AI-assisted proof of optimal packing for 11 squares",
+      "signals": {
+        "points": 115,
+        "comments": 53
+      },
+      "meta": {
+        "author": "bluepeter"
+      },
+      "published_at": "2026-10-07T14:10:55Z"
+    },
+    {
+      "id": "hn-study-claude-chatgpt-offer-different-shopping-2026-10-08",
+      "title": "Study: Claude, ChatGPT Offer Different Shopping Prices Based on Wealth",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.bloomberg.com/news/newsletters/2026-10-07/study-claude-chatgpt-ai-bots-offer-different-shopping-prices-based-on-wealth",
+      "source_url": "https://news.ycombinator.com/item?id=49994746",
+      "source_text": "Study: Claude, ChatGPT Offer Different Shopping Prices Based on Wealth",
+      "signals": {
+        "points": 95,
+        "comments": 35
+      },
+      "meta": {
+        "author": "sbulaev"
+      },
+      "published_at": "2026-10-07T16:07:08Z"
+    },
+    {
+      "id": "hn-write-like-it-s-1866-llms-relearn-telegraphese-2026-10-08",
+      "title": "Write Like It's 1866: LLMs Relearn Telegraphese",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://fiveminutesforward.com/post/2026-10-04-telegraph-test/",
+      "source_url": "https://news.ycombinator.com/item?id=49991580",
+      "source_text": "Write Like It's 1866: LLMs Relearn Telegraphese",
+      "signals": {
+        "points": 89,
+        "comments": 56
+      },
+      "meta": {
+        "author": "Theory42"
+      },
+      "published_at": "2026-10-07T12:04:36Z"
+    },
+    {
+      "id": "hn-forever-junior-skills-ai-can-t-develop-for-you-2026-10-08",
+      "title": "Forever junior: Skills AI can't develop for you",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://tech.criteo.com/blog/human-skills-ai-cant-develop-junior-engineers/",
+      "source_url": "https://news.ycombinator.com/item?id=49989684",
+      "source_text": "Forever junior: Skills AI can't develop for you",
+      "signals": {
+        "points": 73,
+        "comments": 58
+      },
+      "meta": {
+        "author": "brugidou"
+      },
+      "published_at": "2026-10-07T08:00:06Z"
+    },
+    {
+      "id": "hn-reasons-to-dislike-ai-coding-2026-10-08",
+      "title": "Reasons to Dislike AI Coding",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.sicpers.info/2026/10/reasons-to-dislike-ai-coding/",
+      "source_url": "https://news.ycombinator.com/item?id=49990204",
+      "source_text": "Reasons to Dislike AI Coding",
+      "signals": {
+        "points": 71,
+        "comments": 102
+      },
+      "meta": {
+        "author": "signa11"
+      },
+      "published_at": "2026-10-07T09:15:00Z"
+    }
+  ]
+}
