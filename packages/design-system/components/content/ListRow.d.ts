@@ -3,6 +3,7 @@ import type { EditionItem } from "./Card";
 export interface ListRowProps {
   item: EditionItem;
   saved?: boolean;
+  /** the save star renders only when this is passed */
   onToggleSave?: (id: string) => void;
 }
 export declare function ListRow(props: ListRowProps): JSX.Element;

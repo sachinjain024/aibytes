@@ -56,7 +56,7 @@ export function Card({ item, topToday = false, saved = false, onToggleSave, sign
         </div>
       </div>
       {corner
-        ? <span className="ldg-card__corner"><CardMenu item={item} /><SaveStar saved={saved} onToggle={() => onToggleSave && onToggleSave(item.id)} /></span>
-        : <SaveStar className="ldg-card__star" saved={saved} onToggle={() => onToggleSave && onToggleSave(item.id)} />}
+        ? <span className="ldg-card__corner"><CardMenu item={item} />{onToggleSave && <SaveStar saved={saved} onToggle={() => onToggleSave(item.id)} />}</span>
+        : onToggleSave && <SaveStar className="ldg-card__star" saved={saved} onToggle={() => onToggleSave(item.id)} />}
     </article>);
 }

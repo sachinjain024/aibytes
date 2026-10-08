@@ -19,7 +19,7 @@ export function ListRow({ item, saved = false, onToggleSave }) {
         {sig.stars_gained != null && <React.Fragment> · +{fmtNum(sig.stars_gained)} ★</React.Fragment>}
         {sig.comments != null && <React.Fragment> · {bubble} {fmtNum(sig.comments)}</React.Fragment>}
       </span>
-      <SaveStar saved={saved} onToggle={() => onToggleSave && onToggleSave(item.id)} />
+      {onToggleSave && <SaveStar saved={saved} onToggle={() => onToggleSave(item.id)} />}
       <CardMenu item={item} up={false} />
     </div>);
 }
