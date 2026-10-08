@@ -37,6 +37,12 @@ export function pickEdition(route, editions) {
   return null;
 }
 
+// The edition before `date` in index.json (newest first), or null.
+export function olderEdition(editions, date) {
+  const at = editions.findIndex((ref) => ref.date === date);
+  return at === -1 ? null : editions[at + 1] || null;
+}
+
 function isRealDate(text) {
   const date = new Date(text + "T00:00:00Z");
   return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === text;

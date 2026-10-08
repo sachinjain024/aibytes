@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { filtersToSearch, matches, NO_FILTERS, parseFilters, toggle } from "./filters.js";
+import { countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, toggle } from "./filters.js";
 
 const GROUPS = [
   { name: "What it is", tags: [{ name: "Open Source", slug: "open-source" }, { name: "Dev Tool", slug: "dev-tool" }] },
@@ -45,4 +45,21 @@ test("matching: the category, then any chosen tag, then any chosen source", () =
 test("toggle adds and removes", () => {
   assert.deepEqual(toggle(["a"], "b"), ["a", "b"]);
   assert.deepEqual(toggle(["a", "b"], "a"), ["b"]);
+});
+
+test("the empty state names what was filtered, category first", () => {
+  assert.equal(describeFilters({ ...NO_FILTERS, category: "repos" }), "Trending Dev Projects");
+  assert.equal(describeFilters({ ...NO_FILTERS, tags: ["Agents"] }), "items tagged Agents");
+  assert.equal(describeFilters({ category: "launches", tags: ["Agents", "Dev Tool"], sources: ["github", "hackernews"] }),
+    "New Products tagged Agents or Dev Tool from Hacker News or GitHub");
+});
+
+test("counting matches skips hidden items", () => {
+  const items = [
+    { category: "repos", source: "github" },
+    { category: "repos", source: "github", hidden: { reason: "duplicate" } },
+    { category: "news", source: "techcrunch" },
+  ];
+  assert.equal(countMatches(items, { ...NO_FILTERS, category: "repos" }), 1);
+  assert.equal(countMatches(items, NO_FILTERS), 2);
 });

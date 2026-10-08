@@ -1,16 +1,17 @@
 import React from "react";
 import { Card } from "@aibytes/design-system/components/content/Card.jsx";
+import { EmptyState } from "@aibytes/design-system/components/content/EmptyState.jsx";
 import { EndCard } from "@aibytes/design-system/components/content/EndCard.jsx";
 import { ListRow } from "@aibytes/design-system/components/content/ListRow.jsx";
 import { EditionBar } from "@aibytes/design-system/components/navigation/EditionBar.jsx";
 import { Chip } from "@aibytes/design-system/components/navigation/Chip.jsx";
 import { Header } from "@aibytes/design-system/components/navigation/Header.jsx";
 import { loadEdition, loadIndex, loadTags } from "./content.js";
-import { CATEGORIES, filtersToSearch, matches, parseFilters, SOURCES, toggle } from "./filters.js";
+import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, SOURCES, toggle } from "./filters.js";
 import { ago, longDate, midDate, shortDate } from "./format.js";
 import { useChoice, useDismiss, useMedia, useTheme } from "./hooks.js";
 import { VIEW } from "./prefs.js";
-import { editionPath, parseRoute, pickEdition } from "./route.js";
+import { editionPath, olderEdition, parseRoute, pickEdition } from "./route.js";
 
 const TAGLINE = "today's AI, in one byte";
 // Ledger's sticky breakpoint (app.css); below it the header and bar go compact.
@@ -38,7 +39,7 @@ function useLocation() {
 
 // Header, edition bar, and calendar over the edition as a Card grid or a
 // ListRow list, filtered by category, tags, and sources from the URL. Saves
-// and sign-in are later AIB-8h items, so the header shows no controls for them.
+// and sign-in are AIB-75v, so the header and cards show no controls for them.
 export function App() {
   const [location, navigate] = useLocation();
   const route = parseRoute(location.pathname);
@@ -99,6 +100,11 @@ export function App() {
   // No filter controls until tags.json has settled: rewriting the URL before
   // then would silently drop any t= tags it already carries.
   const filterable = Boolean(visible) && tags.status !== "loading";
+  const items = visible && visible.filter((item) => matches(item, filters));
+  const older = ref && olderEdition(editions, ref.date);
+  const prev = usePrevious(items && !items.length ? older : null);
+  // Paging back or forward keeps the filters, as the edition bar does.
+  const goTo = (date) => navigate(editionPath(date) + location.search);
 
   return (
     <div className="app-shell">
@@ -117,9 +123,30 @@ export function App() {
           <Panel label="Filter by source" narrow groups={[{ name: "Sources", options: SOURCES }]}
             selected={filters.sources} onToggle={(key) => setFilters({ ...filters, sources: toggle(filters.sources, key) })} />)}
       </div>
-      <main className="app-main">{body(route, index, ref, edition, view, visible, filters, () => setFilters({ category: "all", tags: [], sources: [] }))}</main>
+      <main className="app-main">
+        {body({ route, index, ref, edition, view, items, filters, older, prev, goTo, clearFilters: () => setFilters(NO_FILTERS) })}
+      </main>
     </div>
   );
+}
+
+// The edition before an empty filtered view, loaded only once a filter comes up
+// empty, so the empty state can say how many the day before had. `ref` null
+// means not needed; a failed load just leaves the count off.
+function usePrevious(ref) {
+  const [prev, setPrev] = React.useState(null);
+  const date = ref && ref.date;
+  React.useEffect(() => {
+    if (!ref || (prev && prev.date === date)) return undefined;
+    let live = true;
+    loadEdition(ref)
+      .then((data) => live && setPrev({ date, items: data.items }))
+      .catch(() => live && setPrev({ date, items: null }));
+    return () => {
+      live = false;
+    };
+  }, [date]);
+  return prev && prev.date === date ? prev : null;
 }
 
 // The Tags or Sources dropdown under the header: grouped multi-select chips,
@@ -148,7 +175,7 @@ function Bar({ refAt, editions, compact, search, navigate }) {
   useDismiss(wrap, open, close);
 
   const at = editions.findIndex((ref) => ref.date === refAt.date);
-  const older = editions[at + 1];
+  const older = olderEdition(editions, refAt.date);
   const newer = editions[at - 1];
   const go = (date) => {
     setOpen(false);
@@ -171,7 +198,7 @@ function Bar({ refAt, editions, compact, search, navigate }) {
   );
 }
 
-function body(route, index, ref, edition, view, visible, filters, clearFilters) {
+function body({ route, index, ref, edition, view, items, filters, older, prev, goTo, clearFilters }) {
   const message = (text, role) => <div className="ldg-endcard" role={role}>{text}</div>;
   const toLatest = <a href="/">Go to the latest edition</a>;
 
@@ -183,13 +210,19 @@ function body(route, index, ref, edition, view, visible, filters, clearFilters) 
     return message(<>There is no edition for {longDate(route.date)}. {toLatest}.</>);
   }
   if (edition.status === "error") return message(`Could not load the edition: ${edition.error.message}`, "alert");
-  if (!visible) return message("Loading the edition...");
+  if (!items) return message("Loading the edition...");
 
-  // `visible` already skips hidden items: they stay in the file so a hide is
-  // reversible, and readers never see them.
-  const items = visible.filter((item) => matches(item, filters));
+  // `items` already skips hidden items: they stay in the file so a hide is
+  // reversible, and readers never see them. Empty means a filter emptied it,
+  // since editions are never published empty. Paging back is offered only once
+  // the older edition is known to have some; otherwise clearing is the way out.
   if (!items.length) {
-    return message(<>No items in this edition match these filters. <a href="#clear" onClick={(e) => { e.preventDefault(); clearFilters(); }}>Clear filters</a>.</>);
+    const what = describeFilters(filters);
+    if (older && !prev) return <EmptyState category={what} />;
+    const prevCount = prev && prev.items ? countMatches(prev.items, filters) : 0;
+    return prevCount
+      ? <EmptyState category={what} prevLabel={shortDate(older.date)} prevCount={prevCount} onPrev={() => goTo(older.date)} />
+      : <EmptyState category={what} onClear={clearFilters} />;
   }
   return (
     <>
@@ -198,7 +231,7 @@ function body(route, index, ref, edition, view, visible, filters, clearFilters) 
           ? <div className="app-rows">{items.map((item) => <ListRow key={item.id} item={item} />)}</div>
           : <div className="app-grid">{items.map((item) => <Card key={item.id} item={item} signalsPos="bottom" />)}</div>}
       </section>
-      <EndCard dateLabel={shortDate(ref.date)} />
+      <EndCard dateLabel={shortDate(ref.date)} prevLabel={older ? shortDate(older.date) : undefined} onPrev={() => older && goTo(older.date)} />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { editionPath, issueRedirect, parseRoute, pickEdition } from "./route.js";
+import { editionPath, issueRedirect, olderEdition, parseRoute, pickEdition } from "./route.js";
 
 const EDITIONS = [
   { date: "2026-10-07", path: "editions/2026-10-07.json" },
@@ -43,4 +43,10 @@ test("old newsletter issue links go to the newsletter subdomain, query and hash 
 
 test("editionPath is what parseRoute reads back", () => {
   assert.deepEqual(parseRoute(editionPath("2026-10-07")), { kind: "edition", date: "2026-10-07" });
+});
+
+test("the older edition is the next entry, and the oldest has none", () => {
+  assert.equal(olderEdition(EDITIONS, "2026-10-07").date, "2026-10-06");
+  assert.equal(olderEdition(EDITIONS, "2026-10-06"), null);
+  assert.equal(olderEdition(EDITIONS, "2026-01-01"), null);
 });

@@ -64,3 +64,19 @@ export function matches(item, filters) {
 export function toggle(values, value) {
   return values.includes(value) ? values.filter((v) => v !== value) : [...values, value];
 }
+
+/** How many of `items` a reader would see under `filters`: hidden ones never count. */
+export function countMatches(items, filters) {
+  return items.filter((item) => !item.hidden && matches(item, filters)).length;
+}
+
+/** What `filters` asks for, to finish "No ... in this edition": the
+ * category's label (or "items"), then any tags, then any sources. */
+export function describeFilters(filters) {
+  const category = CATEGORIES.find((c) => c.key === filters.category);
+  let text = category ? category.label : "items";
+  if (filters.tags.length) text += " tagged " + filters.tags.join(" or ");
+  const sources = SOURCES.filter((s) => filters.sources.includes(s.key)).map((s) => s.label);
+  if (sources.length) text += " from " + sources.join(" or ");
+  return text;
+}
