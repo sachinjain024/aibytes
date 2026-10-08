@@ -100,8 +100,8 @@ and `validate.py` are the gates that decide whether an edition is real.
 per edition with `/` resolving to the latest. Ledger supplies every component.
 Grid and list views, category and tag filters reflected in the URL, edition
 navigation with the calendar popover, light/dark, per-source images with mark
-fallbacks, anonymous saves in local storage with the save banner. No infinite
-scroll — editions end with the end card.
+fallbacks. No infinite scroll — editions end with the end card. Saves and the
+save banner moved to AIB-75v on 2026-10-08.
 
 **Phase 5 — Cut.** This was going to point `generate-newsletter-content` at the
 last seven edition JSONs so one curation fed both surfaces. Dropped: the weekly
@@ -110,11 +110,10 @@ coupling the newsletter to the daily runner. The two surfaces curate
 independently from the same `newsletter/data/` snapshots. Phases 6 and 7 keep
 their numbers so nothing else has to be renumbered.
 
-**Phase 6 — Accounts.** Firebase Auth (Google only) plus Firestore for saves,
-client SDK only. Local saves merge into the account on first sign-in. The Saved
-view renders from edition JSON, so no content database. Firebase config is
-public by design, but the security rules are what actually protect data — review
-them explicitly.
+**Phase 6 — Accounts. Moved to AIB-75v** on 2026-10-08, together with
+anonymous saves from phase 4: the star, the save banner, Google sign-in,
+Firestore saves, and the Saved view ship as one feature after this ticket. The
+app here ships with no star and no Sign in button rather than dead ones.
 
 **Phase 7 — The extension.** Chrome new-tab page on the same edition JSON, no
 extra backend. Shares Ledger with the app, which is why Ledger's two
@@ -227,14 +226,13 @@ supported: the job still runs and still logs, it just reports to nobody.
 
 ### Phase 4 — The web app
 
-- [ ] Scaffold `apps/web` (Vite + React, static build, GitHub Pages base path) <!-- longclaw:item=ck_e7b619b7 -->
+- [x] Scaffold `apps/web` (Vite + React, static build, GitHub Pages base path) <!-- longclaw:item=ck_e7b619b7 -->
 - [x] Wire Ledger in; fix the `prefers-color-scheme` gap in the package <!-- longclaw:item=ck_d6800ac4 -->
 - [x] One route per edition; `/` resolves to the latest <!-- longclaw:item=ck_41ef1819 -->
 - [x] Header, the edition bar, and the calendar popover from `index.json` <!-- longclaw:item=ck_22db4814 -->
 - [x] Grid and list views, preference in local storage <!-- longclaw:item=ck_71be2883 -->
 - [x] Category, tag, and source filters reflected in the URL <!-- longclaw:item=ck_3128a87a -->
 - [x] Per-source images with mark fallbacks, fixed dimensions, lazy-loaded <!-- longclaw:item=ck_1c041cfb -->
-- [ ] Anonymous saves in local storage, plus the save banner <!-- longclaw:item=ck_75542f4d -->
 - [ ] Empty-filter state and the end-of-edition card <!-- longclaw:item=ck_bbebbe5c -->
 - [ ] Footer: newsletter subscribe, extension link, GitHub, X <!-- longclaw:item=ck_ee17aa27 -->
 - [ ] Pages deploy workflow on push <!-- longclaw:item=ck_1d2d1d88 -->
@@ -261,10 +259,7 @@ Nothing to do. `generate-newsletter-content` stays on raw `data/`.
 
 ### Phase 6 — Accounts
 
-- [ ] Firebase Auth with the Google provider, client SDK only <!-- longclaw:item=ck_92c6c8ad -->
-- [ ] Firestore `users/{uid}/saves/{itemId}`, with security rules reviewed <!-- longclaw:item=ck_d55f7f5f -->
-- [ ] Merge local saves into the account on first sign-in, then clear local storage <!-- longclaw:item=ck_10099f62 -->
-- [ ] Saved view, grouped by edition date <!-- longclaw:item=ck_a8a92e8c -->
+Moved to AIB-75v, with anonymous saves from phase 4.
 
 ### Phase 7 — The extension
 
@@ -1005,4 +1000,18 @@ changes:
 ### Claude Code updated this ticket
 
 Per-source images done on aib-8h-phase-4-web, in Ledger so the extension gets them too. A new ItemImage slot, shared by Card and ListRow, requests each image at its slot size from TechCrunch, Product Hunt and GitHub (all images on the 2026-10-07 edition now come to 113 KB; the TechCrunch thumbnails were about 155 KB each). It falls back to the source mark when an image fails to load, checked with a deliberately broken URL. Fixed 40px slot, lazy-loaded.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8b1e6559
+kind: comment
+occurred_at: 2026-10-08T06:08:32.537Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Moved saves and sign-in to AIB-75v: anonymous saves plus the save banner from phase 4, and all four phase 6 items (Google sign-in, Firestore saves, merging local saves, the Saved view). This ticket ships the app without a star or a Sign in button. Also ticked the apps/web scaffold item, which was done but never checked.
 <!-- /longclaw:event -->
