@@ -8,7 +8,7 @@ priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-10-08T10:23:31.100Z
+updated_at: 2026-10-08T10:25:14.873Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -249,7 +249,7 @@ workflow only works once the custom domain is set, since the app is built for `/
 - [x] Redirect old issue links: the app's 404 page sends `/p/<slug>` to `newsletter.aibytes.io/p/<slug>` <!-- longclaw:item=ck_046de995 -->
 - [x] Point `aibytes.io` DNS at GitHub Pages (apex A/AAAA records, `www` CNAME to `sachinjain024.github.io`) <!-- longclaw:item=ck_d14dbf8d -->
 - [x] Set `aibytes.io` as the Pages custom domain and enforce HTTPS <!-- longclaw:item=ck_1796b533 -->
-- [ ] Move the schemas' `$id` to `https://aibytes.io/content/` <!-- longclaw:item=ck_47063f49 -->
+- [x] Move the schemas' `$id` to `https://aibytes.io/content/` <!-- longclaw:item=ck_47063f49 -->
 - [x] Build the app for the root: Vite `base` is `/`, and `content/` is served at `/content/` <!-- longclaw:item=ck_bc69d1d6 -->
 
 ### Phase 5 — Cut
@@ -1189,4 +1189,19 @@ actor:
 ### claude-code commented
 
 Phase 7 (the Chrome extension) moved to AIB-76n: scaffold, new-tab page, Ledger tokens on :host, Chrome Web Store, plus pointing the web footer at the listing. AIB-8h closes with the web app.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_6e9d179c
+kind: update
+occurred_at: 2026-10-08T10:25:14.873Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_47063f49.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
 <!-- /longclaw:event -->
