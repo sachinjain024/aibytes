@@ -8,7 +8,7 @@ priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-10-08T06:41:39.303Z
+updated_at: 2026-10-08T06:58:07.815Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -234,7 +234,7 @@ supported: the job still runs and still logs, it just reports to nobody.
 - [x] Category, tag, and source filters reflected in the URL <!-- longclaw:item=ck_3128a87a -->
 - [x] Per-source images with mark fallbacks, fixed dimensions, lazy-loaded <!-- longclaw:item=ck_1c041cfb -->
 - [x] Empty-filter state and the end-of-edition card <!-- longclaw:item=ck_bbebbe5c -->
-- [ ] Footer: newsletter subscribe, extension link, GitHub, X <!-- longclaw:item=ck_ee17aa27 -->
+- [x] Footer: newsletter subscribe, extension link, GitHub, X <!-- longclaw:item=ck_ee17aa27 -->
 - [ ] Pages deploy workflow on push <!-- longclaw:item=ck_1d2d1d88 -->
 - [ ] Accessibility pass: AA contrast both themes, focus rings, keyboard nav <!-- longclaw:item=ck_be0cd0e2 -->
 
@@ -1025,6 +1025,21 @@ actor:
   id: claude-code
 changes:
   - field: checklist.ck_bbebbe5c.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_a77b1c26
+kind: update
+occurred_at: 2026-10-08T06:58:07.815Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_ee17aa27.checked
     from: "false"
     to: "true"
 -->
