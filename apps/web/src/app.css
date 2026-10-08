@@ -5,6 +5,10 @@
 /* Header and edition bar stick together on wider screens. */
 .app-sticky{position:relative;z-index:var(--z-header)}
 @media (min-width:700px){.app-sticky{position:sticky;top:0}}
+/* The footer sticks to the bottom where the header sticks to the top; on a
+   phone both scroll away, so the feed keeps the whole small screen. */
+.app-shell .ldg-footer__in{padding:12px 20px}
+@media (min-width:700px){.app-shell .ldg-footer{position:sticky;bottom:0;z-index:var(--z-header);background:var(--bg)}}
 .app-main{max-width:var(--content-max);margin:0 auto;padding:20px;display:flex;flex-direction:column;gap:var(--section-gap)}
 .app-sec{display:flex;flex-direction:column;gap:12px}
 /* min(300px,100%) and min-width:0 keep a card inside a narrow viewport; without

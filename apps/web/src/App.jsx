@@ -4,10 +4,12 @@ import { EmptyState } from "@aibytes/design-system/components/content/EmptyState
 import { EndCard } from "@aibytes/design-system/components/content/EndCard.jsx";
 import { ListRow } from "@aibytes/design-system/components/content/ListRow.jsx";
 import { EditionBar } from "@aibytes/design-system/components/navigation/EditionBar.jsx";
+import { Footer } from "@aibytes/design-system/components/navigation/Footer.jsx";
 import { Chip } from "@aibytes/design-system/components/navigation/Chip.jsx";
 import { Header } from "@aibytes/design-system/components/navigation/Header.jsx";
 import { loadEdition, loadIndex, loadTags } from "./content.js";
 import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, SOURCES, toggle } from "./filters.js";
+import { FOOTER_LINKS, SUBSCRIBE_URL } from "./footer.js";
 import { ago, longDate, midDate, shortDate } from "./format.js";
 import { useChoice, useDismiss, useMedia, useTheme } from "./hooks.js";
 import { VIEW } from "./prefs.js";
@@ -126,6 +128,7 @@ export function App() {
       <main className="app-main">
         {body({ route, index, ref, edition, view, items, filters, older, prev, goTo, clearFilters: () => setFilters(NO_FILTERS) })}
       </main>
+      <Footer links={FOOTER_LINKS} onSubscribe={() => window.location.assign(SUBSCRIBE_URL)} />
     </div>
   );
 }
