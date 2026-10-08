@@ -1,5 +1,5 @@
 import React from "react";
-import { SourceMark } from "../brand/SourceMark.jsx";
+import { ItemImage } from "./ItemImage.jsx";
 import { SaveStar } from "./SaveStar.jsx";
 import { CardMenu } from "./CardMenu.jsx";
 export const SOURCE_NAMES = { producthunt: "Product Hunt", hackernews: "Hacker News", github: "GitHub", techcrunch: "TechCrunch" };
@@ -22,9 +22,6 @@ export function LangDot({ language }) {
 }
 export function Card({ item, topToday = false, saved = false, onToggleSave, signalsPos = "logo", tagStyle = "dots", maxTags = 3 }) {
   const sig = item.signals ? { upvotes: item.signals.upvotes, points: item.signals.points, stars_gained: item.signals.stars_gained } : undefined;
-  const img = item.image || {};
-  const hasImg = img.url && img.type !== "none";
-  const circle = img.type === "avatar";
   const corner = signalsPos !== "bottom";
   const tags = (item.tags || []).slice(0, maxTags);
   const lang = item.meta && item.meta.language;
@@ -39,9 +36,7 @@ export function Card({ item, topToday = false, saved = false, onToggleSave, sign
   return (
     <article className={"ldg-card" + (topToday ? " ldg-card--top" : "") + (corner ? " ldg-card--corner" : "")}>
       <span className={"ldg-card__left" + (signalsPos === "bottom" ? " ldg-card__left--stretch" : "")}>
-        {hasImg
-          ? <img className={"ldg-card__img" + (circle ? " ldg-card__img--circle" : "")} src={img.url} alt="" width="40" height="40" loading="lazy" />
-          : <SourceMark source={item.source} size={40} className={"ldg-card__img" + (item.source === "github" ? " ldg-card__img--circle" : "")} />}
+        <ItemImage item={item} size={40} className="ldg-card__img" circleClassName="ldg-card__img--circle" />
         {signalsPos === "bottom" && <Signals signals={sig} />}
         {signalsPos === "logo" && sig && (sig.upvotes ?? sig.points) != null && <span title="Upvotes" style={{ fontSize: 12, fontFamily: 'var(--font-mono)', letterSpacing: 'var(--tracking-mono)' }}>▲{fmtNum(sig.upvotes ?? sig.points)}</span>}
         {signalsPos === "logo" && sig && sig.stars_gained != null && <Signals signals={{ stars_gained: sig.stars_gained }} />}
@@ -61,7 +56,7 @@ export function Card({ item, topToday = false, saved = false, onToggleSave, sign
         </div>
       </div>
       {corner
-        ? <span className="ldg-card__corner"><CardMenu item={item} /><SaveStar saved={saved} onToggle={() => onToggleSave && onToggleSave(item.id)} /></span>
-        : <SaveStar className="ldg-card__star" saved={saved} onToggle={() => onToggleSave && onToggleSave(item.id)} />}
+        ? <span className="ldg-card__corner"><CardMenu item={item} />{onToggleSave && <SaveStar saved={saved} onToggle={() => onToggleSave(item.id)} />}</span>
+        : onToggleSave && <SaveStar className="ldg-card__star" saved={saved} onToggle={() => onToggleSave(item.id)} />}
     </article>);
 }

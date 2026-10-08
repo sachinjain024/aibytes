@@ -22,14 +22,14 @@ export function Header({ categories = [], activeCategory = "all", onCategory, sa
         <button type="button" className="ldg-seg__btn" aria-pressed={mode === "ranked"} onClick={() => onMode("ranked")}>Ranked</button>
         <button type="button" className="ldg-seg__btn" aria-pressed={mode === "grouped"} onClick={() => onMode("grouped")}>Grouped</button>
       </span>}
-      {!compact && <Chip label="Tags ▾" count={tagCount || undefined} active={tagCount > 0} onClick={onOpenTags} />}
-      {!compact && <Chip label="Sources ▾" count={sourceCount || undefined} active={sourceCount > 0} onClick={onOpenSources} />}
-      <span className="ldg-seg" role="group" aria-label="View">
-        <button type="button" className="ldg-iconbtn" aria-pressed={view === "grid"} aria-label="Grid view" onClick={() => onView && onView("grid")}>{iGrid}</button>
-        <button type="button" className="ldg-iconbtn" aria-pressed={view === "list"} aria-label="List view" onClick={() => onView && onView("list")}>{iList}</button>
-      </span>
-      <button type="button" className="ldg-iconbtn" aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"} onClick={onToggleTheme}>{theme === "light" ? iMoon : iSun}</button>
-      {signedIn ? <span className="ldg-avatar" title="Signed in">{userInitial}</span> : <Button variant="primary" onClick={onSignIn}>Sign in</Button>}
+      {!compact && onOpenTags && <Chip label="Tags ▾" count={tagCount || undefined} active={tagCount > 0} onClick={onOpenTags} />}
+      {!compact && onOpenSources && <Chip label="Sources ▾" count={sourceCount || undefined} active={sourceCount > 0} onClick={onOpenSources} />}
+      {onView && <span className="ldg-seg" role="group" aria-label="View">
+        <button type="button" className="ldg-iconbtn" aria-pressed={view === "grid"} aria-label="Grid view" onClick={() => onView("grid")}>{iGrid}</button>
+        <button type="button" className="ldg-iconbtn" aria-pressed={view === "list"} aria-label="List view" onClick={() => onView("list")}>{iList}</button>
+      </span>}
+      {onToggleTheme && <button type="button" className="ldg-iconbtn" aria-label={theme === "light" ? "Switch to dark theme" : "Switch to light theme"} onClick={onToggleTheme}>{theme === "light" ? iMoon : iSun}</button>}
+      {signedIn ? <span className="ldg-avatar" title="Signed in">{userInitial}</span> : onSignIn && <Button variant="primary" onClick={onSignIn}>Sign in</Button>}
     </div>);
   if (compact) return (
     <header className="ldg-header">

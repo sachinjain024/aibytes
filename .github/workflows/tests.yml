@@ -29,3 +29,22 @@ jobs:
 
       - name: Validate the published content tree
         run: python3 packages/feed-schema/validate.py
+
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # Vite 7 needs 20.19+ or 22.12+.
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Test Ledger and the web app
+        run: npm test -w @aibytes/design-system -w @aibytes/web
+
+      - name: Build the web app
+        run: npm run build:web

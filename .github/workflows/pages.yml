@@ -1,0 +1,75 @@
+name: pages
+
+# Builds apps/web and deploys it to GitHub Pages at aibytes.io. The site is
+# the build output, not files in git: every edition gets its own page and
+# content/ is copied in, so a new edition only shows up after a rebuild.
+# The custom domain lives in the repo's Pages settings (source: GitHub
+# Actions), so there is no CNAME file. tests/test_pages_workflow.py keeps the
+# path filter in step with what the build reads.
+on:
+  push:
+    branches:
+      - main
+    # The daily runner's push touches content/, so it lands here too.
+    paths:
+      - "content/**"
+      - "apps/web/**"
+      - "packages/design-system/**"
+      - "packages/feed-schema/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/pages.yml"
+  # A push made with GITHUB_TOKEN starts no workflows, so the manual edition
+  # fallback's push would never deploy on its own.
+  workflow_run:
+    workflows:
+      - "edition (manual fallback)"
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deploy at a time. A queued run waits rather than cancelling one that is
+# mid-deploy; the newest push still wins, since it builds from main.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          # Vite 7 needs 20.19+ or 22.12+.
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build the web app
+        run: npm run build:web
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: apps/web/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

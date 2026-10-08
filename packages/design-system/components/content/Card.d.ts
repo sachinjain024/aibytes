@@ -20,6 +20,7 @@ export interface CardProps {
   /** "top today" variant: 2px --hot left edge + mono TOP label */
   topToday?: boolean;
   saved?: boolean;
+  /** the save star renders only when this is passed */
   onToggleSave?: (id: string) => void;
   /** Where upvotes sit (comments are never shown on cards): "logo" = stacked under the source logo (default); "source" = inline after the source name; "bottom" = under the logo but bottom-aligned to the tags row; "row" = own row between summary and tags. The bottom row itself is always tags-only. */
   signalsPos?: "logo" | "bottom" | "source" | "row";

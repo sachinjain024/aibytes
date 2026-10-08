@@ -8,7 +8,7 @@ priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-10-07T14:28:25.935Z
+updated_at: 2026-10-08T10:04:48.821Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -29,7 +29,7 @@ Locked in, so later phases do not reopen them:
 | Ledger vs the existing design system | **Ledger replaces it.** `packages/design-system` is re-seeded from the Claude Design export; the Bitmark-era `aib-*` Web Components and the `tokens.json` → `build:tokens` pipeline are retired |
 | Web app framework | **Vite + React, static build.** Uses Ledger's JSX as-is and shares components directly with the extension. Overrides the spec's Astro suggestion (§14.2) |
 | Feed contract | **One contract.** `packages/feed-schema` keeps its name and role but its content becomes the edition JSON of product spec §5, plus `index.json` |
-| Hosting | **GitHub Pages** (`sachinjain024.github.io/aibytes`). Overrides the spec's Cloudflare Pages suggestion (§10) |
+| Hosting | **GitHub Pages, on `aibytes.io` at the root.** Changed 2026-10-07 from `sachinjain024.github.io/aibytes`: the app takes over the brand domain from Beehiiv, and the github.io address redirects to it once the custom domain is set. Overrides the spec's Cloudflare Pages suggestion (§10) |
 | Repo visibility | **Public.** Answers spec §14.3. Edition JSON and the rejected-items log are public too |
 | aiBytes-hub | **Out of scope entirely.** A separate project; not referenced anywhere in this repo unless explicitly called out |
 | Licence | **None for now.** Default copyright applies; no reuse rights granted. The README says so plainly rather than implying "all rights reserved" was considered. Newsletter issues, social copy, thumbnails, and the brand/Ledger system would stay reserved under any licence that lands later |
@@ -100,8 +100,8 @@ and `validate.py` are the gates that decide whether an edition is real.
 per edition with `/` resolving to the latest. Ledger supplies every component.
 Grid and list views, category and tag filters reflected in the URL, edition
 navigation with the calendar popover, light/dark, per-source images with mark
-fallbacks, anonymous saves in local storage with the save banner. No infinite
-scroll — editions end with the end card.
+fallbacks. No infinite scroll — editions end with the end card. Saves and the
+save banner moved to AIB-75v on 2026-10-08.
 
 **Phase 5 — Cut.** This was going to point `generate-newsletter-content` at the
 last seven edition JSONs so one curation fed both surfaces. Dropped: the weekly
@@ -110,11 +110,10 @@ coupling the newsletter to the daily runner. The two surfaces curate
 independently from the same `newsletter/data/` snapshots. Phases 6 and 7 keep
 their numbers so nothing else has to be renumbered.
 
-**Phase 6 — Accounts.** Firebase Auth (Google only) plus Firestore for saves,
-client SDK only. Local saves merge into the account on first sign-in. The Saved
-view renders from edition JSON, so no content database. Firebase config is
-public by design, but the security rules are what actually protect data — review
-them explicitly.
+**Phase 6 — Accounts. Moved to AIB-75v** on 2026-10-08, together with
+anonymous saves from phase 4: the star, the save banner, Google sign-in,
+Firestore saves, and the Saved view ship as one feature after this ticket. The
+app here ships with no star and no Sign in button rather than dead ones.
 
 **Phase 7 — The extension.** Chrome new-tab page on the same edition JSON, no
 extra backend. Shares Ledger with the app, which is why Ledger's two
@@ -129,9 +128,10 @@ in the package rather than forked here.
 - **The weekly snapshot path is load-bearing.** `newsletter/data/{yyyy}/{mm}/weeks/week-NN/`
   is what every committed snapshot and every newsletter skill uses. The daily
   app feed must not disturb it.
-- **Newsletter URL** — `aibytes.io/newsletter` or `newsletter.aibytes.io`?
-  Depends on what the Beehiiv plan supports for custom domains. Subdomain is the
-  safe fallback. *(spec §14.1, unresolved)*
+- ~~**Newsletter URL**~~ — settled 2026-10-07: **`newsletter.aibytes.io`**.
+  GitHub Pages serves only this repo's files, so it cannot hand
+  `aibytes.io/newsletter` to Beehiiv without a proxy in front of it. The
+  subdomain needs nothing extra. *(spec §14.1)*
 - **Edition retention** — keep every edition forever, or archive after 90 days?
   *(spec §14.6, unresolved)*
 - ~~**iMac availability at 13:30 IST**~~ — settled in phase 3. The machine is on
@@ -226,18 +226,32 @@ supported: the job still runs and still logs, it just reports to nobody.
 
 ### Phase 4 — The web app
 
-- [ ] Scaffold `apps/web` (Vite + React, static build, GitHub Pages base path) <!-- longclaw:item=ck_e7b619b7 -->
-- [ ] Wire Ledger in; fix the `prefers-color-scheme` gap in the package <!-- longclaw:item=ck_d6800ac4 -->
-- [ ] One route per edition; `/` resolves to the latest <!-- longclaw:item=ck_41ef1819 -->
-- [ ] Header, the edition bar, and the calendar popover from `index.json` <!-- longclaw:item=ck_22db4814 -->
-- [ ] Grid and list views, preference in local storage <!-- longclaw:item=ck_71be2883 -->
-- [ ] Category, tag, and source filters reflected in the URL <!-- longclaw:item=ck_3128a87a -->
-- [ ] Per-source images with mark fallbacks, fixed dimensions, lazy-loaded <!-- longclaw:item=ck_1c041cfb -->
-- [ ] Anonymous saves in local storage, plus the save banner <!-- longclaw:item=ck_75542f4d -->
-- [ ] Empty-filter state and the end-of-edition card <!-- longclaw:item=ck_bbebbe5c -->
-- [ ] Footer: newsletter subscribe, extension link, GitHub, X <!-- longclaw:item=ck_ee17aa27 -->
-- [ ] Pages deploy workflow on push <!-- longclaw:item=ck_1d2d1d88 -->
+- [x] Scaffold `apps/web` (Vite + React, static build, GitHub Pages base path) <!-- longclaw:item=ck_e7b619b7 -->
+- [x] Wire Ledger in; fix the `prefers-color-scheme` gap in the package <!-- longclaw:item=ck_d6800ac4 -->
+- [x] One route per edition; `/` resolves to the latest <!-- longclaw:item=ck_41ef1819 -->
+- [x] Header, the edition bar, and the calendar popover from `index.json` <!-- longclaw:item=ck_22db4814 -->
+- [x] Grid and list views, preference in local storage <!-- longclaw:item=ck_71be2883 -->
+- [x] Category, tag, and source filters reflected in the URL <!-- longclaw:item=ck_3128a87a -->
+- [x] Per-source images with mark fallbacks, fixed dimensions, lazy-loaded <!-- longclaw:item=ck_1c041cfb -->
+- [x] Empty-filter state and the end-of-edition card <!-- longclaw:item=ck_bbebbe5c -->
+- [x] Footer: newsletter subscribe, extension link, GitHub, X <!-- longclaw:item=ck_ee17aa27 -->
+- [x] Pages deploy workflow on push <!-- longclaw:item=ck_1d2d1d88 -->
 - [ ] Accessibility pass: AA contrast both themes, focus rings, keyboard nav <!-- longclaw:item=ck_be0cd0e2 -->
+
+### Domain — aibytes.io moves from the newsletter to the app
+
+`aibytes.io` serves the Beehiiv newsletter today. The app takes the root and
+the newsletter moves to `newsletter.aibytes.io`. Order matters: the newsletter
+moves first, or every old issue link breaks when DNS switches. The Pages deploy
+workflow only works once the custom domain is set, since the app is built for `/`.
+
+- [x] Move the newsletter to `newsletter.aibytes.io` in Beehiiv, with its DNS record on Cloudflare <!-- longclaw:item=ck_400ba60c -->
+- [x] Check what old `aibytes.io/p/<slug>` issue links do after the move, and update links that point at them (Beehiiv settings, social bios) <!-- longclaw:item=ck_287f3bb4 -->
+- [x] Redirect old issue links: the app's 404 page sends `/p/<slug>` to `newsletter.aibytes.io/p/<slug>` <!-- longclaw:item=ck_046de995 -->
+- [ ] Point `aibytes.io` DNS at GitHub Pages (apex A/AAAA records, `www` CNAME to `sachinjain024.github.io`) <!-- longclaw:item=ck_d14dbf8d -->
+- [ ] Set `aibytes.io` as the Pages custom domain and enforce HTTPS <!-- longclaw:item=ck_1796b533 -->
+- [ ] Move the schemas' `$id` to `https://aibytes.io/content/` <!-- longclaw:item=ck_47063f49 -->
+- [x] Build the app for the root: Vite `base` is `/`, and `content/` is served at `/content/` <!-- longclaw:item=ck_bc69d1d6 -->
 
 ### Phase 5 — Cut
 
@@ -245,10 +259,7 @@ Nothing to do. `generate-newsletter-content` stays on raw `data/`.
 
 ### Phase 6 — Accounts
 
-- [ ] Firebase Auth with the Google provider, client SDK only <!-- longclaw:item=ck_92c6c8ad -->
-- [ ] Firestore `users/{uid}/saves/{itemId}`, with security rules reviewed <!-- longclaw:item=ck_d55f7f5f -->
-- [ ] Merge local saves into the account on first sign-in, then clear local storage <!-- longclaw:item=ck_10099f62 -->
-- [ ] Saved view, grouped by edition date <!-- longclaw:item=ck_a8a92e8c -->
+Moved to AIB-75v, with anonymous saves from phase 4.
 
 ### Phase 7 — The extension
 
@@ -864,4 +875,222 @@ changes:
 ### Claude Code updated this ticket
 
 Repo made public on 2026-10-07. Checked first: no Slack webhook URL and no PH_API_KEY value anywhere in git history across all branches, and .env has never been committed. GitHub Pages is not enabled yet; that comes with the apps/web deploy workflow.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_6c3a294f
+kind: comment
+occurred_at: 2026-10-07T14:37:49.472Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Domain plan added. aibytes.io moves from Beehiiv to the app, and the newsletter moves to newsletter.aibytes.io, which also settles the open Newsletter URL question: GitHub Pages cannot hand aibytes.io/newsletter to Beehiiv without a proxy. The Hosting decision now says aibytes.io at the root, and the apps/web scaffold on aib-8h-phase-4-web is built for / rather than /aibytes/.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_9c418d8d
+kind: update
+occurred_at: 2026-10-07T14:44:56.199Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_d6800ac4.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Ledger wired into apps/web on aib-8h-phase-4-web: styles.css plus Card, EndCard and Wordmark render the latest edition, checked in light, dark and at 390px. The prefers-color-scheme gap is fixed in the package: dark follows the OS unless data-theme says light, with a test that keeps the two dark blocks in step.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f867f48c
+kind: update
+occurred_at: 2026-10-07T15:16:33.110Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_41ef1819.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_046de995.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Routing done on aib-8h-phase-4-web. Each edition gets a real page at build time, / resolves to the latest, unknown days and paths get a message with a link to the latest, and 404.html sends old /p/<slug> issue links to newsletter.aibytes.io, which covers that Domain item too. Router covered by node --test in CI.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_434a0cc9
+kind: update
+occurred_at: 2026-10-07T15:24:52.818Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_22db4814.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Header, edition bar and calendar popover done on aib-8h-phase-4-web. Prev/next and the calendar come from index.json, the date is the h1, and there's a theme toggle (OS default, choice remembered). Ledger's Header now draws a tools control only when its handler is passed, so unbuilt features show nothing. Clicked through in headless Chrome against a temporary second edition.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_3bb27ab0
+kind: update
+occurred_at: 2026-10-07T16:32:17.104Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_71be2883.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Grid and list views done on aib-8h-phase-4-web: the header toggle switches between Ledger Cards and ListRows, and the choice is kept in local storage. A bad stored value falls back to grid. prefs.js validates every stored preference, the theme included.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f2dd4a0c
+kind: update
+occurred_at: 2026-10-08T03:28:48.300Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_3128a87a.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Category, tag and source filters done on aib-8h-phase-4-web: chips with counts, Tags and Sources panels, all in the URL (?c=repos&t=agents,open-source&s=github). Unknown values in a link are dropped rather than breaking it. Filter changes replace history and travel with edition navigation. Clicked through in headless Chrome, including a shared link with bad values.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_596c1adc
+kind: update
+occurred_at: 2026-10-08T04:34:34.174Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_1c041cfb.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Per-source images done on aib-8h-phase-4-web, in Ledger so the extension gets them too. A new ItemImage slot, shared by Card and ListRow, requests each image at its slot size from TechCrunch, Product Hunt and GitHub (all images on the 2026-10-07 edition now come to 113 KB; the TechCrunch thumbnails were about 155 KB each). It falls back to the source mark when an image fails to load, checked with a deliberately broken URL. Fixed 40px slot, lazy-loaded.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8b1e6559
+kind: comment
+occurred_at: 2026-10-08T06:08:32.537Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Moved saves and sign-in to AIB-75v: anonymous saves plus the save banner from phase 4, and all four phase 6 items (Google sign-in, Firestore saves, merging local saves, the Saved view). This ticket ships the app without a star or a Sign in button. Also ticked the apps/web scaffold item, which was done but never checked.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_5d5fbb5c
+kind: update
+occurred_at: 2026-10-08T06:41:39.303Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_bbebbe5c.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_a77b1c26
+kind: update
+occurred_at: 2026-10-08T06:58:07.815Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_ee17aa27.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_28bf1b7e
+kind: update
+occurred_at: 2026-10-08T09:41:10.425Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_400ba60c.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+Newsletter moved to newsletter.aibytes.io on 2026-10-08: CNAME newsletter -> cname.beehiiv.com (DNS only) on Cloudflare, Let's Encrypt certificate issued by Beehiiv, issues load at /p/<slug>. Old aibytes.io links return 403 until a redirect is in place (Beehiiv's Website redirect, or a Cloudflare redirect rule).
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_0145f96a
+kind: update
+occurred_at: 2026-10-08T09:46:00.939Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_287f3bb4.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+Checked 2026-10-08: links inside newsletter.aibytes.io all work. Old aibytes.io/p/<slug> links return 403 after the move; no redirect added, since those links were never shared. The app's 404 page redirects /p/<slug> to the newsletter once aibytes.io is on Pages.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_80111635
+kind: update
+occurred_at: 2026-10-08T10:04:48.821Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_1d2d1d88.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
 <!-- /longclaw:event -->

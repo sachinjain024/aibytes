@@ -5,3 +5,5 @@ App footer: nav links left, subscribe blurb + button right.
 ```
 
 Default links: Chrome Extension · GitHub · X · Advertise (mailto). Default blurb: "Join 1K+ developers reading aiBytes_ weekly". In the app shell the footer is sticky at the viewport bottom (screen-level CSS, background `--bg`).
+
+A link without `href` renders as plain text, for something not live yet ("Chrome Extension (soon)").

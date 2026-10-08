@@ -1,0 +1,23 @@
+/* Screen-level layout only, taken from Ledger's UI kit
+   (packages/design-system/ui_kits/aibytes-app/app.css). Components and tokens
+   come from the package; nothing here restyles them. */
+.app-shell{background:var(--bg);color:var(--text);min-height:100vh}
+/* Header and edition bar stick together on wider screens. */
+.app-sticky{position:relative;z-index:var(--z-header)}
+@media (min-width:700px){.app-sticky{position:sticky;top:0}}
+/* The footer sticks to the bottom where the header sticks to the top; on a
+   phone both scroll away, so the feed keeps the whole small screen. */
+.app-shell .ldg-footer__in{padding:12px 20px}
+@media (min-width:700px){.app-shell .ldg-footer{position:sticky;bottom:0;z-index:var(--z-header);background:var(--bg)}}
+.app-main{max-width:var(--content-max);margin:0 auto;padding:20px;display:flex;flex-direction:column;gap:var(--section-gap)}
+.app-sec{display:flex;flex-direction:column;gap:12px}
+/* min(300px,100%) and min-width:0 keep a card inside a narrow viewport; without
+   them a grid item never shrinks below its content and the card overflows. */
+.app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:var(--grid-gap)}
+.app-grid>*{min-width:0}
+.app-rows{border:var(--border-w) solid var(--border);border-radius:var(--radius-card);overflow:hidden;background:var(--surface)}
+.app-rows .ldg-row:last-child{border-bottom:none}
+/* The Tags and Sources dropdowns, anchored to the sticky header cluster. */
+.app-pop{position:absolute;right:max(20px,calc((100% - var(--content-max))/2 + 20px));top:calc(100% + 6px);z-index:var(--z-popover);background:var(--surface);border:var(--border-w) solid var(--border);border-radius:var(--radius-card);padding:14px;width:540px;max-width:calc(100vw - 40px);display:flex;flex-direction:column;gap:12px}
+.app-pop__label{font-family:var(--font-mono);font-size:11px;color:var(--text-2);letter-spacing:.04em;text-transform:uppercase}
+.app-pop__chips{display:flex;flex-wrap:wrap;gap:6px}

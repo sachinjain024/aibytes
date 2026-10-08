@@ -57,7 +57,7 @@ Design system for **aiBytes_** (`aibytes.io`): a curated daily feed of AI resour
 - `assets/marks/` — per-source SVGs (standalone, theme-aware)
 - `components/brand/` — Wordmark, SourceMark
 - `components/navigation/` — Header, EditionBar, CalendarPopover, Chip, SideNav, Footer
-- `components/content/` — Card, ListRow, SectionHeading, Tag, SaveStar, CardMenu, SaveBanner, EmptyState, EndCard
+- `components/content/` — Card, ListRow, ItemImage, SectionHeading, Tag, SaveStar, CardMenu, SaveBanner, EmptyState, EndCard
 - `components/forms/` — Button, Input
 - `ui_kits/aibytes-app/` — the nine screens + interactive `index.html`, shared `data.js`
 - `guidelines/` — foundation specimen cards, `extending-ledger.md`
@@ -67,4 +67,5 @@ Design system for **aiBytes_** (`aibytes.io`): a curated daily feed of AI resour
 
 - **Fonts:** no binaries provided; loaded from Google Fonts (`tokens/fonts.css`). All three faces are on Google Fonts, so this is an exact match, not a substitution — but supply .woff2 files for self-hosting in production.
 - **Intentional additions:** `SourceMark`, `SaveStar`, `EndCard`, `EmptyState` as named components (the brief describes them inside other components; splitting keeps cards composable).
+- **`ItemImage`** (added in the app build, not the Claude Design export) is the image slot shared by `Card` and `ListRow`: it requests each image at the slot's size from hosts that support it, and falls back to the source mark when an image is missing or fails to load.
 - The newsletter's own system ("Bitmark") is *not* recreated here; Ledger is the app system, per the brief.
