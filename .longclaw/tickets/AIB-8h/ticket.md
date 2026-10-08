@@ -8,7 +8,7 @@ priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-10-08T03:28:48.300Z
+updated_at: 2026-10-08T04:34:34.174Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -233,7 +233,7 @@ supported: the job still runs and still logs, it just reports to nobody.
 - [x] Header, the edition bar, and the calendar popover from `index.json` <!-- longclaw:item=ck_22db4814 -->
 - [x] Grid and list views, preference in local storage <!-- longclaw:item=ck_71be2883 -->
 - [x] Category, tag, and source filters reflected in the URL <!-- longclaw:item=ck_3128a87a -->
-- [ ] Per-source images with mark fallbacks, fixed dimensions, lazy-loaded <!-- longclaw:item=ck_1c041cfb -->
+- [x] Per-source images with mark fallbacks, fixed dimensions, lazy-loaded <!-- longclaw:item=ck_1c041cfb -->
 - [ ] Anonymous saves in local storage, plus the save banner <!-- longclaw:item=ck_75542f4d -->
 - [ ] Empty-filter state and the end-of-edition card <!-- longclaw:item=ck_bbebbe5c -->
 - [ ] Footer: newsletter subscribe, extension link, GitHub, X <!-- longclaw:item=ck_ee17aa27 -->
@@ -987,4 +987,22 @@ changes:
 ### Claude Code updated this ticket
 
 Category, tag and source filters done on aib-8h-phase-4-web: chips with counts, Tags and Sources panels, all in the URL (?c=repos&t=agents,open-source&s=github). Unknown values in a link are dropped rather than breaking it. Filter changes replace history and travel with edition navigation. Clicked through in headless Chrome, including a shared link with bad values.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_596c1adc
+kind: update
+occurred_at: 2026-10-08T04:34:34.174Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_1c041cfb.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Per-source images done on aib-8h-phase-4-web, in Ledger so the extension gets them too. A new ItemImage slot, shared by Card and ListRow, requests each image at its slot size from TechCrunch, Product Hunt and GitHub (all images on the 2026-10-07 edition now come to 113 KB; the TechCrunch thumbnails were about 155 KB each). It falls back to the source mark when an image fails to load, checked with a deliberately broken URL. Fixed 40px slot, lazy-loaded.
 <!-- /longclaw:event -->
