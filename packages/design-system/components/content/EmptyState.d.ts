@@ -6,5 +6,7 @@ export interface EmptyStateProps {
   prevLabel?: string;
   prevCount?: number;
   onPrev?: () => void;
+  /** when passed, adds "Clear filters." — for when paging back would not help either */
+  onClear?: () => void;
 }
 export declare function EmptyState(props: EmptyStateProps): JSX.Element;
