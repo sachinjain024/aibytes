@@ -8,7 +8,7 @@ priority: urgent
 labels:
   - app
 created_at: 2026-08-31T09:43:43.709Z
-updated_at: 2026-10-08T10:25:14.873Z
+updated_at: 2026-10-08T10:33:02.129Z
 ---
 
 Make one repo hold all three aiBytes_ surfaces — the **newsletter**, the **web
@@ -235,7 +235,7 @@ supported: the job still runs and still logs, it just reports to nobody.
 - [x] Empty-filter state and the end-of-edition card <!-- longclaw:item=ck_bbebbe5c -->
 - [x] Footer: newsletter subscribe, extension link, GitHub, X <!-- longclaw:item=ck_ee17aa27 -->
 - [x] Pages deploy workflow on push <!-- longclaw:item=ck_1d2d1d88 -->
-- [ ] Accessibility pass: AA contrast both themes, focus rings, keyboard nav <!-- longclaw:item=ck_be0cd0e2 -->
+- [x] Accessibility pass: AA contrast both themes, focus rings, keyboard nav <!-- longclaw:item=ck_be0cd0e2 -->
 
 ### Domain — aibytes.io moves from the newsletter to the app
 
@@ -1204,4 +1204,21 @@ changes:
     to: "true"
 -->
 ### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_1b2bec10
+kind: update
+occurred_at: 2026-10-08T10:33:02.129Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_be0cd0e2.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+Accessibility pass done on aib-8h-finish: a contrast test over Ledger's tokens (one fix, --hot-text), axe-core 0 violations in both themes and with a panel open, focus moves into and back out of every popover, skip link, heading order fixed.
 <!-- /longclaw:event -->
