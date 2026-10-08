@@ -8,6 +8,11 @@ async function getJson(url) {
   return res.json();
 }
 
+/** tags.json: the tag groups the Tags panel lists and URLs use slugs from. */
+export function loadTags() {
+  return getJson(new URL("tags.json", CONTENT_URL));
+}
+
 export function loadIndex() {
   return getJson(new URL("index.json", CONTENT_URL));
 }
