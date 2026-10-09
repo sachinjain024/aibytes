@@ -1,0 +1,695 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-09",
+  "generated_at": "2026-10-09T08:01:06Z",
+  "counts": {
+    "launches": 5,
+    "repos": 3,
+    "news": 10,
+    "hn": 10
+  },
+  "items": [
+    {
+      "id": "ph-openswarm-3-2026-10-09",
+      "title": "OpenSwarm",
+      "summary": "An agent-first desktop OS where swarms of agents drive apps and the browser in parallel on an infinite canvas, with the user directing tasks rather than doing them one at a time.",
+      "url": "https://openswarm.info/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/openswarm-3",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/ea2bfd22-7652-444c-b680-8028ef82bdc8.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 360,
+        "comments": 59
+      },
+      "published_at": "2026-10-08T07:01:00Z",
+      "hidden": false
+    },
+    {
+      "id": "ph-openseo-2-2026-10-09",
+      "title": "OpenSEO",
+      "summary": "Open source Semrush alternative that exposes SEO data and tools to AI agents over MCP, plus new AI Visibility features for tracking how brands appear in AI answers.",
+      "url": "https://openseo.so",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/openseo",
+      "category": "launches",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "MCP",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/2c78fe4a-262c-48b2-a376-365b77bf6eeb.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 334,
+        "comments": 36
+      },
+      "published_at": "2026-10-08T07:01:00Z",
+      "hidden": false
+    },
+    {
+      "id": "ph-claude-haiku-5-5-2026-10-09",
+      "title": "Claude Haiku 5.5",
+      "summary": "Anthropic's small model aimed at high-volume, cost-sensitive work: summarization, classification, coding subagents, customer support, and browser use.",
+      "url": "https://www.anthropic.com/claude-haiku-5-5",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/claude-haiku-5-5",
+      "category": "launches",
+      "tags": [
+        "Model Release",
+        "LLM",
+        "Anthropic",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/3cb73165-14e8-4392-8199-fc53c9f20100.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 311,
+        "comments": 7
+      },
+      "published_at": "2026-10-08T07:01:00Z",
+      "hidden": false
+    },
+    {
+      "id": "ph-cekura-bench-2026-10-09",
+      "title": "Cekura Bench",
+      "summary": "Runs 9 realtime voice models, including GPT Realtime 2.1, Gemini Live and Grok, as phone agents across 82 live-call scenarios, ranking reliability, accuracy, latency and cost with public transcripts.",
+      "url": "https://benchmarks.cekura.ai/speech-to-speech",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/vocera",
+      "category": "launches",
+      "tags": [
+        "Benchmark",
+        "Voice / Speech",
+        "Eval"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/950853db-cd69-4dbb-bc94-71f8a62ff4f3.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 159,
+        "comments": 17
+      },
+      "published_at": "2026-10-08T07:01:00Z",
+      "hidden": false
+    },
+    {
+      "id": "ph-chickytutor-4-2026-10-09",
+      "title": "ChickyTutor",
+      "summary": "Spoken AI language tutor that adds an interactive whiteboard for patterns and exercises mid-conversation, a hybrid French course with L'école de français, and an Android app.",
+      "url": "https://chickytutor.com",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/chickytutor",
+      "category": "launches",
+      "tags": [
+        "Voice / Speech",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/f5524dc2-52e8-4d42-be52-bf0ab5ad1733.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 124,
+        "comments": 28
+      },
+      "published_at": "2026-10-08T07:01:00Z",
+      "hidden": false
+    },
+    {
+      "id": "gh-diagram-design-2026-10-09",
+      "title": "cathrynlavery/diagram-design",
+      "summary": "A diagram skill for Claude Code, Codex, Copilot, Factory Droid and Pi that renders 42 editorial diagram types as self-contained HTML and SVG instead of Mermaid.",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "source": "github",
+      "source_url": "https://github.com/cathrynlavery/diagram-design",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Claude Code"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/cathrynlavery.png?size=80"
+      },
+      "signals": {
+        "stars": 46978,
+        "stars_gained": 1160,
+        "forks": 2985
+      },
+      "meta": {
+        "language": "HTML"
+      },
+      "hidden": false
+    },
+    {
+      "id": "gh-claude-mem-2026-10-09",
+      "title": "thedotmack/claude-mem",
+      "summary": "TypeScript memory layer that records agent sessions, compresses them with an LLM, and injects the relevant context into later sessions across Claude Code, Codex, Gemini, Copilot and others.",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source": "github",
+      "source_url": "https://github.com/thedotmack/claude-mem",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Claude Code"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/thedotmack.png?size=80"
+      },
+      "signals": {
+        "stars": 98744,
+        "stars_gained": 670,
+        "forks": 8656
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false
+    },
+    {
+      "id": "gh-knowledge-work-plugins-2026-10-09",
+      "title": "anthropics/knowledge-work-plugins",
+      "summary": "Anthropic's open source collection of Python plugins for Claude Cowork, aimed at knowledge workers rather than developers.",
+      "url": "https://github.com/anthropics/knowledge-work-plugins",
+      "source": "github",
+      "source_url": "https://github.com/anthropics/knowledge-work-plugins",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Anthropic"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/anthropics.png?size=80"
+      },
+      "signals": {
+        "stars": 27873,
+        "stars_gained": 392,
+        "forks": 3225
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false
+    },
+    {
+      "id": "tc-naturas-99-smart-ring-puts-ai-agents-on-your-2026-10-09",
+      "title": "Natura’s $99 smart ring puts AI agents on your finger",
+      "summary": "The Interface ring triggers AI agents with a finger press to run tasks, capture notes and control devices, and also works as a health tracker.",
+      "url": "https://techcrunch.com/2026/10/08/naturas-smart-ring-puts-ai-agents-on-your-finger/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/08/naturas-smart-ring-puts-ai-agents-on-your-finger/",
+      "category": "news",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/10/interface-workshop-detail.jpg?resize=1200,491"
+      },
+      "meta": {
+        "author": "Aisha Malik",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-10-08T16:00:00Z",
+      "hidden": false
+    },
+    {
+      "id": "tc-anthropic-changes-usage-policy-to-ban-model-2026-10-09",
+      "title": "Anthropic changes usage policy to ban model abuse and election interference",
+      "summary": "The abuse rule targets repeated extreme cases while still allowing ordinary frustration and criticism; the update also covers deceptive campaigns, weapons software, and surveillance.",
+      "url": "https://techcrunch.com/2026/10/08/anthropic-changes-usage-policy-to-ban-model-abuse-and-election-interference/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/08/anthropic-changes-usage-policy-to-ban-model-abuse-and-election-interference/",
+      "category": "news",
+      "tags": [
+        "Anthropic",
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/09/GettyImages-2294192768.jpg?resize=1200,798"
+      },
+      "meta": {
+        "author": "Russell Brandom",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-08T18:16:24Z",
+      "hidden": false
+    },
+    {
+      "id": "tc-google-releases-a-new-local-first-granola-2026-10-09",
+      "title": "Google releases a new local-first Granola competitor",
+      "summary": "Google's AI Edge Foresight app transcribes meetings, writes notes, and answers questions about them entirely on-device, with no connection required.",
+      "url": "https://techcrunch.com/2026/10/08/google-releases-a-new-local-first-granola-competitor/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/08/google-releases-a-new-local-first-granola-competitor/",
+      "category": "news",
+      "tags": [
+        "Local LLM",
+        "Voice / Speech",
+        "Google",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/06/google-logo.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-08T13:28:39Z",
+      "hidden": false
+    },
+    {
+      "id": "tc-popular-ai-leaderboard-arena-nearly-doubles-2026-10-09",
+      "title": "Popular AI leaderboard Arena nearly doubles valuation to $3.1B valuation in 10 months",
+      "summary": "The LMArena operator raised $200M led by Lightspeed and Khosla, and has started scoring models on alignment issues such as lying.",
+      "url": "https://techcrunch.com/2026/10/08/popular-ai-leaderboard-arena-nearly-doubles-valuation-to-3-1b-valuation-in-10-months/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/08/popular-ai-leaderboard-arena-nearly-doubles-valuation-to-3-1b-valuation-in-10-months/",
+      "category": "news",
+      "tags": [
+        "Eval",
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/06/ARENA_3Founders.jpg?resize=1200,801"
+      },
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-08T18:19:45Z",
+      "hidden": false
+    },
+    {
+      "id": "tc-pretend-youre-sitting-at-elizabeth-holmes-desk-2026-10-09",
+      "title": "Pretend you’re sitting at Elizabeth Holmes’ desk on this weirdly detailed website",
+      "summary": "Extend engineer Bo Lau built a site from over a thousand emails, slides and texts from the Holmes trial that simulates rifling through the Theranos founder's desk.",
+      "url": "https://techcrunch.com/2026/10/08/pretend-youre-sitting-at-elizabeth-holmes-desk-on-this-weirdly-detailed-website/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/08/pretend-youre-sitting-at-elizabeth-holmes-desk-on-this-weirdly-detailed-website/",
+      "category": "news",
+      "tags": [
+        "Legal"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2019/06/GettyImages-1158861262.jpg?resize=1200,832"
+      },
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-08T21:00:00Z",
+      "hidden": false
+    },
+    {
+      "id": "tc-fired-openai-safety-researchers-dispute-2026-10-09",
+      "title": "Fired OpenAI safety researchers dispute misconduct claims, warn of chilling effect",
+      "summary": "In an open letter, three dismissed researchers deny mishandling sensitive information and say the firings are chilling OpenAI's internal safety culture.",
+      "url": "https://techcrunch.com/2026/10/08/fired-openai-safety-researchers-dispute-misconduct-claims-warn-of-chilling-effect/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/08/fired-openai-safety-researchers-dispute-misconduct-claims-warn-of-chilling-effect/",
+      "category": "news",
+      "tags": [
+        "OpenAI",
+        "Safety"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/09/openai-getty.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-10-08T20:04:26Z",
+      "hidden": false
+    },
+    {
+      "id": "tc-ben-affleck-is-an-ai-nerd-and-the-internet-is-2026-10-09",
+      "title": "Ben Affleck is an AI nerd, and the internet is impressed",
+      "summary": "The actor, who sold his AI filmmaking startup to Netflix earlier this year, is going viral for fluent talk about neural networks, transformers, and open weights.",
+      "url": "https://techcrunch.com/2026/10/08/ben-affleck-is-an-ai-nerd-and-the-internet-is-impressed/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/08/ben-affleck-is-an-ai-nerd-and-the-internet-is-impressed/",
+      "category": "news",
+      "tags": [
+        "Video"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/10/ben-affleck-GettyImages-2297443537.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-10-08T18:20:32Z",
+      "hidden": false
+    },
+    {
+      "id": "tc-openais-revenue-is-reportedly-20-billion-less-2026-10-09",
+      "title": "OpenAI’s revenue is reportedly $20 billion less than previously projected",
+      "summary": "Earlier reports had put OpenAI's annualized revenue at about $70 billion; a new report says the real figure is well below that.",
+      "url": "https://techcrunch.com/2026/10/08/openais-revenue-is-reportedly-20-billion-less-than-previously-projected/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/08/openais-revenue-is-reportedly-20-billion-less-than-previously-projected/",
+      "category": "news",
+      "tags": [
+        "OpenAI"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/09/openai-getty.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-08T18:19:42Z",
+      "hidden": false
+    },
+    {
+      "id": "tc-google-brings-agentic-ai-to-gemini-starting-2026-10-09",
+      "title": "Google brings agentic AI to Gemini, starting with businesses",
+      "summary": "The Gemini agent plans and executes across business apps, delegates to subagents, mixes multiple models, and gets its own workplace identity including an email address.",
+      "url": "https://techcrunch.com/2026/10/08/google-brings-agentic-ai-to-gemini-starting-with-businesses/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/08/google-brings-agentic-ai-to-gemini-starting-with-businesses/",
+      "category": "news",
+      "tags": [
+        "Agents",
+        "Google",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/10/image_3.max-2100x2100_0CYZWqn.jpg?resize=1200,591"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-10-08T18:18:00Z",
+      "hidden": false
+    },
+    {
+      "id": "tc-openais-math-solutions-arent-meeting-the-fields-2026-10-09",
+      "title": "OpenAI’s math solutions aren’t meeting the field’s standards yet",
+      "summary": "OpenAI's flood of proofs departed from guidelines set by the mathematical researchers the lab itself consulted.",
+      "url": "https://techcrunch.com/2026/10/08/openais-math-solutions-arent-meeting-the-fields-standards-yet/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/08/openais-math-solutions-arent-meeting-the-fields-standards-yet/",
+      "category": "news",
+      "tags": [
+        "Reasoning",
+        "OpenAI"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/09/Screenshot-2026-09-11-at-1.39.30-PM.png?w=672"
+      },
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-10-08T18:10:55Z",
+      "hidden": false
+    },
+    {
+      "id": "hn-why-isn-t-the-industry-freaking-out-about-2026-10-09",
+      "title": "Why isn't the industry freaking out about DeepSeek 4.1 Flash?",
+      "summary": "A personal blog post arguing that DeepSeek 4.1 Flash deserves far more industry attention than it has received.",
+      "url": "https://www.dgt.is/blog/2026-10-07-deepseek-freek-out/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50000488",
+      "category": "hn",
+      "tags": [
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 674,
+        "comments": 542
+      },
+      "meta": {
+        "author": "jonotime"
+      },
+      "published_at": "2026-10-08T00:14:48Z",
+      "hidden": false
+    },
+    {
+      "id": "hn-openai-annualised-revenues-20b-less-than-2026-10-09",
+      "title": "OpenAI annualised revenues $20B less than previously signalled",
+      "summary": "CNBC report on the gap; earlier reporting had put OpenAI's annualized revenue near $70 billion.",
+      "url": "https://www.cnbc.com/2026/10/08/open-ai-revenue-nvidia-oracle-coreweave.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50008187",
+      "category": "hn",
+      "tags": [
+        "OpenAI"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 388,
+        "comments": 255
+      },
+      "meta": {
+        "author": "mfiguiere"
+      },
+      "published_at": "2026-10-08T16:45:58Z",
+      "hidden": false
+    },
+    {
+      "id": "hn-openai-withdraws-3-math-papers-2026-10-09",
+      "title": "OpenAI Withdraws 3 Math Papers",
+      "summary": "The history log in OpenAI's math repo on GitHub records the withdrawals, after its proofs were found to deviate from guidelines set by consulted mathematicians.",
+      "url": "https://github.com/openai/math/blob/main/history.md",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50003107",
+      "category": "hn",
+      "tags": [
+        "Paper",
+        "Reasoning",
+        "OpenAI"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 340,
+        "comments": 3
+      },
+      "meta": {
+        "author": "theemathas"
+      },
+      "published_at": "2026-10-08T08:08:37Z",
+      "hidden": false
+    },
+    {
+      "id": "hn-openai-withdraws-three-mathematical-results-2026-10-09",
+      "title": "OpenAI withdraws three mathematical results",
+      "summary": "An X post reporting the same retraction of three OpenAI math results, which drew the larger discussion thread.",
+      "url": "https://twitter.com/danintheory/status/2108065033070789090",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50002650",
+      "category": "hn",
+      "tags": [
+        "Reasoning",
+        "OpenAI"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 298,
+        "comments": 570
+      },
+      "meta": {
+        "author": "sashank_1509"
+      },
+      "published_at": "2026-10-08T07:05:40Z",
+      "hidden": false
+    },
+    {
+      "id": "hn-i-think-i-found-a-planet-nobody-knew-existed-i-2026-10-09",
+      "title": "I think I found a planet nobody knew existed. I used Claude Code to find it",
+      "summary": "A Reddit post in r/ClaudeAI from a user who says Claude Code helped them spot a previously unknown planet.",
+      "url": "https://www.reddit.com/r/ClaudeAI/s/mbe5IY2LF9",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50002665",
+      "category": "hn",
+      "tags": [
+        "Agents",
+        "Claude Code"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 161,
+        "comments": 69
+      },
+      "meta": {
+        "author": "pyduan"
+      },
+      "published_at": "2026-10-08T07:07:34Z",
+      "hidden": false
+    },
+    {
+      "id": "hn-ai-ready-biological-data-1-8b-global-commitment-2026-10-09",
+      "title": "AI-ready biological data: $1.8B global commitment",
+      "summary": "Biohub announcement expanding its virtual biology initiative, with $1.8B committed globally to producing biological data built for AI models.",
+      "url": "https://biohub.org/news/virtual-biology-initiative-expansion/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50011999",
+      "category": "hn",
+      "tags": [
+        "Dataset",
+        "Funding"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 118,
+        "comments": 18
+      },
+      "meta": {
+        "author": "ray__"
+      },
+      "published_at": "2026-10-08T20:46:25Z",
+      "hidden": false
+    },
+    {
+      "id": "hn-port-of-the-typescript-compiler-checker-and-lsp-2026-10-09",
+      "title": "Port of the TypeScript compiler, checker and lsp to Rust, by LLM",
+      "summary": "The pingdotgg/ts-rust repo on GitHub, an LLM-written Rust port of the TypeScript compiler, type checker and language server.",
+      "url": "https://github.com/pingdotgg/ts-rust",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50000676",
+      "category": "hn",
+      "tags": [
+        "Open Source",
+        "Code Gen"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 111,
+        "comments": 208
+      },
+      "meta": {
+        "author": "jcbhmr"
+      },
+      "published_at": "2026-10-08T00:46:00Z",
+      "hidden": false
+    },
+    {
+      "id": "hn-openai-the-partition-principle-and-mathematics-2026-10-09",
+      "title": "OpenAI, the Partition Principle, and Mathematics",
+      "summary": "An essay on karagila.org examining OpenAI's math claims through the Partition Principle, as the lab withdraws results that missed the field's standards.",
+      "url": "https://karagila.org/2026/openai-pp/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50013902",
+      "category": "hn",
+      "tags": [
+        "Reasoning",
+        "OpenAI",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 107,
+        "comments": 150
+      },
+      "meta": {
+        "author": "md224"
+      },
+      "published_at": "2026-10-08T23:29:43Z",
+      "hidden": false
+    },
+    {
+      "id": "hn-sub-1-bit-llm-compression-via-latent-2026-10-09",
+      "title": "Sub-1-Bit LLM Compression via Latent Factorization",
+      "summary": "LittleBit, a Samsung Labs repo that compresses LLM weights below one bit per parameter by factorizing them in a latent space.",
+      "url": "https://github.com/SamsungLabs/LittleBit",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50005608",
+      "category": "hn",
+      "tags": [
+        "Open Source",
+        "Inference",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 83,
+        "comments": 23
+      },
+      "meta": {
+        "author": "brainless"
+      },
+      "published_at": "2026-10-08T13:29:46Z",
+      "hidden": false
+    },
+    {
+      "id": "hn-anthropic-bans-abusive-or-cruel-behavior-2026-10-09",
+      "title": "Anthropic bans 'abusive or cruel behavior' towards Claude",
+      "summary": "The Verge on Anthropic's usage policy update; it targets repeated extreme abuse of Claude while ordinary frustration and criticism remain allowed.",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1008100/anthropic-new-usage-policy-abuse-claude",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50008565",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "Policy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 70,
+        "comments": 164
+      },
+      "meta": {
+        "author": "mikelgan"
+      },
+      "published_at": "2026-10-08T17:08:02Z",
+      "hidden": false
+    }
+  ]
+}

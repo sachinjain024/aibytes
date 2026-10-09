@@ -1,0 +1,120 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-10-09",
+  "window": {
+    "after": "2026-10-08",
+    "before": "2026-10-10"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 13,
+  "poolCount": 51,
+  "stories": [
+    {
+      "title": "Why isn't the industry freaking out about DeepSeek 4.1 Flash?",
+      "url": "https://www.dgt.is/blog/2026-10-07-deepseek-freek-out/",
+      "type": "story",
+      "points": 674,
+      "num_comments": 542,
+      "author": "jonotime",
+      "created_at": "2026-10-08T00:14:48Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50000488"
+    },
+    {
+      "title": "OpenAI annualised revenues $20B less than previously signalled",
+      "url": "https://www.cnbc.com/2026/10/08/open-ai-revenue-nvidia-oracle-coreweave.html",
+      "type": "story",
+      "points": 388,
+      "num_comments": 255,
+      "author": "mfiguiere",
+      "created_at": "2026-10-08T16:45:58Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50008187"
+    },
+    {
+      "title": "OpenAI Withdraws 3 Math Papers",
+      "url": "https://github.com/openai/math/blob/main/history.md",
+      "type": "story",
+      "points": 340,
+      "num_comments": 3,
+      "author": "theemathas",
+      "created_at": "2026-10-08T08:08:37Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50003107"
+    },
+    {
+      "title": "OpenAI withdraws three mathematical results",
+      "url": "https://twitter.com/danintheory/status/2108065033070789090",
+      "type": "story",
+      "points": 298,
+      "num_comments": 570,
+      "author": "sashank_1509",
+      "created_at": "2026-10-08T07:05:40Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50002650"
+    },
+    {
+      "title": "I think I found a planet nobody knew existed. I used Claude Code to find it",
+      "url": "https://www.reddit.com/r/ClaudeAI/s/mbe5IY2LF9",
+      "type": "story",
+      "points": 161,
+      "num_comments": 69,
+      "author": "pyduan",
+      "created_at": "2026-10-08T07:07:34Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50002665"
+    },
+    {
+      "title": "AI-ready biological data: $1.8B global commitment",
+      "url": "https://biohub.org/news/virtual-biology-initiative-expansion/",
+      "type": "story",
+      "points": 118,
+      "num_comments": 18,
+      "author": "ray__",
+      "created_at": "2026-10-08T20:46:25Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50011999"
+    },
+    {
+      "title": "Port of the TypeScript compiler, checker and lsp to Rust, by LLM",
+      "url": "https://github.com/pingdotgg/ts-rust",
+      "type": "story",
+      "points": 111,
+      "num_comments": 208,
+      "author": "jcbhmr",
+      "created_at": "2026-10-08T00:46:00Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50000676"
+    },
+    {
+      "title": "OpenAI, the Partition Principle, and Mathematics",
+      "url": "https://karagila.org/2026/openai-pp/",
+      "type": "story",
+      "points": 107,
+      "num_comments": 150,
+      "author": "md224",
+      "created_at": "2026-10-08T23:29:43Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50013902"
+    },
+    {
+      "title": "Sub-1-Bit LLM Compression via Latent Factorization",
+      "url": "https://github.com/SamsungLabs/LittleBit",
+      "type": "story",
+      "points": 83,
+      "num_comments": 23,
+      "author": "brainless",
+      "created_at": "2026-10-08T13:29:46Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50005608"
+    },
+    {
+      "title": "Anthropic bans 'abusive or cruel behavior' towards Claude",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1008100/anthropic-new-usage-policy-abuse-claude",
+      "type": "story",
+      "points": 70,
+      "num_comments": 164,
+      "author": "mikelgan",
+      "created_at": "2026-10-08T17:08:02Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50008565"
+    }
+  ]
+}
