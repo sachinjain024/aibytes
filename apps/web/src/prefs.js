@@ -5,6 +5,8 @@
 
 export const THEME = { key: "aibytes-theme", values: ["light", "dark"] };
 export const VIEW = { key: "aibytes-view", values: ["grid", "list"] };
+// Ranked (by the curated rank) or Grouped (by category); spec AIB-77u app-feed-order.
+export const ORDER = { key: "aibytes-order", values: ["ranked", "grouped"] };
 
 export function readChoice(pref, storage = globalThis.localStorage) {
   try {

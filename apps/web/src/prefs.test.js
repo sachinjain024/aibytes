@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { readChoice, THEME, VIEW, writeChoice } from "./prefs.js";
+import { ORDER, readChoice, THEME, VIEW, writeChoice } from "./prefs.js";
 
 const memory = (entries = {}) => ({
   getItem: (key) => (key in entries ? entries[key] : null),
@@ -30,4 +30,16 @@ test("a storage that throws behaves like an empty one", () => {
 
 test("writing a value the app does not know is a bug, not a silent store", () => {
   assert.throws(() => writeChoice(VIEW, "masonry", memory()), /unknown value masonry/);
+});
+
+test("the feed order reads back both modes and nothing else", () => {
+  const storage = memory();
+  for (const mode of ["ranked", "grouped"]) {
+    assert.equal(writeChoice(ORDER, mode, storage), true);
+    assert.equal(readChoice(ORDER, storage), mode);
+  }
+  assert.equal(ORDER.key, "aibytes-order");
+  assert.equal(readChoice(ORDER, memory({ "aibytes-order": "newest" })), null);
+  assert.equal(readChoice(ORDER, broken), null);
+  assert.throws(() => writeChoice(ORDER, "newest", memory()), /unknown value newest/);
 });

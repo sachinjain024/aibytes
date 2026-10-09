@@ -244,7 +244,7 @@ and compares it with `rank.TIE_ORDER`.
 
 **Estimated scope:** S
 
-## Task 8: Ranked: the order pref, the header control, ranked rendering
+## Task 8: Ranked: the order pref, the header control, ranked rendering (done)
 
 **Description:**
 - `prefs.js` gains `ORDER = { key: "aibytes-order", values: ["ranked", "grouped"] }`.
@@ -253,18 +253,20 @@ and compares it with `rank.TIE_ORDER`.
 - The body orders the **whole** edition with `rankedItems`, then filters, then
   renders one grid or list.
 - The hidden `{n} items` h2 stays.
+- Until T9, Grouped shows the file's order (by category, today's feed) with
+  no section headings.
 
 **Acceptance criteria:**
-- [ ] With storage cleared, the page opens Ranked with sources interleaved; the
+- [x] With storage cleared, the page opens Ranked with sources interleaved; the
       control shows at ≥700px and not below; the choice survives a reload.
-- [ ] `ORDER` prefs cases pass: known values read back, unknown values read as
+- [x] `ORDER` prefs cases pass: known values read back, unknown values read as
       none, a throwing storage behaves as empty, writing an unknown value throws.
-- [ ] Empty states, the end card, and list view are unchanged; no horizontal
+- [x] Empty states, the end card, and list view are unchanged; no horizontal
       scroll at 375px.
 
 **Verification:**
-- [ ] `npm test -w @aibytes/web` and `npm run build:web`
-- [ ] Browser: spec checks 1, 4, 5, 6, and 8
+- [x] `npm test -w @aibytes/web` and `npm run build:web`
+- [x] Browser: spec checks 1, 4, 5, 6, and 8
 
 **Dependencies:** Tasks 5, 7
 

@@ -13,7 +13,8 @@ import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO
 import { FOOTER_LINKS, SUBSCRIBE_URL } from "./footer.js";
 import { ago, longDate, midDate, shortDate } from "./format.js";
 import { useChoice, useDismiss, useMedia, useReturnFocus, useTheme } from "./hooks.js";
-import { VIEW } from "./prefs.js";
+import { rankedItems } from "./order.js";
+import { ORDER, VIEW } from "./prefs.js";
 import { localDate, railDate, railEditions } from "./rail.js";
 import { editionPath, olderEdition, parseRoute, pickEdition } from "./route.js";
 
@@ -53,6 +54,7 @@ export function App() {
   const route = parseRoute(location.pathname);
   const [theme, toggleTheme] = useTheme();
   const [view, setView] = useChoice(VIEW, "grid");
+  const [mode, setMode] = useChoice(ORDER, "ranked");
   const compact = useMedia(PHONE);
   const wide = useMedia(WIDE);
   const [index, setIndex] = React.useState({ status: "loading" });
@@ -112,7 +114,12 @@ export function App() {
   // No filter controls until tags.json has settled: rewriting the URL before
   // then would silently drop any t= tags it already carries.
   const filterable = Boolean(visible) && tags.status !== "loading";
-  const items = visible && visible.filter((item) => matches(item, filters));
+  // Order the whole edition, hidden items included, then filter: rank (and the
+  // fallback's standing) is over the whole edition, so a filter never
+  // reshuffles what it leaves. Grouped keeps the file's order, which is
+  // already by category.
+  const items = visible && (mode === "ranked" ? rankedItems(edition.data.items) : edition.data.items)
+    .filter((item) => !item.hidden && matches(item, filters));
   const older = ref && olderEdition(editions, ref.date);
   const prev = usePrevious(items && !items.length ? older : null);
   // Paging back or forward keeps the filters, as the edition bar does.
@@ -136,7 +143,8 @@ export function App() {
           onCategory={setCategory}
           tagCount={filters.tags.length} tagsOpen={panel === "tags"} sourcesOpen={panel === "sources"} onOpenTags={filterable && tagGroups.length ? () => onPanel("tags") : undefined}
           sourceCount={filters.sources.length} onOpenSources={filterable ? () => onPanel("sources") : undefined}
-          view={view} onView={setView} theme={theme} onToggleTheme={toggleTheme} />
+          view={view} onView={setView} theme={theme} onToggleTheme={toggleTheme}
+          mode={mode} onMode={compact ? undefined : setMode} />
         {ref && !wide && <Bar refAt={ref} editions={editions} compact={compact} search={location.search} navigate={navigate} />}
         {panel === "tags" && (
           <Panel label="Filter by tag" groups={tagGroups.map((g) => ({ name: g.name, options: g.tags.map((tag) => ({ key: tag.name, label: tag.name })) }))}
