@@ -3,13 +3,13 @@ format: longclaw.ticket/v1
 id: 5b903bdf-0d42-4d01-b230-ef24d05f1d81
 key: AIB-79t
 title: Backfill rank into editions published before edition-rank
-status: in_progress
+status: done
 priority: p1
 labels:
   - app
 type: chore
 created_at: 2026-10-09T09:50:40.557Z
-updated_at: 2026-10-09T14:16:45.540Z
+updated_at: 2026-10-09T14:27:02.182Z
 ---
 
 Add `rank` to the editions published before the edition-rank change (AIB-77u, module `edition-rank`) merged. Split out of the edition-rank spec on 2026-10-09.
@@ -37,7 +37,7 @@ Blocked by the edition-rank module: `docs/specs/AIB-77u-edition-rank.md`.
 - [x] Choose the route: rank subcommand or re-run build <!-- longclaw:item=ck_e87f213b -->
 - [x] T1 curate.py rank: offline, identity-checked, writes only rank <!-- longclaw:item=ck_d69f993c -->
 - [x] T2 Backfill 2026-10-08 and 2026-10-09 (content-only commit) <!-- longclaw:item=ck_e077dd50 -->
-- [ ] T3 Runner syncs main (ff-only) before it fetches <!-- longclaw:item=ck_05556f17 -->
+- [x] T3 Runner syncs main (ff-only) before it fetches <!-- longclaw:item=ck_05556f17 -->
 
 ## Activity
 
@@ -237,4 +237,37 @@ actor:
 ### Claude Code commented
 
 Follow-up filed: AIB-81i (the app's fallback order ranks Show HN above every HN thread).
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_1051b72e
+kind: update
+occurred_at: 2026-10-09T14:25:24.387Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_05556f17.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+T3: the runner gains a sync step (git pull --ff-only origin main) before fetch. It takes effect on the iMac once the iMac has pulled this commit; from then on it keeps itself current. Left open until the 2026-10-10 edition is confirmed to carry rank.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_0ea7408c
+kind: update
+occurred_at: 2026-10-09T14:27:02.182Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: status
+    from: in_progress
+    to: done
+-->
+### You updated this ticket
 <!-- /longclaw:event -->

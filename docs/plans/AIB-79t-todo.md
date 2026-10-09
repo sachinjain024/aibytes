@@ -81,19 +81,21 @@ cannot fast-forward, the run fails at `sync` and Slack says so. `--no-push`
 skips it.
 
 **Acceptance criteria:**
-- [ ] A commit on origin that the checkout lacks is pulled in before `fetch`,
+- [x] A commit on origin that the checkout lacks is pulled in before `fetch`,
       and the log names the new sha.
-- [ ] Another branch, or a diverged `main`, fails the run at `sync`, and no
+- [x] Another branch, or a diverged `main`, fails the run at `sync`, and no
       later step runs.
-- [ ] `--no-push` skips `sync` and leaves `HEAD` alone. The existing
+- [x] `--no-push` skips `sync` and leaves `HEAD` alone. The existing
       end-to-end tests pass unchanged.
 
 **Verification:**
-- [ ] `AIBYTES_SKIP_LIVE=1 python3 -m unittest tests.test_runner -v`
+- [x] `AIBYTES_SKIP_LIVE=1 python3 -m unittest tests.test_runner -v`
       (new `SyncTest`, on `PublishTest`'s bare-origin fixture)
-- [ ] `AIBYTES_SKIP_LIVE=1 python3 -m unittest discover -s tests`
-- [ ] `python3 packages/runner/run.py --skip-fetch --no-push` locally: the log
-      shows `sync` skipped, and `git status` is unchanged.
+- [x] `AIBYTES_SKIP_LIVE=1 python3 -m unittest discover -s tests`
+- [x] `python3 packages/runner/run.py --skip-fetch --no-push` locally: the log
+      shows `sync` skipped and `HEAD` does not move. The rehearsal still
+      re-curates the day into the working tree (a Claude session included),
+      so restore those files after it.
 
 **Dependencies:** None (sequenced after T2).
 

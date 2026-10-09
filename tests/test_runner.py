@@ -502,6 +502,117 @@ class PublishTest(unittest.TestCase):
         self.assertIn(f"{DATE}.json", status)
 
 
+@unittest.skipIf(shutil.which("git") is None, "git is not installed")
+class SyncTest(unittest.TestCase):
+    """The runner curates with what is on origin/main, not whatever it last pushed.
+
+    Without this, a curate change merged after the day's push reaches the
+    next edition only after that edition is built - which is how 2026-10-09
+    was published without `rank`.
+    """
+
+    def setUp(self):
+        self.tmp = pathlib.Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, self.tmp, ignore_errors=True)
+        self.origin = self.tmp / "origin.git"
+        self.work = self.tmp / "work"
+        self.other = self.tmp / "other"
+        subprocess.run(["git", "init", "--bare", "-b", "main", str(self.origin)],
+                       check=True, capture_output=True)
+        subprocess.run(["git", "clone", str(self.origin), str(self.work)],
+                       check=True, capture_output=True)
+        self.identify(self.work)
+        git("checkout", "-B", "main", cwd=self.work)
+        (self.work / "README.md").write_text("aibytes\n")
+        git("add", "README.md", cwd=self.work)
+        git("commit", "-m", "initial", cwd=self.work)
+        git("push", "-u", "origin", "main", cwd=self.work)
+        subprocess.run(["git", "clone", str(self.origin), str(self.other)],
+                       check=True, capture_output=True)
+        self.identify(self.other)
+
+        self.ctx = context(self.work)
+        self.ctx.log = cli.Log(self.tmp / "run.log", echo=False)
+        self.addCleanup(self.ctx.log.close)
+
+    def identify(self, repo):
+        git("config", "user.email", "test@example.test", cwd=repo)
+        git("config", "user.name", "Test", cwd=repo)
+
+    def commit(self, repo, name, message):
+        (repo / name).write_text(message + "\n")
+        git("add", name, cwd=repo)
+        git("commit", "-m", message, cwd=repo)
+
+    def head(self, repo):
+        return subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=str(repo),
+                              capture_output=True, text=True, check=True).stdout.strip()
+
+    def merged_elsewhere(self):
+        """A commit lands on origin/main that the runner's checkout lacks."""
+        self.commit(self.other, "rank.py", "curate: write rank")
+        git("push", "origin", "main", cwd=self.other)
+        return self.head(self.other)
+
+    def test_sync_runs_before_fetch(self):
+        self.assertEqual([name for name, _ in cli.STEPS][:2], ["sync", "fetch"])
+
+    def test_a_commit_on_origin_is_pulled_in_and_logged(self):
+        merged = self.merged_elsewhere()
+        cli.step_sync(self.ctx)
+        self.assertEqual(self.head(self.work), merged)
+        self.assertTrue((self.work / "rank.py").exists())
+        self.assertIn(merged, self.ctx.log.tail())
+
+    def test_already_up_to_date_is_not_a_failure(self):
+        before = self.head(self.work)
+        cli.step_sync(self.ctx)
+        self.assertEqual(self.head(self.work), before)
+
+    def test_an_unrelated_dirty_file_does_not_block_the_pull(self):
+        # The day's snapshots may already be on disk from an earlier attempt.
+        merged = self.merged_elsewhere()
+        (self.work / "README.md").write_text("edited by hand\n")
+        cli.step_sync(self.ctx)
+        self.assertEqual(self.head(self.work), merged)
+
+    def test_another_branch_fails_and_names_it(self):
+        git("checkout", "-b", "issue-06", cwd=self.work)
+        with self.assertRaises(cli.StepError) as caught:
+            cli.step_sync(self.ctx)
+        self.assertEqual(caught.exception.step, "sync")
+        self.assertIn("issue-06", caught.exception.detail)
+
+    def test_a_diverged_main_fails_rather_than_merging(self):
+        self.merged_elsewhere()
+        self.commit(self.work, "local.txt", "a commit origin does not have")
+        before = self.head(self.work)
+        with self.assertRaises(cli.StepError) as caught:
+            cli.step_sync(self.ctx)
+        self.assertEqual(caught.exception.step, "sync")
+        self.assertIn("fast-forward", caught.exception.detail)
+        self.assertEqual(self.head(self.work), before)
+
+    def test_a_failed_sync_stops_the_run_before_anything_is_fetched(self):
+        git("checkout", "-b", "issue-06", cwd=self.work)
+        fetched = []
+        recorder = Recorder()
+        steps = (("sync", cli.step_sync), ("fetch", lambda ctx: fetched.append(1)))
+        with mock.patch.object(notify, "send", recorder), \
+                mock.patch.object(cli, "STEPS", steps):
+            self.assertEqual(cli.run(self.ctx), 1)
+        self.assertEqual(fetched, [])
+        self.assertIn("sync", recorder.only)
+
+    def test_no_push_skips_the_pull(self):
+        # The rehearsal promises to change nothing.
+        self.merged_elsewhere()
+        before = self.head(self.work)
+        self.ctx.push = False
+        cli.step_sync(self.ctx)
+        self.assertEqual(self.head(self.work), before)
+
+
 # --------------------------------------------------------------------------
 # End to end, against stub executables
 # --------------------------------------------------------------------------

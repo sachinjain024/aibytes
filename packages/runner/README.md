@@ -4,8 +4,25 @@ The scheduled job behind `content/editions/`. It runs on the iMac at 13:30 IST,
 publishes one edition, and says so in Slack either way.
 
 ```
-fetch -> draft -> Claude writes the summaries -> build -> validate -> commit and push
+sync -> fetch -> draft -> Claude writes the summaries -> build -> validate -> commit and push
 ```
+
+## It curates with what is on `main`
+
+`sync` runs `git pull --ff-only origin main` before anything is fetched, so a
+curate change merged during the day reaches the next edition. Without it the
+iMac curates with whatever it last pushed, which is how 2026-10-09 went out
+without `rank`.
+
+- **It fails the run if the checkout is not on `main`, or cannot fast-forward**
+  (commits origin lacks, or a dirty file the pull would overwrite). Nothing has
+  been fetched yet, so fix the checkout and re-run.
+- **`--no-push` skips it**, as it skips `publish`, so a rehearsal never moves
+  `HEAD`. It still rewrites the day's edition and data files in the working
+  tree; `git checkout` them afterwards.
+- **A change to the runner itself takes effect the run after it lands.**
+  `run.py` is already loaded when it pulls. Every other step is a subprocess
+  and runs the pulled code.
 
 ## Why the script drives Claude, and not the other way round
 
@@ -96,7 +113,7 @@ tail -f logs/$(date +%F).log
 ```
 
 The Slack failure message names the step that died, quotes the last 20 lines of
-the log, and gives the exact re-run command. Steps are `fetch`, `draft`,
+the log, and gives the exact re-run command. Steps are `sync`, `fetch`, `draft`,
 `summaries`, `build`, `validate`, `publish`.
 
 ## Tests
