@@ -3,13 +3,13 @@ format: longclaw.ticket/v1
 id: d92917c2-b046-4d4c-b6f2-7f31d52b9878
 key: AIB-77u
 title: "Home screen: gaps between the prototype and apps/web"
-status: in_progress
+status: done
 priority: p1
 labels:
   - app
 type: chore
 created_at: 2026-10-09T08:28:26.821Z
-updated_at: 2026-10-09T12:55:51.263Z
+updated_at: 2026-10-09T12:59:06.848Z
 ---
 
 A comparison of the home-screen prototype `docs/ux/prototypes/aiBytes_app_home.html` against the running web app (`apps/web`, `http://localhost:5173/`, edition 2026-10-09). This is an audit only; no code was changed.
@@ -828,4 +828,22 @@ changes:
 ### Claude Code updated this ticket
 
 T8 merged in PR #30 (5366f9b). T9 (Grouped sections + §6 amendment) PR opened: https://github.com/sachinjain024/aibytes/pull/31. That is the last AIB-77u task; the ticket can move to done once it merges.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ef370470
+kind: update
+occurred_at: 2026-10-09T12:59:06.848Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: status
+    from: in_progress
+    to: done
+-->
+### Claude Code updated this ticket
+
+All nine tasks done (T1-T5, T7-T9; there is no T6), shipped in PRs #24-#31. Follow-ups: AIB-79t (backfill rank into 2026-10-08 and 2026-10-09) and AIB-78z (phone navigation).
 <!-- /longclaw:event -->
