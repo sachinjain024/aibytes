@@ -73,7 +73,7 @@ See `docs/plans/AIB-77u-todo.md` for acceptance criteria, verification, and file
 - [ ] T1 and T2 PRs merged
 
 ### Phase 2: app-side-nav
-- [ ] T3 Ledger `SideNav`: ARIA, footer overlap, landmark name
+- [x] T3 Ledger `SideNav`: ARIA, footer overlap, landmark name
 - [ ] T4 `rail.js`: calendar-true date labels
 - [ ] T5 The rail in the app at ≥900px, plus the §6 amendment
 

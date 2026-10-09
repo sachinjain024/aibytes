@@ -9,7 +9,7 @@ labels:
   - app
 type: chore
 created_at: 2026-10-09T08:28:26.821Z
-updated_at: 2026-10-09T11:10:27.938Z
+updated_at: 2026-10-09T11:16:32.263Z
 ---
 
 A comparison of the home-screen prototype `docs/ux/prototypes/aiBytes_app_home.html` against the running web app (`apps/web`, `http://localhost:5173/`, edition 2026-10-09). This is an audit only; no code was changed.
@@ -114,7 +114,7 @@ All three are resolved; see **Decisions** at the top. Recorded as asked:
 - [x] Decide ranking source - a rank field written at curation; TOP marker skipped <!-- longclaw:item=ck_c9b3e4a8 -->
 - [x] T1 Contract: rank in edition.schema.json, validate.py, feed.d.ts (all-or-none, 1..N) <!-- longclaw:item=ck_7c87ab48 -->
 - [x] T2 Curate writes rank at build (rank.py, TIE_ORDER GitHub / HN / TechCrunch / PH) <!-- longclaw:item=ck_1977fc3a -->
-- [ ] T3 Ledger SideNav fixes: date-list ARIA, footer overlap, landmark name <!-- longclaw:item=ck_0e92b55d -->
+- [x] T3 Ledger SideNav fixes: date-list ARIA, footer overlap, landmark name <!-- longclaw:item=ck_0e92b55d -->
 - [ ] T4 rail.js: calendar-true Today / Yesterday / Latest labels, node --test <!-- longclaw:item=ck_f703ec20 -->
 - [ ] T5 Rail in apps/web at 900px+ (counts incl. All, full-bleed, 300px grid, hidden h1); today's chips + bar below 900px; product spec §6 amendment <!-- longclaw:item=ck_6bbfa9e0 -->
 - [ ] T7 order.js: rank order, with the rank.py fallback for rank-less editions; TIE_ORDER drift guard <!-- longclaw:item=ck_221ae1ac -->
@@ -702,4 +702,22 @@ changes:
 ### Claude Code updated this ticket
 
 T1 merged in PR #24 (be27113). T2 (curate writes rank at build) PR opened: https://github.com/sachinjain024/aibytes/pull/25
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_25d1de2c
+kind: update
+occurred_at: 2026-10-09T11:16:32.263Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_0e92b55d.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+T2 merged in PR #25 (1233dd7). T3 (Ledger SideNav fixes) PR opened: https://github.com/sachinjain024/aibytes/pull/26. AIB-79t is unblocked: 2026-10-08 and 2026-10-09 were published without rank.
 <!-- /longclaw:event -->

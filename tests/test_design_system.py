@@ -1,4 +1,4 @@
-"""Offline checks on Ledger's color tokens (packages/design-system).
+"""Offline checks on Ledger (packages/design-system): color tokens, and SideNav.
 
 Dark mode is written twice in tokens/colors.css: once under [data-theme="dark"]
 for an explicit choice, and once under prefers-color-scheme for the OS default.
@@ -11,7 +11,10 @@ import re
 import unittest
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
-COLORS = REPO_ROOT / "packages" / "design-system" / "tokens" / "colors.css"
+DESIGN_SYSTEM = REPO_ROOT / "packages" / "design-system"
+COLORS = DESIGN_SYSTEM / "tokens" / "colors.css"
+COMPONENTS_CSS = DESIGN_SYSTEM / "components" / "components.css"
+SIDENAV = DESIGN_SYSTEM / "components" / "navigation" / "SideNav"
 
 
 def declarations(block):
@@ -49,6 +52,38 @@ class ColorTokenTests(unittest.TestCase):
         # values must also apply to a nested [data-theme="light"] wrapper.
         self.assertIn(':root:not([data-theme="light"])', self.css)
         self.assertIn(':root,[data-theme="light"]{', self.css)
+
+
+class SideNavTests(unittest.TestCase):
+    """The rail's ARIA and its fit between a sticky header and a sticky footer."""
+
+    def setUp(self):
+        self.jsx = SIDENAV.with_suffix(".jsx").read_text()
+
+    def test_the_date_list_is_a_plain_group_not_a_listbox(self):
+        # A listbox of <button>s is invalid: a listbox owns options, not buttons.
+        # role="group" rather than no role, because a name on a role-less div
+        # is not announced (aria-label is prohibited on generic).
+        self.assertNotIn('role="listbox"', self.jsx)
+        self.assertIn('className="ldg-nav__dates" role="group" aria-label="Editions"', self.jsx)
+
+    def test_the_current_edition_is_marked_as_a_date(self):
+        self.assertIn('aria-current={e.date === currentDate ? "date" : undefined}', self.jsx)
+
+    def test_the_landmark_is_named_for_both_things_it_holds(self):
+        self.assertIn('<aside className="ldg-sidenav" aria-label="Edition and categories">',
+                      self.jsx)
+
+    def test_the_rail_height_leaves_room_for_a_sticky_footer(self):
+        rule = block_after(COMPONENTS_CSS.read_text(), ".ldg-sidenav")
+        self.assertEqual(
+            declarations(rule)["height"],
+            "calc(100vh - var(--ldg-header-h,68px) - var(--ldg-footer-h,0px))")
+
+    def test_the_types_and_prompt_document_the_footer_variable(self):
+        for suffix in (".d.ts", ".prompt.md"):
+            with self.subTest(file=suffix):
+                self.assertIn("--ldg-footer-h", SIDENAV.with_suffix(suffix).read_text())
 
 
 if __name__ == "__main__":
