@@ -40,3 +40,8 @@ export function railDate(ref, editions, today) {
     nextLabel: latest ? undefined : "Latest",
   };
 }
+
+/** The "Pick a date" list: every edition in index.json, newest first. */
+export function railEditions(editions) {
+  return editions.map((ref) => ({ date: ref.date, label: midDate(ref.date), count: ref.total }));
+}

@@ -7,17 +7,23 @@ import { EditionBar } from "@aibytes/design-system/components/navigation/Edition
 import { Footer } from "@aibytes/design-system/components/navigation/Footer.jsx";
 import { Chip } from "@aibytes/design-system/components/navigation/Chip.jsx";
 import { Header } from "@aibytes/design-system/components/navigation/Header.jsx";
+import { SideNav } from "@aibytes/design-system/components/navigation/SideNav.jsx";
 import { loadEdition, loadIndex, loadTags } from "./content.js";
 import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, SOURCES, toggle } from "./filters.js";
 import { FOOTER_LINKS, SUBSCRIBE_URL } from "./footer.js";
 import { ago, longDate, midDate, shortDate } from "./format.js";
 import { useChoice, useDismiss, useMedia, useReturnFocus, useTheme } from "./hooks.js";
 import { VIEW } from "./prefs.js";
+import { localDate, railDate, railEditions } from "./rail.js";
 import { editionPath, olderEdition, parseRoute, pickEdition } from "./route.js";
 
 const TAGLINE = "today's AI, in one byte";
 // Ledger's sticky breakpoint (app.css); below it the header and bar go compact.
 const PHONE = "(max-width: 699px)";
+// From here up the SideNav rail replaces the header chips and the edition bar
+// (spec AIB-77u app-side-nav). One switch, so every width has exactly one
+// category control and one date pager.
+const WIDE = "(min-width: 900px)";
 
 const here = () => ({ pathname: window.location.pathname, search: window.location.search });
 
@@ -39,8 +45,8 @@ function useLocation() {
   return [location, navigate];
 }
 
-// Header, edition bar, and calendar over the edition as a Card grid or a
-// ListRow list, filtered by category, tags, and sources from the URL. Saves
+// Header, then either the edition bar (narrow) or the SideNav rail (wide), over
+// the edition as a Card grid or a ListRow list, filtered by category, tags, and sources from the URL. Saves
 // and sign-in are AIB-75v, so the header and cards show no controls for them.
 export function App() {
   const [location, navigate] = useLocation();
@@ -48,6 +54,7 @@ export function App() {
   const [theme, toggleTheme] = useTheme();
   const [view, setView] = useChoice(VIEW, "grid");
   const compact = useMedia(PHONE);
+  const wide = useMedia(WIDE);
   const [index, setIndex] = React.useState({ status: "loading" });
   const [edition, setEdition] = React.useState({ status: "loading" });
   const [tags, setTags] = React.useState({ status: "loading", groups: [] });
@@ -55,7 +62,9 @@ export function App() {
   const [panel, setPanel] = React.useState(null);
   const closePanel = React.useCallback(() => setPanel(null), []);
   const sticky = React.useRef(null);
+  const shell = React.useRef(null);
   useDismiss(sticky, panel !== null, closePanel);
+  useStickyHeights(shell, wide);
   useReturnFocus(panel !== null);
 
   React.useEffect(() => {
@@ -108,18 +117,27 @@ export function App() {
   const prev = usePrevious(items && !items.length ? older : null);
   // Paging back or forward keeps the filters, as the edition bar does.
   const goTo = (date) => navigate(editionPath(date) + location.search);
+  const setCategory = (key) => setFilters({ ...filters, category: key });
+
+  const main = (
+    <main className="app-main" id="main" tabIndex={-1}>
+      {/* With no edition bar, its h1 moves here, unseen, so the outline stays h1 > h2 > h3. */}
+      {wide && ref && <h1 className="app-sr">{longDate(ref.date)}</h1>}
+      {body({ route, index, ref, edition, view, items, filters, older, prev, goTo, clearFilters: () => setFilters(NO_FILTERS) })}
+    </main>
+  );
 
   return (
-    <div className="app-shell">
+    <div className={"app-shell" + (wide ? " app-shell--full" : "")} ref={shell}>
       <a className="app-skip" href="#main">Skip to the edition</a>
       <div className="app-sticky" ref={sticky}>
         <Header compact={compact} tagline={compact ? undefined : TAGLINE}
-          showCategories={filterable} categories={categories} activeCategory={filters.category}
-          onCategory={(key) => setFilters({ ...filters, category: key })}
+          showCategories={filterable && !wide} categories={categories} activeCategory={filters.category}
+          onCategory={setCategory}
           tagCount={filters.tags.length} tagsOpen={panel === "tags"} sourcesOpen={panel === "sources"} onOpenTags={filterable && tagGroups.length ? () => onPanel("tags") : undefined}
           sourceCount={filters.sources.length} onOpenSources={filterable ? () => onPanel("sources") : undefined}
           view={view} onView={setView} theme={theme} onToggleTheme={toggleTheme} />
-        {ref && <Bar refAt={ref} editions={editions} compact={compact} search={location.search} navigate={navigate} />}
+        {ref && !wide && <Bar refAt={ref} editions={editions} compact={compact} search={location.search} navigate={navigate} />}
         {panel === "tags" && (
           <Panel label="Filter by tag" groups={tagGroups.map((g) => ({ name: g.name, options: g.tags.map((tag) => ({ key: tag.name, label: tag.name })) }))}
             selected={filters.tags} onToggle={(name) => setFilters({ ...filters, tags: toggle(filters.tags, name) })} />)}
@@ -127,12 +145,84 @@ export function App() {
           <Panel label="Filter by source" narrow groups={[{ name: "Sources", options: SOURCES }]}
             selected={filters.sources} onToggle={(key) => setFilters({ ...filters, sources: toggle(filters.sources, key) })} />)}
       </div>
-      <main className="app-main" id="main" tabIndex={-1}>
-        {body({ route, index, ref, edition, view, items, filters, older, prev, goTo, clearFilters: () => setFilters(NO_FILTERS) })}
-      </main>
+      {wide
+        ? (
+          <div className="app-cols">
+            <Rail refAt={ref} editions={editions} search={location.search} navigate={navigate}
+              categories={categories} allCount={visible ? visible.length : undefined}
+              activeCategory={filters.category} onCategory={filterable ? setCategory : undefined} />
+            {main}
+          </div>)
+        : main}
       <Footer links={FOOTER_LINKS} onSubscribe={() => window.location.assign(SUBSCRIBE_URL)} />
     </div>
   );
+}
+
+// --ldg-header-h and --ldg-footer-h on the shell, from the sticky header cluster
+// and the sticky footer as they actually measure, so the rail sits exactly
+// between them. Only the rail reads them, so only while it is shown.
+function useStickyHeights(shell, on) {
+  React.useEffect(() => {
+    const root = shell.current;
+    if (!on || !root) return undefined;
+    const header = root.querySelector(".app-sticky");
+    const footer = root.querySelector(".ldg-footer");
+    const set = () => {
+      if (header) root.style.setProperty("--ldg-header-h", header.offsetHeight + "px");
+      if (footer) root.style.setProperty("--ldg-footer-h", footer.offsetHeight + "px");
+    };
+    set();
+    const observer = new ResizeObserver(set);
+    [header, footer].forEach((el) => el && observer.observe(el));
+    return () => {
+      observer.disconnect();
+      root.style.removeProperty("--ldg-header-h");
+      root.style.removeProperty("--ldg-footer-h");
+    };
+  }, [shell, on]);
+}
+
+// The SideNav rail for `refAt`: the date block (rail.js), the edition list, and
+// the categories. With no edition yet - loading, failed, not found - it still
+// renders its categories, so the layout does not jump when data arrives.
+// `onCategory` is undefined until the edition and tags have settled, which
+// makes early clicks no-ops, as the chips are hidden until then.
+function Rail({ refAt, editions, search, navigate, categories, allCount, activeCategory, onCategory }) {
+  const [open, setOpen] = React.useState(false);
+  const close = React.useCallback(() => setOpen(false), []);
+  useReturnFocus(open);
+  useRailEscape(open, close);
+
+  const older = refAt && olderEdition(editions, refAt.date);
+  // Paging keeps the filters, as the edition bar does; Latest is the root.
+  const go = (path) => {
+    setOpen(false);
+    navigate(path + search);
+  };
+  const dates = refAt ? railDate(refAt, editions, localDate()) : {};
+  return (
+    <SideNav {...dates}
+      onPrev={() => older && go(editionPath(older.date))}
+      onNext={() => go("/")}
+      editions={refAt ? railEditions(editions) : []} currentDate={refAt && refAt.date}
+      onSelectEdition={(date) => (date === refAt.date ? setOpen(false) : go(editionPath(date)))}
+      calendarOpen={open} onToggleCalendar={() => setOpen((o) => !o)}
+      categories={categories} allCount={allCount}
+      activeCategory={activeCategory} onCategory={onCategory} />
+  );
+}
+
+// Escape closes the rail's edition list while focus is inside the rail.
+function useRailEscape(open, close) {
+  React.useEffect(() => {
+    if (!open) return undefined;
+    const onKey = (event) => {
+      if (event.key === "Escape" && document.activeElement && document.activeElement.closest(".ldg-sidenav")) close();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open, close]);
 }
 
 // The edition before an empty filtered view, loaded only once a filter comes up

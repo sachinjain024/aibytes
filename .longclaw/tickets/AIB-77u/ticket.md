@@ -9,7 +9,7 @@ labels:
   - app
 type: chore
 created_at: 2026-10-09T08:28:26.821Z
-updated_at: 2026-10-09T11:22:41.456Z
+updated_at: 2026-10-09T12:14:40.133Z
 ---
 
 A comparison of the home-screen prototype `docs/ux/prototypes/aiBytes_app_home.html` against the running web app (`apps/web`, `http://localhost:5173/`, edition 2026-10-09). This is an audit only; no code was changed.
@@ -116,7 +116,7 @@ All three are resolved; see **Decisions** at the top. Recorded as asked:
 - [x] T2 Curate writes rank at build (rank.py, TIE_ORDER GitHub / HN / TechCrunch / PH) <!-- longclaw:item=ck_1977fc3a -->
 - [x] T3 Ledger SideNav fixes: date-list ARIA, footer overlap, landmark name <!-- longclaw:item=ck_0e92b55d -->
 - [x] T4 rail.js: calendar-true Today / Yesterday / Latest labels, node --test <!-- longclaw:item=ck_f703ec20 -->
-- [ ] T5 Rail in apps/web at 900px+ (counts incl. All, full-bleed, 300px grid, hidden h1); today's chips + bar below 900px; product spec §6 amendment <!-- longclaw:item=ck_6bbfa9e0 -->
+- [x] T5 Rail in apps/web at 900px+ (counts incl. All, full-bleed, 272px grid, hidden h1); today's chips + bar below 900px; product spec §6 amendment <!-- longclaw:item=ck_6bbfa9e0 -->
 - [ ] T7 order.js: rank order, with the rank.py fallback for rank-less editions; TIE_ORDER drift guard <!-- longclaw:item=ck_221ae1ac -->
 - [ ] T8 Ranked default: aibytes-order pref, Ranked | Grouped control at 700px+, ranked rendering <!-- longclaw:item=ck_8d4e9fd4 -->
 - [ ] T9 Grouped: a SectionHeading per category (product spec §6); §6 amendment <!-- longclaw:item=ck_066c6df9 -->
@@ -738,4 +738,40 @@ changes:
 ### Claude Code updated this ticket
 
 T3 merged in PR #26 (b416f0b). T4 (rail.js date labels) PR opened: https://github.com/sachinjain024/aibytes/pull/27
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_73cc0591
+kind: update
+occurred_at: 2026-10-09T12:10:01.788Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_6bbfa9e0.text
+    from: T5 Rail in apps/web at 900px+ (counts incl. All, full-bleed, 300px grid, hidden h1); today's chips + bar below 900px; product spec §6 amendment
+    to: T5 Rail in apps/web at 900px+ (counts incl. All, full-bleed, 272px grid, hidden h1); today's chips + bar below 900px; product spec §6 amendment
+-->
+### Claude Code updated this ticket
+
+T5: the grid minimum beside the rail is now 272px, not 300px (decided 2026-10-09). The rail renders 241px wide (content-box), and 300px gave 1 column at 900px and 3 at 1440px; 272px gives 2 and 4. Spec Open questions corrected.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_7e483484
+kind: update
+occurred_at: 2026-10-09T12:14:40.133Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_6bbfa9e0.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+T4 merged in PR #27 (e8a5510). T5 (rail at 900px+) PR opened: https://github.com/sachinjain024/aibytes/pull/28. It also fixes three Ledger SideNav gaps found in the browser: the hide breakpoint matched 900px; the content-box padding still let the rail run 40px under the footer (T3's fix was incomplete); and the current edition lost its highlight after T3's aria-current="date".
 <!-- /longclaw:event -->

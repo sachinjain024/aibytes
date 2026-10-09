@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { daysBetween, localDate, railDate } from "./rail.js";
+import { daysBetween, localDate, railDate, railEditions } from "./rail.js";
 
 // Newest first, as index.json lists them. 10-08 is missing: a missed day.
 const EDITIONS = [
@@ -94,4 +94,12 @@ test("localDate is the reader's calendar day, not UTC's", () => {
   // 23:30 local on Oct 9 is Oct 9 for the reader, whatever UTC says.
   assert.equal(localDate(new Date(2026, 9, 9, 23, 30)), "2026-10-09");
   assert.equal(localDate(new Date(2026, 0, 1, 0, 5)), "2026-01-01");
+});
+
+test("Pick a date lists every edition, newest first, with its visible total", () => {
+  assert.deepEqual(railEditions(EDITIONS), [
+    { date: "2026-10-09", label: "Fri, Oct 9", count: 28 },
+    { date: "2026-10-07", label: "Wed, Oct 7", count: 31 },
+    { date: "2026-10-06", label: "Tue, Oct 6", count: 25 },
+  ]);
 });
