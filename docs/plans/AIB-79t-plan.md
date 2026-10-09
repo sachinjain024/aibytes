@@ -58,7 +58,7 @@ files per task.
 - [ ] T1 and T2 PRs merged
 
 ### Phase 2: the runner
-- [ ] T3 `run.py` syncs `main` before it fetches
+- [x] T3 `run.py` syncs `main` before it fetches
 
 ### Checkpoint 2: complete
 - [ ] Every spec success criterion met

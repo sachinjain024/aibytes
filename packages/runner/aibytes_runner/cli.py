@@ -1,6 +1,6 @@
 """The daily edition pipeline: fetch, curate, publish, and say so in Slack.
 
-    fetch -> draft -> Claude writes the summaries -> build -> validate -> push
+    sync -> fetch -> draft -> Claude writes the summaries -> build -> validate -> push
 
 Claude is one bounded step inside a deterministic script, not the orchestrator
 around it. That is the whole design, and the reason is exit codes: `claude -p`
@@ -187,6 +187,36 @@ def run_command(ctx, step, argv, timeout=STEP_TIMEOUT, check=True):
 # The steps
 # --------------------------------------------------------------------------
 
+def step_sync(ctx):
+    """Fast-forward to origin/main, so the edition is curated with merged code.
+
+    The runner otherwise curates with whatever it last pushed, and a curate
+    change merged after that push misses the next edition - which is how
+    2026-10-09 went out without `rank`. Fast-forward only: a checkout with
+    commits origin lacks, or a dirty file the pull would overwrite, is a
+    human's problem, and failing here costs nothing yet.
+
+    `run.py` itself was imported before this, so a change to the runner takes
+    effect the run after it lands. Every later step is a subprocess and runs
+    the pulled code.
+    """
+    if not ctx.push:
+        ctx.log.line("skipping sync (--no-push leaves git alone)")
+        return
+    branch = run_command(ctx, "sync", [
+        "git", "rev-parse", "--abbrev-ref", "HEAD"]).stdout.strip()
+    if branch != BRANCH:
+        raise StepError("sync", f"on branch {branch}, not {BRANCH}; "
+                                "refusing to curate with another branch's code")
+    pulled = run_command(ctx, "sync", ["git", "pull", "--ff-only", "origin", BRANCH],
+                         check=False)
+    if pulled.returncode != 0:
+        raise StepError("sync", f"cannot fast-forward {BRANCH} to origin/{BRANCH}; "
+                                "fix the checkout, then re-run")
+    sha = run_command(ctx, "sync", ["git", "rev-parse", "--short", "HEAD"]).stdout.strip()
+    ctx.log.line(f"curating with {sha}")
+
+
 def step_fetch(ctx):
     """Fetch every source, and do not let one bad source cost the edition.
 
@@ -370,6 +400,7 @@ def _push(ctx):
 
 
 STEPS = (
+    ("sync", step_sync),
     ("fetch", step_fetch),
     ("draft", step_draft),
     ("summaries", step_summaries),
