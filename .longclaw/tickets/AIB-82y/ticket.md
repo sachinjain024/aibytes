@@ -9,14 +9,14 @@ labels:
   - app
 type: feature
 created_at: 2026-10-09T16:05:02.074Z
-updated_at: 2026-10-09T16:17:33.967Z
+updated_at: 2026-10-09T16:23:15.011Z
 ---
 
 Match the grid card width beside the SideNav rail to the home-screen prototype, `docs/ux/prototypes/aiBytes_app_home.html`.
 
 ## What differs
 
-The card itself already matches the prototype. Both put the image and upvotes on the left, source, title and summary in the body, tags and ⋮ on the bottom row, and the star top-right. The difference is the grid that sizes the card, and only in the wide layout (≥900px, with the rail):
+The card itself already matches the prototype. Both put the image and upvotes on the left, source, title and summary in the body, and tags and ⋮ on the bottom row. The prototype's top-right star is absent from the app until saves land (AIB-75v). The difference is the grid that sizes the card, and only in the wide layout (≥900px, with the rail):
 
 | | Prototype | App (`apps/web/src/app.css`) |
 |---|---|---|
@@ -157,4 +157,18 @@ changes:
 ### Claude Code updated this ticket
 
 T1 done on aib-82y-card-width (bc09ad1): 360px beside the rail; 3 × 370px at 1440, 1 column at 900–1032. Build and app tests pass.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_64fc4f97
+kind: update
+occurred_at: 2026-10-09T16:23:15.011Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: description
+-->
+### Claude Code updated this ticket
 <!-- /longclaw:event -->
