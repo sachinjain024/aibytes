@@ -47,19 +47,23 @@ commit only `content/editions/`. The commit is content-only, with the ticket
 update in a separate commit.
 
 **Acceptance criteria:**
-- [ ] A scan of `content/editions/` lists no rank-less edition.
-- [ ] `git diff --stat` touches only the backfilled edition files. Each
+- [x] A scan of `content/editions/` lists no rank-less edition.
+- [x] `git diff --stat` touches only the backfilled edition files. Each
       diff is only `+"rank": n` lines, plus the comma added to the line
       before each.
-- [ ] The content commit contains nothing outside `content/editions/`.
+- [x] The content commit contains nothing outside `content/editions/`.
 
 **Verification:**
-- [ ] `python3 packages/feed-schema/validate.py`
-- [ ] `git diff -U0 content/ | grep '^[-+] ' | grep -v '"rank"' | grep -v '"hidden"'`
+- [x] `python3 packages/feed-schema/validate.py`
+- [x] `git diff -U0 content/ | grep '^[-+] ' | grep -v '"rank"' | grep -v '"hidden"'`
       prints nothing. The only `-` lines are `hidden` lines gaining a
       trailing comma.
-- [ ] `npm run dev:web`: the Ranked order for both days is unchanged. The
-      client fallback already computed the same order (28/28 on 2026-10-09).
+- [x] Ranked order compared with the app's fallback (`rankedItems` on the
+      old file vs the new). 2026-10-09: 28/28 unchanged. 2026-10-08: 10 HN
+      items move, because the fallback ranks the two Show HN posts (category
+      `launches`, so first in the file) above every HN thread. The written
+      ranks follow points, as `rank.py` does. The fallback is the bug, tracked
+      as AIB-81i; it is not part of this task.
 
 **Dependencies:** T1 merged.
 

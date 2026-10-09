@@ -9,7 +9,7 @@ labels:
   - app
 type: chore
 created_at: 2026-10-09T09:50:40.557Z
-updated_at: 2026-10-09T14:08:54.666Z
+updated_at: 2026-10-09T14:16:45.540Z
 ---
 
 Add `rank` to the editions published before the edition-rank change (AIB-77u, module `edition-rank`) merged. Split out of the edition-rank spec on 2026-10-09.
@@ -36,7 +36,7 @@ Blocked by the edition-rank module: `docs/specs/AIB-77u-edition-rank.md`.
 
 - [x] Choose the route: rank subcommand or re-run build <!-- longclaw:item=ck_e87f213b -->
 - [x] T1 curate.py rank: offline, identity-checked, writes only rank <!-- longclaw:item=ck_d69f993c -->
-- [ ] T2 Backfill 2026-10-08 and 2026-10-09 (content-only commit) <!-- longclaw:item=ck_e077dd50 -->
+- [x] T2 Backfill 2026-10-08 and 2026-10-09 (content-only commit) <!-- longclaw:item=ck_e077dd50 -->
 - [ ] T3 Runner syncs main (ff-only) before it fetches <!-- longclaw:item=ck_05556f17 -->
 
 ## Activity
@@ -205,4 +205,36 @@ actor:
 ### Claude Code commented
 
 T1 is in PR #32: https://github.com/sachinjain024/aibytes/pull/32
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_391f4e45
+kind: update
+occurred_at: 2026-10-09T14:16:45.540Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_e077dd50.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+T2: 2026-10-08 and 2026-10-09 carry rank (content-only commit). Found along the way: the app's fallback order (apps/web/src/order.js) uses file position for an item's standing within its source. The file is grouped by category, so Show HN posts (launches) rank above every HN thread. That moved 10 of 31 items on 2026-10-08, and the written ranks follow points as rank.py does. It only affects rank-less editions; follow-up suggested.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_4bbb1920
+kind: comment
+occurred_at: 2026-10-09T14:18:52.663Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Follow-up filed: AIB-81i (the app's fallback order ranks Show HN above every HN thread).
 <!-- /longclaw:event -->
