@@ -17,7 +17,9 @@ AIB-77u was built against.
   272px traded it away to fit more columns.
 - **What is already right:** the card's internal layout matches the prototype.
   That layout is image and upvotes on the left, then source, title and
-  summary, with tags and ⋮ on the bottom row and the star top-right. The rail
+  summary, with tags and ⋮ on the bottom row. The prototype also draws a star
+  top-right. The app has none until saves land (AIB-75v), which is not a width
+  question. The rail
   (241px rendered), the main padding (20px 28px), and the narrow layout are
   the same too. Only the grid minimum beside the rail differs.
 

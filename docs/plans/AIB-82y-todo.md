@@ -23,7 +23,10 @@ the AIB-77u side-nav spec and §6 of the product spec so neither still says
 - [x] `npm run build:web`
 - [x] `npm test -w @aibytes/web`
 - [x] `npm run dev:web`, then measure `gridTemplateColumns` at 900, 1032,
-      1033, 1280, 1440, 1920 and 375. Check 1440 and 375 in light and dark.
+      1033, 1280, 1440, 1920 and 375. Look at the grid in light and dark.
+      (Done: 1440 light, 900 dark, and the narrow layout dark at ~500px, the
+      smallest window Chrome allowed. 375 was measured in a 375px frame. The
+      change sets no colour, so the theme cannot change the columns.)
 
 **Dependencies:** None.
 
@@ -44,7 +47,7 @@ notes. The three new files are this ticket's own spec and plan.
 
 ## Checkpoint: before merge
 
-- [x] Every T1 acceptance box is ticked, with the measured columns noted in the PR.
+- [ ] Every T1 acceptance box is ticked, with the measured columns noted in the PR.
 - [x] `npm run build:web` and `npm test -w @aibytes/web` pass.
 - [x] `git grep -n 'minmax(272' -- apps docs/specs docs/aibytes-app-product-spec.md`
       finds 272px only in dated, superseded text.
