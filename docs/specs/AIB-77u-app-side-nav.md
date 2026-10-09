@@ -46,7 +46,7 @@ control and one date pager:
 | Edition bar + its calendar popover | shown | not rendered |
 | `SideNav` rail | not rendered | rendered, left, 216px, sticky |
 | Shell | centred, `--content-max` | full-bleed (`app-shell--full`) |
-| Grid | `minmax(min(300px,100%),1fr)`, padding 20px | `minmax(272px,1fr)`, padding 20px 28px (decided 2026-10-09; see Open questions) |
+| Grid | `minmax(min(300px,100%),1fr)`, padding 20px | `minmax(360px,1fr)`, padding 20px 28px (272px until AIB-82y; see Open questions) |
 
 The rail is not rendered below 900px, rather than relying on Ledger's
 `display:none`, so a hidden rail never holds focusable controls.
@@ -152,7 +152,8 @@ docs/aibytes-app-product-spec.md   §6 dated amendment: side nav ≥900px, chips
 
 `app.css` takes its new rules from `packages/design-system/ui_kits/aibytes-app/app.css`,
 with one deliberate difference: the grid minimum beside the rail is 272px, not
-the UI kit's 360px.
+the UI kit's 360px. *Amended 2026-10-09 by AIB-82y: 360px, matching the UI kit
+and the prototype, so there is no longer a difference.*
 That keeps the file's own rule: screen layout only, never restyling a component.
 
 ## Commands
@@ -263,6 +264,7 @@ locally for comparison). The checks:
 1. At ≥900px: the rail (date block per the table, categories with visible
    counts including All), no header chips, no edition bar, full-bleed shell, a
    `minmax(272px,1fr)` grid with 20px/28px padding: two columns at 900px, four at 1440px.
+   *Superseded by AIB-82y: `minmax(360px,1fr)`, one column at 900px, three at 1440px.*
 2. At <900px: pixel-for-pixel today's layout and behaviour.
 3. "Today", "Yesterday", and "N days ago" are calendar-true for the reader, and
    `rail.test.js` covers every row of the table.
@@ -279,6 +281,10 @@ locally for comparison). The checks:
 
 None. Resolved 2026-10-09: the grid minimum beside the rail is **272px**, not
 the prototype's 360px.
+
+*Amended 2026-10-09 by AIB-82y: the minimum is now **360px**, matching the
+prototype, with one column from 900px to 1032px accepted. The reasoning below is
+kept as the record of the 272px choice. See `docs/specs/AIB-82y-card-width.md`.*
 
 The rail renders **241px** wide: 216px plus 24px padding plus a 1px border,
 because Ledger is content-box throughout. Main's padding is 56px, so the grid
