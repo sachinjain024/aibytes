@@ -9,7 +9,7 @@ labels:
   - app
 type: chore
 created_at: 2026-10-09T08:28:26.821Z
-updated_at: 2026-10-09T12:31:13.752Z
+updated_at: 2026-10-09T12:55:51.263Z
 ---
 
 A comparison of the home-screen prototype `docs/ux/prototypes/aiBytes_app_home.html` against the running web app (`apps/web`, `http://localhost:5173/`, edition 2026-10-09). This is an audit only; no code was changed.
@@ -119,7 +119,7 @@ All three are resolved; see **Decisions** at the top. Recorded as asked:
 - [x] T5 Rail in apps/web at 900px+ (counts incl. All, full-bleed, 272px grid, hidden h1); today's chips + bar below 900px; product spec §6 amendment <!-- longclaw:item=ck_6bbfa9e0 -->
 - [x] T7 order.js: rank order, with the rank.py fallback for rank-less editions; TIE_ORDER drift guard <!-- longclaw:item=ck_221ae1ac -->
 - [x] T8 Ranked default: aibytes-order pref, Ranked | Grouped control at 700px+, ranked rendering <!-- longclaw:item=ck_8d4e9fd4 -->
-- [ ] T9 Grouped: a SectionHeading per category (product spec §6); §6 amendment <!-- longclaw:item=ck_066c6df9 -->
+- [x] T9 Grouped: a SectionHeading per category (product spec §6); §6 amendment <!-- longclaw:item=ck_066c6df9 -->
 
 ## Activity
 
@@ -810,4 +810,22 @@ changes:
 ### Claude Code updated this ticket
 
 T7 merged in PR #29 (1dc8648). T8 (Ranked default + remembered order) PR opened: https://github.com/sachinjain024/aibytes/pull/30. Includes a Ledger fix: .ldg-seg's overflow:hidden clipped the focus ring on Ranked|Grouped and grid|list.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ed85fa6f
+kind: update
+occurred_at: 2026-10-09T12:55:51.263Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_066c6df9.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+T8 merged in PR #30 (5366f9b). T9 (Grouped sections + §6 amendment) PR opened: https://github.com/sachinjain024/aibytes/pull/31. That is the last AIB-77u task; the ticket can move to done once it merges.
 <!-- /longclaw:event -->
