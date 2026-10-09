@@ -3,13 +3,13 @@ format: longclaw.ticket/v1
 id: 4086688c-7a20-4322-ba46-3c708f280c46
 key: AIB-82y
 title: Match the grid card width beside the rail to the home prototype (360px minimum)
-status: in_progress
+status: in_review
 priority: p1
 labels:
   - app
 type: feature
 created_at: 2026-10-09T16:05:02.074Z
-updated_at: 2026-10-09T16:15:44.138Z
+updated_at: 2026-10-09T16:17:33.967Z
 ---
 
 Match the grid card width beside the SideNav rail to the home-screen prototype, `docs/ux/prototypes/aiBytes_app_home.html`.
@@ -52,10 +52,10 @@ Check in the browser beside the rail at 900, 1024, 1280, 1440 and 1920, and at 3
 
 ## Checklist
 
-- [ ] Set the .app-cols .app-grid minimum to 360px in apps/web/src/app.css and rewrite its comment <!-- longclaw:item=ck_51bee62b -->
-- [ ] Confirm the ui kit already uses 360px beside the rail; leave it <!-- longclaw:item=ck_cef73912 -->
-- [ ] Amend docs/specs/AIB-77u-app-side-nav.md: dated note that 360px replaces 272px <!-- longclaw:item=ck_8644a9f1 -->
-- [ ] Check columns at 900, 1024, 1280, 1440 (370px cards) and 1920, and at 375px, light and dark <!-- longclaw:item=ck_9af2e20c -->
+- [x] Set the .app-cols .app-grid minimum to 360px in apps/web/src/app.css and rewrite its comment <!-- longclaw:item=ck_51bee62b -->
+- [x] Confirm the ui kit already uses 360px beside the rail; leave it <!-- longclaw:item=ck_cef73912 -->
+- [x] Amend docs/specs/AIB-77u-app-side-nav.md: dated note that 360px replaces 272px <!-- longclaw:item=ck_8644a9f1 -->
+- [x] Check columns at 900, 1024, 1280, 1440 (370px cards) and 1920, and at 375px, light and dark <!-- longclaw:item=ck_9af2e20c -->
 
 ## Activity
 
@@ -127,4 +127,34 @@ changes:
     to: p1
 -->
 ### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_03ce877a
+kind: update
+occurred_at: 2026-10-09T16:17:33.967Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: status
+    from: in_progress
+    to: in_review
+  - field: checklist.ck_51bee62b.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_cef73912.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_8644a9f1.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_9af2e20c.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+T1 done on aib-82y-card-width (bc09ad1): 360px beside the rail; 3 × 370px at 1440, 1 column at 900–1032. Build and app tests pass.
 <!-- /longclaw:event -->
