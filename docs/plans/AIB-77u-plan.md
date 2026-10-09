@@ -51,8 +51,9 @@ T4 rail.js labels ───────┴─ T5 rail wired into App.jsx ──�
   JS `TIE_ORDER` to the Python one.
 - **One 900px switch:** the rail at ≥900px; chips and edition bar below. Never
   both, never neither.
-- **Rail grid minimum is 300px** (not the UI kit's 360px): two columns at
-  900px, four at 1440px.
+- **Rail grid minimum is 272px** (not the UI kit's 360px): two columns at
+  900px, four at 1440px. Corrected from 300px in T5; see the side-nav spec's
+  Open questions.
 - **Ledger gaps are fixed in the package** (date-list ARIA, footer overlap,
   landmark name), never restyled in `apps/web`.
 - **Order preference** lives in local storage (`aibytes-order`), not the URL.
@@ -75,7 +76,7 @@ See `docs/plans/AIB-77u-todo.md` for acceptance criteria, verification, and file
 ### Phase 2: app-side-nav
 - [x] T3 Ledger `SideNav`: ARIA, footer overlap, landmark name
 - [x] T4 `rail.js`: calendar-true date labels
-- [ ] T5 The rail in the app at ≥900px, plus the §6 amendment
+- [x] T5 The rail in the app at ≥900px, plus the §6 amendment
 
 ### Checkpoint 2
 - [ ] Web tests, the build, and the Python suite green

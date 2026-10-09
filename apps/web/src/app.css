@@ -27,3 +27,18 @@
 .app-pop{position:absolute;right:max(20px,calc((100% - var(--content-max))/2 + 20px));top:calc(100% + 6px);z-index:var(--z-popover);background:var(--surface);border:var(--border-w) solid var(--border);border-radius:var(--radius-card);padding:14px;width:540px;max-width:calc(100vw - 40px);display:flex;flex-direction:column;gap:12px}
 .app-pop__label{font-family:var(--font-mono);font-size:11px;color:var(--text-2);letter-spacing:.04em;text-transform:uppercase}
 .app-pop__chips{display:flex;flex-wrap:wrap;gap:6px}
+/* At >=900px the SideNav rail replaces the chips and the edition bar: a
+   full-bleed shell, the rail pinned left, the feed beside it. From the UI kit's
+   side-nav layout, except the grid minimum: 272px rather than 360px. The rail
+   is 241px wide (216 + padding + border, content-box), so the grid gets the
+   viewport less 297px: 272px holds two columns at 900px and four at 1440px
+   (spec AIB-77u app-side-nav, Open questions). */
+.app-shell--full .ldg-header__in,.app-shell--full .ldg-footer__in{max-width:none}
+.app-shell--full .app-pop{right:20px}
+.app-cols{display:flex;align-items:flex-start}
+.app-cols .app-main{max-width:none;margin:0;flex:1;min-width:0;padding:20px 28px 60px}
+/* The footer's 40px top margin, moved into main's bottom padding above: as a
+   margin it ends .app-cols early, and at the bottom of the page the sticky
+   rail rides 40px up under the header. Same space on screen. */
+.app-shell--full .ldg-footer{margin-top:0}
+.app-cols .app-grid{grid-template-columns:repeat(auto-fill,minmax(272px,1fr))}

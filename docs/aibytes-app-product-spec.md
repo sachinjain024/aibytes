@@ -156,6 +156,14 @@ Operational notes for the iMac runner:
 - **Grid view** (default on desktop): 3 columns at 1200px+, 2 on tablet, 1 on mobile. **List view:** dense rows, one per item. Preference stored in local storage.
 - Items grouped by category in edition order (Launches, Repos, News, HN Threads), each with a section heading and count; category chips scroll to the section, or filter to it when a single one is selected.
 
+*Amended 2026-10-09 (AIB-77u):* the layout splits at **900px**. Below it, the header chips and the edition bar above stay as described. At 900px and wider, a **side nav rail** on the left replaces both, and the page goes full-bleed:
+- **Date block:** "Today (Fri, Oct 9)", or the edition's date with "N days ago". "Today" and "Yesterday" are relative to the reader's local date.
+- **Pager:** "← Yesterday" or the older edition's date, "Latest →" on older editions, and a "Pick a date" list of every edition with its count.
+- **Categories:** All plus the four categories, each with its visible count.
+- **Grid:** `minmax(272px, 1fr)` beside the rail, which gives two columns at 900px and four at 1440px.
+
+Paging and categories keep the URL's filters, as the edition bar does. The h1 (the long date) is visually hidden when the edition bar is not shown. Phone navigation is AIB-78z. See `docs/specs/AIB-77u-app-side-nav.md`.
+
 ### Card anatomy
 
 ```

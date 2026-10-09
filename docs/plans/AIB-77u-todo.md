@@ -161,13 +161,13 @@ T5 uses to compute `today`.
 
 **Estimated scope:** S
 
-## Task 5: The rail in the app at ≥900px, plus the §6 amendment
+## Task 5: The rail in the app at ≥900px, plus the §6 amendment (done)
 
 **Description:**
 - `useMedia("(min-width: 900px)")` drives one switch. At ≥900px: render
   `SideNav` with the `railDate` labels and categories with visible counts
   (All included), plus `showCategories={false}`, no `EditionBar`, and the
-  `app-shell--full` / `app-cols` layout with a `minmax(300px,1fr)` grid and
+  `app-shell--full` / `app-cols` layout with a `minmax(272px,1fr)` grid and
   20px/28px padding.
 - Below 900px: exactly today's layout.
 - A visually hidden h1 at ≥900px.
@@ -178,18 +178,22 @@ T5 uses to compute `today`.
 - Amend product spec §6 with a dated note.
 
 **Acceptance criteria:**
-- [ ] 1440px: the rail, no chips, no edition bar, 4 columns, full-bleed;
+- [x] 1440px: the rail, no chips, no edition bar, 4 columns, full-bleed;
       900px: 2 columns; 899px and 390px: identical to today. Never zero or two navs.
-- [ ] ← steps older, Latest → goes to `/`, and Pick a date lists every edition
+- [x] ← steps older, Latest → goes to `/`, and Pick a date lists every edition
       with counts. All three keep `?c=`/`?t=`/`?s=`. A `?t=` link survives a
       slow `tags.json`.
-- [ ] Exactly one h1 at every width; the rail never sits under the footer;
+- [x] Exactly one h1 at every width; the rail never sits under the footer;
       clean console.
 
 **Verification:**
-- [ ] `npm test -w @aibytes/web` and `npm run build:web`
-- [ ] Browser (Claude in Chrome, `localhost:5173`, prototype served locally):
-      the spec's checks 1-9 at 1440 / 900 / 899 / 390px, light and dark
+- [x] `npm test -w @aibytes/web` and `npm run build:web`
+- [x] Browser (Claude in Chrome, `localhost:5173`, prototype served locally):
+      the spec's checks 1-9 at 1440 / 900 / 899 / 390px, light and dark.
+      Widths ran as same-origin iframes, since resizing the window drops the
+      extension. Tab order was read from the DOM, since synthetic Tab presses do
+      not move focus there. The `?t=` guard was checked in code, not under a
+      throttled network.
 
 **Dependencies:** Tasks 3, 4
 
