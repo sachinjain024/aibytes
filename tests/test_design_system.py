@@ -80,6 +80,13 @@ class SideNavTests(unittest.TestCase):
             declarations(rule)["height"],
             "calc(100vh - var(--ldg-header-h,68px) - var(--ldg-footer-h,0px))")
 
+    def test_the_rail_hides_below_900px_not_at_it(self):
+        # The app renders the rail at min-width:900px; a max-width:900px hide
+        # would also match exactly 900px and leave that width with no nav.
+        css = COMPONENTS_CSS.read_text()
+        self.assertIn("@media (max-width:899px){.ldg-sidenav{display:none}}", css)
+        self.assertNotIn("@media (max-width:900px){.ldg-sidenav", css)
+
     def test_the_types_and_prompt_document_the_footer_variable(self):
         for suffix in (".d.ts", ".prompt.md"):
             with self.subTest(file=suffix):

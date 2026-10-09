@@ -157,7 +157,7 @@
 .ldg-nav__item:hover{background:var(--surface-2);color:var(--text)}
 .ldg-nav__item[aria-current="true"]{background:var(--surface-2);color:var(--text);font-weight:600;box-shadow:inset 2px 0 0 var(--accent)}
 .ldg-nav__count{font-family:var(--font-mono);font-size:var(--text-12);letter-spacing:var(--tracking-mono);color:var(--text-2)}
-@media (max-width:900px){.ldg-sidenav{display:none}}
+@media (max-width:899px){.ldg-sidenav{display:none}}
 /* — footer — */
 .ldg-footer{border-top:var(--border-w) solid var(--border);margin-top:var(--section-gap);color:var(--text-2);font-size:var(--text-13)}
 .ldg-footer__in{max-width:var(--content-max);margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:24px 20px}
