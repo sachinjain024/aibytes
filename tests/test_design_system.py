@@ -102,5 +102,16 @@ class SideNavTests(unittest.TestCase):
                 self.assertIn("--ldg-footer-h", SIDENAV.with_suffix(suffix).read_text())
 
 
+class SegmentedControlTests(unittest.TestCase):
+    """Ranked | Grouped and grid | list sit in .ldg-seg, which clips its children."""
+
+    def test_the_focus_ring_is_drawn_inside_so_overflow_cannot_clip_it(self):
+        css = COMPONENTS_CSS.read_text()
+        self.assertIn("overflow:hidden", block_after(css, ".ldg-seg"))
+        self.assertIn(
+            ".ldg-seg__btn:focus-visible,.ldg-seg .ldg-iconbtn:focus-visible"
+            "{outline-offset:calc(-1 * var(--focus-w))}", css)
+
+
 if __name__ == "__main__":
     unittest.main()

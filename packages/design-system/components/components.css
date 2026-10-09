@@ -116,6 +116,8 @@
 .ldg-seg__btn{display:inline-flex;align-items:center;height:30px;padding:0 10px;border:none;background:transparent;font-family:var(--font-body);font-size:var(--text-13);font-weight:500;color:var(--text-2);cursor:pointer;transition:background var(--transition),color var(--transition)}
 .ldg-seg__btn:hover{background:var(--surface-2)}
 .ldg-seg__btn[aria-pressed="true"]{color:var(--accent);background:var(--accent-tint)}
+/* .ldg-seg clips its children (overflow:hidden), which would hide the ring outside them: draw it inside. */
+.ldg-seg__btn:focus-visible,.ldg-seg .ldg-iconbtn:focus-visible{outline-offset:calc(-1 * var(--focus-w))}
 .ldg-avatar{width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-fg);display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:var(--text-12);font-weight:700}
 /* — edition bar — */
 .ldg-edbar{background:var(--bg);border-bottom:var(--border-w) solid var(--border);font-family:var(--font-mono);font-size:var(--text-13);letter-spacing:var(--tracking-mono);font-feature-settings:var(--mono-features);color:var(--text-2)}
