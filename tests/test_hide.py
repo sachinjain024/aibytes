@@ -116,6 +116,17 @@ class TestHide(HideTestCase):
         self.hide("ph-chatcut-2026-08-27")
         self.assertTrue(contract.validate_content_root(self.root))
 
+    def test_a_ranked_edition_keeps_its_ranks_and_stays_valid(self):
+        # rank covers hidden items too, so a hide must not renumber anything.
+        edition = self.read("editions/2026-08-27.json")
+        for rank, one in enumerate(edition["items"], start=1):
+            one["rank"] = rank
+        self.write("editions/2026-08-27.json", edition)
+        self.hide("ph-chatcut-2026-08-27")
+        after = self.read("editions/2026-08-27.json")["items"]
+        self.assertEqual([one["rank"] for one in after], [1, 2])
+        self.assertIsNotNone(contract.validate_content_root(self.root))
+
     def test_no_generated_at_is_touched(self):
         # A hide is not a curate run: "updated 4h ago" must not reset, and the
         # index's own timestamp tracks which editions exist, which is unchanged.

@@ -105,6 +105,14 @@ export interface EditionItem {
   published_at?: string;
   /** Hidden items are skipped by the site and the newsletter, and excluded from `counts`. */
   hidden: boolean;
+  /**
+   * Place in the edition's one reading order across every source, 1 first.
+   * All or none per edition: absent on editions written before it existed,
+   * otherwise exactly 1..N over every item, hidden ones included. Sort
+   * ascending; the visible ranks need not be contiguous. Independent of the
+   * order of `items`, which stays grouped by category.
+   */
+  rank?: number;
 }
 
 /**

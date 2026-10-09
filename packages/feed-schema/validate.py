@@ -32,6 +32,7 @@ SCHEMA_VERSION = 1
 EDITION_REQUIRED = ("schema_version", "date", "generated_at", "counts", "items")
 ITEM_REQUIRED = ("id", "title", "summary", "url", "source", "source_url",
                  "category", "tags", "image", "hidden")
+ITEM_OPTIONAL = ("signals", "meta", "published_at", "rank")
 INDEX_REQUIRED = ("schema_version", "generated_at", "editions")
 INDEX_ENTRY_REQUIRED = ("date", "path", "total", "generated_at")
 TAGS_REQUIRED = ("schema_version", "groups")
@@ -46,6 +47,7 @@ META_KEYS = ("language", "author", "reading_time")
 
 MAX_TAGS = 4
 SUMMARY_MAX = 200
+RANK_MIN = 1
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]*-\d{4}-\d{2}-\d{2}$")
@@ -110,11 +112,44 @@ def validate_edition(edition, *, tag_names=None):
                 seen.add(item_id)
         if isinstance(counts, dict):
             problems += _counts_match_items(counts, items)
+        problems += _ranks_match_items(items)
 
     problems = list(problems)
     if problems:
         raise FeedValidationError("\n".join(problems))
     return edition
+
+
+def _ranks_match_items(items):
+    """rank is all or none, and exactly 1..N over every item, hidden included.
+
+    Hidden items keep their rank so hide.py never renumbers an edition. A rank
+    that is not an integer is reported on its own item, so the set check here
+    only runs once every rank is well-formed.
+    """
+    items = [i for i in items if isinstance(i, dict)]
+    ranks = [i["rank"] for i in items if "rank" in i]
+    if not ranks:
+        return []
+    if len(ranks) != len(items):
+        return [f"rank must be on every item or none: "
+                f"{len(items) - len(ranks)} of {len(items)} item(s) lack it"]
+    if not all(_is_rank(rank) for rank in ranks):
+        return []
+    expected = set(range(RANK_MIN, len(items) + RANK_MIN))
+    details = []
+    missing = sorted(expected - set(ranks))
+    if missing:
+        details.append("missing " + " ".join(map(str, missing)))
+    repeated = sorted({rank for rank in ranks if ranks.count(rank) > 1})
+    if repeated:
+        details.append("repeated " + " ".join(map(str, repeated)))
+    unexpected = sorted(set(ranks) - expected)
+    if unexpected:
+        details.append("unexpected " + " ".join(map(str, unexpected)))
+    if not details:
+        return []
+    return [f"ranks must be {RANK_MIN}..{len(items)} with no repeats; " + ", ".join(details)]
 
 
 def _counts_problems(counts):
@@ -155,7 +190,7 @@ def _item_problems(item, edition_date, tag_names):
         return ["must be an object"]
     problems = _missing(item, ITEM_REQUIRED)
     for key in item:
-        if key not in ITEM_REQUIRED + ("signals", "meta", "published_at"):
+        if key not in ITEM_REQUIRED + ITEM_OPTIONAL:
             problems.append(f"unknown key: {key}")
 
     item_id = item.get("id")
@@ -200,6 +235,9 @@ def _item_problems(item, edition_date, tag_names):
     hidden = item.get("hidden")
     if hidden is not None and not isinstance(hidden, bool):
         problems.append(f"hidden {hidden!r} must be a boolean")
+
+    if "rank" in item and not _is_rank(item["rank"]):
+        problems.append(f"rank {item['rank']!r} must be an integer of at least {RANK_MIN}")
     return problems
 
 
@@ -650,6 +688,11 @@ def _version(document):
 
 def _is_count(value):
     return isinstance(value, int) and not isinstance(value, bool) and value >= 0
+
+
+def _is_rank(value):
+    # Stricter than the schema's "integer", which also admits 1.0.
+    return isinstance(value, int) and not isinstance(value, bool) and value >= RANK_MIN
 
 
 def _is_datetime(value):

@@ -68,9 +68,16 @@ category, hidden excluded), and `items`. Each item:
   "image": { "type": "logo", "url": "https://ph-files.imgix.net/..." },
   "signals": { "upvotes": 776, "comments": 42 },
   "published_at": "2026-08-26T15:02:00Z",
-  "hidden": false
+  "hidden": false,
+  "rank": 1
 }
 ```
+
+`rank` is optional but all or none per edition. When present, it is exactly
+`1..N` over every item, hidden ones included, so `hide.py` never renumbers.
+It is the edition's one reading order across sources; the `items` array itself
+stays grouped by category. Editions written before it existed have no ranks
+and are still valid.
 
 Ids end with their edition's date, which makes them globally unique and is what
 lets a save (`item_id` + `edition_date`) resolve back to an item.
