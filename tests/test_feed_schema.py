@@ -123,6 +123,19 @@ class TestValidatorMatchesSchemas(unittest.TestCase):
             with self.subTest(required=sorted(schema_required)):
                 self.assertEqual(sorted(schema_required), sorted(validator_required))
 
+    def test_item_keys_agree(self):
+        # The validator rejects any key it does not know, so an optional key
+        # the schema gains without the validator would make every producer
+        # that writes it fail validation.
+        self.assertEqual(sorted(self.item["properties"]),
+                         sorted(contract.ITEM_REQUIRED + contract.ITEM_OPTIONAL))
+
+    def test_rank_is_an_optional_integer_from_one(self):
+        rank = self.item["properties"]["rank"]
+        self.assertEqual(rank["type"], "integer")
+        self.assertEqual(rank["minimum"], contract.RANK_MIN)
+        self.assertNotIn("rank", self.item["required"])
+
     def test_enums_agree(self):
         properties = self.item["properties"]
         pairs = [
@@ -342,6 +355,56 @@ class TestValidateEdition(unittest.TestCase):
         message = str(ctx.exception)
         for expected in ("schema_version", "date", "generated_at", "counts"):
             self.assertIn(expected, message)
+
+
+def ranked(*ranks, hidden_at=()):
+    """An edition of len(ranks) launches; ranks[i] is item i's rank, None to omit it."""
+    items = []
+    for i, rank in enumerate(ranks):
+        one = item(id=f"ph-item{i}-2026-08-27", hidden=i in hidden_at)
+        if rank is not None:
+            one["rank"] = rank
+        items.append(one)
+    visible = len(ranks) - len(hidden_at)
+    return edition(counts={"launches": visible, "repos": 0, "news": 0, "hn": 0}, items=items)
+
+
+class TestRank(unittest.TestCase):
+    """rank is optional, but all-or-none: 1..N over every item, hidden ones included."""
+
+    def test_an_edition_without_ranks_is_valid(self):
+        # Every edition published before rank existed looks like this.
+        self.assertIsNotNone(contract.validate_edition(ranked(None, None, None)))
+
+    def test_a_full_set_of_ranks_is_valid_in_any_order(self):
+        # File order is the reading order by category; rank is a separate order.
+        self.assertIsNotNone(contract.validate_edition(ranked(2, 3, 1)))
+
+    def test_hidden_items_keep_their_rank(self):
+        # So hide.py never renumbers, and an unhide puts the item back in place.
+        self.assertIsNotNone(contract.validate_edition(ranked(1, 2, 3, hidden_at=(1,))))
+
+    def test_ranks_must_be_on_every_item_or_none(self):
+        with self.assertRaises(contract.FeedValidationError) as ctx:
+            contract.validate_edition(ranked(1, None, 2))
+        self.assertIn("rank must be on every item or none: 1 of 3 item(s) lack it",
+                      str(ctx.exception))
+
+    def test_ranks_must_be_one_to_n_without_repeats_or_gaps(self):
+        for ranks, detail in (((1, 1, 2), "missing 3, repeated 1"),
+                              ((1, 2, 4), "missing 3"),
+                              ((2, 3, 4), "missing 1")):
+            with self.subTest(ranks=ranks):
+                with self.assertRaises(contract.FeedValidationError) as ctx:
+                    contract.validate_edition(ranked(*ranks))
+                self.assertIn(f"ranks must be 1..3 with no repeats; {detail}", str(ctx.exception))
+
+    def test_a_rank_must_be_an_integer_of_at_least_one(self):
+        for bad in (0, -1, 1.5, 1.0, True, "1"):
+            with self.subTest(rank=bad):
+                with self.assertRaises(contract.FeedValidationError) as ctx:
+                    contract.validate_edition(ranked(bad))
+                self.assertIn(f"rank {bad!r} must be an integer of at least 1", str(ctx.exception))
 
 
 class TestValidateIndex(unittest.TestCase):
@@ -597,6 +660,11 @@ class TestSchemasAgainstARealEngine(unittest.TestCase):
              edition(items=[item(source="reddit")]), False),
             ("a negative count", "edition", contract.validate_edition,
              edition(counts={"launches": -1, "repos": 0, "news": 0, "hn": 0}), False),
+            ("a ranked edition", "edition", contract.validate_edition, ranked(2, 1), True),
+            ("a rank of zero", "edition", contract.validate_edition, ranked(0), False),
+            ("a fractional rank", "edition", contract.validate_edition, ranked(1.5), False),
+            ("a rank that is a string", "edition", contract.validate_edition, ranked("1"), False),
+            ("a rank that is a bool", "edition", contract.validate_edition, ranked(True), False),
             ("a well-formed index", "index", contract.validate_index, index(), True),
             ("an empty index", "index", contract.validate_index, index(editions=[]), True),
             ("an escaping edition path", "index", contract.validate_index,

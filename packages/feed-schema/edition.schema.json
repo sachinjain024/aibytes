@@ -119,6 +119,11 @@
         "hidden": {
           "type": "boolean",
           "description": "Always written, even as false, so hide.py flips one line and the commit reads clearly. The site and the newsletter both skip hidden items, and counts excludes them."
+        },
+        "rank": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "The item's place in the edition's one reading order across every source, 1 first. Optional, because editions written before it existed have none - but all or none: when any item has a rank, every item does, and the ranks are exactly 1..N over all items, hidden ones included, so hiding never renumbers. Consumers sort ascending and must not assume the visible ranks are contiguous. Independent of the items' order in the file, which stays grouped by category."
         }
       }
     },

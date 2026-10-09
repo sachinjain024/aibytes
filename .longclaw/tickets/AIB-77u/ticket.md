@@ -9,7 +9,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-09T08:28:26.821Z
-updated_at: 2026-10-09T10:05:50.296Z
+updated_at: 2026-10-09T10:17:04.828Z
 ---
 
 A comparison of the home-screen prototype `docs/ux/prototypes/aiBytes_app_home.html` against the running web app (`apps/web`, `http://localhost:5173/`, edition 2026-10-09). This is an audit only; no code was changed.
@@ -112,7 +112,7 @@ All three are resolved; see **Decisions** at the top. Recorded as asked:
 
 - [x] Decide: side nav or header chips - side nav; phone fallback split to AIB-78z <!-- longclaw:item=ck_24c49daa -->
 - [x] Decide ranking source - a rank field written at curation; TOP marker skipped <!-- longclaw:item=ck_c9b3e4a8 -->
-- [ ] T1 Contract: rank in edition.schema.json, validate.py, feed.d.ts (all-or-none, 1..N) <!-- longclaw:item=ck_7c87ab48 -->
+- [x] T1 Contract: rank in edition.schema.json, validate.py, feed.d.ts (all-or-none, 1..N) <!-- longclaw:item=ck_7c87ab48 -->
 - [ ] T2 Curate writes rank at build (rank.py, TIE_ORDER GitHub / HN / TechCrunch / PH) <!-- longclaw:item=ck_1977fc3a -->
 - [ ] T3 Ledger SideNav fixes: date-list ARIA, footer overlap, landmark name <!-- longclaw:item=ck_0e92b55d -->
 - [ ] T4 rail.js: calendar-true Today / Yesterday / Latest labels, node --test <!-- longclaw:item=ck_f703ec20 -->
@@ -622,4 +622,22 @@ actor:
 ### Claude Code commented
 
 Plan written (2026-10-09): docs/plans/AIB-77u-plan.md and docs/plans/AIB-77u-todo.md, nine tasks (T1-T9; T6 folded into Checkpoint 2) in three PRs, one per module. The checklist now mirrors the tasks: the layout, All-count and below-900px items folded into T5; T2 and T3 added; the ranked-fallback item now matches the spec (the rank.py calculation, not signals). Also fixed the audit's product-spec reference (§6, not §5) and added a References section to the description.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_118957d0
+kind: update
+occurred_at: 2026-10-09T10:17:04.828Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_7c87ab48.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+T1 done: rank is in edition.schema.json, validate.py (ITEM_OPTIONAL, RANK_MIN, the all-or-none 1..N check) and feed.d.ts, with tests in test_feed_schema.py and test_hide.py. Suites green; published content still validates (no ranks yet, which is valid).
 <!-- /longclaw:event -->

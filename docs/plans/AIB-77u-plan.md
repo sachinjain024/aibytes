@@ -63,7 +63,7 @@ T4 rail.js labels ───────┴─ T5 rail wired into App.jsx ──�
 See `docs/plans/AIB-77u-todo.md` for acceptance criteria, verification, and files per task.
 
 ### Phase 1: edition-rank
-- [ ] T1 Contract: `rank` in the schema, validator, and `feed.d.ts`
+- [x] T1 Contract: `rank` in the schema, validator, and `feed.d.ts`
 - [ ] T2 Curate writes `rank` at build
 
 ### Checkpoint 1

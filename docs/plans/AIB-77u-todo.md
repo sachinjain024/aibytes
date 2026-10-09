@@ -13,7 +13,7 @@ Plan: `docs/plans/AIB-77u-plan.md`. The AIB-77u checklist mirrors these tasks.
 
 ## Phase 1: edition-rank (spec: `docs/specs/AIB-77u-edition-rank.md`)
 
-## Task 1: Contract: `rank` in the schema, validator, and `feed.d.ts`
+## Task 1: Contract: `rank` in the schema, validator, and `feed.d.ts` (done)
 
 **Description:** Add an optional integer `rank` (minimum 1) to the edition item
 in all three faces of the contract, plus the edition-level invariant that ranks
@@ -21,17 +21,17 @@ are all-or-none and exactly `1..N` over every item, hidden ones included.
 `schema_version` stays 1.
 
 **Acceptance criteria:**
-- [ ] An edition with no ranks, or with full ranks `1..N`, validates. A partial
+- [x] An edition with no ranks, or with full ranks `1..N`, validates. A partial
       set, a repeat, a gap, `0`, a negative, a float, `true`, or a string fails,
       with messages in the existing form.
-- [ ] `edition.schema.json` declares `rank` (integer, minimum 1, not required);
+- [x] `edition.schema.json` declares `rank` (integer, minimum 1, not required);
       the validator's optional item keys include it; `feed.d.ts` has
       `rank?: number` with a doc comment. A parity test fails on a one-sided edit.
-- [ ] Hiding an item with `hide.py` leaves a ranked edition valid.
+- [x] Hiding an item with `hide.py` leaves a ranked edition valid.
 
 **Verification:**
-- [ ] `AIBYTES_SKIP_LIVE=1 python3 -m unittest tests.test_feed_schema tests.test_hide -v`
-- [ ] `python3 packages/feed-schema/validate.py` (the published tree is still valid)
+- [x] `AIBYTES_SKIP_LIVE=1 python3 -m unittest tests.test_feed_schema tests.test_hide -v`
+- [x] `python3 packages/feed-schema/validate.py` (the published tree is still valid)
 
 **Dependencies:** None
 
