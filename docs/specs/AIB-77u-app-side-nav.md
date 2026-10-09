@@ -46,7 +46,7 @@ control and one date pager:
 | Edition bar + its calendar popover | shown | not rendered |
 | `SideNav` rail | not rendered | rendered, left, 216px, sticky |
 | Shell | centred, `--content-max` | full-bleed (`app-shell--full`) |
-| Grid | `minmax(min(300px,100%),1fr)`, padding 20px | `minmax(300px,1fr)`, padding 20px 28px (decided 2026-10-09; the prototype's 360px gave one column at 900-1008px) |
+| Grid | `minmax(min(300px,100%),1fr)`, padding 20px | `minmax(272px,1fr)`, padding 20px 28px (decided 2026-10-09; see Open questions) |
 
 The rail is not rendered below 900px, rather than relying on Ledger's
 `display:none`, so a hidden rail never holds focusable controls.
@@ -151,7 +151,7 @@ docs/aibytes-app-product-spec.md   §6 dated amendment: side nav ≥900px, chips
 ```
 
 `app.css` takes its new rules from `packages/design-system/ui_kits/aibytes-app/app.css`,
-with one deliberate difference: the grid minimum beside the rail is 300px, not
+with one deliberate difference: the grid minimum beside the rail is 272px, not
 the UI kit's 360px.
 That keeps the file's own rule: screen layout only, never restyling a component.
 
@@ -262,7 +262,7 @@ locally for comparison). The checks:
 
 1. At ≥900px: the rail (date block per the table, categories with visible
    counts including All), no header chips, no edition bar, full-bleed shell, a
-   `minmax(300px,1fr)` grid with 20px/28px padding: two columns at 900px, four at 1440px.
+   `minmax(272px,1fr)` grid with 20px/28px padding: two columns at 900px, four at 1440px.
 2. At <900px: pixel-for-pixel today's layout and behaviour.
 3. "Today", "Yesterday", and "N days ago" are calendar-true for the reader, and
    `rail.test.js` covers every row of the table.
@@ -277,8 +277,19 @@ locally for comparison). The checks:
 
 ## Open questions
 
-None. Resolved 2026-10-09: the grid minimum beside the rail is **300px**, not
-the prototype's 360px. With 360px, a 900px viewport leaves 627px (900 − 216 rail
-− 1 border − 56 padding), which fits only one card per row; two would need a
-1009px viewport. With 300px it is two columns from about 889px, and four at
-1440px still holds, since 1440 − 273 = 1167 ≥ 4×300 + 3×16.
+None. Resolved 2026-10-09: the grid minimum beside the rail is **272px**, not
+the prototype's 360px.
+
+The rail renders **241px** wide: 216px plus 24px padding plus a 1px border,
+because Ledger is content-box throughout. Main's padding is 56px, so the grid
+gets the viewport less 297px, with a 16px gap.
+
+- **900px:** 603px. Two columns need a minimum of at most (603 − 16) / 2 = 293px.
+- **1440px:** 1143px. Four columns need at most (1143 − 48) / 4 = 273px.
+- So **272px** gives both: two columns from 857px (always, beside the rail) and
+  four from 1433px.
+
+*Corrected during T5.* This section first chose 300px on arithmetic that
+counted the rail as 217px and claimed 1167 ≥ 4×300 + 3×16 = 1248, which is
+false. Measured in the browser, 300px gave one column at 900px and three at
+1440px.
