@@ -49,7 +49,7 @@ files per task.
 
 ### Phase 1: the backfill
 - [x] T1 `curate.py rank`: the subcommand, its tests, a line in the skill
-- [ ] T2 Backfill `2026-10-08` and `2026-10-09` (content only)
+- [x] T2 Backfill `2026-10-08` and `2026-10-09` (content only)
 
 ### Checkpoint 1
 - [ ] Python suite, web tests, and `validate.py` green
