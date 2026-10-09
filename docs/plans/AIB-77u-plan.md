@@ -86,7 +86,7 @@ See `docs/plans/AIB-77u-todo.md` for acceptance criteria, verification, and file
 ### Phase 3: app-feed-order (needs T2 and T5 merged)
 - [x] T7 `order.js` and the `TIE_ORDER` drift guard
 - [x] T8 Ranked: the order pref, the header control, ranked rendering
-- [ ] T9 Grouped: section rendering, plus the §6 amendment
+- [x] T9 Grouped: section rendering, plus the §6 amendment
 
 ### Checkpoint 3: complete
 - [ ] Every spec's success criteria met
