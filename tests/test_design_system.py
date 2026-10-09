@@ -70,6 +70,12 @@ class SideNavTests(unittest.TestCase):
     def test_the_current_edition_is_marked_as_a_date(self):
         self.assertIn('aria-current={e.date === currentDate ? "date" : undefined}', self.jsx)
 
+    def test_the_current_edition_keeps_its_highlight(self):
+        # Categories are aria-current="true", the edition list "date"; the
+        # active style has to match both or the current edition loses it.
+        css = COMPONENTS_CSS.read_text()
+        self.assertIn('.ldg-nav__item[aria-current="true"],.ldg-nav__item[aria-current="date"]{', css)
+
     def test_the_landmark_is_named_for_both_things_it_holds(self):
         self.assertIn('<aside className="ldg-sidenav" aria-label="Edition and categories">',
                       self.jsx)

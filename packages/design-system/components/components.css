@@ -156,7 +156,7 @@
 .ldg-nav__label + .ldg-nav__label,.ldg-nav__item + .ldg-nav__label{margin-top:14px}
 .ldg-nav__item{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;text-align:left;padding:7px 10px;border:none;background:none;border-radius:6px;font:inherit;font-size:var(--text-13);color:var(--text-2);cursor:pointer;transition:background var(--transition),color var(--transition)}
 .ldg-nav__item:hover{background:var(--surface-2);color:var(--text)}
-.ldg-nav__item[aria-current="true"]{background:var(--surface-2);color:var(--text);font-weight:600;box-shadow:inset 2px 0 0 var(--accent)}
+.ldg-nav__item[aria-current="true"],.ldg-nav__item[aria-current="date"]{background:var(--surface-2);color:var(--text);font-weight:600;box-shadow:inset 2px 0 0 var(--accent)}
 .ldg-nav__count{font-family:var(--font-mono);font-size:var(--text-12);letter-spacing:var(--tracking-mono);color:var(--text-2)}
 @media (max-width:899px){.ldg-sidenav{display:none}}
 /* — footer — */
