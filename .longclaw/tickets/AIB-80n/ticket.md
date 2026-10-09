@@ -3,13 +3,13 @@ format: longclaw.ticket/v1
 id: b1252dac-4dc9-48e3-aaa9-bc7a99dacd1d
 key: AIB-80n
 title: "Iterate the edition card: hide tags, move the menu and upvotes"
-status: in_progress
+status: backlog
 priority: p2
 labels:
   - app
 type: feature
 created_at: 2026-10-09T12:21:51.547Z
-updated_at: 2026-10-09T12:28:02.287Z
+updated_at: 2026-10-09T16:02:28.332Z
 ---
 
 Iterate the grid card in Ledger. The app renders it from `apps/web/src/App.jsx` with `signalsPos="bottom"`. Today that card is:
@@ -87,4 +87,22 @@ changes:
     to: in_progress
 -->
 ### Grok updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_38f3e9cb
+kind: update
+occurred_at: 2026-10-09T16:02:28.332Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: status
+    from: in_progress
+    to: backlog
+-->
+### Claude Code updated this ticket
+
+Parked for now. The upvote-placement brainstorm is published at https://claude.ai/artifact/ENdNqr4RrSQeiVKu5r7bzG (five numbered options; no pick yet). The prototype is uncommitted at docs/ux/prototypes/aib-80n-card.html in the aib-80n-card-design worktree.
 <!-- /longclaw:event -->
