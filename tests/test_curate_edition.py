@@ -25,7 +25,7 @@ sys.path.insert(0, str(REPO_ROOT / "packages" / "feed-schema"))
 sys.path.insert(0, str(REPO_ROOT / "packages" / "fetchers"))
 
 import validate as contract
-from aibytes_curate import adapters, cli, edition as edition_mod, links, relevance
+from aibytes_curate import adapters, cli, edition as edition_mod, links, rank, relevance
 from aibytes_curate import summaries as summaries_mod
 from aibytes_fetchers import registry
 
@@ -341,6 +341,99 @@ class RelevanceTests(unittest.TestCase):
             hn=[hn_story(type="show_hn", title="Show HN: an AI agent runner")],
             ph=[ph_post()]))
         self.assertEqual([d.source for d in kept], ["producthunt", "hackernews"])
+
+
+# --------------------------------------------------------------------------
+# Rank: one reading order across every source
+# --------------------------------------------------------------------------
+
+def ranked_drafts(ph=0, gh=0, tc=0, hn=0, show_hn=0):
+    """n items per source, each in its fetcher's order, titles unique per source."""
+    return drafts_from(
+        ph=[ph_post(name=f"Launch {i}", slug=f"launch-{i}", votesCount=500 - i)
+            for i in range(ph)],
+        gh=[gh_repo(name=f"owner/repo-{i}", url=f"https://github.com/owner/repo-{i}",
+                    period_stars=900 - i) for i in range(gh)],
+        tc=[tc_article(title=f"Article {i}", url=f"https://techcrunch.com/a-{i}/")
+            for i in range(tc)],
+        hn=[hn_story(title=f"Story {i}", url=f"https://example.com/s-{i}",
+                     hn_url=f"https://news.ycombinator.com/item?id={i}",
+                     points=1000 - i) for i in range(hn)]
+           + [hn_story(type="show_hn", title=f"Show HN: tool {i}",
+                       url=f"https://example.com/show-{i}",
+                       hn_url=f"https://news.ycombinator.com/item?id={100 + i}",
+                       points=995 - 2 * i) for i in range(show_hn)],
+    )
+
+
+def reading_order(drafts):
+    """[(source, position within source)] in rank order."""
+    ranks = rank.assign(drafts)
+    by_source = {}
+    for draft in sorted(drafts, key=lambda d: (d.rank, d.id)):
+        by_source.setdefault(draft.source, []).append(draft.id)
+    position = {i: (source, n) for source, ids in by_source.items()
+                for n, i in enumerate(ids)}
+    return [position[i] for i in sorted(ranks, key=ranks.get)]
+
+
+class RankTests(unittest.TestCase):
+
+    def test_each_sources_leader_takes_the_top_four_in_tie_order(self):
+        order = reading_order(ranked_drafts(ph=3, gh=3, tc=3, hn=3))
+        self.assertEqual(order[:4], [("github", 0), ("hackernews", 0),
+                                     ("techcrunch", 0), ("producthunt", 0)])
+
+    def test_the_specs_worked_example_reproduces(self):
+        # 2026-10-09: PH 5, GitHub 3, TC 10, HN 10 - docs/specs/AIB-77u-edition-rank.md
+        order = reading_order(ranked_drafts(ph=5, gh=3, tc=10, hn=10))
+        self.assertEqual(order[:12], [
+            ("github", 0), ("hackernews", 0), ("techcrunch", 0), ("producthunt", 0),
+            ("hackernews", 1), ("techcrunch", 1), ("hackernews", 2), ("techcrunch", 2),
+            ("producthunt", 1), ("hackernews", 3), ("techcrunch", 3), ("github", 1)])
+
+    def test_ranks_are_one_to_n_with_no_repeats(self):
+        drafts = ranked_drafts(ph=5, gh=3, tc=10, hn=10)
+        self.assertEqual(sorted(rank.assign(drafts).values()), list(range(1, 29)))
+        self.assertEqual(set(rank.assign(drafts)), {d.id for d in drafts})
+
+    def test_a_single_source_ranks_in_the_fetchers_order(self):
+        drafts = ranked_drafts(hn=4)
+        ranks = rank.assign(drafts)
+        self.assertEqual([ranks[d.id] for d in drafts], [1, 2, 3, 4])
+
+    def test_show_hn_and_hn_threads_are_one_group(self):
+        # Show HN is category launches, but it is ranked against the HN threads
+        # by points, not against Product Hunt.
+        drafts = ranked_drafts(hn=2, show_hn=1)
+        self.assertEqual({d.item["category"] for d in drafts}, {"launches", "hn"})
+        ranks = rank.assign(drafts)
+        self.assertEqual(sorted(ranks.values()), [1, 2, 3])
+        show = next(d for d in drafts if d.item["category"] == "launches")
+        # The fetcher order puts the Show HN after both threads.
+        self.assertEqual(ranks[show.id], 3)
+
+    def test_techcrunch_without_signals_follows_fetch_order(self):
+        drafts = ranked_drafts(tc=3)
+        # Nothing to score on: the fetcher's own position is all there is.
+        self.assertFalse(any("signals" in d.item for d in drafts))
+        ranks = rank.assign(drafts)
+        self.assertEqual([ranks[d.id] for d in drafts], [1, 2, 3])
+
+    def test_the_result_does_not_depend_on_input_order_or_the_run(self):
+        drafts = ranked_drafts(ph=5, gh=3, tc=10, hn=10)
+        first = rank.assign(drafts)
+        self.assertEqual(rank.assign(list(reversed(drafts))), first)
+        self.assertEqual(rank.assign(drafts), first)
+
+    def test_tie_order_covers_every_source_exactly_once(self):
+        self.assertEqual(sorted(rank.TIE_ORDER), sorted(registry.names()))
+        self.assertEqual(len(set(rank.TIE_ORDER)), len(rank.TIE_ORDER))
+
+    def test_the_files_reading_order_is_unchanged(self):
+        # TIE_ORDER is the rank tie-break only; adapters.ORDER stays the file's.
+        self.assertEqual(adapters.ORDER, ("producthunt", "github", "techcrunch", "hackernews"))
+        self.assertNotEqual(rank.TIE_ORDER, adapters.ORDER)
 
 
 # --------------------------------------------------------------------------
@@ -891,6 +984,38 @@ class CommandTests(unittest.TestCase):
                               "--summaries", self.summaries_for(ids), expect=1)
         self.assertIn("no longer produces", output)
         self.assertIn(f"ph-vanished-{DATE}", output)
+
+    def test_build_writes_a_rank_on_every_item_as_its_last_key(self):
+        self.run_cli("draft", "--date", DATE)
+        ids = [i["id"] for i in self.curation()["items"]]
+        self.run_cli("build", "--date", DATE, "--summaries", self.summaries_for(ids))
+
+        items = self.edition()["items"]
+        self.assertEqual(sorted(i["rank"] for i in items), [1, 2, 3, 4])
+        for item in items:
+            self.assertEqual(list(item)[-1], "rank")
+        # Leaders in TIE_ORDER: GitHub, Hacker News, TechCrunch, Product Hunt.
+        by_rank = sorted(items, key=lambda i: i["rank"])
+        self.assertEqual([i["source"] for i in by_rank],
+                         ["github", "hackernews", "techcrunch", "producthunt"])
+        # The file's own order stays grouped by category.
+        self.assertEqual([i["category"] for i in items], ["launches", "repos", "news", "hn"])
+
+    def test_a_hidden_item_keeps_its_rank_through_a_re_run(self):
+        self.run_cli("draft", "--date", DATE)
+        ids = [i["id"] for i in self.curation()["items"]]
+        path = self.summaries_for(ids)
+        self.run_cli("build", "--date", DATE, "--summaries", path)
+        before = {i["id"]: i["rank"] for i in self.edition()["items"]}
+
+        import hide as hide_mod
+        hide_mod.hide(ids[0], content_root=self.content_root)
+        self.run_cli("build", "--date", DATE, "--summaries", path)
+
+        after = self.edition()["items"]
+        self.assertEqual({i["id"]: i["rank"] for i in after}, before)
+        self.assertTrue(next(i for i in after if i["id"] == ids[0])["hidden"])
+        contract.validate_content_root(self.content_root)
 
     def test_the_same_inputs_produce_the_same_file(self):
         self.run_cli("draft", "--date", DATE)

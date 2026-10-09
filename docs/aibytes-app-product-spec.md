@@ -128,11 +128,14 @@ Operational notes for the iMac runner:
       "signals": { "upvotes": 776, "comments": 42 },
       "meta": { "language": null, "author": "..." },
       "published_at": "2026-08-26T15:02:00Z",
-      "hidden": false
+      "hidden": false,
+      "rank": 4
     }
   ]
 }
 ```
+
+*Added 2026-10-09 (AIB-77u):* `rank` is the item's place in the day's one reading order across all sources, 1 first. It is optional but all-or-none per edition, `1..N` over every item including hidden ones, and written by curate at `build`. Editions published before it have none. See `docs/specs/AIB-77u-edition-rank.md`.
 
 `image.type` is one of `logo | avatar | thumbnail | none`; the UI sizes each type differently (section 6).
 
