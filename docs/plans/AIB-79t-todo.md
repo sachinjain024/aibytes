@@ -10,21 +10,21 @@ writes `rank` from `rank.assign` as each item's last key, changing nothing
 else.
 
 **Acceptance criteria:**
-- [ ] `curate.py rank --date D` adds `rank` 1..N to a rank-less edition. The
+- [x] `curate.py rank --date D` adds `rank` 1..N to a rank-less edition. The
       ranks equal `rank.assign` over the kept drafts, and only `rank` lines
       are added to the file.
-- [ ] `index.json`, `hidden.json`, `links.json` and `rejected.json` are
+- [x] `index.json`, `hidden.json`, `links.json` and `rejected.json` are
       byte-identical afterwards. No network call happens, even on a link-cache
       miss.
-- [ ] A different id set refuses with the diff and writes nothing. A second
+- [x] A different id set refuses with the diff and writes nothing. A second
       run is a no-op. Different existing ranks refuse unless `--force` is
       passed.
 
 **Verification:**
-- [ ] `AIBYTES_SKIP_LIVE=1 python3 -m unittest tests.test_curate_edition -v`
+- [x] `AIBYTES_SKIP_LIVE=1 python3 -m unittest tests.test_curate_edition -v`
       (new `RankBackfillTests`: the 8 cases in the spec's Testing strategy)
-- [ ] `AIBYTES_SKIP_LIVE=1 python3 -m unittest discover -s tests`
-- [ ] Rehearse on a copy of the tree: `cp -R content /tmp/c && python3
+- [x] `AIBYTES_SKIP_LIVE=1 python3 -m unittest discover -s tests`
+- [x] Rehearse on a copy of the tree: `cp -R content /tmp/c && python3
       packages/curate/curate.py rank --date 2026-10-08 --content-root /tmp/c`.
       Then `diff` against the real tree shows only `rank` lines, and
       `validate.py --content-root /tmp/c` passes.

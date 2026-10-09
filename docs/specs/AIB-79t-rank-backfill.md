@@ -119,8 +119,14 @@ npm test -w @aibytes/web
 ```
 
 `rank` takes `--date`, `--data-root`, `--content-root`/`--output-root`,
-`--cadence`, and `--force`; not `--summaries`, and not `--no-resolve-links`,
-because it is always offline.
+`--cadence`, and `--force`, but not `--summaries`. It accepts
+`--no-resolve-links` like its siblings, but the flag makes no difference,
+because `rank` is always offline.
+
+**The file keeps its encoding.** `build` writes UTF-8 as-is, while `hide.py`
+writes with `ensure_ascii` (`\u2014`). `rank` re-serialises with whichever
+setting reproduces the file's current bytes. If neither does, it refuses
+rather than produce a diff that is not only `rank`.
 
 ## Project structure
 

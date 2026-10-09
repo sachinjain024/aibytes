@@ -174,6 +174,10 @@ items link to the products rather than to Product Hunt.
   keeps its launch page as the destination.
 - **Re-running is safe.** The same snapshots, link cache and summaries produce
   a byte-identical edition apart from `generated_at`, so a re-run diffs cleanly.
+- **`rank` is for back-filling, not the daily run.** `build` writes `rank`
+  itself. `python3 packages/curate/curate.py rank --date D` adds it to an
+  edition published before it existed, offline. It writes only the `rank`
+  lines, and refuses if the snapshots no longer produce the published items.
 - **`--cadence weekly`** reads the weekly newsletter snapshots instead of the
   daily ones, which is how an edition can be built from a past week's data.
 - **Viral on X stays in the weekly newsletter.** This skill reads Product Hunt,

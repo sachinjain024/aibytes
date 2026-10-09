@@ -722,8 +722,8 @@ class LinkCacheTests(unittest.TestCase):
         self.assertFalse(relevance.is_ai(draft))
 
 
-class CommandTests(unittest.TestCase):
-    """A whole run against temp roots, with no network and no repo writes."""
+class CurateRunTestCase(unittest.TestCase):
+    """A day's snapshots and a content tree in temp roots: no network, no repo writes."""
 
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -778,6 +778,10 @@ class CommandTests(unittest.TestCase):
 
     def edition(self):
         return json.loads((self.content_root / "editions" / f"{DATE}.json").read_text())
+
+
+class CommandTests(CurateRunTestCase):
+    """A whole run of draft and build."""
 
     # -- draft ------------------------------------------------------------
 
@@ -1031,6 +1035,139 @@ class CommandTests(unittest.TestCase):
         # generated_at is the run, everything else is the inputs.
         first.pop("generated_at"), second.pop("generated_at")
         self.assertEqual(first, second)
+
+
+class RankBackfillTests(CurateRunTestCase):
+    """`rank` adds ranks to an edition published before they existed, and nothing else."""
+
+    def setUp(self):
+        super().setUp()
+        self.run_cli("draft", "--date", DATE)
+        self.ids = [i["id"] for i in self.curation()["items"]]
+        self.run_cli("build", "--date", DATE, "--summaries", self.summaries_for(self.ids))
+        self.ranks = {i["id"]: i["rank"] for i in self.edition()["items"]}
+        self.strip_ranks()
+
+    def edition_file(self):
+        return self.content_root / "editions" / f"{DATE}.json"
+
+    def strip_ranks(self):
+        # What an edition built before edition-rank looks like, byte for byte.
+        document = self.edition()
+        for item in document["items"]:
+            item.pop("rank", None)
+        edition_mod.write_json(self.edition_file(), document)
+
+    def snapshot(self):
+        day = edition_mod.day_path(self.data_root, DATE, "x", "daily").parent
+        files = [self.content_root / "index.json", self.content_root / "hidden.json",
+                 day / "links.json", day / "rejected.json", day / "curation.json"]
+        return {str(f): f.read_bytes() for f in files if f.exists()}
+
+    def rank(self, *extra, expect=0):
+        # No --no-resolve-links: rank is offline whatever it is given.
+        return self.run_cli("rank", "--date", DATE, *extra, expect=expect,
+                            resolve_links=True)
+
+    def test_a_rank_less_edition_gains_the_ranks_build_would_have_written(self):
+        before = self.edition_file().read_text()
+        self.rank()
+        items = self.edition()["items"]
+        self.assertEqual({i["id"]: i["rank"] for i in items}, self.ranks)
+        for item in items:
+            self.assertEqual(list(item)[-1], "rank")
+        # Take the ranks back out and the file is exactly what it was.
+        self.strip_ranks()
+        self.assertEqual(self.edition_file().read_text(), before)
+
+    def test_the_diff_is_only_rank_lines(self):
+        before = self.edition_file().read_text().splitlines()
+        self.rank()
+        after = self.edition_file().read_text().splitlines()
+        added = [line for line in after if '"rank"' in line]
+        self.assertEqual(len(added), len(self.ids))
+        rest = [line for line in after if '"rank"' not in line]
+        # The only other change is the comma `hidden` gains before `rank`.
+        self.assertEqual([line.rstrip(",") for line in rest],
+                         [line.rstrip(",") for line in before])
+
+    def test_every_other_file_is_untouched(self):
+        before = self.snapshot()
+        generated_at = self.edition()["generated_at"]
+        self.rank()
+        self.assertEqual(self.snapshot(), before)
+        self.assertEqual(self.edition()["generated_at"], generated_at)
+
+    def test_a_hidden_item_stays_hidden_and_is_still_ranked(self):
+        import hide as hide_mod
+        hide_mod.hide(self.ids[0], content_root=self.content_root)
+        self.rank()
+        hidden = next(i for i in self.edition()["items"] if i["id"] == self.ids[0])
+        self.assertTrue(hidden["hidden"])
+        self.assertEqual(hidden["rank"], self.ranks[self.ids[0]])
+        contract.validate_content_root(self.content_root)
+
+    def test_an_ascii_escaped_file_keeps_its_escaping(self):
+        # hide.py writes with ensure_ascii, so a hidden item's edition may carry
+        # \u escapes. Re-encoding them would put lines in the diff that are not rank.
+        document = self.edition()
+        document["items"][0]["summary"] = "An editor \u2014 with a timeline."
+        self.edition_file().write_text(json.dumps(document, indent=2) + "\n")
+        before = self.edition_file().read_text()
+        self.rank()
+        text = self.edition_file().read_text()
+        self.assertIn("\\u2014", text)
+        self.assertEqual(len(text.splitlines()), len(before.splitlines()) + len(self.ids))
+
+    def test_snapshots_that_produce_other_items_write_nothing(self):
+        self.write_snapshots(gh=[gh_repo()], tc=[tc_article()], hn=[hn_story()])
+        before = self.edition_file().read_bytes()
+        output = self.rank(expect=1)
+        self.assertIn("nothing was written", output)
+        self.assertIn(next(i for i in self.ids if i.startswith("ph-")), output)
+        self.assertEqual(self.edition_file().read_bytes(), before)
+
+    def test_a_link_cache_miss_never_reaches_the_network(self):
+        real_follow = links.follow
+        self.addCleanup(setattr, links, "follow", real_follow)
+
+        def explode(url, **kwargs):
+            raise AssertionError("rank went to the network")
+
+        links.follow = explode
+        self.rank()
+        self.assertEqual(sorted(i["rank"] for i in self.edition()["items"]),
+                         list(range(1, len(self.ids) + 1)))
+
+    def test_a_second_run_changes_nothing(self):
+        self.rank()
+        before = self.edition_file().read_bytes()
+        output = self.rank()
+        self.assertIn("unchanged", output)
+        self.assertEqual(self.edition_file().read_bytes(), before)
+
+    def test_different_ranks_are_refused_without_force(self):
+        document = self.edition()
+        for n, item in enumerate(reversed(document["items"]), start=1):
+            item["rank"] = n
+        edition_mod.write_json(self.edition_file(), document)
+        before = self.edition_file().read_bytes()
+
+        output = self.rank(expect=1)
+        self.assertIn("--force", output)
+        self.assertEqual(self.edition_file().read_bytes(), before)
+
+        self.rank("--force")
+        self.assertEqual({i["id"]: i["rank"] for i in self.edition()["items"]}, self.ranks)
+
+    def test_a_missing_edition_is_an_error(self):
+        self.edition_file().unlink()
+        output = self.rank(expect=1)
+        self.assertIn("is missing", output)
+
+    def test_the_result_validates(self):
+        self.rank()
+        contract.validate_content_root(self.content_root)
 
 
 # --------------------------------------------------------------------------

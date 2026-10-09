@@ -50,6 +50,7 @@ npm run preview:design-system   # then open http://localhost:4300/ui_kits/aibyte
 # between the two commands - see the curate-edition skill.
 python3 packages/curate/curate.py draft --date 2026-08-31
 python3 packages/curate/curate.py build --date 2026-08-31 --summaries summaries.json
+python3 packages/curate/curate.py rank --date 2026-08-31   # back-fill rank only, offline
 
 # The daily runner: fetch -> curate -> validate -> commit -> push, then Slack.
 # This is what launchd calls at 13:30; --date backfills or re-runs a day.

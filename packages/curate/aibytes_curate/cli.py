@@ -1,7 +1,11 @@
-"""The two commands, and the pipeline they share.
+"""The three commands, and the pipeline they share.
 
     curate_edition.py draft --date 2026-08-31
     curate_edition.py build --date 2026-08-31 --summaries summaries.json
+    curate_edition.py rank  --date 2026-08-31
+
+`rank` is not part of the daily run: it adds `rank` to an edition published
+before `build` wrote one, and changes nothing else.
 
 Both start by re-deriving the day's drafts from the snapshots, so `build` never
 trusts the curation request as state - a stale or hand-edited curation.json
@@ -10,6 +14,7 @@ says so by rejecting an id it does not recognise.
 """
 
 import argparse
+import json
 import pathlib
 import sys
 
@@ -158,6 +163,83 @@ def cmd_build(args):
     return 0
 
 
+def cmd_rank(args):
+    """Add `rank` to a published edition, without rebuilding it.
+
+    A re-run of `build` would do it too, but would also reset `generated_at`
+    (the app's "updated 4h ago"), rewrite the index, and re-merge the
+    summaries. This writes one line per item and nothing else.
+    """
+    # Offline whatever the flags say: the ranks must be over exactly the items
+    # that were published, and a fresh lookup could change which survive dedup.
+    # With no lookup the link cache cannot change, so prepare() writes nothing.
+    args.no_resolve_links = True
+    kept, _, _, _ = prepare(args)
+    content_root = pathlib.Path(args.content_root)
+    path = edition_mod.edition_path(content_root, args.date)
+    original = path.read_text() if path.exists() else None
+    document = edition_mod.read_json(path, f"editions/{args.date}.json")
+
+    published = {item["id"] for item in document["items"]}
+    derived = {draft.id for draft in kept}
+    if published != derived:
+        raise CurateError(
+            f"the {args.date} snapshots no longer produce the published items, "
+            "so nothing was written:\n" + _id_diff(published, derived))
+
+    ranks = rank.assign(kept)
+    current = {item["id"]: item.get("rank") for item in document["items"]}
+    if current == ranks:
+        print(f"{_shown(path)} already carries these ranks; unchanged")
+        return 0
+    if any(value is not None for value in current.values()) and not args.force:
+        raise CurateError(
+            f"{_shown(path)} already has different ranks, so nothing was "
+            "written. Pass --force to replace them.")
+
+    # Same bytes as before for everything but rank: hide.py writes escaped
+    # ASCII and build does not, so keep whichever this file already uses.
+    serialise = _serialiser_for(original, document)
+    for item in document["items"]:
+        item.pop("rank", None)
+        item["rank"] = ranks[item["id"]]
+
+    tag_names = contract.tag_names(
+        edition_mod.read_json(content_root / "tags.json", "tags.json"))
+    index = edition_mod.read_json(content_root / "index.json", "index.json")
+    edition_mod.check(document, index, tag_names)
+    path.write_text(serialise(document))
+
+    try:
+        contract.validate_content_root(content_root)
+    except contract.FeedValidationError as exc:
+        raise CurateError(
+            f"{args.date} was ranked, but {content_root} has problems this "
+            f"run did not cause:\n{exc}") from exc
+    print(f"ranked {_shown(path)} ({len(ranks)} item(s), hidden ones included)")
+    return 0
+
+
+def _serialiser_for(original, document):
+    """The json.dumps that reproduces this file exactly, or refuse."""
+    stripped = {**document, "items": [
+        {k: v for k, v in item.items() if k != "rank"} for item in document["items"]]}
+    for ensure_ascii in (False, True):
+        def serialise(doc, ensure_ascii=ensure_ascii):
+            return json.dumps(doc, indent=2, ensure_ascii=ensure_ascii) + "\n"
+        if original in (serialise(document), serialise(stripped)):
+            return serialise
+    raise CurateError(
+        "the edition is not laid out the way curate writes it, so adding rank "
+        "would rewrite more than rank. Nothing was written.")
+
+
+def _id_diff(published, derived):
+    lines = [f"  published only: {i}" for i in sorted(published - derived)]
+    lines += [f"  snapshots only: {i}" for i in sorted(derived - published)]
+    return "\n".join(lines)
+
+
 # --------------------------------------------------------------------------
 # Reporting
 # --------------------------------------------------------------------------
@@ -202,6 +284,7 @@ def build_parser():
     for name, help_text, handler in (
         ("draft", "snapshots -> the curation request Claude writes against", cmd_draft),
         ("build", "snapshots + written summaries -> the published edition", cmd_build),
+        ("rank", "add rank to a published edition, changing nothing else (offline)", cmd_rank),
     ):
         sub = subparsers.add_parser(name, help=help_text, description=help_text)
         sub.add_argument("--date", required=True, help="the edition date, YYYY-MM-DD")
@@ -224,7 +307,8 @@ def build_parser():
         )
         sub.add_argument(
             "--no-resolve-links", action="store_true",
-            help="skip the Product Hunt website lookup, the only network call",
+            help="skip the Product Hunt website lookup, the only network call"
+                 + (" (rank never makes it)" if name == "rank" else ""),
         )
         sub.set_defaults(handler=handler)
 
@@ -232,6 +316,10 @@ def build_parser():
     build_sub.add_argument(
         "--summaries", required=True,
         help="the summaries file: {id: {summary, tags}} written by Claude",
+    )
+    subparsers.choices["rank"].add_argument(
+        "--force", action="store_true",
+        help="replace ranks the edition already has, if they differ",
     )
     return parser
 
