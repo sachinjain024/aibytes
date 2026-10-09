@@ -277,7 +277,7 @@ and compares it with `rank.TIE_ORDER`.
 
 **Estimated scope:** S
 
-## Task 9: Grouped: section rendering, plus the §6 amendment
+## Task 9: Grouped: section rendering, plus the §6 amendment (done)
 
 **Description:**
 - In Grouped mode, render one `<section>` per `groupedItems` group, headed by
@@ -288,15 +288,15 @@ and compares it with `rank.TIE_ORDER`.
 - Amend product spec §6 to describe both orders and the Ranked default.
 
 **Acceptance criteria:**
-- [ ] Grouped shows four headed sections with correct post-filter counts; `?c=`
+- [x] Grouped shows four headed sections with correct post-filter counts; `?c=`
       shows one; a filter that empties a category drops its section.
-- [ ] Both modes × grid/list render. The accessibility tree shows one h1 and
+- [x] Both modes × grid/list render. The accessibility tree shows one h1 and
       h2s per the spec (hidden in Ranked, section headings in Grouped).
-- [ ] Product spec §6 has the dated amendment.
+- [x] Product spec §6 has the dated amendment.
 
 **Verification:**
-- [ ] `npm test -w @aibytes/web` and `npm run build:web`
-- [ ] Browser: spec checks 2, 3, and 7, with a clean console
+- [x] `npm test -w @aibytes/web` and `npm run build:web`
+- [x] Browser: spec checks 2, 3, and 7, with a clean console
 
 **Dependencies:** Task 8
 

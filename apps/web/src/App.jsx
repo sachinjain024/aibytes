@@ -3,6 +3,7 @@ import { Card } from "@aibytes/design-system/components/content/Card.jsx";
 import { EmptyState } from "@aibytes/design-system/components/content/EmptyState.jsx";
 import { EndCard } from "@aibytes/design-system/components/content/EndCard.jsx";
 import { ListRow } from "@aibytes/design-system/components/content/ListRow.jsx";
+import { SectionHeading } from "@aibytes/design-system/components/content/SectionHeading.jsx";
 import { EditionBar } from "@aibytes/design-system/components/navigation/EditionBar.jsx";
 import { Footer } from "@aibytes/design-system/components/navigation/Footer.jsx";
 import { Chip } from "@aibytes/design-system/components/navigation/Chip.jsx";
@@ -13,7 +14,7 @@ import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO
 import { FOOTER_LINKS, SUBSCRIBE_URL } from "./footer.js";
 import { ago, longDate, midDate, shortDate } from "./format.js";
 import { useChoice, useDismiss, useMedia, useReturnFocus, useTheme } from "./hooks.js";
-import { rankedItems } from "./order.js";
+import { groupedItems, rankedItems } from "./order.js";
 import { ORDER, VIEW } from "./prefs.js";
 import { localDate, railDate, railEditions } from "./rail.js";
 import { editionPath, olderEdition, parseRoute, pickEdition } from "./route.js";
@@ -116,9 +117,9 @@ export function App() {
   const filterable = Boolean(visible) && tags.status !== "loading";
   // Order the whole edition, hidden items included, then filter: rank (and the
   // fallback's standing) is over the whole edition, so a filter never
-  // reshuffles what it leaves. Grouped keeps the file's order, which is
-  // already by category.
-  const items = visible && (mode === "ranked" ? rankedItems(edition.data.items) : edition.data.items)
+  // reshuffles what it leaves. Both modes use it - Grouped only splits the
+  // ranked list by category - so the two never disagree about what is best.
+  const items = visible && rankedItems(edition.data.items)
     .filter((item) => !item.hidden && matches(item, filters));
   const older = ref && olderEdition(editions, ref.date);
   const prev = usePrevious(items && !items.length ? older : null);
@@ -130,7 +131,7 @@ export function App() {
     <main className="app-main" id="main" tabIndex={-1}>
       {/* With no edition bar, its h1 moves here, unseen, so the outline stays h1 > h2 > h3. */}
       {wide && ref && <h1 className="app-sr">{longDate(ref.date)}</h1>}
-      {body({ route, index, ref, edition, view, items, filters, older, prev, goTo, clearFilters: () => setFilters(NO_FILTERS) })}
+      {body({ route, index, ref, edition, view, mode, items, filters, older, prev, goTo, clearFilters: () => setFilters(NO_FILTERS) })}
     </main>
   );
 
@@ -309,7 +310,7 @@ function Bar({ refAt, editions, compact, search, navigate }) {
   );
 }
 
-function body({ route, index, ref, edition, view, items, filters, older, prev, goTo, clearFilters }) {
+function body({ route, index, ref, edition, view, mode, items, filters, older, prev, goTo, clearFilters }) {
   const message = (text, role) => <div className="ldg-endcard" role={role}>{text}</div>;
   const toLatest = <a href="/">Go to the latest edition</a>;
 
@@ -335,15 +336,25 @@ function body({ route, index, ref, edition, view, items, filters, older, prev, g
       ? <EmptyState category={what} prevLabel={shortDate(older.date)} prevCount={prevCount} onPrev={() => goTo(older.date)} />
       : <EmptyState category={what} onClear={clearFilters} />;
   }
+  const render = (list) => (view === "list"
+    ? <div className="app-rows">{list.map((item) => <ListRow key={item.id} item={item} />)}</div>
+    : <div className="app-grid">{list.map((item) => <Card key={item.id} item={item} signalsPos="bottom" />)}</div>);
+  // The date (edition bar or hidden h1) is the h1 and card titles are h3, so
+  // each mode supplies the h2s: one hidden count in Ranked, a visible heading
+  // per category in Grouped. A category the filters empty has no section.
   return (
     <>
-      <section className="app-sec" aria-labelledby="items-heading">
-        {/* The date in the edition bar is the h1 and card titles are h3. */}
-        <h2 className="app-sr" id="items-heading">{items.length} items</h2>
-        {view === "list"
-          ? <div className="app-rows">{items.map((item) => <ListRow key={item.id} item={item} />)}</div>
-          : <div className="app-grid">{items.map((item) => <Card key={item.id} item={item} signalsPos="bottom" />)}</div>}
-      </section>
+      {mode === "grouped"
+        ? groupedItems(items).map(({ category, items: group }) => (
+          <section className="app-sec" key={category.key} aria-labelledby={category.key}>
+            <SectionHeading name={category.label} count={group.length} id={category.key} />
+            {render(group)}
+          </section>))
+        : (
+          <section className="app-sec" aria-labelledby="items-heading">
+            <h2 className="app-sr" id="items-heading">{items.length} items</h2>
+            {render(items)}
+          </section>)}
       <EndCard dateLabel={shortDate(ref.date)} prevLabel={older ? shortDate(older.date) : undefined} onPrev={() => older && goTo(older.date)} />
     </>
   );

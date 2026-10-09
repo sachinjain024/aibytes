@@ -164,6 +164,12 @@ Operational notes for the iMac runner:
 
 Paging and categories keep the URL's filters, as the edition bar does. The h1 (the long date) is visually hidden when the edition bar is not shown. Phone navigation is AIB-78z. See `docs/specs/AIB-77u-app-side-nav.md`.
 
+*Amended 2026-10-09 (AIB-77u):* the feed has two orders, chosen with the header's **Ranked | Grouped** control (700px and wider) and remembered in local storage as `aibytes-order`. It is not in the URL.
+- **Ranked (the default):** one list of every source interleaved by the edition's `rank`, strongest first. An edition without `rank` gets the same order computed in the app.
+- **Grouped:** the category sections described above, each with its heading and count. Items within a section are in rank order, and a category that filters leave empty is dropped.
+
+Filters apply before ordering in both modes, and grid and list work in both. See `docs/specs/AIB-77u-app-feed-order.md`.
+
 ### Card anatomy
 
 ```
