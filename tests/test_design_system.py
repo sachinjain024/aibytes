@@ -78,7 +78,10 @@ class SideNavTests(unittest.TestCase):
         rule = block_after(COMPONENTS_CSS.read_text(), ".ldg-sidenav")
         self.assertEqual(
             declarations(rule)["height"],
-            "calc(100vh - var(--ldg-header-h,68px) - var(--ldg-footer-h,0px))")
+            # The rail is content-box (Ledger has no box-sizing reset), so its
+            # 20px top and bottom padding come off too, or it overruns the
+            # footer by 40px.
+            "calc(100vh - var(--ldg-header-h,68px) - var(--ldg-footer-h,0px) - 40px)")
 
     def test_the_rail_hides_below_900px_not_at_it(self):
         # The app renders the rail at min-width:900px; a max-width:900px hide
