@@ -9,7 +9,7 @@ labels:
   - app
 type: chore
 created_at: 2026-10-09T09:50:40.557Z
-updated_at: 2026-10-09T12:59:16.626Z
+updated_at: 2026-10-09T14:04:49.088Z
 ---
 
 Add `rank` to the editions published before the edition-rank change (AIB-77u, module `edition-rank`) merged. Split out of the edition-rank spec on 2026-10-09.
@@ -34,9 +34,10 @@ Blocked by the edition-rank module: `docs/specs/AIB-77u-edition-rank.md`.
 
 ## Checklist
 
-- [ ] Choose the route: rank subcommand or re-run build <!-- longclaw:item=ck_e87f213b -->
-- [ ] List every edition published before the edition-rank merge <!-- longclaw:item=ck_d69f993c -->
-- [ ] Backfill, validate, and commit the content separately <!-- longclaw:item=ck_e077dd50 -->
+- [x] Choose the route: rank subcommand or re-run build <!-- longclaw:item=ck_e87f213b -->
+- [ ] T1 curate.py rank: offline, identity-checked, writes only rank <!-- longclaw:item=ck_d69f993c -->
+- [ ] T2 Backfill 2026-10-08 and 2026-10-09 (content-only commit) <!-- longclaw:item=ck_e077dd50 -->
+- [ ] T3 Runner syncs main (ff-only) before it fetches <!-- longclaw:item=ck_05556f17 -->
 
 ## Activity
 
@@ -94,4 +95,69 @@ actor:
 ### Claude Code commented
 
 Spec drafted: `docs/specs/AIB-79t-rank-backfill.md`, on branch `aib-79t-rank-backfill`. It recommends route 1 (a `curate.py rank` subcommand). With links taken from the cache only, the saved snapshots reproduce the published ids for both days (31/31 and 28/28). The runner iMac doesn't pull before it curates, so 2026-10-10 will probably publish without rank as well. The backfill should run after that edition lands. Awaiting review.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_04afc2ee
+kind: update
+occurred_at: 2026-10-09T14:04:49.022Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_e87f213b.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_d961f667
+kind: update
+occurred_at: 2026-10-09T14:04:49.048Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_d69f993c.text
+    from: List every edition published before the edition-rank merge
+    to: "T1 curate.py rank: offline, identity-checked, writes only rank"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_d5128c6b
+kind: update
+occurred_at: 2026-10-09T14:04:49.069Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_e077dd50.text
+    from: Backfill, validate, and commit the content separately
+    to: T2 Backfill 2026-10-08 and 2026-10-09 (content-only commit)
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_63681611
+kind: update
+occurred_at: 2026-10-09T14:04:49.088Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_05556f17.added
+    to: T3 Runner syncs main (ff-only) before it fetches
+-->
+### Claude Code updated this ticket
+
+Route 1 chosen. Plan: `docs/plans/AIB-79t-plan.md`; tasks: `docs/plans/AIB-79t-todo.md`. The spec now records the decisions: backfill today; the runner gains a `sync` step in this ticket; keep `rank`.
 <!-- /longclaw:event -->

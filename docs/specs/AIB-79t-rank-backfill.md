@@ -1,6 +1,6 @@
 # Spec: rank backfill (AIB-79t)
 
-Status: **draft 2026-10-09, awaiting review.**
+Status: **reviewed 2026-10-09; open questions resolved (see Decisions).**
 Ticket: `.longclaw/tickets/AIB-79t/ticket.md`. Follows the `edition-rank` module
 of AIB-77u: `docs/specs/AIB-77u-edition-rank.md`.
 
@@ -16,9 +16,10 @@ every day rather than from the client fallback for some.
   matters most for the Chrome extension (AIB-76n), which should be able to
   trust `rank` on every edition it can reach.
 - **Who reads the result:** `apps/web` now, the extension later. Nothing else.
+- **Also in scope:** the daily runner pulls `main` before it curates, so a
+  merged curate change reaches the next edition (see "The runner syncs first").
 - **Out of scope:** changing the score, the items, their order in the file, the
-  summaries, or any other field. Changing the daily runner (see Open
-  questions).
+  summaries, or any other field.
 
 ### The editions to backfill
 
@@ -29,14 +30,12 @@ The T2 PR (#25) merged at 2026-10-09 16:43 IST. Today:
 | `2026-10-08` | 2026-10-08 13:31 IST | 31 | no |
 | `2026-10-09` | 2026-10-09 13:31 IST (before #25) | 28 | no |
 
-**`2026-10-10` will most likely be rank-less too.** The runner iMac does not
-pull before it curates (`packages/runner/aibytes_runner/cli.py`; its only
-`git pull` is the rebase-and-retry inside `_push`). Its checkout is the one it
-pushed on 2026-10-09 at 13:31, before #25, so tomorrow's run curates with the
-old code, then picks up `main` when its push is rejected and it rebases. From
-`2026-10-11` every edition carries `rank`. The backfill therefore lands after
-the 2026-10-10 edition is published, and covers whichever editions are
-rank-less at that point, found by scanning rather than by a hard-coded list.
+The runner iMac did not pull before it curated, which is how 2026-10-09 was
+published with pre-#25 code. Its checkout was pulled to `main` by hand on
+2026-10-09, after #25 merged, so `2026-10-10` onward should carry `rank`. The
+backfill runs today over the two editions above. If 2026-10-10 still turns up
+rank-less, the same command runs again for it; which editions need it is found
+by scanning, not from a hard-coded list.
 
 ## The route: a `rank` subcommand (route 1)
 
@@ -48,8 +47,9 @@ python3 packages/curate/curate.py rank --date 2026-10-08
 
 1. **Re-derive the kept drafts** with the same `prepare()` that `build` uses,
    forced offline: links come only from the day's `links.json`, and no lookup
-   runs, whatever flags are passed. Nothing is written beside the snapshots, so
-   `links.json` and `rejected.json` are untouched.
+   runs, whatever flags are passed. `prepare()` needs no change for this: with
+   no lookup the cache cannot change, so it writes nothing. `rank` does not
+   write `rejected.json` either.
 2. **Check identity.** The set of kept ids must equal the set of ids in the
    published file, hidden items included. Any difference refuses with both
    sides of the diff and writes nothing. This is what makes the rank
@@ -73,16 +73,39 @@ silently overwrites a rank `build` wrote.
 `rejected.json`, and re-merges the summaries, so the diff is far larger than
 the one field being added. Route 1's diff is one line per item.
 
+## The runner syncs first
+
+A new first step, `sync`, in `packages/runner/aibytes_runner/cli.py`, before
+`fetch`:
+
+1. Refuse unless the checkout is on `main` (the same check `publish` makes),
+   naming the branch, so a run never curates on a feature branch's code.
+2. `git pull --ff-only origin main`. A pull that cannot fast-forward (local
+   commits that origin does not have, or a dirty file the pull would
+   overwrite) fails the run at `sync` with git's message in Slack, and nothing
+   is fetched or written. That is a human's problem, like a push that fails
+   twice.
+3. Log the resulting short sha, so the day's log says which code curated it.
+
+`--no-push` skips `sync`, as it skips `publish`: the rehearsal command
+(`run.py --skip-fetch --no-push`) promises to change nothing, and the
+end-to-end tests run in a temp tree that is not a git checkout.
+
+**Limit, accepted:** `run.py` itself was imported before the pull, so a change
+to the runner takes effect on the run after it lands. Every other step is a
+subprocess (`fetch.py`, `curate.py`, `validate.py`, Claude) and runs the
+pulled code.
+
 **Verified offline on 2026-10-09:** with links from the cache only, both days'
 snapshots reproduce exactly the published ids (31/31 and 28/28).
 
 ## Commands
 
 ```bash
-# The backfill, one day at a time (after the 2026-10-10 edition is published)
+# The backfill, one day at a time
 python3 packages/curate/curate.py rank --date 2026-10-08
 python3 packages/curate/curate.py rank --date 2026-10-09
-python3 packages/curate/curate.py rank --date 2026-10-10   # if rank-less
+python3 packages/curate/curate.py rank --date 2026-10-10   # only if it turns up rank-less
 
 # Rehearse into a copy of the tree
 python3 packages/curate/curate.py rank --date 2026-10-08 --content-root /tmp/content
@@ -103,10 +126,13 @@ because it is always offline.
 
 | Path | Change |
 |---|---|
-| `packages/curate/aibytes_curate/cli.py` | `cmd_rank` and its subparser; `prepare()` gains a way to run cache-only without writing `links.json` |
+| `packages/curate/aibytes_curate/cli.py` | `cmd_rank` and its subparser; `prepare()` unchanged |
 | `packages/curate/aibytes_curate/edition.py` | a helper that adds `rank` to a loaded document and checks the id sets, if it does not fit in `cli.py` cleanly |
 | `tests/test_curate_edition.py` | `RankBackfillTests` |
 | `.claude/skills/curate-edition/SKILL.md` | one line on when `rank` is used (back-filling, never in the daily flow) |
+| `packages/runner/aibytes_runner/cli.py` | `step_sync`, first in `STEPS` |
+| `tests/test_runner.py` | `SyncTest`, on the existing bare-origin fixture |
+| `packages/runner/README.md`, `CLAUDE.md` | the pipeline line gains `sync` |
 | `content/editions/2026-10-08.json`, `…-09.json` (and `…-10.json` if needed) | the backfill itself, its own commit |
 
 `rank.py`, `validate.py`, the schemas, and `feed.d.ts` do not change.
@@ -122,7 +148,7 @@ def cmd_rank(args):
     # Offline, always: the ranks must be over exactly the published items,
     # and a lookup could change which items survive dedup.
     args.no_resolve_links = True
-    kept, _, _, _ = prepare(args, write_links=False)
+    kept, _, _, _ = prepare(args)
     path = edition_mod.edition_path(content_root, args.date)
     document = edition_mod.read_json(path, path.name)
     published = {i["id"] for i in document["items"]}
@@ -154,6 +180,13 @@ temp-dir fixtures (a day's snapshots, a content root):
    written ranks for the fixture (a Python/JS parity check already exists for
    `TIE_ORDER`; this one is a manual check on the real editions, below).
 
+Runner, in `tests/test_runner.py` against a bare origin and a clone:
+
+1. A commit on origin that the clone lacks is fast-forwarded in before `fetch`.
+2. A clone on another branch fails at `sync` and names the branch.
+3. A clone that has diverged from origin fails at `sync`; nothing later runs.
+4. `--no-push` skips `sync` and leaves `HEAD` where it was.
+
 Manual, on the real tree before committing the content: the diff of each
 edition is only added `"rank": n` lines (and the comma on the line before), and
 the Ranked order in `npm run dev:web` is unchanged for those days, since the
@@ -165,7 +198,7 @@ fallback already computed the same order.
   apart from the tooling; run `validate.py` and the Python suite before each
   commit.
 - **Ask first:** backfilling with `--force`; backfilling any edition whose
-  snapshots do not reproduce its ids; touching the runner.
+  snapshots do not reproduce its ids; any runner change beyond `sync`.
 - **Never:** change any field but `rank`; touch `generated_at` or
   `index.json`; make a network call; push content straight to `main` (it goes
   through the PR like the tooling).
@@ -180,18 +213,16 @@ fallback already computed the same order.
       under `content/` or `newsletter/data/` changes.
 - [ ] `python3 packages/feed-schema/validate.py` passes.
 - [ ] The tooling and the content are separate commits.
+- [ ] `run.py` pulls `main` (fast-forward only) before `fetch`, fails the run
+      at `sync` when it cannot, and skips it under `--no-push`.
+
+## Decisions (2026-10-09)
+
+1. **Backfill today**, over 2026-10-08 and 2026-10-09. If 2026-10-10 is
+   rank-less, run `rank` again for it tomorrow.
+2. **The runner pulls before it curates**, in this ticket (`sync`, above).
+3. **Keep `rank`** after the backfill, for re-ranking if the score is tuned.
 
 ## Open questions
 
-1. **Wait for 2026-10-10, or backfill the two days now?** Recommended: build
-   and merge the tooling now, run the backfill after the 2026-10-10 edition
-   lands, so one content commit covers every rank-less day. Backfilling now
-   means a second run tomorrow.
-2. **Should the runner pull before it curates?** Not in this ticket. A runner
-   that curates on stale code is how 2026-10-10 ends up rank-less, and the next
-   curate change will hit the same lag. Suggest a separate ticket: `git pull
-   --ff-only` as the runner's first step, failing the run if it cannot
-   fast-forward.
-3. **Keep `rank` after the backfill, or delete it?** Recommended: keep it. It
-   is small, tested, and the only safe way to re-rank if the score is ever
-   tuned.
+None.
