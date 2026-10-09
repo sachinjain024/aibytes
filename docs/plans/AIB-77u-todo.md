@@ -132,25 +132,26 @@ are all-or-none and exactly `1..N` over every item, hidden ones included.
 
 **Estimated scope:** M
 
-## Task 4: `rail.js`: calendar-true date labels
+## Task 4: `rail.js`: calendar-true date labels (done)
 
 **Description:** A pure `railDate(ref, editions, today)` that returns
 `dateMain`, `dateNote`, `dateSub`, `prevLabel`, and `nextLabel` per the spec's
 date-block table, plus a `daysBetween` helper. `today` is the reader's local
-`YYYY-MM-DD`, passed in.
+`YYYY-MM-DD`, passed in. Also `localDate(now)`, which
+T5 uses to compute `today`.
 
 **Acceptance criteria:**
-- [ ] Every row of the spec's table is a `node --test` case:
+- [x] Every row of the spec's table is a `node --test` case:
   - latest dated today, with prev yesterday or older;
   - latest not dated today;
   - an older edition (`Latest` next);
   - the oldest (no prev);
   - a future-dated edition reads as `Today`.
-- [ ] "Yesterday" appears only when the older edition is the reader's yesterday;
+- [x] "Yesterday" appears only when the older edition is the reader's yesterday;
       `1 day ago` vs `2 days ago`; month and year boundaries.
 
 **Verification:**
-- [ ] `npm test -w @aibytes/web`
+- [x] `npm test -w @aibytes/web`
 
 **Dependencies:** None
 
