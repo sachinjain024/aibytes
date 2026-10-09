@@ -3,13 +3,13 @@ format: longclaw.ticket/v1
 id: 5b903bdf-0d42-4d01-b230-ef24d05f1d81
 key: AIB-79t
 title: Backfill rank into editions published before edition-rank
-status: todo
+status: in_progress
 priority: p1
 labels:
   - app
 type: chore
 created_at: 2026-10-09T09:50:40.557Z
-updated_at: 2026-10-09T14:04:49.088Z
+updated_at: 2026-10-09T14:08:54.666Z
 ---
 
 Add `rank` to the editions published before the edition-rank change (AIB-77u, module `edition-rank`) merged. Split out of the edition-rank spec on 2026-10-09.
@@ -35,7 +35,7 @@ Blocked by the edition-rank module: `docs/specs/AIB-77u-edition-rank.md`.
 ## Checklist
 
 - [x] Choose the route: rank subcommand or re-run build <!-- longclaw:item=ck_e87f213b -->
-- [ ] T1 curate.py rank: offline, identity-checked, writes only rank <!-- longclaw:item=ck_d69f993c -->
+- [x] T1 curate.py rank: offline, identity-checked, writes only rank <!-- longclaw:item=ck_d69f993c -->
 - [ ] T2 Backfill 2026-10-08 and 2026-10-09 (content-only commit) <!-- longclaw:item=ck_e077dd50 -->
 - [ ] T3 Runner syncs main (ff-only) before it fetches <!-- longclaw:item=ck_05556f17 -->
 
@@ -160,4 +160,35 @@ changes:
 ### Claude Code updated this ticket
 
 Route 1 chosen. Plan: `docs/plans/AIB-79t-plan.md`; tasks: `docs/plans/AIB-79t-todo.md`. The spec now records the decisions: backfill today; the runner gains a `sync` step in this ticket; keep `rank`.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_9a6a4809
+kind: update
+occurred_at: 2026-10-09T14:05:57.113Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: status
+    from: todo
+    to: in_progress
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e0eda4e0
+kind: update
+occurred_at: 2026-10-09T14:08:54.666Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_d69f993c.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
 <!-- /longclaw:event -->
