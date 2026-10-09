@@ -35,6 +35,7 @@ draft cannot change what gets published.
 | `relevance.py` | Which items are in the edition, and why the rest are not: the AI filter and dedup |
 | `summaries.py` | The handover to Claude: the curation request, and the checks on what comes back |
 | `links.py` | Product Hunt's `/r/` redirect into the product's real URL, and the day's resolved-link cache. The only network call |
+| `rank.py` | Each item's `rank`: the day's one reading order across every source, by standing within its own source |
 | `edition.py` | Counts, `index.json`, carrying a hide forward, and reading and writing files |
 | `cli.py` | The two commands |
 
@@ -63,5 +64,12 @@ draft cannot change what gets published.
   disagree about which items are in the edition, and a build after a draft
   needs no network at all. A failed lookup is never cached: it is a network
   condition, not a fact about the launch.
+- **`rank` interleaves the sources, mechanically.** An item's standing is its
+  position within its own source over that source's count, so every source's
+  best item stands at 0; ties break GitHub, Hacker News, TechCrunch, Product
+  Hunt (`rank.TIE_ORDER`). Ranks are `1..N` over every item, hidden ones
+  included, so a hide never renumbers. It is not the file's order: `items`
+  stay grouped by category (`adapters.ORDER`). See
+  `docs/specs/AIB-77u-edition-rank.md`.
 - **Re-running is byte-identical** apart from `generated_at`, so a re-run
   diffs cleanly.

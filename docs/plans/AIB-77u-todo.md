@@ -44,7 +44,7 @@ are all-or-none and exactly `1..N` over every item, hidden ones included.
 
 **Estimated scope:** M
 
-## Task 2: Curate writes `rank` at build
+## Task 2: Curate writes `rank` at build (done)
 
 **Description:** New `packages/curate/aibytes_curate/rank.py`.
 
@@ -56,22 +56,23 @@ are all-or-none and exactly `1..N` over every item, hidden ones included.
 - `adapters.ORDER`, and so the file's reading order, is unchanged.
 
 **Acceptance criteria:**
-- [ ] `RankTests` pass:
+- [x] `RankTests` pass:
   - each source's leader is ranked 1-4 in `TIE_ORDER` order;
   - the spec's 2026-10-09 worked table reproduces exactly;
   - Show HN and HN threads are one group;
   - TechCrunch with no signals follows fetch order;
   - the output is deterministic and independent of input order;
   - `TIE_ORDER` is a permutation of `registry.names()`.
-- [ ] A build writes `rank` `1..N` on every item, including hidden ones; a re-run
+- [x] A build writes `rank` `1..N` on every item, including hidden ones; a re-run
       is byte-identical apart from `generated_at`; the item order in the file is
       unchanged.
-- [ ] The `packages/curate` README and the item example in product spec §3
-      document `rank`.
+- [x] The `packages/curate` README and the item example in product spec §3
+      document `rank`. (The item example is in §5,
+      "Edition JSON schema", not §3.)
 
 **Verification:**
-- [ ] `AIBYTES_SKIP_LIVE=1 python3 -m unittest tests.test_curate_edition -v`
-- [ ] Manual: build 2026-10-09 from its saved `summaries.json` into a **temp
+- [x] `AIBYTES_SKIP_LIVE=1 python3 -m unittest tests.test_curate_edition -v`
+- [x] Manual: build 2026-10-09 from its saved `summaries.json` into a **temp
       copy** of `content/`; every item has a rank and `validate.py` passes on the copy
 
 **Dependencies:** Task 1

@@ -4,12 +4,12 @@ id: d92917c2-b046-4d4c-b6f2-7f31d52b9878
 key: AIB-77u
 title: "Home screen: gaps between the prototype and apps/web"
 status: in_progress
-priority: urgent
+priority: p1
 labels:
   - app
-type: feature
+type: chore
 created_at: 2026-10-09T08:28:26.821Z
-updated_at: 2026-10-09T10:17:04.828Z
+updated_at: 2026-10-09T11:10:27.938Z
 ---
 
 A comparison of the home-screen prototype `docs/ux/prototypes/aiBytes_app_home.html` against the running web app (`apps/web`, `http://localhost:5173/`, edition 2026-10-09). This is an audit only; no code was changed.
@@ -113,7 +113,7 @@ All three are resolved; see **Decisions** at the top. Recorded as asked:
 - [x] Decide: side nav or header chips - side nav; phone fallback split to AIB-78z <!-- longclaw:item=ck_24c49daa -->
 - [x] Decide ranking source - a rank field written at curation; TOP marker skipped <!-- longclaw:item=ck_c9b3e4a8 -->
 - [x] T1 Contract: rank in edition.schema.json, validate.py, feed.d.ts (all-or-none, 1..N) <!-- longclaw:item=ck_7c87ab48 -->
-- [ ] T2 Curate writes rank at build (rank.py, TIE_ORDER GitHub / HN / TechCrunch / PH) <!-- longclaw:item=ck_1977fc3a -->
+- [x] T2 Curate writes rank at build (rank.py, TIE_ORDER GitHub / HN / TechCrunch / PH) <!-- longclaw:item=ck_1977fc3a -->
 - [ ] T3 Ledger SideNav fixes: date-list ARIA, footer overlap, landmark name <!-- longclaw:item=ck_0e92b55d -->
 - [ ] T4 rail.js: calendar-true Today / Yesterday / Latest labels, node --test <!-- longclaw:item=ck_f703ec20 -->
 - [ ] T5 Rail in apps/web at 900px+ (counts incl. All, full-bleed, 300px grid, hidden h1); today's chips + bar below 900px; product spec §6 amendment <!-- longclaw:item=ck_6bbfa9e0 -->
@@ -654,4 +654,52 @@ actor:
 ### Claude Code commented
 
 T1 PR opened: https://github.com/sachinjain024/aibytes/pull/24 (also carries the tickets, specs, and plan). T2 starts on a fresh branch from main once it merges.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_04ff870c
+kind: update
+occurred_at: 2026-10-09T11:08:15.752Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: type
+    from: feature
+    to: chore
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_029f2fa6
+kind: update
+occurred_at: 2026-10-09T11:08:19.601Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: priority
+    from: urgent
+    to: p1
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_10ea4a4e
+kind: update
+occurred_at: 2026-10-09T11:10:27.938Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_1977fc3a.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+T1 merged in PR #24 (be27113). T2 (curate writes rank at build) PR opened: https://github.com/sachinjain024/aibytes/pull/25
 <!-- /longclaw:event -->

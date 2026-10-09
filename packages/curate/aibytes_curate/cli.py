@@ -13,7 +13,7 @@ import argparse
 import pathlib
 import sys
 
-from . import adapters, edition as edition_mod, links, relevance, summaries as summaries_mod
+from . import adapters, edition as edition_mod, links, rank, relevance, summaries as summaries_mod
 # `contract` is packages/feed-schema/validate.py, which edition.py puts on the
 # path; going through it keeps one copy of that import in the package.
 from .edition import contract, CurateError, REPO_ROOT
@@ -112,6 +112,11 @@ def cmd_build(args):
         print(f"warning: {warning}", file=sys.stderr)
 
     items = summaries_mod.merge(kept, written)
+    # Last key, after `hidden`, so existing diffs stay small. Ranked over every
+    # kept item before any hide is applied, so a hide never renumbers.
+    ranks = rank.assign(kept)
+    for item in items:
+        item["rank"] = ranks[item["id"]]
     hidden_doc = edition_mod.read_json(content_root / "hidden.json", "hidden.json")
     items, orphans = edition_mod.apply_hidden(items, hidden_doc, args.date)
     if orphans:

@@ -64,7 +64,7 @@ See `docs/plans/AIB-77u-todo.md` for acceptance criteria, verification, and file
 
 ### Phase 1: edition-rank
 - [x] T1 Contract: `rank` in the schema, validator, and `feed.d.ts`
-- [ ] T2 Curate writes `rank` at build
+- [x] T2 Curate writes `rank` at build
 
 ### Checkpoint 1
 - [ ] Python suite and `validate.py` green
