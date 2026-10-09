@@ -13,6 +13,7 @@ Hunt launch to its real website - goes through a seam the tests substitute.
 import io
 import json
 import pathlib
+import re
 import shutil
 import sys
 import tempfile
@@ -1080,6 +1081,15 @@ class DriftTests(unittest.TestCase):
     def test_the_summary_and_tag_limits_come_from_the_contract(self):
         self.assertEqual(summaries_mod.SUMMARY_MAX, contract.SUMMARY_MAX)
         self.assertEqual(summaries_mod.MAX_TAGS, contract.MAX_TAGS)
+
+    def test_the_apps_fallback_breaks_ties_as_curate_does(self):
+        # apps/web/src/order.js recomputes rank for editions written before it
+        # existed; if its TIE_ORDER drifts, Ranked reorders when AIB-79t
+        # backfills those editions.
+        source = (REPO_ROOT / "apps" / "web" / "src" / "order.js").read_text()
+        found = re.search(r"export const TIE_ORDER = \[([^\]]*)\];", source)
+        self.assertIsNotNone(found, "order.js no longer declares TIE_ORDER")
+        self.assertEqual(tuple(re.findall(r'"([a-z]+)"', found.group(1))), rank.TIE_ORDER)
 
     def test_the_rejection_reasons_are_the_ones_actually_written(self):
         self.assertEqual(set(relevance.REASONS), {"unusable", "not-ai", "duplicate"})

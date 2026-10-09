@@ -213,7 +213,7 @@ T5 uses to compute `today`.
 
 ## Phase 3: app-feed-order (spec: `docs/specs/AIB-77u-app-feed-order.md`)
 
-## Task 7: `order.js` and the `TIE_ORDER` drift guard
+## Task 7: `order.js` and the `TIE_ORDER` drift guard (done)
 
 **Description:** Pure `rankedItems(editionItems)`, which sorts by `rank`, or for
 any edition not fully ranked uses the fallback standing over the whole edition,
@@ -222,18 +222,18 @@ categories omitted. Plus a Python test that parses `TIE_ORDER` from `order.js`
 and compares it with `rank.TIE_ORDER`.
 
 **Acceptance criteria:**
-- [ ] `node --test` cases:
+- [x] `node --test` cases:
   - a ranked edition sorts by rank, gaps included;
   - a rank-less edition gets the fallback and reproduces the edition-rank
     worked table;
   - a partly ranked edition falls back entirely;
   - filtering after ordering never changes relative order;
   - grouping order, omission, and in-section rank order.
-- [ ] The drift guard passes and fails if either `TIE_ORDER` changes alone.
+- [x] The drift guard passes and fails if either `TIE_ORDER` changes alone.
 
 **Verification:**
-- [ ] `npm test -w @aibytes/web`
-- [ ] `AIBYTES_SKIP_LIVE=1 python3 -m unittest tests.test_curate_edition -v`
+- [x] `npm test -w @aibytes/web`
+- [x] `AIBYTES_SKIP_LIVE=1 python3 -m unittest tests.test_curate_edition -v`
 
 **Dependencies:** Task 2 (`rank.py` must exist for the guard)
 
