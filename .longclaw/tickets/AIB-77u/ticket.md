@@ -9,10 +9,25 @@ labels:
   - app
 type: feature
 created_at: 2026-10-09T08:28:26.821Z
-updated_at: 2026-10-09T08:44:33.254Z
+updated_at: 2026-10-09T10:05:50.296Z
 ---
 
 A comparison of the home-screen prototype `docs/ux/prototypes/aiBytes_app_home.html` against the running web app (`apps/web`, `http://localhost:5173/`, edition 2026-10-09). This is an audit only; no code was changed.
+
+## References
+
+- **Prototype:** `docs/ux/prototypes/aiBytes_app_home.html`
+- **Capability map:** `docs/specs/AIB-77u-capability-map.md`
+- **Specs:**
+  - `docs/specs/AIB-77u-edition-rank.md` (module 1)
+  - `docs/specs/AIB-77u-app-side-nav.md` (module 2)
+  - `docs/specs/AIB-77u-app-feed-order.md` (module 3)
+- **Plan:** `docs/plans/AIB-77u-plan.md`
+- **Task list:** `docs/plans/AIB-77u-todo.md` (T1-T9; the checklist below mirrors it)
+- **Related tickets:**
+  - AIB-78z: phone-width navigation
+  - AIB-79t: rank backfill
+  - AIB-75v: saves and sign-in
 
 ## Decisions (2026-10-09)
 
@@ -68,7 +83,7 @@ A comparison of the home-screen prototype `docs/ux/prototypes/aiBytes_app_home.h
 1. **Side nav with the date block and inline date list.** The app uses the header-chip and edition-bar layout instead. Ledger's `SideNav` is already in the package and identical to the prototype's, but `App.jsx` never renders it.
 2. **Ranked / Grouped feed-order toggle.** `Header` supports `mode`/`onMode`; the app does not pass them, so the control is absent.
 3. **Ranked ordering.** The app renders items in file order (all PH, then GH, then TC, then HN). The edition JSON has no `rank` or `top` field (`content/editions/2026-10-09.json` keys: id, title, summary, url, source, source_url, category, tags, image, signals, published_at, hidden, meta), so ranking needs either a client-side signal sort or an additive schema field set by `curate`. Per `.claude/rules/feed-schema.md`, add fields, never rename them.
-4. **Grouped view with section headings.** The app renders one flat grid with no `SectionHeading`s. Product spec §5 (line 154) calls for "Items grouped by category in edition order … each with a section heading and count", so today the app matches neither the spec nor either prototype mode.
+4. **Grouped view with section headings.** The app renders one flat grid with no `SectionHeading`s. Product spec §6 (line 154) calls for "Items grouped by category in edition order … each with a section heading and count", so today the app matches neither the spec nor either prototype mode.
 5. **TOP-today marker.** `Card` takes `topToday`; the app never passes it, and the data has nothing to drive it.
 6. **Save star on cards and rows, the save banner, the My Starred / Saved view, and Sign in plus avatar.** All are absent by design: deferred to **AIB-75v** (Saves and Google sign-in). Listed here for completeness, not as new scope.
 7. **Category-level empty state with "← <date> had N".** The prototype finds the last edition that *had that category*. The app's `EmptyState` looks only at the immediately older edition and otherwise offers "Clear filters." That is a different (arguably better) rule; confirm which you want.
@@ -97,15 +112,14 @@ All three are resolved; see **Decisions** at the top. Recorded as asked:
 
 - [x] Decide: side nav or header chips - side nav; phone fallback split to AIB-78z <!-- longclaw:item=ck_24c49daa -->
 - [x] Decide ranking source - a rank field written at curation; TOP marker skipped <!-- longclaw:item=ck_c9b3e4a8 -->
-- [ ] Ranked / Grouped feed-order toggle in the header <!-- longclaw:item=ck_8d4e9fd4 -->
-- [ ] Grouped view with a SectionHeading per category (spec §5) <!-- longclaw:item=ck_066c6df9 -->
-- [ ] Ranked ordering: sort by the curated rank, falling back to signals when an edition has none <!-- longclaw:item=ck_221ae1ac -->
-- [ ] Layout: full-bleed width, 4-column grid at 1440, rail padding 20px/28px <!-- longclaw:item=ck_e288d94c -->
-- [ ] Count on the All category <!-- longclaw:item=ck_ab77df4a -->
-- [ ] Today / Yesterday / Latest wording in date paging <!-- longclaw:item=ck_f703ec20 -->
-- [ ] Rank field: feed-schema (feed.d.ts, validate.py), written by packages/curate, with tests <!-- longclaw:item=ck_7c87ab48 -->
-- [ ] Render Ledger SideNav in apps/web; drop header chips and the edition bar at desktop width <!-- longclaw:item=ck_6bbfa9e0 -->
-- [ ] Side nav hidden below 900px (phone fallback is AIB-78z) <!-- longclaw:item=ck_fdb390c8 -->
+- [ ] T1 Contract: rank in edition.schema.json, validate.py, feed.d.ts (all-or-none, 1..N) <!-- longclaw:item=ck_7c87ab48 -->
+- [ ] T2 Curate writes rank at build (rank.py, TIE_ORDER GitHub / HN / TechCrunch / PH) <!-- longclaw:item=ck_1977fc3a -->
+- [ ] T3 Ledger SideNav fixes: date-list ARIA, footer overlap, landmark name <!-- longclaw:item=ck_0e92b55d -->
+- [ ] T4 rail.js: calendar-true Today / Yesterday / Latest labels, node --test <!-- longclaw:item=ck_f703ec20 -->
+- [ ] T5 Rail in apps/web at 900px+ (counts incl. All, full-bleed, 300px grid, hidden h1); today's chips + bar below 900px; product spec §6 amendment <!-- longclaw:item=ck_6bbfa9e0 -->
+- [ ] T7 order.js: rank order, with the rank.py fallback for rank-less editions; TIE_ORDER drift guard <!-- longclaw:item=ck_221ae1ac -->
+- [ ] T8 Ranked default: aibytes-order pref, Ranked | Grouped control at 700px+, ranked rendering <!-- longclaw:item=ck_8d4e9fd4 -->
+- [ ] T9 Grouped: a SectionHeading per category (product spec §6); §6 amendment <!-- longclaw:item=ck_066c6df9 -->
 
 ## Activity
 
@@ -326,4 +340,286 @@ actor:
 ### Claude Code commented
 
 Specs complete for all three modules (2026-10-09): app-side-nav updated to a 300px grid minimum beside the rail (two columns at 900px, four at 1440px); app-feed-order drafted at docs/specs/AIB-77u-app-feed-order.md (Ranked default, remembered as aibytes-order; Grouped with a SectionHeading per category; a client-side fallback matching rank.py for rank-less editions, with a TIE_ORDER drift test; control hidden below 700px pending review). Awaiting review.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_d1d131cd
+kind: update
+occurred_at: 2026-10-09T10:05:42.584Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: description
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_1dad9950
+kind: update
+occurred_at: 2026-10-09T10:05:42.601Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_7c87ab48.text
+    from: "Rank field: feed-schema (feed.d.ts, validate.py), written by packages/curate, with tests"
+    to: "T1 Contract: rank in edition.schema.json, validate.py, feed.d.ts (all-or-none, 1..N)"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_57042fa9
+kind: update
+occurred_at: 2026-10-09T10:05:42.623Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_f703ec20.text
+    from: Today / Yesterday / Latest wording in date paging
+    to: "T4 rail.js: calendar-true Today / Yesterday / Latest labels, node --test"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_76bfb13f
+kind: update
+occurred_at: 2026-10-09T10:05:42.648Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_6bbfa9e0.text
+    from: Render Ledger SideNav in apps/web; drop header chips and the edition bar at desktop width
+    to: T5 Rail in apps/web at 900px+ (counts incl. All, full-bleed, 300px grid, hidden h1); today's chips + bar below 900px; product spec §6 amendment
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_85effc48
+kind: update
+occurred_at: 2026-10-09T10:05:42.673Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_221ae1ac.text
+    from: "Ranked ordering: sort by the curated rank, falling back to signals when an edition has none"
+    to: "T7 order.js: rank order, with the rank.py fallback for rank-less editions; TIE_ORDER drift guard"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_13f329f5
+kind: update
+occurred_at: 2026-10-09T10:05:42.701Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_8d4e9fd4.text
+    from: Ranked / Grouped feed-order toggle in the header
+    to: "T8 Ranked default: aibytes-order pref, Ranked | Grouped control at 700px+, ranked rendering"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_b2d1b7f5
+kind: update
+occurred_at: 2026-10-09T10:05:42.722Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_066c6df9.text
+    from: Grouped view with a SectionHeading per category (spec §5)
+    to: "T9 Grouped: a SectionHeading per category (product spec §6); §6 amendment"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_654849a9
+kind: update
+occurred_at: 2026-10-09T10:05:42.742Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_e288d94c.removed
+    from: "Layout: full-bleed width, 4-column grid at 1440, rail padding 20px/28px"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_d1a0202f
+kind: update
+occurred_at: 2026-10-09T10:05:42.760Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_ab77df4a.removed
+    from: Count on the All category
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_6299a3a7
+kind: update
+occurred_at: 2026-10-09T10:05:42.779Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_fdb390c8.removed
+    from: Side nav hidden below 900px (phone fallback is AIB-78z)
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_b46d44c0
+kind: update
+occurred_at: 2026-10-09T10:05:42.800Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_1977fc3a.added
+    to: T2 Curate writes rank at build (rank.py, TIE_ORDER GitHub / HN / TechCrunch / PH)
+  - field: checklist.ck_0e92b55d.added
+    to: "T3 Ledger SideNav fixes: date-list ARIA, footer overlap, landmark name"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_7ee74728
+kind: update
+occurred_at: 2026-10-09T10:05:50.193Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_7c87ab48.moved
+    from: "7"
+    to: "3"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_959ab465
+kind: update
+occurred_at: 2026-10-09T10:05:50.214Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_1977fc3a.moved
+    from: "9"
+    to: "4"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ab9ba85b
+kind: update
+occurred_at: 2026-10-09T10:05:50.235Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_0e92b55d.moved
+    from: "10"
+    to: "5"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_3db2e3b5
+kind: update
+occurred_at: 2026-10-09T10:05:50.253Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_f703ec20.moved
+    from: "9"
+    to: "6"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_99369e98
+kind: update
+occurred_at: 2026-10-09T10:05:50.276Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_6bbfa9e0.moved
+    from: "10"
+    to: "7"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ac7cd57e
+kind: update
+occurred_at: 2026-10-09T10:05:50.296Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_221ae1ac.moved
+    from: "10"
+    to: "8"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_c459f149
+kind: comment
+occurred_at: 2026-10-09T10:05:50.341Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Plan written (2026-10-09): docs/plans/AIB-77u-plan.md and docs/plans/AIB-77u-todo.md, nine tasks (T1-T9; T6 folded into Checkpoint 2) in three PRs, one per module. The checklist now mirrors the tasks: the layout, All-count and below-900px items folded into T5; T2 and T3 added; the ranked-fallback item now matches the spec (the rank.py calculation, not signals). Also fixed the audit's product-spec reference (§6, not §5) and added a References section to the description.
 <!-- /longclaw:event -->

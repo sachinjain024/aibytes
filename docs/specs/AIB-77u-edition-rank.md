@@ -217,12 +217,6 @@ The full suite and `validate.py` pass before every commit.
 
 - **Editions published before merge** carry no `rank`. That is valid by the
   contract, and the app falls back to signals; AIB-79t backfills them.
-- **The runner and this branch.** This checkout is on `aib-77u-home-side-nav`.
-  If the launchd agent runs from this working tree, it refuses to push from a
-  non-main branch (`packages/runner/aibytes_runner/cli.py:332`) and the day's
-  edition fails. Before 13:30 IST, either switch the tree back to `main` or do
-  this work in a separate worktree. I could not confirm which path the
-  installed agent uses.
 - **The app before `app-feed-order`.** Nothing reads `rank` yet, so this module
   changes nothing on screen. That is intended, and makes it safe to ship first.
 
