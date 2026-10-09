@@ -97,27 +97,29 @@ are all-or-none and exactly `1..N` over every item, hidden ones included.
 
 ## Phase 2: app-side-nav (spec: `docs/specs/AIB-77u-app-side-nav.md`)
 
-## Task 3: Ledger `SideNav`: ARIA, footer overlap, landmark name
+## Task 3: Ledger `SideNav`: ARIA, footer overlap, landmark name (done)
 
 **Description:** Three package fixes, as their own commit, with no visual change:
 
-1. The date list drops `role="listbox"` and keeps `aria-label="Editions"`; the
+1. The date list drops `role="listbox"` and keeps `aria-label="Editions"` (as
+   `role="group"`: a name on a role-less div is not announced); the
    current edition is `aria-current="date"`.
 2. `.ldg-sidenav` height subtracts an optional `--ldg-footer-h` (default `0px`).
 3. The `aside` is labelled "Edition and categories".
 
 **Acceptance criteria:**
-- [ ] `SideNav.jsx` has no `role="listbox"`; the current date row carries
+- [x] `SideNav.jsx` has no `role="listbox"`; the current date row carries
       `aria-current="date"`; the `aside` label reads "Edition and categories".
-- [ ] With `--ldg-footer-h` set, the rail's bottom edge meets the footer's top.
+- [x] With `--ldg-footer-h` set, the rail's bottom edge meets the footer's top.
       Unset, the rail behaves exactly as before.
-- [ ] `SideNav.d.ts` and `SideNav.prompt.md` are updated in step; `_ds_*` files
+- [x] `SideNav.d.ts` and `SideNav.prompt.md` are updated in step; `_ds_*` files
       and the card markers are untouched.
 
 **Verification:**
-- [ ] `AIBYTES_SKIP_LIVE=1 python3 -m unittest tests.test_design_system -v`
-- [ ] Manual: `npm run preview:design-system`; `sidenav.card.html` and the UI kit
-      render as before
+- [x] `AIBYTES_SKIP_LIVE=1 python3 -m unittest tests.test_design_system -v`
+- [x] Manual: `npm run preview:design-system`; `sidenav.card.html` and the UI kit
+      render as before (they load `_ds_bundle.js`, which keeps the
+      old SideNav until Claude Design regenerates it)
 
 **Dependencies:** None (sequenced after T2 under one-task-one-PR)
 

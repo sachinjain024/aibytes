@@ -1,4 +1,4 @@
-/** Side navigation rail for the full-page layout — the alternative to header category chips. Top: date widget (current edition, prev / Latest links, "Pick a date" edition list). Middle: Categories with counts (All + one per category, active = inset accent bar). Bottom: Library / My Starred. Sticky under the header (set --ldg-header-h on an ancestor to the sticky-cluster height); hidden below 900px, so keep header chips on mobile.
+/** Side navigation rail for the full-page layout — the alternative to header category chips. Top: date widget (current edition, prev / Latest links, "Pick a date" edition list). Middle: Categories with counts (All + one per category, active = inset accent bar). Bottom: Library / My Starred. Sticky under the header (set --ldg-header-h on an ancestor to the sticky-cluster height, and --ldg-footer-h to a sticky footer's height, default 0px, so the rail ends where the footer starts); hidden below 900px, so keep header chips on mobile.
  * @startingPoint section="Components" subtitle="Side nav rail with edition pager" viewport="260x560"
  */
 export interface SideNavEditionRef { date: string; label: string; count?: number }
@@ -25,7 +25,7 @@ export interface SideNavProps {
   /** rendered as "{nextLabel} →" — usually "Latest"; omit on the latest edition */
   nextLabel?: string;
   onNext?: () => void;
-  /** available editions for the "Pick a date" list (newest first) */
+  /** available editions for the "Pick a date" list (newest first); a labelled group, the current one aria-current="date" */
   editions?: SideNavEditionRef[];
   currentDate?: string;
   onSelectEdition?: (date: string) => void;

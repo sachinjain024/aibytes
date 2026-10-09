@@ -11,7 +11,7 @@ export function SideNav({ categories = [], activeCategory = "all", onCategory, a
   const open = calendarOpen != null ? calendarOpen : openU;
   const toggleCal = onToggleCalendar || (() => setOpenU(o => !o));
   return (
-    <aside className="ldg-sidenav" aria-label="Categories">
+    <aside className="ldg-sidenav" aria-label="Edition and categories">
       {dateMain && <div className="ldg-nav__date">
         <div className="ldg-nav__date-main">{dateMain}{dateNote && <span className="ldg-nav__date-sub" style={{ fontWeight: 400, marginLeft: 6 }}>{dateNote}</span>}</div>
         {dateSub && <div className="ldg-nav__date-sub">{dateSub}</div>}
@@ -20,8 +20,8 @@ export function SideNav({ categories = [], activeCategory = "all", onCategory, a
           {nextLabel && <button type="button" className="ldg-nav__link" onClick={onNext}>{nextLabel} →</button>}
           {editions.length > 0 && <button type="button" className="ldg-nav__link" style={{ marginLeft: "auto" }} aria-expanded={open} onClick={toggleCal}>Pick a date <span aria-hidden="true" style={{ fontSize: 9, verticalAlign: 1 }}>{open ? "▲" : "▼"}</span></button>}
         </div>
-        {open && editions.length > 0 && <div className="ldg-nav__dates" role="listbox" aria-label="Editions">
-          {editions.map(e => <button type="button" key={e.date} className="ldg-nav__item" aria-current={e.date === currentDate || undefined} onClick={() => onSelectEdition && onSelectEdition(e.date)}><span className="ldg-nav__text">{e.label}</span><span className="ldg-nav__count">{e.count}</span></button>)}
+        {open && editions.length > 0 && <div className="ldg-nav__dates" role="group" aria-label="Editions">
+          {editions.map(e => <button type="button" key={e.date} className="ldg-nav__item" aria-current={e.date === currentDate ? "date" : undefined} onClick={() => onSelectEdition && onSelectEdition(e.date)}><span className="ldg-nav__text">{e.label}</span><span className="ldg-nav__count">{e.count}</span></button>)}
         </div>}
       </div>}
       <div className="ldg-nav__label">Categories</div>
