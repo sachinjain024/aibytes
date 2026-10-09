@@ -15,6 +15,8 @@ matching files — this file stays a map.
 |---|---|
 | `newsletter/` | The whole newsletter pipeline: `issues/`, `data/` snapshots, `sources/` mirrors, `apis/` Requestly project, `artifacts/` decision records |
 | `docs/` | The app product spec and the design-system brief — the source documents for the app and extension |
+| `docs/specs/` | Feature specs, one file per spec, named for the ticket: `AIB-79t-rank-backfill.md` |
+| `docs/plans/` | Implementation plans and their task lists: `AIB-77u-plan.md`, `AIB-77u-todo.md` |
 | `packages/design-system/` | **Ledger**: tokens + React components for the app and extension (**not** the newsletter) |
 | `packages/fetchers/` | Shared, cadence-agnostic Python fetch machinery for every data source |
 | `packages/curate/` | The curate step: a day's raw snapshots become one published edition |
@@ -99,6 +101,10 @@ user will call that out explicitly — do not infer the connection yourself.
 
 ## Conventions
 
+- Specs go in `docs/specs/` and plans (with their task lists) in `docs/plans/`,
+  each file prefixed with its LongClaw ticket key. This overrides any skill
+  default such as `SPEC.md` at the root or `tasks/plan.md` and `tasks/todo.md`.
+  Record the spec's path in the ticket.
 - New skills go in `.claude/skills/<skill-name>/` with a `SKILL.md` (name +
   description frontmatter) and scripts under `scripts/`.
 - Skill scripts that write snapshots must support `--output-root` and a
