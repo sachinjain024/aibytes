@@ -224,3 +224,17 @@ changes:
 
 T2: 2026-10-08 and 2026-10-09 carry rank (content-only commit). Found along the way: the app's fallback order (apps/web/src/order.js) uses file position for an item's standing within its source. The file is grouped by category, so Show HN posts (launches) rank above every HN thread. That moved 10 of 31 items on 2026-10-08, and the written ranks follow points as rank.py does. It only affects rank-less editions; follow-up suggested.
 <!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_4bbb1920
+kind: comment
+occurred_at: 2026-10-09T14:18:52.663Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Follow-up filed: AIB-81i (the app's fallback order ranks Show HN above every HN thread).
+<!-- /longclaw:event -->

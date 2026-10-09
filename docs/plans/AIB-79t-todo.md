@@ -62,8 +62,8 @@ update in a separate commit.
       old file vs the new). 2026-10-09: 28/28 unchanged. 2026-10-08: 10 HN
       items move, because the fallback ranks the two Show HN posts (category
       `launches`, so first in the file) above every HN thread. The written
-      ranks follow points, as `rank.py` does. The fallback is the bug; it is a
-      follow-up, not part of this task.
+      ranks follow points, as `rank.py` does. The fallback is the bug, tracked
+      as AIB-81i; it is not part of this task.
 
 **Dependencies:** T1 merged.
 
