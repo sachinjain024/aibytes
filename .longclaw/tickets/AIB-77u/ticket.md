@@ -641,3 +641,17 @@ changes:
 
 T1 done: rank is in edition.schema.json, validate.py (ITEM_OPTIONAL, RANK_MIN, the all-or-none 1..N check) and feed.d.ts, with tests in test_feed_schema.py and test_hide.py. Suites green; published content still validates (no ranks yet, which is valid).
 <!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_cfae3793
+kind: comment
+occurred_at: 2026-10-09T10:17:26.490Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+T1 PR opened: https://github.com/sachinjain024/aibytes/pull/24 (also carries the tickets, specs, and plan). T2 starts on a fresh branch from main once it merges.
+<!-- /longclaw:event -->
