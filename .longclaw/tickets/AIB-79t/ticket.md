@@ -3,13 +3,13 @@ format: longclaw.ticket/v1
 id: 5b903bdf-0d42-4d01-b230-ef24d05f1d81
 key: AIB-79t
 title: Backfill rank into editions published before edition-rank
-status: backlog
-priority: p3
+status: todo
+priority: p1
 labels:
   - app
 type: chore
 created_at: 2026-10-09T09:50:40.557Z
-updated_at: 2026-10-09T09:50:40.557Z
+updated_at: 2026-10-09T12:59:16.626Z
 ---
 
 Add `rank` to the editions published before the edition-rank change (AIB-77u, module `edition-rank`) merged. Split out of the edition-rank spec on 2026-10-09.
@@ -50,4 +50,48 @@ actor:
   name: Claude Code
 -->
 ### Claude Code created this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_6f4b8b38
+kind: update
+occurred_at: 2026-10-09T12:59:14.799Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: status
+    from: backlog
+    to: todo
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_d3ad6a35
+kind: update
+occurred_at: 2026-10-09T12:59:16.626Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: priority
+    from: p3
+    to: p1
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_68ba69c2
+kind: comment
+occurred_at: 2026-10-09T13:03:04.104Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Spec drafted: `docs/specs/AIB-79t-rank-backfill.md`, on branch `aib-79t-rank-backfill`. It recommends route 1 (a `curate.py rank` subcommand). With links taken from the cache only, the saved snapshots reproduce the published ids for both days (31/31 and 28/28). The runner iMac doesn't pull before it curates, so 2026-10-10 will probably publish without rank as well. The backfill should run after that edition lands. Awaiting review.
 <!-- /longclaw:event -->
