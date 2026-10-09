@@ -3,13 +3,13 @@ format: longclaw.ticket/v1
 id: 5b903bdf-0d42-4d01-b230-ef24d05f1d81
 key: AIB-79t
 title: Backfill rank into editions published before edition-rank
-status: in_progress
+status: done
 priority: p1
 labels:
   - app
 type: chore
 created_at: 2026-10-09T09:50:40.557Z
-updated_at: 2026-10-09T14:25:24.387Z
+updated_at: 2026-10-09T14:27:02.182Z
 ---
 
 Add `rank` to the editions published before the edition-rank change (AIB-77u, module `edition-rank`) merged. Split out of the edition-rank spec on 2026-10-09.
@@ -255,4 +255,19 @@ changes:
 ### Claude Code updated this ticket
 
 T3: the runner gains a sync step (git pull --ff-only origin main) before fetch. It takes effect on the iMac once the iMac has pulled this commit; from then on it keeps itself current. Left open until the 2026-10-10 edition is confirmed to carry rank.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_0ea7408c
+kind: update
+occurred_at: 2026-10-09T14:27:02.182Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: status
+    from: in_progress
+    to: done
+-->
+### You updated this ticket
 <!-- /longclaw:event -->

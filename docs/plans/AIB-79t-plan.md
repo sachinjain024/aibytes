@@ -61,9 +61,9 @@ files per task.
 - [x] T3 `run.py` syncs `main` before it fetches
 
 ### Checkpoint 2: complete
-- [ ] Every spec success criterion met
-- [ ] AIB-79t checklist all ticked; status done
-- [ ] T3 PR merged
+- [x] Every spec success criterion met
+- [x] AIB-79t checklist all ticked; status done
+- [x] T3 PR merged
 - [ ] The iMac picks up T3 on its next run; the 2026-10-10 edition carries
       `rank` (if not, `curate.py rank --date 2026-10-10` in its own PR)
 
