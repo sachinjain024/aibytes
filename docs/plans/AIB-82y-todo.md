@@ -47,9 +47,9 @@ notes. The three new files are this ticket's own spec and plan.
 
 ## Checkpoint: before merge
 
-- [ ] Every T1 acceptance box is ticked, with the measured columns noted in the PR.
+- [x] Every T1 acceptance box is ticked, with the measured columns noted in the PR.
 - [x] `npm run build:web` and `npm test -w @aibytes/web` pass.
 - [x] `git grep -n 'minmax(272' -- apps docs/specs docs/aibytes-app-product-spec.md`
       finds 272px only in dated, superseded text.
-- [ ] Reviewed by you, then merged to `main`. The AIB-82y checklist is ticked
+- [x] Reviewed by you, then merged to `main`. The AIB-82y checklist is ticked
       and the ticket closed.

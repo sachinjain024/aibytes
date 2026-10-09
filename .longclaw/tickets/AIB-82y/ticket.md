@@ -3,13 +3,13 @@ format: longclaw.ticket/v1
 id: 4086688c-7a20-4322-ba46-3c708f280c46
 key: AIB-82y
 title: Match the grid card width beside the rail to the home prototype (360px minimum)
-status: in_review
+status: done
 priority: p1
 labels:
   - app
 type: feature
 created_at: 2026-10-09T16:05:02.074Z
-updated_at: 2026-10-09T16:23:15.011Z
+updated_at: 2026-10-09T16:25:28.339Z
 ---
 
 Match the grid card width beside the SideNav rail to the home-screen prototype, `docs/ux/prototypes/aiBytes_app_home.html`.
@@ -171,4 +171,22 @@ changes:
   - field: description
 -->
 ### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_b2457b68
+kind: update
+occurred_at: 2026-10-09T16:25:28.339Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: status
+    from: in_review
+    to: done
+-->
+### Claude Code updated this ticket
+
+Reviewed and approved 2026-10-09; merged to main.
 <!-- /longclaw:event -->
