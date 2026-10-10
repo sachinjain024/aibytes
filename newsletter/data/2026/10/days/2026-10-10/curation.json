@@ -1,0 +1,710 @@
+{
+  "date": "2026-10-10",
+  "generated_at": "2026-10-10T08:00:25Z",
+  "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
+  "tags": [
+    {
+      "name": "What it is",
+      "tags": [
+        {
+          "name": "Model Release",
+          "slug": "model-release"
+        },
+        {
+          "name": "Open Source",
+          "slug": "open-source"
+        },
+        {
+          "name": "Paper",
+          "slug": "paper"
+        },
+        {
+          "name": "Benchmark",
+          "slug": "benchmark"
+        },
+        {
+          "name": "Dataset",
+          "slug": "dataset"
+        },
+        {
+          "name": "Framework",
+          "slug": "framework"
+        },
+        {
+          "name": "Dev Tool",
+          "slug": "dev-tool"
+        },
+        {
+          "name": "API",
+          "slug": "api"
+        }
+      ]
+    },
+    {
+      "name": "Domain",
+      "tags": [
+        {
+          "name": "LLM",
+          "slug": "llm"
+        },
+        {
+          "name": "Agents",
+          "slug": "agents"
+        },
+        {
+          "name": "RAG",
+          "slug": "rag"
+        },
+        {
+          "name": "Fine-tuning",
+          "slug": "fine-tuning"
+        },
+        {
+          "name": "Inference",
+          "slug": "inference"
+        },
+        {
+          "name": "Local LLM",
+          "slug": "local-llm"
+        },
+        {
+          "name": "Vision",
+          "slug": "vision"
+        },
+        {
+          "name": "Voice / Speech",
+          "slug": "voice-speech"
+        },
+        {
+          "name": "Video",
+          "slug": "video"
+        },
+        {
+          "name": "Image Gen",
+          "slug": "image-gen"
+        },
+        {
+          "name": "Code Gen",
+          "slug": "code-gen"
+        },
+        {
+          "name": "Embeddings",
+          "slug": "embeddings"
+        },
+        {
+          "name": "Eval",
+          "slug": "eval"
+        },
+        {
+          "name": "Reasoning",
+          "slug": "reasoning"
+        },
+        {
+          "name": "Multimodal",
+          "slug": "multimodal"
+        },
+        {
+          "name": "Robotics",
+          "slug": "robotics"
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem",
+      "tags": [
+        {
+          "name": "OpenAI",
+          "slug": "openai"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic"
+        },
+        {
+          "name": "Google",
+          "slug": "google"
+        },
+        {
+          "name": "Meta",
+          "slug": "meta"
+        },
+        {
+          "name": "Nvidia",
+          "slug": "nvidia"
+        },
+        {
+          "name": "Hugging Face",
+          "slug": "hugging-face"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft"
+        },
+        {
+          "name": "Claude Code",
+          "slug": "claude-code"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor"
+        },
+        {
+          "name": "MCP",
+          "slug": "mcp"
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "tags": [
+        {
+          "name": "Funding",
+          "slug": "funding"
+        },
+        {
+          "name": "Acquisition",
+          "slug": "acquisition"
+        },
+        {
+          "name": "Launch",
+          "slug": "launch"
+        },
+        {
+          "name": "Pricing",
+          "slug": "pricing"
+        },
+        {
+          "name": "Policy",
+          "slug": "policy"
+        },
+        {
+          "name": "Legal",
+          "slug": "legal"
+        },
+        {
+          "name": "Security",
+          "slug": "security"
+        },
+        {
+          "name": "Privacy",
+          "slug": "privacy"
+        },
+        {
+          "name": "Safety",
+          "slug": "safety"
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "tags": [
+        {
+          "name": "Show HN",
+          "slug": "show-hn"
+        },
+        {
+          "name": "Tutorial",
+          "slug": "tutorial"
+        },
+        {
+          "name": "Deep Dive",
+          "slug": "deep-dive"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ph-busabase-2026-10-10",
+      "title": "Busabase",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://busabase.com/",
+      "source_url": "https://www.producthunt.com/products/busabase",
+      "source_text": "Busabase The general system of record for AI agents Different agents. One shared base. Busabase is a general-purpose database and workspace for people and AI agents. Keep business records, docs, skills, and apps in one place so the next task can build on them. Connect Claude Code, Codex, and more. Set access, review changes when needed, and see what changed. Busabase is open source, with Cloud, Personal Desktop, and self-hosting options. Productivity Developer Tools Database",
+      "signals": {
+        "upvotes": 344,
+        "comments": 84
+      },
+      "published_at": "2026-10-09T07:01:00Z"
+    },
+    {
+      "id": "ph-zernio-2-2026-10-10",
+      "title": "Zernio",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://zernio.link/ph",
+      "source_url": "https://www.producthunt.com/products/zernio",
+      "source_text": "Zernio Marketing infrastructure for products and agents Zernio is the marketing infrastructure 200,000 developers build products on. We absorb the integrations, platform approvals and maintenance behind every channel, all on official APIs, so you can start building today. One API covers 16 social platforms, ads on 7 networks, WhatsApp, iMessage, and phone numbers with calls and SMS that you buy inside Zernio. Use the REST API in your code, or let your coding agent do the same through our MCP server and CLI. API Marketing Developer Tools",
+      "signals": {
+        "upvotes": 321,
+        "comments": 52
+      },
+      "published_at": "2026-10-09T07:01:00Z"
+    },
+    {
+      "id": "ph-playground-by-google-labs-2026-10-10",
+      "title": "Playground by Google Labs",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://labs.google/playground",
+      "source_url": "https://www.producthunt.com/products/google-labs",
+      "source_text": "Playground by Google Labs Create, play, and share your own games with Google AI Google Playground is an experimental AI gaming platform that lets anyone create, play, and share custom games without coding. Describe your idea, choose a genre, and let AI build a playable game in minutes. Change the rules, characters, physics, or visuals simply by chatting. Share your creation with friends, publish it to the community gallery, or explore games made by others. Powered by Google's Gemini, Nano Banana, and Lyria models. Artificial Intelligence Games",
+      "signals": {
+        "upvotes": 218,
+        "comments": 11
+      },
+      "published_at": "2026-10-09T07:01:00Z"
+    },
+    {
+      "id": "ph-together-link-2026-10-10",
+      "title": "Together Link",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.together.ai/link",
+      "source_url": "https://www.producthunt.com/products/together-ai",
+      "source_text": "Together Link Use open models in your harness Together Link connects coding agents to open models on Together AI, letting developers keep their existing tools and workflows while reducing model costs. Open Source Developer Tools Artificial Intelligence",
+      "signals": {
+        "upvotes": 184,
+        "comments": 3
+      },
+      "published_at": "2026-10-09T07:01:00Z"
+    },
+    {
+      "id": "ph-odyssey-3-5-2026-10-10",
+      "title": "Odyssey 3",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://odyssey.systems/meet-odyssey-3",
+      "source_url": "https://www.producthunt.com/products/odyssey-3",
+      "source_text": "Odyssey 3 A world model that simulates physics in real time Odyssey-3 is a foundation world model that generates interactive environments from a prompt and predicts in real time how they change as you or an agent act in them. Its Pro version posts the highest reported Physics-IQ Verified video-to-video score (66.1, best-of-8). The same model has been adapted to control robot arms and humanoids, drive a car, and train agents. Try the research preview, or get in touch for API access.x` Artificial Intelligence",
+      "signals": {
+        "upvotes": 158,
+        "comments": 4
+      },
+      "published_at": "2026-10-09T07:01:00Z"
+    },
+    {
+      "id": "hn-show-hn-let-your-ai-agents-paint-big-arrows-2026-10-10",
+      "title": "Show HN: Let your AI agents paint big arrows, boxes and text on your screen",
+      "category": "launches",
+      "source": "hackernews",
+      "url": "https://github.com/franzenzenhofer/big-arrow-on-the-screen",
+      "source_url": "https://news.ycombinator.com/item?id=50018817",
+      "source_text": "Show HN: Let your AI agents paint big arrows, boxes and text on your screen",
+      "signals": {
+        "points": 395,
+        "comments": 175
+      },
+      "meta": {
+        "author": "franze"
+      },
+      "published_at": "2026-10-09T11:03:48Z"
+    },
+    {
+      "id": "gh-diagram-design-2026-10-10",
+      "title": "cathrynlavery/diagram-design",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "source_url": "https://github.com/cathrynlavery/diagram-design",
+      "source_text": "cathrynlavery/diagram-design Editorial diagram design for Claude Code, Codex, GitHub Copilot, Factory Droid, and Pi. 44 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop. HTML",
+      "signals": {
+        "stars": 48260,
+        "stars_gained": 1739,
+        "forks": 3053
+      },
+      "meta": {
+        "language": "HTML"
+      }
+    },
+    {
+      "id": "gh-knowledge-work-plugins-2026-10-10",
+      "title": "anthropics/knowledge-work-plugins",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/anthropics/knowledge-work-plugins",
+      "source_url": "https://github.com/anthropics/knowledge-work-plugins",
+      "source_text": "anthropics/knowledge-work-plugins Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork Python",
+      "signals": {
+        "stars": 28460,
+        "stars_gained": 709,
+        "forks": 3258
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-agent-skills-2026-10-10",
+      "title": "addyosmani/agent-skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills",
+      "source_text": "addyosmani/agent-skills Production-grade engineering skills for AI coding agents. JavaScript",
+      "signals": {
+        "stars": 104212,
+        "stars_gained": 436,
+        "forks": 10879
+      },
+      "meta": {
+        "language": "JavaScript"
+      }
+    },
+    {
+      "id": "gh-open-code-review-2026-10-10",
+      "title": "alibaba/open-code-review",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/alibaba/open-code-review",
+      "source_url": "https://github.com/alibaba/open-code-review",
+      "source_text": "alibaba/open-code-review Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible. Go",
+      "signals": {
+        "stars": 45573,
+        "stars_gained": 326,
+        "forks": 3289
+      },
+      "meta": {
+        "language": "Go"
+      }
+    },
+    {
+      "id": "gh-lingbot-map-2026-10-10",
+      "title": "Robbyant/lingbot-map",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/Robbyant/lingbot-map",
+      "source_url": "https://github.com/Robbyant/lingbot-map",
+      "source_text": "Robbyant/lingbot-map [ECCV 2026 Best Paper Award Candidate] LingBot-Map: Geometric Context Transformer for Streaming 3D Reconstruction Python",
+      "signals": {
+        "stars": 17833,
+        "stars_gained": 110,
+        "forks": 1960
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-litellm-2026-10-10",
+      "title": "BerriAI/litellm",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/BerriAI/litellm",
+      "source_url": "https://github.com/BerriAI/litellm",
+      "source_text": "BerriAI/litellm The fastest, litest AI Gateway. Rust core with Python SDK. Call 100+ LLM APIs in OpenAI (or native) format with cost tracking, guardrails, load balancing, and logging [Bedrock, Azure, OpenAI, Anthropic, OpenAI, VertexAI, vLLM, Nvidia NIM] Python",
+      "signals": {
+        "stars": 60810,
+        "stars_gained": 95,
+        "forks": 12201
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-swiftui-agent-skill-2026-10-10",
+      "title": "twostraws/SwiftUI-Agent-Skill",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/twostraws/SwiftUI-Agent-Skill",
+      "source_url": "https://github.com/twostraws/SwiftUI-Agent-Skill",
+      "source_text": "twostraws/SwiftUI-Agent-Skill SwiftUI agent skill for Claude Code, Codex, and other AI tools.",
+      "signals": {
+        "stars": 5596,
+        "stars_gained": 65,
+        "forks": 197
+      }
+    },
+    {
+      "id": "tc-an-anthropic-ai-model-sent-a-false-homicide-tip-2026-10-10",
+      "title": "An Anthropic AI model sent a false homicide tip to Philadelphia police",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/09/an-anthropic-ai-model-sent-a-false-homicide-tip-to-philadelphia-police/",
+      "source_url": "https://techcrunch.com/2026/10/09/an-anthropic-ai-model-sent-a-false-homicide-tip-to-philadelphia-police/",
+      "source_text": "An Anthropic AI model sent a false homicide tip to Philadelphia police Anthropic did not discover this behavior until over two months after its AI submitted the false tip.",
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-09T19:36:56Z"
+    },
+    {
+      "id": "tc-anthropic-cant-reliably-control-its-ai-agents-2026-10-10",
+      "title": "Anthropic can’t reliably control its AI agents. It’s cutting off its internal evals from the live internet instead",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/",
+      "source_url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/",
+      "source_text": "Anthropic can’t reliably control its AI agents. It’s cutting off its internal evals from the live internet instead Anthropic said it \"turned off live internet access\" for \"all our internal evaluations\" until further notice.",
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-10-10T00:18:32Z"
+    },
+    {
+      "id": "tc-the-maker-of-non-text-ai-model-jev-valued-at-7-2026-10-10",
+      "title": "The maker of non-text AI model Jev valued at $7.5B just weeks after launch",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/09/the-maker-of-non-text-ai-model-jev-valued-at-7-5b-just-weeks-after-launch/",
+      "source_url": "https://techcrunch.com/2026/10/09/the-maker-of-non-text-ai-model-jev-valued-at-7-5b-just-weeks-after-launch/",
+      "source_text": "The maker of non-text AI model Jev valued at $7.5B just weeks after launch What has users and large corporations so excited about Jev is TypeSafe’s claim that it works significantly faster and uses far fewer tokens than LLMs.",
+      "meta": {
+        "author": "Marina Temkin",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-09T21:41:29Z"
+    },
+    {
+      "id": "tc-amazon-and-others-are-done-keeping-data-center-2026-10-10",
+      "title": "Amazon and others are done keeping data center deals secret. Is it enough to build trust?",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/video/amazon-and-others-are-done-keeping-data-center-deals-secret-is-it-enough-to-build-trust/",
+      "source_url": "https://techcrunch.com/video/amazon-and-others-are-done-keeping-data-center-deals-secret-is-it-enough-to-build-trust/",
+      "source_text": "Amazon and others are done keeping data center deals secret. Is it enough to build trust? Watch as Equity discusses whether ditching NDAs will change how data center deals get done, why trust may be the real product for personal AI startups, plus a couple of deals of the week. ",
+      "meta": {
+        "reading_time": "1 minute"
+      },
+      "published_at": "2026-10-09T16:56:42Z"
+    },
+    {
+      "id": "tc-amazon-drops-data-center-ndas-and-ai-agents-2026-10-10",
+      "title": "Amazon drops data center NDAs, and AI agents want your credit card",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/podcast/amazon-drops-data-center-ndas-and-ai-agents-want-your-credit-card/",
+      "source_url": "https://techcrunch.com/podcast/amazon-drops-data-center-ndas-and-ai-agents-want-your-credit-card/",
+      "source_text": "Amazon drops data center NDAs, and AI agents want your credit card Amazon is backing off NDAs for data center deals, showing that communities can still make some noise in the AI infrastructure boom. Equity looks at the shift, plus the race to make personal AI agents useful, and more deals of the week.",
+      "meta": {
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-09T16:53:02Z"
+    },
+    {
+      "id": "tc-danu-robotics-fight-to-build-a-better-recycling-2026-10-10",
+      "title": "Danu Robotics’ fight to build a better recycling robot",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/09/danu-robotics-fight-to-build-a-better-recycling-robot/",
+      "source_url": "https://techcrunch.com/2026/10/09/danu-robotics-fight-to-build-a-better-recycling-robot/",
+      "source_text": "Danu Robotics’ fight to build a better recycling robot For six years, Danu founder Amy Ma has been working on a better way to sort recyclable waste.",
+      "meta": {
+        "author": "Russell Brandom",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-10-09T16:45:00Z"
+    },
+    {
+      "id": "tc-we-cant-help-treating-ai-like-its-human-but-2026-10-10",
+      "title": "We can’t help treating AI like it’s human. But should we?",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/09/we-cant-help-treating-ai-like-its-human-but-should-we/",
+      "source_url": "https://techcrunch.com/2026/10/09/we-cant-help-treating-ai-like-its-human-but-should-we/",
+      "source_text": "We can’t help treating AI like it’s human. But should we? \"When we are drawn into even the most primitive exchanges with a relational artifact, we believe it cares for us,\" Dr. Sherry Turkle writes. \"And we are wired to care for it in return.\"",
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-10-09T16:40:14Z"
+    },
+    {
+      "id": "tc-a16zs-olivia-moore-on-the-state-of-consumer-ai-2026-10-10",
+      "title": "a16z’s Olivia Moore on the state of consumer AI",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/09/a16zs-olivia-moore-on-the-state-of-consumer-ai/",
+      "source_url": "https://techcrunch.com/2026/10/09/a16zs-olivia-moore-on-the-state-of-consumer-ai/",
+      "source_text": "a16z’s Olivia Moore on the state of consumer AI Moore sees a huge opportunity in consumer AI, particularly if the industry can tap into revenue streams beyond just subscriptions and API charges.",
+      "meta": {
+        "author": "Russell Brandom",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-10-09T15:43:33Z"
+    },
+    {
+      "id": "tc-techcrunch-disrupt-2026-starts-in-4-days-lock-2026-10-10",
+      "title": "TechCrunch Disrupt 2026 starts in 4 days — lock in your pass savings of up to $100 before prices rise",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/09/techcrunch-disrupt-2026-starts-in-4-days-lock-in-your-pass-savings-of-up-to-100-before-prices-rise/",
+      "source_url": "https://techcrunch.com/2026/10/09/techcrunch-disrupt-2026-starts-in-4-days-lock-in-your-pass-savings-of-up-to-100-before-prices-rise/",
+      "source_text": "TechCrunch Disrupt 2026 starts in 4 days — lock in your pass savings of up to $100 before prices rise 4 days until TechCrunch Disrupt 2026 starts and when 10,000 founders, investors, and tech leaders gather in San Francisco. Save up to $100 on your pass now.",
+      "meta": {
+        "author": "TechCrunch Events",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-10-09T14:00:00Z"
+    },
+    {
+      "id": "hn-typesafe-ai-raises-870m-at-7-5b-2026-10-10",
+      "title": "Typesafe AI raises $870M at $7.5B",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://typesafe.ai/blog/series-ai",
+      "source_url": "https://news.ycombinator.com/item?id=50023450",
+      "source_text": "Typesafe AI raises $870M at $7.5B",
+      "signals": {
+        "points": 352,
+        "comments": 258
+      },
+      "meta": {
+        "author": "tosh"
+      },
+      "published_at": "2026-10-09T17:02:31Z"
+    },
+    {
+      "id": "hn-openai-fires-three-safety-researchers-for-2026-10-10",
+      "title": "OpenAI fires three safety researchers for \"mishandling research information\"",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://techcrunch.com/2026/10/08/fired-openai-safety-researchers-dispute-misconduct-claims-warn-of-chilling-effect/",
+      "source_url": "https://news.ycombinator.com/item?id=50018350",
+      "source_text": "OpenAI fires three safety researchers for \"mishandling research information\"",
+      "signals": {
+        "points": 329,
+        "comments": 208
+      },
+      "meta": {
+        "author": "trakkstar"
+      },
+      "published_at": "2026-10-09T10:00:26Z"
+    },
+    {
+      "id": "hn-iranian-campaign-planted-fake-articles-in-real-2026-10-10",
+      "title": "Iranian campaign planted fake articles in real U.S. publications using ChatGPT",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.washingtonpost.com/technology/2026/10/09/chatgpt-users-iran-planted-ai-generated-articles-us-news-media/",
+      "source_url": "https://news.ycombinator.com/item?id=50019455",
+      "source_text": "Iranian campaign planted fake articles in real U.S. publications using ChatGPT",
+      "signals": {
+        "points": 184,
+        "comments": 165
+      },
+      "meta": {
+        "author": "cainxinth"
+      },
+      "published_at": "2026-10-09T12:21:24Z"
+    },
+    {
+      "id": "hn-anthropic-ai-model-submits-false-tip-on-2026-10-10",
+      "title": "Anthropic AI model submits false tip on unsolved Philly murder, police say",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.nbcphiladelphia.com/news/local/anthropic-ai-model-submits-false-tip-on-unsolved-philly-murder-police-say/4477051/",
+      "source_url": "https://news.ycombinator.com/item?id=50027118",
+      "source_text": "Anthropic AI model submits false tip on unsolved Philly murder, police say",
+      "signals": {
+        "points": 154,
+        "comments": 114
+      },
+      "meta": {
+        "author": "Zambyte"
+      },
+      "published_at": "2026-10-09T22:00:35Z"
+    },
+    {
+      "id": "hn-pointing-ai-at-archives-found-a-forgotten-2026-10-10",
+      "title": "Pointing AI at archives found a forgotten meteorite, lost rhinos, and more",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://jessewaites.com/blog/post/i-pointed-ai-at-400-years-of-archives/",
+      "source_url": "https://news.ycombinator.com/item?id=50019056",
+      "source_text": "Pointing AI at archives found a forgotten meteorite, lost rhinos, and more",
+      "signals": {
+        "points": 139,
+        "comments": 73
+      },
+      "meta": {
+        "author": "piratebroadcast"
+      },
+      "published_at": "2026-10-09T11:36:20Z"
+    },
+    {
+      "id": "hn-what-mathematicians-should-know-about-the-lean-2026-10-10",
+      "title": "What mathematicians should know about the Lean Theorem Prover: reliability & AI",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://terrytao.wordpress.com/2026/10/09/what-mathematicians-should-know-about-the-lean-theorem-proverquestions-of-reliability-and-ai/",
+      "source_url": "https://news.ycombinator.com/item?id=50024090",
+      "source_text": "What mathematicians should know about the Lean Theorem Prover: reliability & AI",
+      "signals": {
+        "points": 97,
+        "comments": 18
+      },
+      "meta": {
+        "author": "matt_d"
+      },
+      "published_at": "2026-10-09T17:42:12Z"
+    },
+    {
+      "id": "hn-the-super-intelligence-shit-is-a-humiliation-2026-10-10",
+      "title": "The super intelligence shit is a humiliation ritual for OpenAI",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://bsky.app/profile/opinionhaver.bsky.social/post/3mxfo2mdjqs2z",
+      "source_url": "https://news.ycombinator.com/item?id=50021763",
+      "source_text": "The super intelligence shit is a humiliation ritual for OpenAI",
+      "signals": {
+        "points": 93,
+        "comments": 83
+      },
+      "meta": {
+        "author": "doener"
+      },
+      "published_at": "2026-10-09T15:18:59Z"
+    },
+    {
+      "id": "hn-court-throws-out-killer-s-sentence-after-judge-2026-10-10",
+      "title": "Court throws out killer's sentence after judge said he loved AI video of victim",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.nbcnews.com/news/us-news/sentence-vacated-ai-video-dead-victim-rcna601457",
+      "source_url": "https://news.ycombinator.com/item?id=50020856",
+      "source_text": "Court throws out killer's sentence after judge said he loved AI video of victim",
+      "signals": {
+        "points": 70,
+        "comments": 74
+      },
+      "meta": {
+        "author": "rbanffy"
+      },
+      "published_at": "2026-10-09T14:14:08Z"
+    },
+    {
+      "id": "hn-openai-mistranslated-mathematics-into-code-for-2026-10-10",
+      "title": "OpenAI mistranslated mathematics into code for its Navier-Stokes proof",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.newscientist.com/article/2592824-openai-mistranslated-mathematics-into-code-for-its-navier-stokes-proof/",
+      "source_url": "https://news.ycombinator.com/item?id=50026734",
+      "source_text": "OpenAI mistranslated mathematics into code for its Navier-Stokes proof",
+      "signals": {
+        "points": 55,
+        "comments": 5
+      },
+      "meta": {
+        "author": "danielmorozoff"
+      },
+      "published_at": "2026-10-09T21:25:09Z"
+    }
+  ]
+}

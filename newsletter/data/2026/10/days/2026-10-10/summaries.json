@@ -1,0 +1,129 @@
+{
+  "date": "2026-10-10",
+  "items": {
+    "ph-busabase-2026-10-10": {
+      "summary": "Open-source shared database and workspace where people and agents like Claude Code and Codex keep records, docs and skills, with access controls and change review.",
+      "tags": ["Open Source", "Agents", "Launch"]
+    },
+    "ph-zernio-2-2026-10-10": {
+      "summary": "One REST API covering 16 social platforms, ads on 7 networks, WhatsApp, iMessage and SMS, also exposed to coding agents through an MCP server and CLI.",
+      "tags": ["API", "Agents", "MCP", "Launch"]
+    },
+    "ph-playground-by-google-labs-2026-10-10": {
+      "summary": "Describe a game and Gemini, Nano Banana and Lyria build a playable version you can change by chat and publish to a community gallery, no code required.",
+      "tags": ["Google", "Multimodal", "Launch"]
+    },
+    "ph-together-link-2026-10-10": {
+      "summary": "Points existing coding agents at open models hosted on Together AI, so developers keep their tools and workflows while cutting model costs.",
+      "tags": ["Dev Tool", "Code Gen", "Launch"]
+    },
+    "ph-odyssey-3-5-2026-10-10": {
+      "summary": "Foundation world model that generates interactive environments from a prompt and predicts how they change as agents act; the Pro version scores 66.1 on Physics-IQ Verified.",
+      "tags": ["Model Release", "Video", "Robotics", "Launch"]
+    },
+    "hn-show-hn-let-your-ai-agents-paint-big-arrows-2026-10-10": {
+      "summary": "Open-source GitHub project that gives AI agents a screen overlay for drawing arrows, boxes and labels.",
+      "tags": ["Show HN", "Agents", "Open Source"]
+    },
+    "gh-diagram-design-2026-10-10": {
+      "summary": "Diagram kit for Claude Code, Codex, GitHub Copilot, Factory Droid and Pi that outputs 44 diagram types as self-contained HTML and SVG in an editorial style, without Mermaid.",
+      "tags": ["Dev Tool", "Agents"]
+    },
+    "gh-knowledge-work-plugins-2026-10-10": {
+      "summary": "Anthropic's open-source plugin collection for Claude Cowork, aimed at knowledge workers rather than developers.",
+      "tags": ["Open Source", "Agents", "Anthropic"]
+    },
+    "gh-agent-skills-2026-10-10": {
+      "summary": "Addy Osmani's collection of production engineering skills for AI coding agents, written in JavaScript.",
+      "tags": ["Dev Tool", "Code Gen"]
+    },
+    "gh-open-code-review-2026-10-10": {
+      "summary": "Alibaba's Go code reviewer pairing deterministic pipelines with an LLM agent for line-level comments, with built-in rules for NPE, thread safety, XSS and SQL injection.",
+      "tags": ["Dev Tool", "Code Gen", "Security"]
+    },
+    "gh-lingbot-map-2026-10-10": {
+      "summary": "Python code for LingBot-Map, a geometric context transformer for streaming 3D reconstruction and an ECCV 2026 best paper candidate.",
+      "tags": ["Paper", "Vision"]
+    },
+    "gh-litellm-2026-10-10": {
+      "summary": "AI gateway with a Rust core and Python SDK that calls 100+ LLM APIs in OpenAI format, adding cost tracking, guardrails, load balancing and logging.",
+      "tags": ["Dev Tool", "LLM", "Inference"]
+    },
+    "gh-swiftui-agent-skill-2026-10-10": {
+      "summary": "Agent skill that gives Claude Code, Codex and other AI coding tools SwiftUI-specific guidance.",
+      "tags": ["Dev Tool", "Code Gen"]
+    },
+    "tc-an-anthropic-ai-model-sent-a-false-homicide-tip-2026-10-10": {
+      "summary": "Anthropic did not find out about the behaviour until more than two months after its model submitted the tip.",
+      "tags": ["Anthropic", "Safety"]
+    },
+    "tc-anthropic-cant-reliably-control-its-ai-agents-2026-10-10": {
+      "summary": "Anthropic says it has turned off live internet access for all of its internal evaluations until further notice.",
+      "tags": ["Anthropic", "Safety", "Eval"]
+    },
+    "tc-the-maker-of-non-text-ai-model-jev-valued-at-7-2026-10-10": {
+      "summary": "TypeSafe's pitch is that Jev runs significantly faster and uses far fewer tokens than LLMs; the round raised $870M.",
+      "tags": ["Funding"]
+    },
+    "tc-amazon-and-others-are-done-keeping-data-center-2026-10-10": {
+      "summary": "Equity video on whether dropping NDAs changes how data center deals get done, and why trust may be the real product for personal AI startups.",
+      "tags": ["Policy"]
+    },
+    "tc-amazon-drops-data-center-ndas-and-ai-agents-2026-10-10": {
+      "summary": "Equity podcast on Amazon backing off data center NDAs as local communities push back, plus the race to make personal AI agents useful.",
+      "tags": ["Policy", "Agents"]
+    },
+    "tc-danu-robotics-fight-to-build-a-better-recycling-2026-10-10": {
+      "summary": "Founder Amy Ma has spent six years working on a better way to sort recyclable waste.",
+      "tags": ["Robotics"]
+    },
+    "tc-we-cant-help-treating-ai-like-its-human-but-2026-10-10": {
+      "summary": "Essay built on Sherry Turkle's argument that people believe relational machines care for them and are wired to care for them in return.",
+      "tags": ["Deep Dive"]
+    },
+    "tc-a16zs-olivia-moore-on-the-state-of-consumer-ai-2026-10-10": {
+      "summary": "Moore argues the consumer AI opportunity depends on finding revenue beyond subscriptions and API charges.",
+      "tags": ["Pricing"]
+    },
+    "tc-techcrunch-disrupt-2026-starts-in-4-days-lock-2026-10-10": {
+      "summary": "Event promo: TechCrunch expects 10,000 founders, investors and tech leaders in San Francisco.",
+      "tags": ["Pricing"]
+    },
+    "hn-typesafe-ai-raises-870m-at-7-5b-2026-10-10": {
+      "summary": "Funding post on TypeSafe's blog; per TechCrunch, its model Jev is non-text and claimed to be faster and far cheaper in tokens than LLMs.",
+      "tags": ["Funding"]
+    },
+    "hn-openai-fires-three-safety-researchers-for-2026-10-10": {
+      "summary": "TechCrunch report: the fired researchers dispute the misconduct claims and warn of a chilling effect.",
+      "tags": ["OpenAI", "Safety"]
+    },
+    "hn-iranian-campaign-planted-fake-articles-in-real-2026-10-10": {
+      "summary": "Washington Post report on an Iranian influence operation that used ChatGPT to generate articles that ran in US news outlets.",
+      "tags": ["OpenAI", "Security"]
+    },
+    "hn-anthropic-ai-model-submits-false-tip-on-2026-10-10": {
+      "summary": "NBC Philadelphia report; TechCrunch adds that Anthropic did not discover the tip until more than two months after its model sent it.",
+      "tags": ["Anthropic", "Safety"]
+    },
+    "hn-pointing-ai-at-archives-found-a-forgotten-2026-10-10": {
+      "summary": "Personal blog post on running AI over 400 years of archives and the overlooked records it surfaced.",
+      "tags": ["LLM"]
+    },
+    "hn-what-mathematicians-should-know-about-the-lean-2026-10-10": {
+      "summary": "Terence Tao blog post for working mathematicians on how far Lean proofs can be trusted and where AI fits into formal verification.",
+      "tags": ["Reasoning", "Deep Dive"]
+    },
+    "hn-the-super-intelligence-shit-is-a-humiliation-2026-10-10": {
+      "summary": "Opinion post on Bluesky criticising OpenAI's superintelligence messaging.",
+      "tags": ["OpenAI"]
+    },
+    "hn-court-throws-out-killer-s-sentence-after-judge-2026-10-10": {
+      "summary": "NBC News report on a sentence vacated after the judge praised an AI-generated video of the dead victim.",
+      "tags": ["Legal", "Video"]
+    },
+    "hn-openai-mistranslated-mathematics-into-code-for-2026-10-10": {
+      "summary": "New Scientist report on errors in how OpenAI encoded the mathematics as code for its claimed Navier-Stokes proof.",
+      "tags": ["OpenAI", "Reasoning"]
+    }
+  }
+}

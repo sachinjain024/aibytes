@@ -1,0 +1,120 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-10-10",
+  "window": {
+    "after": "2026-10-09",
+    "before": "2026-10-11"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 10,
+  "poolCount": 57,
+  "stories": [
+    {
+      "title": "Show HN: Let your AI agents paint big arrows, boxes and text on your screen",
+      "url": "https://github.com/franzenzenhofer/big-arrow-on-the-screen",
+      "type": "show_hn",
+      "points": 395,
+      "num_comments": 175,
+      "author": "franze",
+      "created_at": "2026-10-09T11:03:48Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50018817"
+    },
+    {
+      "title": "Typesafe AI raises $870M at $7.5B",
+      "url": "https://typesafe.ai/blog/series-ai",
+      "type": "story",
+      "points": 352,
+      "num_comments": 258,
+      "author": "tosh",
+      "created_at": "2026-10-09T17:02:31Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50023450"
+    },
+    {
+      "title": "OpenAI fires three safety researchers for \"mishandling research information\"",
+      "url": "https://techcrunch.com/2026/10/08/fired-openai-safety-researchers-dispute-misconduct-claims-warn-of-chilling-effect/",
+      "type": "story",
+      "points": 329,
+      "num_comments": 208,
+      "author": "trakkstar",
+      "created_at": "2026-10-09T10:00:26Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50018350"
+    },
+    {
+      "title": "Iranian campaign planted fake articles in real U.S. publications using ChatGPT",
+      "url": "https://www.washingtonpost.com/technology/2026/10/09/chatgpt-users-iran-planted-ai-generated-articles-us-news-media/",
+      "type": "story",
+      "points": 184,
+      "num_comments": 165,
+      "author": "cainxinth",
+      "created_at": "2026-10-09T12:21:24Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50019455"
+    },
+    {
+      "title": "Anthropic AI model submits false tip on unsolved Philly murder, police say",
+      "url": "https://www.nbcphiladelphia.com/news/local/anthropic-ai-model-submits-false-tip-on-unsolved-philly-murder-police-say/4477051/",
+      "type": "story",
+      "points": 154,
+      "num_comments": 114,
+      "author": "Zambyte",
+      "created_at": "2026-10-09T22:00:35Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50027118"
+    },
+    {
+      "title": "Pointing AI at archives found a forgotten meteorite, lost rhinos, and more",
+      "url": "https://jessewaites.com/blog/post/i-pointed-ai-at-400-years-of-archives/",
+      "type": "story",
+      "points": 139,
+      "num_comments": 73,
+      "author": "piratebroadcast",
+      "created_at": "2026-10-09T11:36:20Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50019056"
+    },
+    {
+      "title": "What mathematicians should know about the Lean Theorem Prover: reliability & AI",
+      "url": "https://terrytao.wordpress.com/2026/10/09/what-mathematicians-should-know-about-the-lean-theorem-proverquestions-of-reliability-and-ai/",
+      "type": "story",
+      "points": 97,
+      "num_comments": 18,
+      "author": "matt_d",
+      "created_at": "2026-10-09T17:42:12Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50024090"
+    },
+    {
+      "title": "The super intelligence shit is a humiliation ritual for OpenAI",
+      "url": "https://bsky.app/profile/opinionhaver.bsky.social/post/3mxfo2mdjqs2z",
+      "type": "story",
+      "points": 93,
+      "num_comments": 83,
+      "author": "doener",
+      "created_at": "2026-10-09T15:18:59Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50021763"
+    },
+    {
+      "title": "Court throws out killer's sentence after judge said he loved AI video of victim",
+      "url": "https://www.nbcnews.com/news/us-news/sentence-vacated-ai-video-dead-victim-rcna601457",
+      "type": "story",
+      "points": 70,
+      "num_comments": 74,
+      "author": "rbanffy",
+      "created_at": "2026-10-09T14:14:08Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50020856"
+    },
+    {
+      "title": "OpenAI mistranslated mathematics into code for its Navier-Stokes proof",
+      "url": "https://www.newscientist.com/article/2592824-openai-mistranslated-mathematics-into-code-for-its-navier-stokes-proof/",
+      "type": "story",
+      "points": 55,
+      "num_comments": 5,
+      "author": "danielmorozoff",
+      "created_at": "2026-10-09T21:25:09Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50026734"
+    }
+  ]
+}
