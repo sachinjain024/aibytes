@@ -13,6 +13,9 @@ Claude Code skills fetch the top AI content from around the web and commit it
 here as dated JSON snapshots. The pipeline is deliberately boring: stdlib-only
 Python, no database, no server, content as files in git.
 
+**Running on the iMac (launchd):** the daily job host's setup is in
+[packages/runner/README.md](packages/runner/README.md#setup).
+
 | Path | What it is |
 |---|---|
 | `newsletter/` | The newsletter pipeline: issues, data snapshots, source mirrors, decision records |
