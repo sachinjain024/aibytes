@@ -20,6 +20,7 @@ Python, no database, no server, content as files in git.
 |---|---|
 | `newsletter/` | The newsletter pipeline: issues, data snapshots, source mirrors, decision records |
 | `packages/fetchers/` | Shared, cadence-agnostic fetch machinery for every data source |
+| `packages/runner/` | The daily runner: the scheduled job that publishes an edition, its launchd agents, and the watchdog |
 | `packages/feed-schema/` | The contract for `content/`: schemas, TypeScript types, a validator |
 | `packages/design-system/` | Ledger — design tokens + React components for the app and extension |
 | `content/` | The published data the app and extension read — editions, index, tags, hide log |
