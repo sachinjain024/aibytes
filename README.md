@@ -89,7 +89,7 @@ stdlib validator that checks each file and how they agree with each other:
 python3 packages/feed-schema/validate.py
 ```
 
-The editions and index are empty until the daily runner lands.
+The daily runner (`packages/runner`) publishes a new edition each day.
 
 ## Design system
 
