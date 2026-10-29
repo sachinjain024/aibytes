@@ -1,0 +1,120 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-10-29",
+  "window": {
+    "after": "2026-10-28",
+    "before": "2026-10-30"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 12,
+  "poolCount": 51,
+  "stories": [
+    {
+      "title": "Gemini 4 Carbon",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+      "type": "story",
+      "points": 901,
+      "num_comments": 737,
+      "author": "acossta",
+      "created_at": "2026-10-28T17:01:23Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50276792"
+    },
+    {
+      "title": "Kentucky man becomes the first humanist granted religious exemption from AI",
+      "url": "https://religionnews.com/2026/10/26/in-a-first-a-humanist-granted-a-religious-exemption-from-using-ai/",
+      "type": "story",
+      "points": 456,
+      "num_comments": 500,
+      "author": "danso",
+      "created_at": "2026-10-28T13:41:30Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50273396"
+    },
+    {
+      "title": "Claude Code regularly sends each background agent\u2019s transcript to its model",
+      "url": "https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce",
+      "type": "story",
+      "points": 304,
+      "num_comments": 92,
+      "author": "NikZaal",
+      "created_at": "2026-10-29T03:33:42Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50284255"
+    },
+    {
+      "title": "Dayjob: Tax \u2013 evaluating AI agents on 50 professional tax assignments",
+      "url": "https://surgehq.ai/blog/dayjob-tax",
+      "type": "story",
+      "points": 226,
+      "num_comments": 147,
+      "author": "landonxi",
+      "created_at": "2026-10-28T15:46:30Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50275626"
+    },
+    {
+      "title": "Google AI gets cagey when asked who won the 2020 elections",
+      "url": "https://arstechnica.com/ai/2026/10/google-ai-gets-cagey-when-asked-who-won-the-2020-elections/",
+      "type": "story",
+      "points": 149,
+      "num_comments": 69,
+      "author": "jacquesm",
+      "created_at": "2026-10-28T20:10:16Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50280178"
+    },
+    {
+      "title": "Nvidia Nemotron 3.5 Transcribe: open ASR for 40 languages",
+      "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+      "type": "story",
+      "points": 119,
+      "num_comments": 20,
+      "author": "wondersky",
+      "created_at": "2026-10-28T15:17:53Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50275128"
+    },
+    {
+      "title": "Harvey raised 500M for legal AI, I built the same and open sourced it",
+      "url": "https://github.com/thomasunise/casecite",
+      "type": "story",
+      "points": 69,
+      "num_comments": 38,
+      "author": "zztopisgreat",
+      "created_at": "2026-10-28T13:56:21Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50273623"
+    },
+    {
+      "title": "Microsoft and Epic Games Suddenly Agree That AI Is Theft",
+      "url": "https://kotaku.com/now-that-the-shoe-is-on-the-other-foot-microsoft-and-epic-games-suddenly-agree-that-ai-is-theft-2000749316",
+      "type": "story",
+      "points": 69,
+      "num_comments": 33,
+      "author": "tom2026hn",
+      "created_at": "2026-10-28T10:10:58Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50271271"
+    },
+    {
+      "title": "Valve Responds to Developers Fearing AI Slop and Clones",
+      "url": "https://www.invenglobal.com/articles/27761/valve-responds-to-developers-fearing-ai-slop-and-clones",
+      "type": "story",
+      "points": 65,
+      "num_comments": 78,
+      "author": "HelloUsername",
+      "created_at": "2026-10-28T13:27:24Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50273192"
+    },
+    {
+      "title": "AI execs may be too out of touch to build for the general public",
+      "url": "https://techcrunch.com/2026/10/28/ai-execs-may-be-too-out-of-touch-to-build-for-the-general-public/",
+      "type": "story",
+      "points": 57,
+      "num_comments": 40,
+      "author": "pavel_lishin",
+      "created_at": "2026-10-28T22:27:46Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50281826"
+    }
+  ]
+}

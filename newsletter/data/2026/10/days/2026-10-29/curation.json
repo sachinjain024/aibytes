@@ -1,0 +1,741 @@
+{
+  "date": "2026-10-29",
+  "generated_at": "2026-10-29T08:00:18Z",
+  "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
+  "tags": [
+    {
+      "name": "What it is",
+      "tags": [
+        {
+          "name": "Model Release",
+          "slug": "model-release"
+        },
+        {
+          "name": "Open Source",
+          "slug": "open-source"
+        },
+        {
+          "name": "Paper",
+          "slug": "paper"
+        },
+        {
+          "name": "Benchmark",
+          "slug": "benchmark"
+        },
+        {
+          "name": "Dataset",
+          "slug": "dataset"
+        },
+        {
+          "name": "Framework",
+          "slug": "framework"
+        },
+        {
+          "name": "Dev Tool",
+          "slug": "dev-tool"
+        },
+        {
+          "name": "API",
+          "slug": "api"
+        }
+      ]
+    },
+    {
+      "name": "Domain",
+      "tags": [
+        {
+          "name": "LLM",
+          "slug": "llm"
+        },
+        {
+          "name": "Agents",
+          "slug": "agents"
+        },
+        {
+          "name": "RAG",
+          "slug": "rag"
+        },
+        {
+          "name": "Fine-tuning",
+          "slug": "fine-tuning"
+        },
+        {
+          "name": "Inference",
+          "slug": "inference"
+        },
+        {
+          "name": "Local LLM",
+          "slug": "local-llm"
+        },
+        {
+          "name": "Vision",
+          "slug": "vision"
+        },
+        {
+          "name": "Voice / Speech",
+          "slug": "voice-speech"
+        },
+        {
+          "name": "Video",
+          "slug": "video"
+        },
+        {
+          "name": "Image Gen",
+          "slug": "image-gen"
+        },
+        {
+          "name": "Code Gen",
+          "slug": "code-gen"
+        },
+        {
+          "name": "Embeddings",
+          "slug": "embeddings"
+        },
+        {
+          "name": "Eval",
+          "slug": "eval"
+        },
+        {
+          "name": "Reasoning",
+          "slug": "reasoning"
+        },
+        {
+          "name": "Multimodal",
+          "slug": "multimodal"
+        },
+        {
+          "name": "Robotics",
+          "slug": "robotics"
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem",
+      "tags": [
+        {
+          "name": "OpenAI",
+          "slug": "openai"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic"
+        },
+        {
+          "name": "Google",
+          "slug": "google"
+        },
+        {
+          "name": "Meta",
+          "slug": "meta"
+        },
+        {
+          "name": "Nvidia",
+          "slug": "nvidia"
+        },
+        {
+          "name": "Hugging Face",
+          "slug": "hugging-face"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft"
+        },
+        {
+          "name": "Claude Code",
+          "slug": "claude-code"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor"
+        },
+        {
+          "name": "MCP",
+          "slug": "mcp"
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "tags": [
+        {
+          "name": "Funding",
+          "slug": "funding"
+        },
+        {
+          "name": "Acquisition",
+          "slug": "acquisition"
+        },
+        {
+          "name": "Launch",
+          "slug": "launch"
+        },
+        {
+          "name": "Pricing",
+          "slug": "pricing"
+        },
+        {
+          "name": "Policy",
+          "slug": "policy"
+        },
+        {
+          "name": "Legal",
+          "slug": "legal"
+        },
+        {
+          "name": "Security",
+          "slug": "security"
+        },
+        {
+          "name": "Privacy",
+          "slug": "privacy"
+        },
+        {
+          "name": "Safety",
+          "slug": "safety"
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "tags": [
+        {
+          "name": "Show HN",
+          "slug": "show-hn"
+        },
+        {
+          "name": "Tutorial",
+          "slug": "tutorial"
+        },
+        {
+          "name": "Deep Dive",
+          "slug": "deep-dive"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ph-dedica-2026-10-29",
+      "title": "Dedica",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://getdedica.com",
+      "source_url": "https://www.producthunt.com/products/dedica",
+      "source_text": "Dedica Check if AI agents can use your website Dedica tests your website the way AI agents use it, then gives your team a fix for every place they fail. Muse, Instinct, GrokBot and other agents now browse, compare and sign up on people's behalf. Dedica runs 125 checks (for free) to see if they can use your site, and gives you a fix for every issue to hand to your coding agent. Website Builder Developer Tools",
+      "signals": {
+        "upvotes": 295,
+        "comments": 84
+      },
+      "published_at": "2026-10-28T07:01:00Z"
+    },
+    {
+      "id": "ph-bytemail-2026-10-29",
+      "title": "bytemail",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://bytemailapp.com",
+      "source_url": "https://www.producthunt.com/products/bytemail",
+      "source_text": "bytemail Native Mac email: every inbox, in your notch, no trackers bytemail is a native Mac email app built in Swift. Gmail, iCloud, Outlook, Yahoo, Fastmail and any IMAP account in one fast window. New mail and sign-in codes grow out of your MacBook's notch, Undo Send flies a paper plane through it, and desktop widgets show what's unread. Tracking pixels are blocked, look-alike senders flagged, and your mail never touches our servers. Snooze, rules, one-click unsubscribe, and an MCP server for Claude and other AI apps. iPhone beta included. 7-day free trial. Mac Email Privacy",
+      "signals": {
+        "upvotes": 283,
+        "comments": 30
+      },
+      "published_at": "2026-10-28T07:01:00Z"
+    },
+    {
+      "id": "ph-botgauge-4-2026-10-29",
+      "title": "BotGauge",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.botgauge.com/",
+      "source_url": "https://www.producthunt.com/products/botgauge-2",
+      "source_text": "BotGauge The trust layer for your agents  AI agents don't just generate answers anymore. They take actions, call tools, and access real data. BotGauge helps engineering teams find where agents break before users do. Run adaptive red-team attacks and evals, catch security and behavioral failures, and replay every issue with full traces. Turn failures into regression tests, continuously retest as your agents evolve, and monitor their behavior in production. One reliability layer from development to deployment. Developer Tools Artificial Intelligence Security",
+      "signals": {
+        "upvotes": 248,
+        "comments": 42
+      },
+      "published_at": "2026-10-28T07:01:00Z"
+    },
+    {
+      "id": "ph-fraud-blocker-2026-10-29",
+      "title": "Fraud Blocker",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://fraudblocker.com/ai-detection",
+      "source_url": "https://www.producthunt.com/products/fraud-blocker",
+      "source_text": "Fraud Blocker AI ad fraud protection for Google and Meta ads Fraud Blocker is an AI-powered platform that blocks invalid ad traffic from bots, click farms, and AI agents, ensuring enterprises, marketers, and agencies pay only for real clicks and genuine leads. It uses AI agents trained on billions of clicks and IPs to identify sophisticated invalid traffic that traditional filters miss, then explains why each click or IP was blocked. This helps protect budgets, improve conversion quality, and reduce wasted ad spend. Advertising Marketing automation Security",
+      "signals": {
+        "upvotes": 226,
+        "comments": 19
+      },
+      "published_at": "2026-10-28T07:01:00Z"
+    },
+    {
+      "id": "ph-tulu-2026-10-29",
+      "title": "Tulu",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.onetulu.com",
+      "source_url": "https://www.producthunt.com/products/tulu",
+      "source_text": "Tulu Autonomous marketing operations & analytics for SMBs Say ta-ta to manual work, and get the right answers without messing with UTMs, spreadsheets or...anything else. See where marketing spend produces revenue, and get alerts straight to WhatsApp when something actually needs your attention. Integrate offline spend, share views to align the entire team, and finally stop guessing with your budget. Get to the insights that matter, so you can decide exactly where to put your next euro. Artificial Intelligence Marketing automation Marketing attribution",
+      "signals": {
+        "upvotes": 177,
+        "comments": 40
+      },
+      "published_at": "2026-10-28T07:01:00Z"
+    },
+    {
+      "id": "gh-ai-design-skills-2026-10-29",
+      "title": "elayadesign/ai-design-skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/elayadesign/ai-design-skills",
+      "source_url": "https://github.com/elayadesign/ai-design-skills",
+      "source_text": "elayadesign/ai-design-skills",
+      "signals": {
+        "stars": 11498,
+        "stars_gained": 2139,
+        "forks": 827
+      }
+    },
+    {
+      "id": "gh-hallmark-2026-10-29",
+      "title": "Nutlope/hallmark",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/Nutlope/hallmark",
+      "source_url": "https://github.com/Nutlope/hallmark",
+      "source_text": "Nutlope/hallmark Anti-AI-slop design skill for Claude Code, Cursor, and Codex. CSS",
+      "signals": {
+        "stars": 41167,
+        "stars_gained": 2110,
+        "forks": 2138
+      },
+      "meta": {
+        "language": "CSS"
+      }
+    },
+    {
+      "id": "gh-impeccable-2026-10-29",
+      "title": "pbakaus/impeccable",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/pbakaus/impeccable",
+      "source_url": "https://github.com/pbakaus/impeccable",
+      "source_text": "pbakaus/impeccable The design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit, catch AI slop before it ships. Rust",
+      "signals": {
+        "stars": 93630,
+        "stars_gained": 1472,
+        "forks": 5527
+      },
+      "meta": {
+        "language": "Rust"
+      }
+    },
+    {
+      "id": "gh-superpowers-2026-10-29",
+      "title": "obra/superpowers",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/obra/superpowers",
+      "source_url": "https://github.com/obra/superpowers",
+      "source_text": "obra/superpowers An agentic skills framework & software development methodology that works. Shell",
+      "signals": {
+        "stars": 307727,
+        "stars_gained": 1095,
+        "forks": 27371
+      },
+      "meta": {
+        "language": "Shell"
+      }
+    },
+    {
+      "id": "gh-thinkrail-2026-10-29",
+      "title": "JetBrains/thinkrail",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/JetBrains/thinkrail",
+      "source_url": "https://github.com/JetBrains/thinkrail",
+      "source_text": "JetBrains/thinkrail Vibe code with pi in a lightweight, real IDE that customises itself around the way you work — The Vibe You Need TypeScript",
+      "signals": {
+        "stars": 5476,
+        "stars_gained": 1068,
+        "forks": 277
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-openbot-2026-10-29",
+      "title": "nightly-labs/openbot",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/nightly-labs/openbot",
+      "source_url": "https://github.com/nightly-labs/openbot",
+      "source_text": "nightly-labs/openbot A local-first desktop workspace for persistent AI teammates. Run Codex, Claude, and Grok with dedicated workspaces, task queues, file sharing, browser control, and agent-to-agent collaboration. TypeScript",
+      "signals": {
+        "stars": 3476,
+        "stars_gained": 1054,
+        "forks": 332
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-cindy-2026-10-29",
+      "title": "makecindy/cindy",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/makecindy/cindy",
+      "source_url": "https://github.com/makecindy/cindy",
+      "source_text": "makecindy/cindy Consider it done. The open-source AI agent that works out of the box · 想到，就能做到。开源、开箱即用的 AI Agent。 TypeScript",
+      "signals": {
+        "stars": 8354,
+        "stars_gained": 728,
+        "forks": 976
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-macro-2026-10-29",
+      "title": "macro-inc/macro",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/macro-inc/macro",
+      "source_url": "https://github.com/macro-inc/macro",
+      "source_text": "macro-inc/macro Macro is a unified workspace for teams: email, chat, docs, tasks, agents, calls, and CRM — @-linked together with shared AI memory. Rust",
+      "signals": {
+        "stars": 5582,
+        "stars_gained": 117,
+        "forks": 527
+      },
+      "meta": {
+        "language": "Rust"
+      }
+    },
+    {
+      "id": "gh-skills-2026-10-29",
+      "title": "expo/skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/expo/skills",
+      "source_url": "https://github.com/expo/skills",
+      "source_text": "expo/skills A collection of AI agent skills for working with Expo projects and Expo Application Services Shell",
+      "signals": {
+        "stars": 3690,
+        "stars_gained": 90,
+        "forks": 234
+      },
+      "meta": {
+        "language": "Shell"
+      }
+    },
+    {
+      "id": "tc-ai-execs-may-be-too-out-of-touch-to-build-for-2026-10-29",
+      "title": "AI execs may be too out of touch to build for the general public",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/28/ai-execs-may-be-too-out-of-touch-to-build-for-the-general-public/",
+      "source_url": "https://techcrunch.com/2026/10/28/ai-execs-may-be-too-out-of-touch-to-build-for-the-general-public/",
+      "source_text": "AI execs may be too out of touch to build for the general public Tech leaders are flaunting how out of touch they are when they brag about using AI to connect with their families.",
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-10-28T15:53:52Z"
+    },
+    {
+      "id": "tc-microsoft-recorded-10-billion-in-revenue-from-2026-10-29",
+      "title": "Microsoft recorded $10 billion in revenue from OpenAI",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/",
+      "source_url": "https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/",
+      "source_text": "Microsoft recorded $10 billion in revenue from OpenAI Microsoft said it made $10 billion in revenue from commercial arrangements with OpenAI, including revenue-sharing payments, in the quarter ending September 30. It underscores the still-enormous financial dependency of the partnership.",
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-28T21:34:30Z"
+    },
+    {
+      "id": "tc-microsoft-just-shared-azures-actual-revenue-in-2026-10-29",
+      "title": "Microsoft just shared Azure’s actual revenue in dollars: $33.2 billion",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/28/microsoft-just-shared-azures-actual-revenue-in-dollars-33-2-billion/",
+      "source_url": "https://techcrunch.com/2026/10/28/microsoft-just-shared-azures-actual-revenue-in-dollars-33-2-billion/",
+      "source_text": "Microsoft just shared Azure’s actual revenue in dollars: $33.2 billion Microsoft has never disclosed Azure's quarterly revenue in dollars. But for the first time, we can see just how close it is getting to besting the biggest competitor in the market, AWS.",
+      "meta": {
+        "author": "Aditya Mehta",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-28T21:58:32Z"
+    },
+    {
+      "id": "tc-google-expands-ai-search-ads-globally-as-core-2026-10-29",
+      "title": "Google expands AI Search ads globally as core ad growth slows",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/28/google-expands-ai-search-ads-globally-as-core-ad-growth-slows/",
+      "source_url": "https://techcrunch.com/2026/10/28/google-expands-ai-search-ads-globally-as-core-ad-growth-slows/",
+      "source_text": "Google expands AI Search ads globally as core ad growth slows The announcement came alongside parent company Alphabet's third-quarter earnings report, which saw revenue grow 25% year over year to $127.6 billion.",
+      "meta": {
+        "author": "Lauren Forristal",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-10-28T21:48:37Z"
+    },
+    {
+      "id": "tc-microsoft-hits-10-quarters-of-record-breaking-2026-10-29",
+      "title": "Microsoft hits 10 quarters of record-breaking revenue in a row",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/28/microsoft-hits-10-quarters-of-record-breaking-revenue-in-a-row/",
+      "source_url": "https://techcrunch.com/2026/10/28/microsoft-hits-10-quarters-of-record-breaking-revenue-in-a-row/",
+      "source_text": "Microsoft hits 10 quarters of record-breaking revenue in a row Whatever the future of AI might be, the current situation is still very good for Microsoft. The tech giant reported yet another record for quarterly revenue on Wednesday: $92.3 billion, a 19% increase over the year-ago quarter.",
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-28T21:25:30Z"
+    },
+    {
+      "id": "tc-anthropic-just-launched-tools-to-show-companies-2026-10-29",
+      "title": "Anthropic just launched tools to show companies what their AI spending is buying",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying/",
+      "source_url": "https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying/",
+      "source_text": "Anthropic just launched tools to show companies what their AI spending is buying The frontier lab is lifting the curtain on how users spend money on its models ahead of a planned IPO.",
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-10-28T19:19:58Z"
+    },
+    {
+      "id": "tc-wizs-cto-on-php2shell-and-the-coming-2026-10-29",
+      "title": "Wiz’s CTO on PHP2Shell and the coming ‘vulnpocalypse’",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/video/wizs-cto-on-php2shell-and-the-coming-vulnpocalypse/",
+      "source_url": "https://techcrunch.com/video/wizs-cto-on-php2shell-and-the-coming-vulnpocalypse/",
+      "source_text": "Wiz’s CTO on PHP2Shell and the coming ‘vulnpocalypse’ Watch as Wiz CTO Tomer Schwartz joins the Equity podcast to break down how AI is changing vulnerability research and how startups can prepare for the next security scare.",
+      "meta": {
+        "reading_time": "1 minute"
+      },
+      "published_at": "2026-10-28T19:05:46Z"
+    },
+    {
+      "id": "tc-the-vulnpocalypse-is-coming-for-the-internets-2026-10-29",
+      "title": "The ‘Vulnpocalypse’ is coming for the internet’s aging code, says Wiz’s CTO",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/podcast/the-vulnpocalypse-is-coming-for-the-internets-aging-code-says-wizs-cto/",
+      "source_url": "https://techcrunch.com/podcast/the-vulnpocalypse-is-coming-for-the-internets-aging-code-says-wizs-cto/",
+      "source_text": "The ‘Vulnpocalypse’ is coming for the internet’s aging code, says Wiz’s CTO On Equity, Wiz’s Tomer Schwartz explains how AI is changing vulnerability research, why coordinated disclosure is so difficult, and how startups can prepare for the next security scare.",
+      "meta": {
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-28T18:50:39Z"
+    },
+    {
+      "id": "tc-as-ai-agents-reshape-the-web-google-opens-2026-10-29",
+      "title": "As AI agents reshape the web, Google opens Gemini and Search to more apps",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/28/as-ai-agents-reshape-the-web-google-opens-gemini-and-search-to-more-apps/",
+      "source_url": "https://techcrunch.com/2026/10/28/as-ai-agents-reshape-the-web-google-opens-gemini-and-search-to-more-apps/",
+      "source_text": "As AI agents reshape the web, Google opens Gemini and Search to more apps A new developer platform will let businesses bring their services to Google's AI experiences, potentially changing how consumers discover and use apps.",
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-10-28T17:00:00Z"
+    },
+    {
+      "id": "tc-chromes-ai-powered-autofill-can-now-dig-through-2026-10-29",
+      "title": "Chrome’s AI-powered Autofill can now dig through your Gmail to fill out forms",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/28/chromes-ai-powered-autofill-can-now-dig-through-your-gmail-to-fill-out-forms/",
+      "source_url": "https://techcrunch.com/2026/10/28/chromes-ai-powered-autofill-can-now-dig-through-your-gmail-to-fill-out-forms/",
+      "source_text": "Chrome’s AI-powered Autofill can now dig through your Gmail to fill out forms The autofill update lets Chrome pull flight confirmations, tracking info, order details, and other information from your inbox, with your permission.",
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-28T17:00:00Z"
+    },
+    {
+      "id": "hn-gemini-4-carbon-2026-10-29",
+      "title": "Gemini 4 Carbon",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+      "source_url": "https://news.ycombinator.com/item?id=50276792",
+      "source_text": "Gemini 4 Carbon",
+      "signals": {
+        "points": 901,
+        "comments": 737
+      },
+      "meta": {
+        "author": "acossta"
+      },
+      "published_at": "2026-10-28T17:01:23Z"
+    },
+    {
+      "id": "hn-kentucky-man-becomes-the-first-humanist-granted-2026-10-29",
+      "title": "Kentucky man becomes the first humanist granted religious exemption from AI",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://religionnews.com/2026/10/26/in-a-first-a-humanist-granted-a-religious-exemption-from-using-ai/",
+      "source_url": "https://news.ycombinator.com/item?id=50273396",
+      "source_text": "Kentucky man becomes the first humanist granted religious exemption from AI",
+      "signals": {
+        "points": 456,
+        "comments": 500
+      },
+      "meta": {
+        "author": "danso"
+      },
+      "published_at": "2026-10-28T13:41:30Z"
+    },
+    {
+      "id": "hn-claude-code-regularly-sends-each-background-2026-10-29",
+      "title": "Claude Code regularly sends each background agent’s transcript to its model",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce",
+      "source_url": "https://news.ycombinator.com/item?id=50284255",
+      "source_text": "Claude Code regularly sends each background agent’s transcript to its model",
+      "signals": {
+        "points": 304,
+        "comments": 92
+      },
+      "meta": {
+        "author": "NikZaal"
+      },
+      "published_at": "2026-10-29T03:33:42Z"
+    },
+    {
+      "id": "hn-dayjob-tax-evaluating-ai-agents-on-50-2026-10-29",
+      "title": "Dayjob: Tax – evaluating AI agents on 50 professional tax assignments",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://surgehq.ai/blog/dayjob-tax",
+      "source_url": "https://news.ycombinator.com/item?id=50275626",
+      "source_text": "Dayjob: Tax – evaluating AI agents on 50 professional tax assignments",
+      "signals": {
+        "points": 226,
+        "comments": 147
+      },
+      "meta": {
+        "author": "landonxi"
+      },
+      "published_at": "2026-10-28T15:46:30Z"
+    },
+    {
+      "id": "hn-google-ai-gets-cagey-when-asked-who-won-the-2026-10-29",
+      "title": "Google AI gets cagey when asked who won the 2020 elections",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://arstechnica.com/ai/2026/10/google-ai-gets-cagey-when-asked-who-won-the-2020-elections/",
+      "source_url": "https://news.ycombinator.com/item?id=50280178",
+      "source_text": "Google AI gets cagey when asked who won the 2020 elections",
+      "signals": {
+        "points": 149,
+        "comments": 69
+      },
+      "meta": {
+        "author": "jacquesm"
+      },
+      "published_at": "2026-10-28T20:10:16Z"
+    },
+    {
+      "id": "hn-nvidia-nemotron-3-5-transcribe-open-asr-for-40-2026-10-29",
+      "title": "Nvidia Nemotron 3.5 Transcribe: open ASR for 40 languages",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+      "source_url": "https://news.ycombinator.com/item?id=50275128",
+      "source_text": "Nvidia Nemotron 3.5 Transcribe: open ASR for 40 languages",
+      "signals": {
+        "points": 119,
+        "comments": 20
+      },
+      "meta": {
+        "author": "wondersky"
+      },
+      "published_at": "2026-10-28T15:17:53Z"
+    },
+    {
+      "id": "hn-harvey-raised-500m-for-legal-ai-i-built-the-2026-10-29",
+      "title": "Harvey raised 500M for legal AI, I built the same and open sourced it",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://github.com/thomasunise/casecite",
+      "source_url": "https://news.ycombinator.com/item?id=50273623",
+      "source_text": "Harvey raised 500M for legal AI, I built the same and open sourced it",
+      "signals": {
+        "points": 69,
+        "comments": 38
+      },
+      "meta": {
+        "author": "zztopisgreat"
+      },
+      "published_at": "2026-10-28T13:56:21Z"
+    },
+    {
+      "id": "hn-microsoft-and-epic-games-suddenly-agree-that-ai-2026-10-29",
+      "title": "Microsoft and Epic Games Suddenly Agree That AI Is Theft",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://kotaku.com/now-that-the-shoe-is-on-the-other-foot-microsoft-and-epic-games-suddenly-agree-that-ai-is-theft-2000749316",
+      "source_url": "https://news.ycombinator.com/item?id=50271271",
+      "source_text": "Microsoft and Epic Games Suddenly Agree That AI Is Theft",
+      "signals": {
+        "points": 69,
+        "comments": 33
+      },
+      "meta": {
+        "author": "tom2026hn"
+      },
+      "published_at": "2026-10-28T10:10:58Z"
+    },
+    {
+      "id": "hn-valve-responds-to-developers-fearing-ai-slop-2026-10-29",
+      "title": "Valve Responds to Developers Fearing AI Slop and Clones",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.invenglobal.com/articles/27761/valve-responds-to-developers-fearing-ai-slop-and-clones",
+      "source_url": "https://news.ycombinator.com/item?id=50273192",
+      "source_text": "Valve Responds to Developers Fearing AI Slop and Clones",
+      "signals": {
+        "points": 65,
+        "comments": 78
+      },
+      "meta": {
+        "author": "HelloUsername"
+      },
+      "published_at": "2026-10-28T13:27:24Z"
+    }
+  ]
+}

@@ -1,0 +1,610 @@
+{
+  "source": "producthunt",
+  "fetched_at": "2026-10-29",
+  "window": {
+    "postedAfter": "2026-10-28T00:00:00Z",
+    "postedBefore": "2026-10-30T00:00:00Z"
+  },
+  "query_params": {
+    "first": 5,
+    "order": "VOTES",
+    "featured": true
+  },
+  "totalCount": 60,
+  "posts": [
+    {
+      "id": "1295250",
+      "name": "Dedica",
+      "tagline": "Check if AI agents can use your website",
+      "description": "Dedica tests your website the way AI agents use it, then gives your team a fix for every place they fail. Muse, Instinct, GrokBot and other agents now browse, compare and sign up on people's behalf. Dedica runs 125 checks (for free) to see if they can use your site, and gives you a fix for every issue to hand to your coding agent.",
+      "slug": "dedica",
+      "votesCount": 295,
+      "commentsCount": 84,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 1,
+      "weeklyRank": 4,
+      "url": "https://www.producthunt.com/products/dedica?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/SMFJH4J7K55FL4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-10-28T07:01:00Z",
+      "createdAt": "2026-10-28T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/24b5e1d7-6f8e-4c22-8a74-b351fb8f11ac.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/17001014-4632-4629-bfd5-c838f9da73f8.jpeg?auto=format",
+          "videoUrl": "https://www.youtube.com/watch?v=pPxj9HjKrU0"
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/ed03a882-452a-4a0d-be4f-2ba40db4c136.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/080148f8-305c-440d-9213-6b541eb8c067.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/04bb3ac8-2641-4e96-b9c5-7be0942f7cbc.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/c9bd9e9c-bace-45fc-9117-64a9f0ad7dfb.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/d4a0df67-5602-4628-b2f8-007818c56968.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/aefa2b4c-72e0-473a-ad92-a7ef491acb6b.jpeg?auto=format",
+          "videoUrl": null
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/SMFJH4J7K55FL4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Website Builder",
+            "slug": "website-builder"
+          },
+          {
+            "name": "Developer Tools",
+            "slug": "developer-tools"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "Prajwal",
+          "username": "prajwal_paloju1",
+          "headline": "Founder @ Dedica",
+          "url": "https://www.producthunt.com/@prajwal_paloju1?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        },
+        {
+          "name": "Prathmesh Bhalekar",
+          "username": "prathmesh_bhalekar",
+          "headline": "Building getdedica.com",
+          "url": "https://www.producthunt.com/@prathmesh_bhalekar?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Prajwal",
+        "username": "prajwal_paloju1",
+        "headline": "Founder @ Dedica",
+        "url": "https://www.producthunt.com/@prajwal_paloju1?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1287824",
+      "name": "bytemail",
+      "tagline": "Native Mac email: every inbox, in your notch, no trackers",
+      "description": "bytemail is a native Mac email app built in Swift. Gmail, iCloud, Outlook, Yahoo, Fastmail and any IMAP account in one fast window. New mail and sign-in codes grow out of your MacBook's notch, Undo Send flies a paper plane through it, and desktop widgets show what's unread. Tracking pixels are blocked, look-alike senders flagged, and your mail never touches our servers. Snooze, rules, one-click unsubscribe, and an MCP server for Claude and other AI apps. iPhone beta included. 7-day free trial.",
+      "slug": "bytemail",
+      "votesCount": 283,
+      "commentsCount": 30,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 2,
+      "weeklyRank": 5,
+      "url": "https://www.producthunt.com/products/bytemail?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/KKQJJZQQWWTXZK?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-10-28T07:01:00Z",
+      "createdAt": "2026-10-28T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/daa9d38c-d2bc-4fcf-a669-8eecfef8529c.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/5297ffd3-a887-4b86-bcfa-242d8d96c2c6.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/f7fad776-167e-450f-ab20-340c6d395d04.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/9b735a25-ebba-40a9-9a6d-0ea0bd2b6cf1.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/261d04e8-f177-4d39-9514-66a9afd4a797.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/a561c8b0-5e10-4109-9dfe-d5ed0a2b5e0a.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/62aec8d6-2f1b-44f8-9bec-32a2063d73cb.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/3e986bc5-68ce-4a2f-b515-0b326499e871.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/ee94bedd-3da3-4f43-93b4-8c011fa88c54.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/42d21553-efcf-4e38-a8f0-6a94edbfb290.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/c795f1b5-141f-46c6-85d3-9f309f926fc1.jpeg?auto=format",
+          "videoUrl": "https://www.youtube.com/watch?v=_d8p_lNbcV4"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/KKQJJZQQWWTXZK?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/DVJPIISBMO7HKC?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Mac",
+            "slug": "mac"
+          },
+          {
+            "name": "Email",
+            "slug": "email"
+          },
+          {
+            "name": "Privacy",
+            "slug": "privacy"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "Sergey Karakhanyan",
+          "username": "karakhanyans",
+          "headline": "Techy Solopreneur",
+          "url": "https://www.producthunt.com/@karakhanyans?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": "karakhanyanS"
+        }
+      ],
+      "user": {
+        "name": "Sergey Karakhanyan",
+        "username": "karakhanyans",
+        "headline": "Techy Solopreneur",
+        "url": "https://www.producthunt.com/@karakhanyans?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1281746",
+      "name": "BotGauge",
+      "tagline": "The trust layer for your agents ",
+      "description": "AI agents don't just generate answers anymore. They take actions, call tools, and access real data. BotGauge helps engineering teams find where agents break before users do. Run adaptive red-team attacks and evals, catch security and behavioral failures, and replay every issue with full traces. Turn failures into regression tests, continuously retest as your agents evolve, and monitor their behavior in production. One reliability layer from development to deployment.",
+      "slug": "botgauge-4",
+      "votesCount": 248,
+      "commentsCount": 42,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 3,
+      "weeklyRank": 8,
+      "url": "https://www.producthunt.com/products/botgauge-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/QSDCJZKJUIFLGU?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-10-28T07:01:00Z",
+      "createdAt": "2026-10-28T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/81f01613-fbd1-4a6c-88be-65112f587dd2.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/e8615952-8abe-443e-be1c-501721d2cb85.jpeg?auto=format",
+          "videoUrl": "https://youtu.be/X1TNWIdlXWA"
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/23f25338-b005-4cf4-a2f5-c8c92b2af563.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/f5ca2f68-af45-48ca-952c-f8401ef5c47b.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/a6e9490a-bf24-4889-8cbc-60613f76fd8e.png?auto=format",
+          "videoUrl": null
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "LinkedIn",
+          "url": "https://www.producthunt.com/r/P6UYPKIRJELSQ3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/K5BCHAW33DN6H3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/QSDCJZKJUIFLGU?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Developer Tools",
+            "slug": "developer-tools"
+          },
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          },
+          {
+            "name": "Security",
+            "slug": "security"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Naresh Kumar Rajendran",
+          "username": "nareshkumar_rajendran",
+          "headline": "Co-Founder & CTO @ BotGauge",
+          "url": "https://www.producthunt.com/@nareshkumar_rajendran?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Ben Lang",
+        "username": "benln",
+        "headline": "Cursor",
+        "url": "https://www.producthunt.com/@benln?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1290434",
+      "name": "Fraud Blocker",
+      "tagline": "AI ad fraud protection for Google and Meta ads",
+      "description": "Fraud Blocker is an AI-powered platform that blocks invalid ad traffic from bots, click farms, and AI agents, ensuring enterprises, marketers, and agencies pay only for real clicks and genuine leads. It uses AI agents trained on billions of clicks and IPs to identify sophisticated invalid traffic that traditional filters miss, then explains why each click or IP was blocked. This helps protect budgets, improve conversion quality, and reduce wasted ad spend.",
+      "slug": "fraud-blocker",
+      "votesCount": 226,
+      "commentsCount": 19,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 4,
+      "weeklyRank": 11,
+      "url": "https://www.producthunt.com/products/fraud-blocker?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/KLAMYKYCPTEVYB?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-10-28T07:01:00Z",
+      "createdAt": "2026-10-28T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/8a4be564-22b9-403f-b191-aa93158866e3.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/71323e0d-147a-42b8-a85a-62906afb4bdc.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/f0f3b162-24f3-49a3-8d4d-8f05936a5efc.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/dd77ceff-9b3d-46fe-85a4-8d092f4f1d2b.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/87b8d0d6-8afe-49fa-81ef-66c2507a302b.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/f65ffe4e-e94e-483a-b878-832d47c57496.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/09c9f49a-8fc9-485b-b399-da02bab04437.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/d975a018-1b2f-486f-bb12-645a3cc0cbd7.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/356f6219-7369-4b0e-bd27-6d95fa51ffd3.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/915a26a3-631b-421b-8b96-5b7eb21b38a4.jpeg?auto=format",
+          "videoUrl": "https://youtu.be/du8ELG-45X0"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/O6M2WYYZDIUVMH?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/B54PMMQWPMGTG3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/KLAMYKYCPTEVYB?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Advertising",
+            "slug": "advertising"
+          },
+          {
+            "name": "Marketing automation",
+            "slug": "marketing-automation"
+          },
+          {
+            "name": "Security",
+            "slug": "security"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Rohan Chaubey",
+          "username": "rohanrecommends",
+          "headline": "\ud83e\udd47 Top Hunter | Author | Startup Advisor",
+          "url": "https://www.producthunt.com/@rohanrecommends?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": "RohanRecommends"
+        }
+      ],
+      "user": {
+        "name": "Hiten Shah",
+        "username": "hnshah",
+        "headline": "CEO of Crazy Egg (est. 2005)",
+        "url": "https://www.producthunt.com/@hnshah?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1200683",
+      "name": "Tulu",
+      "tagline": "Autonomous marketing operations & analytics for SMBs",
+      "description": "Say ta-ta to manual work, and get the right answers without messing with UTMs, spreadsheets or...anything else. See where marketing spend produces revenue, and get alerts straight to WhatsApp when something actually needs your attention. Integrate offline spend, share views to align the entire team, and finally stop guessing with your budget. Get to the insights that matter, so you can decide exactly where to put your next euro.",
+      "slug": "tulu",
+      "votesCount": 177,
+      "commentsCount": 40,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 5,
+      "weeklyRank": 15,
+      "url": "https://www.producthunt.com/products/tulu?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/6OKRX6JA5BJRJ2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-10-28T07:01:00Z",
+      "createdAt": "2026-10-28T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/6a8f402a-c4c8-4510-910e-a85e73e5387f.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/d624423f-6617-4157-89a2-6bb270d3af94.jpeg?auto=format",
+          "videoUrl": "https://youtu.be/a9I_syb0xGk"
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/4cb31276-d0aa-4dde-b03f-c5dad0ba1e81.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/9cbc90a5-fd51-432d-8dad-77bd2698755a.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/cf6054af-32ea-457b-8b77-aaff375285fb.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/2dafa12b-9469-4cbc-866c-8a03092a8330.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/314f8312-56f6-4aac-a5a8-91df11b5ab74.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/318f1bbf-74e5-458d-a981-eaff3331a5f7.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/ff1cf5be-52d7-42cc-8417-0be91f7b21e5.png?auto=format",
+          "videoUrl": null
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/6OKRX6JA5BJRJ2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "LinkedIn",
+          "url": "https://www.producthunt.com/r/XUBMPU4KF4IZKL?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          },
+          {
+            "name": "Marketing automation",
+            "slug": "marketing-automation"
+          },
+          {
+            "name": "Marketing attribution",
+            "slug": "marketing-attribution"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Michelle Bankas",
+          "username": "michelle_bankas",
+          "headline": "Product & Client Lead @Tulu",
+          "url": "https://www.producthunt.com/@michelle_bankas?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Nico Lumma",
+        "username": "nico",
+        "headline": "Managing Partner NMA.vc",
+        "url": "https://www.producthunt.com/@nico?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    }
+  ]
+}

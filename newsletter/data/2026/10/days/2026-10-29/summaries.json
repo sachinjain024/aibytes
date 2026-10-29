@@ -1,0 +1,137 @@
+{
+  "date": "2026-10-29",
+  "items": {
+    "ph-dedica-2026-10-29": {
+      "summary": "Runs 125 free checks on how agents like Muse, Instinct and GrokBot browse and sign up on your site, then hands back a fix per failure for your coding agent.",
+      "tags": ["Dev Tool", "Agents", "Launch"]
+    },
+    "ph-bytemail-2026-10-29": {
+      "summary": "Native Swift Mac mail client for Gmail, iCloud, Outlook and any IMAP account that blocks tracking pixels, keeps mail off its servers, and exposes an MCP server to Claude.",
+      "tags": ["MCP", "Privacy", "Launch"]
+    },
+    "ph-botgauge-4-2026-10-29": {
+      "summary": "Runs adaptive red-team attacks and evals against tool-calling agents, replays failures with full traces, and turns them into regression tests that rerun as the agent changes.",
+      "tags": ["Dev Tool", "Agents", "Eval", "Security"]
+    },
+    "ph-fraud-blocker-2026-10-29": {
+      "summary": "Blocks invalid clicks on Google and Meta ads from bots, click farms and AI agents, using models trained on click and IP history, and explains why each one was blocked.",
+      "tags": ["Security", "Launch"]
+    },
+    "ph-tulu-2026-10-29": {
+      "summary": "Marketing attribution for SMBs that ties online and offline spend to revenue without UTM or spreadsheet setup, and sends alerts to WhatsApp when a metric needs attention.",
+      "tags": ["Agents", "Launch"]
+    },
+    "gh-ai-design-skills-2026-10-29": {
+      "summary": "A collection of design-focused skills for AI coding agents, published by Elaya Design.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-hallmark-2026-10-29": {
+      "summary": "A CSS design skill for Claude Code, Cursor and Codex that steers generated interfaces away from generic AI-looking layouts.",
+      "tags": ["Open Source", "Code Gen", "Claude Code", "Cursor"]
+    },
+    "gh-impeccable-2026-10-29": {
+      "summary": "Rust-built design vocabulary for coding agents, with polish and bolder commands to steer UI output and critique and audit commands to review it before it ships.",
+      "tags": ["Open Source", "Code Gen", "Agents"]
+    },
+    "gh-superpowers-2026-10-29": {
+      "summary": "A shell-based skills framework for coding agents that packages a full software development methodology as reusable agent skills.",
+      "tags": ["Framework", "Agents", "Code Gen"]
+    },
+    "gh-thinkrail-2026-10-29": {
+      "summary": "A lightweight TypeScript IDE from JetBrains for vibe coding with the pi agent, which customises itself around the way you work.",
+      "tags": ["Dev Tool", "Code Gen", "Open Source"]
+    },
+    "gh-openbot-2026-10-29": {
+      "summary": "Local-first desktop app that runs Codex, Claude and Grok as persistent agents, each with its own workspace, task queue, file sharing, browser control and agent-to-agent messaging.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-cindy-2026-10-29": {
+      "summary": "An open-source general-purpose AI agent in TypeScript, bilingual in English and Chinese, built to run without setup.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-macro-2026-10-29": {
+      "summary": "Rust workspace that puts email, chat, docs, tasks, calls, CRM and agents in one app, cross-linked with @-mentions and a shared AI memory across all of them.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-skills-2026-10-29": {
+      "summary": "Expo's official set of agent skills for building React Native apps with Expo and shipping them through Expo Application Services.",
+      "tags": ["Open Source", "Agents", "Code Gen"]
+    },
+    "tc-ai-execs-may-be-too-out-of-touch-to-build-for-2026-10-29": {
+      "summary": "A TechCrunch column arguing that tech leaders who boast about using AI to talk to their own families are showing how far they are from the people they build for.",
+      "tags": ["LLM"]
+    },
+    "tc-microsoft-recorded-10-billion-in-revenue-from-2026-10-29": {
+      "summary": "The figure covers revenue-sharing and other commercial deals for the quarter ending September 30, showing how financially tied the two companies remain.",
+      "tags": ["Microsoft", "OpenAI"]
+    },
+    "tc-microsoft-just-shared-azures-actual-revenue-in-2026-10-29": {
+      "summary": "First time Microsoft has put a dollar number on Azure's quarter, and it shows the cloud business closing in on AWS, its largest competitor.",
+      "tags": ["Microsoft"]
+    },
+    "tc-google-expands-ai-search-ads-globally-as-core-2026-10-29": {
+      "summary": "Announced with Alphabet's Q3 earnings, where revenue grew 25% year over year to $127.6 billion while growth in the core ads business slowed.",
+      "tags": ["Google", "Launch"]
+    },
+    "tc-microsoft-hits-10-quarters-of-record-breaking-2026-10-29": {
+      "summary": "Quarterly revenue came in at $92.3 billion, up 19% from a year earlier, released the same day Microsoft disclosed Azure revenue and $10 billion from OpenAI deals.",
+      "tags": ["Microsoft"]
+    },
+    "tc-anthropic-just-launched-tools-to-show-companies-2026-10-29": {
+      "summary": "New reporting shows enterprise customers how their spend on Claude models is being used, a disclosure TechCrunch ties to Anthropic's planned IPO.",
+      "tags": ["Anthropic", "Launch"]
+    },
+    "tc-wizs-cto-on-php2shell-and-the-coming-2026-10-29": {
+      "summary": "Video from the Equity podcast: Tomer Schwartz on how AI is changing vulnerability research and how startups should prepare for the next major security incident.",
+      "tags": ["Security"]
+    },
+    "tc-the-vulnpocalypse-is-coming-for-the-internets-2026-10-29": {
+      "summary": "Equity podcast episode with Tomer Schwartz on AI-driven vulnerability discovery in legacy code, why coordinated disclosure is hard, and how startups can get ready.",
+      "tags": ["Security"]
+    },
+    "tc-as-ai-agents-reshape-the-web-google-opens-2026-10-29": {
+      "summary": "A new developer platform lets businesses plug their services into Gemini and Google's AI Search experiences, so users can reach apps from inside Google's assistants.",
+      "tags": ["Google", "Agents", "API", "Launch"]
+    },
+    "tc-chromes-ai-powered-autofill-can-now-dig-through-2026-10-29": {
+      "summary": "With permission, Chrome now pulls flight confirmations, tracking numbers and order details from your inbox to fill in web forms.",
+      "tags": ["Google", "Privacy", "Launch"]
+    },
+    "hn-gemini-4-carbon-2026-10-29": {
+      "summary": "Google's announcement post on its blog introducing Carbon, a new model in the Gemini 4 family.",
+      "tags": ["Model Release", "LLM", "Google"]
+    },
+    "hn-kentucky-man-becomes-the-first-humanist-granted-2026-10-29": {
+      "summary": "Religion News Service report on a Kentucky humanist who was granted a religious exemption from having to use AI, the first time a humanist has received one.",
+      "tags": ["Policy"]
+    },
+    "hn-claude-code-regularly-sends-each-background-2026-10-29": {
+      "summary": "A GitHub gist documenting that Claude Code periodically sends the full transcript of each running background agent back to the model.",
+      "tags": ["Claude Code", "Agents", "Privacy"]
+    },
+    "hn-dayjob-tax-evaluating-ai-agents-on-50-2026-10-29": {
+      "summary": "Surge AI's benchmark post testing AI agents on 50 assignments drawn from professional tax work.",
+      "tags": ["Benchmark", "Agents", "Eval"]
+    },
+    "hn-google-ai-gets-cagey-when-asked-who-won-the-2026-10-29": {
+      "summary": "Ars Technica reports that Google's AI gives evasive answers instead of naming the winner of the 2020 US election.",
+      "tags": ["Google", "Safety", "LLM"]
+    },
+    "hn-nvidia-nemotron-3-5-transcribe-open-asr-for-40-2026-10-29": {
+      "summary": "Nvidia's release post on the Hugging Face blog for an open speech recognition model covering 40 languages.",
+      "tags": ["Model Release", "Voice / Speech", "Open Source", "Nvidia"]
+    },
+    "hn-harvey-raised-500m-for-legal-ai-i-built-the-2026-10-29": {
+      "summary": "casecite, an open-source legal AI project on GitHub that its author pitches as a free alternative to the funded Harvey platform.",
+      "tags": ["Open Source", "LLM"]
+    },
+    "hn-microsoft-and-epic-games-suddenly-agree-that-ai-2026-10-29": {
+      "summary": "A Kotaku opinion piece on Microsoft and Epic Games calling AI copying theft once their own work is the material being taken.",
+      "tags": ["Microsoft", "Legal"]
+    },
+    "hn-valve-responds-to-developers-fearing-ai-slop-2026-10-29": {
+      "summary": "Inven Global reports on Valve's answer to game developers worried about AI-generated filler and cloned games.",
+      "tags": ["Policy"]
+    }
+  }
+}
