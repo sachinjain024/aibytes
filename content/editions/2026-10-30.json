@@ -1,0 +1,876 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-30",
+  "generated_at": "2026-10-30T08:01:37Z",
+  "counts": {
+    "launches": 5,
+    "repos": 9,
+    "news": 10,
+    "hn": 10
+  },
+  "items": [
+    {
+      "id": "ph-empacer-2026-10-30",
+      "title": "Empacer",
+      "summary": "Three setup questions build a business profile, then spoken requests become drafted customer replies, social posts and invoices, each held for the owner's approval before sending.",
+      "url": "https://www.producthunt.com/products/empacer",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/empacer",
+      "category": "launches",
+      "tags": [
+        "Voice / Speech",
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/2fc66d97-4286-42ab-938c-8ef45ec6edb3.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 418,
+        "comments": 81
+      },
+      "published_at": "2026-10-29T07:01:00Z",
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "ph-scape-6-2026-10-30",
+      "title": "Scape",
+      "summary": "AI email client that ranks messages, drafts contextual replies and tracks follow-ups, drawing on meetings, calendars and attachments as well as the inbox.",
+      "url": "https://www.producthunt.com/products/scape-4",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/scape-4",
+      "category": "launches",
+      "tags": [
+        "LLM",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/66057095-dec7-47b9-a111-e4b47aa53bbb.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 312,
+        "comments": 64
+      },
+      "published_at": "2026-10-29T07:01:00Z",
+      "hidden": false,
+      "rank": 10
+    },
+    {
+      "id": "ph-floot-in-chatgpt-2026-10-30",
+      "title": "Floot in ChatGPT",
+      "summary": "ChatGPT sidebar app that builds an app from a description in a live in-chat preview, then publishes it with database, logins and hosting included, running on your ChatGPT plan.",
+      "url": "https://www.producthunt.com/products/floot",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/floot",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Code Gen",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/b66f0961-7df0-4d63-82a4-b29d8084afdb.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 196,
+        "comments": 59
+      },
+      "published_at": "2026-10-29T07:01:00Z",
+      "hidden": false,
+      "rank": 17
+    },
+    {
+      "id": "ph-notch-metrics-2026-10-30",
+      "title": "Notch Metrics",
+      "summary": "MacBook notch widgets for revenue, MRR and subscriber counts from Stripe, Polar, Paddle and Dodo Payments, with Claude Code used to build your own.",
+      "url": "https://www.producthunt.com/products/notch-metrics",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/notch-metrics",
+      "category": "launches",
+      "tags": [
+        "Claude Code",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/cf275bcd-37c6-4d63-8150-cf5dd40fadc6.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 182,
+        "comments": 7
+      },
+      "published_at": "2026-10-29T07:01:00Z",
+      "hidden": false,
+      "rank": 24
+    },
+    {
+      "id": "ph-gologin-cloud-browser-2-2026-10-30",
+      "title": "Gologin Cloud Browser",
+      "summary": "Serverless Chromium for agents and scrapers with persistent logged-in sessions, anti-bot stealth and proxies in 150+ countries, driven by Playwright or Puppeteer over WebSocket.",
+      "url": "https://www.producthunt.com/products/gologin",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/gologin",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/c2dcc381-b427-4d86-a78f-d5d61c784624.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 153,
+        "comments": 28
+      },
+      "published_at": "2026-10-29T07:01:00Z",
+      "hidden": false,
+      "rank": 31
+    },
+    {
+      "id": "gh-impeccable-2026-10-30",
+      "title": "pbakaus/impeccable",
+      "summary": "Rust design vocabulary for coding agents: commands like polish and bolder steer UI work, while critique and audit review it for generic AI-generated design before it ships.",
+      "url": "https://github.com/pbakaus/impeccable",
+      "source": "github",
+      "source_url": "https://github.com/pbakaus/impeccable",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Code Gen",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/pbakaus.png?size=80"
+      },
+      "signals": {
+        "stars": 96020,
+        "stars_gained": 2870,
+        "forks": 5654
+      },
+      "meta": {
+        "language": "Rust"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "gh-openmausbot-2026-10-30",
+      "title": "milind-soni/OpenMausBot",
+      "summary": "TypeScript open-source alternative to Grok Bot that gives its bots a virtual machine to operate in.",
+      "url": "https://github.com/milind-soni/OpenMausBot",
+      "source": "github",
+      "source_url": "https://github.com/milind-soni/OpenMausBot",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/milind-soni.png?size=80"
+      },
+      "signals": {
+        "stars": 7761,
+        "stars_gained": 1199,
+        "forks": 1139
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "gh-ai-design-skills-2026-10-30",
+      "title": "elayadesign/ai-design-skills",
+      "summary": "A design-focused skills collection for AI agents from elayadesign; the repository publishes no description beyond its name.",
+      "url": "https://github.com/elayadesign/ai-design-skills",
+      "source": "github",
+      "source_url": "https://github.com/elayadesign/ai-design-skills",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/elayadesign.png?size=80"
+      },
+      "signals": {
+        "stars": 12533,
+        "stars_gained": 1187,
+        "forks": 915
+      },
+      "hidden": false,
+      "rank": 11
+    },
+    {
+      "id": "gh-thinkrail-2026-10-30",
+      "title": "JetBrains/thinkrail",
+      "summary": "JetBrains' lightweight TypeScript IDE for vibe coding with the pi agent, which reshapes its own setup around how you work.",
+      "url": "https://github.com/JetBrains/thinkrail",
+      "source": "github",
+      "source_url": "https://github.com/JetBrains/thinkrail",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Code Gen",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/JetBrains.png?size=80"
+      },
+      "signals": {
+        "stars": 6227,
+        "stars_gained": 1117,
+        "forks": 337
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 14
+    },
+    {
+      "id": "gh-superpowers-2026-10-30",
+      "title": "obra/superpowers",
+      "summary": "Shell-based agentic skills framework for coding agents, bundled with a software development methodology for how the agent should work.",
+      "url": "https://github.com/obra/superpowers",
+      "source": "github",
+      "source_url": "https://github.com/obra/superpowers",
+      "category": "repos",
+      "tags": [
+        "Framework",
+        "Agents",
+        "Code Gen"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/obra.png?size=80"
+      },
+      "signals": {
+        "stars": 308915,
+        "stars_gained": 1034,
+        "forks": 27477
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 18
+    },
+    {
+      "id": "gh-openbot-2026-10-30",
+      "title": "nightly-labs/openbot",
+      "summary": "Local-first desktop app running Codex, Claude and Grok as persistent teammates with their own workspaces, task queues, file sharing, browser control and agent-to-agent work.",
+      "url": "https://github.com/nightly-labs/openbot",
+      "source": "github",
+      "source_url": "https://github.com/nightly-labs/openbot",
+      "category": "repos",
+      "tags": [
+        "Agents",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/nightly-labs.png?size=80"
+      },
+      "signals": {
+        "stars": 4067,
+        "stars_gained": 709,
+        "forks": 373
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 21
+    },
+    {
+      "id": "gh-claude-code-game-studios-2026-10-30",
+      "title": "Donchitos/Claude-Code-Game-Studios",
+      "summary": "Claude Code configuration of 49 agents and 72 workflow skills arranged like a real game studio hierarchy, with a coordination system between the roles.",
+      "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+      "source": "github",
+      "source_url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+      "category": "repos",
+      "tags": [
+        "Claude Code",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Donchitos.png?size=80"
+      },
+      "signals": {
+        "stars": 29682,
+        "stars_gained": 353,
+        "forks": 4073
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 25
+    },
+    {
+      "id": "gh-claude-mem-2026-10-30",
+      "title": "thedotmack/claude-mem",
+      "summary": "Records what an agent does in a session, compresses it with AI and injects the relevant parts into later sessions; supports Claude Code, Codex, Gemini, Copilot, OpenCode and more.",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source": "github",
+      "source_url": "https://github.com/thedotmack/claude-mem",
+      "category": "repos",
+      "tags": [
+        "Agents",
+        "Claude Code",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/thedotmack.png?size=80"
+      },
+      "signals": {
+        "stars": 105113,
+        "stars_gained": 336,
+        "forks": 9263
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 28
+    },
+    {
+      "id": "gh-openbot-2-2026-10-30",
+      "title": "CopilotKit/OpenBot",
+      "summary": "CopilotKit's AI coworkers each get their own browser, files and tools, with every action approved before it runs and recorded after; any AG-UI agent can plug in.",
+      "url": "https://github.com/CopilotKit/OpenBot",
+      "source": "github",
+      "source_url": "https://github.com/CopilotKit/OpenBot",
+      "category": "repos",
+      "tags": [
+        "Agents",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/CopilotKit.png?size=80"
+      },
+      "signals": {
+        "stars": 8361,
+        "stars_gained": 247,
+        "forks": 1060
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 32
+    },
+    {
+      "id": "tc-as-search-traffic-dries-up-reddit-announces-its-2026-10-30",
+      "title": "As search traffic dries up, Reddit announces it’s shifting to a logged-in experience",
+      "summary": "With AI changing how people find information and cutting the search referrals it relied on, Reddit is stepping back from its open-web roots to protect its audience and business.",
+      "url": "https://techcrunch.com/2026/10/29/as-search-traffic-dries-up-reddit-announces-its-shifting-to-a-logged-in-experience/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/29/as-search-traffic-dries-up-reddit-announces-its-shifting-to-a-logged-in-experience/",
+      "category": "news",
+      "tags": [
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2023/03/reddit-e1708636699632.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-10-29T20:08:31Z",
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "tc-you-dont-need-to-believe-in-a-god-to-get-a-2026-10-30",
+      "title": "You don’t need to believe in a god to get a religious exemption from using AI at work",
+      "summary": "University of Kentucky administrator David Durman recently won an exemption from workplace AI use on religious grounds.",
+      "url": "https://techcrunch.com/2026/10/29/you-dont-need-to-believe-in-a-god-to-get-a-religious-exemption-from-using-ai-at-work/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/29/you-dont-need-to-believe-in-a-god-to-get-a-religious-exemption-from-using-ai-at-work/",
+      "category": "news",
+      "tags": [
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/07/GettyImages-2274650383.jpg?resize=1200,840"
+      },
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-10-30T01:20:48Z",
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "tc-aws-will-be-a-1t-business-jassy-says-but-first-2026-10-30",
+      "title": "AWS will be a $1T business, Jassy says — but first, it will spend big",
+      "summary": "Amazon's CEO said Thursday the company wants to lead AI cloud computing, and that reaching $1T in revenue means sustaining its capex spending spree.",
+      "url": "https://techcrunch.com/2026/10/29/aws-will-be-a-1t-business-jassy-says-but-first-it-will-spend-big/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/29/aws-will-be-a-1t-business-jassy-says-but-first-it-will-spend-big/",
+      "category": "news",
+      "tags": [
+        "Inference"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2022/09/GettyImages-1415078085.jpg?resize=1200,721"
+      },
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-10-29T23:42:22Z",
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "id": "tc-rivian-expands-joint-venture-with-vw-to-include-2026-10-30",
+      "title": "Rivian expands joint venture with VW to include AI assistant",
+      "summary": "The AI assistant joins Rivian's $5.8B joint venture with Volkswagen, though Rivian has not said whether the venture's value grows as a result.",
+      "url": "https://techcrunch.com/2026/10/29/rivian-expands-joint-venture-with-vw-to-include-ai-assistant/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/29/rivian-expands-joint-venture-with-vw-to-include-ai-assistant/",
+      "category": "news",
+      "tags": [
+        "LLM"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2025/12/rivian-assisant-event.png?resize=1200,672"
+      },
+      "meta": {
+        "author": "Kirsten Korosec",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-10-29T20:05:47Z",
+      "hidden": false,
+      "rank": 13
+    },
+    {
+      "id": "tc-openai-backed-thrive-holdings-acquires-adt-2026-10-30",
+      "title": "OpenAI-backed Thrive Holdings acquires ADT",
+      "summary": "The deal is worth $15.3B, and Thrive Holdings plans to bring AI into ADT's home security business.",
+      "url": "https://techcrunch.com/2026/10/29/openai-backed-thrive-holdings-acquires-adt/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/29/openai-backed-thrive-holdings-acquires-adt/",
+      "category": "news",
+      "tags": [
+        "Acquisition"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/10/ADT-logo.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-29T19:56:19Z",
+      "hidden": false,
+      "rank": 16
+    },
+    {
+      "id": "tc-meta-quietly-launches-an-ai-fashion-app-called-2026-10-30",
+      "title": "Meta quietly launches an AI fashion app called Style Sketch",
+      "summary": "Builds a virtual closet from photos you have shared on Instagram, or from items added by snapping a photo, recording a short video or uploading from the camera roll.",
+      "url": "https://techcrunch.com/2026/10/29/meta-quietly-launches-an-ai-fashion-app-called-style-sketch/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/29/meta-quietly-launches-an-ai-fashion-app-called-style-sketch/",
+      "category": "news",
+      "tags": [
+        "Meta",
+        "Vision",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/10/meta-style-sketch.png?resize=1200,625"
+      },
+      "meta": {
+        "author": "Aisha Malik",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-29T19:14:36Z",
+      "hidden": false,
+      "rank": 20
+    },
+    {
+      "id": "tc-granola-crunches-up-a-dictation-feature-to-2026-10-30",
+      "title": "Granola crunches up a dictation feature to compete with Wispr",
+      "summary": "The meeting notetaker adds dictation, a mirror of Wispr adding meeting notes to its dictation app.",
+      "url": "https://techcrunch.com/2026/10/29/granola-crunches-up-a-dictation-feature-to-compete-with-wispr/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/29/granola-crunches-up-a-dictation-feature-to-compete-with-wispr/",
+      "category": "news",
+      "tags": [
+        "Voice / Speech",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/10/Granola.jpg?resize=1200,675"
+      },
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-29T17:54:38Z",
+      "hidden": false,
+      "rank": 23
+    },
+    {
+      "id": "tc-mistral-releases-weights-for-its-trillion-2026-10-30",
+      "title": "Mistral releases weights for its trillion-parameter AI model, targeting cybersecurity",
+      "summary": "Mistral argues open weights give organizations a kind of control over their cyber defenses that closed models cannot.",
+      "url": "https://techcrunch.com/2026/10/29/mistral-releases-weights-for-its-trillion-parameter-ai-model-targeting-cybersecurity/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/29/mistral-releases-weights-for-its-trillion-parameter-ai-model-targeting-cybersecurity/",
+      "category": "news",
+      "tags": [
+        "Model Release",
+        "Open Source",
+        "Mistral",
+        "Security"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2024/06/GettyImages-1760104305.jpg?resize=1200,798"
+      },
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-10-29T17:00:00Z",
+      "hidden": false,
+      "rank": 27
+    },
+    {
+      "id": "tc-us-investigated-chinese-spy-plot-aimed-at-2026-10-30",
+      "title": "US investigated Chinese spy plot aimed at Nvidia CEO",
+      "summary": "Per the New York Times, a top executive at a Singapore AI cloud firm accused of illegally selling Nvidia chips to China may also have been a Chinese spy.",
+      "url": "https://techcrunch.com/2026/10/29/u-s-investigated-chinese-spy-plot-aimed-at-nvidia-ceo/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/29/u-s-investigated-chinese-spy-plot-aimed-at-nvidia-ceo/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Security"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2022/09/nvidia-ceo-jensen-huang-with-geforce-rtx-4090.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-29T16:42:32Z",
+      "hidden": false,
+      "rank": 30
+    },
+    {
+      "id": "tc-ex-palantir-execs-launch-dream-with-17m-from-2026-10-30",
+      "title": "Ex-Palantir execs launch Dream with $17M from a16z to build AI world models for construction",
+      "summary": "Dream's world model is trained on more than 100M square feet of building data from US permit archives and grounded in physics and construction standards.",
+      "url": "https://techcrunch.com/2026/10/29/ex-palantir-execs-launch-dream-with-17m-from-a16z-to-build-ai-world-models-for-construction/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/29/ex-palantir-execs-launch-dream-with-17m-from-a16z-to-build-ai-world-models-for-construction/",
+      "category": "news",
+      "tags": [
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/10/TeamPhoto_1.png?resize=1200,675"
+      },
+      "meta": {
+        "author": "Marina Temkin",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-10-29T16:21:00Z",
+      "hidden": false,
+      "rank": 34
+    },
+    {
+      "id": "hn-we-re-releasing-the-weights-of-mistral-large-4-2026-10-30",
+      "title": "We're releasing the weights of Mistral Large 4",
+      "summary": "Mistral's own release post for the open weights; TechCrunch reports the trillion-parameter model is pitched at organizations running their own cyber defenses.",
+      "url": "https://mistral.ai/news/mistral-large-4-oss/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50289418",
+      "category": "hn",
+      "tags": [
+        "Model Release",
+        "Open Source",
+        "Mistral",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 1396,
+        "comments": 376
+      },
+      "meta": {
+        "author": "kuberwastaken"
+      },
+      "published_at": "2026-10-29T14:13:21Z",
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "hn-claude-code-regularly-sends-each-background-2026-10-30",
+      "title": "Claude Code regularly sends each background agent’s transcript to its model",
+      "summary": "A GitHub gist documenting Claude Code periodically passing every background agent's transcript back to the model.",
+      "url": "https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50284255",
+      "category": "hn",
+      "tags": [
+        "Claude Code",
+        "Privacy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 566,
+        "comments": 229
+      },
+      "meta": {
+        "author": "NikZaal"
+      },
+      "published_at": "2026-10-29T03:33:42Z",
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "hn-llm-voice-2026-10-30",
+      "title": "LLM Voice",
+      "summary": "A short bliki entry by Martin Fowler on his site, defining the term LLM Voice.",
+      "url": "https://martinfowler.com/bliki/LLM-Voice.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50290177",
+      "category": "hn",
+      "tags": [
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 445,
+        "comments": 240
+      },
+      "meta": {
+        "author": "ibobev"
+      },
+      "published_at": "2026-10-29T14:57:55Z",
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "id": "hn-gemini-4-carbon-is-the-new-1-on-the-artificial-2026-10-30",
+      "title": "Gemini 4 Carbon is the new #1 on the Artificial Analysis Intelligence Index v5",
+      "summary": "Artificial Analysis write-up on Google's Gemini 4 Carbon taking the top spot in version 5 of its Intelligence Index.",
+      "url": "https://artificialanalysis.ai/articles/gemini-4-carbon-new-number-1",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50288019",
+      "category": "hn",
+      "tags": [
+        "Benchmark",
+        "Google",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 332,
+        "comments": 241
+      },
+      "meta": {
+        "author": "theHocineSaad"
+      },
+      "published_at": "2026-10-29T12:41:56Z",
+      "hidden": false,
+      "rank": 12
+    },
+    {
+      "id": "hn-we-ran-ai-agent-swarms-in-minecraft-and-2026-10-30",
+      "title": "We ran AI agent swarms in Minecraft and Mindustry",
+      "summary": "A Y Combinator Labs games project page reporting on swarms of AI agents run inside Minecraft and Mindustry.",
+      "url": "https://labs.ycombinator.com/projects/games/index.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50296486",
+      "category": "hn",
+      "tags": [
+        "Agents"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 259,
+        "comments": 88
+      },
+      "meta": {
+        "author": "sandslash"
+      },
+      "published_at": "2026-10-29T21:40:28Z",
+      "hidden": false,
+      "rank": 15
+    },
+    {
+      "id": "hn-zombie-stats-where-the-numbers-ai-quotes-come-2026-10-30",
+      "title": "Zombie stats: Where the numbers AI quotes come from",
+      "summary": "Trakkr research piece tracing the original sources behind statistics that AI models repeatedly cite.",
+      "url": "https://trakkr.ai/trakkr-research/zombie-stats",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50290283",
+      "category": "hn",
+      "tags": [
+        "LLM",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 158,
+        "comments": 66
+      },
+      "meta": {
+        "author": "mektrik"
+      },
+      "published_at": "2026-10-29T15:06:17Z",
+      "hidden": false,
+      "rank": 19
+    },
+    {
+      "id": "hn-manifestos-fear-and-loser-thinking-inside-2026-10-30",
+      "title": "Manifestos, Fear, and 'Loser Thinking': Inside Proton's AI Reckoning",
+      "summary": "404 Media report on internal tension at Proton over its push into AI; a separate item in this edition says the company is now going all in.",
+      "url": "https://www.404media.co/manifestos-fear-and-loser-thinking-inside-protons-ai-reckoning/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50289692",
+      "category": "hn",
+      "tags": [
+        "Privacy",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 156,
+        "comments": 54
+      },
+      "meta": {
+        "author": "Frieren"
+      },
+      "published_at": "2026-10-29T14:29:06Z",
+      "hidden": false,
+      "rank": 22
+    },
+    {
+      "id": "hn-perspectiva-kogui-a-message-on-artificial-2026-10-30",
+      "title": "Perspectiva Kogui: A message on artificial intelligence from the Kogui people",
+      "summary": "Sonido Selva publishes a statement from the Kogui people setting out their view of artificial intelligence.",
+      "url": "https://sonidoselva.com/perspectiva-kogui",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50287359",
+      "category": "hn",
+      "tags": [
+        "Policy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 124,
+        "comments": 104
+      },
+      "meta": {
+        "author": "andreisag"
+      },
+      "published_at": "2026-10-29T11:29:49Z",
+      "hidden": false,
+      "rank": 26
+    },
+    {
+      "id": "hn-claude-duet-is-the-first-personal-assistant-2026-10-30",
+      "title": "Claude Duet is the first personal-assistant-type harness that feels useful",
+      "summary": "An essay on fig.blue arguing Anthropic's Claude Duet works as an everyday assistant harness where earlier personal-assistant tools did not.",
+      "url": "https://fig.blue/posts/duet-is-the-future/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50292727",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "Agents"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 115,
+        "comments": 116
+      },
+      "meta": {
+        "author": "nathanfig"
+      },
+      "published_at": "2026-10-29T17:24:25Z",
+      "hidden": false,
+      "rank": 29
+    },
+    {
+      "id": "hn-proton-goes-all-in-on-using-ai-2026-10-30",
+      "title": "Proton goes all in on using AI",
+      "summary": "A Mastodon post on Proton's AI push, the same shift 404 Media reports stirred internal conflict at the company.",
+      "url": "https://convo.casa/@b/117525936178835007",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50296602",
+      "category": "hn",
+      "tags": [
+        "Privacy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 90,
+        "comments": 93
+      },
+      "meta": {
+        "author": "ColinWright"
+      },
+      "published_at": "2026-10-29T21:49:28Z",
+      "hidden": false,
+      "rank": 33
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-10-30",
+  "window": {
+    "after": "2026-10-29",
+    "before": "2026-10-31"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 15,
+  "poolCount": 62,
+  "stories": [
+    {
+      "title": "We're releasing the weights of Mistral Large 4",
+      "url": "https://mistral.ai/news/mistral-large-4-oss/",
+      "type": "story",
+      "points": 1396,
+      "num_comments": 376,
+      "author": "kuberwastaken",
+      "created_at": "2026-10-29T14:13:21Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50289418"
+    },
+    {
+      "title": "Claude Code regularly sends each background agent\u2019s transcript to its model",
+      "url": "https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce",
+      "type": "story",
+      "points": 566,
+      "num_comments": 229,
+      "author": "NikZaal",
+      "created_at": "2026-10-29T03:33:42Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50284255"
+    },
+    {
+      "title": "LLM Voice",
+      "url": "https://martinfowler.com/bliki/LLM-Voice.html",
+      "type": "story",
+      "points": 445,
+      "num_comments": 240,
+      "author": "ibobev",
+      "created_at": "2026-10-29T14:57:55Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50290177"
+    },
+    {
+      "title": "Gemini 4 Carbon is the new #1 on the Artificial Analysis Intelligence Index v5",
+      "url": "https://artificialanalysis.ai/articles/gemini-4-carbon-new-number-1",
+      "type": "story",
+      "points": 332,
+      "num_comments": 241,
+      "author": "theHocineSaad",
+      "created_at": "2026-10-29T12:41:56Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50288019"
+    },
+    {
+      "title": "We ran AI agent swarms in Minecraft and Mindustry",
+      "url": "https://labs.ycombinator.com/projects/games/index.html",
+      "type": "story",
+      "points": 259,
+      "num_comments": 88,
+      "author": "sandslash",
+      "created_at": "2026-10-29T21:40:28Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50296486"
+    },
+    {
+      "title": "Zombie stats: Where the numbers AI quotes come from",
+      "url": "https://trakkr.ai/trakkr-research/zombie-stats",
+      "type": "story",
+      "points": 158,
+      "num_comments": 66,
+      "author": "mektrik",
+      "created_at": "2026-10-29T15:06:17Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50290283"
+    },
+    {
+      "title": "Manifestos, Fear, and 'Loser Thinking': Inside Proton's AI Reckoning",
+      "url": "https://www.404media.co/manifestos-fear-and-loser-thinking-inside-protons-ai-reckoning/",
+      "type": "story",
+      "points": 156,
+      "num_comments": 54,
+      "author": "Frieren",
+      "created_at": "2026-10-29T14:29:06Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50289692"
+    },
+    {
+      "title": "Perspectiva Kogui: A message on artificial intelligence from the Kogui people",
+      "url": "https://sonidoselva.com/perspectiva-kogui",
+      "type": "story",
+      "points": 124,
+      "num_comments": 104,
+      "author": "andreisag",
+      "created_at": "2026-10-29T11:29:49Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50287359"
+    },
+    {
+      "title": "Claude Duet is the first personal-assistant-type harness that feels useful",
+      "url": "https://fig.blue/posts/duet-is-the-future/",
+      "type": "story",
+      "points": 115,
+      "num_comments": 116,
+      "author": "nathanfig",
+      "created_at": "2026-10-29T17:24:25Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50292727"
+    },
+    {
+      "title": "Proton goes all in on using AI",
+      "url": "https://convo.casa/@b/117525936178835007",
+      "type": "story",
+      "points": 90,
+      "num_comments": 93,
+      "author": "ColinWright",
+      "created_at": "2026-10-29T21:49:28Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50296602"
+    }
+  ]
+}

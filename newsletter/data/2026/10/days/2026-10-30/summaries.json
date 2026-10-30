@@ -1,0 +1,141 @@
+{
+  "date": "2026-10-30",
+  "items": {
+    "ph-empacer-2026-10-30": {
+      "summary": "Three setup questions build a business profile, then spoken requests become drafted customer replies, social posts and invoices, each held for the owner's approval before sending.",
+      "tags": ["Voice / Speech", "Agents", "Launch"]
+    },
+    "ph-scape-6-2026-10-30": {
+      "summary": "AI email client that ranks messages, drafts contextual replies and tracks follow-ups, drawing on meetings, calendars and attachments as well as the inbox.",
+      "tags": ["LLM", "Launch"]
+    },
+    "ph-floot-in-chatgpt-2026-10-30": {
+      "summary": "ChatGPT sidebar app that builds an app from a description in a live in-chat preview, then publishes it with database, logins and hosting included, running on your ChatGPT plan.",
+      "tags": ["Dev Tool", "Code Gen", "Launch"]
+    },
+    "ph-notch-metrics-2026-10-30": {
+      "summary": "MacBook notch widgets for revenue, MRR and subscriber counts from Stripe, Polar, Paddle and Dodo Payments, with Claude Code used to build your own.",
+      "tags": ["Claude Code", "Launch"]
+    },
+    "ph-gologin-cloud-browser-2-2026-10-30": {
+      "summary": "Serverless Chromium for agents and scrapers with persistent logged-in sessions, anti-bot stealth and proxies in 150+ countries, driven by Playwright or Puppeteer over WebSocket.",
+      "tags": ["Dev Tool", "Agents", "Launch"]
+    },
+    "gh-impeccable-2026-10-30": {
+      "summary": "Rust design vocabulary for coding agents: commands like polish and bolder steer UI work, while critique and audit review it for generic AI-generated design before it ships.",
+      "tags": ["Dev Tool", "Code Gen", "Open Source"]
+    },
+    "gh-openmausbot-2026-10-30": {
+      "summary": "TypeScript open-source alternative to Grok Bot that gives its bots a virtual machine to operate in.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-ai-design-skills-2026-10-30": {
+      "summary": "A design-focused skills collection for AI agents from elayadesign; the repository publishes no description beyond its name.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-thinkrail-2026-10-30": {
+      "summary": "JetBrains' lightweight TypeScript IDE for vibe coding with the pi agent, which reshapes its own setup around how you work.",
+      "tags": ["Dev Tool", "Code Gen", "Open Source"]
+    },
+    "gh-superpowers-2026-10-30": {
+      "summary": "Shell-based agentic skills framework for coding agents, bundled with a software development methodology for how the agent should work.",
+      "tags": ["Framework", "Agents", "Code Gen"]
+    },
+    "gh-openbot-2026-10-30": {
+      "summary": "Local-first desktop app running Codex, Claude and Grok as persistent teammates with their own workspaces, task queues, file sharing, browser control and agent-to-agent work.",
+      "tags": ["Agents", "Open Source"]
+    },
+    "gh-claude-code-game-studios-2026-10-30": {
+      "summary": "Claude Code configuration of 49 agents and 72 workflow skills arranged like a real game studio hierarchy, with a coordination system between the roles.",
+      "tags": ["Claude Code", "Agents"]
+    },
+    "gh-claude-mem-2026-10-30": {
+      "summary": "Records what an agent does in a session, compresses it with AI and injects the relevant parts into later sessions; supports Claude Code, Codex, Gemini, Copilot, OpenCode and more.",
+      "tags": ["Agents", "Claude Code", "Open Source"]
+    },
+    "gh-openbot-2-2026-10-30": {
+      "summary": "CopilotKit's AI coworkers each get their own browser, files and tools, with every action approved before it runs and recorded after; any AG-UI agent can plug in.",
+      "tags": ["Agents", "Open Source"]
+    },
+    "tc-as-search-traffic-dries-up-reddit-announces-its-2026-10-30": {
+      "summary": "With AI changing how people find information and cutting the search referrals it relied on, Reddit is stepping back from its open-web roots to protect its audience and business.",
+      "tags": ["Policy"]
+    },
+    "tc-you-dont-need-to-believe-in-a-god-to-get-a-2026-10-30": {
+      "summary": "University of Kentucky administrator David Durman recently won an exemption from workplace AI use on religious grounds.",
+      "tags": ["Policy"]
+    },
+    "tc-aws-will-be-a-1t-business-jassy-says-but-first-2026-10-30": {
+      "summary": "Amazon's CEO said Thursday the company wants to lead AI cloud computing, and that reaching $1T in revenue means sustaining its capex spending spree.",
+      "tags": ["Inference"]
+    },
+    "tc-rivian-expands-joint-venture-with-vw-to-include-2026-10-30": {
+      "summary": "The AI assistant joins Rivian's $5.8B joint venture with Volkswagen, though Rivian has not said whether the venture's value grows as a result.",
+      "tags": ["LLM"]
+    },
+    "tc-openai-backed-thrive-holdings-acquires-adt-2026-10-30": {
+      "summary": "The deal is worth $15.3B, and Thrive Holdings plans to bring AI into ADT's home security business.",
+      "tags": ["Acquisition"]
+    },
+    "tc-meta-quietly-launches-an-ai-fashion-app-called-2026-10-30": {
+      "summary": "Builds a virtual closet from photos you have shared on Instagram, or from items added by snapping a photo, recording a short video or uploading from the camera roll.",
+      "tags": ["Meta", "Vision", "Launch"]
+    },
+    "tc-granola-crunches-up-a-dictation-feature-to-2026-10-30": {
+      "summary": "The meeting notetaker adds dictation, a mirror of Wispr adding meeting notes to its dictation app.",
+      "tags": ["Voice / Speech", "Launch"]
+    },
+    "tc-mistral-releases-weights-for-its-trillion-2026-10-30": {
+      "summary": "Mistral argues open weights give organizations a kind of control over their cyber defenses that closed models cannot.",
+      "tags": ["Model Release", "Open Source", "Mistral", "Security"]
+    },
+    "tc-us-investigated-chinese-spy-plot-aimed-at-2026-10-30": {
+      "summary": "Per the New York Times, a top executive at a Singapore AI cloud firm accused of illegally selling Nvidia chips to China may also have been a Chinese spy.",
+      "tags": ["Nvidia", "Security"]
+    },
+    "tc-ex-palantir-execs-launch-dream-with-17m-from-2026-10-30": {
+      "summary": "Dream's world model is trained on more than 100M square feet of building data from US permit archives and grounded in physics and construction standards.",
+      "tags": ["Funding"]
+    },
+    "hn-we-re-releasing-the-weights-of-mistral-large-4-2026-10-30": {
+      "summary": "Mistral's own release post for the open weights; TechCrunch reports the trillion-parameter model is pitched at organizations running their own cyber defenses.",
+      "tags": ["Model Release", "Open Source", "Mistral", "LLM"]
+    },
+    "hn-claude-code-regularly-sends-each-background-2026-10-30": {
+      "summary": "A GitHub gist documenting Claude Code periodically passing every background agent's transcript back to the model.",
+      "tags": ["Claude Code", "Privacy"]
+    },
+    "hn-llm-voice-2026-10-30": {
+      "summary": "A short bliki entry by Martin Fowler on his site, defining the term LLM Voice.",
+      "tags": ["LLM"]
+    },
+    "hn-gemini-4-carbon-is-the-new-1-on-the-artificial-2026-10-30": {
+      "summary": "Artificial Analysis write-up on Google's Gemini 4 Carbon taking the top spot in version 5 of its Intelligence Index.",
+      "tags": ["Benchmark", "Google", "LLM"]
+    },
+    "hn-we-ran-ai-agent-swarms-in-minecraft-and-2026-10-30": {
+      "summary": "A Y Combinator Labs games project page reporting on swarms of AI agents run inside Minecraft and Mindustry.",
+      "tags": ["Agents"]
+    },
+    "hn-zombie-stats-where-the-numbers-ai-quotes-come-2026-10-30": {
+      "summary": "Trakkr research piece tracing the original sources behind statistics that AI models repeatedly cite.",
+      "tags": ["LLM", "Deep Dive"]
+    },
+    "hn-manifestos-fear-and-loser-thinking-inside-2026-10-30": {
+      "summary": "404 Media report on internal tension at Proton over its push into AI; a separate item in this edition says the company is now going all in.",
+      "tags": ["Privacy", "Deep Dive"]
+    },
+    "hn-perspectiva-kogui-a-message-on-artificial-2026-10-30": {
+      "summary": "Sonido Selva publishes a statement from the Kogui people setting out their view of artificial intelligence.",
+      "tags": ["Policy"]
+    },
+    "hn-claude-duet-is-the-first-personal-assistant-2026-10-30": {
+      "summary": "An essay on fig.blue arguing Anthropic's Claude Duet works as an everyday assistant harness where earlier personal-assistant tools did not.",
+      "tags": ["Anthropic", "Agents"]
+    },
+    "hn-proton-goes-all-in-on-using-ai-2026-10-30": {
+      "summary": "A Mastodon post on Proton's AI push, the same shift 404 Media reports stirred internal conflict at the company.",
+      "tags": ["Privacy"]
+    }
+  }
+}
