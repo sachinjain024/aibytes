@@ -2,6 +2,7 @@
 //   ?c=repos                one category (single select)
 //   &t=agents,open-source   tags by their tags.json slug (any of them)
 //   &s=github,hackernews    sources (any of them)
+//   &q=claude               search text, matched in the title or summary
 // Values the app does not know are dropped, so an old or hand-edited link
 // still opens - it just filters less. Pure functions, covered by node --test.
 
@@ -19,7 +20,7 @@ export const SOURCES = [
   { key: "techcrunch", label: "TechCrunch" },
 ];
 
-export const NO_FILTERS = { category: "all", tags: [], sources: [] };
+export const NO_FILTERS = { category: "all", tags: [], sources: [], query: "" };
 
 const list = (value) => (value ? value.split(",").filter(Boolean) : []);
 const allTags = (tagGroups) => tagGroups.flatMap((group) => group.tags);
@@ -34,6 +35,8 @@ export function parseFilters(search, tagGroups) {
     category: CATEGORIES.some((c) => c.key === category) ? category : "all",
     tags: [...new Set(list(params.get("t")).filter((slug) => bySlug.has(slug)).map((slug) => bySlug.get(slug)))],
     sources: SOURCES.filter((s) => wanted.has(s.key)).map((s) => s.key),
+    // Kept as typed, so the search box does not eat a trailing space.
+    query: params.get("q") || "",
   };
 }
 
@@ -47,16 +50,20 @@ export function filtersToSearch(filters, tagGroups) {
   if (slugs.length) params.set("t", slugs.join(","));
   const sources = SOURCES.filter((s) => filters.sources.includes(s.key)).map((s) => s.key);
   if (sources.length) params.set("s", sources.join(","));
+  if (filters.query && filters.query.trim()) params.set("q", filters.query);
   // Commas are safe in a query and read better unescaped: ?t=agents,open-source
   const search = params.toString().replace(/%2C/g, ",");
   return search ? "?" + search : "";
 }
 
-/** Whether an item passes: its category, any chosen tag, any chosen source. */
+/** Whether an item passes: its category, any chosen tag, any chosen source,
+ * and the search text anywhere in its title or summary, ignoring case. */
 export function matches(item, filters) {
   if (filters.category !== "all" && item.category !== filters.category) return false;
   if (filters.tags.length && !(item.tags || []).some((tag) => filters.tags.includes(tag))) return false;
   if (filters.sources.length && !filters.sources.includes(item.source)) return false;
+  const query = (filters.query || "").trim().toLowerCase();
+  if (query && !`${item.title || ""} ${item.summary || ""}`.toLowerCase().includes(query)) return false;
   return true;
 }
 

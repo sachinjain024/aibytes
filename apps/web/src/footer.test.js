@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { FOOTER_LINKS, mailto, SUBSCRIBE_URL } from "./footer.js";
+import { FOOTER_LINKS, GITHUB_URL, mailto, SUBSCRIBE_URL } from "./footer.js";
 
 test("a mailto link encodes its subject", () => {
   assert.equal(mailto("a@b.co", "Suggest a link: aiBytes_"), "mailto:a@b.co?subject=Suggest%20a%20link%3A%20aiBytes_");
@@ -17,7 +17,8 @@ test("the extension has no link until it ships", () => {
 
 test("every other link is https or mailto", () => {
   for (const link of FOOTER_LINKS.slice(1)) assert.match(link.href, /^(https:\/\/|mailto:)/, link.label);
-  assert.equal(FOOTER_LINKS.find((l) => l.label === "GitHub").href, "https://github.com/sachinjain024/aibytes");
+  assert.equal(GITHUB_URL, "https://github.com/sachinjain024/aibytes");
+  assert.equal(FOOTER_LINKS.find((l) => l.label === "GitHub").href, GITHUB_URL);
   assert.equal(FOOTER_LINKS.find((l) => l.label === "X").href, "https://x.com/sachinjain024");
 });
 

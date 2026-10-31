@@ -10,15 +10,26 @@ const TARGETS = [
   { label: "Gemini", icon: iGemini, href: () => "https://gemini.google.com/app" }];
 export function CardMenu({ item, up = true }) {
   const [open, setOpen] = React.useState(false);
+  const root = React.useRef(null);
+  React.useEffect(() => {
+    if (!open) return;
+    const dismiss = event => {
+      if (event.key === "Escape") { setOpen(false); root.current?.querySelector("button")?.focus(); }
+      if (event.type === "pointerdown" && !root.current?.contains(event.target)) setOpen(false);
+    };
+    document.addEventListener("keydown", dismiss);
+    document.addEventListener("pointerdown", dismiss);
+    return () => { document.removeEventListener("keydown", dismiss); document.removeEventListener("pointerdown", dismiss); };
+  }, [open]);
   return (
-    <span className="ldg-menu">
+    <span className="ldg-menu" ref={root}>
       <button type="button" className="ldg-menu__btn" aria-haspopup="menu" aria-expanded={open} aria-label={"More actions for " + item.title} onClick={() => setOpen(o => !o)}>{iKebab}</button>
       {open && (
         <span className={"ldg-menu__panel" + (up ? " ldg-menu__panel--up" : "")} role="menu">
           <span className="ldg-menu__item">
             <span className="ldg-menu__label">Open in</span>
             <span className="ldg-menu__icons">
-              {TARGETS.map(t => <a key={t.label} className="ldg-menu__icon" role="menuitem" aria-label={"Open in " + t.label} title={t.label} href={t.href(item)} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>{t.icon}</a>)}
+              {TARGETS.map(t => <a key={t.label} className="ldg-menu__icon" role="menuitem" aria-label={"Open in " + t.label} title={t.label} href={t.href(item)} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>{t.icon}<span>{t.label}</span></a>)}
             </span>
           </span>
         </span>)}

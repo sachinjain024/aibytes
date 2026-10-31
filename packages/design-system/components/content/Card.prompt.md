@@ -1,3 +1,7 @@
+Current visual specification: see `../../readme.md`, `../../styles.css` and `../../tokens/token.css`. `Card` and `ListRow` share `FeedItem.jsx`; preserve source/destination links, image fallbacks, signals and optional save actions. The legacy specification below is historical.
+
+Shared metadata helpers live in `signals.jsx` and are consumed by `FeedItem.jsx`. Existing helper imports from `Card.jsx` remain supported through re-exports; do not import `Card` into the helper module.
+
 Grid-view feed card — the core unit of an edition.
 
 ```jsx
@@ -6,4 +10,4 @@ Grid-view feed card — the core unit of an edition.
 
 Image rules: PH logo rounded 8px, GitHub avatar circle (+ language dot in meta), TC og:image square, HN always the HN tile. Signals order: upvotes/points → stars gained → comments; only rendered when present. `topToday` adds the `--hot` left edge + mono `TOP` label (open decision #1). The meta row ends with the `CardMenu` kebab (⋮ → "Open in" ChatGPT / Claude / Gemini) automatically.
 
-Layout variants: `signalsPos` places upvotes — "logo" stacked under the image, "source" inline after the source name, "bottom" bottom-aligned under the image (default in the app), "row" own row between summary and tags; comments never show on cards. `tagStyle`: "dots" mono ·-separated (default), "pills" bordered chips, "hash" accent #tags. `maxTags` caps tags (default 3). With `signalsPos` ≠ "bottom" the menu + star move to the top-right corner cluster.
+Layout variants: `signalsPos` places upvotes — "logo" stacked under the image, "source" inline after the source name, "bottom" bottom-aligned under the image (default in the app), "row" own row between summary and tags; comments never show on cards. `tagStyle`: "dots" mono ·-separated (default), "pills" bordered chips, "hash" accent #tags. `maxTags` caps tags (default 3); 0 drops the tags row entirely, language dot included (the app's cards use this). With `signalsPos` ≠ "bottom" the menu + star move to the top-right corner cluster.

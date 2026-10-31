@@ -4,12 +4,12 @@ description: Design and build well-branded interfaces for the aiBytes_ web app a
 ---
 
 Ledger lives in `packages/design-system/`. Read `packages/design-system/readme.md`
-first, then explore what you need.
+first as the source of truth for the current app design, then explore what you need.
 
 Key paths, all under `packages/design-system/`:
 
 - `styles.css` — the token entry point (light default, dark via `[data-theme="dark"]`)
-- `tokens/` — `fonts.css`, `colors.css`, `typography.css`, `spacing.css`, `base.css`
+- `tokens/token.css` — the authoritative palette, typography, spacing, shape, and language tokens
 - `components/` — React primitives grouped as `brand/`, `navigation/`, `content/`,
   `forms/`. Each has a `.jsx`, a `.d.ts`, and a `.prompt.md` describing its intent
 - `assets/marks/` — per-source SVGs (Product Hunt, Hacker News, GitHub, TechCrunch)
@@ -21,15 +21,13 @@ The source brief and product spec are in `docs/aibytes-design-system-brief.md` a
 
 ## Non-negotiables
 
-- **Text is the interface.** Images are 40px accents in a fixed slot, never heroes.
-- **One accent, one hot.** Cobalt `--accent` for anything interactive; orange `--hot`
-  only for "top today" and the HN tile; yellow `--save` only in the filled star.
-- **Mono for numbers.** JetBrains Mono with tabular numerals on every signal, count,
-  tag, and date so they line up in a column across cards.
-- **1px borders, no shadows at rest.** Hover swaps `--border` for `--accent` plus a
-  1px lift. No gradients, no glass, no illustration, no infinite scroll.
-- **Same layout in light and dark** — only the palette flips.
-- AA contrast and a visible 2px focus ring on every interactive element, both themes.
+- Use `tokens/token.css` as the single token source; do not restore legacy token files or add override layers.
+- Use the neutral redesign palette in both themes, Inter for UI/metadata and Bricolage Grotesque for the brand/edition heading.
+- Separate link text (`--link`) from filled actions (`--accent` and `--accent-fg`).
+- Preserve all public component options, source/destination links, optional save callbacks, and image fallbacks.
+- Keep keyboard focus visible; suppress pointer rings without turning them on for ordinary typing.
+- Validate effective light/dark colors and focus/control boundaries with the contrast tests.
+- Preserve edition loading, ranking, URL filters and persisted preferences. The redesign interactions documented in readme.md are intentionally retained.
 
 ## Scope
 

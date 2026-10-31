@@ -1,3 +1,5 @@
+> **Current app UI:** The approved static redesign supersedes conflicting historical visual rules below. See [current styling guidance](../packages/design-system/readme.md) for `styles.css`, `tokens/token.css`, component ownership and validation. Existing product behavior is retained.
+
 # aiBytes_ Design System Brief
 
 **For:** Claude Design
