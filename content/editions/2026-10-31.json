@@ -1,0 +1,908 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "generated_at": "2026-10-31T08:01:18Z",
+  "counts": {
+    "launches": 6,
+    "repos": 10,
+    "news": 10,
+    "hn": 9
+  },
+  "items": [
+    {
+      "id": "ph-vaani-developer-platform-2026-10-31",
+      "title": "Vaani Developer Platform",
+      "summary": "No-code builder for phone voice agents: design the call flow and objection handling, attach tools and a knowledge base, go live on a real number, and get structured data from every call.",
+      "url": "https://www.producthunt.com/products/vaani-developer-platfrom",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/vaani-developer-platfrom",
+      "category": "launches",
+      "tags": [
+        "Voice / Speech",
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/c1bb5c3c-40d1-4135-8473-ee14a1698b62.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 349,
+        "comments": 103
+      },
+      "published_at": "2026-10-30T07:01:00Z",
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "ph-knocket-ai-2026-10-31",
+      "title": "Knocket AI",
+      "summary": "Free live chat widget for a website or app that doubles as a bio-link contact page, letting visitors start a conversation without creating an account.",
+      "url": "https://www.producthunt.com/products/knocket-ai",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/knocket-ai",
+      "category": "launches",
+      "tags": [
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/c9e78747-3bbf-4262-b48f-06a2f61660f1.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 331,
+        "comments": 104
+      },
+      "published_at": "2026-10-30T07:01:00Z",
+      "hidden": false,
+      "rank": 11
+    },
+    {
+      "id": "ph-speakon-agent-2026-10-31",
+      "title": "SpeakON Agent",
+      "summary": "Voice-to-action agent paired with SpeakON hardware that reads your notes, connects to your tools, and drafts actions you review and confirm before they run.",
+      "url": "https://www.producthunt.com/products/speakon",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/speakon",
+      "category": "launches",
+      "tags": [
+        "Voice / Speech",
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/7f258b9d-821d-41ba-8535-b24f5a3d415d.svg?auto=format"
+      },
+      "signals": {
+        "upvotes": 306,
+        "comments": 37
+      },
+      "published_at": "2026-10-30T07:01:00Z",
+      "hidden": false,
+      "rank": 18
+    },
+    {
+      "id": "ph-mcp-server-by-xwiki-2026-10-31",
+      "title": "MCP Server by XWiki",
+      "summary": "Open-source, self-hostable XWiki extension that lets Claude Code, Codex, Copilot, OpenCode and other agents query the wiki, create and edit pages, and work with its structured data.",
+      "url": "https://www.producthunt.com/products/xwiki",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/xwiki",
+      "category": "launches",
+      "tags": [
+        "MCP",
+        "Open Source",
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/b1de9b48-0f31-49f9-9c57-be2b4a9e3c4e.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 175,
+        "comments": 38
+      },
+      "published_at": "2026-10-30T07:01:00Z",
+      "hidden": false,
+      "rank": 25
+    },
+    {
+      "id": "ph-canva-brush-2026-10-31",
+      "title": "Canva Brush",
+      "summary": "Canva Research's vision-language model reads a design's structure and edits anything from one line to a whole deck, claimed 69% faster and 46% cheaper per task than its prior agent.",
+      "url": "https://www.producthunt.com/products/canva",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/canva",
+      "category": "launches",
+      "tags": [
+        "Model Release",
+        "Vision",
+        "Multimodal",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/d70456a3-3e4d-4bea-a910-bd66615b3384.jpeg?auto=format"
+      },
+      "signals": {
+        "upvotes": 175,
+        "comments": 6
+      },
+      "published_at": "2026-10-30T07:01:00Z",
+      "hidden": false,
+      "rank": 32
+    },
+    {
+      "id": "hn-show-hn-a-working-nintendo-in-1gb-of-qwen-2026-10-31",
+      "title": "Show HN: A working Nintendo in ~1GB of Qwen weights",
+      "summary": "nesformer, a GitHub project by dbreunig that runs a playable NES out of roughly a gigabyte of Qwen model weights.",
+      "url": "https://github.com/dbreunig/nesformer",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50306442",
+      "category": "launches",
+      "tags": [
+        "Show HN",
+        "Open Source",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 239,
+        "comments": 120
+      },
+      "meta": {
+        "author": "dbreunig"
+      },
+      "published_at": "2026-10-30T16:40:22Z",
+      "hidden": false,
+      "rank": 30
+    },
+    {
+      "id": "gh-impeccable-2026-10-31",
+      "title": "pbakaus/impeccable",
+      "summary": "Rust tool giving coding agents a design vocabulary: polish and bolder commands to steer UI work, critique and audit to review it, and checks that flag generic AI-looking output.",
+      "url": "https://github.com/pbakaus/impeccable",
+      "source": "github",
+      "source_url": "https://github.com/pbakaus/impeccable",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Code Gen",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/pbakaus.png?size=80"
+      },
+      "signals": {
+        "stars": 97459,
+        "stars_gained": 2300,
+        "forks": 5743
+      },
+      "meta": {
+        "language": "Rust"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "gh-superpowers-2026-10-31",
+      "title": "obra/superpowers",
+      "summary": "Shell-based framework of agent skills bundled with a software development methodology for coding agents to follow.",
+      "url": "https://github.com/obra/superpowers",
+      "source": "github",
+      "source_url": "https://github.com/obra/superpowers",
+      "category": "repos",
+      "tags": [
+        "Framework",
+        "Agents",
+        "Code Gen"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/obra.png?size=80"
+      },
+      "signals": {
+        "stars": 309607,
+        "stars_gained": 1259,
+        "forks": 27550
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "gh-claude-mem-2026-10-31",
+      "title": "thedotmack/claude-mem",
+      "summary": "TypeScript memory layer that records an agent's sessions, compresses them with a model, and injects the relevant context into later sessions in Claude Code, Codex, Gemini, Copilot and others.",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source": "github",
+      "source_url": "https://github.com/thedotmack/claude-mem",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Claude Code"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/thedotmack.png?size=80"
+      },
+      "signals": {
+        "stars": 106745,
+        "stars_gained": 1140,
+        "forks": 9394
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "id": "gh-openmausbot-2026-10-31",
+      "title": "milind-soni/OpenMausBot",
+      "summary": "Open-source TypeScript take on Grok's bot that gives each bot a virtual machine to operate inside.",
+      "url": "https://github.com/milind-soni/OpenMausBot",
+      "source": "github",
+      "source_url": "https://github.com/milind-soni/OpenMausBot",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/milind-soni.png?size=80"
+      },
+      "signals": {
+        "stars": 9005,
+        "stars_gained": 895,
+        "forks": 1234
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 12
+    },
+    {
+      "id": "gh-skills-2026-10-31",
+      "title": "mattpocock/skills",
+      "summary": "Matt Pocock's personal agent skills, published straight from his .agents directory and aimed at working engineers.",
+      "url": "https://github.com/mattpocock/skills",
+      "source": "github",
+      "source_url": "https://github.com/mattpocock/skills",
+      "category": "repos",
+      "tags": [
+        "Agents",
+        "Code Gen"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mattpocock.png?size=80"
+      },
+      "signals": {
+        "stars": 307711,
+        "stars_gained": 876,
+        "forks": 25898
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 15
+    },
+    {
+      "id": "gh-thinkrail-2026-10-31",
+      "title": "JetBrains/thinkrail",
+      "summary": "JetBrains' lightweight TypeScript IDE built around the pi coding agent, which adapts its own setup to how you work.",
+      "url": "https://github.com/JetBrains/thinkrail",
+      "source": "github",
+      "source_url": "https://github.com/JetBrains/thinkrail",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Code Gen",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/JetBrains.png?size=80"
+      },
+      "signals": {
+        "stars": 6689,
+        "stars_gained": 722,
+        "forks": 362
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 19
+    },
+    {
+      "id": "gh-openbot-2026-10-31",
+      "title": "CopilotKit/OpenBot",
+      "summary": "CopilotKit's open-source AI coworkers, each with its own browser, files and tools, where every action is approved before it runs and logged after; works with any AG-UI agent.",
+      "url": "https://github.com/CopilotKit/OpenBot",
+      "source": "github",
+      "source_url": "https://github.com/CopilotKit/OpenBot",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Framework"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/CopilotKit.png?size=80"
+      },
+      "signals": {
+        "stars": 8963,
+        "stars_gained": 706,
+        "forks": 1119
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 22
+    },
+    {
+      "id": "gh-browser-2026-10-31",
+      "title": "lightpanda-io/browser",
+      "summary": "Lightpanda, a headless browser written from scratch in Zig for AI agents and automation rather than built on Chromium.",
+      "url": "https://github.com/lightpanda-io/browser",
+      "source": "github",
+      "source_url": "https://github.com/lightpanda-io/browser",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/lightpanda-io.png?size=80"
+      },
+      "signals": {
+        "stars": 38663,
+        "stars_gained": 626,
+        "forks": 1880
+      },
+      "meta": {
+        "language": "Zig"
+      },
+      "hidden": false,
+      "rank": 26
+    },
+    {
+      "id": "gh-skills-2-2026-10-31",
+      "title": "anthropics/skills",
+      "summary": "Anthropic's public repository of Agent Skills, the folder-based instruction and script packages that Claude loads on demand.",
+      "url": "https://github.com/anthropics/skills",
+      "source": "github",
+      "source_url": "https://github.com/anthropics/skills",
+      "category": "repos",
+      "tags": [
+        "Anthropic",
+        "Agents",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/anthropics.png?size=80"
+      },
+      "signals": {
+        "stars": 185552,
+        "stars_gained": 295,
+        "forks": 21913
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 29
+    },
+    {
+      "id": "gh-macro-2026-10-31",
+      "title": "macro-inc/macro",
+      "summary": "Rust team workspace combining email, chat, docs, tasks, calls, CRM and agents, cross-linked with @-mentions and sharing one AI memory.",
+      "url": "https://github.com/macro-inc/macro",
+      "source": "github",
+      "source_url": "https://github.com/macro-inc/macro",
+      "category": "repos",
+      "tags": [
+        "Agents",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/macro-inc.png?size=80"
+      },
+      "signals": {
+        "stars": 5956,
+        "stars_gained": 57,
+        "forks": 545
+      },
+      "meta": {
+        "language": "Rust"
+      },
+      "hidden": false,
+      "rank": 33
+    },
+    {
+      "id": "tc-anthropic-expected-to-receive-high-junk-rating-2026-10-31",
+      "title": "Anthropic expected to receive high ‘junk’ rating from credit agencies following IPO, FT report says",
+      "summary": "The forecast comes from Blackstone via the FT; a junk rating would make borrowing costlier for Anthropic just as it needs capital to keep funding its heavy spending.",
+      "url": "https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/",
+      "category": "news",
+      "tags": [
+        "Anthropic",
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/08/GettyImages-2282033342.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-30T21:52:03Z",
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "tc-googles-first-data-center-satellite-is-online-2026-10-31",
+      "title": "Google’s first data center satellite is online and writing poetry",
+      "summary": "The first TPU in orbit is running a Google DeepMind Gemma 4 model, and its first public output is cheesy poetry.",
+      "url": "https://techcrunch.com/2026/10/30/googles-first-data-center-satellite-is-online-and-writing-poetry/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/30/googles-first-data-center-satellite-is-online-and-writing-poetry/",
+      "category": "news",
+      "tags": [
+        "Google",
+        "Inference"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/10/DSC_0298.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-10-30T17:00:00Z",
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "tc-doordash-said-its-only-received-several-hundred-2026-10-31",
+      "title": "DoorDash said it’s only received ‘several hundred’ orders from AI agents",
+      "summary": "The low count is a reality check on agentic shopping, and DoorDash says it is open to working with third-party agent makers.",
+      "url": "https://techcrunch.com/2026/10/30/doordash-said-its-only-received-several-hundred-orders-from-ai-agents/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/30/doordash-said-its-only-received-several-hundred-orders-from-ai-agents/",
+      "category": "news",
+      "tags": [
+        "Agents"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2022/08/GettyImages-1232015093.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-30T13:54:25Z",
+      "hidden": false,
+      "rank": 10
+    },
+    {
+      "id": "tc-nvidia-weighs-playing-the-cosigner-for-nscales-2026-10-31",
+      "title": "Nvidia weighs playing the cosigner for Nscale’s AI data center in West Virginia",
+      "summary": "Nvidia, which sells the chips going into the facility, is considering guaranteeing the loan to calm investors nervous about AI infrastructure debt.",
+      "url": "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/03/GettyImages-2235971874.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Aditya Mehta",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-10-31T01:20:05Z",
+      "hidden": false,
+      "rank": 14
+    },
+    {
+      "id": "tc-ollie-a-privacy-focused-ai-assistant-is-2026-10-31",
+      "title": "Ollie, a privacy-focused AI assistant, is shutting down",
+      "summary": "Its founder says the assistant closes in a week, citing a market crowded with AI assistants that do not share its privacy stance.",
+      "url": "https://techcrunch.com/2026/10/30/ollie-a-privacy-focused-ai-assistant-is-shutting-down/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/30/ollie-a-privacy-focused-ai-assistant-is-shutting-down/",
+      "category": "news",
+      "tags": [
+        "Privacy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/09/Ollie_Hero.png?resize=1200,847"
+      },
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-30T22:56:13Z",
+      "hidden": false,
+      "rank": 17
+    },
+    {
+      "id": "tc-intels-stock-crashes-knocking-12b-from-2026-10-31",
+      "title": "Intel’s stock crashes, knocking $12B from government’s stake",
+      "summary": "Intel's PC business is suffering as AI demand absorbs memory and other components, pushing PC prices up and sales down.",
+      "url": "https://techcrunch.com/2026/10/30/intels-stock-crashes-knocking-12b-from-governments-stake/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/30/intels-stock-crashes-knocking-12b-from-governments-stake/",
+      "category": "news",
+      "tags": [
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/10/Intel-Lip-Bu-Tan-1.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-30T21:54:34Z",
+      "hidden": false,
+      "rank": 21
+    },
+    {
+      "id": "tc-last-minute-halloween-costumes-for-tech-nerds-2026-10-31",
+      "title": "Last-minute Halloween costumes for tech nerds",
+      "summary": "TechCrunch's light Halloween list, including dressing as a deceptively cute AI agent icon, a PHP vulnerability, or a sleepy Bryan Johnson.",
+      "url": "https://techcrunch.com/2026/10/30/last-minute-halloween-costumes-for-tech-nerds/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/30/last-minute-halloween-costumes-for-tech-nerds/",
+      "category": "news",
+      "tags": [
+        "Agents"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-2170662558.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "6 minutes"
+      },
+      "published_at": "2026-10-30T21:26:59Z",
+      "hidden": false,
+      "rank": 24
+    },
+    {
+      "id": "tc-cracks-are-emerging-in-the-ai-spending-boom-2026-10-31",
+      "title": "Cracks are emerging in the AI spending boom",
+      "summary": "Mounting debt, negative cash flow and investor skepticism are raising doubts about how long Big Tech can keep pouring billions into AI infrastructure.",
+      "url": "https://techcrunch.com/2026/10/30/cracks-are-emerging-in-the-ai-spending-boom/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/30/cracks-are-emerging-in-the-ai-spending-boom/",
+      "category": "news",
+      "tags": [
+        "Funding",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/10/mick-haupt-7Kv1Elbagcc-unsplash.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-10-30T21:17:40Z",
+      "hidden": false,
+      "rank": 28
+    },
+    {
+      "id": "tc-zests-new-ai-agent-finds-restaurants-and-books-2026-10-31",
+      "title": "Zest’s new AI agent finds restaurants and books reservations over text",
+      "summary": "Zest's concierge merges a group's tastes, puts restaurant options to a vote, then books the table, all inside a text thread.",
+      "url": "https://techcrunch.com/2026/10/30/zests-new-ai-agent-finds-restaurants-and-books-reservations-over-text/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/30/zests-new-ai-agent-finds-restaurants-and-books-reservations-over-text/",
+      "category": "news",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/10/zest.jpg?resize=1200,764"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-10-30T17:47:12Z",
+      "hidden": false,
+      "rank": 31
+    },
+    {
+      "id": "tc-theranos-whistleblower-tyler-shultz-warns-that-2026-10-31",
+      "title": "Theranos whistleblower Tyler Shultz warns that the AI boom is ‘a great opportunity to go deceive people’",
+      "summary": "Shultz draws the Theranos parallel to AI companies that have never turned a profit yet raise money at trillion-dollar valuations.",
+      "url": "https://techcrunch.com/2026/10/30/theranos-whistleblower-tyler-shultz-warns-that-the-ai-boom-is-a-great-opportunity-to-go-deceive-people/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/30/theranos-whistleblower-tyler-shultz-warns-that-the-ai-boom-is-a-great-opportunity-to-go-deceive-people/",
+      "category": "news",
+      "tags": [
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-1465332173.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-10-30T16:03:45Z",
+      "hidden": false,
+      "rank": 35
+    },
+    {
+      "id": "hn-backdoor-in-claude-code-for-vs-code-extension-2026-10-31",
+      "title": "Backdoor in Claude Code for VS Code extension on the Cursor Marketplace",
+      "summary": "Phorion's security blog reports a compromised build of the official Claude Code VS Code extension published to the Cursor marketplace, one of several reports on the incident today.",
+      "url": "https://phorion.io/blog/offical-claude-code-vsx-compromise/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50300683",
+      "category": "hn",
+      "tags": [
+        "Security",
+        "Claude Code",
+        "Cursor"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 875,
+        "comments": 514
+      },
+      "meta": {
+        "author": "_chall"
+      },
+      "published_at": "2026-10-30T07:09:12Z",
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "hn-backdoors-in-official-claude-code-extensions-2026-10-31",
+      "title": "Backdoors in official Claude Code extensions",
+      "summary": "A Mastodon thread from security researcher GossiTheDog on the backdoored Claude Code extension, the same compromise Phorion and DoublePulsar wrote up on the Cursor marketplace.",
+      "url": "https://cyberplace.social/@GossiTheDog/117528831681803563",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50302334",
+      "category": "hn",
+      "tags": [
+        "Security",
+        "Claude Code"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 655,
+        "comments": 17
+      },
+      "meta": {
+        "author": "dsr_"
+      },
+      "published_at": "2026-10-30T11:05:53Z",
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "hn-us-reps-lead-democratic-resolution-opposing-a-i-2026-10-31",
+      "title": "US Reps Lead Democratic Resolution Opposing A.I. Bubble Bailout for Big Tech",
+      "summary": "A House Progressive Caucus release on a resolution led by Reps. Casar and Waters committing to protect the public rather than bail out Big Tech if the AI bubble bursts.",
+      "url": "https://progressives.house.gov/2026/10/reps-casar-waters-lead-democratic-resolution-opposing-a-i-bubble-bailout-for-big-tech-commit-to-protecting-american-people-instead",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50302814",
+      "category": "hn",
+      "tags": [
+        "Policy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 637,
+        "comments": 488
+      },
+      "meta": {
+        "author": "DeepLogin"
+      },
+      "published_at": "2026-10-30T12:08:00Z",
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "id": "hn-ai-isn-t-replacing-sres-it-s-deskilling-them-2026-10-31",
+      "title": "AI isn't replacing SREs, it's deskilling them",
+      "summary": "An essay on the SigNoz newsletter arguing that leaning on AI tools erodes the hands-on skills site reliability engineers need, rather than eliminating the role.",
+      "url": "https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50305693",
+      "category": "hn",
+      "tags": [
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 575,
+        "comments": 421
+      },
+      "meta": {
+        "author": "dorianniemiec"
+      },
+      "published_at": "2026-10-30T15:52:18Z",
+      "hidden": false,
+      "rank": 13
+    },
+    {
+      "id": "hn-claude-code-vs-code-extension-with-backdoor-2026-10-31",
+      "title": "Claude Code VS Code extension with backdoor released on Cursor marketplace",
+      "summary": "DoublePulsar's write-up of the Cursor marketplace incident, framing it as Anthropic being hacked to push a remote access trojan onto Claude developers' laptops.",
+      "url": "https://doublepulsar.com/anthropic-hacked-to-deliver-remote-access-trojan-to-claude-developer-laptops-worldwide-1148a92baae2",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50301983",
+      "category": "hn",
+      "tags": [
+        "Security",
+        "Claude Code",
+        "Anthropic"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 399,
+        "comments": 1
+      },
+      "meta": {
+        "author": "bashtoni"
+      },
+      "published_at": "2026-10-30T10:22:51Z",
+      "hidden": false,
+      "rank": 16
+    },
+    {
+      "id": "hn-anthropic-may-not-secure-investment-grade-2026-10-31",
+      "title": "Anthropic may not secure investment-grade rating after IPO, Blackstone says",
+      "summary": "The Financial Times report behind TechCrunch's story today: Blackstone expects credit agencies to rate Anthropic as junk after it lists, raising its borrowing costs.",
+      "url": "https://www.ft.com/content/59383c7f-8d82-493f-bf01-d2e862a1018f",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50307219",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "Funding"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 305,
+        "comments": 252
+      },
+      "meta": {
+        "author": "petethomas"
+      },
+      "published_at": "2026-10-30T17:27:25Z",
+      "hidden": false,
+      "rank": 20
+    },
+    {
+      "id": "hn-proton-s-ceo-cancels-ai-re-interviews-2026-10-31",
+      "title": "Proton's CEO Cancels AI 'Re-Interviews'",
+      "summary": "404 Media reports that Proton's CEO has called off the AI-related re-interviews of staff.",
+      "url": "https://www.404media.co/protons-ceo-cancels-ai-re-interviews/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50307183",
+      "category": "hn",
+      "tags": [
+        "Policy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 272,
+        "comments": 227
+      },
+      "meta": {
+        "author": "cdrnsf"
+      },
+      "published_at": "2026-10-30T17:24:45Z",
+      "hidden": false,
+      "rank": 23
+    },
+    {
+      "id": "hn-us-tech-stocks-see-sharp-falls-over-ai-cost-2026-10-31",
+      "title": "US tech stocks see sharp falls over AI cost fears",
+      "summary": "BBC News on a broad US tech selloff driven by worries over AI costs, the same day TechCrunch reported Intel's slide and cracks in AI spending.",
+      "url": "https://www.bbc.co.uk/news/articles/cvwy72e0n72yo",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50306008",
+      "category": "hn",
+      "tags": [
+        "Funding"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 252,
+        "comments": 283
+      },
+      "meta": {
+        "author": "mindracer"
+      },
+      "published_at": "2026-10-30T16:13:02Z",
+      "hidden": false,
+      "rank": 27
+    },
+    {
+      "id": "hn-cisco-gives-engineer-unlimited-ai-tokens-to-2026-10-31",
+      "title": "Cisco gives engineer unlimited AI tokens to rewrite legacy code",
+      "summary": "Fortune on Cisco president Jeetu Patel handing a 27-year-old engineer an unlimited token budget to rewrite legacy code, and what that means for entry-level jobs.",
+      "url": "https://fortune.com/2026/10/30/cisco-president-jeetu-patel-gen-z-27-year-old-unlimited-ai-tokens-rewrite-legacy-code-entry-level-jobs/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50304122",
+      "category": "hn",
+      "tags": [
+        "Code Gen"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 171,
+        "comments": 205
+      },
+      "meta": {
+        "author": "taubek"
+      },
+      "published_at": "2026-10-30T14:08:20Z",
+      "hidden": false,
+      "rank": 34
+    }
+  ]
+}

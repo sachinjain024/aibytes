@@ -1,0 +1,780 @@
+{
+  "date": "2026-10-31",
+  "generated_at": "2026-10-31T08:00:16Z",
+  "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
+  "tags": [
+    {
+      "name": "What it is",
+      "tags": [
+        {
+          "name": "Model Release",
+          "slug": "model-release"
+        },
+        {
+          "name": "Open Source",
+          "slug": "open-source"
+        },
+        {
+          "name": "Paper",
+          "slug": "paper"
+        },
+        {
+          "name": "Benchmark",
+          "slug": "benchmark"
+        },
+        {
+          "name": "Dataset",
+          "slug": "dataset"
+        },
+        {
+          "name": "Framework",
+          "slug": "framework"
+        },
+        {
+          "name": "Dev Tool",
+          "slug": "dev-tool"
+        },
+        {
+          "name": "API",
+          "slug": "api"
+        }
+      ]
+    },
+    {
+      "name": "Domain",
+      "tags": [
+        {
+          "name": "LLM",
+          "slug": "llm"
+        },
+        {
+          "name": "Agents",
+          "slug": "agents"
+        },
+        {
+          "name": "RAG",
+          "slug": "rag"
+        },
+        {
+          "name": "Fine-tuning",
+          "slug": "fine-tuning"
+        },
+        {
+          "name": "Inference",
+          "slug": "inference"
+        },
+        {
+          "name": "Local LLM",
+          "slug": "local-llm"
+        },
+        {
+          "name": "Vision",
+          "slug": "vision"
+        },
+        {
+          "name": "Voice / Speech",
+          "slug": "voice-speech"
+        },
+        {
+          "name": "Video",
+          "slug": "video"
+        },
+        {
+          "name": "Image Gen",
+          "slug": "image-gen"
+        },
+        {
+          "name": "Code Gen",
+          "slug": "code-gen"
+        },
+        {
+          "name": "Embeddings",
+          "slug": "embeddings"
+        },
+        {
+          "name": "Eval",
+          "slug": "eval"
+        },
+        {
+          "name": "Reasoning",
+          "slug": "reasoning"
+        },
+        {
+          "name": "Multimodal",
+          "slug": "multimodal"
+        },
+        {
+          "name": "Robotics",
+          "slug": "robotics"
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem",
+      "tags": [
+        {
+          "name": "OpenAI",
+          "slug": "openai"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic"
+        },
+        {
+          "name": "Google",
+          "slug": "google"
+        },
+        {
+          "name": "Meta",
+          "slug": "meta"
+        },
+        {
+          "name": "Nvidia",
+          "slug": "nvidia"
+        },
+        {
+          "name": "Hugging Face",
+          "slug": "hugging-face"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft"
+        },
+        {
+          "name": "Claude Code",
+          "slug": "claude-code"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor"
+        },
+        {
+          "name": "MCP",
+          "slug": "mcp"
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "tags": [
+        {
+          "name": "Funding",
+          "slug": "funding"
+        },
+        {
+          "name": "Acquisition",
+          "slug": "acquisition"
+        },
+        {
+          "name": "Launch",
+          "slug": "launch"
+        },
+        {
+          "name": "Pricing",
+          "slug": "pricing"
+        },
+        {
+          "name": "Policy",
+          "slug": "policy"
+        },
+        {
+          "name": "Legal",
+          "slug": "legal"
+        },
+        {
+          "name": "Security",
+          "slug": "security"
+        },
+        {
+          "name": "Privacy",
+          "slug": "privacy"
+        },
+        {
+          "name": "Safety",
+          "slug": "safety"
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "tags": [
+        {
+          "name": "Show HN",
+          "slug": "show-hn"
+        },
+        {
+          "name": "Tutorial",
+          "slug": "tutorial"
+        },
+        {
+          "name": "Deep Dive",
+          "slug": "deep-dive"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ph-vaani-developer-platform-2026-10-31",
+      "title": "Vaani Developer Platform",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/vaani-developer-platfrom",
+      "source_url": "https://www.producthunt.com/products/vaani-developer-platfrom",
+      "source_text": "Vaani Developer Platform The only voice AI harness that you'll ever need Build a voice agent that sounds and behaves human without writing a single line of code. Design the call flow, handle objections and edge cases, connect your tools and knowledge base, and go live on a real phone number. Every call ends with clean, structured data. Artificial Intelligence Tech Audio",
+      "signals": {
+        "upvotes": 349,
+        "comments": 103
+      },
+      "published_at": "2026-10-30T07:01:00Z"
+    },
+    {
+      "id": "ph-knocket-ai-2026-10-31",
+      "title": "Knocket AI",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/knocket-ai",
+      "source_url": "https://www.producthunt.com/products/knocket-ai",
+      "source_text": "Knocket AI Chat with visitors from your website or link Give visitors a way to say hello. Add free live chat to your website or app, or turn your bio link into a personal contact page. Visitors can start chatting without signing up. Built for founders, creators, and small teams. Productivity Customer Success Customer Communication",
+      "signals": {
+        "upvotes": 331,
+        "comments": 104
+      },
+      "published_at": "2026-10-30T07:01:00Z"
+    },
+    {
+      "id": "ph-speakon-agent-2026-10-31",
+      "title": "SpeakON Agent",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/speakon",
+      "source_url": "https://www.producthunt.com/products/speakon",
+      "source_text": "SpeakON Agent Turn natural speech into real work for an agent to complete Turn natural speech into real work with SpeakON Agent. It understands your Notes, connects your tools, and prepares Actions for you to review and confirm. Productivity Hardware Artificial Intelligence",
+      "signals": {
+        "upvotes": 306,
+        "comments": 37
+      },
+      "published_at": "2026-10-30T07:01:00Z"
+    },
+    {
+      "id": "ph-mcp-server-by-xwiki-2026-10-31",
+      "title": "MCP Server by XWiki",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/xwiki",
+      "source_url": "https://www.producthunt.com/products/xwiki",
+      "source_text": "MCP Server by XWiki Give your AI your wiki's knowledge while keeping the control XWiki MCP Server is an open-source, self-hostable extension that connects XWiki to the AI agent of your choice: OpenCode, Pi, Codex, Claude Code, GitHub Copilot, and more. You can already use the extension to query your knowledge base to get answers, create and edit pages, and work with structured data directly in XWiki. Try out the extension and let us what's should we improve next! Productivity Open Source Artificial Intelligence",
+      "signals": {
+        "upvotes": 175,
+        "comments": 38
+      },
+      "published_at": "2026-10-30T07:01:00Z"
+    },
+    {
+      "id": "ph-canva-brush-2026-10-31",
+      "title": "Canva Brush",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/canva",
+      "source_url": "https://www.producthunt.com/products/canva",
+      "source_text": "Canva Brush A vision-language model that edits your designs Canva Brush is a vision-language model for design from Canva Research. It sees your design, understands how it’s put together, and makes the changes you ask for, from one line of copy to every slide in a deck. Everything stays fully editable. Canva says it’s up to 69% faster and 46% lower cost per edit task than its previous design agent. It’s powering Canva AI design edits for Canva Pro subscribers today. Artificial Intelligence Graphics & Design",
+      "signals": {
+        "upvotes": 175,
+        "comments": 6
+      },
+      "published_at": "2026-10-30T07:01:00Z"
+    },
+    {
+      "id": "hn-show-hn-a-working-nintendo-in-1gb-of-qwen-2026-10-31",
+      "title": "Show HN: A working Nintendo in ~1GB of Qwen weights",
+      "category": "launches",
+      "source": "hackernews",
+      "url": "https://github.com/dbreunig/nesformer",
+      "source_url": "https://news.ycombinator.com/item?id=50306442",
+      "source_text": "Show HN: A working Nintendo in ~1GB of Qwen weights",
+      "signals": {
+        "points": 239,
+        "comments": 120
+      },
+      "meta": {
+        "author": "dbreunig"
+      },
+      "published_at": "2026-10-30T16:40:22Z"
+    },
+    {
+      "id": "gh-impeccable-2026-10-31",
+      "title": "pbakaus/impeccable",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/pbakaus/impeccable",
+      "source_url": "https://github.com/pbakaus/impeccable",
+      "source_text": "pbakaus/impeccable The design vocabulary for your coding agent. Steer with polish and bolder, review with critique and audit, catch AI slop before it ships. Rust",
+      "signals": {
+        "stars": 97459,
+        "stars_gained": 2300,
+        "forks": 5743
+      },
+      "meta": {
+        "language": "Rust"
+      }
+    },
+    {
+      "id": "gh-superpowers-2026-10-31",
+      "title": "obra/superpowers",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/obra/superpowers",
+      "source_url": "https://github.com/obra/superpowers",
+      "source_text": "obra/superpowers An agentic skills framework & software development methodology that works. Shell",
+      "signals": {
+        "stars": 309607,
+        "stars_gained": 1259,
+        "forks": 27550
+      },
+      "meta": {
+        "language": "Shell"
+      }
+    },
+    {
+      "id": "gh-claude-mem-2026-10-31",
+      "title": "thedotmack/claude-mem",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source_url": "https://github.com/thedotmack/claude-mem",
+      "source_text": "thedotmack/claude-mem Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More TypeScript",
+      "signals": {
+        "stars": 106745,
+        "stars_gained": 1140,
+        "forks": 9394
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-openmausbot-2026-10-31",
+      "title": "milind-soni/OpenMausBot",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/milind-soni/OpenMausBot",
+      "source_url": "https://github.com/milind-soni/OpenMausBot",
+      "source_text": "milind-soni/OpenMausBot Open-source Grok Bot alternative with a virtual machine that bots can use TypeScript",
+      "signals": {
+        "stars": 9005,
+        "stars_gained": 895,
+        "forks": 1234
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-skills-2026-10-31",
+      "title": "mattpocock/skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills",
+      "source_text": "mattpocock/skills Skills for Real Engineers. Straight from my .agents directory. Shell",
+      "signals": {
+        "stars": 307711,
+        "stars_gained": 876,
+        "forks": 25898
+      },
+      "meta": {
+        "language": "Shell"
+      }
+    },
+    {
+      "id": "gh-thinkrail-2026-10-31",
+      "title": "JetBrains/thinkrail",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/JetBrains/thinkrail",
+      "source_url": "https://github.com/JetBrains/thinkrail",
+      "source_text": "JetBrains/thinkrail Vibe code with pi in a lightweight, real IDE that customises itself around the way you work — The Vibe You Need TypeScript",
+      "signals": {
+        "stars": 6689,
+        "stars_gained": 722,
+        "forks": 362
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-openbot-2026-10-31",
+      "title": "CopilotKit/OpenBot",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/CopilotKit/OpenBot",
+      "source_url": "https://github.com/CopilotKit/OpenBot",
+      "source_text": "CopilotKit/OpenBot Open-source AI coworkers that each get a computer of their own: a browser, files and tools, with every action decided before it happens and recorded after. Bring any AG-UI agent. TypeScript",
+      "signals": {
+        "stars": 8963,
+        "stars_gained": 706,
+        "forks": 1119
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-browser-2026-10-31",
+      "title": "lightpanda-io/browser",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/lightpanda-io/browser",
+      "source_url": "https://github.com/lightpanda-io/browser",
+      "source_text": "lightpanda-io/browser Lightpanda: the headless browser designed for AI and automation Zig",
+      "signals": {
+        "stars": 38663,
+        "stars_gained": 626,
+        "forks": 1880
+      },
+      "meta": {
+        "language": "Zig"
+      }
+    },
+    {
+      "id": "gh-skills-2-2026-10-31",
+      "title": "anthropics/skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills",
+      "source_text": "anthropics/skills Public repository for Agent Skills Python",
+      "signals": {
+        "stars": 185552,
+        "stars_gained": 295,
+        "forks": 21913
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-macro-2026-10-31",
+      "title": "macro-inc/macro",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/macro-inc/macro",
+      "source_url": "https://github.com/macro-inc/macro",
+      "source_text": "macro-inc/macro Macro is a unified workspace for teams: email, chat, docs, tasks, agents, calls, and CRM — @-linked together with shared AI memory. Rust",
+      "signals": {
+        "stars": 5956,
+        "stars_gained": 57,
+        "forks": 545
+      },
+      "meta": {
+        "language": "Rust"
+      }
+    },
+    {
+      "id": "tc-anthropic-expected-to-receive-high-junk-rating-2026-10-31",
+      "title": "Anthropic expected to receive high ‘junk’ rating from credit agencies following IPO, FT report says",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/",
+      "source_url": "https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/",
+      "source_text": "Anthropic expected to receive high ‘junk’ rating from credit agencies following IPO, FT report says Blackstone's forecast is just a prediction, but naturally, a high junk rating would make it more difficult and costlier for Anthropic to raise the money to keep funding its massive spending that has undergirded its business.",
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-30T21:52:03Z"
+    },
+    {
+      "id": "tc-googles-first-data-center-satellite-is-online-2026-10-31",
+      "title": "Google’s first data center satellite is online and writing poetry",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/30/googles-first-data-center-satellite-is-online-and-writing-poetry/",
+      "source_url": "https://techcrunch.com/2026/10/30/googles-first-data-center-satellite-is-online-and-writing-poetry/",
+      "source_text": "Google’s first data center satellite is online and writing poetry The first TPU in space is running a Google DeepMind Gemma 4 model and writing cheesy poetry.",
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-10-30T17:00:00Z"
+    },
+    {
+      "id": "tc-doordash-said-its-only-received-several-hundred-2026-10-31",
+      "title": "DoorDash said it’s only received ‘several hundred’ orders from AI agents",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/30/doordash-said-its-only-received-several-hundred-orders-from-ai-agents/",
+      "source_url": "https://techcrunch.com/2026/10/30/doordash-said-its-only-received-several-hundred-orders-from-ai-agents/",
+      "source_text": "DoorDash said it’s only received ‘several hundred’ orders from AI agents DoorDash said that it is open to working with third-party agent makers.",
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-30T13:54:25Z"
+    },
+    {
+      "id": "tc-nvidia-weighs-playing-the-cosigner-for-nscales-2026-10-31",
+      "title": "Nvidia weighs playing the cosigner for Nscale’s AI data center in West Virginia",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/",
+      "source_url": "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/",
+      "source_text": "Nvidia weighs playing the cosigner for Nscale’s AI data center in West Virginia When investors get nervous about AI spending, it helps to have the chipmaker that sells the chips offer to cosign the loan.",
+      "meta": {
+        "author": "Aditya Mehta",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-10-31T01:20:05Z"
+    },
+    {
+      "id": "tc-ollie-a-privacy-focused-ai-assistant-is-2026-10-31",
+      "title": "Ollie, a privacy-focused AI assistant, is shutting down",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/30/ollie-a-privacy-focused-ai-assistant-is-shutting-down/",
+      "source_url": "https://techcrunch.com/2026/10/30/ollie-a-privacy-focused-ai-assistant-is-shutting-down/",
+      "source_text": "Ollie, a privacy-focused AI assistant, is shutting down As an increasing number of AI assistants flood the market, the founder of Ollie, an assistant that respected its users' privacy, says it will be shutting down in a week.",
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-30T22:56:13Z"
+    },
+    {
+      "id": "tc-intels-stock-crashes-knocking-12b-from-2026-10-31",
+      "title": "Intel’s stock crashes, knocking $12B from government’s stake",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/30/intels-stock-crashes-knocking-12b-from-governments-stake/",
+      "source_url": "https://techcrunch.com/2026/10/30/intels-stock-crashes-knocking-12b-from-governments-stake/",
+      "source_text": "Intel’s stock crashes, knocking $12B from government’s stake Intel is being hurt by PC sales as the AI industry gobbles memory and other components causing PC prices to rise.",
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-30T21:54:34Z"
+    },
+    {
+      "id": "tc-last-minute-halloween-costumes-for-tech-nerds-2026-10-31",
+      "title": "Last-minute Halloween costumes for tech nerds",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/30/last-minute-halloween-costumes-for-tech-nerds/",
+      "source_url": "https://techcrunch.com/2026/10/30/last-minute-halloween-costumes-for-tech-nerds/",
+      "source_text": "Last-minute Halloween costumes for tech nerds No Halloween costume? Just be a deceptively cute AI agent icon, a PHP vulnerability, or sleepy time Bryan Johnson.",
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "6 minutes"
+      },
+      "published_at": "2026-10-30T21:26:59Z"
+    },
+    {
+      "id": "tc-cracks-are-emerging-in-the-ai-spending-boom-2026-10-31",
+      "title": "Cracks are emerging in the AI spending boom",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/30/cracks-are-emerging-in-the-ai-spending-boom/",
+      "source_url": "https://techcrunch.com/2026/10/30/cracks-are-emerging-in-the-ai-spending-boom/",
+      "source_text": "Cracks are emerging in the AI spending boom Big Tech is pouring billions into AI infrastructure, but mounting debt, negative cash flow, and growing investor skepticism are raising questions about the sustainability of the AI spending boom.",
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-10-30T21:17:40Z"
+    },
+    {
+      "id": "tc-zests-new-ai-agent-finds-restaurants-and-books-2026-10-31",
+      "title": "Zest’s new AI agent finds restaurants and books reservations over text",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/30/zests-new-ai-agent-finds-restaurants-and-books-reservations-over-text/",
+      "source_url": "https://techcrunch.com/2026/10/30/zests-new-ai-agent-finds-restaurants-and-books-reservations-over-text/",
+      "source_text": "Zest’s new AI agent finds restaurants and books reservations over text Can't agree on where to eat? Zest's AI concierge can combine everyone's tastes, put restaurant options to a vote, and make the reservation.",
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-10-30T17:47:12Z"
+    },
+    {
+      "id": "tc-theranos-whistleblower-tyler-shultz-warns-that-2026-10-31",
+      "title": "Theranos whistleblower Tyler Shultz warns that the AI boom is ‘a great opportunity to go deceive people’",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/10/30/theranos-whistleblower-tyler-shultz-warns-that-the-ai-boom-is-a-great-opportunity-to-go-deceive-people/",
+      "source_url": "https://techcrunch.com/2026/10/30/theranos-whistleblower-tyler-shultz-warns-that-the-ai-boom-is-a-great-opportunity-to-go-deceive-people/",
+      "source_text": "Theranos whistleblower Tyler Shultz warns that the AI boom is ‘a great opportunity to go deceive people’ The cautionary Theranos tale takes on a new significance in the AI era, when companies that have never turned a profit are raising capital at trillion-dollar valuations.",
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-10-30T16:03:45Z"
+    },
+    {
+      "id": "hn-backdoor-in-claude-code-for-vs-code-extension-2026-10-31",
+      "title": "Backdoor in Claude Code for VS Code extension on the Cursor Marketplace",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://phorion.io/blog/offical-claude-code-vsx-compromise/",
+      "source_url": "https://news.ycombinator.com/item?id=50300683",
+      "source_text": "Backdoor in Claude Code for VS Code extension on the Cursor Marketplace",
+      "signals": {
+        "points": 875,
+        "comments": 514
+      },
+      "meta": {
+        "author": "_chall"
+      },
+      "published_at": "2026-10-30T07:09:12Z"
+    },
+    {
+      "id": "hn-backdoors-in-official-claude-code-extensions-2026-10-31",
+      "title": "Backdoors in official Claude Code extensions",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://cyberplace.social/@GossiTheDog/117528831681803563",
+      "source_url": "https://news.ycombinator.com/item?id=50302334",
+      "source_text": "Backdoors in official Claude Code extensions",
+      "signals": {
+        "points": 655,
+        "comments": 17
+      },
+      "meta": {
+        "author": "dsr_"
+      },
+      "published_at": "2026-10-30T11:05:53Z"
+    },
+    {
+      "id": "hn-us-reps-lead-democratic-resolution-opposing-a-i-2026-10-31",
+      "title": "US Reps Lead Democratic Resolution Opposing A.I. Bubble Bailout for Big Tech",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://progressives.house.gov/2026/10/reps-casar-waters-lead-democratic-resolution-opposing-a-i-bubble-bailout-for-big-tech-commit-to-protecting-american-people-instead",
+      "source_url": "https://news.ycombinator.com/item?id=50302814",
+      "source_text": "US Reps Lead Democratic Resolution Opposing A.I. Bubble Bailout for Big Tech",
+      "signals": {
+        "points": 637,
+        "comments": 488
+      },
+      "meta": {
+        "author": "DeepLogin"
+      },
+      "published_at": "2026-10-30T12:08:00Z"
+    },
+    {
+      "id": "hn-ai-isn-t-replacing-sres-it-s-deskilling-them-2026-10-31",
+      "title": "AI isn't replacing SREs, it's deskilling them",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling",
+      "source_url": "https://news.ycombinator.com/item?id=50305693",
+      "source_text": "AI isn't replacing SREs, it's deskilling them",
+      "signals": {
+        "points": 575,
+        "comments": 421
+      },
+      "meta": {
+        "author": "dorianniemiec"
+      },
+      "published_at": "2026-10-30T15:52:18Z"
+    },
+    {
+      "id": "hn-claude-code-vs-code-extension-with-backdoor-2026-10-31",
+      "title": "Claude Code VS Code extension with backdoor released on Cursor marketplace",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://doublepulsar.com/anthropic-hacked-to-deliver-remote-access-trojan-to-claude-developer-laptops-worldwide-1148a92baae2",
+      "source_url": "https://news.ycombinator.com/item?id=50301983",
+      "source_text": "Claude Code VS Code extension with backdoor released on Cursor marketplace",
+      "signals": {
+        "points": 399,
+        "comments": 1
+      },
+      "meta": {
+        "author": "bashtoni"
+      },
+      "published_at": "2026-10-30T10:22:51Z"
+    },
+    {
+      "id": "hn-anthropic-may-not-secure-investment-grade-2026-10-31",
+      "title": "Anthropic may not secure investment-grade rating after IPO, Blackstone says",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.ft.com/content/59383c7f-8d82-493f-bf01-d2e862a1018f",
+      "source_url": "https://news.ycombinator.com/item?id=50307219",
+      "source_text": "Anthropic may not secure investment-grade rating after IPO, Blackstone says",
+      "signals": {
+        "points": 305,
+        "comments": 252
+      },
+      "meta": {
+        "author": "petethomas"
+      },
+      "published_at": "2026-10-30T17:27:25Z"
+    },
+    {
+      "id": "hn-proton-s-ceo-cancels-ai-re-interviews-2026-10-31",
+      "title": "Proton's CEO Cancels AI 'Re-Interviews'",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.404media.co/protons-ceo-cancels-ai-re-interviews/",
+      "source_url": "https://news.ycombinator.com/item?id=50307183",
+      "source_text": "Proton's CEO Cancels AI 'Re-Interviews'",
+      "signals": {
+        "points": 272,
+        "comments": 227
+      },
+      "meta": {
+        "author": "cdrnsf"
+      },
+      "published_at": "2026-10-30T17:24:45Z"
+    },
+    {
+      "id": "hn-us-tech-stocks-see-sharp-falls-over-ai-cost-2026-10-31",
+      "title": "US tech stocks see sharp falls over AI cost fears",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.bbc.co.uk/news/articles/cvwy72e0n72yo",
+      "source_url": "https://news.ycombinator.com/item?id=50306008",
+      "source_text": "US tech stocks see sharp falls over AI cost fears",
+      "signals": {
+        "points": 252,
+        "comments": 283
+      },
+      "meta": {
+        "author": "mindracer"
+      },
+      "published_at": "2026-10-30T16:13:02Z"
+    },
+    {
+      "id": "hn-cisco-gives-engineer-unlimited-ai-tokens-to-2026-10-31",
+      "title": "Cisco gives engineer unlimited AI tokens to rewrite legacy code",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://fortune.com/2026/10/30/cisco-president-jeetu-patel-gen-z-27-year-old-unlimited-ai-tokens-rewrite-legacy-code-entry-level-jobs/",
+      "source_url": "https://news.ycombinator.com/item?id=50304122",
+      "source_text": "Cisco gives engineer unlimited AI tokens to rewrite legacy code",
+      "signals": {
+        "points": 171,
+        "comments": 205
+      },
+      "meta": {
+        "author": "taubek"
+      },
+      "published_at": "2026-10-30T14:08:20Z"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "date": "2026-10-31",
+  "items": {
+    "ph-vaani-developer-platform-2026-10-31": {
+      "summary": "No-code builder for phone voice agents: design the call flow and objection handling, attach tools and a knowledge base, go live on a real number, and get structured data from every call.",
+      "tags": ["Voice / Speech", "Agents", "Launch"]
+    },
+    "ph-knocket-ai-2026-10-31": {
+      "summary": "Free live chat widget for a website or app that doubles as a bio-link contact page, letting visitors start a conversation without creating an account.",
+      "tags": ["Launch"]
+    },
+    "ph-speakon-agent-2026-10-31": {
+      "summary": "Voice-to-action agent paired with SpeakON hardware that reads your notes, connects to your tools, and drafts actions you review and confirm before they run.",
+      "tags": ["Voice / Speech", "Agents", "Launch"]
+    },
+    "ph-mcp-server-by-xwiki-2026-10-31": {
+      "summary": "Open-source, self-hostable XWiki extension that lets Claude Code, Codex, Copilot, OpenCode and other agents query the wiki, create and edit pages, and work with its structured data.",
+      "tags": ["MCP", "Open Source", "Agents", "Launch"]
+    },
+    "ph-canva-brush-2026-10-31": {
+      "summary": "Canva Research's vision-language model reads a design's structure and edits anything from one line to a whole deck, claimed 69% faster and 46% cheaper per task than its prior agent.",
+      "tags": ["Model Release", "Vision", "Multimodal", "Launch"]
+    },
+    "hn-show-hn-a-working-nintendo-in-1gb-of-qwen-2026-10-31": {
+      "summary": "nesformer, a GitHub project by dbreunig that runs a playable NES out of roughly a gigabyte of Qwen model weights.",
+      "tags": ["Show HN", "Open Source", "LLM"]
+    },
+    "gh-impeccable-2026-10-31": {
+      "summary": "Rust tool giving coding agents a design vocabulary: polish and bolder commands to steer UI work, critique and audit to review it, and checks that flag generic AI-looking output.",
+      "tags": ["Dev Tool", "Code Gen", "Agents"]
+    },
+    "gh-superpowers-2026-10-31": {
+      "summary": "Shell-based framework of agent skills bundled with a software development methodology for coding agents to follow.",
+      "tags": ["Framework", "Agents", "Code Gen"]
+    },
+    "gh-claude-mem-2026-10-31": {
+      "summary": "TypeScript memory layer that records an agent's sessions, compresses them with a model, and injects the relevant context into later sessions in Claude Code, Codex, Gemini, Copilot and others.",
+      "tags": ["Dev Tool", "Agents", "Claude Code"]
+    },
+    "gh-openmausbot-2026-10-31": {
+      "summary": "Open-source TypeScript take on Grok's bot that gives each bot a virtual machine to operate inside.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-skills-2026-10-31": {
+      "summary": "Matt Pocock's personal agent skills, published straight from his .agents directory and aimed at working engineers.",
+      "tags": ["Agents", "Code Gen"]
+    },
+    "gh-thinkrail-2026-10-31": {
+      "summary": "JetBrains' lightweight TypeScript IDE built around the pi coding agent, which adapts its own setup to how you work.",
+      "tags": ["Dev Tool", "Code Gen", "Agents"]
+    },
+    "gh-openbot-2026-10-31": {
+      "summary": "CopilotKit's open-source AI coworkers, each with its own browser, files and tools, where every action is approved before it runs and logged after; works with any AG-UI agent.",
+      "tags": ["Open Source", "Agents", "Framework"]
+    },
+    "gh-browser-2026-10-31": {
+      "summary": "Lightpanda, a headless browser written from scratch in Zig for AI agents and automation rather than built on Chromium.",
+      "tags": ["Dev Tool", "Agents", "Open Source"]
+    },
+    "gh-skills-2-2026-10-31": {
+      "summary": "Anthropic's public repository of Agent Skills, the folder-based instruction and script packages that Claude loads on demand.",
+      "tags": ["Anthropic", "Agents", "Open Source"]
+    },
+    "gh-macro-2026-10-31": {
+      "summary": "Rust team workspace combining email, chat, docs, tasks, calls, CRM and agents, cross-linked with @-mentions and sharing one AI memory.",
+      "tags": ["Agents", "Open Source"]
+    },
+    "tc-anthropic-expected-to-receive-high-junk-rating-2026-10-31": {
+      "summary": "The forecast comes from Blackstone via the FT; a junk rating would make borrowing costlier for Anthropic just as it needs capital to keep funding its heavy spending.",
+      "tags": ["Anthropic", "Funding"]
+    },
+    "tc-googles-first-data-center-satellite-is-online-2026-10-31": {
+      "summary": "The first TPU in orbit is running a Google DeepMind Gemma 4 model, and its first public output is cheesy poetry.",
+      "tags": ["Google", "Inference"]
+    },
+    "tc-doordash-said-its-only-received-several-hundred-2026-10-31": {
+      "summary": "The low count is a reality check on agentic shopping, and DoorDash says it is open to working with third-party agent makers.",
+      "tags": ["Agents"]
+    },
+    "tc-nvidia-weighs-playing-the-cosigner-for-nscales-2026-10-31": {
+      "summary": "Nvidia, which sells the chips going into the facility, is considering guaranteeing the loan to calm investors nervous about AI infrastructure debt.",
+      "tags": ["Nvidia", "Funding"]
+    },
+    "tc-ollie-a-privacy-focused-ai-assistant-is-2026-10-31": {
+      "summary": "Its founder says the assistant closes in a week, citing a market crowded with AI assistants that do not share its privacy stance.",
+      "tags": ["Privacy"]
+    },
+    "tc-intels-stock-crashes-knocking-12b-from-2026-10-31": {
+      "summary": "Intel's PC business is suffering as AI demand absorbs memory and other components, pushing PC prices up and sales down.",
+      "tags": ["Policy"]
+    },
+    "tc-last-minute-halloween-costumes-for-tech-nerds-2026-10-31": {
+      "summary": "TechCrunch's light Halloween list, including dressing as a deceptively cute AI agent icon, a PHP vulnerability, or a sleepy Bryan Johnson.",
+      "tags": ["Agents"]
+    },
+    "tc-cracks-are-emerging-in-the-ai-spending-boom-2026-10-31": {
+      "summary": "Mounting debt, negative cash flow and investor skepticism are raising doubts about how long Big Tech can keep pouring billions into AI infrastructure.",
+      "tags": ["Funding", "Deep Dive"]
+    },
+    "tc-zests-new-ai-agent-finds-restaurants-and-books-2026-10-31": {
+      "summary": "Zest's concierge merges a group's tastes, puts restaurant options to a vote, then books the table, all inside a text thread.",
+      "tags": ["Agents", "Launch"]
+    },
+    "tc-theranos-whistleblower-tyler-shultz-warns-that-2026-10-31": {
+      "summary": "Shultz draws the Theranos parallel to AI companies that have never turned a profit yet raise money at trillion-dollar valuations.",
+      "tags": ["Funding"]
+    },
+    "hn-backdoor-in-claude-code-for-vs-code-extension-2026-10-31": {
+      "summary": "Phorion's security blog reports a compromised build of the official Claude Code VS Code extension published to the Cursor marketplace, one of several reports on the incident today.",
+      "tags": ["Security", "Claude Code", "Cursor"]
+    },
+    "hn-backdoors-in-official-claude-code-extensions-2026-10-31": {
+      "summary": "A Mastodon thread from security researcher GossiTheDog on the backdoored Claude Code extension, the same compromise Phorion and DoublePulsar wrote up on the Cursor marketplace.",
+      "tags": ["Security", "Claude Code"]
+    },
+    "hn-us-reps-lead-democratic-resolution-opposing-a-i-2026-10-31": {
+      "summary": "A House Progressive Caucus release on a resolution led by Reps. Casar and Waters committing to protect the public rather than bail out Big Tech if the AI bubble bursts.",
+      "tags": ["Policy"]
+    },
+    "hn-ai-isn-t-replacing-sres-it-s-deskilling-them-2026-10-31": {
+      "summary": "An essay on the SigNoz newsletter arguing that leaning on AI tools erodes the hands-on skills site reliability engineers need, rather than eliminating the role.",
+      "tags": ["Deep Dive"]
+    },
+    "hn-claude-code-vs-code-extension-with-backdoor-2026-10-31": {
+      "summary": "DoublePulsar's write-up of the Cursor marketplace incident, framing it as Anthropic being hacked to push a remote access trojan onto Claude developers' laptops.",
+      "tags": ["Security", "Claude Code", "Anthropic"]
+    },
+    "hn-anthropic-may-not-secure-investment-grade-2026-10-31": {
+      "summary": "The Financial Times report behind TechCrunch's story today: Blackstone expects credit agencies to rate Anthropic as junk after it lists, raising its borrowing costs.",
+      "tags": ["Anthropic", "Funding"]
+    },
+    "hn-proton-s-ceo-cancels-ai-re-interviews-2026-10-31": {
+      "summary": "404 Media reports that Proton's CEO has called off the AI-related re-interviews of staff.",
+      "tags": ["Policy"]
+    },
+    "hn-us-tech-stocks-see-sharp-falls-over-ai-cost-2026-10-31": {
+      "summary": "BBC News on a broad US tech selloff driven by worries over AI costs, the same day TechCrunch reported Intel's slide and cracks in AI spending.",
+      "tags": ["Funding"]
+    },
+    "hn-cisco-gives-engineer-unlimited-ai-tokens-to-2026-10-31": {
+      "summary": "Fortune on Cisco president Jeetu Patel handing a 27-year-old engineer an unlimited token budget to rewrite legacy code, and what that means for entry-level jobs.",
+      "tags": ["Code Gen"]
+    }
+  }
+}
