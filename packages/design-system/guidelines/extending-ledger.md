@@ -1,3 +1,5 @@
+> **Current app UI:** The approved static redesign supersedes conflicting historical visual rules below. See [current styling guidance](../readme.md) for `styles.css`, `tokens/token.css`, component ownership and validation. Existing product behavior is retained.
+
 # How to extend Ledger
 
 One page for future surfaces and sources. The rule underneath everything: **text is the interface, one accent, one hot, mono for numbers, same layout in both themes.**

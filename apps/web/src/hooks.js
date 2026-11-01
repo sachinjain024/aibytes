@@ -52,7 +52,7 @@ export function useMedia(query) {
 }
 
 /** The Card grid's column count at `main`'s width, live, from its content box and
- * the --app-card-min and --grid-gap it carries (app.css). `main` is the element,
+ * the --app-card-min and --grid-gap it carries (styles.css in the design system). `main` is the element,
  * not a ref: it remounts when the rail comes and goes, and the observer has to
  * follow it. One column until it is measured, then measured before paint, so a
  * stored list view never flashes as rows on a phone. */

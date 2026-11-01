@@ -249,7 +249,7 @@ Cobalt survives from Bitmark as the accent because it already reads as aiBytes_ 
 - Scale: 13 / 14 / 16 / 20 / 28. Card title 16/600, summary 14/400, meta 12 mono.
 
 **Shape and motion**
-- Radius 10px cards, 6px chips, 8px images. 1px borders, no shadows at rest, 1px accent border on hover.
+- Radius 10px cards, 6px chips, 8px images. 1px borders, no shadows at rest (popovers may carry a soft drop shadow), 1px accent border on hover.
 - Transitions 120ms. Respect `prefers-reduced-motion`.
 
 **Per-source marks** (used in the 40px slot when no image): PH (orange P on white), HN (orange Y tile), GitHub (Octocat), TechCrunch (green TC). Each rendered as a tiny inline SVG so they work offline and in both themes.

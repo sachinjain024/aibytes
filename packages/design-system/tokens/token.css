@@ -1,0 +1,143 @@
+/* Authoritative design tokens for the app and all shared components.
+   Explicit wrapper themes override the OS default; aliases resolve per wrapper. */
+:root {
+  --font-display: 'Bricolage Grotesque',system-ui,sans-serif;
+  --font-body: Inter,system-ui,sans-serif;
+  --font-mono: Inter,system-ui,sans-serif;
+  --text-12: 12px;
+  --lh-12: 16px;
+  --text-13: 13px;
+  --lh-13: 18px;
+  --text-14: 14px;
+  --lh-14: 20px;
+  --text-16: 16px;
+  --lh-16: 22px;
+  --text-20: 20px;
+  --lh-20: 26px;
+  --text-28: 28px;
+  --lh-28: 34px;
+  --tracking-heading: -0.02em;
+  --tracking-body: -0.01em;
+  --tracking-mono: 0.02em;
+  --mono-features: "tnum" 1,"zero" 1;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --card-pad: 16px;
+  --grid-gap: 12px;
+  --section-gap: 0px;
+  --radius-card: 10px;
+  --radius-chip: 6px;
+  --radius-img: 8px;
+  --border-w: 1px;
+  --focus-w: 2px;
+  --focus-offset: 2px;
+  --transition: 120ms ease;
+  --lift: translateY(-1px);
+  --z-header: 100;
+  --z-popover: 200;
+  --z-banner: 50;
+  --content-max: 1200px;
+  --gutter-mobile: 20px;
+  --img-slot: 40px;
+  --img-slot-list: 24px;
+  --redesign-rail: 250px;
+  --redesign-header: 52px;
+  --lang-python: #4B78A8;
+  --lang-ts: #4F7CC9;
+  --lang-rust: #B06A4A;
+  --lang-go: #3D9AAD;
+  --lang-cpp: #9C5D77;
+  --lang-shell: #6F9955;
+  --lang-jupyter: #C08B4F;
+  --lang-other: var(--text-2);
+}
+
+:root,[data-theme="light"] {
+  color-scheme: light;
+  --paper: #f6f8fc;
+  --surface: #ffffff;
+  --ink: #17253d;
+  --muted: #52647e;
+  --line: #17253d0d;
+  --blue: #265bc4;
+  --accent: #285ed1;
+  --accent-hover: #1F3FD6;
+  --accent-active: #1733B3;
+  --accent-fg: #ffffff;
+  --soft: #e6edfc;
+  --hover: #edf2fc;
+  --shadow: #14284a19;
+  --control-border: #828e9e;
+  --hot: #FF5C1A;
+  --hot-tint: #FFEFE7;
+  --hot-text: #C2410C;
+  --save: #FFB800;
+  --disabled: #A9ACB5;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #101012;
+  --surface: #18181b;
+  --ink: #eeeeef;
+  --muted: #a1a1aa;
+  --line: #ffffff0d;
+  --blue: #dedee3;
+  --accent: #45454e;
+  --accent-hover: #53535e;
+  --accent-active: #3a3a43;
+  --accent-fg: #eeeeef;
+  --soft: #26262c;
+  --hover: #18181c;
+  --shadow: #00000066;
+  --control-border: #777781;
+  --hot: #FF7A45;
+  --hot-tint: #2A1D18;
+  --hot-text: #FF7A45;
+  --save: #FFC94D;
+  --disabled: #5C6270;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #101012;
+    --surface: #18181b;
+    --ink: #eeeeef;
+    --muted: #a1a1aa;
+    --line: #ffffff0d;
+    --blue: #dedee3;
+    --accent: #45454e;
+    --accent-hover: #53535e;
+    --accent-active: #3a3a43;
+    --accent-fg: #eeeeef;
+    --soft: #26262c;
+    --hover: #18181c;
+    --shadow: #00000066;
+    --control-border: #777781;
+    --hot: #FF7A45;
+    --hot-tint: #2A1D18;
+    --hot-text: #FF7A45;
+    --save: #FFC94D;
+    --disabled: #5C6270;
+  }
+}
+
+:root,[data-theme] {
+  --bg: var(--paper);
+  --text: var(--ink);
+  --text-2: var(--muted);
+  --border: var(--line);
+  --surface-2: var(--soft);
+  --link: var(--blue);
+  --focus-ring: var(--blue);
+  --accent-tint: var(--soft);
+}

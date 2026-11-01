@@ -21,5 +21,7 @@ export interface EditionBarProps {
   asH1?: boolean;
   /** mobile: date centered, bare arrows at the edges, one line */
   compact?: boolean;
+  /** false drops the previous/next arrows, leaving the calendar as the only way between editions (default true) */
+  arrows?: boolean;
 }
 export declare function EditionBar(props: EditionBarProps): JSX.Element;

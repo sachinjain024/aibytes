@@ -1,6 +1,6 @@
 """Offline checks on Ledger (packages/design-system): color tokens, and SideNav.
 
-Dark mode is written twice in tokens/colors.css: once under [data-theme="dark"]
+Dark mode is written twice in tokens/token.css: once under [data-theme="dark"]
 for an explicit choice, and once under prefers-color-scheme for the OS default.
 CSS cannot share one block between a selector and a media query, so the copy is
 deliberate - and these tests are what stop the two from drifting apart.
@@ -12,9 +12,11 @@ import unittest
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
 DESIGN_SYSTEM = REPO_ROOT / "packages" / "design-system"
-COLORS = DESIGN_SYSTEM / "tokens" / "colors.css"
+COLORS = DESIGN_SYSTEM / "tokens" / "token.css"
 COMPONENTS_CSS = DESIGN_SYSTEM / "components" / "components.css"
 SIDENAV = DESIGN_SYSTEM / "components" / "navigation" / "SideNav"
+STYLES = DESIGN_SYSTEM / "styles.css"
+REDESIGN_JSX = REPO_ROOT / "apps" / "web" / "src" / "Redesign.jsx"
 
 
 def declarations(block):
@@ -26,7 +28,10 @@ def declarations(block):
 
 def block_after(css, selector):
     """The body of the first `selector{...}` rule, without nested braces."""
-    start = css.index(selector + "{") + len(selector) + 1
+    match = re.search(re.escape(selector) + r"\s*\{", css)
+    if not match:
+        raise AssertionError(f"Missing CSS selector: {selector}")
+    start = match.end()
     return css[start:css.index("}", start)]
 
 
@@ -37,7 +42,7 @@ class ColorTokenTests(unittest.TestCase):
 
     def test_the_os_dark_block_matches_the_explicit_dark_block(self):
         explicit = declarations(block_after(self.css, '[data-theme="dark"]'))
-        media = self.css[self.css.index("@media (prefers-color-scheme:dark)"):]
+        media = self.css[self.css.index("@media (prefers-color-scheme: dark)"):]
         system = declarations(block_after(media, ':root:not([data-theme="light"])'))
         self.assertEqual(system, explicit)
 
@@ -51,7 +56,7 @@ class ColorTokenTests(unittest.TestCase):
         # The OS block must skip a root that asked for light, and the light
         # values must also apply to a nested [data-theme="light"] wrapper.
         self.assertIn(':root:not([data-theme="light"])', self.css)
-        self.assertIn(':root,[data-theme="light"]{', self.css)
+        self.assertIn(':root,[data-theme="light"]', self.css)
 
 
 class SideNavTests(unittest.TestCase):
@@ -111,6 +116,36 @@ class SegmentedControlTests(unittest.TestCase):
         self.assertIn(
             ".ldg-seg__btn:focus-visible,.ldg-seg .ldg-iconbtn:focus-visible"
             "{outline-offset:calc(-1 * var(--focus-w))}", css)
+
+
+
+class ToolbarTests(unittest.TestCase):
+    """The app toolbar pins with CSS sticky, under the masthead, at its column's width.
+
+    It used to dock with a scroll listener and position:fixed, which painted over
+    the masthead and came out 40px narrower than the column (PR #43 review)."""
+
+    def setUp(self):
+        self.css = STYLES.read_text()
+
+    def test_the_slot_sticks_at_the_masthead_height(self):
+        rule = declarations(block_after(self.css, "  .redesign .toolbar-slot"))
+        self.assertEqual(rule["position"], "sticky")
+        self.assertEqual(rule["top"], "var(--redesign-header)")
+
+    def test_it_stacks_under_the_masthead(self):
+        slot = int(declarations(block_after(self.css, "  .redesign .toolbar-slot"))["z-index"])
+        masthead = int(declarations(block_after(self.css, "\n.masthead"))["z-index"])
+        self.assertLess(slot, masthead)
+
+    def test_the_masthead_is_as_tall_as_the_offset(self):
+        header = declarations(COLORS.read_text())["--redesign-header"]
+        self.assertEqual(declarations(block_after(self.css, "\n.masthead"))["height"], header)
+
+    def test_nothing_docks_it_from_javascript(self):
+        jsx = REDESIGN_JSX.read_text()
+        self.assertNotIn("toolbar--docked", self.css + jsx)
+        self.assertNotIn("addEventListener('scroll'", jsx)
 
 
 if __name__ == "__main__":

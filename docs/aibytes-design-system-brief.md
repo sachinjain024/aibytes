@@ -1,3 +1,5 @@
+> **Current app UI:** The approved static redesign supersedes conflicting historical visual rules below. See [current styling guidance](../packages/design-system/readme.md) for `styles.css`, `tokens/token.css`, component ownership and validation. Existing product behavior is retained.
+
 # aiBytes_ Design System Brief
 
 **For:** Claude Design
@@ -33,7 +35,7 @@ The existing brand voice is already set by the newsletter: a wordmark `⚡ AI Bi
 3. **Mono for numbers and metadata** so signals (upvotes, stars, comments) line up in a column across cards.
 4. **Same layout in light and dark.** Only the palette flips; no structural differences between themes.
 5. **Numbering and structure must encode something true.** Editions are dated because dates carry meaning. Sections are ordered (Launches, Repos, News, HN Threads) because that's edition order. Don't add decorative numbering elsewhere.
-6. **No shadows at rest.** 1px borders; hover is a border-color change plus a subtle lift.
+6. **No shadows at rest.** 1px borders; hover is a border-color change plus a subtle lift. Popovers (the calendar, the filter panel, the card menu) are the exception: they float over the feed and may carry a soft drop shadow so they read as a layer.
 
 ## 4. Tokens
 
@@ -204,7 +206,7 @@ Use real-feeling content from the newsletter's world: ChatCut (PH, ▲776), Offi
 ## 9. What not to do
 
 - No gradient hero, no big-number stat blocks, no illustration
-- No shadows at rest, no glass effects
+- No shadows at rest (popovers excepted), no glass effects
 - No decorative numbering beyond what the newsletter already uses (hex section numbers are a newsletter device; the app uses dates and counts instead)
 - No hotlinked images without a fallback mark
 - No infinite scroll or "Load more" patterns anywhere

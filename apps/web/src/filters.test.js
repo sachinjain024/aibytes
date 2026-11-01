@@ -14,12 +14,12 @@ test("no query is no filters", () => {
 
 test("the spec's example URL reads as a category and two tags", () => {
   assert.deepEqual(parseFilters("?c=repos&t=agents,open-source", GROUPS),
-    { category: "repos", tags: ["Agents", "Open Source"], sources: [] });
+    { category: "repos", tags: ["Agents", "Open Source"], sources: [], query: "" });
 });
 
 test("unknown values are dropped, not fatal", () => {
   assert.deepEqual(parseFilters("?c=podcasts&t=agents,nope,,agents&s=reddit,github", GROUPS),
-    { category: "all", tags: ["Agents"], sources: ["github"] });
+    { category: "all", tags: ["Agents"], sources: ["github"], query: "" });
 });
 
 test("one view has one URL, whatever order things were picked in", () => {
@@ -40,6 +40,20 @@ test("matching: the category, then any chosen tag, then any chosen source", () =
   assert.equal(matches(item, { ...NO_FILTERS, tags: ["Dev Tool"] }), false);
   assert.equal(matches(item, { ...NO_FILTERS, sources: ["hackernews"] }), false);
   assert.equal(matches({ category: "hn", source: "hackernews" }, { ...NO_FILTERS, tags: ["Agents"] }), false);
+});
+
+test("search text rides in q= and round-trips", () => {
+  const filters = { ...NO_FILTERS, category: "repos", query: "claude code" };
+  assert.equal(filtersToSearch(filters, GROUPS), "?c=repos&q=claude+code");
+  assert.deepEqual(parseFilters("?c=repos&q=claude+code", GROUPS), filters);
+  assert.equal(filtersToSearch({ ...NO_FILTERS, query: "   " }, GROUPS), "");
+});
+
+test("search matches the title or summary, ignoring case and outer spaces", () => {
+  const item = { category: "news", source: "techcrunch", title: "Claude ships", summary: "A new Agent SDK" };
+  assert.equal(matches(item, { ...NO_FILTERS, query: " CLAUDE " }), true);
+  assert.equal(matches(item, { ...NO_FILTERS, query: "agent sdk" }), true);
+  assert.equal(matches(item, { ...NO_FILTERS, query: "gemini" }), false);
 });
 
 test("toggle adds and removes", () => {

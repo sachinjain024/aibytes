@@ -45,5 +45,7 @@ it downstream:
 Text is the interface (images are 40px accents). One accent (`--accent` cobalt)
 for interaction, `--hot` only for "top today" and the HN tile, `--save` only in
 the filled star. Mono with tabular numerals on every number. 1px borders, no
-shadows at rest, no gradients or glass. Same layout in both themes — only the
-palette flips. AA contrast and a visible 2px focus ring everywhere.
+shadows at rest, no gradients or glass. The exception is popovers - the
+calendar, the filter panel, the card menu - which float over the feed and may
+carry a soft drop shadow so they read as a layer. Same layout in both themes —
+only the palette flips. AA contrast and a visible 2px focus ring everywhere.

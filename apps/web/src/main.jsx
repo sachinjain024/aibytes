@@ -1,7 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import "@aibytes/design-system/styles.css";
-import "./app.css";
 import { App } from "./App.jsx";
 import { issueRedirect, parseRoute } from "./route.js";
 
