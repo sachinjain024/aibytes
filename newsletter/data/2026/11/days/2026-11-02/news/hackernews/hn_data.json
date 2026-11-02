@@ -1,0 +1,100 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-02",
+  "window": {
+    "after": "2026-11-01",
+    "before": "2026-11-03"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 8,
+  "poolCount": 36,
+  "stories": [
+    {
+      "title": "The AI cost of JavaScript frameworks",
+      "url": "https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks/",
+      "type": "story",
+      "points": 355,
+      "num_comments": 280,
+      "author": "luu",
+      "created_at": "2026-11-01T06:06:19Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50323088"
+    },
+    {
+      "title": "Brazilian Court Sanctions Lawyers for Prompt Injection in Court Filing",
+      "url": "https://jetstream.security/insights/brazilian-court-sanctions-prompt-injection-filing/",
+      "type": "story",
+      "points": 324,
+      "num_comments": 208,
+      "author": "doodlesdev",
+      "created_at": "2026-11-01T02:19:53Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50322173"
+    },
+    {
+      "title": "AI delivers 'zero financial payoff' to most companies, Apollo economist says",
+      "url": "https://techcrunch.com/2026/10/25/ai-delivers-zero-financial-payoff-to-most-companies-according-to-apollo-economist/",
+      "type": "story",
+      "points": 220,
+      "num_comments": 216,
+      "author": "throwoutway",
+      "created_at": "2026-11-01T22:10:45Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50330456"
+    },
+    {
+      "title": "AI agent swarms in Minecraft fail to build civilization, drown in bureaucracy",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-agent-swarms-unleashed-in-minecraft-to-build-a-thriving-civilization-50-agent-teams-fail-after-falling-into-paralyzing-bureaucracy",
+      "type": "story",
+      "points": 166,
+      "num_comments": 79,
+      "author": "entryleveljobsc",
+      "created_at": "2026-11-01T13:47:24Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50325662"
+    },
+    {
+      "title": "It wasn't AI that flipped Proton's charge",
+      "url": "https://blog.raed.dev/posts/proton-loser-thinking/",
+      "type": "story",
+      "points": 152,
+      "num_comments": 86,
+      "author": "Raed667",
+      "created_at": "2026-11-01T18:53:55Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50328488"
+    },
+    {
+      "title": "AI fan wikis riddled with errors are muddying the waters of games culture",
+      "url": "https://www.eurogamer.net/ai-fan-wikis-errors-complicating-games-culture",
+      "type": "story",
+      "points": 79,
+      "num_comments": 67,
+      "author": "rdmuser",
+      "created_at": "2026-11-02T01:47:07Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50332086"
+    },
+    {
+      "title": "So I guess everyone uses LLMs to think now",
+      "url": "https://eva.ac/blog/llms/",
+      "type": "story",
+      "points": 68,
+      "num_comments": 109,
+      "author": "xyzeva",
+      "created_at": "2026-11-01T21:49:04Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50330253"
+    },
+    {
+      "title": "I Am the Reason OpenAI Is Killing Unlimited Chats",
+      "url": "https://chaosmanage.github.io/i-killed-unlimited-chatgpt/",
+      "type": "story",
+      "points": 52,
+      "num_comments": 12,
+      "author": "gulmothrowaway",
+      "created_at": "2026-11-01T17:01:34Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50327416"
+    }
+  ]
+}

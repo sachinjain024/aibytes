@@ -1,0 +1,37 @@
+{
+  "source": "techcrunch",
+  "section": "ai-news",
+  "fetched_at": "2026-11-02",
+  "window": {
+    "after": "2026-11-01",
+    "before": "2026-11-03"
+  },
+  "query_params": {
+    "category": "artificial-intelligence",
+    "count": 10,
+    "ranking": "hackernews_points,recency"
+  },
+  "totalCount": 2,
+  "articles": [
+    {
+      "title": "OpenAI might rebrand its data centers as \u2018AI compute campuses\u2019",
+      "description": "Data centers are deeply unpopular. But what if we called them something else?",
+      "url": "https://techcrunch.com/2026/11/01/openai-might-rebrand-its-data-centers-as-ai-compute-campuses/",
+      "published_at": "2026-11-01T21:55:23Z",
+      "author": "Anthony Ha",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/08/GettyImages-2283113936-maller.jpg?w=1024",
+      "reading_time": "2 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "AI can make tech CEOs\u2019 lives easier. What about everyone else?",
+      "description": "On Equity, we discuss why tech CEO statements can seem so tone deaf.",
+      "url": "https://techcrunch.com/2026/11/01/ai-can-make-tech-ceos-lives-easier-what-about-everyone-else/",
+      "published_at": "2026-11-01T20:57:58Z",
+      "author": "Anthony Ha",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-1481617564.jpg?resize=1200,680",
+      "reading_time": "7 minutes",
+      "hackernews": null
+    }
+  ]
+}

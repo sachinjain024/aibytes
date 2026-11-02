@@ -1,0 +1,120 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-01",
+  "window": {
+    "after": "2026-10-31",
+    "before": "2026-11-02"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 21,
+  "poolCount": 88,
+  "stories": [
+    {
+      "title": "Anthropic blocks users for anything touching training larger models",
+      "url": "https://twitter.com/jiahaoshao1/status/2116475922190922088",
+      "type": "story",
+      "points": 475,
+      "num_comments": 262,
+      "author": "pretext",
+      "created_at": "2026-10-31T19:39:19Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50319358"
+    },
+    {
+      "title": "The AI cost of JavaScript frameworks",
+      "url": "https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks/",
+      "type": "story",
+      "points": 399,
+      "num_comments": 305,
+      "author": "luu",
+      "created_at": "2026-11-01T06:06:19Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50323088"
+    },
+    {
+      "title": "Do the math: How we took over ChatGPT accounts",
+      "url": "https://www.parameter.ai/labs/we-found-a-gap-at-openai",
+      "type": "story",
+      "points": 360,
+      "num_comments": 176,
+      "author": "armcat",
+      "created_at": "2026-10-31T10:30:11Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50314699"
+    },
+    {
+      "title": "Brazilian Court Sanctions Lawyers for Prompt Injection in Court Filing",
+      "url": "https://jetstream.security/insights/brazilian-court-sanctions-prompt-injection-filing/",
+      "type": "story",
+      "points": 331,
+      "num_comments": 210,
+      "author": "doodlesdev",
+      "created_at": "2026-11-01T02:19:53Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50322173"
+    },
+    {
+      "title": "Malware uses LLMs to rank victims by how much they're worth",
+      "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+      "type": "story",
+      "points": 259,
+      "num_comments": 137,
+      "author": "khalidkhair",
+      "created_at": "2026-10-31T14:29:03Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50316531"
+    },
+    {
+      "title": "AI delivers 'zero financial payoff' to most companies, Apollo economist says",
+      "url": "https://techcrunch.com/2026/10/25/ai-delivers-zero-financial-payoff-to-most-companies-according-to-apollo-economist/",
+      "type": "story",
+      "points": 230,
+      "num_comments": 230,
+      "author": "throwoutway",
+      "created_at": "2026-11-01T22:10:45Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50330456"
+    },
+    {
+      "title": "ChatGPT and Codex usage limits merging",
+      "url": "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits",
+      "type": "story",
+      "points": 227,
+      "num_comments": 168,
+      "author": "Zariel",
+      "created_at": "2026-10-31T21:49:07Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50320588"
+    },
+    {
+      "title": "Anthropic takes steps to block Claude from reverse-engineering video games",
+      "url": "https://mashable.com/tech/anthropic-takes-steps-to-block-video-game-cloning-and-reverse-engineering",
+      "type": "story",
+      "points": 189,
+      "num_comments": 114,
+      "author": "firesteelrain",
+      "created_at": "2026-10-31T21:07:58Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50320255"
+    },
+    {
+      "title": "OpenAI raises less than half of $30B target",
+      "url": "https://www.wsj.com/tech/ai/openai-raises-less-than-half-of-30-billion-target-in-latest-round-91aecdc5",
+      "type": "story",
+      "points": 186,
+      "num_comments": 201,
+      "author": "timr",
+      "created_at": "2026-10-31T03:22:44Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50312922"
+    },
+    {
+      "title": "GPT-5.6 Sol can beat Factorio on peaceful mode",
+      "url": "https://ryanmadden.net/gpt-56-beats-factorio/",
+      "type": "story",
+      "points": 176,
+      "num_comments": 188,
+      "author": "ryanmadden",
+      "created_at": "2026-10-31T18:50:34Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50318871"
+    }
+  ]
+}

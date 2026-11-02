@@ -1,0 +1,734 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-01",
+  "generated_at": "2026-11-02T13:22:01Z",
+  "counts": {
+    "launches": 4,
+    "repos": 8,
+    "news": 6,
+    "hn": 10
+  },
+  "items": [
+    {
+      "id": "ph-specsight-2-2026-11-01",
+      "title": "Specsight",
+      "summary": "Reads code changes to keep a live product map, per-feature docs and release notes, so Product, Sales and Support see what the software does now.",
+      "url": "https://www.producthunt.com/products/specsight",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/specsight",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/19f1aa34-f2f3-4249-9ebf-42aefa9f1830.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 326,
+        "comments": 42
+      },
+      "published_at": "2026-10-31T07:01:00Z",
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "ph-ski-2-2026-11-01",
+      "title": "SKI",
+      "summary": "Mac app that runs Claude Code, Codex, Cursor, OpenCode, Antigravity and pi side by side, takes spoken instructions, reads replies aloud and flags when an agent needs input.",
+      "url": "https://www.producthunt.com/products/ski",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/ski",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Voice / Speech",
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/c51ef03e-0e19-4fab-b0a2-3b69fc8d07c4.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 306,
+        "comments": 59
+      },
+      "published_at": "2026-10-31T07:01:00Z",
+      "hidden": false,
+      "rank": 10
+    },
+    {
+      "id": "ph-clawsgo-science-2026-11-01",
+      "title": "ClawsGO Science",
+      "summary": "Research agent that runs clusters of Claude and GPT agents for days against a cloud lab of 500+ tools and 90+ datasets, then writes the result up as a cited paper.",
+      "url": "https://www.producthunt.com/products/clawsgo-science",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/clawsgo-science",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/bda34c61-f870-4fb7-ab6d-1085e7e59446.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 274,
+        "comments": 57
+      },
+      "published_at": "2026-11-01T07:01:00Z",
+      "hidden": false,
+      "rank": 18
+    },
+    {
+      "id": "ph-telemetry-dev-2026-11-01",
+      "title": "telemetry.dev",
+      "summary": "One trace per agent run, each model and tool call a span with tokens, cost and errors, plus no-deploy prompt edits, dataset evals and loop alerts over OpenTelemetry.",
+      "url": "https://www.producthunt.com/products/telemetry-dev",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/telemetry-dev",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Eval",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/a1dcdd13-fce1-4da8-99c3-9e1b927aac3c.gif?auto=format"
+      },
+      "signals": {
+        "upvotes": 255,
+        "comments": 22
+      },
+      "published_at": "2026-10-31T07:01:00Z",
+      "hidden": false,
+      "rank": 24
+    },
+    {
+      "id": "gh-claude-mem-2026-11-01",
+      "title": "thedotmack/claude-mem",
+      "summary": "TypeScript memory layer that records agent sessions, compresses them with a model and injects relevant context later, for Claude Code, Codex, Gemini, Copilot and more.",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source": "github",
+      "source_url": "https://github.com/thedotmack/claude-mem",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Claude Code"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/thedotmack.png?size=80"
+      },
+      "signals": {
+        "stars": 110275,
+        "stars_gained": 1799,
+        "forks": 9619
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "gh-claude-code-game-studios-2026-11-01",
+      "title": "Donchitos/Claude-Code-Game-Studios",
+      "summary": "Shell-based Claude Code setup of 49 agents and 72 workflow skills arranged like a game studio's org chart, with a coordination system between roles.",
+      "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+      "source": "github",
+      "source_url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Claude Code"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Donchitos.png?size=80"
+      },
+      "signals": {
+        "stars": 33045,
+        "stars_gained": 1380,
+        "forks": 4473
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "gh-skills-2026-11-01",
+      "title": "mattpocock/skills",
+      "summary": "Matt Pocock's personal collection of agent skills, published straight from his .agents directory and aimed at working engineers.",
+      "url": "https://github.com/mattpocock/skills",
+      "source": "github",
+      "source_url": "https://github.com/mattpocock/skills",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mattpocock.png?size=80"
+      },
+      "signals": {
+        "stars": 309760,
+        "stars_gained": 970,
+        "forks": 26062
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "id": "gh-kronos-2026-11-01",
+      "title": "shiyu-coder/Kronos",
+      "summary": "Python foundation model that treats financial market data as a language to be modelled.",
+      "url": "https://github.com/shiyu-coder/Kronos",
+      "source": "github",
+      "source_url": "https://github.com/shiyu-coder/Kronos",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Model Release"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/shiyu-coder.png?size=80"
+      },
+      "signals": {
+        "stars": 45764,
+        "stars_gained": 855,
+        "forks": 7542
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 13
+    },
+    {
+      "id": "gh-kornia-2026-11-01",
+      "title": "kornia/kornia",
+      "summary": "Python library of geometric computer vision operations for spatial AI work.",
+      "url": "https://github.com/kornia/kornia",
+      "source": "github",
+      "source_url": "https://github.com/kornia/kornia",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Framework",
+        "Vision"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/kornia.png?size=80"
+      },
+      "signals": {
+        "stars": 12008,
+        "stars_gained": 412,
+        "forks": 1482
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 15
+    },
+    {
+      "id": "gh-heretic-2026-11-01",
+      "title": "p-e-w/heretic",
+      "summary": "Python tool that edits language models without training to strip refusals, cut sycophancy and suppress slop.",
+      "url": "https://github.com/p-e-w/heretic",
+      "source": "github",
+      "source_url": "https://github.com/p-e-w/heretic",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "LLM",
+        "Safety"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/p-e-w.png?size=80"
+      },
+      "signals": {
+        "stars": 37816,
+        "stars_gained": 404,
+        "forks": 4306
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 20
+    },
+    {
+      "id": "gh-nanochat-2026-11-01",
+      "title": "karpathy/nanochat",
+      "summary": "Andrej Karpathy's Python codebase for building a ChatGPT-style model end to end on a $100 compute budget.",
+      "url": "https://github.com/karpathy/nanochat",
+      "source": "github",
+      "source_url": "https://github.com/karpathy/nanochat",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "LLM"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/karpathy.png?size=80"
+      },
+      "signals": {
+        "stars": 59650,
+        "stars_gained": 325,
+        "forks": 8388
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 23
+    },
+    {
+      "id": "gh-worktrunk-2026-11-01",
+      "title": "max-sixty/worktrunk",
+      "summary": "Rust CLI for managing Git worktrees, built so several AI coding agents can work on one repo in parallel.",
+      "url": "https://github.com/max-sixty/worktrunk",
+      "source": "github",
+      "source_url": "https://github.com/max-sixty/worktrunk",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Dev Tool",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/max-sixty.png?size=80"
+      },
+      "signals": {
+        "stars": 9848,
+        "stars_gained": 115,
+        "forks": 349
+      },
+      "meta": {
+        "language": "Rust"
+      },
+      "hidden": false,
+      "rank": 27
+    },
+    {
+      "id": "tc-openai-might-rebrand-its-data-centers-as-ai-2026-11-01",
+      "title": "OpenAI might rebrand its data centers as ‘AI compute campuses’",
+      "summary": "TechCrunch reads the possible rename as a response to how unpopular data centers have become with the public.",
+      "url": "https://techcrunch.com/2026/11/01/openai-might-rebrand-its-data-centers-as-ai-compute-campuses/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/01/openai-might-rebrand-its-data-centers-as-ai-compute-campuses/",
+      "category": "news",
+      "tags": [
+        "OpenAI"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/08/GettyImages-2283113936-maller.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Anthony Ha",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-01T21:55:23Z",
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "tc-ai-can-make-tech-ceos-lives-easier-what-about-2026-11-01",
+      "title": "AI can make tech CEOs’ lives easier. What about everyone else?",
+      "summary": "Equity podcast episode on why public statements from tech CEOs about AI so often land as tone deaf.",
+      "url": "https://techcrunch.com/2026/11/01/ai-can-make-tech-ceos-lives-easier-what-about-everyone-else/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/01/ai-can-make-tech-ceos-lives-easier-what-about-everyone-else/",
+      "category": "news",
+      "tags": [
+        "LLM"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-1481617564.jpg?resize=1200,680"
+      },
+      "meta": {
+        "author": "Anthony Ha",
+        "reading_time": "7 minutes"
+      },
+      "published_at": "2026-11-01T20:57:58Z",
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "tc-apple-ceo-says-the-company-doesnt-want-to-ship-2026-11-01",
+      "title": "Apple CEO says the company doesn’t ‘want to ship AI for AI’s sake’",
+      "summary": "The remark came as Apple's new CEO defended the company's current position in the AI landscape.",
+      "url": "https://techcrunch.com/2026/10/31/apple-ceo-says-the-company-doesnt-want-to-ship-ai-for-ais-sake/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/31/apple-ceo-says-the-company-doesnt-want-to-ship-ai-for-ais-sake/",
+      "category": "news",
+      "tags": [
+        "Apple"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-2302418320.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Anthony Ha",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-31T21:41:00Z",
+      "hidden": false,
+      "rank": 12
+    },
+    {
+      "id": "tc-4-days-left-how-techcrunch-founder-summit-helps-2026-11-01",
+      "title": "4 days left: How TechCrunch Founder Summit helps you make more useful connections to scale",
+      "summary": "TechCrunch promo for its Founder Summit 2026, which opens Nov. 4 in Boston, with discounted passes before the start.",
+      "url": "https://techcrunch.com/2026/10/31/4-days-left-how-techcrunch-founder-summit-helps-you-make-more-useful-connections-to-scale/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/31/4-days-left-how-techcrunch-founder-summit-helps-you-make-more-useful-connections-to-scale/",
+      "category": "news",
+      "tags": [
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2025/03/Early-Stage-2024-audience.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "TechCrunch Events",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-10-31T21:36:07Z",
+      "hidden": false,
+      "rank": 17
+    },
+    {
+      "id": "tc-judge-allows-naacp-lawsuit-over-xai-data-center-2026-11-01",
+      "title": "Judge allows NAACP lawsuit over xAI data center pollution to move forward",
+      "summary": "The suit accuses the SpaceX-owned AI company of violating the Clean Air Act at its data center.",
+      "url": "https://techcrunch.com/2026/10/31/judge-allows-naacp-lawsuit-over-xai-data-center-pollution-to-move-forward/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/31/judge-allows-naacp-lawsuit-over-xai-data-center-pollution-to-move-forward/",
+      "category": "news",
+      "tags": [
+        "xAI",
+        "Legal"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2025/06/GettyImages-2217198328.jpeg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Anthony Ha",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-31T21:17:03Z",
+      "hidden": false,
+      "rank": 21
+    },
+    {
+      "id": "tc-openai-reportedly-lowers-funding-target-for-new-2026-11-01",
+      "title": "OpenAI reportedly lowers funding target for new round",
+      "summary": "The round is falling short of expectations; the WSJ reports OpenAI has raised less than half of a $30B target.",
+      "url": "https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/",
+      "category": "news",
+      "tags": [
+        "OpenAI",
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/07/OpenAI-logo-green.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Anthony Ha",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-10-31T16:12:55Z",
+      "hidden": false,
+      "rank": 26
+    },
+    {
+      "id": "hn-anthropic-blocks-users-for-anything-touching-2026-11-01",
+      "title": "Anthropic blocks users for anything touching training larger models",
+      "summary": "A post on X reports Anthropic blocking accounts for any use connected to training larger models.",
+      "url": "https://twitter.com/jiahaoshao1/status/2116475922190922088",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50319358",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "Policy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 475,
+        "comments": 262
+      },
+      "meta": {
+        "author": "pretext"
+      },
+      "published_at": "2026-10-31T19:39:19Z",
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "hn-the-ai-cost-of-javascript-frameworks-2026-11-01",
+      "title": "The AI cost of JavaScript frameworks",
+      "summary": "Nolan Lawson essay on what JavaScript framework choice costs once AI tools are part of how the code gets written.",
+      "url": "https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50323088",
+      "category": "hn",
+      "tags": [
+        "Code Gen",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 399,
+        "comments": 305
+      },
+      "meta": {
+        "author": "luu"
+      },
+      "published_at": "2026-11-01T06:06:19Z",
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "hn-do-the-math-how-we-took-over-chatgpt-accounts-2026-11-01",
+      "title": "Do the math: How we took over ChatGPT accounts",
+      "summary": "Parameter Labs write-up of a gap at OpenAI that let the researchers take over ChatGPT accounts.",
+      "url": "https://www.parameter.ai/labs/we-found-a-gap-at-openai",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50314699",
+      "category": "hn",
+      "tags": [
+        "OpenAI",
+        "Security"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 360,
+        "comments": 176
+      },
+      "meta": {
+        "author": "armcat"
+      },
+      "published_at": "2026-10-31T10:30:11Z",
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "id": "hn-brazilian-court-sanctions-lawyers-for-prompt-2026-11-01",
+      "title": "Brazilian Court Sanctions Lawyers for Prompt Injection in Court Filing",
+      "summary": "Jetstream Security report on a Brazilian court penalising lawyers who hid a prompt injection inside a filing.",
+      "url": "https://jetstream.security/insights/brazilian-court-sanctions-prompt-injection-filing/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50322173",
+      "category": "hn",
+      "tags": [
+        "Legal",
+        "Security"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 331,
+        "comments": 210
+      },
+      "meta": {
+        "author": "doodlesdev"
+      },
+      "published_at": "2026-11-01T02:19:53Z",
+      "hidden": false,
+      "rank": 11
+    },
+    {
+      "id": "hn-malware-uses-llms-to-rank-victims-by-how-much-2026-11-01",
+      "title": "Malware uses LLMs to rank victims by how much they're worth",
+      "summary": "Cisco Talos analysis of the Volta infostealer, which uses a model to appraise stolen data and prioritise the most valuable victims.",
+      "url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50316531",
+      "category": "hn",
+      "tags": [
+        "Security",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 259,
+        "comments": 137
+      },
+      "meta": {
+        "author": "khalidkhair"
+      },
+      "published_at": "2026-10-31T14:29:03Z",
+      "hidden": false,
+      "rank": 14
+    },
+    {
+      "id": "hn-ai-delivers-zero-financial-payoff-to-most-2026-11-01",
+      "title": "AI delivers 'zero financial payoff' to most companies, Apollo economist says",
+      "summary": "TechCrunch report on an Apollo economist's finding that most companies see no financial return from AI.",
+      "url": "https://techcrunch.com/2026/10/25/ai-delivers-zero-financial-payoff-to-most-companies-according-to-apollo-economist/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50330456",
+      "category": "hn",
+      "tags": [
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 230,
+        "comments": 230
+      },
+      "meta": {
+        "author": "throwoutway"
+      },
+      "published_at": "2026-11-01T22:10:45Z",
+      "hidden": false,
+      "rank": 16
+    },
+    {
+      "id": "hn-chatgpt-and-codex-usage-limits-merging-2026-11-01",
+      "title": "ChatGPT and Codex usage limits merging",
+      "summary": "OpenAI help-center article explaining how ChatGPT and Codex usage limits work as the two are merged.",
+      "url": "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50320588",
+      "category": "hn",
+      "tags": [
+        "OpenAI",
+        "Pricing"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 227,
+        "comments": 168
+      },
+      "meta": {
+        "author": "Zariel"
+      },
+      "published_at": "2026-10-31T21:49:07Z",
+      "hidden": false,
+      "rank": 19
+    },
+    {
+      "id": "hn-anthropic-takes-steps-to-block-claude-from-2026-11-01",
+      "title": "Anthropic takes steps to block Claude from reverse-engineering video games",
+      "summary": "Mashable report on Anthropic restricting Claude from helping clone or reverse-engineer video games.",
+      "url": "https://mashable.com/tech/anthropic-takes-steps-to-block-video-game-cloning-and-reverse-engineering",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50320255",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "Policy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 189,
+        "comments": 114
+      },
+      "meta": {
+        "author": "firesteelrain"
+      },
+      "published_at": "2026-10-31T21:07:58Z",
+      "hidden": false,
+      "rank": 22
+    },
+    {
+      "id": "hn-openai-raises-less-than-half-of-30b-target-2026-11-01",
+      "title": "OpenAI raises less than half of $30B target",
+      "summary": "WSJ report on OpenAI's latest round, which TechCrunch separately describes as a lowered funding target.",
+      "url": "https://www.wsj.com/tech/ai/openai-raises-less-than-half-of-30-billion-target-in-latest-round-91aecdc5",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50312922",
+      "category": "hn",
+      "tags": [
+        "OpenAI",
+        "Funding"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 186,
+        "comments": 201
+      },
+      "meta": {
+        "author": "timr"
+      },
+      "published_at": "2026-10-31T03:22:44Z",
+      "hidden": false,
+      "rank": 25
+    },
+    {
+      "id": "hn-gpt-5-6-sol-can-beat-factorio-on-peaceful-mode-2026-11-01",
+      "title": "GPT-5.6 Sol can beat Factorio on peaceful mode",
+      "summary": "Ryan Madden's blog post on running GPT-5.6 Sol through a full Factorio game with enemies turned off.",
+      "url": "https://ryanmadden.net/gpt-56-beats-factorio/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50318871",
+      "category": "hn",
+      "tags": [
+        "Agents",
+        "Eval",
+        "OpenAI"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 176,
+        "comments": 188
+      },
+      "meta": {
+        "author": "ryanmadden"
+      },
+      "published_at": "2026-10-31T18:50:34Z",
+      "hidden": false,
+      "rank": 28
+    }
+  ]
+}

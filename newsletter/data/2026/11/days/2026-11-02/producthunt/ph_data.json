@@ -1,0 +1,565 @@
+{
+  "source": "producthunt",
+  "fetched_at": "2026-11-02",
+  "window": {
+    "postedAfter": "2026-11-01T00:00:00Z",
+    "postedBefore": "2026-11-03T00:00:00Z"
+  },
+  "query_params": {
+    "first": 5,
+    "order": "VOTES",
+    "featured": true
+  },
+  "totalCount": 19,
+  "posts": [
+    {
+      "id": "1298578",
+      "name": "Screen Studio 4.0",
+      "tagline": "Glass Loupe, Camera Cutout, Edit by Transcript, and more",
+      "description": "The screen recorder for Mac that handles the hard parts: zooms, motion, sound, and framing. Every demo and tutorial comes out polished. What's new in 4.0: - Glass Loupe, a zoom that magnifies one detail - Split screen, also for vertical video - Edit your video like you edit text - Camera cutout: you, without your background - Hide sensitive data and faces automatically - Sharper zooms, ProRes, up to 4x faster exports, and more",
+      "slug": "screen-studio-4-0",
+      "votesCount": 400,
+      "commentsCount": 88,
+      "reviewsRating": 4.9,
+      "reviewsCount": 192,
+      "dailyRank": 1,
+      "weeklyRank": 2,
+      "url": "https://www.producthunt.com/products/screen-studio?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/MXBY2KB22GHVHB?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-01T07:01:00Z",
+      "createdAt": "2026-11-01T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/c77fb016-3dbe-4723-96df-de1790db78be.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/e34f9fdf-0919-4b01-9bad-76687f286a44.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/5b065004-68be-4b41-8575-8f37d09f04f2.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/941eb608-90b5-4107-be88-b4fe53385b6d.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/2f3cbbb6-475b-490d-84c7-304a242f4188.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/01b34643-50a5-4a36-9179-2597382de606.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/86beab28-4932-4af7-81fe-b8c9db99badf.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/ffe8704f-0ffc-4fed-9b50-419277459b4b.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/ae1940d5-b962-4b69-b75c-9f0668eecd12.jpeg?auto=format",
+          "videoUrl": "https://www.youtube.com/watch?v=MxAa8g8qFz4"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/MXBY2KB22GHVHB?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Productivity",
+            "slug": "productivity"
+          },
+          {
+            "name": "Marketing",
+            "slug": "marketing"
+          },
+          {
+            "name": "Video",
+            "slug": "video"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "Dawid Wilewski",
+          "username": "dawid_wilewski",
+          "headline": null,
+          "url": "https://www.producthunt.com/@dawid_wilewski?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        },
+        {
+          "name": "Kacper Michalik",
+          "username": "casp3ro",
+          "headline": "Software Engineer",
+          "url": "https://www.producthunt.com/@casp3ro?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": "casp3ro_"
+        },
+        {
+          "name": "Merlin Druzinec",
+          "username": "merlindru",
+          "headline": "",
+          "url": "https://www.producthunt.com/@merlindru?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Adam Pietrasiak",
+        "username": "pie6k",
+        "headline": "Software engineer and product designer",
+        "url": "https://www.producthunt.com/@pie6k?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1293162",
+      "name": "ClawsGO Science",
+      "tagline": "The AI research agent with its own cloud lab",
+      "description": "Research, fully automated. ClawsGO Science takes a question to discovery and writes it up as a cited paper. Its cloud lab has 500+ tools and 90+ datasets. Its long-horizon harness runs clusters of Claude and GPT agents for days. The next paradigm for science.",
+      "slug": "clawsgo-science",
+      "votesCount": 261,
+      "commentsCount": 57,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 2,
+      "weeklyRank": 18,
+      "url": "https://www.producthunt.com/products/clawsgo-science?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/BECJZCED6CRLLK?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-01T07:01:00Z",
+      "createdAt": "2026-11-01T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/bda34c61-f870-4fb7-ab6d-1085e7e59446.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/b4ee4a4b-0656-47f4-98bc-7ab5fdaea2d9.jpeg?auto=format",
+          "videoUrl": "https://www.youtube.com/watch?v=noI7J8aarsE"
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/886024ff-7d60-42df-9c30-310539a5b664.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/c14576ac-ee20-46d2-b169-5761ee17b85f.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/e70c65c6-2a3b-41a8-8249-15b9a906db78.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/f61791d4-23b2-49b0-84ca-34539dcf11d2.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/d776487a-c035-4369-92b8-bc022e2ba747.jpeg?auto=format",
+          "videoUrl": null
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/BECJZCED6CRLLK?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Productivity",
+            "slug": "productivity"
+          },
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          },
+          {
+            "name": "Science",
+            "slug": "science"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Ke Chen",
+          "username": "yorichen",
+          "headline": "Growth at ClawsGO Science",
+          "url": "https://www.producthunt.com/@yorichen?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Zac Zuo",
+        "username": "zaczuo",
+        "headline": "Flowtica & AI Frontiers",
+        "url": "https://www.producthunt.com/@zaczuo?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1293647",
+      "name": "Riverside Agents",
+      "tagline": "A team of AI agents for video: produce, edit, clip, post",
+      "description": "Riverside Agents is a team of AI agents built only for video. A Producer preps your session, an Editor turns raw recordings into a finished episode, a Clipper cuts the best moments into social clips, and a Marketer writes captions and schedules posts. You choose how much to automate, and nothing is published until you approve it. Included in every Riverside plan, with a 14-day free trial.",
+      "slug": "riverside-agents-2",
+      "votesCount": 211,
+      "commentsCount": 9,
+      "reviewsRating": 4.79,
+      "reviewsCount": 14,
+      "dailyRank": 3,
+      "weeklyRank": 23,
+      "url": "https://www.producthunt.com/products/riverside-fm?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/DIOFM7OZMKNLDK?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-01T07:01:00Z",
+      "createdAt": "2026-11-01T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/0e174364-8fd4-4379-a58f-707e6c3f63ea.jpeg?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/89691ee7-9b95-490e-bf36-49b800e7649e.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/d6ea583a-3160-4eaf-b28e-b690735e80e0.webp?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/6f03e123-7570-487d-8670-df48eec0195b.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/5b9a09d4-9769-44cf-9f5c-1601c1396940.webp?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/209ce21c-34cd-40a3-9e73-2de1499559ad.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/4c10f70e-2a66-4e40-8853-d69dd793ac7e.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/917cbf7b-09f8-4bfa-b749-330f4ccaf893.jpeg?auto=format",
+          "videoUrl": "https://www.youtube.com/watch?v=B-Z6iiSmpnI"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/DIOFM7OZMKNLDK?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          },
+          {
+            "name": "Video",
+            "slug": "video"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "Nadav Keyson",
+          "username": "nadavkeyson",
+          "headline": "Cofounder riverside.fm",
+          "url": "https://www.producthunt.com/@nadavkeyson?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": "NadavKeyson"
+        }
+      ],
+      "user": {
+        "name": "Rohan Chaubey",
+        "username": "rohanrecommends",
+        "headline": "\ud83e\udd47 Top Hunter | Author | Startup Advisor",
+        "url": "https://www.producthunt.com/@rohanrecommends?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1298096",
+      "name": "Embage",
+      "tagline": "Build agent for your customers, run workflows, analyzed. ",
+      "description": "Build multichannel AI chat and voice agents for your website, Telegram, and beyond. Create specialized sub-agents to orchestrate workflows across your knowledge bases, datastores, and hundreds of third-party tools in real time. Automatically evaluate every interaction, score lead quality, and extract structured data straight from conversation transcripts.",
+      "slug": "embage-2",
+      "votesCount": 158,
+      "commentsCount": 10,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 4,
+      "weeklyRank": 37,
+      "url": "https://www.producthunt.com/products/embage?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/OYXQ3VEP75YG64?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-01T07:01:00Z",
+      "createdAt": "2026-11-01T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/8fabac51-f32a-40b1-87b4-637a666e1d54.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/47f45415-e870-41f9-9f37-f99b79f19f99.jpeg?auto=format",
+          "videoUrl": "https://youtu.be/goVe2vgi0A0?si=aL0XdwTUqwS2GESr"
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/87f04c4c-4f40-46a7-bbb7-1e3b8329d7c4.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/5baf4893-b2cb-4687-8c71-69bd833dbe54.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/ddf3cd76-6701-40f8-8e79-b7deab55ec69.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/08e8d142-b970-4eb1-ba83-7ec43c76b31c.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/89b08fbb-0b76-4813-8d4a-5c4379dc21f9.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/f737ceef-650e-405d-a719-1e4bc19aefbc.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/79b5ed0b-79f5-4da4-9b86-b1ef4ab37b85.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/8640edc9-dcbf-4c7b-b43f-c9ec6cb31f0e.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/31b0ecc5-62e7-48c7-86ca-536ef2f97717.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/697fe90e-80e8-433c-9d3d-5852e363e33d.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/6ddbcf02-0bcb-45fb-8d68-2ee89b027563.png?auto=format",
+          "videoUrl": null
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/MGXBVSPTFFPHXH?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/OYXQ3VEP75YG64?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "LinkedIn",
+          "url": "https://www.producthunt.com/r/2GFA4PL7GFRFGH?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Telegram",
+            "slug": "telegram"
+          },
+          {
+            "name": "Customer Communication",
+            "slug": "customer-communication"
+          },
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "Aradhya Tiwari",
+          "username": "aradhya_tiwari2",
+          "headline": "Building Embage",
+          "url": "https://www.producthunt.com/@aradhya_tiwari2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Aradhya Tiwari",
+        "username": "aradhya_tiwari2",
+        "headline": "Building Embage",
+        "url": "https://www.producthunt.com/@aradhya_tiwari2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1297466",
+      "name": "Precise Edit by Ideogram",
+      "tagline": "Precise editing with context window",
+      "description": "The upgraded Precise Edit supports a context window, so it edits images at any resolution up to 8K at their original pixels and renders small text, logos, and fine detail more sharply.",
+      "slug": "precise-edit-by-ideogram",
+      "votesCount": 139,
+      "commentsCount": 5,
+      "reviewsRating": 5.0,
+      "reviewsCount": 3,
+      "dailyRank": 5,
+      "weeklyRank": 42,
+      "url": "https://www.producthunt.com/products/ideogram?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/RV5WCJYJUF4JTW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-01T07:01:00Z",
+      "createdAt": "2026-11-01T07:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/e724792f-5534-4e6b-a93d-d51920e59598.svg?auto=format"
+      },
+      "media": [
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/fa33c385-4b51-48c5-82da-65b0a96efc94.jpeg?auto=format",
+          "videoUrl": "https://www.youtube.com/watch?v=mSJcv23USU8"
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/2ee332f6-b861-43db-9b90-1b377682da9e.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/55a08e32-bd61-4875-8e99-c8f03aefdc3c.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/043ece6f-6ab3-4ebb-99c5-b606b9e5aad1.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/b4b7a627-f728-42e3-a27e-01407ab64d9e.png?auto=format",
+          "videoUrl": null
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "LinkedIn",
+          "url": "https://www.producthunt.com/r/I7RDMZUEP32ZGM?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/72LA3XPFN4UD5Z?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Instagram",
+          "url": "https://www.producthunt.com/r/UJIDD27HVN3O3S?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Reddit",
+          "url": "https://www.producthunt.com/r/VKT5BZC3JWOUOE?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/AFD2LHOZ5NXIOQ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/WNVAYQB672UKT6?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/3FUBJGPWDKYIYY?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/RV5WCJYJUF4JTW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Design Tools",
+            "slug": "design-tools"
+          },
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          },
+          {
+            "name": "Photo editing",
+            "slug": "photo-editing"
+          }
+        ]
+      },
+      "makers": [],
+      "user": {
+        "name": "Rohan Chaubey",
+        "username": "rohanrecommends",
+        "headline": "\ud83e\udd47 Top Hunter | Author | Startup Advisor",
+        "url": "https://www.producthunt.com/@rohanrecommends?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    }
+  ]
+}

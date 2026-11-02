@@ -1,0 +1,117 @@
+{
+  "date": "2026-11-01",
+  "items": {
+    "ph-specsight-2-2026-11-01": {
+      "summary": "Reads code changes to keep a live product map, per-feature docs and release notes, so Product, Sales and Support see what the software does now.",
+      "tags": ["Dev Tool", "Launch"]
+    },
+    "ph-ski-2-2026-11-01": {
+      "summary": "Mac app that runs Claude Code, Codex, Cursor, OpenCode, Antigravity and pi side by side, takes spoken instructions, reads replies aloud and flags when an agent needs input.",
+      "tags": ["Dev Tool", "Voice / Speech", "Agents", "Launch"]
+    },
+    "ph-clawsgo-science-2026-11-01": {
+      "summary": "Research agent that runs clusters of Claude and GPT agents for days against a cloud lab of 500+ tools and 90+ datasets, then writes the result up as a cited paper.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-telemetry-dev-2026-11-01": {
+      "summary": "One trace per agent run, each model and tool call a span with tokens, cost and errors, plus no-deploy prompt edits, dataset evals and loop alerts over OpenTelemetry.",
+      "tags": ["Dev Tool", "Agents", "Eval", "Launch"]
+    },
+    "gh-claude-mem-2026-11-01": {
+      "summary": "TypeScript memory layer that records agent sessions, compresses them with a model and injects relevant context later, for Claude Code, Codex, Gemini, Copilot and more.",
+      "tags": ["Open Source", "Agents", "Claude Code"]
+    },
+    "gh-claude-code-game-studios-2026-11-01": {
+      "summary": "Shell-based Claude Code setup of 49 agents and 72 workflow skills arranged like a game studio's org chart, with a coordination system between roles.",
+      "tags": ["Open Source", "Agents", "Claude Code"]
+    },
+    "gh-skills-2026-11-01": {
+      "summary": "Matt Pocock's personal collection of agent skills, published straight from his .agents directory and aimed at working engineers.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-kronos-2026-11-01": {
+      "summary": "Python foundation model that treats financial market data as a language to be modelled.",
+      "tags": ["Open Source", "Model Release"]
+    },
+    "gh-kornia-2026-11-01": {
+      "summary": "Python library of geometric computer vision operations for spatial AI work.",
+      "tags": ["Open Source", "Framework", "Vision"]
+    },
+    "gh-heretic-2026-11-01": {
+      "summary": "Python tool that edits language models without training to strip refusals, cut sycophancy and suppress slop.",
+      "tags": ["Open Source", "LLM", "Safety"]
+    },
+    "gh-nanochat-2026-11-01": {
+      "summary": "Andrej Karpathy's Python codebase for building a ChatGPT-style model end to end on a $100 compute budget.",
+      "tags": ["Open Source", "LLM"]
+    },
+    "gh-worktrunk-2026-11-01": {
+      "summary": "Rust CLI for managing Git worktrees, built so several AI coding agents can work on one repo in parallel.",
+      "tags": ["Open Source", "Dev Tool", "Agents"]
+    },
+    "tc-openai-might-rebrand-its-data-centers-as-ai-2026-11-01": {
+      "summary": "TechCrunch reads the possible rename as a response to how unpopular data centers have become with the public.",
+      "tags": ["OpenAI"]
+    },
+    "tc-ai-can-make-tech-ceos-lives-easier-what-about-2026-11-01": {
+      "summary": "Equity podcast episode on why public statements from tech CEOs about AI so often land as tone deaf.",
+      "tags": ["LLM"]
+    },
+    "tc-apple-ceo-says-the-company-doesnt-want-to-ship-2026-11-01": {
+      "summary": "The remark came as Apple's new CEO defended the company's current position in the AI landscape.",
+      "tags": ["Apple"]
+    },
+    "tc-4-days-left-how-techcrunch-founder-summit-helps-2026-11-01": {
+      "summary": "TechCrunch promo for its Founder Summit 2026, which opens Nov. 4 in Boston, with discounted passes before the start.",
+      "tags": ["Funding"]
+    },
+    "tc-judge-allows-naacp-lawsuit-over-xai-data-center-2026-11-01": {
+      "summary": "The suit accuses the SpaceX-owned AI company of violating the Clean Air Act at its data center.",
+      "tags": ["xAI", "Legal"]
+    },
+    "tc-openai-reportedly-lowers-funding-target-for-new-2026-11-01": {
+      "summary": "The round is falling short of expectations; the WSJ reports OpenAI has raised less than half of a $30B target.",
+      "tags": ["OpenAI", "Funding"]
+    },
+    "hn-anthropic-blocks-users-for-anything-touching-2026-11-01": {
+      "summary": "A post on X reports Anthropic blocking accounts for any use connected to training larger models.",
+      "tags": ["Anthropic", "Policy"]
+    },
+    "hn-the-ai-cost-of-javascript-frameworks-2026-11-01": {
+      "summary": "Nolan Lawson essay on what JavaScript framework choice costs once AI tools are part of how the code gets written.",
+      "tags": ["Code Gen", "Deep Dive"]
+    },
+    "hn-do-the-math-how-we-took-over-chatgpt-accounts-2026-11-01": {
+      "summary": "Parameter Labs write-up of a gap at OpenAI that let the researchers take over ChatGPT accounts.",
+      "tags": ["OpenAI", "Security"]
+    },
+    "hn-brazilian-court-sanctions-lawyers-for-prompt-2026-11-01": {
+      "summary": "Jetstream Security report on a Brazilian court penalising lawyers who hid a prompt injection inside a filing.",
+      "tags": ["Legal", "Security"]
+    },
+    "hn-malware-uses-llms-to-rank-victims-by-how-much-2026-11-01": {
+      "summary": "Cisco Talos analysis of the Volta infostealer, which uses a model to appraise stolen data and prioritise the most valuable victims.",
+      "tags": ["Security", "LLM"]
+    },
+    "hn-ai-delivers-zero-financial-payoff-to-most-2026-11-01": {
+      "summary": "TechCrunch report on an Apollo economist's finding that most companies see no financial return from AI.",
+      "tags": ["LLM"]
+    },
+    "hn-chatgpt-and-codex-usage-limits-merging-2026-11-01": {
+      "summary": "OpenAI help-center article explaining how ChatGPT and Codex usage limits work as the two are merged.",
+      "tags": ["OpenAI", "Pricing"]
+    },
+    "hn-anthropic-takes-steps-to-block-claude-from-2026-11-01": {
+      "summary": "Mashable report on Anthropic restricting Claude from helping clone or reverse-engineer video games.",
+      "tags": ["Anthropic", "Policy"]
+    },
+    "hn-openai-raises-less-than-half-of-30b-target-2026-11-01": {
+      "summary": "WSJ report on OpenAI's latest round, which TechCrunch separately describes as a lowered funding target.",
+      "tags": ["OpenAI", "Funding"]
+    },
+    "hn-gpt-5-6-sol-can-beat-factorio-on-peaceful-mode-2026-11-01": {
+      "summary": "Ryan Madden's blog post on running GPT-5.6 Sol through a full Factorio game with enemies turned off.",
+      "tags": ["Agents", "Eval", "OpenAI"]
+    }
+  }
+}
