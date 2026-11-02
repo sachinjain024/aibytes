@@ -1,4 +1,5 @@
 import React from "react";
+// Deprecated: see Chip.prompt.md. The shipped app no longer uses it.
 export function Chip({ label, active = false, disabled = false, count, onClick, expanded }) {
   // A chip that opens a panel is a disclosure, not a toggle: it announces
   // aria-expanded, and shows `active` (a selection inside) by class instead.

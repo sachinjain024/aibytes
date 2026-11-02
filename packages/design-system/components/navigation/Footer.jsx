@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "../forms/Button.jsx";
+// Deprecated: see Footer.prompt.md. The shipped app no longer uses it.
 const DEFAULT_LINKS = [
   { label: "Chrome Extension", href: "#extension" },
   { label: "GitHub", href: "#github" },

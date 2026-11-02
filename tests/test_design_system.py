@@ -1,4 +1,5 @@
-"""Offline checks on Ledger (packages/design-system): color tokens, and SideNav.
+"""Offline checks on Ledger (packages/design-system): color tokens, SideNav,
+the toolbar, and the deprecated shell components.
 
 Dark mode is written twice in tokens/token.css: once under [data-theme="dark"]
 for an explicit choice, and once under prefers-color-scheme for the OS default.
@@ -146,6 +147,32 @@ class ToolbarTests(unittest.TestCase):
         jsx = REDESIGN_JSX.read_text()
         self.assertNotIn("toolbar--docked", self.css + jsx)
         self.assertNotIn("addEventListener('scroll'", jsx)
+
+
+
+class DeprecatedComponentTests(unittest.TestCase):
+    """Header, SideNav, Chip and Footer stay only for the ui_kits screens."""
+
+    NAMES = ("Header", "SideNav", "Chip", "Footer")
+
+    def test_each_is_marked_deprecated(self):
+        for name in self.NAMES:
+            with self.subTest(name):
+                base = DESIGN_SYSTEM / "components" / "navigation" / name
+                self.assertIn(f"/** @deprecated ", base.with_suffix(".d.ts").read_text())
+                self.assertTrue(base.with_suffix(".prompt.md").read_text().startswith("**Deprecated.**"))
+
+    def test_claude_design_does_not_offer_them_as_starting_points(self):
+        for name in self.NAMES:
+            with self.subTest(name):
+                d_ts = (DESIGN_SYSTEM / "components" / "navigation" / name).with_suffix(".d.ts")
+                self.assertNotIn("@startingPoint", d_ts.read_text())
+
+    def test_the_app_does_not_import_them(self):
+        pattern = re.compile(r"components/navigation/(%s)\.jsx" % "|".join(self.NAMES))
+        for source in (REPO_ROOT / "apps" / "web" / "src").rglob("*.js*"):
+            with self.subTest(source.name):
+                self.assertIsNone(pattern.search(source.read_text()))
 
 
 if __name__ == "__main__":

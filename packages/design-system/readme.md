@@ -82,7 +82,7 @@ Design system for **aiBytes_** (`aibytes.io`): a curated daily feed of AI resour
 - `styles.css` → fonts, base/accessibility, layouts, and component states; imports `tokens/token.css` and `components/components.css`
 - `assets/marks/` — per-source SVGs (standalone, theme-aware)
 - `components/brand/` — Wordmark, SourceMark
-- `components/navigation/` — Header, EditionBar, CalendarPopover, Chip, SideNav, Footer
+- `components/navigation/` — EditionBar, CalendarPopover; deprecated: Header, Chip, SideNav, Footer (the app's shell is `apps/web/src/Redesign.jsx`; they stay for the `ui_kits` screens)
 - `components/content/` — Card, ListRow, ItemImage, SectionHeading, Tag, SaveStar, CardMenu, SaveBanner, EmptyState, EndCard
 - `components/forms/` — Button, Input
 - `ui_kits/aibytes-app/` — the nine screens + interactive `index.html`, shared `data.js`

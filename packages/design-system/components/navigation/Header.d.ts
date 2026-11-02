@@ -1,6 +1,5 @@
 /** Sticky app header: wordmark · category chips · tag/source filter triggers · grid/list toggle · theme toggle · Sign in / avatar. Saved chip appears once anything is saved. On mobile (compact) the chips drop to a horizontal-scroll row.
  * Each control in the tools cluster renders only when its handler is passed (onOpenTags, onOpenSources, onView, onToggleTheme, onSignIn, onMode), so a surface that lacks a feature shows no dead control.
- * @startingPoint section="Components" subtitle="Sticky header with chips and toggles" viewport="1200x64"
  */
 export interface HeaderProps {
   categories?: { key: string; label: string; count?: number }[];
@@ -35,4 +34,5 @@ export interface HeaderProps {
   /** subtle mono tagline rendered in small type below the wordmark; omit to hide */
   tagline?: string;
 }
+/** @deprecated The shipped app replaced it with a one-row masthead and a toolbar (RedesignHeader and RedesignToolbar in apps/web/src/Redesign.jsx). Kept only so the ui_kits screens still render; do not use it in new UI. It is removed once those screens are redrawn on the new shell (AIB-133k). */
 export declare function Header(props: HeaderProps): JSX.Element;

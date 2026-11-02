@@ -2,6 +2,7 @@ import React from "react";
 import { Wordmark } from "../brand/Wordmark.jsx";
 import { Chip } from "./Chip.jsx";
 import { Button } from "../forms/Button.jsx";
+// Deprecated: see Header.prompt.md. The shipped app no longer uses it.
 const iGrid = <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 1h5v5H1zM8 1h5v5H8zM1 8h5v5H1zM8 8h5v5H8z" fill="currentColor"/></svg>;
 const iList = <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 2.5h12M1 7h12M1 11.5h12" stroke="currentColor" strokeWidth="1.8"/></svg>;
 const iSun = <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" strokeWidth="1.7"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8" stroke="currentColor" strokeWidth="1.7"/></svg>;

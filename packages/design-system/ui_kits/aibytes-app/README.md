@@ -1,5 +1,7 @@
 # aiBytes_ app UI kit
 
+> These screens predate the redesign shipped in PR #43. They still use the deprecated `Header`, `Chip`, `SideNav` and `Footer`; the app's current shell is `apps/web/src/Redesign.jsx`. Redraw them on that shell before removing the deprecated components.
+
 The nine screens from the design brief (§6), all composed from the Ledger component bundle — no re-implemented primitives.
 
 - `index.html` — **01 · latest edition, grid, light (the hero).** Fully interactive: category/tag/source filters, grid↔list, light↔dark, save + banner + fake Google sign-in, edition paging, calendar popover.

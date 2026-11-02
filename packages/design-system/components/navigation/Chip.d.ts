@@ -9,4 +9,5 @@ export interface ChipProps {
   /** set when the chip opens a panel (Tags ▾, Sources ▾): renders aria-expanded instead of aria-pressed */
   expanded?: boolean;
 }
+/** @deprecated The shipped app has no chips: categories live in the sidebar rail, and tags and sources are checkboxes in the filter panel (RedesignFilters in apps/web/src/Redesign.jsx). Header still renders it internally. Kept only so the ui_kits screens still render; do not use it in new UI. It is removed once those screens are redrawn on the new shell (AIB-133k). */
 export declare function Chip(props: ChipProps): JSX.Element;

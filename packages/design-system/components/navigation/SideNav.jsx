@@ -1,4 +1,5 @@
 import React from "react";
+// Deprecated: see SideNav.prompt.md. The shipped app no longer uses it.
 export function SideNavItem({ label, count, active, onClick, star }) {
   return (
     <button type="button" className="ldg-nav__item" aria-current={active || undefined} onClick={onClick}>

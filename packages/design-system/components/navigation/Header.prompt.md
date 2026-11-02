@@ -1,3 +1,5 @@
+**Deprecated.** The shipped app replaced it with a one-row masthead and a toolbar (RedesignHeader and RedesignToolbar in apps/web/src/Redesign.jsx). Kept only so the ui_kits screens still render; do not use it in new UI. It is removed once those screens are redrawn on the new shell (AIB-133k).
+
 Sticky app header. Categories are single-select chips; Saved chip appears only when savedCount > 0.
 
 ```jsx
