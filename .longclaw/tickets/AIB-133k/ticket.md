@@ -6,7 +6,7 @@ title: "Review PR #43 (approved app redesign) and sync Ledger to Claude Design"
 status: todo
 priority: none
 created_at: 2026-10-29T06:00:22.193Z
-updated_at: 2026-11-01T13:54:42.870Z
+updated_at: 2026-11-02T10:01:35.280Z
 ---
 
 Review https://github.com/sachinjain024/aibytes/pull/43 (branch codex/approved-ui-redesign) by running the app locally, record all feedback, then run design sync so the Claude Design components match the redesigned Ledger.
@@ -20,7 +20,7 @@ Review https://github.com/sachinjain024/aibytes/pull/43 (branch codex/approved-u
 - [x] Replace the JS toolbar docking (scroll/resize listeners, magic 1000/52/40px) with CSS position: sticky <!-- longclaw:item=ck_1dc6183d -->
 - [x] Reformat Redesign.jsx to match the repo's style (no minified one-liners, comments like App.jsx) <!-- longclaw:item=ck_21540e55 -->
 - [x] Check the footer links (X, Suggest a link, Advertise, Subscribe) are reachable on mobile now the Footer component is gone <!-- longclaw:item=ck_0e9b52f6 -->
-- [ ] Decide whether Ledger's Header, SideNav, Chip and Footer stay or are deprecated now the app no longer uses them <!-- longclaw:item=ck_8b5540f2 -->
+- [x] Decide whether Ledger's Header, SideNav, Chip and Footer stay or are deprecated now the app no longer uses them <!-- longclaw:item=ck_8b5540f2 -->
 - [x] Restore the 300/360px card minimum from main, read from one --app-card-min <!-- longclaw:item=ck_5517d320 -->
 - [x] Merge the existing two-row app header into a single-row toolbar <!-- longclaw:item=ck_340a9fad -->
 - [x] Cards: pin the source and signals row to the bottom edge, and drop the tags <!-- longclaw:item=ck_d6953ce6 -->
@@ -28,6 +28,8 @@ Review https://github.com/sachinjain024/aibytes/pull/43 (branch codex/approved-u
 - [x] Toolbar: drop the date arrows, move the date to the right end, open with the item count, and remove the 32 items / RANKED row <!-- longclaw:item=ck_33718da4 -->
 - [x] Masthead: remove the tagline 'today’s AI, in one byte' <!-- longclaw:item=ck_6952c756 -->
 - [x] Reformat CalendarPopover.jsx to match App.jsx (multi-line JSX, one statement per line) <!-- longclaw:item=ck_ddc43aa2 -->
+- [ ] Redraw the ui_kits screens on the new app shell, then remove the deprecated Header, Chip, SideNav and Footer <!-- longclaw:item=ck_47b0c4a4 -->
+- [ ] Bring the app shell (masthead, toolbar, sidebar/drawer, filter panel) into Ledger as components, so Claude Design can design with it <!-- longclaw:item=ck_66b359f6 -->
 
 ## Activity
 
@@ -468,4 +470,25 @@ changes:
 ### claude-code updated this ticket
 
 Redesign.jsx and CalendarPopover.jsx reformatted on branch aib-133k-reformat-redesign (taken from main at 47614a9): 2-space indent, double quotes, one element per line, comments in the style of App.jsx. Icon paths moved into an ICON_PATHS constant. Behaviour is unchanged: the rendered #root HTML was byte-identical before and after in 10 states (feed, filter panel open and filtered, calendar on this month and the previous one, the / shortcut, the mobile drawer, its Tab trap and focus returning on Esc). Web, design-system and Python tests pass, and the build is OK.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_a3e85fdb
+kind: update
+occurred_at: 2026-11-02T10:01:35.280Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_8b5540f2.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_47b0c4a4.added
+    to: Redraw the ui_kits screens on the new app shell, then remove the deprecated Header, Chip, SideNav and Footer
+  - field: checklist.ck_66b359f6.added
+    to: Bring the app shell (masthead, toolbar, sidebar/drawer, filter panel) into Ledger as components, so Claude Design can design with it
+-->
+### claude-code updated this ticket
+
+Decision: deprecate Header, SideNav, Chip and Footer (branch aib-133k-deprecate-shell-components). Each .d.ts carries @deprecated naming its replacement in apps/web/src/Redesign.jsx; Header and SideNav lose @startingPoint so Claude Design stops offering them; each .prompt.md opens with a Deprecated line; the preview cards label the deprecated panes. They are not deleted: the ui_kits screens still render with them. tests/test_design_system.py now checks the markers and that apps/web never imports them again. Ledger has no replacement components yet; the follow-up items cover that.
 <!-- /longclaw:event -->
