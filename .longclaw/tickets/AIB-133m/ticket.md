@@ -3,12 +3,12 @@ format: longclaw.ticket/v1
 id: 1f7175a6-e70f-43a5-8247-c4d00fb33662
 key: AIB-133m
 title: "Issue #16: 1 Nov 2026"
-status: in_progress
+status: done
 priority: urgent
 type: newsletter
 due: 2026-11-01
 created_at: 2026-11-01T00:45:35.565Z
-updated_at: 2026-11-02T08:44:45.715Z
+updated_at: 2026-11-02T08:46:47.326Z
 ---
 
 Weekly aiBytes_ Issue #16.
@@ -26,7 +26,6 @@ Checklist copied from Issue #15 (AIB-131e), without social media posts.
 - [x] Shortlist X posts for Viral on X <!-- longclaw:item=ck_48cd57f9 -->
 - [x] Decide whether to include the Official Announcements section from X <!-- longclaw:item=ck_446aed28 -->
 - [x] Generate Weekly Content <!-- longclaw:item=ck_264309ae -->
-- [ ] Identify Favourite Picks <!-- longclaw:item=ck_3d5720b6 -->
 - [x] Update the Content <!-- longclaw:item=ck_2ee6c4d6 -->
 - [x] Finalize Title & Description <!-- longclaw:item=ck_015a6a98 -->
 - [x] Update Intro Content <!-- longclaw:item=ck_fe06d608 -->
@@ -216,4 +215,35 @@ changes:
 ### claude-code updated this ticket
 
 Committed on issue-16-1-nov-weekly-newsletter and opened https://github.com/sachinjain024/aibytes/pull/44
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_183b66b1
+kind: update
+occurred_at: 2026-11-02T08:46:39.510Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: status
+    from: in_progress
+    to: done
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e9a5cb48
+kind: update
+occurred_at: 2026-11-02T08:46:47.326Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_3d5720b6.removed
+    from: Identify Favourite Picks
+-->
+### claude-code updated this ticket
+
+Favourite Picks is no longer part of the newsletter; item removed. Learning backlog LC tickets skipped for Issue #16 at the publisher's call. Closing.
 <!-- /longclaw:event -->
