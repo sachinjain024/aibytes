@@ -6,7 +6,7 @@ title: "Review PR #43 (approved app redesign) and sync Ledger to Claude Design"
 status: todo
 priority: none
 created_at: 2026-10-29T06:00:22.193Z
-updated_at: 2026-11-02T10:01:35.280Z
+updated_at: 2026-11-02T11:43:30.720Z
 ---
 
 Review https://github.com/sachinjain024/aibytes/pull/43 (branch codex/approved-ui-redesign) by running the app locally, record all feedback, then run design sync so the Claude Design components match the redesigned Ledger.
@@ -15,7 +15,7 @@ Review https://github.com/sachinjain024/aibytes/pull/43 (branch codex/approved-u
 
 - [x] Take the PR and run the app locally <!-- longclaw:item=ck_1dbcb61c -->
 - [x] Note down all the feedback <!-- longclaw:item=ck_bad51434 -->
-- [ ] Run design sync to update Claude components <!-- longclaw:item=ck_8cae352f -->
+- [x] Run design sync to update Claude components <!-- longclaw:item=ck_8cae352f -->
 - [x] Restore the edition date in the page h1 (it is now 'Edition'/'Today' with the date in a span) <!-- longclaw:item=ck_6537a72a -->
 - [x] Replace the JS toolbar docking (scroll/resize listeners, magic 1000/52/40px) with CSS position: sticky <!-- longclaw:item=ck_1dc6183d -->
 - [x] Reformat Redesign.jsx to match the repo's style (no minified one-liners, comments like App.jsx) <!-- longclaw:item=ck_21540e55 -->
@@ -491,4 +491,21 @@ changes:
 ### claude-code updated this ticket
 
 Decision: deprecate Header, SideNav, Chip and Footer (branch aib-133k-deprecate-shell-components). Each .d.ts carries @deprecated naming its replacement in apps/web/src/Redesign.jsx; Header and SideNav lose @startingPoint so Claude Design stops offering them; each .prompt.md opens with a Deprecated line; the preview cards label the deprecated panes. They are not deleted: the ui_kits screens still render with them. tests/test_design_system.py now checks the markers and that apps/web never imports them again. Ledger has no replacement components yet; the follow-up items cover that.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_4fadad7e
+kind: update
+occurred_at: 2026-11-02T11:43:30.720Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_8cae352f.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+Design sync done (2026-11-02) into the Claude Design project 'aiBytes_ App Design System' (b1be4f98-6042-4fe1-9077-aa5f4918ade3), the project Ledger was exported from. Uploaded 105 source files verbatim from packages/design-system (components incl. the deprecations, guidelines, ui_kits, assets, styles.css, tokens/token.css, readme, thumbnail) and deleted the five pre-consolidation token files. The bundle, manifest and adherence config are left for Claude Design to recompile on open. Verified first: all 29 pages render against a bundle compiled from the current sources. How-to and caveats are in .design-sync/NOTES.md.
 <!-- /longclaw:event -->
