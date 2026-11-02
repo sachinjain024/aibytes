@@ -6,7 +6,7 @@ title: "Review PR #43 (approved app redesign) and sync Ledger to Claude Design"
 status: todo
 priority: none
 created_at: 2026-10-29T06:00:22.193Z
-updated_at: 2026-11-02T11:43:30.720Z
+updated_at: 2026-11-02T13:27:10.950Z
 ---
 
 Review https://github.com/sachinjain024/aibytes/pull/43 (branch codex/approved-ui-redesign) by running the app locally, record all feedback, then run design sync so the Claude Design components match the redesigned Ledger.
@@ -28,8 +28,19 @@ Review https://github.com/sachinjain024/aibytes/pull/43 (branch codex/approved-u
 - [x] Toolbar: drop the date arrows, move the date to the right end, open with the item count, and remove the 32 items / RANKED row <!-- longclaw:item=ck_33718da4 -->
 - [x] Masthead: remove the tagline 'today’s AI, in one byte' <!-- longclaw:item=ck_6952c756 -->
 - [x] Reformat CalendarPopover.jsx to match App.jsx (multi-line JSX, one statement per line) <!-- longclaw:item=ck_ddc43aa2 -->
-- [ ] Redraw the ui_kits screens on the new app shell, then remove the deprecated Header, Chip, SideNav and Footer <!-- longclaw:item=ck_47b0c4a4 -->
-- [ ] Bring the app shell (masthead, toolbar, sidebar/drawer, filter panel) into Ledger as components, so Claude Design can design with it <!-- longclaw:item=ck_66b359f6 -->
+- [x] Card: no tags and counts after the source by default (maxTags 0, signalsPos source); the app drops its overrides; content card, .d.ts and .prompt.md updated <!-- longclaw:item=ck_ec6e14e1 -->
+- [x] ListRow: source on the first line, counts on the line below, keyed to the row's own width (container query) instead of the window <!-- longclaw:item=ck_f65f1dd2 -->
+- [x] Move the 36 .redesign-scoped restyles of Ledger components (EditionBar, Signals, CardMenu, SectionHeading, EndCard, CalendarPopover, card title) into the components' own styles, so they look the same outside the app <!-- longclaw:item=ck_7c0edcf7 -->
+- [x] EditionBar: make the toolbar date picker (no arrows, compact, not the h1) a documented variant <!-- longclaw:item=ck_b2438bb1 -->
+- [x] New Ledger component AppHeader: menu button, wordmark, GitHub, theme toggle <!-- longclaw:item=ck_1fee79e4 -->
+- [x] New Ledger component Toolbar: item count, search with / shortcut, Filters, Ranked/Grouped, List/Grid toggle, date picker at the end; sticky under the header <!-- longclaw:item=ck_e0cf5931 -->
+- [x] New Ledger component Sidebar: categories with counts, footer links and Subscribe, no date picker; becomes the mobile drawer (dialog, focus trap, backdrop); settle the selected-category gradient and shadow <!-- longclaw:item=ck_aa3db2d0 -->
+- [x] New Ledger component FilterPanel: tag groups with tag search, Discovered on sources, Reset <!-- longclaw:item=ck_71c7a96e -->
+- [x] New Ledger component ActiveFilters: the removable filter pills and Clear filters row under the toolbar <!-- longclaw:item=ck_31608a3d -->
+- [x] Feed layout in Ledger: the card grid (300/360px card minimum, column count) and the bordered list container; EmptyState gets the search no-match variant; a status message for loading, error and not found <!-- longclaw:item=ck_ff0df501 -->
+- [x] App imports all of the above from Ledger; Redesign.jsx deleted; a test fails if the app re-implements them <!-- longclaw:item=ck_80bdec02 -->
+- [x] Redraw the preview cards and the nine ui_kits screens on the new components; delete Header, Chip, SideNav and Footer, and rail.js, which only served SideNav <!-- longclaw:item=ck_cec53698 -->
+- [ ] Re-run design sync, comparing each Claude Design card with the live app before uploading <!-- longclaw:item=ck_a760f206 -->
 
 ## Activity
 
@@ -508,4 +519,267 @@ changes:
 ### claude-code updated this ticket
 
 Design sync done (2026-11-02) into the Claude Design project 'aiBytes_ App Design System' (b1be4f98-6042-4fe1-9077-aa5f4918ade3), the project Ledger was exported from. Uploaded 105 source files verbatim from packages/design-system (components incl. the deprecations, guidelines, ui_kits, assets, styles.css, tokens/token.css, readme, thumbnail) and deleted the five pre-consolidation token files. The bundle, manifest and adherence config are left for Claude Design to recompile on open. Verified first: all 29 pages render against a bundle compiled from the current sources. How-to and caveats are in .design-sync/NOTES.md.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ebfdbd14
+kind: update
+occurred_at: 2026-11-02T12:04:21.007Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_47b0c4a4.removed
+    from: Redraw the ui_kits screens on the new app shell, then remove the deprecated Header, Chip, SideNav and Footer
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_7fe95ffb
+kind: update
+occurred_at: 2026-11-02T12:04:21.029Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_66b359f6.removed
+    from: Bring the app shell (masthead, toolbar, sidebar/drawer, filter panel) into Ledger as components, so Claude Design can design with it
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_9c38e6b8
+kind: update
+occurred_at: 2026-11-02T12:04:21.049Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_ec6e14e1.added
+    to: "Card: no tags and counts after the source by default (maxTags 0, signalsPos source); the app drops its overrides; content card, .d.ts and .prompt.md updated"
+  - field: checklist.ck_f65f1dd2.added
+    to: "ListRow: source on the first line, counts on the line below, keyed to the row's own width (container query) instead of the window"
+  - field: checklist.ck_7c0edcf7.added
+    to: Move the 36 .redesign-scoped restyles of Ledger components (EditionBar, Signals, CardMenu, SectionHeading, EndCard, CalendarPopover, card title) into the components' own styles, so they look the same outside the app
+  - field: checklist.ck_b2438bb1.added
+    to: "EditionBar: make the toolbar date picker (no arrows, compact, not the h1) a documented variant"
+  - field: checklist.ck_1fee79e4.added
+    to: "New Ledger component AppHeader: menu button, wordmark, GitHub, theme toggle"
+  - field: checklist.ck_e0cf5931.added
+    to: "New Ledger component Toolbar: item count, search with / shortcut, Filters, Ranked/Grouped, List/Grid toggle, date picker at the end; sticky under the header"
+  - field: checklist.ck_aa3db2d0.added
+    to: "New Ledger component Sidebar: categories with counts, footer links and Subscribe, no date picker; becomes the mobile drawer (dialog, focus trap, backdrop); settle the selected-category gradient and shadow"
+  - field: checklist.ck_71c7a96e.added
+    to: "New Ledger component FilterPanel: tag groups with tag search, Discovered on sources, Reset"
+  - field: checklist.ck_31608a3d.added
+    to: "New Ledger component ActiveFilters: the removable filter pills and Clear filters row under the toolbar"
+  - field: checklist.ck_ff0df501.added
+    to: "Feed layout in Ledger: the card grid (300/360px card minimum, column count) and the bordered list container; EmptyState gets the search no-match variant; a status message for loading, error and not found"
+  - field: checklist.ck_80bdec02.added
+    to: App imports all of the above from Ledger; Redesign.jsx deleted; a test fails if the app re-implements them
+  - field: checklist.ck_cec53698.added
+    to: Redraw the preview cards and the nine ui_kits screens on the new components; delete Header, Chip, SideNav and Footer, and rail.js, which only served SideNav
+  - field: checklist.ck_a760f206.added
+    to: Re-run design sync, comparing each Claude Design card with the live app before uploading
+-->
+### claude-code updated this ticket
+
+Why Claude Design did not match the app after the first sync: the redesign was built in the app, not in Ledger. (1) The shell (header, toolbar, sidebar, filter panel, active filters) exists only in apps/web/src/Redesign.jsx and App.jsx. (2) The app overrides Card's defaults (maxTags 0, signalsPos source), and the demos use the defaults. (3) The two-row list meta is a window-width media rule, so it never applies in Claude Design's narrower frames. (4) 36 rules in styles.css restyle Ledger components only under .redesign, the app's root class, so the components look different everywhere else. (5) The preview cards and ui_kits screens are hand-written and were never redrawn. The items above make Ledger the source the app is built from.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_34de5f10
+kind: update
+occurred_at: 2026-11-02T13:02:33.575Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_ec6e14e1.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f4616636
+kind: update
+occurred_at: 2026-11-02T13:02:33.598Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_f65f1dd2.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_d7e1e687
+kind: update
+occurred_at: 2026-11-02T13:02:33.617Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_7c0edcf7.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+On branch aib-133k-ledger-app-shell: (1) Card defaults are now signalsPos source and maxTags 0; the app passes neither. (2) List rows are a size container (ldg-row); from 560px row width they use the right-hand column, source over counts, by the row's width instead of the window's. Decided with the user: 560px, so tablets (700px windows) get the column too. (3) 34 .redesign-scoped component rules now apply everywhere; three of them needed their specificity matched (the phone card columns, the phone meta wrap, the section count). Checked with a computed-style snapshot over 74 states (4 widths x 2 themes x 10 UI states): no differences above sub-pixel text jitter, apart from the new container properties.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_caeecd91
+kind: update
+occurred_at: 2026-11-02T13:23:51.743Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_b2438bb1.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ded90670
+kind: update
+occurred_at: 2026-11-02T13:23:51.770Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_1fee79e4.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_7ca39994
+kind: update
+occurred_at: 2026-11-02T13:23:51.791Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_e0cf5931.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_c39171e6
+kind: update
+occurred_at: 2026-11-02T13:23:51.812Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_71c7a96e.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_a19fb7f3
+kind: update
+occurred_at: 2026-11-02T13:23:51.833Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_31608a3d.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_06adb481
+kind: update
+occurred_at: 2026-11-02T13:23:51.855Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_ff0df501.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f0fe22ca
+kind: update
+occurred_at: 2026-11-02T13:23:51.874Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_80bdec02.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_18e9c55f
+kind: update
+occurred_at: 2026-11-02T13:23:51.896Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_cec53698.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_af58116d
+kind: update
+occurred_at: 2026-11-02T13:27:10.950Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_aa3db2d0.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_9d3a5d2e
+kind: comment
+occurred_at: 2026-11-02T13:27:25.131Z
+actor:
+  type: agent
+  id: claude-code
+-->
+### claude-code commented
+
+Ledger is now the app's source. AppHeader, Toolbar, Sidebar, FilterPanel, ActiveFilters, CardGrid/RowList/StatusMessage moved into packages/design-system; apps/web imports them and Redesign.jsx is gone. Card and EditionBar defaults are the app's (no tags, source + counts at the bottom; toolbar date picker). List rows put the source over its counts from 560px row width (container query). Header, Chip, SideNav, Footer and rail.js deleted; preview cards (shell, sidebar, feed) and the nine ui_kits screens redrawn on the new components. Decision: the Sidebar's selected category keeps its gradient and soft shadow, written into the design-system rule, readme and extending-ledger as the one exception besides popovers. Verified: 74 app states show 0 significant computed-style differences; all 28 Ledger pages render from a source-built bundle.
 <!-- /longclaw:event -->
