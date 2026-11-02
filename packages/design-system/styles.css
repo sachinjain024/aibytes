@@ -532,16 +532,13 @@ h1 {
     width: auto;
     margin-inline: 20px;
   }
-  .redesign .toolbar .search {
+  .toolbar .search {
     flex-basis: 45%;
   }
-  .redesign .story-content .metadata {
-    white-space: normal;
-  }
-  .redesign .sidebar {
+  .sidebar {
     width: 260px;
   }
-  .redesign .feed-modes {
+  .feed-modes {
     margin-left: auto;
   }
 }
@@ -957,7 +954,7 @@ h1,footer .brand {
     flex-basis: auto;
     text-align: initial;
   }
-  .redesign .sidebar {
+  .sidebar {
     width: var(--redesign-rail);
     min-width: var(--redesign-rail);
     top: var(--redesign-header);
@@ -1623,7 +1620,7 @@ html[data-theme=light] .calendar-days button:disabled {
   display: none;
 }
 
-.redesign .masthead {
+.masthead {
   max-width: none;
 }
 
@@ -1641,6 +1638,10 @@ html[data-theme=light] .calendar-days button:disabled {
   padding-top: 16px;
 }
 
+:root {
+  --app-card-min: 300px;
+}
+
 .redesign .app-main {
   display: flex;
   flex-direction: column;
@@ -1648,22 +1649,21 @@ html[data-theme=light] .calendar-days button:disabled {
   padding: 0;
   margin: 0;
   gap: 0;
-  --app-card-min: 300px;
 }
 
 /* The card minimum lives only in --app-card-min: the grid below reads it, and so
    does useGridColumns (hooks.js), which hides the grid/list toggle at one column. */
 @media (min-width:900px) {
-  .redesign .app-main {
+  :root {
     --app-card-min: 360px;
   }
 }
 
-.redesign .app-sec {
+.app-sec {
   gap: 0;
 }
 
-.redesign .app-rows {
+.app-rows {
   border: 0;
   border-radius: 0;
   background: none;
@@ -1674,48 +1674,48 @@ html[data-theme=light] .calendar-days button:disabled {
   position: relative;
 }
 
-.redesign .toolbar {
+.toolbar {
   gap: 16px;
 }
 
-.redesign .sidebar-label {
+.sidebar-label {
   font-size: 11px;
   letter-spacing: 1.3px;
   color: var(--muted);
   margin-bottom: 14px;
 }
 
-.redesign .categories {
+.categories {
   display: flex;
   flex-direction: column;
   border: 0;
   padding: 0;
 }
 
-.redesign .category {
+.category {
   justify-content: space-between;
 }
 
-.redesign .sidebar {
+.sidebar {
   z-index: 35;
 }
 
-.redesign .sidebar-backdrop {
+.sidebar-backdrop {
   display: block;
 }
 
-.redesign .source-icon {
+.source-icon {
   object-fit: contain;
   overflow: hidden;
   flex-shrink: 0;
 }
 
-.redesign .source-icon svg {
+.source-icon svg {
   max-width: 100%;
   max-height: 100%;
 }
 
-.redesign .ldg-section-h {
+.ldg-section-h {
   font: 600 12px/1.5 Inter,system-ui,sans-serif;
   letter-spacing: 1.35px;
   text-transform: uppercase;
@@ -1723,12 +1723,12 @@ html[data-theme=light] .calendar-days button:disabled {
   margin: 26px 0 13px;
 }
 
-.redesign .ldg-count {
+.ldg-count, .ldg-section-h .ldg-count {
   font: 400 12px Inter,system-ui,sans-serif;
   margin-left: 8px;
 }
 
-.redesign .ldg-signals {
+.ldg-signals {
   font: 400 12px/1.5 Inter,system-ui,sans-serif;
   color: var(--muted);
   display: inline-flex;
@@ -1736,29 +1736,29 @@ html[data-theme=light] .calendar-days button:disabled {
   white-space: nowrap;
 }
 
-.redesign .ldg-signals svg {
+.ldg-signals svg {
   width: 13px;
   height: 13px;
 }
 
-.redesign .ldg-menu__btn {
+.ldg-menu__btn {
   color: var(--muted);
 }
 
-.redesign .ldg-menu__btn:hover {
+.ldg-menu__btn:hover {
   background: var(--soft);
 }
 
-.redesign .ldg-endcard a {
+.ldg-endcard a {
   color: var(--blue);
 }
 
-.redesign .ldg-edbar {
+.ldg-edbar {
   border: 0;
   background: none;
 }
 
-.redesign .ldg-edbar__in {
+.ldg-edbar__in {
   position: relative;
   padding: 0;
   white-space: nowrap;
@@ -1766,26 +1766,26 @@ html[data-theme=light] .calendar-days button:disabled {
   justify-content: flex-start;
 }
 
-.redesign .ldg-edbar__date {
+.ldg-edbar__date {
   font: 500 13px Inter,system-ui,sans-serif;
   min-height: 32px;
   padding: 6px 8px;
   gap: 8px;
 }
 
-.redesign .ldg-edbar__date strong {
+.ldg-edbar__date strong {
   font-weight: 500;
 }
 
-.redesign .ldg-edbar__date .ldg-edbar__sep,.redesign .ldg-edbar__date {
+.ldg-edbar__date .ldg-edbar__sep,.ldg-edbar__date {
   font-size: 0;
 }
 
-.redesign .ldg-edbar__date strong,.redesign .ldg-edbar__date::after {
+.ldg-edbar__date strong,.ldg-edbar__date::after {
   font-size: 13px;
 }
 
-.redesign .ldg-edbar__nav:disabled {
+.ldg-edbar__nav:disabled {
   opacity: .3;
 }
 
@@ -1805,19 +1805,19 @@ html[data-theme=light] .calendar-days button:disabled {
   max-height: min(680px,70vh);
 }
 
-.redesign .story--grid {
+.story--grid {
   min-width: 0;
 }
 
-.redesign .story h3 {
+.story h3 {
   margin: 0;
 }
 
-.redesign .story-content {
+.story-content {
   min-width: 0;
 }
 
-.redesign .ldg-endcard {
+.ldg-endcard {
   margin: 0;
   padding: 32px 0;
   border: 0;
@@ -1857,27 +1857,6 @@ html[data-theme=light] .calendar-days button:disabled {
     width: 100%;
     max-width: none;
   }
-  /* List rows: the source on the title line with the menu beside it, and its counts right under it on the summary line. */
-  .story:not(.story--grid) .story-content .metadata{
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-items: end;
-    align-items: center;
-    row-gap: 0;
-  }
-  .story:not(.story--grid) .story-content .metadata .discussion{
-    grid-column: 1;
-    grid-row: 1;
-  }
-  .story:not(.story--grid) .story-content .metadata .ldg-signals{
-    grid-column: 1;
-    grid-row: 2;
-    line-height: 1.5;
-  }
-  .story:not(.story--grid) .story-content .metadata .item-actions{
-    grid-column: 2;
-    grid-row: 1;
-  }
 }
 
 @media (min-width:761px) and (max-width:1099px) {
@@ -1891,7 +1870,7 @@ html[data-theme=light] .calendar-days button:disabled {
     margin-left: 275px;
     margin-right: 25px;
   }
-  .redesign .toolbar {
+  .toolbar {
     flex-wrap: wrap;
     gap: 10px;
     height: auto;
@@ -1988,15 +1967,18 @@ html[data-theme=light] .calendar-days button:disabled {
     color: var(--muted);
     flex-shrink: 0;
   }
-  .redesign .toolbar {
+  .toolbar {
     flex-wrap: wrap;
     gap: 12px;
   }
-  .redesign .story {
+  .story, .story.story--grid {
     grid-template-columns: 34px minmax(0,1fr);
   }
-  .redesign .ldg-section-h {
+  .ldg-section-h {
     margin-top: 26px;
+  }
+  .story-content .metadata {
+    white-space: normal;
   }
 }
 
@@ -2014,7 +1996,7 @@ html[data-theme=light] .calendar-days button:disabled {
   }
 }
 
-.redesign .ldg-cal {
+.ldg-cal {
   left: 0;
   transform: none;
   max-height: 65vh;
@@ -2025,13 +2007,13 @@ html[data-theme=light] .calendar-days button:disabled {
   font-family: Inter,system-ui,sans-serif;
 }
 
-.redesign .ldg-cal .ldg-count {
+.ldg-cal .ldg-count {
   margin: 0;
   letter-spacing: 0;
   text-transform: none;
 }
 
-.redesign .control:disabled {
+.control:disabled {
   opacity: .5;
   cursor: default;
 }
@@ -2040,13 +2022,13 @@ html[data-theme=light] .calendar-days button:disabled {
   border-left: 2px solid var(--hot) !important;
 }
 
-.redesign .app-grid {
+.app-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(min(var(--app-card-min),100%),1fr));
   gap: var(--grid-gap);
 }
 
-.redesign .app-grid>* {
+.app-grid>* {
   min-width: 0;
 }
 
@@ -2118,7 +2100,7 @@ html[data-theme=light] .calendar-days button:disabled {
   }
 }
 
-.redesign .active-filters {
+.active-filters, .active-filters:not(:empty) {
   padding-top: 12px;
 }
 
@@ -2126,7 +2108,7 @@ html[data-theme=light] .calendar-days button:disabled {
   outline: none;
 }
 
-.redesign .ldg-menu__panel {
+.ldg-menu__panel {
   background: var(--surface);
   border-color: var(--control-border);
   width: 150px;
@@ -2135,26 +2117,26 @@ html[data-theme=light] .calendar-days button:disabled {
   box-shadow: 0 10px 30px #0004;
 }
 
-.redesign .ldg-menu__item {
+.ldg-menu__item {
   display: block;
   padding: 0;
 }
 
-.redesign .ldg-menu__label {
+.ldg-menu__label {
   display: block;
   padding: 4px 7px 7px;
   font-size: 12px;
   color: var(--muted);
 }
 
-.redesign .ldg-menu__icons {
+.ldg-menu__icons {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   gap: 0;
 }
 
-.redesign .ldg-menu__icon {
+.ldg-menu__icon {
   display: flex;
   justify-content: flex-start;
   gap: 8px;
@@ -2167,11 +2149,11 @@ html[data-theme=light] .calendar-days button:disabled {
   text-decoration: none;
 }
 
-.redesign .ldg-menu__icon:hover {
+.ldg-menu__icon:hover {
   background: var(--soft);
 }
 
-.redesign .ldg-menu__icon svg {
+.ldg-menu__icon svg {
   display: none;
 }
 
@@ -2249,7 +2231,7 @@ html:not([data-input-modality="keyboard"]) .app-shell :focus,.app-shell :focus:n
   outline: none;
 }
 
-.redesign .ldg-edbar__nav {
+.ldg-edbar__nav {
   font-size: 13px;
   color: var(--muted);
   width: 28px;
@@ -2258,18 +2240,18 @@ html:not([data-input-modality="keyboard"]) .app-shell :focus,.app-shell :focus:n
   justify-content: center;
 }
 
-.redesign .ldg-edbar__date::after {
+.ldg-edbar__date::after {
   margin-left: 8px;
   content: none;
 }
 
-.redesign .ldg-edbar__icon {
+.ldg-edbar__icon {
   width: 16px;
   height: 16px;
   flex-shrink: 0;
 }
 
-.redesign .ldg-edbar__date .ldg-edbar__icon {
+.ldg-edbar__date .ldg-edbar__icon {
   width: 14px;
   height: 14px;
   color: var(--muted);
@@ -2326,4 +2308,68 @@ html:not([data-input-modality="keyboard"]) .app-shell :focus,.app-shell :focus:n
   flex-wrap: wrap;
   align-items: center;
   gap: 6px;
+}
+
+/* List rows lay out by their own width, not the window's, so a row looks the
+   same in the app and in a narrow design frame. From 560px a row has room for
+   a right-hand column: the source on the title line with the menu beside it,
+   and its counts right under it on the summary line. Narrower rows keep the
+   phone layout, with source and counts on a third line. Type sizes still
+   follow the window. */
+
+.story:not(.story--grid) {
+  container: ldg-row / inline-size;
+}
+
+@container ldg-row (min-width: 560px) {
+  .story:not(.story--grid) .story-content {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) max-content;
+    column-gap: 24px;
+  }
+  .story:not(.story--grid) .story-content .story-top {
+    grid-column: 1;
+    grid-row: 1;
+    order: 0;
+  }
+  .story:not(.story--grid) .story-content .summary {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    max-width: none;
+    order: 0;
+  }
+  .story:not(.story--grid) .story-content .metadata {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-column: 2;
+    grid-row: 1 / 3;
+    gap: 0 9px;
+    order: 0;
+    align-self: start;
+    justify-self: end;
+    justify-items: end;
+    align-items: center;
+    justify-content: flex-end;
+    width: max-content;
+    max-width: none;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    line-height: 24px;
+  }
+  .story:not(.story--grid) .story-content .metadata .discussion {
+    grid-column: 1;
+    grid-row: 1;
+    flex-basis: auto;
+    text-align: initial;
+  }
+  .story:not(.story--grid) .story-content .metadata .ldg-signals {
+    grid-column: 1;
+    grid-row: 2;
+    line-height: 1.5;
+  }
+  .story:not(.story--grid) .story-content .metadata .item-actions {
+    grid-column: 2;
+    grid-row: 1;
+  }
 }

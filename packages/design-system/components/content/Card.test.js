@@ -20,9 +20,13 @@ const render=props=>renderToStaticMarkup(React.createElement(Card,{item,...props
 test('cards preserve language, top label, tag treatment and tag limit',()=>{
   const html=render({topToday:true,tagStyle:'hash',maxTags:1});
   assert.match(html,/>TOP</);assert.match(html,/Python/);assert.match(html,/#First tag/);assert.doesNotMatch(html,/Second tag/);
-  assert.match(render({tagStyle:'pills'}),/class="ldg-tagpill"/);
+  assert.match(render({tagStyle:'pills',maxTags:3}),/class="ldg-tagpill"/);
   const bare=render({maxTags:0});
   assert.doesNotMatch(bare,/First tag/);assert.doesNotMatch(bare,/story-tags/);assert.doesNotMatch(bare,/Python/);
+});
+test('the default card is the app card: counts after the source, no tags',()=>{
+  const html=render({});
+  assert.match(html,/story--signals-source/);assert.doesNotMatch(html,/story-tags/);assert.doesNotMatch(html,/First tag/);
 });
 test('each public signals placement renders the signal once in its intended area',()=>{
   for(const pos of ['logo','bottom','source','row']){

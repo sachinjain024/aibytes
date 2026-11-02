@@ -22,11 +22,11 @@ export interface CardProps {
   saved?: boolean;
   /** the save star renders only when this is passed */
   onToggleSave?: (id: string) => void;
-  /** Where upvotes sit: "logo" = stacked under the source logo (default); "source" = inline after the source name; "bottom" = under the logo but bottom-aligned to the tags row; "row" = own row between summary and tags. The bottom row itself is always tags-only. */
+  /** Where upvotes sit: "source" = after the source name, in the row pinned to the card's bottom edge (default, as the app shows it); "logo" = stacked under the source logo; "bottom" = under the logo but bottom-aligned to the tags row; "row" = own row between summary and tags. The bottom row itself is always tags-only. */
   signalsPos?: "logo" | "bottom" | "source" | "row";
   /** Tag treatment: "dots" = mono ·-separated (default); "pills" = small bordered chips; "hash" = accent #tags. */
   tagStyle?: "dots" | "pills" | "hash";
-  /** Max tags shown (default 3). 0 drops the whole tags row, language dot included. */
+  /** Max tags shown (default 0: the app's cards carry no tags). 0 drops the whole tags row, language dot included. */
   maxTags?: number;
 }
 export declare function Card(props: CardProps): JSX.Element;

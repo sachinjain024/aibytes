@@ -1,0 +1,24 @@
+<!-- @dsCard group="Components" viewport="600x700" name="Sidebar" subtitle="Category rail with counts, footer links and Subscribe — the mobile drawer on phones; no date picker" -->
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:10px;background:var(--bg)}
+#root{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pane{border:1px solid var(--border);border-radius:10px;background:var(--bg);color:var(--text);overflow:hidden}
+.pane .sidebar{position:static;transform:none;height:auto;width:auto;min-width:0;max-width:none;border-right:0;padding-top:16px}
+.lbl{grid-column:1/-1;font-family:var(--font-mono);font-size:11px;color:var(--text-2);letter-spacing:.02em}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const { Sidebar } = window.LedgerAiBytesDesignSystem_b1be4f;
+const categories = [{key:"launches",label:"New Products",count:4},{key:"repos",label:"Trending Dev Projects",count:4},{key:"news",label:"AI News",count:3},{key:"hn",label:"HN Threads",count:4}];
+const links = [{label:"X",href:"#"},{label:"Suggest a link",href:"#"},{label:"Advertise",href:"#"},{label:"Chrome Extension (soon)"}];
+ReactDOM.createRoot(document.getElementById("root")).render(<React.Fragment>
+  <div className="pane"><Sidebar categories={categories} count={15} active="all" links={links} subscribeUrl="#" /></div>
+  <div className="pane" data-theme="dark"><Sidebar categories={categories} count={15} active="repos" links={links} subscribeUrl="#" /></div>
+  <span className="lbl">Sidebar · All + categories with counts, the active one marked · live links, then not-yet-live ones as text · Subscribe · below 761px the same element is the drawer the AppHeader menu opens</span>
+</React.Fragment>);
+</script></body></html>

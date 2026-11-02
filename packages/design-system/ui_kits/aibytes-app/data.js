@@ -54,6 +54,14 @@ window.LEDGER_DATA = (() => {
       { key: "hackernews", label: "Hacker News" },
       { key: "github", label: "GitHub" },
       { key: "techcrunch", label: "TechCrunch" }],
+    // The app's links (apps/web/src/footer.js): live ones first, GitHub in the header.
+    githubUrl: "https://github.com/sachinjain024/aibytes",
+    subscribeUrl: "https://newsletter.aibytes.io/subscribe",
+    links: [
+      { label: "X", href: "https://x.com/sachinjain024" },
+      { label: "Suggest a link", href: "mailto:sachinjain.hq@gmail.com?subject=Suggest%20a%20link%3A%20aiBytes_" },
+      { label: "Advertise", href: "mailto:sachinjain.hq@gmail.com?subject=Advertise%3A%20aiBytes_" },
+      { label: "Chrome Extension (soon)" }],
     tagGroups: {
       "What it is": ["Model Release", "Open Source", "Paper", "Benchmark", "Dataset", "Framework", "Library", "Dev Tool", "CLI", "SDK", "API"],
       "Domain": ["LLM", "Agents", "RAG", "Fine-tuning", "Inference", "Local LLM", "Vision", "Voice / Speech", "Video", "Image Gen", "Code Gen", "Embeddings", "Eval"],

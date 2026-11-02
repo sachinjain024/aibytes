@@ -1,19 +1,29 @@
 import React from "react";
-import { RedesignHeader, RedesignSidebar, RedesignToolbar, RedesignFilters } from "./Redesign.jsx";
 import { Card } from "@aibytes/design-system/components/content/Card.jsx";
 import { EmptyState } from "@aibytes/design-system/components/content/EmptyState.jsx";
 import { EndCard } from "@aibytes/design-system/components/content/EndCard.jsx";
+import { CardGrid, RowList, StatusMessage } from "@aibytes/design-system/components/content/Feed.jsx";
 import { ListRow } from "@aibytes/design-system/components/content/ListRow.jsx";
 import { SectionHeading } from "@aibytes/design-system/components/content/SectionHeading.jsx";
+import { ActiveFilters } from "@aibytes/design-system/components/navigation/ActiveFilters.jsx";
+import { AppHeader } from "@aibytes/design-system/components/navigation/AppHeader.jsx";
 import { EditionBar } from "@aibytes/design-system/components/navigation/EditionBar.jsx";
+import { FilterPanel } from "@aibytes/design-system/components/navigation/FilterPanel.jsx";
+import { Sidebar } from "@aibytes/design-system/components/navigation/Sidebar.jsx";
+import { Toolbar } from "@aibytes/design-system/components/navigation/Toolbar.jsx";
 import { loadEdition, loadIndex, loadTags } from "./content.js";
-import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, SOURCES, toggle } from "./filters.js";
-import { ago, longDate, midDate, shortDate } from "./format.js";
+import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, SOURCES } from "./filters.js";
+import { FOOTER_LINKS, GITHUB_URL, SUBSCRIBE_URL } from "./footer.js";
+import { longDate, midDate, shortDate } from "./format.js";
 import { useChoice, useDismiss, useGridColumns, useMedia, useReturnFocus, useTheme } from "./hooks.js";
 import { shownView } from "./layout.js";
 import { groupedItems, rankedItems } from "./order.js";
 import { ORDER, VIEW } from "./prefs.js";
 import { editionPath, olderEdition, parseRoute, pickEdition } from "./route.js";
+
+// The sidebar's links: live ones first, then those not live yet. GitHub is
+// left out because the masthead already carries it.
+const SIDEBAR_LINKS = [...FOOTER_LINKS.filter((l) => l.href && l.label !== "GitHub"), ...FOOTER_LINKS.filter((l) => !l.href)];
 
 const here = () => ({ pathname: window.location.pathname, search: window.location.search });
 
@@ -161,9 +171,9 @@ export function App() {
   return (
     <div className={"app-shell redesign" + (shown === "grid" ? " redesign-grid" : "") + (menuOpen ? " mobile-menu-open" : "")} ref={shell} data-theme={theme}>
       <a className="app-skip" href="#main">Skip to the edition</a>
-      <RedesignHeader theme={theme} onToggleTheme={toggleTheme} menuOpen={menuOpen} onMenu={() => setMenuOpen(o => !o)} />
-      {menuOpen && <button className="sidebar-backdrop" aria-label="Close navigation" onClick={() => setMenuOpen(false)} />}
-      <RedesignSidebar categories={categories} count={visible?.length} active={filters.category} open={menuOpen} onClose={() => setMenuOpen(false)}
+      <AppHeader theme={theme} onToggleTheme={toggleTheme} menuOpen={menuOpen} onMenu={() => setMenuOpen(o => !o)} githubUrl={GITHUB_URL} />
+      <Sidebar categories={categories} count={visible?.length} active={filters.category} open={menuOpen} onClose={() => setMenuOpen(false)}
+        links={SIDEBAR_LINKS} subscribeUrl={SUBSCRIBE_URL}
         onCategory={key => { if (filterable) setCategory(key); setMenuOpen(false); }} />
       <main id="main" className="redesign-main" tabIndex={-1}>
         {/* No visible heading: the toolbar is the first row of the content, and its
@@ -171,12 +181,12 @@ export function App() {
         <h1 className="app-sr">{ref ? `aiBytes_ edition, ${new Date(ref.date + "T12:00:00").toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}` : "aiBytes_"}</h1>
         <div className="workspace"><section className="feed">
           <div ref={sticky} className="toolbar-slot">
-            <RedesignToolbar count={items ? `${items.length} items` : null} query={filters.query} onQuery={setQuery} view={view} onView={columns > 1 ? setView : undefined} mode={mode} onMode={setMode}
+            <Toolbar count={items ? `${items.length} items` : null} query={filters.query} onQuery={setQuery} view={view} onView={columns > 1 ? setView : undefined} mode={mode} onMode={setMode}
               disabled={!filterable} filterCount={filters.tags.length + filters.sources.length} open={panel !== null} onFilters={() => onPanel("filters")}
-              date={ref ? <Bar refAt={ref} editions={editions} compact search={location.search} navigate={navigate} /> : null} />
-            {panel && <RedesignFilters groups={tagGroups} filters={filters} onChange={setFilters} sources={SOURCES} /> }
+              date={ref ? <Bar refAt={ref} editions={editions} search={location.search} navigate={navigate} /> : null} />
+            {panel && <FilterPanel groups={tagGroups} filters={filters} onChange={setFilters} sources={SOURCES} /> }
           </div>
-          {(filters.tags.length > 0 || filters.sources.length > 0) && <div className="active-filters">{[...filters.tags.map(value => ({key:'tags',value})),...filters.sources.map(value=>({key:'sources',value}))].map(({key,value})=><button key={key+value} aria-label={`Remove ${value} filter`} onClick={()=>setFilters({...filters,[key]:toggle(filters[key],value)})}>{value} ×</button>)}<button onClick={()=>setFilters({...filters,tags:[],sources:[]})}>Clear filters</button></div>}
+          <ActiveFilters filters={filters} onChange={setFilters} />
           <div className="app-main" ref={setMainEl}>
             {body({ route, index, ref, edition, view: shown, mode, items, filters, older, prev, goTo, query: filters.query, clearQuery: () => setQuery(""), clearFilters: () => setFilters(NO_FILTERS) })}
           </div>
@@ -205,16 +215,15 @@ function usePrevious(ref) {
   return prev && prev.date === date ? prev : null;
 }
 
-// The edition bar for `refAt`, without arrows: it sits at the end of the
-// toolbar and the calendar is the way between editions.
-function Bar({ refAt, editions, compact, search, navigate }) {
+// The edition bar for `refAt`, in Ledger's default toolbar form: no arrows,
+// since the calendar is the way between editions.
+function Bar({ refAt, editions, search, navigate }) {
   const [open, setOpen] = React.useState(false);
   const close = React.useCallback(() => setOpen(false), []);
   const wrap = React.useRef(null);
   useDismiss(wrap, open, close);
   useReturnFocus(open);
 
-  const at = editions.findIndex((ref) => ref.date === refAt.date);
   const go = (date) => {
     setOpen(false);
     // Filters apply within whichever edition is open, so they travel with it.
@@ -223,10 +232,7 @@ function Bar({ refAt, editions, compact, search, navigate }) {
 
   return (
     <div ref={wrap}>
-      <EditionBar asH1={false} compact={compact}
-        dateLabel={compact ? midDate(refAt.date) : longDate(refAt.date)}
-        updatedAgo={at === 0 ? ago(refAt.generated_at) : undefined}
-        arrows={false}
+      <EditionBar dateLabel={midDate(refAt.date)}
         onDateClick={() => setOpen((o) => !o)} calendarOpen={open}
         editions={editions.map((ref) => ({ date: ref.date, label: midDate(ref.date), count: ref.total }))}
         currentDate={refAt.date} onSelectEdition={go} />
@@ -235,7 +241,7 @@ function Bar({ refAt, editions, compact, search, navigate }) {
 }
 
 function body({ route, index, ref, edition, view, mode, items, filters, older, prev, goTo, query, clearQuery, clearFilters }) {
-  const message = (text, role) => <div className="ldg-endcard" role={role}>{text}</div>;
+  const message = (text, role) => <StatusMessage role={role}>{text}</StatusMessage>;
   const toLatest = <a href="/">Go to the latest edition</a>;
 
   if (route.kind === "notfound") return message(<>Nothing lives at this address. {toLatest}.</>);
@@ -252,7 +258,7 @@ function body({ route, index, ref, edition, view, mode, items, filters, older, p
   // reversible, and readers never see them. Empty means a filter emptied it,
   // since editions are never published empty. Paging back is offered only once
   // the older edition is known to have some; otherwise clearing is the way out.
-  if (!items.length && query.trim()) return <div className="ldg-endcard" role="status">No items match “{query}”. <button onClick={clearQuery}>Clear search</button></div>;
+  if (!items.length && query.trim()) return <EmptyState query={query} onClearQuery={clearQuery} />;
   if (!items.length) {
     const what = describeFilters(filters);
     if (older && !prev) return <EmptyState category={what} />;
@@ -262,8 +268,8 @@ function body({ route, index, ref, edition, view, mode, items, filters, older, p
       : <EmptyState category={what} onClear={clearFilters} />;
   }
   const render = (list) => (view === "list"
-    ? <div className="app-rows">{list.map((item) => <ListRow key={item.id} item={item} />)}</div>
-    : <div className="app-grid">{list.map((item) => <Card key={item.id} item={item} signalsPos="source" maxTags={0} />)}</div>);
+    ? <RowList>{list.map((item) => <ListRow key={item.id} item={item} />)}</RowList>
+    : <CardGrid>{list.map((item) => <Card key={item.id} item={item} />)}</CardGrid>);
   // The date (edition bar or hidden h1) is the h1 and card titles are h3, so
   // each mode supplies the h2s: one hidden count in Ranked, a visible heading
   // per category in Grouped. A category the filters empty has no section.

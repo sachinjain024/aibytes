@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, toggle } from "./filters.js";
+import { countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters } from "./filters.js";
 
 const GROUPS = [
   { name: "What it is", tags: [{ name: "Open Source", slug: "open-source" }, { name: "Dev Tool", slug: "dev-tool" }] },
@@ -54,11 +54,6 @@ test("search matches the title or summary, ignoring case and outer spaces", () =
   assert.equal(matches(item, { ...NO_FILTERS, query: " CLAUDE " }), true);
   assert.equal(matches(item, { ...NO_FILTERS, query: "agent sdk" }), true);
   assert.equal(matches(item, { ...NO_FILTERS, query: "gemini" }), false);
-});
-
-test("toggle adds and removes", () => {
-  assert.deepEqual(toggle(["a"], "b"), ["a", "b"]);
-  assert.deepEqual(toggle(["a", "b"], "a"), ["b"]);
 });
 
 test("the empty state names what was filtered, category first", () => {

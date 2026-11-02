@@ -1,0 +1,39 @@
+<!-- @dsCard group="Components" viewport="1200x1320" name="Feed: cards, rows & states" subtitle="CardGrid of Cards, RowList of ListRows (source over counts), SectionHeading, empty, no-match, status and end states — light and dark" -->
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:10px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+.pane{border:1px solid var(--border);border-radius:10px;padding:16px;background:var(--bg);color:var(--text);display:flex;flex-direction:column;gap:10px}
+.lbl{font-family:var(--font-mono);font-size:11px;color:var(--text-2);letter-spacing:.02em}
+.states{display:grid;grid-template-columns:1fr 1fr;gap:10px}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const { Card, ListRow, CardGrid, RowList, SectionHeading, EmptyState, EndCard, StatusMessage } = window.LedgerAiBytesDesignSystem_b1be4f;
+const chatcut = { id:"ph-chatcut", title:"ChatCut", summary:"AI video editor inside ChatGPT with a real timeline and XML export.", url:"#", source:"producthunt", source_url:"#", tags:["Video","Dev Tool"], signals:{ upvotes:776, comments:42 } };
+const officecli = { id:"gh-officecli", title:"OfficeCLI", summary:"Create and edit Word, Excel, and PowerPoint files from the command line.", url:"#", source:"github", source_url:"#", tags:["CLI","Open Source"], signals:{ stars_gained:6400, comments:0 }, meta:{ language:"Python" } };
+const hn = { id:"hn-cc", title:"Claude Code sends 33k tokens before you type anything, and other context-window surprises", summary:"A measured look at what a coding agent actually sends per request.", url:"#", source:"hackernews", source_url:"#", tags:["Claude Code","Hot Take"], signals:{ points:699, comments:412 } };
+const tc = { id:"tc-apple", title:"Apple holds talks with OpenAI over a revamped Siri", summary:"The deal would put a long-context model behind Siri as soon as next spring.", url:"#", source:"techcrunch", source_url:"#", tags:["Apple","OpenAI"] };
+const items = [chatcut, officecli, hn, tc];
+const Feed = ({dark}) => (
+  <div className="pane" data-theme={dark ? "dark" : undefined}>
+    <SectionHeading name="Trending Dev Projects" count={4}/>
+    <span className="lbl">SectionHeading · Grouped order only; Ranked has no visible heading</span>
+    <CardGrid>{items.map(i => <Card key={i.id} item={i}/>)}</CardGrid>
+    <span className="lbl">CardGrid · columns of at least 300px (360px from a 900px window) · Card: title, summary, then the source and its counts pinned to the bottom edge · no tags · HN tile when there is no image · ⋮ menu (Open in ChatGPT / Claude / Gemini)</span>
+    <RowList>{items.map(i => <ListRow key={i.id} item={i}/>)}</RowList>
+    <span className="lbl">RowList · title over a one-line summary · from 560px rows: the source on the title line, its counts right under it on the summary line, ⋮ beside the source</span>
+  </div>);
+ReactDOM.createRoot(document.getElementById("root")).render(<React.Fragment>
+  <Feed/>
+  <Feed dark/>
+  <div className="states">
+    <div className="pane"><EmptyState category="Trending Dev Projects" prevLabel="Aug 25" prevCount={3}/><EmptyState category="items tagged Agents" onClear={() => {}}/><span className="lbl">EmptyState · a filter emptied the edition: page back when the day before has some, else Clear filters</span></div>
+    <div className="pane"><EmptyState query="quantum toaster" onClearQuery={() => {}}/><StatusMessage role="status">Loading the edition...</StatusMessage><span className="lbl">EmptyState query · a search matched nothing · StatusMessage · loading, errors, no edition at this address</span></div>
+  </div>
+  <div className="pane"><EndCard dateLabel="Aug 27" prevLabel="Aug 26"/><span className="lbl">EndCard · closes every feed; the way back is always explicit</span></div>
+</React.Fragment>);
+</script></body></html>

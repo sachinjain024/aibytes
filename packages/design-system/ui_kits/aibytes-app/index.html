@@ -15,26 +15,20 @@
 <script type="text/babel">
 const App = window.AiBytesApp;
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "nav": "Side nav",
-  "tagline": "today's AI, in one byte",
-  "cardSignals": "Bottom row",
-  "cardTags": "Dots"
+  "theme": "Light",
+  "view": "Grid",
+  "order": "Ranked"
 }/*EDITMODE-END*/;
-const NAV_MAP = { "Header chips": "header", "Side nav": "side" };
-const SIG_MAP = { "Under logo": "logo", "Bottom row": "bottom", "Source row": "source", "Own row": "row" };
-const TAG_MAP = { "Dots": "dots", "Pills": "pills", "Hashtags": "hash" };
 function Root() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
   return (
     <React.Fragment>
-      <App nav={NAV_MAP[t.nav] || "header"} tagline={t.tagline} cardSignals={SIG_MAP[t.cardSignals] || "bottom"} cardTags={TAG_MAP[t.cardTags] || "dots"} />
+      <App theme0={t.theme.toLowerCase()} view0={t.view.toLowerCase()} mode0={t.order.toLowerCase()} />
       <TweaksPanel>
-        <TweakSection label="Navigation" />
-        <TweakRadio label="Categories" value={t.nav} options={["Header chips", "Side nav"]} onChange={v => setTweak("nav", v)} />
-        <TweakText label="Tagline" value={t.tagline} onChange={v => setTweak("tagline", v)} />
-        <TweakSection label="Card layout" />
-        <TweakRadio label="Upvotes & comments" value={t.cardSignals} options={["Under logo", "Source row", "Bottom row", "Own row"]} onChange={v => setTweak("cardSignals", v)} />
-        <TweakRadio label="Tag style" value={t.cardTags} options={["Dots", "Pills", "Hashtags"]} onChange={v => setTweak("cardTags", v)} />
+        <TweakSection label="Screen" />
+        <TweakRadio label="Theme" value={t.theme} options={["Light", "Dark"]} onChange={v => setTweak("theme", v)} />
+        <TweakRadio label="Layout" value={t.view} options={["Grid", "List"]} onChange={v => setTweak("view", v)} />
+        <TweakRadio label="Order" value={t.order} options={["Ranked", "Grouped"]} onChange={v => setTweak("order", v)} />
       </TweaksPanel>
     </React.Fragment>);
 }

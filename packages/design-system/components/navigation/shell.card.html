@@ -1,0 +1,43 @@
+<!-- @dsCard group="Components" viewport="1200x980" name="App header, Toolbar & Filters" subtitle="AppHeader, the screen Toolbar with the date picker, FilterPanel, ActiveFilters, CalendarPopover — light and dark" -->
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:10px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+.pane{border:1px solid var(--border);border-radius:10px;background:var(--bg);color:var(--text);overflow:visible;position:relative}
+.pane--pad{padding:12px}
+.lbl{display:block;font-family:var(--font-mono);font-size:11px;color:var(--text-2);letter-spacing:.02em;padding:6px 12px 10px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
+.pane .masthead{position:static}
+.pane .toolbar{padding:0 16px}
+.pane .redesign-filters,.pane .ldg-cal{position:static;transform:none;max-height:none;width:auto;margin:0}
+.pane .active-filters{padding:0 16px 12px}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const { AppHeader, Toolbar, EditionBar, FilterPanel, ActiveFilters, CalendarPopover } = window.LedgerAiBytesDesignSystem_b1be4f;
+const editions = [{date:"2026-08-27",label:"Wed, Aug 27",count:16},{date:"2026-08-26",label:"Tue, Aug 26",count:8},{date:"2026-08-25",label:"Mon, Aug 25",count:11},{date:"2026-08-22",label:"Fri, Aug 22",count:9}];
+const groups = [{name:"What it is",tags:["Open Source","Dev Tool","CLI","SDK"].map(name=>({name}))},{name:"Domain",tags:["LLM","Agents","RAG","Inference"].map(name=>({name}))}];
+const sources = [{key:"producthunt",label:"Product Hunt"},{key:"hackernews",label:"Hacker News"},{key:"github",label:"GitHub"},{key:"techcrunch",label:"TechCrunch"}];
+const filters = {category:"all",tags:["Agents","Open Source"],sources:["github"],query:""};
+const noop = () => {};
+const date = <EditionBar dateLabel="Wed, Aug 27" onDateClick={noop} />;
+const Shell = ({dark, active}) => (
+  <div className="pane" data-theme={dark ? "dark" : undefined}>
+    <AppHeader theme={dark ? "dark" : "light"} onToggleTheme={noop} onMenu={noop} githubUrl="#" />
+    <Toolbar count={active ? "4 items" : "32 items"} query="" onQuery={noop} filterCount={active ? 3 : 0} open={false} onFilters={noop} mode="ranked" onMode={noop} view="grid" onView={noop} date={date} />
+    {active && <ActiveFilters filters={filters} onChange={noop} />}
+  </div>);
+ReactDOM.createRoot(document.getElementById("root")).render(<React.Fragment>
+  <Shell />
+  <span className="lbl">AppHeader (52px, menu button on phones only) · Toolbar: count · search (/ focuses) · Filters · Ranked | Grouped · List | Grid · date picker last — no borders, it is the top of the content</span>
+  <Shell dark active />
+  <span className="lbl">dark · with filters applied: Filters 3, then ActiveFilters — one removable pill per selection + Clear filters</span>
+  <div className="duo">
+    <div className="pane pane--pad"><FilterPanel groups={groups} filters={filters} onChange={noop} sources={sources} /><span className="lbl">FilterPanel · tag search narrows the list · checkboxes apply instantly · a popover, so a soft shadow is allowed</span></div>
+    <div className="pane pane--pad"><CalendarPopover editions={editions} currentDate="2026-08-27" /><span className="lbl">CalendarPopover · opened by the toolbar's date · only published editions are enabled (no Aug 23–24)</span></div>
+  </div>
+</React.Fragment>);
+</script></body></html>

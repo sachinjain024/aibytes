@@ -67,11 +67,6 @@ export function matches(item, filters) {
   return true;
 }
 
-/** `values` with `value` added, or removed if it was there. */
-export function toggle(values, value) {
-  return values.includes(value) ? values.filter((v) => v !== value) : [...values, value];
-}
-
 /** How many of `items` a reader would see under `filters`: hidden ones never count. */
 export function countMatches(items, filters) {
   return items.filter((item) => !item.hidden && matches(item, filters)).length;
