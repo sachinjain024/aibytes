@@ -25,7 +25,10 @@
     "react": ">=18"
   },
   "scripts": {
-    "preview": "python3 -m http.server -d . 4300",
+    "preview": "node scripts/preview.mjs",
     "test": "node --test"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
   }
 }
