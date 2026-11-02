@@ -37,9 +37,17 @@ esbuild (React as `window.React`, footer assigning
   pre-consolidation token files (`tokens/{base,colors,fonts,spacing,typography}.css`,
   replaced by `tokens/token.css`). 29/29 pages rendered against a bundle
   compiled from source.
+- 2026-11-02 (AIB-133k, PR #47): Ledger became the app's source. Uploaded 112
+  files (new AppHeader, Toolbar, Sidebar, FilterPanel, ActiveFilters, Feed;
+  shell/sidebar/feed cards; the nine screens redrawn) and deleted 17: Header,
+  Chip, SideNav, Footer, `navigation.card.html`, `sidenav.card.html`,
+  `content.card.html`, `ui_kits/aibytes-app/{06-saved,09-headers-auth}.html`.
+  `FeedItem.jsx` is still a tracked source, so it stays. 28/28 pages rendered
+  against a bundle compiled from source; the app showed 0 computed-style
+  differences across 74 states.
 
 ## Known issues
 
-- `content.card.html` renders grid cards with the signals stacked under the
-  image, because it does not pass `signalsPos="source"` the way the app does.
-  This predates the sync (the committed bundle draws it the same way).
+- Preview cards are 700-1200px wide but type sizes follow the viewport, so a
+  card in a narrow frame shows phone type sizes. Compare cards with the app at
+  the card's own viewport width.
