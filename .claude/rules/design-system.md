@@ -47,5 +47,8 @@ for interaction, `--hot` only for "top today" and the HN tile, `--save` only in
 the filled star. Mono with tabular numerals on every number. 1px borders, no
 shadows at rest, no gradients or glass. The exception is popovers - the
 calendar, the filter panel, the card menu - which float over the feed and may
-carry a soft drop shadow so they read as a layer. Same layout in both themes —
+carry a soft drop shadow so they read as a layer. The other exception is the
+selected category in the desktop Sidebar (`.sidebar .category.active`), which
+keeps its faint horizontal gradient and soft shadow so the current section
+reads as raised; nothing else may copy it. Same layout in both themes —
 only the palette flips. AA contrast and a visible 2px focus ring everywhere.

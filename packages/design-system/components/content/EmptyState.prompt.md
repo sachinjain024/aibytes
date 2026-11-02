@@ -8,3 +8,5 @@ Renders: "No Repos in this edition. ← Aug 26 had 9."
 
 Pass `onClear` to add "Clear filters." after it, e.g. when the previous edition
 has none either; like every Ledger control, it renders only with its handler.
+
+A search that matches nothing: `<EmptyState query="zzz" onClearQuery={clear} />` renders "No items match “zzz”. Clear search".

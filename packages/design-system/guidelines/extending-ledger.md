@@ -20,7 +20,7 @@ One page for future surfaces and sources. The rule underneath everything: **text
 
 ## Chrome extension (new-tab surface)
 
-- Same `content/editions/*.json`, same components, **no new components**: Header (compact, no sign-in), EditionBar, Card grid, EndCard. No footer, no filters in v1 — the new tab is a read-only glance surface.
+- Same `content/editions/*.json`, same components, **no new components**: `AppHeader` (no menu button: there is no Sidebar), EditionBar, CardGrid of Cards, EndCard. No footer, no filters in v1 — the new tab is a read-only glance surface.
 - Respect the OS theme by default (`prefers-color-scheme`); the manual toggle persists to extension storage.
 - The wordmark `icon` variant is the extension/action icon.
 - Keep the edition bar: a new tab should still answer "which day am I looking at."
@@ -32,4 +32,4 @@ The newsletter keeps its own Bitmark voice (hex sections `0x01`, TL;DR block, si
 
 ## What never changes
 
-Palette and faces are fixed. No gradients, shadows at rest, glass, illustration, or infinite scroll on any surface. AA in both themes; focus ring on everything interactive.
+Palette and faces are fixed. No gradients, shadows at rest, glass, illustration, or infinite scroll on any surface; the only exceptions are popovers (a soft shadow) and the desktop Sidebar's selected category (its faint gradient and shadow). AA in both themes; focus ring on everything interactive.

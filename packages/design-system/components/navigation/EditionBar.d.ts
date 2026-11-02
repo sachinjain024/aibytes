@@ -1,4 +1,4 @@
-/** THE signature element: a dated, pageable ledger of days, always visible under the header (sticky together). JetBrains Mono. The date is the page H1 by default (open decision #2). Right arrow disabled on the latest edition. Date click opens the calendar popover.
+/** THE signature element: the edition's date, and the way to every other edition. By default it is the date picker at the end of the Toolbar, as the app shows it: compact, no arrows, not a heading; clicking the date opens the calendar popover. The full bar (asH1, compact={false}, arrows) remains for a page that leads with the date.
  * @startingPoint section="Components" subtitle="The signature dated ledger bar" viewport="700x60"
  */
 export interface EditionBarProps {
@@ -17,11 +17,11 @@ export interface EditionBarProps {
   editions?: { date: string; label: string; count: number }[];
   currentDate?: string;
   onSelectEdition?: (date: string) => void;
-  /** render the date as the page <h1> (recommended) */
+  /** render the date as the page <h1> (default false: the app gives the page a visually hidden h1 instead) */
   asH1?: boolean;
-  /** mobile: date centered, bare arrows at the edges, one line */
+  /** one line, no "updated" note, bare arrows (default true, as in the toolbar) */
   compact?: boolean;
-  /** false drops the previous/next arrows, leaving the calendar as the only way between editions (default true) */
+  /** previous/next arrows (default false: in the toolbar the calendar is the way between editions) */
   arrows?: boolean;
 }
 export declare function EditionBar(props: EditionBarProps): JSX.Element;

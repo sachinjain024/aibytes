@@ -1,4 +1,5 @@
-"""Offline checks on Ledger (packages/design-system): color tokens, and SideNav.
+"""Offline checks on Ledger (packages/design-system): color tokens, the
+toolbar, and the app shell the app is built from.
 
 Dark mode is written twice in tokens/token.css: once under [data-theme="dark"]
 for an explicit choice, and once under prefers-color-scheme for the OS default.
@@ -14,9 +15,8 @@ REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
 DESIGN_SYSTEM = REPO_ROOT / "packages" / "design-system"
 COLORS = DESIGN_SYSTEM / "tokens" / "token.css"
 COMPONENTS_CSS = DESIGN_SYSTEM / "components" / "components.css"
-SIDENAV = DESIGN_SYSTEM / "components" / "navigation" / "SideNav"
 STYLES = DESIGN_SYSTEM / "styles.css"
-REDESIGN_JSX = REPO_ROOT / "apps" / "web" / "src" / "Redesign.jsx"
+TOOLBAR_JSX = DESIGN_SYSTEM / "components" / "navigation" / "Toolbar.jsx"
 
 
 def declarations(block):
@@ -59,54 +59,6 @@ class ColorTokenTests(unittest.TestCase):
         self.assertIn(':root,[data-theme="light"]', self.css)
 
 
-class SideNavTests(unittest.TestCase):
-    """The rail's ARIA and its fit between a sticky header and a sticky footer."""
-
-    def setUp(self):
-        self.jsx = SIDENAV.with_suffix(".jsx").read_text()
-
-    def test_the_date_list_is_a_plain_group_not_a_listbox(self):
-        # A listbox of <button>s is invalid: a listbox owns options, not buttons.
-        # role="group" rather than no role, because a name on a role-less div
-        # is not announced (aria-label is prohibited on generic).
-        self.assertNotIn('role="listbox"', self.jsx)
-        self.assertIn('className="ldg-nav__dates" role="group" aria-label="Editions"', self.jsx)
-
-    def test_the_current_edition_is_marked_as_a_date(self):
-        self.assertIn('aria-current={e.date === currentDate ? "date" : undefined}', self.jsx)
-
-    def test_the_current_edition_keeps_its_highlight(self):
-        # Categories are aria-current="true", the edition list "date"; the
-        # active style has to match both or the current edition loses it.
-        css = COMPONENTS_CSS.read_text()
-        self.assertIn('.ldg-nav__item[aria-current="true"],.ldg-nav__item[aria-current="date"]{', css)
-
-    def test_the_landmark_is_named_for_both_things_it_holds(self):
-        self.assertIn('<aside className="ldg-sidenav" aria-label="Edition and categories">',
-                      self.jsx)
-
-    def test_the_rail_height_leaves_room_for_a_sticky_footer(self):
-        rule = block_after(COMPONENTS_CSS.read_text(), ".ldg-sidenav")
-        self.assertEqual(
-            declarations(rule)["height"],
-            # The rail is content-box (Ledger has no box-sizing reset), so its
-            # 20px top and bottom padding come off too, or it overruns the
-            # footer by 40px.
-            "calc(100vh - var(--ldg-header-h,68px) - var(--ldg-footer-h,0px) - 40px)")
-
-    def test_the_rail_hides_below_900px_not_at_it(self):
-        # The app renders the rail at min-width:900px; a max-width:900px hide
-        # would also match exactly 900px and leave that width with no nav.
-        css = COMPONENTS_CSS.read_text()
-        self.assertIn("@media (max-width:899px){.ldg-sidenav{display:none}}", css)
-        self.assertNotIn("@media (max-width:900px){.ldg-sidenav", css)
-
-    def test_the_types_and_prompt_document_the_footer_variable(self):
-        for suffix in (".d.ts", ".prompt.md"):
-            with self.subTest(file=suffix):
-                self.assertIn("--ldg-footer-h", SIDENAV.with_suffix(suffix).read_text())
-
-
 class SegmentedControlTests(unittest.TestCase):
     """Ranked | Grouped and grid | list sit in .ldg-seg, which clips its children."""
 
@@ -143,9 +95,56 @@ class ToolbarTests(unittest.TestCase):
         self.assertEqual(declarations(block_after(self.css, "\n.masthead"))["height"], header)
 
     def test_nothing_docks_it_from_javascript(self):
-        jsx = REDESIGN_JSX.read_text()
+        jsx = TOOLBAR_JSX.read_text()
         self.assertNotIn("toolbar--docked", self.css + jsx)
         self.assertNotIn("addEventListener('scroll'", jsx)
+
+
+
+class RemovedComponentTests(unittest.TestCase):
+    """Header, SideNav, Chip and Footer were replaced by the app shell (AIB-133k)."""
+
+    NAMES = ("Header", "SideNav", "Chip", "Footer")
+
+    def test_they_are_gone(self):
+        for name in self.NAMES:
+            with self.subTest(name):
+                self.assertEqual(list((DESIGN_SYSTEM / "components").rglob(f"{name}.*")), [])
+
+    def test_nothing_still_uses_them(self):
+        pattern = re.compile(r"\b(%s)\b[ />,}]|ldg-(chip|header|sidenav|nav__|footer)" % "|".join(self.NAMES))
+        roots = [DESIGN_SYSTEM / "components", DESIGN_SYSTEM / "ui_kits", REPO_ROOT / "apps" / "web" / "src"]
+        for source in (f for root in roots for f in root.rglob("*") if f.suffix in (".jsx", ".js", ".html", ".css")):
+            with self.subTest(source.name):
+                self.assertIsNone(pattern.search(source.read_text()))
+
+
+class AppShellTests(unittest.TestCase):
+    """The app is built from Ledger, so Claude Design sees what ships."""
+
+    SHELL = ("AppHeader", "Sidebar", "Toolbar", "FilterPanel", "ActiveFilters")
+    APP = REPO_ROOT / "apps" / "web" / "src" / "App.jsx"
+
+    def test_the_app_imports_its_shell_from_ledger(self):
+        app = self.APP.read_text()
+        for name in self.SHELL:
+            with self.subTest(name):
+                self.assertIn(f"@aibytes/design-system/components/navigation/{name}.jsx", app)
+
+    def test_the_app_draws_none_of_the_shell_itself(self):
+        # The shell's class names belong to Ledger; markup with them in the app
+        # is a second copy that Claude Design never sees.
+        shell_classes = re.compile(r'className=["{][^>]*(?<![\w-])(masthead|toolbar|sidebar|redesign-filters|active-filters|app-grid|app-rows)(?![\w-])')
+        for source in (REPO_ROOT / "apps" / "web" / "src").rglob("*.jsx"):
+            with self.subTest(source.name):
+                self.assertIsNone(shell_classes.search(source.read_text()))
+
+    def test_each_shell_component_ships_its_contract(self):
+        for name in self.SHELL:
+            with self.subTest(name):
+                base = DESIGN_SYSTEM / "components" / "navigation" / name
+                for suffix in (".jsx", ".d.ts", ".prompt.md"):
+                    self.assertTrue(base.with_suffix(suffix).exists(), base.with_suffix(suffix))
 
 
 if __name__ == "__main__":
