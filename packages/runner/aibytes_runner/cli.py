@@ -61,6 +61,9 @@ Write the file, then stop.
 """
 
 
+TOKEN_VAR = "CLAUDE_CODE_OAUTH_TOKEN"
+
+
 class StepError(Exception):
     """A step failed. Carries the step name so the Slack message can say which."""
 
@@ -156,7 +159,7 @@ class Context:
 # Running things
 # --------------------------------------------------------------------------
 
-def run_command(ctx, step, argv, timeout=STEP_TIMEOUT, check=True):
+def run_command(ctx, step, argv, timeout=STEP_TIMEOUT, check=True, env=None):
     """Run one subprocess, log both streams, raise StepError on failure.
 
     Output is captured rather than streamed so that the log and the Slack tail
@@ -164,12 +167,14 @@ def run_command(ctx, step, argv, timeout=STEP_TIMEOUT, check=True):
 
     `check=False` returns the result whatever the exit code, for the one step
     where a non-zero exit is not fatal - see `step_fetch`.
+
+    `env` replaces the child's environment; None inherits ours.
     """
     ctx.log.line(f"$ {' '.join(str(a) for a in argv)}")
     try:
         done = subprocess.run(
             [str(a) for a in argv], cwd=ctx.repo, capture_output=True,
-            text=True, timeout=timeout,
+            text=True, timeout=timeout, env=env,
         )
     except FileNotFoundError as exc:
         raise StepError(step, f"command not found: {exc.filename}") from exc
@@ -259,6 +264,22 @@ def step_draft(ctx):
         raise StepError("draft", f"{ctx.shown(ctx.curation)} was not written")
 
 
+def _claude_env(ctx):
+    """Our environment plus CLAUDE_CODE_OAUTH_TOKEN, from the environment or .env.
+
+    The token comes from `claude setup-token` and outlives the interactive
+    login, which expires and breaks the scheduled run. Without one, claude
+    falls back to that login.
+    """
+    env = dict(os.environ)
+    if not env.get(TOKEN_VAR):
+        path = ctx.env_file or ctx.repo / ".env"
+        token = notify.read_env_file(path).get(TOKEN_VAR)
+        if token:
+            env[TOKEN_VAR] = token
+    return env
+
+
 def step_summaries(ctx):
     """The one step that needs a model. Everything around it is deterministic."""
     prompt = PROMPT.format(
@@ -276,7 +297,7 @@ def step_summaries(ctx):
         "--disallowedTools", "Bash,WebFetch,WebSearch",
         "--max-turns", str(ctx.max_turns),
         "--output-format", "json",
-    ])
+    ], env=_claude_env(ctx))
     _report_claude(ctx, done.stdout)
     _check_summaries(ctx)
 
