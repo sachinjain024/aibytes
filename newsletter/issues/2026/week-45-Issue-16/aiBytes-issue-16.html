@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🪤 A backdoored Claude Code extension and Anthropic's S-1</title>
+<meta name="description" content="Plus Google's Genie 4 world model, a 10-year-old CNN that beats frontier LLMs at skin cancer, and a repo that turns any codebase into a knowledge graph.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
+    --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--cobalt);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px 56px}
+
+  header{padding:36px 0 0}
+  .issue-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--slate);display:flex;justify-content:space-between;margin-bottom:12px}
+  .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
+  .logo em{font-style:normal;color:var(--cobalt)}
+
+
+  section{margin-top:34px}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--paper);background:var(--ink);padding:2px 7px}
+  .sec-title{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+  .sec-rule{flex:1;height:2px;background:var(--ink)}
+
+  /* ── Intro block ── */
+  .intro{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 22px;margin-bottom:18px}
+  .intro p{font-size:15.5px;line-height:1.65;margin-bottom:14px;color:#3A3E4A}
+  .intro p:last-child{margin-bottom:0}
+  .intro .greet{color:var(--ink)}
+  .intro b{color:var(--ink);font-weight:700}
+  /* Table of contents: closes the intro. The label speaks in the storyline lead's
+       voice (body face, bold ink); the rows sit smaller and lighter beneath it. */
+  .intro .toc-label{color:var(--ink);font-weight:700;margin-bottom:4px}
+  .toc{border-top:1px solid var(--line)}
+  .toc .r{display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:baseline;padding:5px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+  .toc .r:last-child{border-bottom:none;padding-bottom:0}
+  .toc .m{font-family:var(--mono);font-size:10.5px;font-weight:500;color:var(--slate)}
+  .toc .n{color:#3A3E4A;font-weight:500}
+  .toc .d{font-family:var(--mono);font-size:11px;color:var(--slate);white-space:nowrap}
+
+  /* ── My Favourite Picks: the publisher's shortlist, drawn from any section ──
+       Ink border with a signal spine. The pick name is INK and undecorated - the
+       numeral is the marker, and cobalt is left to the sections that report. ── */
+  .picks{background:var(--card);border:1px solid var(--ink);border-left:5px solid var(--signal);padding:18px 20px;margin-bottom:18px}
+  .picks .card-title{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+  .picks ol{list-style:none;margin:0;padding:0}
+  .picks li{display:grid;grid-template-columns:auto 1fr;gap:3px 11px;padding:8px 0;border-bottom:1px solid var(--line)}
+  .picks li:last-child{border-bottom:none;padding-bottom:0}
+  .picks .n{grid-column:1;grid-row:1;align-self:start;margin-top:2px;font-family:var(--mono);font-size:11px;font-weight:700;background:var(--signal);color:var(--ink);padding:1px 5px}
+  .picks .line{grid-column:2;grid-row:1;display:flex;gap:12px;align-items:baseline}
+  .picks .t{flex:1}
+  .picks .t a{color:var(--ink);text-decoration:none;font-weight:600}
+  .picks .t a:hover{color:var(--cobalt)}
+  .picks .from{font-family:var(--mono);font-size:11px;color:var(--slate);white-space:nowrap;flex-shrink:0}
+  /* Description hangs under the title, clear of the numeral. One to two lines. */
+  .picks .d{grid-column:2;grid-row:2;font-size:13.5px;line-height:1.5;color:var(--slate)}
+
+  /* ── News card ── */
+  .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
+  .news-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;color:var(--cobalt);letter-spacing:.02em;margin-bottom:14px}
+  .news-item{font-size:15.5px;margin-bottom:14px;line-height:1.6}
+  .news-item:last-of-type{margin-bottom:0}
+  .news-item b a{font-weight:700}
+  .src{font-family:var(--mono);font-size:12px;color:var(--slate)}
+  /* Attribution links stay grey and quiet - the headline link is the loud one. */
+  .src a{color:var(--slate);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+  .src a:hover{color:var(--ink)}
+  .quote{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px 18px;margin-top:18px}
+  .quote p{font-size:15px;color:#3A3E4A}
+
+  /* ── Official Announcements: the companies' own posts on X, whole and verbatim ──
+       Ink card, sibling of the AI News card. Each entry is a byline, the post in a
+       paper inset (the same treatment as the AI News quote, so the words read as
+       theirs), and a mono footer with the post and the official page. ── */
+  .oa-card{border:1.5px solid var(--ink);border-radius:14px;padding:20px 22px;background:var(--card);margin-top:18px}
+  .oa-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.02em}
+  .oa-card .card-sub{font-size:13.5px;color:var(--slate);margin:2px 0 6px}
+  .oa-item{padding:14px 0;border-bottom:1px solid var(--line)}
+  .oa-item:last-child{border-bottom:none;padding-bottom:0}
+  .oa-by{font-size:14.5px;margin-bottom:8px}
+  .oa-by b{color:var(--ink)}
+  .oa-by span{font-family:var(--mono);font-size:11px;color:var(--slate)}
+  .oa-post{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px 4px;margin-bottom:8px}
+  .oa-post p{font-size:15px;line-height:1.55;color:#3A3E4A;margin-bottom:8px}
+  .oa-links{font-family:var(--mono);font-size:11.5px;color:var(--slate)}
+  .oa-links .dot{color:var(--line)}
+
+  /* ── Ticker rows ── */
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .ico{width:22px;text-align:center;flex-shrink:0}
+  .row .txt{flex:1}
+  .row .txt b{font-weight:600}
+  .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
+  .stat b{color:var(--cobalt);font-weight:700}
+  .hot{background:var(--signal);padding:0 4px;font-weight:600}
+  /* Viral on X rows: emoji, the author's @handle in cobalt (linked to the profile),
+       then the post's own words in body grey. */
+  .sec-sub{font-size:14px;color:var(--slate);margin:-4px 0 6px}
+  .row .txt a.post{color:#3A3E4A}
+  .row .txt a.post:hover{color:var(--cobalt)}
+  .cut{color:var(--slate)}
+
+  footer{margin-top:48px;border-top:3px solid var(--ink);padding-top:20px;text-align:center}
+  footer p{color:var(--slate);font-size:13.5px}
+  .foot-links{margin-top:10px;font-family:var(--mono);font-size:12.5px;display:flex;gap:20px;justify-content:center}
+  @media (max-width:480px){ .row{flex-wrap:wrap} .stat{margin-left:34px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="issue-tag"><span>ISSUE 0x10 · TL;DR</span><span>2026-11-02 · ~6 MIN</span></div>
+    <div class="logo">⚡ aiBytes<em>_</em> #16</div>
+  </header>
+
+  <section>
+    <div class="intro">
+      <p class="greet">Hello, builders 👋</p>
+      <p>Welcome back to your weekly dose of AI Bytes. I was braced for a week of model launches, and the story that stayed with me was an editor extension. A backdoored build of the Claude Code extension sat on the Cursor Marketplace, opening a reverse SSH tunnel on the machines of developers who installed it 🪤</p>
+      <p><b>The models are fine, it's everything around them</b>: GPT-6.1 Terra, Gemini 4 Carbon and the open weights of Mistral Large 4 all shipped, but the stories builders argued about were about trust. Cohere caught Alibaba's Qwen model trying to send a file to Beijing, a <a href="https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce">gist</a> showed Claude Code sending each background agent's transcript to its model, and court filings put Stanford professors' pirated books in Claude's training data. Nobody is going to stop using these tools, but this was the week to start reading what you install.</p>
+      <p class="toc-label">In this issue</p>
+      <div class="toc">
+<div class="r"><span class="m">🌍</span><span class="n">AI News</span><span class="d">9 stories</span></div>
+<div class="r"><span class="m">📣</span><span class="n">Official Announcements</span><span class="d">OpenAI · Anthropic · Google · Mistral</span></div>
+<div class="r"><span class="m">0x02</span><span class="n">Viral on X</span><span class="d">4 posts</span></div>
+<div class="r"><span class="m">0x03</span><span class="n">New AI Products</span><span class="d">5 launches</span></div>
+<div class="r"><span class="m">0x04</span><span class="n">Trending Github Projects</span><span class="d">7 repos</span></div>
+<div class="r"><span class="m">0x05</span><span class="n">HN Deep Stories</span><span class="d">5 threads</span></div>
+      </div>
+    </div>
+
+
+    <div class="news-card">
+      <div class="card-title">🌍 AI NEWS</div>
+
+      <p class="news-item">🪤 <b><a href="https://phorion.io/blog/offical-claude-code-vsx-compromise/">Backdoor in the Claude Code extension on the Cursor Marketplace</a></b> A compromised build opened a reverse SSH tunnel and tried to persist on macOS, Linux and Windows. Cursor pulled versions 2.1.312 and 2.1.313. <span class="hot">Story of the week</span> <span class="src">(HackerNews)</span></p>
+<p class="news-item">🧮 <b><a href="https://openai.com/index/building-scientific-understanding-with-academic-communities/">OpenAI reports three new discoveries in maths, computer science and physics</a></b> Results from its models working with academic research communities. <span class="src">(HackerNews)</span></p>
+<p class="news-item">🌐 <b><a href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/">Genie 4</a></b> Google DeepMind's new world model lets you create, hear and steer interactive simulations in real time. <span class="src">(HackerNews)</span></p>
+<p class="news-item">📉 <b><a href="https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/">Anthropic expected to get a high 'junk' credit rating after its IPO</a></b> A Blackstone forecast, per the FT. It would make raising money for its spending costlier. <span class="src">(TechCrunch)</span></p>
+<p class="news-item">📡 <b><a href="https://techcrunch.com/2026/10/26/cohere-says-alibabas-qwen-model-tried-to-send-a-file-to-beijing/">Cohere says Alibaba's Qwen model tried to send a file to Beijing</a></b> It said it would not use any tools, then tried anyway. Researchers call it a training quirk, not espionage. <span class="src">(TechCrunch)</span></p>
+<p class="news-item">📚 <b><a href="https://stanforddaily.com/2026/10/27/professors-books-pirated-to-train-claude/">Anthropic trained Claude on Stanford professors' pirated books</a></b> Court filings name more than ten Stanford faculty whose books were allegedly taken from shadow libraries. <span class="src">(HackerNews)</span></p>
+<p class="news-item">🏛️ <b><a href="https://progressives.house.gov/2026/10/reps-casar-waters-lead-democratic-resolution-opposing-a-i-bubble-bailout-for-big-tech-commit-to-protecting-american-people-instead">House Democrats file a resolution opposing an AI bubble bailout for Big Tech</a></b> Led by Reps. Casar and Waters. <span class="src">(HackerNews)</span></p>
+<p class="news-item">🔒 <b><a href="https://techcrunch.com/2026/10/29/as-search-traffic-dries-up-reddit-announces-its-shifting-to-a-logged-in-experience/">Reddit is shifting to a logged-in experience</a></b> As AI answers dry up its search traffic, it is rethinking its open-web roots. <span class="src">(TechCrunch)</span></p>
+<p class="news-item">💵 <b><a href="https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/">Microsoft recorded $10 billion in revenue from OpenAI</a></b> From revenue-sharing and other deals, in the quarter ending September 30. <span class="src">(TechCrunch)</span></p>
+
+      <div class="quote">
+        <p>"The extension you install is code you run."</p>
+      </div>
+    </div>
+
+    <div class="oa-card">
+      <div class="card-title">📣 OFFICIAL ANNOUNCEMENTS</div>
+      <p class="card-sub">This week's launches, in the companies' own words.</p>
+<div class="oa-item"><div class="oa-by"><b>OpenAI</b> <span>@OpenAI · MON 26</span></div><div class="oa-post"><p>GPT-6.1 Terra: delivering fast and capable computer use at a lower price.</p><p>GPT-6.1 Terra understands what’s on screen, takes action across apps, writes naturally, and is a more capable model for your whole workday with the efficiency to take on more of it.</p></div><div class="oa-links"><a href="https://x.com/OpenAI/status/2114780711664398349">Post on X ↗</a> <span class="dot">·</span> <a href="https://openai.com/index/introducing-gpt-6-1-terra/">openai.com ↗</a></div></div>
+<div class="oa-item"><div class="oa-by"><b>Anthropic</b> <span>@AnthropicAI · MON 26</span></div><div class="oa-post"><p>Anthropic has filed an S-1 registration statement with the SEC related to its proposed IPO.</p><p>Read more: https://www.anthropic.com/news/s1-sec <span class="cut">…</span></p></div><div class="oa-links"><a href="https://x.com/AnthropicAI/status/2114705042817110293">Post on X ↗</a> <span class="dot">·</span> <a href="https://www.anthropic.com/news/s1-sec">anthropic.com ↗</a></div></div>
+<div class="oa-item"><div class="oa-by"><b>Google</b> <span>@GoogleDeepMind · WED 28</span></div><div class="oa-post"><p>Gemini 4 Carbon is our next frontier model.</p><p>It’s state-of-the-art across cybersecurity and long-horizon capabilities.</p></div><div class="oa-links"><a href="https://x.com/GoogleDeepMind/status/2115489356437651654">Post on X ↗</a></div></div>
+<div class="oa-item"><div class="oa-by"><b>Mistral</b> <span>@MistralAI · THU 29</span></div><div class="oa-post"><p>Today, we release the weights of a new and improved Le Chonk, advancing the open frontier for agentic coding and cybersecurity.</p><p>💻 Built to build: Le Chonk ranks #1 on @cognition’s FrontierCode among open models, and sets a new benchmark for Pareto efficiency on @artificialanalysis. <span class="cut">…</span></p></div><div class="oa-links"><a href="https://x.com/MistralAI/status/2115811242556137820">Post on X ↗</a> <span class="dot">·</span> <a href="https://mistral.ai/news/mistral-large-4-oss/">mistral.ai ↗</a></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Viral on X</h2><div class="sec-rule"></div></div>
+    <p class="sec-sub">The AI posts that drew the biggest reaction this week.</p>
+    <div class="row"><span class="ico">⏱️</span><span class="txt"><b><a href="https://x.com/Voxyz_ai">@Voxyz_ai</a></b> <a class="post" href="https://x.com/Voxyz_ai/status/2116636332344889391">Claude Code and Codex can push dozens of PRs a day now. Writing the code takes minutes, and the rest of the time goes to waiting on CI, the</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 513</b></span></div>
+<div class="row"><span class="ico">💸</span><span class="txt"><b><a href="https://x.com/AdamHoltererer">@AdamHoltererer</a></b> <a class="post" href="https://x.com/AdamHoltererer/status/2116607303172665775">There are roughly 1T tokens of Opus 5.5 run through OpenRouter every day <span class="cut">/</span> Almost half of that is run in Claude Code! <span class="cut">/</span> Why the heck are people</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 976</b></span></div>
+<div class="row"><span class="ico">🧭</span><span class="txt"><b><a href="https://x.com/ChShersh">@ChShersh</a></b> <a class="post" href="https://x.com/ChShersh/status/2116584380596474062">Software is not dead. Here's my unfiltered, honest opinion about using AI for SWE, even in highly complex domains. <span class="cut">/</span> It's true that AI is</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 1.8k</b></span></div>
+<div class="row"><span class="ico">🔓</span><span class="txt"><b><a href="https://x.com/log4j">@log4j</a></b> <a class="post" href="https://x.com/log4j/status/2116623916831780936">getting banned from openai and fully embracing open weights models was possibly the best thing to happen to me in 2026. <span class="cut">/</span> still testing</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 2.1k</b></span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">New AI Products</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🗣️</span><span class="txt"><b><a href="https://empacer.com">Empacer</a></b> - voice-first assistant for small business owners: spoken requests become customer replies, social posts and invoices, sent only once approved. <span class="src">(<a href="https://www.producthunt.com/products/empacer">ProductHunt</a>)</span></span><span class="stat"><b>▲ 446</b></span></div>
+<div class="row"><span class="ico">🧪</span><span class="txt"><b><a href="https://theysaid.io">TheySaid 4.0</a></b> - put what you are building in front of real or synthetic users without leaving Claude, Cursor or Jira. <span class="src">(<a href="https://www.producthunt.com/products/theysaid">ProductHunt</a>)</span></span><span class="stat"><b>▲ 376</b></span></div>
+<div class="row"><span class="ico">📞</span><span class="txt"><b><a href="https://www.vaani.dev">Vaani Developer Platform</a></b> - design a voice agent without code, connect your tools and take it live on a real phone number. <span class="src">(<a href="https://www.producthunt.com/products/vaani-developer-platfrom">ProductHunt</a>)</span></span><span class="stat"><b>▲ 372</b></span></div>
+<div class="row"><span class="ico">🍓</span><span class="txt"><b><a href="https://strawberrybrowser.com">Strawberry 1.0</a></b> - AI browser whose agents research leads in parallel, transcribe meetings and handle follow-ups. <span class="src">(<a href="https://www.producthunt.com/products/strawberry">ProductHunt</a>)</span></span><span class="stat"><b>▲ 353</b></span></div>
+<div class="row"><span class="ico">💬</span><span class="txt"><b><a href="https://knocket.trtc.io">Knocket AI</a></b> - free live chat for your website or app, or a bio link that turns into a contact page. <span class="src">(<a href="https://www.producthunt.com/products/knocket-ai">ProductHunt</a>)</span></span><span class="stat"><b>▲ 344</b></span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">Trending Github Projects</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🕸️</span><span class="txt"><b><a href="https://github.com/Graphify-Labs/graphify">Graphify-Labs/graphify</a></b> - Turn a codebase, with its docs, SQL schemas and PDFs, into a queryable knowledge graph, as a skill for coding agents.</span><span class="stat"><b>+5,802</b> ★</span></div>
+<div class="row"><span class="ico">🧑‍💻</span><span class="txt"><b><a href="https://github.com/JetBrains/thinkrail">JetBrains/thinkrail</a></b> - A lightweight IDE for vibe coding with pi that customises itself around the way you work.</span><span class="stat"><b>+5,738</b> ★</span></div>
+<div class="row"><span class="ico">📈</span><span class="txt"><b><a href="https://github.com/TauricResearch/TradingAgents">TauricResearch/TradingAgents</a></b> - Multi-agent LLM framework for financial trading.</span><span class="stat"><b>+5,483</b> ★</span></div>
+<div class="row"><span class="ico">🤖</span><span class="txt"><b><a href="https://github.com/makecindy/cindy">makecindy/cindy</a></b> - An open-source AI agent that works out of the box.</span><span class="stat"><b>+4,977</b> ★</span></div>
+<div class="row"><span class="ico">🔎</span><span class="txt"><b><a href="https://github.com/AgriciDaniel/claude-seo">AgriciDaniel/claude-seo</a></b> - SEO skill for Claude Code: 26 sub-skills and 19 sub-agents, from technical SEO and schema to llms.txt.</span><span class="stat"><b>+4,814</b> ★</span></div>
+<div class="row"><span class="ico">📝</span><span class="txt"><b><a href="https://github.com/multica-ai/andrej-karpathy-skills">multica-ai/andrej-karpathy-skills</a></b> - A single CLAUDE.md that improves Claude Code, derived from Andrej Karpathy's notes on LLM coding pitfalls.</span><span class="stat"><b>+4,277</b> ★</span></div>
+<div class="row"><span class="ico">🖥️</span><span class="txt"><b><a href="https://github.com/milind-soni/OpenMausBot">milind-soni/OpenMausBot</a></b> - Open-source Grok Bot alternative, with a virtual machine the bots can use.</span><span class="stat"><b>+3,842</b> ★</span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x05</span><h2 class="sec-title">HN Deep Stories</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">😮‍💨</span><span class="txt"><b><a href="https://oioannou.com/blog/ai-promised-less-work/">AI promised less work. I've never worked more</a></b> <span class="src">(<a href="https://news.ycombinator.com/item?id=50257325">HackerNews</a>)</span></span><span class="stat"><b>685</b> pts · 664 💬</span></div>
+<div class="row"><span class="ico">🩺</span><span class="txt"><b><a href="https://lynchlab.net/llm-skin-cancer">A 10-year-old CNN outperforms frontier LLMs for skin cancer diagnosis</a></b> <span class="src">(<a href="https://news.ycombinator.com/item?id=50233779">HackerNews</a>)</span></span><span class="stat"><b>670</b> pts</span></div>
+<div class="row"><span class="ico">🧯</span><span class="txt"><b><a href="https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling">AI isn't replacing SREs, it's deskilling them</a></b> <span class="src">(<a href="https://news.ycombinator.com/item?id=50305693">HackerNews</a>)</span></span><span class="stat"><b>659</b> pts</span></div>
+<div class="row"><span class="ico">🕵️</span><span class="txt"><b><a href="https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce">Claude Code regularly sends each background agent's transcript to its model</a></b> <span class="src">(<a href="https://news.ycombinator.com/item?id=50284255">HackerNews</a>)</span></span><span class="stat"><b>584</b> pts</span></div>
+<div class="row"><span class="ico">🧠</span><span class="txt"><b><a href="https://the-decoder.com/openais-isolated-ai-agents-found-ways-to-talk-to-each-other-through-cpu-cache/">OpenAI's agents talked to each other through the CPU cache</a></b> Isolated agents found a side channel to coordinate. <span class="src">(<a href="https://news.ycombinator.com/item?id=50251200">HackerNews</a>)</span></span><span class="stat"><b>361</b> pts</span></div>
+  </section>
+
+  <footer>
+    <p>Made for builders who ship with AI. See you next week. ✌️</p>
+    <div class="foot-links"><a href="#">SUBSCRIBE</a><a href="#">ARCHIVE</a><a href="#">SUGGEST A LINK</a></div>
+  </footer>
+
+</div>
+</body>
+</html>

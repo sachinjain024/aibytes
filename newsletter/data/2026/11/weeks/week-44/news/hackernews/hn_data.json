@@ -1,0 +1,320 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-01",
+  "window": {
+    "after": "2026-10-25",
+    "before": "2026-11-02"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 30,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 100,
+  "poolCount": 460,
+  "stories": [
+    {
+      "title": "We're releasing the weights of Mistral Large 4",
+      "url": "https://mistral.ai/news/mistral-large-4-oss/",
+      "type": "story",
+      "points": 1713,
+      "num_comments": 438,
+      "author": "kuberwastaken",
+      "created_at": "2026-10-29T14:13:21Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50289418"
+    },
+    {
+      "title": "Anthropic S-1",
+      "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+      "type": "story",
+      "points": 1709,
+      "num_comments": 1679,
+      "author": "SiNTEx",
+      "created_at": "2026-10-26T13:04:50Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50242939"
+    },
+    {
+      "title": "Three new discoveries in mathematics, computer science, and physics",
+      "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities/",
+      "type": "story",
+      "points": 1160,
+      "num_comments": 714,
+      "author": "jonluca",
+      "created_at": "2026-10-26T21:35:28Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50251344"
+    },
+    {
+      "title": "Genie 4",
+      "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+      "type": "story",
+      "points": 1044,
+      "num_comments": 592,
+      "author": "acossta",
+      "created_at": "2026-10-27T16:06:01Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50261319"
+    },
+    {
+      "title": "Gemini 4 Carbon",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+      "type": "story",
+      "points": 1014,
+      "num_comments": 801,
+      "author": "acossta",
+      "created_at": "2026-10-28T17:01:23Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50276792"
+    },
+    {
+      "title": "Backdoor in Claude Code for VS Code extension on the Cursor Marketplace",
+      "url": "https://phorion.io/blog/offical-claude-code-vsx-compromise/",
+      "type": "story",
+      "points": 982,
+      "num_comments": 549,
+      "author": "_chall",
+      "created_at": "2026-10-30T07:09:12Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50300683"
+    },
+    {
+      "title": "AI promised less work. I've never worked more",
+      "url": "https://oioannou.com/blog/ai-promised-less-work/",
+      "type": "story",
+      "points": 685,
+      "num_comments": 664,
+      "author": "oorestisime",
+      "created_at": "2026-10-27T11:08:14Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50257325"
+    },
+    {
+      "title": "A 10-year-old CNN outperforms frontier LLMs for skin cancer diagnosis",
+      "url": "https://lynchlab.net/llm-skin-cancer",
+      "type": "story",
+      "points": 670,
+      "num_comments": 274,
+      "author": "sungam",
+      "created_at": "2026-10-25T17:15:38Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50233779"
+    },
+    {
+      "title": "US Reps Lead Democratic Resolution Opposing A.I. Bubble Bailout for Big Tech",
+      "url": "https://progressives.house.gov/2026/10/reps-casar-waters-lead-democratic-resolution-opposing-a-i-bubble-bailout-for-big-tech-commit-to-protecting-american-people-instead",
+      "type": "story",
+      "points": 664,
+      "num_comments": 522,
+      "author": "DeepLogin",
+      "created_at": "2026-10-30T12:08:00Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50302814"
+    },
+    {
+      "title": "AI isn't replacing SREs, it's deskilling them",
+      "url": "https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling",
+      "type": "story",
+      "points": 659,
+      "num_comments": 478,
+      "author": "dorianniemiec",
+      "created_at": "2026-10-30T15:52:18Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50305693"
+    },
+    {
+      "title": "Backdoors in official Claude Code extensions",
+      "url": "https://cyberplace.social/@GossiTheDog/117528831681803563",
+      "type": "story",
+      "points": 659,
+      "num_comments": 17,
+      "author": "dsr_",
+      "created_at": "2026-10-30T11:05:53Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50302334"
+    },
+    {
+      "title": "GPT-6.1 Terra",
+      "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+      "type": "story",
+      "points": 637,
+      "num_comments": 427,
+      "author": "meetpateltech",
+      "created_at": "2026-10-26T18:01:17Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50248124"
+    },
+    {
+      "title": "LLM Voice",
+      "url": "https://martinfowler.com/bliki/LLM-Voice.html",
+      "type": "story",
+      "points": 605,
+      "num_comments": 335,
+      "author": "ibobev",
+      "created_at": "2026-10-29T14:57:55Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50290177"
+    },
+    {
+      "title": "Anthropic trained Claude on illegally obtained Stanford professors' books",
+      "url": "https://stanforddaily.com/2026/10/27/professors-books-pirated-to-train-claude/",
+      "type": "story",
+      "points": 605,
+      "num_comments": 298,
+      "author": "car",
+      "created_at": "2026-10-27T15:28:26Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50260814"
+    },
+    {
+      "title": "Claude Code regularly sends each background agent\u2019s transcript to its model",
+      "url": "https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce",
+      "type": "story",
+      "points": 584,
+      "num_comments": 236,
+      "author": "NikZaal",
+      "created_at": "2026-10-29T03:33:42Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50284255"
+    },
+    {
+      "title": "Survival LLM: AI assistant and emergency library that runs on your own computer",
+      "url": "https://www.brangus.io/survival-llm",
+      "type": "story",
+      "points": 543,
+      "num_comments": 203,
+      "author": "Luc",
+      "created_at": "2026-10-27T19:55:06Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50264853"
+    },
+    {
+      "title": "Wikipedia's Cleanup of AI-Generated Content",
+      "url": "https://spectrum.ieee.org/wikipedia-wikiproject-ai-writing-cleanup",
+      "type": "story",
+      "points": 519,
+      "num_comments": 243,
+      "author": "rbanffy",
+      "created_at": "2026-10-27T11:08:15Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50257326"
+    },
+    {
+      "title": "The Mythical Man-Month in the Age of AI",
+      "url": "https://j11g.com/the-mythical-man-month-in-the-age-of-ai",
+      "type": "story",
+      "points": 496,
+      "num_comments": 363,
+      "author": "ilreb",
+      "created_at": "2026-10-27T06:25:37Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50255298"
+    },
+    {
+      "title": "Kentucky man becomes the first humanist granted religious exemption from AI",
+      "url": "https://religionnews.com/2026/10/26/in-a-first-a-humanist-granted-a-religious-exemption-from-using-ai/",
+      "type": "story",
+      "points": 491,
+      "num_comments": 549,
+      "author": "danso",
+      "created_at": "2026-10-28T13:41:30Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50273396"
+    },
+    {
+      "title": "OpenAI and Anthropic cut their LLM prices by up to 80% within a few months. Why?",
+      "url": "https://minimaxir.com/2026/10/cheap-llms/",
+      "type": "story",
+      "points": 443,
+      "num_comments": 437,
+      "author": "minimaxir",
+      "created_at": "2026-10-25T21:11:31Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50236102"
+    },
+    {
+      "title": "Anthropic blocks users for anything touching training larger models",
+      "url": "https://twitter.com/jiahaoshao1/status/2116475922190922088",
+      "type": "story",
+      "points": 422,
+      "num_comments": 234,
+      "author": "pretext",
+      "created_at": "2026-10-31T19:39:19Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50319358"
+    },
+    {
+      "title": "We ran AI agent swarms in Minecraft and Mindustry",
+      "url": "https://labs.ycombinator.com/projects/games/index.html",
+      "type": "story",
+      "points": 414,
+      "num_comments": 169,
+      "author": "sandslash",
+      "created_at": "2026-10-29T21:40:28Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50296486"
+    },
+    {
+      "title": "Police are using AI to pull over drivers for 'suspicious' behavior",
+      "url": "https://gizmodo.com/police-are-using-ai-to-pull-over-drivers-for-suspicious-behavior-2000831220",
+      "type": "story",
+      "points": 400,
+      "num_comments": 313,
+      "author": "gumby",
+      "created_at": "2026-10-27T16:40:15Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50261819"
+    },
+    {
+      "title": "Claude Code VS Code extension with backdoor released on Cursor marketplace",
+      "url": "https://doublepulsar.com/anthropic-hacked-to-deliver-remote-access-trojan-to-claude-developer-laptops-worldwide-1148a92baae2",
+      "type": "story",
+      "points": 399,
+      "num_comments": 1,
+      "author": "bashtoni",
+      "created_at": "2026-10-30T10:22:51Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50301983"
+    },
+    {
+      "title": "Amazon Is Gutting Its AI Division After Sustained Failure",
+      "url": "https://futurism.com/artificial-intelligence/amazon-ai-division-failure-nova",
+      "type": "story",
+      "points": 386,
+      "num_comments": 293,
+      "author": "dpflan",
+      "created_at": "2026-10-27T16:25:30Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50261589"
+    },
+    {
+      "title": "Cerebras Deploys Trillion-Parameter AI Models",
+      "url": "https://www.cerebras.ai/blog/how-we-deploy-trillion-parameter-frontier-models-on-cerebras",
+      "type": "story",
+      "points": 368,
+      "num_comments": 142,
+      "author": "gmays",
+      "created_at": "2026-10-25T01:33:49Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50227356"
+    },
+    {
+      "title": "OpenAI's agents talked to each other through the CPU Cache",
+      "url": "https://the-decoder.com/openais-isolated-ai-agents-found-ways-to-talk-to-each-other-through-cpu-cache/",
+      "type": "story",
+      "points": 361,
+      "num_comments": 254,
+      "author": "limbicsystem",
+      "created_at": "2026-10-26T21:24:18Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50251200"
+    },
+    {
+      "title": "Do the math: How we took over ChatGPT accounts",
+      "url": "https://www.parameter.ai/labs/we-found-a-gap-at-openai",
+      "type": "story",
+      "points": 354,
+      "num_comments": 173,
+      "author": "armcat",
+      "created_at": "2026-10-31T10:30:11Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50314699"
+    },
+    {
+      "title": "Gemini 4 Carbon is the new #1 on the Artificial Analysis Intelligence Index v5",
+      "url": "https://artificialanalysis.ai/articles/gemini-4-carbon-new-number-1",
+      "type": "story",
+      "points": 338,
+      "num_comments": 245,
+      "author": "theHocineSaad",
+      "created_at": "2026-10-29T12:41:56Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50288019"
+    },
+    {
+      "title": "Concerning behavior from a popular open-weight AI model",
+      "url": "https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model",
+      "type": "story",
+      "points": 336,
+      "num_comments": 132,
+      "author": "matthieu_bl",
+      "created_at": "2026-10-26T16:35:44Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50246658"
+    }
+  ]
+}
