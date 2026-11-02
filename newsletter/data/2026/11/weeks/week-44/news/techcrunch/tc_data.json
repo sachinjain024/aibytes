@@ -1,0 +1,157 @@
+{
+  "source": "techcrunch",
+  "section": "ai-news",
+  "fetched_at": "2026-11-01",
+  "window": {
+    "after": "2026-10-25",
+    "before": "2026-11-02"
+  },
+  "query_params": {
+    "category": "artificial-intelligence",
+    "count": 10,
+    "ranking": "hackernews_points,recency"
+  },
+  "totalCount": 64,
+  "articles": [
+    {
+      "title": "Anthropic expected to receive high \u2018junk\u2019 rating from credit agencies following IPO, FT report says",
+      "description": "Blackstone's forecast is just a prediction, but naturally, a high junk rating would make it more difficult and costlier for Anthropic to raise the money to keep funding its massive spending that has undergirded its business.",
+      "url": "https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/",
+      "published_at": "2026-10-30T21:52:03Z",
+      "author": "Lucas Ropek",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/08/GettyImages-2282033342.jpg?w=1024",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 99,
+        "num_comments": 76,
+        "hn_url": "https://news.ycombinator.com/item?id=50311311"
+      }
+    },
+    {
+      "title": "AI execs may be too out of touch to build for the general public",
+      "description": "Tech leaders are flaunting how out of touch they are when they brag about using AI to connect with their families.",
+      "url": "https://techcrunch.com/2026/10/28/ai-execs-may-be-too-out-of-touch-to-build-for-the-general-public/",
+      "published_at": "2026-10-28T15:53:52Z",
+      "author": "Amanda Silberling",
+      "image": "https://techcrunch.com/wp-content/uploads/2024/03/GettyImages-1172241499.jpg?resize=1200,728",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 90,
+        "num_comments": 76,
+        "hn_url": "https://news.ycombinator.com/item?id=50281826"
+      }
+    },
+    {
+      "title": "As search traffic dries up, Reddit announces it\u2019s shifting to a logged-in experience",
+      "description": "As AI transforms how people find information online, Reddit is rethinking its open-web roots to protect its audience and business.",
+      "url": "https://techcrunch.com/2026/10/29/as-search-traffic-dries-up-reddit-announces-its-shifting-to-a-logged-in-experience/",
+      "published_at": "2026-10-29T20:08:31Z",
+      "author": "Sarah Perez",
+      "image": "https://techcrunch.com/wp-content/uploads/2023/03/reddit-e1708636699632.jpg?resize=1200,800",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 6,
+        "num_comments": 4,
+        "hn_url": "https://news.ycombinator.com/item?id=50295247"
+      }
+    },
+    {
+      "title": "Cohere says Alibaba\u2019s Qwen model tried to send a file to Beijing",
+      "description": "An AI model said it wouldn\u2019t use any tools, then tried to send something to a server in Beijing anyway, and while researchers say it\u2019s probably a training quirk and not espionage, the whole thing has people asking how much to trust free Chinese AI.",
+      "url": "https://techcrunch.com/2026/10/26/cohere-says-alibabas-qwen-model-tried-to-send-a-file-to-beijing/",
+      "published_at": "2026-10-27T01:12:21Z",
+      "author": "Aditya Mehta",
+      "image": "https://techcrunch.com/wp-content/uploads/2024/08/GettyImages-1757707025.jpg?w=1024",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 6,
+        "num_comments": 1,
+        "hn_url": "https://news.ycombinator.com/item?id=50254116"
+      }
+    },
+    {
+      "title": "Grok releases the first seven minutes of its AI-generated \u2018Odyssey\u2019",
+      "description": "The footage looks okay, as long as you're not seeking artistry, inspiration, or human interest.",
+      "url": "https://techcrunch.com/2026/10/25/grok-releases-the-first-seven-minutes-of-its-ai-generated-odyssey/",
+      "published_at": "2026-10-25T21:31:16Z",
+      "author": "Anthony Ha",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/03/grok-getty.jpg?resize=1200,800",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 6,
+        "num_comments": 1,
+        "hn_url": "https://news.ycombinator.com/item?id=50242275"
+      }
+    },
+    {
+      "title": "Google\u2019s first data center satellite is online and writing poetry",
+      "description": "The first TPU in space is running a Google DeepMind Gemma 4 model and writing cheesy poetry.",
+      "url": "https://techcrunch.com/2026/10/30/googles-first-data-center-satellite-is-online-and-writing-poetry/",
+      "published_at": "2026-10-30T17:00:00Z",
+      "author": "Tim Fernholz",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/10/DSC_0298.jpg?resize=1200,800",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 4,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=50308256"
+      }
+    },
+    {
+      "title": "DoorDash said it\u2019s only received \u2018several hundred\u2019 orders from AI agents",
+      "description": "DoorDash said that it is open to working with third-party agent makers.",
+      "url": "https://techcrunch.com/2026/10/30/doordash-said-its-only-received-several-hundred-orders-from-ai-agents/",
+      "published_at": "2026-10-30T13:54:25Z",
+      "author": "Ivan Mehta",
+      "image": "https://techcrunch.com/wp-content/uploads/2022/08/GettyImages-1232015093.jpg?resize=1200,800",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 3,
+        "num_comments": 1,
+        "hn_url": "https://news.ycombinator.com/item?id=50307235"
+      }
+    },
+    {
+      "title": "Microsoft just shared Azure\u2019s actual revenue in dollars: $33.2 billion",
+      "description": "Microsoft has never disclosed Azure's quarterly revenue in dollars. But for the first time, we can see just how close it is getting to besting the biggest competitor in the market, AWS.",
+      "url": "https://techcrunch.com/2026/10/28/microsoft-just-shared-azures-actual-revenue-in-dollars-33-2-billion/",
+      "published_at": "2026-10-28T21:58:32Z",
+      "author": "Aditya Mehta",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/04/dollar-signs-data-center.png?w=1024",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 3,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=50286167"
+      }
+    },
+    {
+      "title": "Microsoft recorded $10 billion in revenue from OpenAI",
+      "description": "Microsoft said it made $10 billion in revenue from commercial arrangements with OpenAI, including revenue-sharing payments, in the quarter ending September 30. It underscores the still-enormous financial dependency of the partnership.",
+      "url": "https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/",
+      "published_at": "2026-10-28T21:34:30Z",
+      "author": "Rebecca Bellan",
+      "image": "https://techcrunch.com/wp-content/uploads/2024/07/GettyImages-2153474575.jpg?resize=1200,800",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 3,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=50281690"
+      }
+    },
+    {
+      "title": "AI delivers \u2018zero financial payoff\u2019 to most companies, Apollo economist says",
+      "description": "\"Despite massive investments and widespread hype around artificial intelligence, the technology has delivered zero financial payoff to corporate America outside of tech.\"",
+      "url": "https://techcrunch.com/2026/10/25/ai-delivers-zero-financial-payoff-to-most-companies-according-to-apollo-economist/",
+      "published_at": "2026-10-25T16:57:32Z",
+      "author": "Anthony Ha",
+      "image": "https://techcrunch.com/wp-content/uploads/2023/08/GettyImages-1308803174.jpg?resize=1200,800",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 3,
+        "num_comments": 1,
+        "hn_url": "https://news.ycombinator.com/item?id=50234408"
+      }
+    }
+  ]
+}
