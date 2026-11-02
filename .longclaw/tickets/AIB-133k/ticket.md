@@ -6,7 +6,7 @@ title: "Review PR #43 (approved app redesign) and sync Ledger to Claude Design"
 status: todo
 priority: none
 created_at: 2026-10-29T06:00:22.193Z
-updated_at: 2026-11-01T12:25:50.547Z
+updated_at: 2026-11-01T13:54:42.870Z
 ---
 
 Review https://github.com/sachinjain024/aibytes/pull/43 (branch codex/approved-ui-redesign) by running the app locally, record all feedback, then run design sync so the Claude Design components match the redesigned Ledger.
@@ -18,7 +18,7 @@ Review https://github.com/sachinjain024/aibytes/pull/43 (branch codex/approved-u
 - [ ] Run design sync to update Claude components <!-- longclaw:item=ck_8cae352f -->
 - [x] Restore the edition date in the page h1 (it is now 'Edition'/'Today' with the date in a span) <!-- longclaw:item=ck_6537a72a -->
 - [x] Replace the JS toolbar docking (scroll/resize listeners, magic 1000/52/40px) with CSS position: sticky <!-- longclaw:item=ck_1dc6183d -->
-- [ ] Reformat Redesign.jsx to match the repo's style (no minified one-liners, comments like App.jsx) <!-- longclaw:item=ck_21540e55 -->
+- [x] Reformat Redesign.jsx to match the repo's style (no minified one-liners, comments like App.jsx) <!-- longclaw:item=ck_21540e55 -->
 - [x] Check the footer links (X, Suggest a link, Advertise, Subscribe) are reachable on mobile now the Footer component is gone <!-- longclaw:item=ck_0e9b52f6 -->
 - [ ] Decide whether Ledger's Header, SideNav, Chip and Footer stay or are deprecated now the app no longer uses them <!-- longclaw:item=ck_8b5540f2 -->
 - [x] Restore the 300/360px card minimum from main, read from one --app-card-min <!-- longclaw:item=ck_5517d320 -->
@@ -27,7 +27,7 @@ Review https://github.com/sachinjain024/aibytes/pull/43 (branch codex/approved-u
 - [x] List view: put the source on one row and its counts (upvotes, stars, comments) on the row below <!-- longclaw:item=ck_cc3b6718 -->
 - [x] Toolbar: drop the date arrows, move the date to the right end, open with the item count, and remove the 32 items / RANKED row <!-- longclaw:item=ck_33718da4 -->
 - [x] Masthead: remove the tagline 'today’s AI, in one byte' <!-- longclaw:item=ck_6952c756 -->
-- [ ] Reformat CalendarPopover.jsx to match App.jsx (multi-line JSX, one statement per line) <!-- longclaw:item=ck_ddc43aa2 -->
+- [x] Reformat CalendarPopover.jsx to match App.jsx (multi-line JSX, one statement per line) <!-- longclaw:item=ck_ddc43aa2 -->
 
 ## Activity
 
@@ -448,4 +448,24 @@ changes:
 ### claude-code updated this ticket
 
 Footer links checked on mobile (390x844 and 320x568, touch emulation, real taps in the drawer): X opens x.com/sachinjain024 in a new tab; Suggest a link and Advertise are mailto links that open in a new tab; Subscribe goes to newsletter.aibytes.io/subscribe; Chrome Extension (soon) is plain text, as intended. All of them fit on screen without scrolling the drawer, even at 320x568, and nothing covers them. GitHub is not in the drawer, but the masthead icon stays visible on phones. One nit: the X / Suggest / Advertise rows are 20px tall, under the 24px WCAG 2.2 minimum tap-target size (2.5.8). They pass because they have more than 24px of spacing between them, but the 44px comfort size would need more padding.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_a057134a
+kind: update
+occurred_at: 2026-11-01T13:54:42.870Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_21540e55.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_ddc43aa2.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+Redesign.jsx and CalendarPopover.jsx reformatted on branch aib-133k-reformat-redesign (taken from main at 47614a9): 2-space indent, double quotes, one element per line, comments in the style of App.jsx. Icon paths moved into an ICON_PATHS constant. Behaviour is unchanged: the rendered #root HTML was byte-identical before and after in 10 states (feed, filter panel open and filtered, calendar on this month and the previous one, the / shortcut, the mobile drawer, its Tab trap and focus returning on Esc). Web, design-system and Python tests pass, and the build is OK.
 <!-- /longclaw:event -->
