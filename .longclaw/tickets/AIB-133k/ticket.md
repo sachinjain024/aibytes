@@ -6,7 +6,7 @@ title: "Review PR #43 (approved app redesign) and sync Ledger to Claude Design"
 status: todo
 priority: none
 created_at: 2026-10-29T06:00:22.193Z
-updated_at: 2026-11-02T13:27:10.950Z
+updated_at: 2026-11-02T13:30:34.559Z
 ---
 
 Review https://github.com/sachinjain024/aibytes/pull/43 (branch codex/approved-ui-redesign) by running the app locally, record all feedback, then run design sync so the Claude Design components match the redesigned Ledger.
@@ -40,7 +40,7 @@ Review https://github.com/sachinjain024/aibytes/pull/43 (branch codex/approved-u
 - [x] Feed layout in Ledger: the card grid (300/360px card minimum, column count) and the bordered list container; EmptyState gets the search no-match variant; a status message for loading, error and not found <!-- longclaw:item=ck_ff0df501 -->
 - [x] App imports all of the above from Ledger; Redesign.jsx deleted; a test fails if the app re-implements them <!-- longclaw:item=ck_80bdec02 -->
 - [x] Redraw the preview cards and the nine ui_kits screens on the new components; delete Header, Chip, SideNav and Footer, and rail.js, which only served SideNav <!-- longclaw:item=ck_cec53698 -->
-- [ ] Re-run design sync, comparing each Claude Design card with the live app before uploading <!-- longclaw:item=ck_a760f206 -->
+- [x] Re-run design sync, comparing each Claude Design card with the live app before uploading <!-- longclaw:item=ck_a760f206 -->
 
 ## Activity
 
@@ -782,4 +782,32 @@ actor:
 ### claude-code commented
 
 Ledger is now the app's source. AppHeader, Toolbar, Sidebar, FilterPanel, ActiveFilters, CardGrid/RowList/StatusMessage moved into packages/design-system; apps/web imports them and Redesign.jsx is gone. Card and EditionBar defaults are the app's (no tags, source + counts at the bottom; toolbar date picker). List rows put the source over its counts from 560px row width (container query). Header, Chip, SideNav, Footer and rail.js deleted; preview cards (shell, sidebar, feed) and the nine ui_kits screens redrawn on the new components. Decision: the Sidebar's selected category keeps its gradient and soft shadow, written into the design-system rule, readme and extending-ledger as the one exception besides popovers. Verified: 74 app states show 0 significant computed-style differences; all 28 Ledger pages render from a source-built bundle.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_52d69167
+kind: update
+occurred_at: 2026-11-02T13:30:34.559Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_a760f206.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_b01d50c7
+kind: comment
+occurred_at: 2026-11-02T13:30:34.581Z
+actor:
+  type: agent
+  id: claude-code
+-->
+### claude-code commented
+
+Design sync re-run from PR #47 into 'aiBytes_ App Design System': 112 files uploaded, 17 obsolete files deleted (Header, Chip, SideNav, Footer, the three old cards, screens 06-saved and 09-headers-auth). Claude Design recompiles the bundle on next open.
 <!-- /longclaw:event -->
