@@ -1,0 +1,101 @@
+{
+  "date": "2026-11-02",
+  "items": {
+    "ph-clawsgo-science-2026-11-02": {
+      "summary": "Research agent that runs clusters of Claude and GPT agents for days against a cloud lab of 500+ tools and 90+ datasets, then writes the result up as a cited paper.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-riverside-agents-2-2026-11-02": {
+      "summary": "Four role agents inside Riverside - Producer, Editor, Clipper, Marketer - prep sessions, cut episodes and social clips, and schedule posts, with nothing published until you approve it.",
+      "tags": ["Agents", "Video", "Launch"]
+    },
+    "ph-embage-2-2026-11-02": {
+      "summary": "Builds customer chat and voice agents for websites and Telegram, with sub-agents over your data and tools, and scores each conversation and extracts structured data from it.",
+      "tags": ["Agents", "Voice / Speech", "Launch"]
+    },
+    "ph-beacon-sh-2026-11-02": {
+      "summary": "Open-source memory layer that captures agent traces from Claude Code, Cursor, Codex, OpenCode and 20+ other harnesses and feeds what was learned into later sessions.",
+      "tags": ["Open Source", "Agents", "Code Gen", "Launch"]
+    },
+    "gh-claude-mem-2026-11-02": {
+      "summary": "Records what an agent does in a session, compresses it with a model, and injects the relevant parts into later sessions - for Claude Code, Codex, Gemini, Copilot and more.",
+      "tags": ["Dev Tool", "Agents", "Claude Code"]
+    },
+    "gh-claude-code-game-studios-2026-11-02": {
+      "summary": "Claude Code setup of 49 agents and 72 workflow skills arranged in a game-studio hierarchy, with a coordination system for running game development as a team of roles.",
+      "tags": ["Agents", "Code Gen", "Claude Code"]
+    },
+    "gh-skills-2026-11-02": {
+      "summary": "Matt Pocock's personal collection of agent skills for engineering work, published straight from his .agents directory as shell-based skill files.",
+      "tags": ["Dev Tool", "Agents", "Code Gen"]
+    },
+    "gh-kronos-2026-11-02": {
+      "summary": "Python foundation model that treats financial market data as a language to be modelled, released as open code.",
+      "tags": ["Model Release", "Open Source"]
+    },
+    "gh-kornia-2026-11-02": {
+      "summary": "Python library of geometric computer vision operations for spatial AI work.",
+      "tags": ["Framework", "Vision"]
+    },
+    "gh-heretic-2026-11-02": {
+      "summary": "Python tool that edits a language model's behaviour without training - removing refusals, suppressing slop, and reducing sycophancy.",
+      "tags": ["Dev Tool", "LLM", "Safety"]
+    },
+    "gh-nanochat-2026-11-02": {
+      "summary": "Andrej Karpathy's Python project for building your own ChatGPT-style model on a $100 budget.",
+      "tags": ["Open Source", "LLM", "Tutorial"]
+    },
+    "gh-worktrunk-2026-11-02": {
+      "summary": "Rust CLI that creates, switches, and cleans up Git worktrees so several coding agents can work on separate branches of one repo in parallel.",
+      "tags": ["Dev Tool", "Agents", "Code Gen"]
+    },
+    "tc-openai-might-rebrand-its-data-centers-as-ai-2026-11-02": {
+      "summary": "TechCrunch reports OpenAI is weighing a new name for its facilities as local opposition to data center construction grows.",
+      "tags": ["OpenAI", "Policy"]
+    },
+    "tc-ai-can-make-tech-ceos-lives-easier-what-about-2026-11-02": {
+      "summary": "An Equity podcast episode on why tech CEOs' public statements about AI land as tone deaf with people outside the industry.",
+      "tags": ["Policy"]
+    },
+    "hn-the-ai-cost-of-javascript-frameworks-2026-11-02": {
+      "summary": "Essay on Nolan Lawson's blog weighing what JavaScript framework choice costs when AI is writing and reading the code.",
+      "tags": ["Code Gen", "Deep Dive"]
+    },
+    "hn-brazilian-court-sanctions-lawyers-for-prompt-2026-11-02": {
+      "summary": "Jetstream Security writeup of a Brazilian ruling that penalised lawyers for hiding prompt injection in a filing aimed at AI tools reading it.",
+      "tags": ["Security", "Legal", "LLM"]
+    },
+    "hn-ai-delivers-zero-financial-payoff-to-most-2026-11-02": {
+      "summary": "TechCrunch report on an Apollo economist's finding that most companies adopting AI see no measurable financial return yet.",
+      "tags": ["LLM"]
+    },
+    "hn-ai-agent-swarms-in-minecraft-fail-to-build-2026-11-02": {
+      "summary": "Tom's Hardware on an experiment where 50-agent teams in Minecraft stalled in coordination overhead instead of building a functioning settlement.",
+      "tags": ["Agents", "Eval"]
+    },
+    "hn-it-wasn-t-ai-that-flipped-proton-s-charge-2026-11-02": {
+      "summary": "Blog post arguing AI was not the cause of Proton's reversal, and pushing back on the reasoning that blamed it.",
+      "tags": ["LLM"]
+    },
+    "hn-ai-fan-wikis-riddled-with-errors-are-muddying-2026-11-02": {
+      "summary": "Eurogamer on AI-generated game wikis publishing wrong information that then competes with human-written fan resources.",
+      "tags": ["LLM"]
+    },
+    "hn-china-s-first-frontier-ai-export-controls-2026-11-02": {
+      "summary": "Cloud Security Alliance research note breaking down MOFCOM Announcement No. 48, China's first export control rules aimed at frontier AI.",
+      "tags": ["Policy", "Deep Dive"]
+    },
+    "hn-so-i-guess-everyone-uses-llms-to-think-now-2026-11-02": {
+      "summary": "Personal essay on people handing their reasoning over to LLMs, and what the author thinks is lost when they do.",
+      "tags": ["LLM"]
+    },
+    "hn-i-am-the-reason-openai-is-killing-unlimited-2026-11-02": {
+      "summary": "First-person post from a heavy ChatGPT user tying their own usage to OpenAI ending unlimited chats.",
+      "tags": ["OpenAI", "Pricing"]
+    },
+    "hn-muse-ai-agent-is-a-commercial-surveillance-2026-11-02": {
+      "summary": "Substack essay arguing Meta's Muse assistant is built to collect commercial data on its users rather than to serve them.",
+      "tags": ["Meta", "Privacy", "Agents"]
+    }
+  }
+}

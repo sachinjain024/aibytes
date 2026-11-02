@@ -1,0 +1,640 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "generated_at": "2026-11-02T13:23:25Z",
+  "counts": {
+    "launches": 4,
+    "repos": 8,
+    "news": 2,
+    "hn": 10
+  },
+  "items": [
+    {
+      "id": "ph-clawsgo-science-2026-11-02",
+      "title": "ClawsGO Science",
+      "summary": "Research agent that runs clusters of Claude and GPT agents for days against a cloud lab of 500+ tools and 90+ datasets, then writes the result up as a cited paper.",
+      "url": "https://www.producthunt.com/products/clawsgo-science",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/clawsgo-science",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/bda34c61-f870-4fb7-ab6d-1085e7e59446.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 274,
+        "comments": 57
+      },
+      "published_at": "2026-11-01T07:01:00Z",
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "ph-riverside-agents-2-2026-11-02",
+      "title": "Riverside Agents",
+      "summary": "Four role agents inside Riverside - Producer, Editor, Clipper, Marketer - prep sessions, cut episodes and social clips, and schedule posts, with nothing published until you approve it.",
+      "url": "https://www.producthunt.com/products/riverside-fm",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/riverside-fm",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Video",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/0e174364-8fd4-4379-a58f-707e6c3f63ea.jpeg?auto=format"
+      },
+      "signals": {
+        "upvotes": 217,
+        "comments": 9
+      },
+      "published_at": "2026-11-01T07:01:00Z",
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "id": "ph-embage-2-2026-11-02",
+      "title": "Embage",
+      "summary": "Builds customer chat and voice agents for websites and Telegram, with sub-agents over your data and tools, and scores each conversation and extracts structured data from it.",
+      "url": "https://www.producthunt.com/products/embage",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/embage",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Voice / Speech",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/8fabac51-f32a-40b1-87b4-637a666e1d54.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 168,
+        "comments": 11
+      },
+      "published_at": "2026-11-01T07:01:00Z",
+      "hidden": false,
+      "rank": 16
+    },
+    {
+      "id": "ph-beacon-sh-2026-11-02",
+      "title": "beacon.sh",
+      "summary": "Open-source memory layer that captures agent traces from Claude Code, Cursor, Codex, OpenCode and 20+ other harnesses and feeds what was learned into later sessions.",
+      "url": "https://www.producthunt.com/products/asymptotelabs",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/asymptotelabs",
+      "category": "launches",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Code Gen",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/6d868f52-320c-40d2-b20d-ce28773f8ff5.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 158,
+        "comments": 33
+      },
+      "published_at": "2026-11-02T08:01:00Z",
+      "hidden": false,
+      "rank": 21
+    },
+    {
+      "id": "gh-claude-mem-2026-11-02",
+      "title": "thedotmack/claude-mem",
+      "summary": "Records what an agent does in a session, compresses it with a model, and injects the relevant parts into later sessions - for Claude Code, Codex, Gemini, Copilot and more.",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source": "github",
+      "source_url": "https://github.com/thedotmack/claude-mem",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Claude Code"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/thedotmack.png?size=80"
+      },
+      "signals": {
+        "stars": 110276,
+        "stars_gained": 1799,
+        "forks": 9619
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "gh-claude-code-game-studios-2026-11-02",
+      "title": "Donchitos/Claude-Code-Game-Studios",
+      "summary": "Claude Code setup of 49 agents and 72 workflow skills arranged in a game-studio hierarchy, with a coordination system for running game development as a team of roles.",
+      "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+      "source": "github",
+      "source_url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+      "category": "repos",
+      "tags": [
+        "Agents",
+        "Code Gen",
+        "Claude Code"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Donchitos.png?size=80"
+      },
+      "signals": {
+        "stars": 33045,
+        "stars_gained": 1380,
+        "forks": 4473
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "gh-skills-2026-11-02",
+      "title": "mattpocock/skills",
+      "summary": "Matt Pocock's personal collection of agent skills for engineering work, published straight from his .agents directory as shell-based skill files.",
+      "url": "https://github.com/mattpocock/skills",
+      "source": "github",
+      "source_url": "https://github.com/mattpocock/skills",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Code Gen"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mattpocock.png?size=80"
+      },
+      "signals": {
+        "stars": 309764,
+        "stars_gained": 970,
+        "forks": 26062
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "id": "gh-kronos-2026-11-02",
+      "title": "shiyu-coder/Kronos",
+      "summary": "Python foundation model that treats financial market data as a language to be modelled, released as open code.",
+      "url": "https://github.com/shiyu-coder/Kronos",
+      "source": "github",
+      "source_url": "https://github.com/shiyu-coder/Kronos",
+      "category": "repos",
+      "tags": [
+        "Model Release",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/shiyu-coder.png?size=80"
+      },
+      "signals": {
+        "stars": 45765,
+        "stars_gained": 855,
+        "forks": 7542
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 11
+    },
+    {
+      "id": "gh-kornia-2026-11-02",
+      "title": "kornia/kornia",
+      "summary": "Python library of geometric computer vision operations for spatial AI work.",
+      "url": "https://github.com/kornia/kornia",
+      "source": "github",
+      "source_url": "https://github.com/kornia/kornia",
+      "category": "repos",
+      "tags": [
+        "Framework",
+        "Vision"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/kornia.png?size=80"
+      },
+      "signals": {
+        "stars": 12008,
+        "stars_gained": 412,
+        "forks": 1482
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 13
+    },
+    {
+      "id": "gh-heretic-2026-11-02",
+      "title": "p-e-w/heretic",
+      "summary": "Python tool that edits a language model's behaviour without training - removing refusals, suppressing slop, and reducing sycophancy.",
+      "url": "https://github.com/p-e-w/heretic",
+      "source": "github",
+      "source_url": "https://github.com/p-e-w/heretic",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "LLM",
+        "Safety"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/p-e-w.png?size=80"
+      },
+      "signals": {
+        "stars": 37816,
+        "stars_gained": 404,
+        "forks": 4306
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 18
+    },
+    {
+      "id": "gh-nanochat-2026-11-02",
+      "title": "karpathy/nanochat",
+      "summary": "Andrej Karpathy's Python project for building your own ChatGPT-style model on a $100 budget.",
+      "url": "https://github.com/karpathy/nanochat",
+      "source": "github",
+      "source_url": "https://github.com/karpathy/nanochat",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "LLM",
+        "Tutorial"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/karpathy.png?size=80"
+      },
+      "signals": {
+        "stars": 59650,
+        "stars_gained": 325,
+        "forks": 8388
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 20
+    },
+    {
+      "id": "gh-worktrunk-2026-11-02",
+      "title": "max-sixty/worktrunk",
+      "summary": "Rust CLI that creates, switches, and cleans up Git worktrees so several coding agents can work on separate branches of one repo in parallel.",
+      "url": "https://github.com/max-sixty/worktrunk",
+      "source": "github",
+      "source_url": "https://github.com/max-sixty/worktrunk",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Code Gen"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/max-sixty.png?size=80"
+      },
+      "signals": {
+        "stars": 9848,
+        "stars_gained": 115,
+        "forks": 349
+      },
+      "meta": {
+        "language": "Rust"
+      },
+      "hidden": false,
+      "rank": 23
+    },
+    {
+      "id": "tc-openai-might-rebrand-its-data-centers-as-ai-2026-11-02",
+      "title": "OpenAI might rebrand its data centers as ‘AI compute campuses’",
+      "summary": "TechCrunch reports OpenAI is weighing a new name for its facilities as local opposition to data center construction grows.",
+      "url": "https://techcrunch.com/2026/11/01/openai-might-rebrand-its-data-centers-as-ai-compute-campuses/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/01/openai-might-rebrand-its-data-centers-as-ai-compute-campuses/",
+      "category": "news",
+      "tags": [
+        "OpenAI",
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/08/GettyImages-2283113936-maller.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Anthony Ha",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-01T21:55:23Z",
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "tc-ai-can-make-tech-ceos-lives-easier-what-about-2026-11-02",
+      "title": "AI can make tech CEOs’ lives easier. What about everyone else?",
+      "summary": "An Equity podcast episode on why tech CEOs' public statements about AI land as tone deaf with people outside the industry.",
+      "url": "https://techcrunch.com/2026/11/01/ai-can-make-tech-ceos-lives-easier-what-about-everyone-else/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/01/ai-can-make-tech-ceos-lives-easier-what-about-everyone-else/",
+      "category": "news",
+      "tags": [
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-1481617564.jpg?resize=1200,680"
+      },
+      "meta": {
+        "author": "Anthony Ha",
+        "reading_time": "7 minutes"
+      },
+      "published_at": "2026-11-01T20:57:58Z",
+      "hidden": false,
+      "rank": 15
+    },
+    {
+      "id": "hn-the-ai-cost-of-javascript-frameworks-2026-11-02",
+      "title": "The AI cost of JavaScript frameworks",
+      "summary": "Essay on Nolan Lawson's blog weighing what JavaScript framework choice costs when AI is writing and reading the code.",
+      "url": "https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50323088",
+      "category": "hn",
+      "tags": [
+        "Code Gen",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 399,
+        "comments": 305
+      },
+      "meta": {
+        "author": "luu"
+      },
+      "published_at": "2026-11-01T06:06:19Z",
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "hn-brazilian-court-sanctions-lawyers-for-prompt-2026-11-02",
+      "title": "Brazilian Court Sanctions Lawyers for Prompt Injection in Court Filing",
+      "summary": "Jetstream Security writeup of a Brazilian ruling that penalised lawyers for hiding prompt injection in a filing aimed at AI tools reading it.",
+      "url": "https://jetstream.security/insights/brazilian-court-sanctions-prompt-injection-filing/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50322173",
+      "category": "hn",
+      "tags": [
+        "Security",
+        "Legal",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 331,
+        "comments": 210
+      },
+      "meta": {
+        "author": "doodlesdev"
+      },
+      "published_at": "2026-11-01T02:19:53Z",
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "hn-ai-delivers-zero-financial-payoff-to-most-2026-11-02",
+      "title": "AI delivers 'zero financial payoff' to most companies, Apollo economist says",
+      "summary": "TechCrunch report on an Apollo economist's finding that most companies adopting AI see no measurable financial return yet.",
+      "url": "https://techcrunch.com/2026/10/25/ai-delivers-zero-financial-payoff-to-most-companies-according-to-apollo-economist/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50330456",
+      "category": "hn",
+      "tags": [
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 230,
+        "comments": 230
+      },
+      "meta": {
+        "author": "throwoutway"
+      },
+      "published_at": "2026-11-01T22:10:45Z",
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "hn-ai-agent-swarms-in-minecraft-fail-to-build-2026-11-02",
+      "title": "AI agent swarms in Minecraft fail to build civilization, drown in bureaucracy",
+      "summary": "Tom's Hardware on an experiment where 50-agent teams in Minecraft stalled in coordination overhead instead of building a functioning settlement.",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-agent-swarms-unleashed-in-minecraft-to-build-a-thriving-civilization-50-agent-teams-fail-after-falling-into-paralyzing-bureaucracy",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50325662",
+      "category": "hn",
+      "tags": [
+        "Agents",
+        "Eval"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 173,
+        "comments": 84
+      },
+      "meta": {
+        "author": "entryleveljobsc"
+      },
+      "published_at": "2026-11-01T13:47:24Z",
+      "hidden": false,
+      "rank": 10
+    },
+    {
+      "id": "hn-it-wasn-t-ai-that-flipped-proton-s-charge-2026-11-02",
+      "title": "It wasn't AI that flipped Proton's charge",
+      "summary": "Blog post arguing AI was not the cause of Proton's reversal, and pushing back on the reasoning that blamed it.",
+      "url": "https://blog.raed.dev/posts/proton-loser-thinking/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50328488",
+      "category": "hn",
+      "tags": [
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 160,
+        "comments": 93
+      },
+      "meta": {
+        "author": "Raed667"
+      },
+      "published_at": "2026-11-01T18:53:55Z",
+      "hidden": false,
+      "rank": 12
+    },
+    {
+      "id": "hn-ai-fan-wikis-riddled-with-errors-are-muddying-2026-11-02",
+      "title": "AI fan wikis riddled with errors are muddying the waters of games culture",
+      "summary": "Eurogamer on AI-generated game wikis publishing wrong information that then competes with human-written fan resources.",
+      "url": "https://www.eurogamer.net/ai-fan-wikis-errors-complicating-games-culture",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50332086",
+      "category": "hn",
+      "tags": [
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 88,
+        "comments": 82
+      },
+      "meta": {
+        "author": "rdmuser"
+      },
+      "published_at": "2026-11-02T01:47:07Z",
+      "hidden": false,
+      "rank": 14
+    },
+    {
+      "id": "hn-china-s-first-frontier-ai-export-controls-2026-11-02",
+      "title": "China's First Frontier AI Export Controls: Mofcom Announcement No. 48",
+      "summary": "Cloud Security Alliance research note breaking down MOFCOM Announcement No. 48, China's first export control rules aimed at frontier AI.",
+      "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-china-ai-export-controls-announcement-48-2/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50334038",
+      "category": "hn",
+      "tags": [
+        "Policy",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 82,
+        "comments": 50
+      },
+      "meta": {
+        "author": "jonnybgood"
+      },
+      "published_at": "2026-11-02T07:27:28Z",
+      "hidden": false,
+      "rank": 17
+    },
+    {
+      "id": "hn-so-i-guess-everyone-uses-llms-to-think-now-2026-11-02",
+      "title": "So I guess everyone uses LLMs to think now",
+      "summary": "Personal essay on people handing their reasoning over to LLMs, and what the author thinks is lost when they do.",
+      "url": "https://eva.ac/blog/llms/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50330253",
+      "category": "hn",
+      "tags": [
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 72,
+        "comments": 117
+      },
+      "meta": {
+        "author": "xyzeva"
+      },
+      "published_at": "2026-11-01T21:49:04Z",
+      "hidden": false,
+      "rank": 19
+    },
+    {
+      "id": "hn-i-am-the-reason-openai-is-killing-unlimited-2026-11-02",
+      "title": "I Am the Reason OpenAI Is Killing Unlimited Chats",
+      "summary": "First-person post from a heavy ChatGPT user tying their own usage to OpenAI ending unlimited chats.",
+      "url": "https://chaosmanage.github.io/i-killed-unlimited-chatgpt/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50327416",
+      "category": "hn",
+      "tags": [
+        "OpenAI",
+        "Pricing"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 72,
+        "comments": 37
+      },
+      "meta": {
+        "author": "gulmothrowaway"
+      },
+      "published_at": "2026-11-01T17:01:34Z",
+      "hidden": false,
+      "rank": 22
+    },
+    {
+      "id": "hn-muse-ai-agent-is-a-commercial-surveillance-2026-11-02",
+      "title": "Muse AI agent is a commercial surveillance network disguised as an AI assistant",
+      "summary": "Substack essay arguing Meta's Muse assistant is built to collect commercial data on its users rather than to serve them.",
+      "url": "https://paulfwalsh.substack.com/p/metas-muse-ai-agent-is-a-commercial",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50328293",
+      "category": "hn",
+      "tags": [
+        "Meta",
+        "Privacy",
+        "Agents"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 53,
+        "comments": 6
+      },
+      "meta": {
+        "author": "Anon84"
+      },
+      "published_at": "2026-11-01T18:33:02Z",
+      "hidden": false,
+      "rank": 24
+    }
+  ]
+}

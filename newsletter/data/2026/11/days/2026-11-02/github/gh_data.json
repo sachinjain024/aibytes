@@ -11,89 +11,80 @@
     "topic": "ai",
     "ranking": "period_stars,total_stars"
   },
-  "totalCount": 9,
-  "poolCount": 17,
+  "totalCount": 8,
+  "poolCount": 15,
   "repos": [
     {
       "name": "thedotmack/claude-mem",
       "url": "https://github.com/thedotmack/claude-mem",
       "description": "Persistent Context Across Sessions for Every Agent \u2013 Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
       "language": "TypeScript",
-      "stars": 109906,
-      "forks": 9594,
-      "period_stars": 1526
-    },
-    {
-      "name": "patchy631/ai-engineering-hub",
-      "url": "https://github.com/patchy631/ai-engineering-hub",
-      "description": "In-depth tutorials on LLMs, RAGs and real-world AI agent applications.",
-      "language": "Jupyter Notebook",
-      "stars": 40641,
-      "forks": 6517,
-      "period_stars": 1191
+      "stars": 110276,
+      "forks": 9619,
+      "period_stars": 1799
     },
     {
       "name": "Donchitos/Claude-Code-Game-Studios",
       "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
       "description": "Turn Claude Code into a full game dev studio \u2014 49 AI agents, 72 workflow skills, and a complete coordination system mirroring real studio hierarchy.",
       "language": "Shell",
-      "stars": 32763,
-      "forks": 4447,
-      "period_stars": 967
+      "stars": 33045,
+      "forks": 4473,
+      "period_stars": 1380
     },
     {
-      "name": "milind-soni/OpenMausBot",
-      "url": "https://github.com/milind-soni/OpenMausBot",
-      "description": "Open-source Grok Bot alternative with a virtual machine that bots can use",
-      "language": "TypeScript",
-      "stars": 10873,
-      "forks": 1484,
-      "period_stars": 922
-    },
-    {
-      "name": "lightpanda-io/browser",
-      "url": "https://github.com/lightpanda-io/browser",
-      "description": "Lightpanda: the headless browser designed for AI and automation",
-      "language": "Zig",
-      "stars": 40565,
-      "forks": 1980,
-      "period_stars": 825
+      "name": "mattpocock/skills",
+      "url": "https://github.com/mattpocock/skills",
+      "description": "Skills for Real Engineers. Straight from my .agents directory.",
+      "language": "Shell",
+      "stars": 309764,
+      "forks": 26062,
+      "period_stars": 970
     },
     {
       "name": "shiyu-coder/Kronos",
       "url": "https://github.com/shiyu-coder/Kronos",
       "description": "Kronos: A Foundation Model for the Language of Financial Markets",
       "language": "Python",
-      "stars": 45632,
-      "forks": 7530,
-      "period_stars": 630
-    },
-    {
-      "name": "beenuar/AiSOC",
-      "url": "https://github.com/beenuar/AiSOC",
-      "description": "Open-source AI Security Operations Center: alert fusion, LLM-agent triage, MITRE ATT&CK investigation, and a replayable decision ledger for every agent step. Self-hostable, runs with no API keys, MIT licensed. Ships an MCP server for Claude, Cursor and Continue.",
-      "language": "Python",
-      "stars": 6450,
-      "forks": 660,
-      "period_stars": 446
-    },
-    {
-      "name": "CopilotKit/OpenBot",
-      "url": "https://github.com/CopilotKit/OpenBot",
-      "description": "Open-source AI coworkers that each get a computer of their own: a browser, files and tools, with every action decided before it happens and recorded after. Bring any AG-UI agent.",
-      "language": "TypeScript",
-      "stars": 9731,
-      "forks": 1200,
-      "period_stars": 175
+      "stars": 45765,
+      "forks": 7542,
+      "period_stars": 855
     },
     {
       "name": "kornia/kornia",
       "url": "https://github.com/kornia/kornia",
       "description": "\ud83d\udc0d Geometric Computer Vision Library for Spatial AI",
       "language": "Python",
-      "stars": 11927,
-      "forks": 1476,
-      "period_stars": 101
+      "stars": 12008,
+      "forks": 1482,
+      "period_stars": 412
+    },
+    {
+      "name": "p-e-w/heretic",
+      "url": "https://github.com/p-e-w/heretic",
+      "description": "Training-free language model modification: Remove censorship, suppress slop, reduce sycophancy, and more",
+      "language": "Python",
+      "stars": 37816,
+      "forks": 4306,
+      "period_stars": 404
+    },
+    {
+      "name": "karpathy/nanochat",
+      "url": "https://github.com/karpathy/nanochat",
+      "description": "The best ChatGPT that $100 can buy.",
+      "language": "Python",
+      "stars": 59650,
+      "forks": 8388,
+      "period_stars": 325
+    },
+    {
+      "name": "max-sixty/worktrunk",
+      "url": "https://github.com/max-sixty/worktrunk",
+      "description": "Worktrunk is a CLI for Git worktree management, designed for parallel AI agent workflows",
+      "language": "Rust",
+      "stars": 9848,
+      "forks": 349,
+      "period_stars": 115
     }
   ]
 }
