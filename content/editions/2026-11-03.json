@@ -1,0 +1,878 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-03",
+  "generated_at": "2026-11-03T08:01:17Z",
+  "counts": {
+    "launches": 5,
+    "repos": 9,
+    "news": 10,
+    "hn": 10
+  },
+  "items": [
+    {
+      "id": "ph-beacon-sh-2026-11-03",
+      "title": "beacon.sh",
+      "summary": "Open-source memory layer that captures agent traces from Claude Code, Cursor, Codex, OpenCode and 20+ other harnesses and reuses them as shared knowledge for later sessions.",
+      "url": "https://www.producthunt.com/products/asymptotelabs",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/asymptotelabs",
+      "category": "launches",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Dev Tool",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/6d868f52-320c-40d2-b20d-ce28773f8ff5.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 404,
+        "comments": 77
+      },
+      "published_at": "2026-11-02T08:01:00Z",
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "ph-unleashx-2026-11-03",
+      "title": "UnleashX",
+      "summary": "Role-based AI agents that connect to your CRM and tools, follow rules you set, and run workflows end to end, handing off to a human only when needed.",
+      "url": "https://www.producthunt.com/products/unleashx",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/unleashx",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/19bed977-5274-4ae2-9034-fab438a25eaa.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 331,
+        "comments": 109
+      },
+      "published_at": "2026-11-02T08:01:00Z",
+      "hidden": false,
+      "rank": 10
+    },
+    {
+      "id": "ph-xmind-2027-2026-11-03",
+      "title": "Xmind 2027",
+      "summary": "Mind-mapping app adds an agent that researches over your local documents and maps, plus an MCP server that exposes the same map context to ChatGPT and Claude.",
+      "url": "https://www.producthunt.com/products/xmind",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/xmind",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "MCP",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/e38df7cb-67e1-4713-9837-1a78121307d8.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 304,
+        "comments": 49
+      },
+      "published_at": "2026-11-02T08:01:00Z",
+      "hidden": false,
+      "rank": 17
+    },
+    {
+      "id": "ph-cedric-ai-for-meetings-2026-11-03",
+      "title": "Cedric AI for Meetings",
+      "summary": "Meeting agent that joins Zoom, Meet or Teams calls, presents your slides, answers questions from your connected tools, then drafts notes and follow-ups for approval.",
+      "url": "https://www.producthunt.com/products/cedric",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/cedric",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Voice / Speech",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/69d303d3-67c8-4ef1-9d36-fc7c597ace1b.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 231,
+        "comments": 29
+      },
+      "published_at": "2026-11-02T08:01:00Z",
+      "hidden": false,
+      "rank": 24
+    },
+    {
+      "id": "ph-hera-8-2026-11-03",
+      "title": "Hera",
+      "summary": "Canvas that runs several image and animation agents in parallel with editable layers, pulls a brand kit from your website, and resizes ads into every format on one board.",
+      "url": "https://www.producthunt.com/products/hera-6",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/hera-6",
+      "category": "launches",
+      "tags": [
+        "Image Gen",
+        "Video",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/328a9988-e1a7-4452-ab6d-a87977934629.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 207,
+        "comments": 33
+      },
+      "published_at": "2026-11-02T08:01:00Z",
+      "hidden": false,
+      "rank": 31
+    },
+    {
+      "id": "gh-agent-desktop-2026-11-03",
+      "title": "vercel-labs/agent-desktop",
+      "summary": "Rust command-line tool from Vercel Labs that gives AI agents computer-use control of the desktop.",
+      "url": "https://github.com/vercel-labs/agent-desktop",
+      "source": "github",
+      "source_url": "https://github.com/vercel-labs/agent-desktop",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Dev Tool"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/vercel-labs.png?size=80"
+      },
+      "signals": {
+        "stars": 10960,
+        "stars_gained": 2275,
+        "forks": 740
+      },
+      "meta": {
+        "language": "Rust"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "gh-claude-mem-2026-11-03",
+      "title": "thedotmack/claude-mem",
+      "summary": "TypeScript plugin that records agent sessions, compresses them with a model, and injects the relevant context into later sessions across Claude Code, Codex, Gemini, Copilot and others.",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source": "github",
+      "source_url": "https://github.com/thedotmack/claude-mem",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Claude Code"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/thedotmack.png?size=80"
+      },
+      "signals": {
+        "stars": 111096,
+        "stars_gained": 1803,
+        "forks": 9683
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "gh-claude-code-game-studios-2026-11-03",
+      "title": "Donchitos/Claude-Code-Game-Studios",
+      "summary": "Shell-based Claude Code setup with 49 agents and 72 workflow skills arranged in a studio-style hierarchy for coordinating game development.",
+      "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+      "source": "github",
+      "source_url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Claude Code"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Donchitos.png?size=80"
+      },
+      "signals": {
+        "stars": 33939,
+        "stars_gained": 1379,
+        "forks": 4546
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 11
+    },
+    {
+      "id": "gh-skills-2026-11-03",
+      "title": "mattpocock/skills",
+      "summary": "Matt Pocock's personal collection of agent skills, published straight from his .agents directory.",
+      "url": "https://github.com/mattpocock/skills",
+      "source": "github",
+      "source_url": "https://github.com/mattpocock/skills",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Code Gen"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mattpocock.png?size=80"
+      },
+      "signals": {
+        "stars": 310584,
+        "stars_gained": 858,
+        "forks": 26128
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 14
+    },
+    {
+      "id": "gh-kronos-2026-11-03",
+      "title": "shiyu-coder/Kronos",
+      "summary": "Python foundation model trained to treat financial market data as a language.",
+      "url": "https://github.com/shiyu-coder/Kronos",
+      "source": "github",
+      "source_url": "https://github.com/shiyu-coder/Kronos",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Model Release"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/shiyu-coder.png?size=80"
+      },
+      "signals": {
+        "stars": 46140,
+        "stars_gained": 857,
+        "forks": 7603
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 18
+    },
+    {
+      "id": "gh-heretic-2026-11-03",
+      "title": "p-e-w/heretic",
+      "summary": "Python tool that edits a language model without retraining to remove refusals, reduce sycophancy and suppress formulaic output.",
+      "url": "https://github.com/p-e-w/heretic",
+      "source": "github",
+      "source_url": "https://github.com/p-e-w/heretic",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "LLM",
+        "Safety"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/p-e-w.png?size=80"
+      },
+      "signals": {
+        "stars": 38310,
+        "stars_gained": 420,
+        "forks": 4339
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 21
+    },
+    {
+      "id": "gh-kornia-2026-11-03",
+      "title": "kornia/kornia",
+      "summary": "Python library of geometric computer vision operations for spatial AI work.",
+      "url": "https://github.com/kornia/kornia",
+      "source": "github",
+      "source_url": "https://github.com/kornia/kornia",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Framework",
+        "Vision"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/kornia.png?size=80"
+      },
+      "signals": {
+        "stars": 12241,
+        "stars_gained": 412,
+        "forks": 1503
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 25
+    },
+    {
+      "id": "gh-nanochat-2026-11-03",
+      "title": "karpathy/nanochat",
+      "summary": "Andrej Karpathy's Python project for building a small ChatGPT-style model on a budget of about $100.",
+      "url": "https://github.com/karpathy/nanochat",
+      "source": "github",
+      "source_url": "https://github.com/karpathy/nanochat",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "LLM",
+        "Tutorial"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/karpathy.png?size=80"
+      },
+      "signals": {
+        "stars": 60066,
+        "stars_gained": 321,
+        "forks": 8425
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 28
+    },
+    {
+      "id": "gh-worktrunk-2026-11-03",
+      "title": "max-sixty/worktrunk",
+      "summary": "Rust CLI for managing Git worktrees so several AI agents can work on the same repo in parallel.",
+      "url": "https://github.com/max-sixty/worktrunk",
+      "source": "github",
+      "source_url": "https://github.com/max-sixty/worktrunk",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Dev Tool",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/max-sixty.png?size=80"
+      },
+      "signals": {
+        "stars": 10171,
+        "stars_gained": 77,
+        "forks": 368
+      },
+      "meta": {
+        "language": "Rust"
+      },
+      "hidden": false,
+      "rank": 32
+    },
+    {
+      "id": "tc-web-host-squarespace-lays-off-19-of-its-2026-11-03",
+      "title": "Web host Squarespace lays off 19% of its employees",
+      "summary": "The website builder says the cuts are part of a broader restructuring of the company.",
+      "url": "https://techcrunch.com/2026/11/02/web-host-squarespace-lays-off-19-of-its-employees/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/02/web-host-squarespace-lays-off-19-of-its-employees/",
+      "category": "news",
+      "tags": [
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2024/10/F064_Q324_Refresh_Product_BlueprintPersonalityStep_Press_1920x1080-Logo.jpg?resize=1200,675"
+      },
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-02T19:25:59Z",
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "tc-anthropic-warns-that-its-very-close-to-rsi-2026-11-03",
+      "title": "Anthropic warns that it’s very close to RSI capability, aka self-building AI",
+      "summary": "RSI, recursive self-improvement, is the point where AI trains itself well enough to sharply accelerate its own capabilities, long treated as a worst case by AI risk researchers.",
+      "url": "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/",
+      "category": "news",
+      "tags": [
+        "Anthropic",
+        "Safety"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Recursive-Neural-Spiral-in-Circuitry.png?resize=1200,600"
+      },
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-02T22:14:50Z",
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "tc-elon-musk-throttles-grok-bot-limits-due-to-2026-11-03",
+      "title": "Elon Musk throttles Grok Bot limits due to ‘unsustainably high’ costs",
+      "summary": "xAI cuts usage limits on Grok Bot over compute costs, shortly after Musk called it the fastest-growing product he had ever seen.",
+      "url": "https://techcrunch.com/2026/11/02/elon-musk-throttles-grok-bot-limits-due-to-unsustainably-high-costs/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/02/elon-musk-throttles-grok-bot-limits-due-to-unsustainably-high-costs/",
+      "category": "news",
+      "tags": [
+        "xAI",
+        "Pricing"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/03/grok-getty.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-02T16:23:21Z",
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "id": "tc-new-york-times-and-other-outlets-sue-web-2026-11-03",
+      "title": "New York Times and other outlets sue web browser Brave over alleged content scraping",
+      "summary": "The suit says Brave scraped copyrighted articles and resold them to its own customers, naming Anthropic and Perplexity among them.",
+      "url": "https://techcrunch.com/2026/11/02/new-york-times-and-other-outlets-sue-web-browser-brave-over-alleged-content-scraping/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/02/new-york-times-and-other-outlets-sue-web-browser-brave-over-alleged-content-scraping/",
+      "category": "news",
+      "tags": [
+        "Legal"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2024/08/brave-browser.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-02T19:19:17Z",
+      "hidden": false,
+      "rank": 13
+    },
+    {
+      "id": "tc-y-combinators-garry-tan-uses-ai-agents-so-much-2026-11-03",
+      "title": "Y Combinator’s Garry Tan uses AI agents so much, he spends up to $200K a year on tokens",
+      "summary": "On Walter Isaacson's podcast The Builders, the YC president put a price on his agent habit and joked about the sleep it costs him.",
+      "url": "https://techcrunch.com/2026/11/02/y-combinators-garry-tan-uses-ai-agents-so-much-he-spends-up-to-200k-a-year-on-tokens/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/02/y-combinators-garry-tan-uses-ai-agents-so-much-he-spends-up-to-200k-a-year-on-tokens/",
+      "category": "news",
+      "tags": [
+        "Agents"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/03/garry-tan-sxsw-getty.jpg?resize=1200,801"
+      },
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-03T00:35:52Z",
+      "hidden": false,
+      "rank": 16
+    },
+    {
+      "id": "tc-apple-watchs-ai-features-for-rewinding-and-2026-11-03",
+      "title": "Apple Watch’s AI features for rewinding and recapping conversations begin beta testing",
+      "summary": "Apple's Audio Intelligence features enter beta on the Watch, letting it recall what someone said and take notes on a conversation.",
+      "url": "https://techcrunch.com/2026/11/02/apple-watchs-ai-features-for-rewinding-and-recapping-conversations-begin-beta-testing/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/02/apple-watchs-ai-features-for-rewinding-and-recapping-conversations-begin-beta-testing/",
+      "category": "news",
+      "tags": [
+        "Apple",
+        "Voice / Speech"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/live-rewind-restaurant.jpg?resize=1200,669"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "6 minutes"
+      },
+      "published_at": "2026-11-03T07:20:00Z",
+      "hidden": false,
+      "rank": 20
+    },
+    {
+      "id": "tc-google-takes-dreambeans-to-india-in-bid-to-2026-11-03",
+      "title": "Google takes Dreambeans to India in bid to bring AI-generated personal stories to the masses",
+      "summary": "Google's AI story-generation experiment now supports 13 Indian languages.",
+      "url": "https://techcrunch.com/2026/11/02/google-takes-dreambeans-to-india-in-bid-to-bring-ai-generated-personal-stories-to-the-masses/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/02/google-takes-dreambeans-to-india-in-bid-to-bring-ai-generated-personal-stories-to-the-masses/",
+      "category": "news",
+      "tags": [
+        "Google",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/google-dreambeans.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Jagmeet Singh",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-03T03:30:00Z",
+      "hidden": false,
+      "rank": 23
+    },
+    {
+      "id": "tc-apple-may-try-to-increase-revenue-by-doing-2026-11-03",
+      "title": "Apple may try to increase revenue by doing…something with third-party AI apps",
+      "summary": "On its Monday earnings call Apple hinted at revenue \"opportunities\" from third-party AI apps without saying what they would be.",
+      "url": "https://techcrunch.com/2026/11/02/apple-may-try-to-increase-revenue-by-doing-something-with-third-party-ai-apps/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/02/apple-may-try-to-increase-revenue-by-doing-something-with-third-party-ai-apps/",
+      "category": "news",
+      "tags": [
+        "Apple"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-2302418320.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-03T01:49:52Z",
+      "hidden": false,
+      "rank": 27
+    },
+    {
+      "id": "tc-trajectory-raises-45m-to-make-ai-model-training-2026-11-03",
+      "title": "Trajectory raises $45M to make AI model training accessible to nontechnical experts",
+      "summary": "The one-year-old startup is now valued at $300 million.",
+      "url": "https://techcrunch.com/2026/11/02/trajectory-raises-45m-to-make-ai-model-training-accessible-to-nontechnical-experts/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/02/trajectory-raises-45m-to-make-ai-model-training-accessible-to-nontechnical-experts/",
+      "category": "news",
+      "tags": [
+        "Funding",
+        "Fine-tuning"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Trajectory_3.jpg?resize=1200,900"
+      },
+      "meta": {
+        "author": "Marina Temkin",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-02T23:13:53Z",
+      "hidden": false,
+      "rank": 30
+    },
+    {
+      "id": "tc-42ai-comes-out-of-stealth-with-62-5m-and-a-2026-11-03",
+      "title": "42AI comes out of stealth with $62.5M and a world model that can ‘predict human behavior’",
+      "summary": "The startup's world model aims to forecast what a person will do before they decide, including in situations it has not seen.",
+      "url": "https://techcrunch.com/2026/11/02/42ai-comes-out-of-stealth-with-62-5m-and-a-world-model-that-can-predict-human-behavior/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/02/42ai-comes-out-of-stealth-with-62-5m-and-a-world-model-that-can-predict-human-behavior/",
+      "category": "news",
+      "tags": [
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/IMG_3572.jpeg?resize=1200,895"
+      },
+      "meta": {
+        "author": "Ram Iyer",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-11-02T16:30:00Z",
+      "hidden": false,
+      "rank": 34
+    },
+    {
+      "id": "hn-astra-can-read-and-write-weights-to-improve-qwen-2026-11-03",
+      "title": "Astra can read and write weights to improve Qwen",
+      "summary": "Personal blog post on weight-space programming: a system that reads and edits a Qwen model's weights directly to improve it.",
+      "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50341174",
+      "category": "hn",
+      "tags": [
+        "LLM",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 2466,
+        "comments": 772
+      },
+      "meta": {
+        "author": "dbreunig"
+      },
+      "published_at": "2026-11-02T18:21:28Z",
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "hn-the-sec-should-block-anthropic-s-ipo-to-protect-2026-11-03",
+      "title": "The SEC Should Block Anthropic's IPO to Protect the Public",
+      "summary": "Tech Policy Press op-ed arguing regulators should stop the listing, as Anthropic files a revised S-1 reporting $17B in Q3 revenue.",
+      "url": "https://www.techpolicy.press/the-sec-should-block-anthropics-ipo-to-protect-the-public/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50344919",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "Policy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 318,
+        "comments": 235
+      },
+      "meta": {
+        "author": "cdrnsf"
+      },
+      "published_at": "2026-11-02T22:30:47Z",
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "hn-anthropic-s-internal-ai-use-at-retail-prices-2026-11-03",
+      "title": "Anthropic's internal AI use, at retail prices, now exceeds its employee pay",
+      "summary": "Business Insider report that the tokens Anthropic staff consume, priced at Claude's list rates, now cost more than the company's payroll.",
+      "url": "https://www.businessinsider.com/anthropic-claude-internal-ai-use-exceeds-employee-pay-tokens-2026-11",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50339494",
+      "category": "hn",
+      "tags": [
+        "Anthropic"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 317,
+        "comments": 248
+      },
+      "meta": {
+        "author": "entryleveljobsc"
+      },
+      "published_at": "2026-11-02T16:40:29Z",
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "id": "hn-anthropic-reports-17b-in-q3-revenue-commitments-2026-11-03",
+      "title": "Anthropic reports $17B in Q3 revenue, commitments of $895B in revised S-1",
+      "summary": "CNBC report on the quarterly financials in Anthropic's amended IPO filing with the SEC.",
+      "url": "https://www.cnbc.com/2026/11/02/anthropic-ant-s-1-quarter-financials.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50337439",
+      "category": "hn",
+      "tags": [
+        "Anthropic"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 230,
+        "comments": 271
+      },
+      "meta": {
+        "author": "rebel"
+      },
+      "published_at": "2026-11-02T14:38:45Z",
+      "hidden": false,
+      "rank": 12
+    },
+    {
+      "id": "hn-anthropic-s-growth-just-flattened-2026-11-03",
+      "title": "Anthropic's growth just flattened",
+      "summary": "Newsletter essay reading Anthropic's revised S-1 as evidence that its revenue growth has stalled.",
+      "url": "https://www.regenerator1.com/p/anthropics-growth-just-flattened",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50344958",
+      "category": "hn",
+      "tags": [
+        "Anthropic"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 203,
+        "comments": 234
+      },
+      "meta": {
+        "author": "cdrnsf"
+      },
+      "published_at": "2026-11-02T22:33:20Z",
+      "hidden": false,
+      "rank": 15
+    },
+    {
+      "id": "hn-scaling-git-at-openai-2026-11-03",
+      "title": "Scaling Git at OpenAI",
+      "summary": "OpenAI engineering post on how it scales Git for its internal repositories.",
+      "url": "https://openai.com/index/scaling-git-at-openai/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50345924",
+      "category": "hn",
+      "tags": [
+        "OpenAI",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 190,
+        "comments": 108
+      },
+      "meta": {
+        "author": "makeramen"
+      },
+      "published_at": "2026-11-02T23:47:56Z",
+      "hidden": false,
+      "rank": 19
+    },
+    {
+      "id": "hn-oracle-files-to-sell-20b-in-new-stock-bonds-to-2026-11-03",
+      "title": "Oracle files to sell $20B in new stock, bonds to finance AI buildout",
+      "summary": "CNBC report on Oracle's filing to raise money through both equity and debt to pay for its AI data center expansion.",
+      "url": "https://www.cnbc.com/2026/11/02/oracle-files-to-sell-20-billion-in-new-stock-bonds-to-finance-ai-buildout.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50342284",
+      "category": "hn",
+      "tags": [
+        "Funding"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 185,
+        "comments": 166
+      },
+      "meta": {
+        "author": "smartmic"
+      },
+      "published_at": "2026-11-02T19:27:37Z",
+      "hidden": false,
+      "rank": 22
+    },
+    {
+      "id": "hn-jobless-tech-workers-are-being-left-out-of-san-2026-11-03",
+      "title": "Jobless tech workers are being left out of San Francisco's AI boom",
+      "summary": "Bloomberg feature on unemployed engineers missing out on the wealth from the AI boom as OpenAI and Anthropic near IPOs.",
+      "url": "https://www.bloomberg.com/news/features/2026-09-17/san-francisco-s-ai-wealth-boom-skirts-engineers-as-openai-anthropic-ipos-near",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50337454",
+      "category": "hn",
+      "tags": [
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 174,
+        "comments": 247
+      },
+      "meta": {
+        "author": "mancerayder"
+      },
+      "published_at": "2026-11-02T14:40:05Z",
+      "hidden": false,
+      "rank": 26
+    },
+    {
+      "id": "hn-egoless-mathematics-in-the-ai-era-2026-11-03",
+      "title": "Egoless Mathematics in the AI Era",
+      "summary": "Terence Tao essay on his blog about how mathematical research practice should change as AI tools take part in it.",
+      "url": "https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50341736",
+      "category": "hn",
+      "tags": [
+        "Reasoning",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 154,
+        "comments": 105
+      },
+      "meta": {
+        "author": "smilelamp"
+      },
+      "published_at": "2026-11-02T18:54:44Z",
+      "hidden": false,
+      "rank": 29
+    },
+    {
+      "id": "hn-china-s-first-frontier-ai-export-controls-2026-11-03",
+      "title": "China's First Frontier AI Export Controls: Mofcom Announcement No. 48",
+      "summary": "Cloud Security Alliance research note analyzing Mofcom Announcement No. 48, China's first export controls aimed at frontier AI.",
+      "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-china-ai-export-controls-announcement-48-2/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50334038",
+      "category": "hn",
+      "tags": [
+        "Policy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 154,
+        "comments": 87
+      },
+      "meta": {
+        "author": "jonnybgood"
+      },
+      "published_at": "2026-11-02T07:27:28Z",
+      "hidden": false,
+      "rank": 33
+    }
+  ]
+}

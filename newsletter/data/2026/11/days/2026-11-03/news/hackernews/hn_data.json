@@ -1,0 +1,120 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-03",
+  "window": {
+    "after": "2026-11-02",
+    "before": "2026-11-04"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 16,
+  "poolCount": 71,
+  "stories": [
+    {
+      "title": "Astra can read and write weights to improve Qwen",
+      "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+      "type": "story",
+      "points": 2466,
+      "num_comments": 772,
+      "author": "dbreunig",
+      "created_at": "2026-11-02T18:21:28Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50341174"
+    },
+    {
+      "title": "The SEC Should Block Anthropic's IPO to Protect the Public",
+      "url": "https://www.techpolicy.press/the-sec-should-block-anthropics-ipo-to-protect-the-public/",
+      "type": "story",
+      "points": 318,
+      "num_comments": 235,
+      "author": "cdrnsf",
+      "created_at": "2026-11-02T22:30:47Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50344919"
+    },
+    {
+      "title": "Anthropic's internal AI use, at retail prices, now exceeds its employee pay",
+      "url": "https://www.businessinsider.com/anthropic-claude-internal-ai-use-exceeds-employee-pay-tokens-2026-11",
+      "type": "story",
+      "points": 317,
+      "num_comments": 248,
+      "author": "entryleveljobsc",
+      "created_at": "2026-11-02T16:40:29Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50339494"
+    },
+    {
+      "title": "Anthropic reports $17B in Q3 revenue, commitments of $895B in revised S-1",
+      "url": "https://www.cnbc.com/2026/11/02/anthropic-ant-s-1-quarter-financials.html",
+      "type": "story",
+      "points": 230,
+      "num_comments": 271,
+      "author": "rebel",
+      "created_at": "2026-11-02T14:38:45Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50337439"
+    },
+    {
+      "title": "Anthropic's growth just flattened",
+      "url": "https://www.regenerator1.com/p/anthropics-growth-just-flattened",
+      "type": "story",
+      "points": 203,
+      "num_comments": 234,
+      "author": "cdrnsf",
+      "created_at": "2026-11-02T22:33:20Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50344958"
+    },
+    {
+      "title": "Scaling Git at OpenAI",
+      "url": "https://openai.com/index/scaling-git-at-openai/",
+      "type": "story",
+      "points": 190,
+      "num_comments": 108,
+      "author": "makeramen",
+      "created_at": "2026-11-02T23:47:56Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50345924"
+    },
+    {
+      "title": "Oracle files to sell $20B in new stock, bonds to finance AI buildout",
+      "url": "https://www.cnbc.com/2026/11/02/oracle-files-to-sell-20-billion-in-new-stock-bonds-to-finance-ai-buildout.html",
+      "type": "story",
+      "points": 185,
+      "num_comments": 166,
+      "author": "smartmic",
+      "created_at": "2026-11-02T19:27:37Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50342284"
+    },
+    {
+      "title": "Jobless tech workers are being left out of San Francisco's AI boom",
+      "url": "https://www.bloomberg.com/news/features/2026-09-17/san-francisco-s-ai-wealth-boom-skirts-engineers-as-openai-anthropic-ipos-near",
+      "type": "story",
+      "points": 174,
+      "num_comments": 247,
+      "author": "mancerayder",
+      "created_at": "2026-11-02T14:40:05Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50337454"
+    },
+    {
+      "title": "Egoless Mathematics in the AI Era",
+      "url": "https://terrytao.wordpress.com/2026/11/02/egoless-mathematics-in-the-ai-era/",
+      "type": "story",
+      "points": 154,
+      "num_comments": 105,
+      "author": "smilelamp",
+      "created_at": "2026-11-02T18:54:44Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50341736"
+    },
+    {
+      "title": "China's First Frontier AI Export Controls: Mofcom Announcement No. 48",
+      "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-china-ai-export-controls-announcement-48-2/",
+      "type": "story",
+      "points": 154,
+      "num_comments": 87,
+      "author": "jonnybgood",
+      "created_at": "2026-11-02T07:27:28Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50334038"
+    }
+  ]
+}

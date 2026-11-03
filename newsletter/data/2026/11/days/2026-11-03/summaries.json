@@ -1,0 +1,141 @@
+{
+  "date": "2026-11-03",
+  "items": {
+    "ph-beacon-sh-2026-11-03": {
+      "summary": "Open-source memory layer that captures agent traces from Claude Code, Cursor, Codex, OpenCode and 20+ other harnesses and reuses them as shared knowledge for later sessions.",
+      "tags": ["Open Source", "Agents", "Dev Tool", "Launch"]
+    },
+    "ph-unleashx-2026-11-03": {
+      "summary": "Role-based AI agents that connect to your CRM and tools, follow rules you set, and run workflows end to end, handing off to a human only when needed.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-xmind-2027-2026-11-03": {
+      "summary": "Mind-mapping app adds an agent that researches over your local documents and maps, plus an MCP server that exposes the same map context to ChatGPT and Claude.",
+      "tags": ["Agents", "MCP", "Launch"]
+    },
+    "ph-cedric-ai-for-meetings-2026-11-03": {
+      "summary": "Meeting agent that joins Zoom, Meet or Teams calls, presents your slides, answers questions from your connected tools, then drafts notes and follow-ups for approval.",
+      "tags": ["Agents", "Voice / Speech", "Launch"]
+    },
+    "ph-hera-8-2026-11-03": {
+      "summary": "Canvas that runs several image and animation agents in parallel with editable layers, pulls a brand kit from your website, and resizes ads into every format on one board.",
+      "tags": ["Image Gen", "Video", "Launch"]
+    },
+    "gh-agent-desktop-2026-11-03": {
+      "summary": "Rust command-line tool from Vercel Labs that gives AI agents computer-use control of the desktop.",
+      "tags": ["Open Source", "Agents", "Dev Tool"]
+    },
+    "gh-claude-mem-2026-11-03": {
+      "summary": "TypeScript plugin that records agent sessions, compresses them with a model, and injects the relevant context into later sessions across Claude Code, Codex, Gemini, Copilot and others.",
+      "tags": ["Open Source", "Agents", "Claude Code"]
+    },
+    "gh-claude-code-game-studios-2026-11-03": {
+      "summary": "Shell-based Claude Code setup with 49 agents and 72 workflow skills arranged in a studio-style hierarchy for coordinating game development.",
+      "tags": ["Open Source", "Agents", "Claude Code"]
+    },
+    "gh-skills-2026-11-03": {
+      "summary": "Matt Pocock's personal collection of agent skills, published straight from his .agents directory.",
+      "tags": ["Open Source", "Agents", "Code Gen"]
+    },
+    "gh-kronos-2026-11-03": {
+      "summary": "Python foundation model trained to treat financial market data as a language.",
+      "tags": ["Open Source", "Model Release"]
+    },
+    "gh-heretic-2026-11-03": {
+      "summary": "Python tool that edits a language model without retraining to remove refusals, reduce sycophancy and suppress formulaic output.",
+      "tags": ["Open Source", "LLM", "Safety"]
+    },
+    "gh-kornia-2026-11-03": {
+      "summary": "Python library of geometric computer vision operations for spatial AI work.",
+      "tags": ["Open Source", "Framework", "Vision"]
+    },
+    "gh-nanochat-2026-11-03": {
+      "summary": "Andrej Karpathy's Python project for building a small ChatGPT-style model on a budget of about $100.",
+      "tags": ["Open Source", "LLM", "Tutorial"]
+    },
+    "gh-worktrunk-2026-11-03": {
+      "summary": "Rust CLI for managing Git worktrees so several AI agents can work on the same repo in parallel.",
+      "tags": ["Open Source", "Dev Tool", "Agents"]
+    },
+    "tc-web-host-squarespace-lays-off-19-of-its-2026-11-03": {
+      "summary": "The website builder says the cuts are part of a broader restructuring of the company.",
+      "tags": ["Policy"]
+    },
+    "tc-anthropic-warns-that-its-very-close-to-rsi-2026-11-03": {
+      "summary": "RSI, recursive self-improvement, is the point where AI trains itself well enough to sharply accelerate its own capabilities, long treated as a worst case by AI risk researchers.",
+      "tags": ["Anthropic", "Safety"]
+    },
+    "tc-elon-musk-throttles-grok-bot-limits-due-to-2026-11-03": {
+      "summary": "xAI cuts usage limits on Grok Bot over compute costs, shortly after Musk called it the fastest-growing product he had ever seen.",
+      "tags": ["xAI", "Pricing"]
+    },
+    "tc-new-york-times-and-other-outlets-sue-web-2026-11-03": {
+      "summary": "The suit says Brave scraped copyrighted articles and resold them to its own customers, naming Anthropic and Perplexity among them.",
+      "tags": ["Legal"]
+    },
+    "tc-y-combinators-garry-tan-uses-ai-agents-so-much-2026-11-03": {
+      "summary": "On Walter Isaacson's podcast The Builders, the YC president put a price on his agent habit and joked about the sleep it costs him.",
+      "tags": ["Agents"]
+    },
+    "tc-apple-watchs-ai-features-for-rewinding-and-2026-11-03": {
+      "summary": "Apple's Audio Intelligence features enter beta on the Watch, letting it recall what someone said and take notes on a conversation.",
+      "tags": ["Apple", "Voice / Speech"]
+    },
+    "tc-google-takes-dreambeans-to-india-in-bid-to-2026-11-03": {
+      "summary": "Google's AI story-generation experiment now supports 13 Indian languages.",
+      "tags": ["Google", "Launch"]
+    },
+    "tc-apple-may-try-to-increase-revenue-by-doing-2026-11-03": {
+      "summary": "On its Monday earnings call Apple hinted at revenue \"opportunities\" from third-party AI apps without saying what they would be.",
+      "tags": ["Apple"]
+    },
+    "tc-trajectory-raises-45m-to-make-ai-model-training-2026-11-03": {
+      "summary": "The one-year-old startup is now valued at $300 million.",
+      "tags": ["Funding", "Fine-tuning"]
+    },
+    "tc-42ai-comes-out-of-stealth-with-62-5m-and-a-2026-11-03": {
+      "summary": "The startup's world model aims to forecast what a person will do before they decide, including in situations it has not seen.",
+      "tags": ["Funding"]
+    },
+    "hn-astra-can-read-and-write-weights-to-improve-qwen-2026-11-03": {
+      "summary": "Personal blog post on weight-space programming: a system that reads and edits a Qwen model's weights directly to improve it.",
+      "tags": ["LLM", "Deep Dive"]
+    },
+    "hn-the-sec-should-block-anthropic-s-ipo-to-protect-2026-11-03": {
+      "summary": "Tech Policy Press op-ed arguing regulators should stop the listing, as Anthropic files a revised S-1 reporting $17B in Q3 revenue.",
+      "tags": ["Anthropic", "Policy"]
+    },
+    "hn-anthropic-s-internal-ai-use-at-retail-prices-2026-11-03": {
+      "summary": "Business Insider report that the tokens Anthropic staff consume, priced at Claude's list rates, now cost more than the company's payroll.",
+      "tags": ["Anthropic"]
+    },
+    "hn-anthropic-reports-17b-in-q3-revenue-commitments-2026-11-03": {
+      "summary": "CNBC report on the quarterly financials in Anthropic's amended IPO filing with the SEC.",
+      "tags": ["Anthropic"]
+    },
+    "hn-anthropic-s-growth-just-flattened-2026-11-03": {
+      "summary": "Newsletter essay reading Anthropic's revised S-1 as evidence that its revenue growth has stalled.",
+      "tags": ["Anthropic"]
+    },
+    "hn-scaling-git-at-openai-2026-11-03": {
+      "summary": "OpenAI engineering post on how it scales Git for its internal repositories.",
+      "tags": ["OpenAI", "Deep Dive"]
+    },
+    "hn-oracle-files-to-sell-20b-in-new-stock-bonds-to-2026-11-03": {
+      "summary": "CNBC report on Oracle's filing to raise money through both equity and debt to pay for its AI data center expansion.",
+      "tags": ["Funding"]
+    },
+    "hn-jobless-tech-workers-are-being-left-out-of-san-2026-11-03": {
+      "summary": "Bloomberg feature on unemployed engineers missing out on the wealth from the AI boom as OpenAI and Anthropic near IPOs.",
+      "tags": ["Deep Dive"]
+    },
+    "hn-egoless-mathematics-in-the-ai-era-2026-11-03": {
+      "summary": "Terence Tao essay on his blog about how mathematical research practice should change as AI tools take part in it.",
+      "tags": ["Reasoning", "Deep Dive"]
+    },
+    "hn-china-s-first-frontier-ai-export-controls-2026-11-03": {
+      "summary": "Cloud Security Alliance research note analyzing Mofcom Announcement No. 48, China's first export controls aimed at frontier AI.",
+      "tags": ["Policy"]
+    }
+  }
+}
