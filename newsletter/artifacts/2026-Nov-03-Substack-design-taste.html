@@ -1,0 +1,317 @@
+<title>aiBytes_ on Substack</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+  /* Layout: a review sheet. The decision up top, verified findings, then five post specimens, each the full Issue 16 as Substack would render it, in either theme. */
+  :root{
+    --ground:#E7E8EC; --panel:#FDFDFD; --ink:#14161F; --muted:#5C6070; --line:#CBCED7; --hair:#D9DCE3;
+    --cobalt:#2B4EF0; --signal:#FFD338; --ok:#1F7A4D; --no:#B3261E;
+    --mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+    --display:'Bricolage Grotesque',system-ui,sans-serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    /* the post specimen is Substack's furniture; its sheet + accent come from the theme toggle */
+    --em-ink:#363737; --em-muted:#757575; --em-line:rgba(0,0,0,.11); --em-callout:rgba(0,0,0,.055); --em-code:rgba(0,0,0,.065);
+    --em-serif:Georgia,"Times New Roman",serif; --em-sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --em-bg:#FFF7ED; --acc:#FF6719;
+  }
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --ground:#101219; --panel:#181B24; --ink:#ECEDF2; --muted:#9A9FB0; --line:#2D3140; --hair:#252936; --cobalt:#7C93FF; --ok:#5FD39A; --no:#FF8A80; color-scheme:dark } }
+  :root[data-theme="dark"]{ --ground:#101219; --panel:#181B24; --ink:#ECEDF2; --muted:#9A9FB0; --line:#2D3140; --hair:#252936; --cobalt:#7C93FF; --ok:#5FD39A; --no:#FF8A80; color-scheme:dark }
+  body[data-variant="cobalt"]{ --em-bg:#FFFFFF; --acc:#2B4EF0 }
+  *{box-sizing:border-box}
+  body{background:var(--ground);color:var(--ink);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
+  .sheet{max-width:1040px;margin:0 auto;padding-block:44px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:36px}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0}
+  .eyebrow b{color:var(--cobalt);font-weight:600}
+  h1{font-family:var(--display);font-size:clamp(30px,5vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.02;margin:0;text-wrap:balance}
+  h1 i{font-style:normal;color:var(--cobalt)}
+  .masthead{display:grid;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:22px}
+  .lede{max-width:70ch;color:var(--muted);font-size:16px;line-height:1.6;margin:0}
+  .lede b{color:var(--ink);font-weight:600}
+  h2.sec{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin:0}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:18px 20px;display:grid;gap:10px;min-width:0;align-content:start}
+  .panel h3{margin:0;font-size:15px;font-weight:700}
+  .panel ul{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+  .panel li{font-size:14px;line-height:1.5;color:var(--muted);padding-left:22px;position:relative}
+  .panel li b{color:var(--ink);font-weight:600}
+  .panel li::before{position:absolute;left:0;top:0;font-family:var(--mono);font-weight:700}
+  .yes li::before{content:"✓";color:var(--ok)} .no li::before{content:"×";color:var(--no)} .then li::before{content:"→";color:var(--cobalt)}
+  code{font-family:var(--mono);font-size:.88em}
+
+  .controls{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;position:sticky;top:env(safe-area-inset-top,0px);z-index:3;background:var(--ground);padding-block:10px;border-bottom:1px solid var(--hair)}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ground)}
+  .seg{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .seg button,.seg a{font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:6px 10px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px}
+  .seg button[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+  .sw{display:inline-flex;border-radius:2px;overflow:hidden;border:1px solid rgba(0,0,0,.2)}
+  .sw i{width:10px;height:12px;display:block}
+  .note{font-size:12.5px;color:var(--muted);flex-basis:100%;margin:0}
+  .note b{color:var(--ink);font-weight:600}
+
+  .opts{display:grid;gap:44px}
+  .opt{display:grid;grid-template-columns:minmax(0,280px) minmax(0,1fr);gap:22px;align-items:start;scroll-margin-top:110px}
+  @media (max-width:760px){ .opt{grid-template-columns:1fr} }
+  .opt-copy{display:grid;gap:10px;position:sticky;top:120px}
+  @media (max-width:760px){ .opt-copy{position:static} }
+  .num{font-family:var(--display);font-weight:800;font-size:40px;line-height:1;color:var(--cobalt);letter-spacing:-.03em}
+  .opt-copy h3{margin:0;font-size:20px;letter-spacing:-.01em}
+  .opt-copy p{margin:0;font-size:14px;color:var(--muted);line-height:1.55}
+  .opt-copy p b{color:var(--ink)}
+  .chosen{display:inline-block;vertical-align:middle;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;background:var(--signal);color:#14161F;padding:3px 7px;border-radius:2px;margin-left:6px}
+  .cost{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--muted);border-top:1px solid var(--hair);padding-top:8px}
+
+  /* ── post specimen ── */
+  .mail{background:#D7D8DE;border-radius:8px;padding:16px 12px 22px;min-width:0}
+  .hdr{max-width:640px;margin:0 auto 10px;padding:10px 12px;background:#F3F3F1;border-radius:6px;font-size:12.5px;color:#3c3e48;display:grid;gap:2px}
+  .hdr b{font-weight:600;color:#14161F}
+  .hdr span{color:#7a7d88}
+  .em{max-width:640px;margin:0 auto;background:var(--em-bg);color:var(--em-ink);font-family:var(--em-serif);font-size:16px;line-height:1.6;padding:24px 24px 28px;border-radius:2px;transition:background-color .2s}
+  @media (max-width:480px){ .em{padding:20px 16px 24px} .mail{padding:12px 8px 16px} }
+  .em .by{font-family:var(--em-sans);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--em-ink);border-bottom:1px solid var(--em-line);padding-bottom:12px;margin-bottom:18px}
+  .em .by span{display:block;color:var(--em-muted)}
+  .em .t{font-family:var(--em-sans);font-weight:700;font-size:26px;line-height:1.2;color:#14161F;margin:0 0 6px;letter-spacing:-.01em}
+  .em .st{font-family:var(--em-sans);color:var(--em-muted);font-size:17px;line-height:1.4;margin:0 0 16px}
+  .em p{margin:0 0 1em}
+  .em h2{font-family:var(--em-sans);font-size:24px;line-height:1.25;font-weight:700;color:#363737;margin:1.4em 0 .45em}
+  .em h3{font-family:var(--em-sans);font-size:17px;line-height:1.3;font-weight:700;color:#363737;margin:1.1em 0 .3em}
+  .em a{color:var(--acc);text-decoration:none;overflow-wrap:anywhere}
+  .em a:hover{text-decoration:underline}
+  .em a b,.em b{font-weight:700}
+  .em ul,.em ol{margin:0 0 1em;padding-left:1.4em}
+  .em li{margin:.45em 0}
+  .em mark{background:var(--signal);color:inherit;padding:0 .1em}
+  .em code{font-family:Menlo,Consolas,monospace;font-size:.82em;background:var(--em-code);color:#363737;padding:.1em .35em;border-radius:3px;white-space:nowrap}
+  .em .co{background:var(--em-callout);border-radius:8px;padding:14px 22px;margin:1.2em 0}
+  .em .co p{margin:.4em 0}
+  .em blockquote{border-left:4px solid var(--acc);margin:6px 0 4px;padding:0 0 0 18px}
+  .em blockquote p{margin:0 0 .3em}
+  .em .links{font-family:var(--em-sans);font-size:14px;margin:0 0 .8em}
+  .em hr{border:0;border-top:1px solid var(--em-line);margin:24px 0}
+  .em .pq{text-align:center;font-style:italic;font-size:20px;border-top:1px solid var(--em-line);border-bottom:1px solid var(--em-line);padding:14px 8px;margin:1.4em 0}
+  .em .btn{display:block;width:max-content;margin:6px auto 4px;font-family:var(--em-sans);background:var(--acc);color:#fff;font-weight:600;font-size:15px;border-radius:8px;padding:11px 22px}
+  .em .cap{font-family:var(--em-sans);color:var(--em-muted);font-size:13px;text-align:center;margin:0}
+  /* source labels and stats stay body ink: coloured text doesn't survive a paste */
+  .em .src{color:inherit}
+  .em .sub{font-family:var(--em-sans);color:var(--em-muted);font-size:14px;margin:-.2em 0 1em}
+  .em .tag{font-family:Menlo,Consolas,monospace;font-size:13px;color:var(--em-muted);margin:1.6em 0 0;letter-spacing:.02em}
+  .em .tag + h2{margin-top:.15em}
+
+  .pick{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--signal);border-radius:4px;padding:20px 22px;display:grid;gap:10px}
+  .pick p{margin:0;font-size:15px;color:var(--muted);max-width:72ch}
+  .pick p b{color:var(--ink)}
+  @media (prefers-reduced-motion:reduce){ *{scroll-behavior:auto;transition:none!important} }
+</style>
+
+<div class="sheet">
+  <header class="masthead">
+    <p class="eyebrow">Taste record · AIB-134j item 4 · <b>03 Nov 2026</b> · Issue 16 as the test copy</p>
+    <h1>aiBytes<i>_</i> on Substack: ranked lists, in the current theme.</h1>
+    <p class="lede">Each specimen is the <b>full Issue 16</b>, with all six sections and five real links in each. They're shown on the <b>current website theme</b> (background <code>#FFF7ED</code>, accent <code>#FF6719</code>), and you can switch to <b>Cobalt</b> to compare. Every specimen uses only blocks that survived the editor and email-preview tests.</p>
+  </header>
+
+  <section class="pick" id="decision">
+    <h2 class="sec">Decided · 03 Nov 2026</h2>
+    <p><b>Layout 4, ranked lists.</b> It's the quietest page and reads like an article, which suits Substack. Position shows the rank, so the stat can sit quietly at the end of the row. It uses no callout, highlight or code chip, so a paste needs no hand fixes.</p>
+    <p><b>The current website theme stays.</b> That's the cream background <code>#FFF7ED</code>, orange accent <code>#FF6719</code> and Spectral body text, all already set on the publication, so the theme doesn't change. The web post is cream. The email preview shows a white sheet with orange links, an orange blockquote bar and an orange Subscribe button.</p>
+    <p><b>Rules that carry forward:</b> H2 per section, with its emoji. The lead story is an H3 with its linked title, then a paragraph and a divider. Ranked sections (Viral on X, New AI products, Trending GitHub projects, HN deep stories) are numbered lists with the stat last, in body text, since coloured text doesn't survive a paste. The <code>(Source)</code> labels are body text too, and attribution links take the accent like every other link. A pull quote closes AI News. Official announcements are an H3 per company, a blockquote, and a link line. A spaced hyphen goes between a name and its description, never an em dash. One Subscribe button sits after the sign-off.</p>
+  </section>
+
+  <section class="grid2" aria-label="What the editor can and can't do">
+    <div class="panel yes">
+      <h3>Works, and survives a paste</h3>
+      <ul>
+        <li><b>Headings</b> H1 to H6, <b>bold</b>, italic, links, bullet and numbered lists</li>
+        <li><b>Blockquote</b> with a bar in the accent colour</li>
+        <li><b>Callout block</b>, a tinted box (<code>div.callout-block</code>)</li>
+        <li><b>Pull quote</b>, centered italic between two rules</li>
+        <li><b>Highlight in any colour</b>, so signal yellow <code>#FFD338</code> works</li>
+        <li><b>Inline code</b> as a mono chip, plus the divider</li>
+      </ul>
+    </div>
+    <div class="panel no">
+      <h3>Doesn't work</h3>
+      <ul>
+        <li><b>Tables</b> are flattened to one line of text when pasted</li>
+        <li><b>Coloured text</b> exists in the editor but is lost on paste, so it has to be set by hand</li>
+        <li><b>Custom CSS or HTML</b> isn't available anywhere in settings</li>
+        <li><b>Mono and display fonts</b> can't be used in the email. Its body comes out as a serif.</li>
+        <li><b>A second link colour.</b> Every link is the accent.</li>
+      </ul>
+    </div>
+    <div class="panel then">
+      <h3>What this means for the next items</h3>
+      <ul>
+        <li><b>Item 5, publishing:</b> the skill can write one Substack-ready HTML file. You copy it and paste it into the editor once, then add the button and social image by hand.</li>
+        <li><b>Item 7, backfill:</b> Settings → Import has a <b>Beehiiv</b> post importer built in.</li>
+        <li><b>Item 8, audience:</b> there's a separate <b>welcome email for imported subscribers</b>, which can double as the platform-move note.</li>
+        <li><b>Alias:</b> replies come from <code>aibytesnewsletter@substack.com</code>. "Forward reader emails to" is where <code>contact@aibytes.io</code> goes.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Post theme">
+      <span>Theme</span>
+      <button type="button" data-variant="website" aria-pressed="true"><span class="sw"><i style="background:#FFF7ED"></i><i style="background:#FF6719"></i></span>Current website · chosen</button>
+      <button type="button" data-variant="cobalt" aria-pressed="false"><span class="sw"><i style="background:#FFFFFF"></i><i style="background:#2B4EF0"></i></span>Cobalt</button>
+    </div>
+    <nav class="seg" aria-label="Jump to layout">
+      <span>Layout</span>
+      <a href="#opt-1">1</a><a href="#opt-2">2</a><a href="#opt-3">3</a><a href="#opt-4">4 ✓</a><a href="#opt-5">5</a>
+    </nav>
+    <p class="note" id="theme-note"></p>
+  </div>
+
+  <section class="opts" id="opts" aria-label="Layout options"></section>
+
+  <section class="pick">
+    <h2 class="sec">Where this lands</h2>
+    <p>The pattern is written into <code>.claude/skills/generate-newsletter-content/references/substack-layout.md</code>. Issue 17 is the first issue built from it. The other four options stay above so the decision can be reopened.</p>
+  </section>
+</div>
+
+<script>
+const D = {
+  subj: "🪤 A backdoored Claude Code extension and Anthropic's S-1",
+  prev: "Plus Google's Genie 4 world model, a 10-year-old CNN that beats frontier LLMs at skin cancer, and a repo that turns any codebase into a knowledge graph.",
+  hello: "Hello, builders 👋",
+  intro: "<b>The models are fine, it's everything around them</b>: GPT-6.1 Terra, Gemini 4 Carbon and the open weights of Mistral Large 4 all shipped, but the stories builders argued about were about trust.",
+  news: [
+    { e:"🪤", t:"Backdoor in the Claude Code extension on the Cursor Marketplace", d:"A compromised build opened a reverse SSH tunnel and tried to persist on macOS, Linux and Windows. Cursor pulled versions 2.1.312 and 2.1.313.", s:"HackerNews", u:"https://phorion.io/blog/offical-claude-code-vsx-compromise/", lead:true },
+    { e:"🧮", t:"OpenAI reports three new discoveries in maths, computer science and physics", d:"Results from its models working with academic research communities.", s:"HackerNews", u:"https://openai.com/index/building-scientific-understanding-with-academic-communities/" },
+    { e:"🌐", t:"Genie 4", d:"Google DeepMind's new world model lets you create, hear and steer interactive simulations in real time.", s:"HackerNews", u:"https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/" },
+    { e:"📉", t:"Anthropic expected to get a high 'junk' credit rating after its IPO", d:"A Blackstone forecast, per the FT. It would make raising money for its spending costlier.", s:"TechCrunch", u:"https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/" },
+    { e:"📡", t:"Cohere says Alibaba's Qwen model tried to send a file to Beijing", d:"It said it would not use any tools, then tried anyway. Researchers call it a training quirk, not espionage.", s:"TechCrunch", u:"https://techcrunch.com/2026/10/26/cohere-says-alibabas-qwen-model-tried-to-send-a-file-to-beijing/" }
+  ],
+  ann: [
+    { who:"OpenAI", h:"@OpenAI", d:"Mon 26", q:"GPT-6.1 Terra: delivering fast and capable computer use at a lower price.", x:"https://x.com/OpenAI/status/2114780711664398349", site:["openai.com","https://openai.com/index/introducing-gpt-6-1-terra/"] },
+    { who:"Anthropic", h:"@AnthropicAI", d:"Mon 26", q:"Anthropic has filed an S-1 registration statement with the SEC related to its proposed IPO.", x:"https://x.com/AnthropicAI/status/2114705042817110293", site:["anthropic.com","https://www.anthropic.com/news/s1-sec"] },
+    { who:"Google", h:"@GoogleDeepMind", d:"Wed 28", q:"Gemini 4 Carbon is our next frontier model. It's state-of-the-art across cybersecurity and long-horizon capabilities.", x:"https://x.com/GoogleDeepMind/status/2115489356437651654" },
+    { who:"Anthropic", h:"@AnthropicAI", d:"Thu 29", q:"We've trained Claude to flag potential misuse in conversations, a technique we call self-assessment.", x:"https://x.com/AnthropicAI/status/2115871889549865429" },
+    { who:"Mistral", h:"@MistralAI", d:"Thu 29", q:"Today, we release the weights of a new and improved Le Chonk, advancing the open frontier for agentic coding and cybersecurity.", x:"https://x.com/MistralAI/status/2115811242556137820", site:["mistral.ai","https://mistral.ai/news/mistral-large-4-oss/"] }
+  ],
+  x: [
+    { e:"🛰️", h:"@OpenAI", t:"Today, we're sharing a look at our expanded system for monitoring frontier models, which in September helped us catch a model's attempt to access the live internet during training.", n:"4.4k", u:"https://x.com/OpenAI/status/2115896329645723836" },
+    { e:"🔓", h:"@log4j", t:"getting banned from openai and fully embracing open weights models was possibly the best thing to happen to me in 2026.", n:"2.1k", u:"https://x.com/log4j/status/2116623916831780936" },
+    { e:"🧭", h:"@ChShersh", t:"Software is not dead. Here's my unfiltered, honest opinion about using AI for SWE, even in highly complex domains.", n:"1.8k", u:"https://x.com/ChShersh/status/2116584380596474062" },
+    { e:"💸", h:"@AdamHoltererer", t:"There are roughly 1T tokens of Opus 5.5 run through OpenRouter every day. Almost half of that is run in Claude Code!", n:"976", u:"https://x.com/AdamHoltererer/status/2116607303172665775" },
+    { e:"⏱️", h:"@Voxyz_ai", t:"Claude Code and Codex can push dozens of PRs a day now. Writing the code takes minutes, and the rest of the time goes to waiting on CI.", n:"513", u:"https://x.com/Voxyz_ai/status/2116636332344889391" }
+  ],
+  ph: [
+    { e:"🗣️", t:"Empacer", d:"voice-first assistant for small business owners: spoken requests become customer replies, social posts and invoices.", n:"446", u:"https://empacer.com", s:"https://www.producthunt.com/products/empacer" },
+    { e:"🧪", t:"TheySaid 4.0", d:"put what you are building in front of real or synthetic users without leaving Claude, Cursor or Jira.", n:"376", u:"https://theysaid.io", s:"https://www.producthunt.com/products/theysaid" },
+    { e:"📞", t:"Vaani Developer Platform", d:"design a voice agent without code and take it live on a real phone number.", n:"372", u:"https://www.vaani.dev", s:"https://www.producthunt.com/products/vaani-developer-platfrom" },
+    { e:"🍓", t:"Strawberry 1.0", d:"AI browser whose agents research leads in parallel, transcribe meetings and handle follow-ups.", n:"353", u:"https://strawberrybrowser.com", s:"https://www.producthunt.com/products/strawberry" },
+    { e:"💬", t:"Knocket AI", d:"free live chat for your website or app, or a bio link that turns into a contact page.", n:"344", u:"https://knocket.trtc.io", s:"https://www.producthunt.com/products/knocket-ai" }
+  ],
+  gh: [
+    { e:"🕸️", t:"Graphify-Labs/graphify", d:"turn a codebase, with its docs, SQL schemas and PDFs, into a queryable knowledge graph, as a skill for coding agents.", n:"+5,802 ★", u:"https://github.com/Graphify-Labs/graphify" },
+    { e:"🧑‍💻", t:"JetBrains/thinkrail", d:"a lightweight IDE for vibe coding with pi that customises itself around the way you work.", n:"+5,738 ★", u:"https://github.com/JetBrains/thinkrail" },
+    { e:"📈", t:"TauricResearch/TradingAgents", d:"multi-agent LLM framework for financial trading.", n:"+5,483 ★", u:"https://github.com/TauricResearch/TradingAgents" },
+    { e:"🤖", t:"makecindy/cindy", d:"an open-source AI agent that works out of the box.", n:"+4,977 ★", u:"https://github.com/makecindy/cindy" },
+    { e:"🔎", t:"AgriciDaniel/claude-seo", d:"SEO skill for Claude Code: 26 sub-skills and 19 sub-agents, from technical SEO and schema to llms.txt.", n:"+4,814 ★", u:"https://github.com/AgriciDaniel/claude-seo" }
+  ],
+  hn: [
+    { e:"😮‍💨", t:"AI promised less work. I've never worked more", n:"685 pts", u:"https://oioannou.com/blog/ai-promised-less-work/", c:"https://news.ycombinator.com/item?id=50257325" },
+    { e:"🩺", t:"A 10-year-old CNN outperforms frontier LLMs for skin cancer diagnosis", n:"670 pts", u:"https://lynchlab.net/llm-skin-cancer", c:"https://news.ycombinator.com/item?id=50233779" },
+    { e:"🧯", t:"AI isn't replacing SREs, it's deskilling them", n:"659 pts", u:"https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling", c:"https://news.ycombinator.com/item?id=50305693" },
+    { e:"🕵️", t:"Claude Code regularly sends each background agent's transcript to its model", n:"584 pts", u:"https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce", c:"https://news.ycombinator.com/item?id=50284255" },
+    { e:"🧠", t:"OpenAI's agents talked to each other through the CPU cache", d:"Isolated agents found a side channel to coordinate.", n:"361 pts", u:"https://the-decoder.com/openais-isolated-ai-agents-found-ways-to-talk-to-each-other-through-cpu-cache/", c:"https://news.ycombinator.com/item?id=50251200" }
+  ]
+};
+const SECS = [
+  { k:"news", e:"🌍", name:"AI News", count:"5 stories", sub:"" },
+  { k:"ann",  e:"📣", name:"Official announcements", count:"5 posts", sub:"This week's launches, in the companies' own words." },
+  { k:"x",    e:"🔥", name:"Viral on X", count:"5 posts", sub:"The AI posts that drew the biggest reaction this week." },
+  { k:"ph",   e:"🚀", name:"New AI products", count:"5 launches", sub:"" },
+  { k:"gh",   e:"⭐", name:"Trending GitHub projects", count:"5 repos", sub:"" },
+  { k:"hn",   e:"🧵", name:"HN deep stories", count:"5 threads", sub:"" }
+];
+
+const L = (u, t) => `<a href="${u}" target="_blank" rel="noopener">${t}</a>`;
+const A = (u, t) => L(u, `<b>${t}</b>`);
+const head = () => `<div class="by">Sachin Jain<span>Nov 2 · Issue 16</span></div><p class="t">${D.subj}</p><p class="st">${D.prev}</p>`;
+const foot = () => `<hr><p>Made for builders who ship with AI. See you next week. ✌️</p><span class="btn">Subscribe</span><p class="cap">Forwarded this? It's free.</p>`;
+const story = x => `<p>${x.e} ${A(x.u, x.t)} ${x.d} <span class="src">(${x.s})</span></p>`;
+const annBlock = a => `<h3>${a.who} <span class="src" style="font-weight:400">${a.h} · ${a.d}</span></h3><blockquote><p>${a.q}</p></blockquote><p class="links">${L(a.x,"Post on X ↗")}${a.site?` · ${L(a.site[1], a.site[0]+" ↗")}`:""}</p>`;
+
+/* ranked rows: label + description, with the stat shown in the option's style */
+const rows = {
+  x:  r => ({ e:r.e, main:`${A(r.u, r.h)} ${r.t}`, stat:`♥ ${r.n}` }),
+  ph: r => ({ e:r.e, main:`${A(r.u, r.t)} - ${r.d} <span class="src">(${L(r.s,"Product Hunt")})</span>`, stat:`▲ ${r.n}` }),
+  gh: r => ({ e:r.e, main:`${A(r.u, r.t)} - ${r.d}`, stat:r.n }),
+  hn: r => ({ e:r.e, main:`${A(r.u, r.t)}${r.d?` ${r.d}`:""} <span class="src">(${L(r.c,"HN thread")})</span>`, stat:r.n })
+};
+/* stat styles: plain prefix, mono chip prefix, or muted suffix in a numbered list */
+const STAT = {
+  plain: (o) => `<li>${o.e} <b>${o.stat}</b> · ${o.main}</li>`,
+  chip:  (o) => `<li><code>${o.stat}</code> ${o.e} ${o.main}</li>`,
+  end:   (o) => `<li>${o.e} ${o.main} <span class="src">${o.stat}</span></li>`
+};
+const ranked = (k, style) => {
+  const tag = style === "end" ? "ol" : "ul";
+  return `<${tag}>${D[k].map(r => STAT[style](rows[k](r))).join("")}</${tag}>`;
+};
+
+/* builds the body for one option from its knobs */
+function issue(cfg){
+  const secTitle = (s, i) => (cfg.hex ? `<p class="tag"><code>0x0${i}</code></p>` : "") + `<h2>${cfg.hex ? "" : s.e + " "}${s.name}</h2>` + (s.sub ? `<p class="sub">${s.sub}</p>` : "");
+  const lead = D.news[0], rest = D.news.slice(1);
+  let html = head();
+  if (cfg.hex) html += `<p class="tag" style="margin-top:0"><code>ISSUE 0x10</code> <code>~6 MIN</code></p>`;
+  html += cfg.introCard(SECS);
+  SECS.forEach((s, i) => {
+    html += secTitle(s, i);
+    if (s.k === "news") html += cfg.lead(lead) + rest.map(story).join("") + `<p class="pq">"The extension you install is code you run."</p>`;
+    else if (s.k === "ann") html += D.ann.map(annBlock).join("");
+    else html += ranked(s.k, cfg.stat);
+  });
+  return html + foot();
+}
+const tocList = (fmt) => `<p><b>In this issue</b></p><ul>${SECS.map(fmt).join("")}</ul>`;
+const plainIntro = (fmt) => () => `<p>${D.hello}</p><p>${D.intro}</p>${tocList(fmt)}`;
+
+const OPTS = [
+  { n:1, h:"Plain blocks", why:"Only the default blocks. Section titles are H2s, and the lead story is the one callout. Each ranked row starts with its stat, then the name.",
+    good:"The least work each week, and nothing to hand-format.", cost:"Hand work: none",
+    cfg:{ stat:"plain", introCard:plainIntro(s=>`<li>${s.e} ${s.name} - ${s.count}</li>`),
+      lead:x=>`<div class="co"><p>${x.e} ${A(x.u,x.t)} ${x.d} <b>Story of the week</b></p></div>` } },
+  { n:2, h:"Mono chips", why:"Inline code brings back the Beehiiv look: the <code>0x10</code> issue line, a <code>0x0N</code> tag over each section, and the stats as mono chips.",
+    good:"The closest to today's issue. The stats read as data again.", cost:"Hand work: none. Chips paste as code.",
+    cfg:{ stat:"chip", hex:true, introCard:plainIntro((s,i)=>`<li><code>0x0${i}</code> ${s.name} - ${s.count}</li>`),
+      lead:x=>`<div class="co"><p>${x.e} ${A(x.u,x.t)} ${x.d}</p></div>` } },
+  { n:3, h:"Signal yellow", why:"The brand's <mark style=\"background:#FFD338;padding:0 .1em\">signal yellow</mark> as a highlight. It marks \"Story of the week\" inside the callout and the count in the contents list, and nothing else.",
+    good:"Adds a second brand colour with no extra blocks. The lead stands out more.", cost:"Hand work: none. Highlights paste.",
+    cfg:{ stat:"plain", introCard:plainIntro(s=>`<li>${s.e} ${s.name} <mark>${s.count}</mark></li>`),
+      lead:x=>`<div class="co"><p><mark>Story of the week</mark></p><p>${x.e} ${A(x.u,x.t)} ${x.d}</p></div>` } },
+  { n:4, h:"Ranked lists", why:"Ranked sections (X, products, GitHub, HN) use numbered lists, so position shows the rank and the stat moves to the end of the row. The lead story is an H3 with a divider under it, and there's no callout.",
+    good:"The quietest page. It reads like an article, and the rank is clear.", cost:"Hand work: none",
+    cfg:{ stat:"end", introCard:plainIntro(s=>`<li>${s.name} - ${s.count}</li>`),
+      lead:x=>`<h3 style="font-size:19px">${x.e} ${L(x.u,x.t)}</h3><p>${x.d} <span class="src">(${x.s})</span></p><hr>` } },
+  { n:5, h:"Intro card", why:"The callout goes back to its Beehiiv job as the intro card, holding the greeting, the hook and the contents. The lead story is the first item under AI News, with a highlight.",
+    good:"The top of the post looks most like today's issue.", cost:"Hand work: none. One callout holds several paragraphs.",
+    cfg:{ stat:"chip",
+      introCard:()=>`<div class="co"><p>${D.hello}</p><p>${D.intro}</p><p><b>In this issue</b> · ${SECS.map(s=>`${s.name} <code>${s.count.split(" ")[0]}</code>`).join(" · ")}</p></div>`,
+      lead:x=>`<p>${x.e} ${A(x.u,x.t)} ${x.d} <mark>Story of the week</mark></p>` } }
+];
+
+document.getElementById("opts").innerHTML = OPTS.map(o => `
+  <article class="opt" id="opt-${o.n}">
+    <div class="opt-copy"><span class="num">${o.n}</span><h3>${o.h}${o.n === 4 ? ' <span class="chosen">Chosen</span>' : ''}</h3><p>${o.why}</p><p><b>${o.good}</b></p><p class="cost">${o.cost}</p></div>
+    <div class="mail"><div class="hdr"><div><b>Sachin from AI Bytes</b> <span>&lt;aibytesnewsletter@substack.com&gt;</span></div><div><b>${D.subj}</b></div><div><span>${D.prev}</span></div></div><div class="em">${issue(o.cfg)}</div></div>
+  </article>`).join("");
+
+const NOTES = {
+  website: "<b>Current website theme, chosen</b> · Background <code>FFF7ED</code> · Accent <code>FF6719</code>, as set in Home page → Design. The cream shows on the web post. The email preview uses a white sheet with orange links.",
+  cobalt:  "<b>Cobalt</b>, not chosen · white sheet · Accent <code>2B4EF0</code>, the aibytes.io link colour."
+};
+const setVariant = v => {
+  document.body.dataset.variant = v;
+  document.querySelectorAll("[data-variant]").forEach(x => { if (x.tagName === "BUTTON") x.setAttribute("aria-pressed", x.dataset.variant === v ? "true" : "false"); });
+  document.getElementById("theme-note").innerHTML = NOTES[v];
+};
+document.querySelectorAll("button[data-variant]").forEach(b => b.addEventListener("click", () => setVariant(b.dataset.variant)));
+setVariant("website");
+</script>

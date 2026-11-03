@@ -124,6 +124,8 @@ Fill `{{EMAIL_SUBJECT}}` and `{{EMAIL_DESCRIPTION}}` in the main template (`<tit
 
 ### 5. Build the Beehiiv export
 
+**Moving to Substack from Issue 17 (AIB-134j).** The Substack layout is decided and written up in `references/substack-layout.md`: Substack's own blocks, ranked sections as numbered lists, and the publication's current theme. The Substack export that replaces this step isn't built yet. Until it is, build the Beehiiv export below as usual, and lay out the Substack post by hand from that reference.
+
 The user publishes on Beehiiv, whose HTML Snippet block strips `<style>` tags - so the main file's CSS classes won't survive a paste. Alongside the main HTML, always generate a second file: a copy-paste export page.
 
 For each section of the issue (masthead, intro, news card, Official Announcements, Viral on X, New AI Products, Trending Github Projects, HN Deep Stories), rebuild the content as an email-safe snippet - inline styles only, `<table>` layout, no flexbox/clip-path/classes. The exact pattern for every section is in `references/beehiiv-patterns.html`; read it and fill the tokens with the same content as the main file.
