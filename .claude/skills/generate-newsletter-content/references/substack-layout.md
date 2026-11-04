@@ -57,8 +57,10 @@ body, sans headings, and orange links, blockquote bar and buttons.
 
 - The **story of the week** comes first, as
   `<h3>{emoji} <a href="{url}">{headline}</a></h3>`, then
-  `<p>{context} ({Source})</p>`, then `<hr>`. There's no "Story of the week"
-  label. Being the first item, under a divider, is what marks it.
+  `<p>{context} ({Source})</p>`. There's no "Story of the week" label, and
+  **no divider** after it: it runs straight into the next story (picked
+  3 Nov 2026 on the Issue 16 backfill). Its H3 and first place mark it out.
+  The only `<hr>` in the body is the one before the sign-off.
 - Every other story is one paragraph:
   `<p>{emoji} <a href="{url}"><b>{headline}</b></a> {context} ({Source})</p>`.
 - The quote block becomes a pull quote at the end of the section:
@@ -77,10 +79,17 @@ Viral on X, New AI products, Trending GitHub projects and HN deep stories are
 each an `<ol>`, so the list number shows the rank. The stat goes **last** on
 the row, as plain text:
 
-- Viral on X: `{emoji} <a href="{profile}"><b>@{handle}</b></a> {opening words, linked to the post} ♥ {likes}`
+- Viral on X: `{emoji} <a href="{post}"><b>@{handle}</b></a> {opening words} ♥ {likes}`.
+  Only the handle is a link, and it points at the **post**, not the profile.
+  The opening words stay plain text, so they read in body ink rather than a
+  run of orange (picked 3 Nov 2026 on the Issue 16 backfill).
 - New AI products: `{emoji} <a href="{site}"><b>{name}</b></a> - {description} (<a href="{launch}">Product Hunt</a>) ▲ {votes}`
 - Trending GitHub projects: `{emoji} <a href="{repo}"><b>{owner/repo}</b></a> - {description} +{stars} ★`
-- HN deep stories: `{emoji} <a href="{article}"><b>{title}</b></a> (<a href="{thread}">HN thread</a>) {points} pts`
+- HN deep stories: `{emoji} <b>{title}</b> (<a href="{thread}">HN thread</a>) {points} pts`.
+  The title is **not linked**, so it reads in body ink. The thread link is the
+  only orange in the row. This overrides the step 3 link table for Substack:
+  the article isn't linked here (picked 3 Nov 2026 on the Issue 16 backfill).
+  HN only. The other sections keep their linked bold names.
 
 The X words are still verbatim and still come from the `x_items.py` render. It
 has no Substack format yet, so add one rather than retyping the posts.
