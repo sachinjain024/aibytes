@@ -1,0 +1,911 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-04",
+  "generated_at": "2026-11-04T08:01:12Z",
+  "counts": {
+    "launches": 5,
+    "repos": 10,
+    "news": 10,
+    "hn": 10
+  },
+  "items": [
+    {
+      "id": "ph-agentkit-by-scalekit-2026-11-04",
+      "title": "AgentKit by Scalekit",
+      "summary": "One MCP gateway to 30,000+ tools across 600+ apps, running each action as the requesting user within their granted scopes, with per-agent Virtual MCP Servers and call logs.",
+      "url": "https://www.producthunt.com/products/scalekit",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/scalekit",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "MCP",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/a147b63d-f8dd-4b84-9883-81e2a138d0f7.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 397,
+        "comments": 90
+      },
+      "published_at": "2026-11-03T08:01:00Z",
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "ph-teamily-ai-2026-11-04",
+      "title": "Teamily AI",
+      "summary": "A messenger where multiple people and always-on agents share threads, docs, meetings and calls, with agents keeping persistent memory to automate office work and customer service.",
+      "url": "https://www.producthunt.com/products/teamily-ai-human-ai-social-network",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/teamily-ai-human-ai-social-network",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/74a5d73a-76f1-40de-aa9c-900ab49843c5.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 332,
+        "comments": 196
+      },
+      "published_at": "2026-11-03T08:01:00Z",
+      "hidden": false,
+      "rank": 11
+    },
+    {
+      "id": "ph-testifly-2026-11-04",
+      "title": "Testifly",
+      "summary": "Connect a web app and it discovers user flows, writes tests, repairs them when the UI changes, and explains each failure with a video recording.",
+      "url": "https://www.producthunt.com/products/testifly-launch",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/testifly-launch",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/3181d12a-fbcc-4643-95bd-0ee6ab099bf2.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 247,
+        "comments": 43
+      },
+      "published_at": "2026-11-03T08:01:00Z",
+      "hidden": false,
+      "rank": 18
+    },
+    {
+      "id": "ph-synter-canvas-2-2026-11-04",
+      "title": "Synter Canvas",
+      "summary": "Lets an AI agent build, launch and tune ad campaigns across 30+ ad platforms behind per-change safety gates, billed at $0.25 per verified write with no cut of ad spend.",
+      "url": "https://www.producthunt.com/products/synter-canvas",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/synter-canvas",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/45822f14-e130-4330-a377-a2b1941ef738.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 178,
+        "comments": 23
+      },
+      "published_at": "2026-11-03T08:01:00Z",
+      "hidden": false,
+      "rank": 25
+    },
+    {
+      "id": "ph-videco-3-2026-11-04",
+      "title": "Videco",
+      "summary": "Finds highlight moments in demos and webinars, cuts branded short-form clips from them, and hosts, embeds and tracks the resulting video in one workspace for marketing teams.",
+      "url": "https://www.producthunt.com/products/videco",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/videco",
+      "category": "launches",
+      "tags": [
+        "Video",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/26a34deb-6419-48e9-965a-fc350f65647e.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 151,
+        "comments": 22
+      },
+      "published_at": "2026-11-03T08:01:00Z",
+      "hidden": false,
+      "rank": 32
+    },
+    {
+      "id": "gh-agent-desktop-2026-11-04",
+      "title": "vercel-labs/agent-desktop",
+      "summary": "A Rust command-line tool from Vercel Labs that gives AI agents computer use - driving a desktop from the CLI.",
+      "url": "https://github.com/vercel-labs/agent-desktop",
+      "source": "github",
+      "source_url": "https://github.com/vercel-labs/agent-desktop",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Dev Tool"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/vercel-labs.png?size=80"
+      },
+      "signals": {
+        "stars": 13531,
+        "stars_gained": 3791,
+        "forks": 930
+      },
+      "meta": {
+        "language": "Rust"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "gh-claude-code-game-studios-2026-11-04",
+      "title": "Donchitos/Claude-Code-Game-Studios",
+      "summary": "Shell-based setup that turns Claude Code into a game studio of 49 agents and 72 workflow skills, coordinated through a hierarchy that mirrors real studio roles.",
+      "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+      "source": "github",
+      "source_url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Claude Code"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Donchitos.png?size=80"
+      },
+      "signals": {
+        "stars": 34962,
+        "stars_gained": 1182,
+        "forks": 4627
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "gh-skills-2026-11-04",
+      "title": "mattpocock/skills",
+      "summary": "Matt Pocock's personal agent skills, published straight from his .agents directory for engineers to drop into their own coding agents.",
+      "url": "https://github.com/mattpocock/skills",
+      "source": "github",
+      "source_url": "https://github.com/mattpocock/skills",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Code Gen"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mattpocock.png?size=80"
+      },
+      "signals": {
+        "stars": 311869,
+        "stars_gained": 1164,
+        "forks": 26205
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "id": "gh-claude-mem-2026-11-04",
+      "title": "thedotmack/claude-mem",
+      "summary": "TypeScript memory layer that records an agent's session activity, compresses it with a model, and injects relevant context into later sessions; supports Claude Code, Codex, Gemini, Copilot and more.",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source": "github",
+      "source_url": "https://github.com/thedotmack/claude-mem",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Claude Code"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/thedotmack.png?size=80"
+      },
+      "signals": {
+        "stars": 112249,
+        "stars_gained": 1139,
+        "forks": 9762
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 12
+    },
+    {
+      "id": "gh-colibri-2026-11-04",
+      "title": "JustVugg/colibri",
+      "summary": "C inference engine for large MoE models that tiers experts by use: hot ones on the GPU via CUDA or Vulkan, warm ones in RAM, cold ones streamed from NVMe.",
+      "url": "https://github.com/JustVugg/colibri",
+      "source": "github",
+      "source_url": "https://github.com/JustVugg/colibri",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Inference",
+        "Local LLM"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/JustVugg.png?size=80"
+      },
+      "signals": {
+        "stars": 47443,
+        "stars_gained": 802,
+        "forks": 5481
+      },
+      "meta": {
+        "language": "C"
+      },
+      "hidden": false,
+      "rank": 15
+    },
+    {
+      "id": "gh-heretic-2026-11-04",
+      "title": "p-e-w/heretic",
+      "summary": "Python tool that edits language model behaviour without training, used to strip refusals, cut stock phrasing and reduce sycophancy.",
+      "url": "https://github.com/p-e-w/heretic",
+      "source": "github",
+      "source_url": "https://github.com/p-e-w/heretic",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "LLM",
+        "Safety"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/p-e-w.png?size=80"
+      },
+      "signals": {
+        "stars": 39035,
+        "stars_gained": 701,
+        "forks": 4404
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 19
+    },
+    {
+      "id": "gh-kronos-2026-11-04",
+      "title": "shiyu-coder/Kronos",
+      "summary": "Python foundation model trained to treat financial market data as a language, with code for applying it to market series.",
+      "url": "https://github.com/shiyu-coder/Kronos",
+      "source": "github",
+      "source_url": "https://github.com/shiyu-coder/Kronos",
+      "category": "repos",
+      "tags": [
+        "Model Release",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/shiyu-coder.png?size=80"
+      },
+      "signals": {
+        "stars": 46643,
+        "stars_gained": 503,
+        "forks": 7674
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 22
+    },
+    {
+      "id": "gh-worktrunk-2026-11-04",
+      "title": "max-sixty/worktrunk",
+      "summary": "Rust CLI for creating and managing Git worktrees, built so several AI coding agents can work on the same repo in parallel without colliding.",
+      "url": "https://github.com/max-sixty/worktrunk",
+      "source": "github",
+      "source_url": "https://github.com/max-sixty/worktrunk",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Dev Tool",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/max-sixty.png?size=80"
+      },
+      "signals": {
+        "stars": 10680,
+        "stars_gained": 438,
+        "forks": 389
+      },
+      "meta": {
+        "language": "Rust"
+      },
+      "hidden": false,
+      "rank": 26
+    },
+    {
+      "id": "gh-ai-goofish-monitor-2026-11-04",
+      "title": "Usagi-org/ai-goofish-monitor",
+      "summary": "Python system using Playwright and an LLM to watch Xianyu (Goofish) listings on live or scheduled tasks, analyse matches, and manage it all from an admin UI.",
+      "url": "https://github.com/Usagi-org/ai-goofish-monitor",
+      "source": "github",
+      "source_url": "https://github.com/Usagi-org/ai-goofish-monitor",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Usagi-org.png?size=80"
+      },
+      "signals": {
+        "stars": 16859,
+        "stars_gained": 228,
+        "forks": 2882
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 29
+    },
+    {
+      "id": "gh-portal-ai-plugins-2026-11-04",
+      "title": "spotify/portal-ai-plugins",
+      "summary": "A TypeScript repo of AI plugins from Spotify for Portal, its developer portal product; the repo publishes no description yet.",
+      "url": "https://github.com/spotify/portal-ai-plugins",
+      "source": "github",
+      "source_url": "https://github.com/spotify/portal-ai-plugins",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Dev Tool"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/spotify.png?size=80"
+      },
+      "signals": {
+        "stars": 3107,
+        "stars_gained": 91,
+        "forks": 242
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 33
+    },
+    {
+      "id": "tc-anthropic-is-working-on-a-system-to-prove-ai-2026-11-04",
+      "title": "Anthropic is working on a system to prove AI models’ identity",
+      "summary": "The system is called FlashProve and would let anyone verify that a given AI response really came from the model it claims to come from.",
+      "url": "https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/",
+      "category": "news",
+      "tags": [
+        "Anthropic",
+        "Security"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/09/GettyImages-2294192768.jpg?resize=1200,798"
+      },
+      "meta": {
+        "author": "Russell Brandom",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-03T22:41:03Z",
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "tc-data-centers-are-turning-to-old-jet-engines-as-2026-11-04",
+      "title": "Data centers are turning to old jet engines as the wait for power grows",
+      "summary": "Years-long waits for grid hookups and new turbines push builders to once-discarded jet engines, which are less efficient and dirtier than the alternatives.",
+      "url": "https://techcrunch.com/2026/11/03/data-centers-are-turning-to-old-jet-engines-as-the-wait-for-power-grows/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/03/data-centers-are-turning-to-old-jet-engines-as-the-wait-for-power-grows/",
+      "category": "news",
+      "tags": [
+        "Inference"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/09/Commercial-plane-clouds.jpg?w=719"
+      },
+      "meta": {
+        "author": "Aditya Mehta",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-03T22:19:53Z",
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "tc-ted-schleins-ballistic-ventures-seeks-490m-for-2026-11-04",
+      "title": "Ted Schlein’s Ballistic Ventures seeks $490M for new funds amid AI-driven cybersecurity boom",
+      "summary": "The cybersecurity-focused firm is raising $360M for a new flagship fund plus $130M for a separate investment vehicle.",
+      "url": "https://techcrunch.com/2026/11/03/ted-schleins-ballistic-ventures-seeks-490m-for-new-funds-amid-ai-driven-cybersecurity-boom/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/03/ted-schleins-ballistic-ventures-seeks-490m-for-new-funds-amid-ai-driven-cybersecurity-boom/",
+      "category": "news",
+      "tags": [
+        "Funding",
+        "Security"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2025/04/Ballistic-Ventures-GP-team.jpg?resize=1200,801"
+      },
+      "meta": {
+        "author": "Jagmeet Singh",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-03T21:43:08Z",
+      "hidden": false,
+      "rank": 10
+    },
+    {
+      "id": "tc-hiding-inside-palantirs-skyrocketing-quarter-is-2026-11-04",
+      "title": "Hiding inside Palantir’s skyrocketing quarter is a foreboding signal",
+      "summary": "Palantir's U.S. commercial revenue passed its U.S. government revenue for the first time, and the article reads a warning sign inside that shift.",
+      "url": "https://techcrunch.com/2026/11/03/hiding-inside-palantirs-skyrocketing-quarter-is-a-foreboding-signal/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/03/hiding-inside-palantirs-skyrocketing-quarter-is-a-foreboding-signal/",
+      "category": "news",
+      "tags": [
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Palantir-Alex-Karp.png?resize=1200,688"
+      },
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-03T21:05:55Z",
+      "hidden": false,
+      "rank": 14
+    },
+    {
+      "id": "tc-ai-inference-startup-fal-doubles-its-valuation-2026-11-04",
+      "title": "AI inference startup Fal doubles its valuation to $16B as demand surges",
+      "summary": "The five-year-old company raised a $1.3B round led by Bessemer.",
+      "url": "https://techcrunch.com/2026/11/03/ai-inference-startup-fal-doubles-its-valuation-to-16b-as-demand-surges/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/03/ai-inference-startup-fal-doubles-its-valuation-to-16b-as-demand-surges/",
+      "category": "news",
+      "tags": [
+        "Funding",
+        "Inference"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2022/12/GettyImages-1268605503.jpg?resize=1200,420"
+      },
+      "meta": {
+        "author": "Marina Temkin",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-03T19:34:43Z",
+      "hidden": false,
+      "rank": 17
+    },
+    {
+      "id": "tc-netflixs-new-ai-discover-tab-helps-you-find-2026-11-04",
+      "title": "Netflix’s new AI Discover tab helps you find something to watch based on your mood",
+      "summary": "The first experiment in the new tab recommends titles from a description of what the viewer is in the mood for right now.",
+      "url": "https://techcrunch.com/2026/11/03/netflixs-new-ai-discover-tab-helps-you-find-something-to-watch-based-on-your-mood/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/03/netflixs-new-ai-discover-tab-helps-you-find-something-to-watch-based-on-your-mood/",
+      "category": "news",
+      "tags": [
+        "LLM",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/04/GettyImages-2235383828.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Aisha Malik",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-03T18:42:16Z",
+      "hidden": false,
+      "rank": 21
+    },
+    {
+      "id": "tc-anthropic-is-still-grappling-with-the-economics-2026-11-04",
+      "title": "Anthropic is still grappling with the economics of compute",
+      "summary": "Anthropic's compute margins are getting worse at the point where they would be expected to improve.",
+      "url": "https://techcrunch.com/2026/11/03/anthropic-is-still-grappling-with-the-economics-of-compute/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/03/anthropic-is-still-grappling-with-the-economics-of-compute/",
+      "category": "news",
+      "tags": [
+        "Anthropic",
+        "Pricing",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/09/GettyImages-2294935494.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Russell Brandom",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-03T17:07:01Z",
+      "hidden": false,
+      "rank": 24
+    },
+    {
+      "id": "tc-google-will-let-schools-disable-its-ai-tools-2026-11-04",
+      "title": "Google will let schools disable its AI tools, but not without sacrificing Search",
+      "summary": "Because AI features are now built into the search engine, schools that restrict AI entirely lose access to Google Search along with it.",
+      "url": "https://techcrunch.com/2026/11/03/google-will-let-schools-disable-its-ai-tools-but-not-without-sacrificing-search/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/03/google-will-let-schools-disable-its-ai-tools-but-not-without-sacrificing-search/",
+      "category": "news",
+      "tags": [
+        "Google",
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/06/google-logo.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Aisha Malik",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-03T16:30:34Z",
+      "hidden": false,
+      "rank": 28
+    },
+    {
+      "id": "tc-apple-restricts-dating-apps-and-ai-companions-2026-11-04",
+      "title": "Apple restricts dating apps and AI companions to users 18 and up",
+      "summary": "New App Store rules require an 18+ rating for dating apps and for AI companion apps that offer sexual or romantic content.",
+      "url": "https://techcrunch.com/2026/11/03/apple-restricts-dating-apps-and-ai-companions-to-users-18-and-up/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/03/apple-restricts-dating-apps-and-ai-companions-to-users-18-and-up/",
+      "category": "news",
+      "tags": [
+        "Apple",
+        "Policy",
+        "Safety"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2025/04/Screenshot-2025-04-22-at-1.24.23PM.png?resize=1200,672"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-03T15:38:27Z",
+      "hidden": false,
+      "rank": 31
+    },
+    {
+      "id": "tc-the-techcrunch-founder-summit-agenda-is-only-2026-11-04",
+      "title": "The TechCrunch Founder Summit agenda is only half the reason to be in Boston on November 4",
+      "summary": "Event promo for TechCrunch Founder Summit 2026, which gathers founders and VCs at Boston's SoWa Power Station on Nov. 4.",
+      "url": "https://techcrunch.com/2026/11/03/the-techcrunch-founder-summit-agenda-is-only-half-the-reason-to-be-in-boston-on-nov-4/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/03/the-techcrunch-founder-summit-agenda-is-only-half-the-reason-to-be-in-boston-on-nov-4/",
+      "category": "news",
+      "tags": [
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2025/03/Early-Stage-2024-networking_2.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "TechCrunch Events",
+        "reading_time": "7 minutes"
+      },
+      "published_at": "2026-11-03T14:30:00Z",
+      "hidden": false,
+      "rank": 35
+    },
+    {
+      "id": "hn-postman-silently-auto-installs-ai-plugins-and-2026-11-04",
+      "title": "Postman silently auto-installs AI plugins and attempts to share all API data",
+      "summary": "A GitHub issue on Postman's support tracker reporting that the app installs AI plugins without asking and tries to send all of a user's API data.",
+      "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50354960",
+      "category": "hn",
+      "tags": [
+        "Dev Tool",
+        "Privacy",
+        "Security"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 1205,
+        "comments": 393
+      },
+      "meta": {
+        "author": "sidgarimella"
+      },
+      "published_at": "2026-11-03T17:22:37Z",
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "hn-the-astra-can-read-and-write-weights-to-improve-2026-11-04",
+      "title": "The 'Astra can read and write weights to improve Qwen' post is misleading",
+      "summary": "Matthew Honnibal argues on his blog that the post claiming Astra can read and write Qwen's weights to improve it is misleading.",
+      "url": "https://honnibal.dev/blog/astra-read-write-misleading",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50351111",
+      "category": "hn",
+      "tags": [
+        "LLM",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 962,
+        "comments": 200
+      },
+      "meta": {
+        "author": "syllogism"
+      },
+      "published_at": "2026-11-03T12:21:17Z",
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "hn-google-will-turn-off-search-for-schools-that-2026-11-04",
+      "title": "Google will turn off search for schools that reject AI",
+      "summary": "New York Times report on the same change: with AI built into Search, schools that restrict Google's AI tools lose Search too.",
+      "url": "https://www.nytimes.com/2026/11/03/us/google-search-schools-restrict-ai.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50353192",
+      "category": "hn",
+      "tags": [
+        "Google",
+        "Policy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 605,
+        "comments": 429
+      },
+      "meta": {
+        "author": "ceejayoz"
+      },
+      "published_at": "2026-11-03T15:25:47Z",
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "id": "hn-qwen-3-8-27b-on-my-laptop-can-interpret-model-2026-11-04",
+      "title": "Qwen 3.8 27B on my laptop can interpret model weights, too",
+      "summary": "Simon Willison's blog post testing whether a local 27B Qwen 3.8 can interpret model weights, a response to the Astra weight-editing claims in today's edition.",
+      "url": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50355251",
+      "category": "hn",
+      "tags": [
+        "Local LLM",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 589,
+        "comments": 176
+      },
+      "meta": {
+        "author": "theanonymousone"
+      },
+      "published_at": "2026-11-03T17:40:00Z",
+      "hidden": false,
+      "rank": 13
+    },
+    {
+      "id": "hn-openai-seems-to-be-silently-re-enabling-model-2026-11-04",
+      "title": "OpenAI seems to be silently re-enabling model training on Codex chats",
+      "summary": "A user report, posted directly to Hacker News, that OpenAI appears to have turned model training on Codex chats back on without notice.",
+      "url": "https://news.ycombinator.com/item?id=50352757",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50352757",
+      "category": "hn",
+      "tags": [
+        "OpenAI",
+        "Privacy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 469,
+        "comments": 144
+      },
+      "meta": {
+        "author": "user052919"
+      },
+      "published_at": "2026-11-03T14:53:41Z",
+      "hidden": false,
+      "rank": 16
+    },
+    {
+      "id": "hn-us-tech-giants-hidden-ai-debt-swells-90-to-3-2t-2026-11-04",
+      "title": "US tech giants' hidden AI debt swells 90% to $3.2T in 6 months",
+      "summary": "Nikkei Asia report tallying off-balance-sheet AI borrowing by US tech giants, up 90% to $3.2T in six months.",
+      "url": "https://asia.nikkei.com/business/technology/artificial-intelligence/us-tech-giants-hidden-ai-debt-swells-90-to-3.2tn-in-6-months",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50358422",
+      "category": "hn",
+      "tags": [
+        "Funding"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 337,
+        "comments": 142
+      },
+      "meta": {
+        "author": "angry_impala"
+      },
+      "published_at": "2026-11-03T21:26:44Z",
+      "hidden": false,
+      "rank": 20
+    },
+    {
+      "id": "hn-the-little-book-of-generative-ai-foundations-an-2026-11-04",
+      "title": "The Little Book of Generative AI Foundations: An Intuitive Mathematical Primer",
+      "summary": "An arXiv primer on the mathematics behind generative AI, written to build intuition rather than assume a research background.",
+      "url": "https://arxiv.org/abs/2605.29713",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50358582",
+      "category": "hn",
+      "tags": [
+        "Paper",
+        "Tutorial"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 325,
+        "comments": 50
+      },
+      "meta": {
+        "author": "ibobev"
+      },
+      "published_at": "2026-11-03T21:40:53Z",
+      "hidden": false,
+      "rank": 23
+    },
+    {
+      "id": "hn-revolut-moves-to-self-hosted-glm-2026-11-04",
+      "title": "Revolut moves to self-hosted GLM",
+      "summary": "A post on X reporting that the bank Revolut is switching to self-hosted GLM models.",
+      "url": "https://twitter.com/guilleflorvs/status/2117379073785696395",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50350004",
+      "category": "hn",
+      "tags": [
+        "Local LLM",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 189,
+        "comments": 159
+      },
+      "meta": {
+        "author": "pretext"
+      },
+      "published_at": "2026-11-03T09:53:59Z",
+      "hidden": false,
+      "rank": 27
+    },
+    {
+      "id": "hn-just-a-little-ai-resistance-as-a-treat-2026-11-04",
+      "title": "Just a little AI resistance, as a treat",
+      "summary": "A personal blog post by Terence Eden on shkspr.mobi about small acts of pushing back against AI.",
+      "url": "https://shkspr.mobi/blog/2026/11/just-a-little-ai-resistance-as-a-treat/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50352257",
+      "category": "hn",
+      "tags": [
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 173,
+        "comments": 108
+      },
+      "meta": {
+        "author": "mooreds"
+      },
+      "published_at": "2026-11-03T14:14:12Z",
+      "hidden": false,
+      "rank": 30
+    },
+    {
+      "id": "hn-how-i-use-ai-oct-2026-2026-11-04",
+      "title": "How I use AI (Oct 2026)",
+      "summary": "Ben Stolovitz's personal blog post laying out how he uses AI tools in his work as of October 2026.",
+      "url": "https://ben.stolovitz.com/posts/how-use-ai-oct-2026/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50355767",
+      "category": "hn",
+      "tags": [
+        "LLM",
+        "Tutorial"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 152,
+        "comments": 134
+      },
+      "meta": {
+        "author": "citelao"
+      },
+      "published_at": "2026-11-03T18:11:11Z",
+      "hidden": false,
+      "rank": 34
+    }
+  ]
+}

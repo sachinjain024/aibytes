@@ -1,0 +1,120 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-04",
+  "window": {
+    "after": "2026-11-03",
+    "before": "2026-11-05"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 17,
+  "poolCount": 65,
+  "stories": [
+    {
+      "title": "Postman silently auto-installs AI plugins and attempts to share all API data",
+      "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+      "type": "story",
+      "points": 1205,
+      "num_comments": 393,
+      "author": "sidgarimella",
+      "created_at": "2026-11-03T17:22:37Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50354960"
+    },
+    {
+      "title": "The 'Astra can read and write weights to improve Qwen' post is misleading",
+      "url": "https://honnibal.dev/blog/astra-read-write-misleading",
+      "type": "story",
+      "points": 962,
+      "num_comments": 200,
+      "author": "syllogism",
+      "created_at": "2026-11-03T12:21:17Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50351111"
+    },
+    {
+      "title": "Google will turn off search for schools that reject AI",
+      "url": "https://www.nytimes.com/2026/11/03/us/google-search-schools-restrict-ai.html",
+      "type": "story",
+      "points": 605,
+      "num_comments": 429,
+      "author": "ceejayoz",
+      "created_at": "2026-11-03T15:25:47Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50353192"
+    },
+    {
+      "title": "Qwen 3.8 27B on my laptop can interpret model weights, too",
+      "url": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/",
+      "type": "story",
+      "points": 589,
+      "num_comments": 176,
+      "author": "theanonymousone",
+      "created_at": "2026-11-03T17:40:00Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50355251"
+    },
+    {
+      "title": "OpenAI seems to be silently re-enabling model training on Codex chats",
+      "url": "https://news.ycombinator.com/item?id=50352757",
+      "type": "ask_hn",
+      "points": 469,
+      "num_comments": 144,
+      "author": "user052919",
+      "created_at": "2026-11-03T14:53:41Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50352757"
+    },
+    {
+      "title": "US tech giants' hidden AI debt swells 90% to $3.2T in 6 months",
+      "url": "https://asia.nikkei.com/business/technology/artificial-intelligence/us-tech-giants-hidden-ai-debt-swells-90-to-3.2tn-in-6-months",
+      "type": "story",
+      "points": 337,
+      "num_comments": 142,
+      "author": "angry_impala",
+      "created_at": "2026-11-03T21:26:44Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50358422"
+    },
+    {
+      "title": "The Little Book of Generative AI Foundations: An Intuitive Mathematical Primer",
+      "url": "https://arxiv.org/abs/2605.29713",
+      "type": "story",
+      "points": 325,
+      "num_comments": 50,
+      "author": "ibobev",
+      "created_at": "2026-11-03T21:40:53Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50358582"
+    },
+    {
+      "title": "Revolut moves to self-hosted GLM",
+      "url": "https://twitter.com/guilleflorvs/status/2117379073785696395",
+      "type": "story",
+      "points": 189,
+      "num_comments": 159,
+      "author": "pretext",
+      "created_at": "2026-11-03T09:53:59Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50350004"
+    },
+    {
+      "title": "Just a little AI resistance, as a treat",
+      "url": "https://shkspr.mobi/blog/2026/11/just-a-little-ai-resistance-as-a-treat/",
+      "type": "story",
+      "points": 173,
+      "num_comments": 108,
+      "author": "mooreds",
+      "created_at": "2026-11-03T14:14:12Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50352257"
+    },
+    {
+      "title": "How I use AI (Oct 2026)",
+      "url": "https://ben.stolovitz.com/posts/how-use-ai-oct-2026/",
+      "type": "story",
+      "points": 152,
+      "num_comments": 134,
+      "author": "citelao",
+      "created_at": "2026-11-03T18:11:11Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50355767"
+    }
+  ]
+}

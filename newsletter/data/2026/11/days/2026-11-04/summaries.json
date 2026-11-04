@@ -1,0 +1,145 @@
+{
+  "date": "2026-11-04",
+  "items": {
+    "ph-agentkit-by-scalekit-2026-11-04": {
+      "summary": "One MCP gateway to 30,000+ tools across 600+ apps, running each action as the requesting user within their granted scopes, with per-agent Virtual MCP Servers and call logs.",
+      "tags": ["Dev Tool", "Agents", "MCP", "Launch"]
+    },
+    "ph-teamily-ai-2026-11-04": {
+      "summary": "A messenger where multiple people and always-on agents share threads, docs, meetings and calls, with agents keeping persistent memory to automate office work and customer service.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-testifly-2026-11-04": {
+      "summary": "Connect a web app and it discovers user flows, writes tests, repairs them when the UI changes, and explains each failure with a video recording.",
+      "tags": ["Dev Tool", "Agents", "Launch"]
+    },
+    "ph-synter-canvas-2-2026-11-04": {
+      "summary": "Lets an AI agent build, launch and tune ad campaigns across 30+ ad platforms behind per-change safety gates, billed at $0.25 per verified write with no cut of ad spend.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-videco-3-2026-11-04": {
+      "summary": "Finds highlight moments in demos and webinars, cuts branded short-form clips from them, and hosts, embeds and tracks the resulting video in one workspace for marketing teams.",
+      "tags": ["Video", "Launch"]
+    },
+    "gh-agent-desktop-2026-11-04": {
+      "summary": "A Rust command-line tool from Vercel Labs that gives AI agents computer use - driving a desktop from the CLI.",
+      "tags": ["Open Source", "Agents", "Dev Tool"]
+    },
+    "gh-claude-code-game-studios-2026-11-04": {
+      "summary": "Shell-based setup that turns Claude Code into a game studio of 49 agents and 72 workflow skills, coordinated through a hierarchy that mirrors real studio roles.",
+      "tags": ["Open Source", "Agents", "Claude Code"]
+    },
+    "gh-skills-2026-11-04": {
+      "summary": "Matt Pocock's personal agent skills, published straight from his .agents directory for engineers to drop into their own coding agents.",
+      "tags": ["Open Source", "Agents", "Code Gen"]
+    },
+    "gh-claude-mem-2026-11-04": {
+      "summary": "TypeScript memory layer that records an agent's session activity, compresses it with a model, and injects relevant context into later sessions; supports Claude Code, Codex, Gemini, Copilot and more.",
+      "tags": ["Open Source", "Agents", "Claude Code"]
+    },
+    "gh-colibri-2026-11-04": {
+      "summary": "C inference engine for large MoE models that tiers experts by use: hot ones on the GPU via CUDA or Vulkan, warm ones in RAM, cold ones streamed from NVMe.",
+      "tags": ["Open Source", "Inference", "Local LLM"]
+    },
+    "gh-heretic-2026-11-04": {
+      "summary": "Python tool that edits language model behaviour without training, used to strip refusals, cut stock phrasing and reduce sycophancy.",
+      "tags": ["Open Source", "LLM", "Safety"]
+    },
+    "gh-kronos-2026-11-04": {
+      "summary": "Python foundation model trained to treat financial market data as a language, with code for applying it to market series.",
+      "tags": ["Model Release", "Open Source"]
+    },
+    "gh-worktrunk-2026-11-04": {
+      "summary": "Rust CLI for creating and managing Git worktrees, built so several AI coding agents can work on the same repo in parallel without colliding.",
+      "tags": ["Open Source", "Dev Tool", "Agents"]
+    },
+    "gh-ai-goofish-monitor-2026-11-04": {
+      "summary": "Python system using Playwright and an LLM to watch Xianyu (Goofish) listings on live or scheduled tasks, analyse matches, and manage it all from an admin UI.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-portal-ai-plugins-2026-11-04": {
+      "summary": "A TypeScript repo of AI plugins from Spotify for Portal, its developer portal product; the repo publishes no description yet.",
+      "tags": ["Open Source", "Dev Tool"]
+    },
+    "tc-anthropic-is-working-on-a-system-to-prove-ai-2026-11-04": {
+      "summary": "The system is called FlashProve and would let anyone verify that a given AI response really came from the model it claims to come from.",
+      "tags": ["Anthropic", "Security"]
+    },
+    "tc-data-centers-are-turning-to-old-jet-engines-as-2026-11-04": {
+      "summary": "Years-long waits for grid hookups and new turbines push builders to once-discarded jet engines, which are less efficient and dirtier than the alternatives.",
+      "tags": ["Inference"]
+    },
+    "tc-ted-schleins-ballistic-ventures-seeks-490m-for-2026-11-04": {
+      "summary": "The cybersecurity-focused firm is raising $360M for a new flagship fund plus $130M for a separate investment vehicle.",
+      "tags": ["Funding", "Security"]
+    },
+    "tc-hiding-inside-palantirs-skyrocketing-quarter-is-2026-11-04": {
+      "summary": "Palantir's U.S. commercial revenue passed its U.S. government revenue for the first time, and the article reads a warning sign inside that shift.",
+      "tags": ["Deep Dive"]
+    },
+    "tc-ai-inference-startup-fal-doubles-its-valuation-2026-11-04": {
+      "summary": "The five-year-old company raised a $1.3B round led by Bessemer.",
+      "tags": ["Funding", "Inference"]
+    },
+    "tc-netflixs-new-ai-discover-tab-helps-you-find-2026-11-04": {
+      "summary": "The first experiment in the new tab recommends titles from a description of what the viewer is in the mood for right now.",
+      "tags": ["LLM", "Launch"]
+    },
+    "tc-anthropic-is-still-grappling-with-the-economics-2026-11-04": {
+      "summary": "Anthropic's compute margins are getting worse at the point where they would be expected to improve.",
+      "tags": ["Anthropic", "Pricing", "Deep Dive"]
+    },
+    "tc-google-will-let-schools-disable-its-ai-tools-2026-11-04": {
+      "summary": "Because AI features are now built into the search engine, schools that restrict AI entirely lose access to Google Search along with it.",
+      "tags": ["Google", "Policy"]
+    },
+    "tc-apple-restricts-dating-apps-and-ai-companions-2026-11-04": {
+      "summary": "New App Store rules require an 18+ rating for dating apps and for AI companion apps that offer sexual or romantic content.",
+      "tags": ["Apple", "Policy", "Safety"]
+    },
+    "tc-the-techcrunch-founder-summit-agenda-is-only-2026-11-04": {
+      "summary": "Event promo for TechCrunch Founder Summit 2026, which gathers founders and VCs at Boston's SoWa Power Station on Nov. 4.",
+      "tags": ["Funding"]
+    },
+    "hn-postman-silently-auto-installs-ai-plugins-and-2026-11-04": {
+      "summary": "A GitHub issue on Postman's support tracker reporting that the app installs AI plugins without asking and tries to send all of a user's API data.",
+      "tags": ["Dev Tool", "Privacy", "Security"]
+    },
+    "hn-the-astra-can-read-and-write-weights-to-improve-2026-11-04": {
+      "summary": "Matthew Honnibal argues on his blog that the post claiming Astra can read and write Qwen's weights to improve it is misleading.",
+      "tags": ["LLM", "Deep Dive"]
+    },
+    "hn-google-will-turn-off-search-for-schools-that-2026-11-04": {
+      "summary": "New York Times report on the same change: with AI built into Search, schools that restrict Google's AI tools lose Search too.",
+      "tags": ["Google", "Policy"]
+    },
+    "hn-qwen-3-8-27b-on-my-laptop-can-interpret-model-2026-11-04": {
+      "summary": "Simon Willison's blog post testing whether a local 27B Qwen 3.8 can interpret model weights, a response to the Astra weight-editing claims in today's edition.",
+      "tags": ["Local LLM", "LLM"]
+    },
+    "hn-openai-seems-to-be-silently-re-enabling-model-2026-11-04": {
+      "summary": "A user report, posted directly to Hacker News, that OpenAI appears to have turned model training on Codex chats back on without notice.",
+      "tags": ["OpenAI", "Privacy"]
+    },
+    "hn-us-tech-giants-hidden-ai-debt-swells-90-to-3-2t-2026-11-04": {
+      "summary": "Nikkei Asia report tallying off-balance-sheet AI borrowing by US tech giants, up 90% to $3.2T in six months.",
+      "tags": ["Funding"]
+    },
+    "hn-the-little-book-of-generative-ai-foundations-an-2026-11-04": {
+      "summary": "An arXiv primer on the mathematics behind generative AI, written to build intuition rather than assume a research background.",
+      "tags": ["Paper", "Tutorial"]
+    },
+    "hn-revolut-moves-to-self-hosted-glm-2026-11-04": {
+      "summary": "A post on X reporting that the bank Revolut is switching to self-hosted GLM models.",
+      "tags": ["Local LLM", "LLM"]
+    },
+    "hn-just-a-little-ai-resistance-as-a-treat-2026-11-04": {
+      "summary": "A personal blog post by Terence Eden on shkspr.mobi about small acts of pushing back against AI.",
+      "tags": ["LLM"]
+    },
+    "hn-how-i-use-ai-oct-2026-2026-11-04": {
+      "summary": "Ben Stolovitz's personal blog post laying out how he uses AI tools in his work as of October 2026.",
+      "tags": ["LLM", "Tutorial"]
+    }
+  }
+}
