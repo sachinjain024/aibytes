@@ -10,7 +10,7 @@ labels:
 type: chore
 due: 2026-11-08
 created_at: 2026-11-03T07:55:49.030Z
-updated_at: 2026-11-03T10:10:32.107Z
+updated_at: 2026-11-04T10:26:35.951Z
 ---
 
 Move the aiBytes_ weekly newsletter from Beehiiv to Substack.
@@ -25,22 +25,46 @@ Move the aiBytes_ weekly newsletter from Beehiiv to Substack.
 
 - [x] Cancel Beehiiv subscription plan <!-- longclaw:item=ck_a979463d -->
 - [x] Export the subscriber list (CSV) and the post archive from Beehiiv before access ends <!-- longclaw:item=ck_bd7f67c7 -->
-- [ ] Set up the Substack publication: name, logo, about page, sender name, reply-to, welcome email; turn paid subscriptions off <!-- longclaw:item=ck_ae1d81a7 -->
-- [ ] Create the email alias contact@aibytes.io, forwarding to the personal Gmail inbox; use it as the Substack reply-to and the public contact address <!-- longclaw:item=ck_cabf4949 -->
-- [ ] Connect the custom domain newsletter.aibytes.io to the Substack publication (one-time $50; CNAME at the DNS provider) before backfilling, so old posts get their final URLs <!-- longclaw:item=ck_94516fde -->
 - [x] Figure out the right set of elements for how the newsletter should appear on Substack (no HTML support) - play around with Substack editor components <!-- longclaw:item=ck_363d4f0f -->
-- [ ] Once the newsletter structure is finalized, figure out how to publish <!-- longclaw:item=ck_b6bf1aea -->
 - [ ] Update the generate-newsletter-content and thumbnail skills to produce Substack-ready output instead of the Beehiiv export <!-- longclaw:item=ck_16018973 -->
-- [ ] Backfill previous posts (with email sending off) <!-- longclaw:item=ck_3227c899 -->
-- [ ] Add audience so they don't receive previous posts email <!-- longclaw:item=ck_7cd2b392 -->
-- [ ] Check the imported subscriber count against the Beehiiv export; leave out unsubscribed and bounced addresses <!-- longclaw:item=ck_bf067783 -->
+- [x] Backfill previous posts (with email sending off) <!-- longclaw:item=ck_3227c899 -->
+- [x] Add audience so they don't receive previous posts email <!-- longclaw:item=ck_7cd2b392 -->
+- [x] Import the 2,632 active Beehiiv subscribers into Substack - submitted 3 Nov 2026, waiting on Substack's import review <!-- longclaw:item=ck_68860357 -->
+- [x] Check the imported subscriber count against the Beehiiv export; leave out unsubscribed and bounced addresses <!-- longclaw:item=ck_bf067783 -->
 - [ ] Send a test email to Gmail and Outlook; check the inbox tab, images, links, and the mobile layout <!-- longclaw:item=ck_893b8330 -->
-- [ ] Send a confirmation email about the platform shift (ask readers to add the new sender address to their contacts) <!-- longclaw:item=ck_e2387144 -->
 - [ ] Point every subscribe link at Substack: aibytes.io app, docs, social bios <!-- longclaw:item=ck_bb1521c1 -->
-- [ ] Turn off Beehiiv automations and the welcome email so nobody gets a double send <!-- longclaw:item=ck_cd8a7611 -->
+- [ ] Set up the Substack publication: name, logo, about page, sender name, reply-to, welcome email; turn paid subscriptions off <!-- longclaw:item=ck_ae1d81a7 -->
+- [x] Once the newsletter structure is finalized, figure out how to publish <!-- longclaw:item=ck_b6bf1aea -->
+- [x] Turn off Beehiiv automations and the welcome email so nobody gets a double send <!-- longclaw:item=ck_cd8a7611 -->
+- [ ] Connect the custom domain newsletter.aibytes.io to the Substack publication (one-time $50; CNAME at the DNS provider) before backfilling, so old posts get their final URLs <!-- longclaw:item=ck_94516fde -->
+- [ ] Create the email alias contact@aibytes.io, forwarding to the personal Gmail inbox; use it as the Substack reply-to and the public contact address <!-- longclaw:item=ck_cabf4949 -->
 - [ ] Monitor the stats on the next issue (opens, clicks, unsubscribes vs. the Beehiiv baseline) <!-- longclaw:item=ck_d318a1de -->
 - [ ] Record the migration decision in newsletter/artifacts/ <!-- longclaw:item=ck_6a5e6a1d -->
 - [ ] Remove Beehiiv-specific tooling from the repo, keeping it recoverable - AIB-135b <!-- longclaw:item=ck_4ca0624d -->
+
+## Ticket References
+
+<!-- longclaw:reference
+id: ref_127b2c48
+path: /Users/sachinjain/Library/CloudStorage/GoogleDrive-sachinjain024@gmail.com/My Drive/02_Work/Projects/aiBytes/aiBytes Basic Subscriber Export Nov 3 2026.csv
+added_at: 2026-11-03T10:38:00.635Z
+added_by:
+  type: human
+  id: local
+-->
+[aiBytes Basic Subscriber Export Nov 3 2026.csv](</Users/sachinjain/Library/CloudStorage/GoogleDrive-sachinjain024@gmail.com/My Drive/02_Work/Projects/aiBytes/aiBytes Basic Subscriber Export Nov 3 2026.csv>)
+<!-- /longclaw:reference -->
+
+<!-- longclaw:reference
+id: ref_79e1a060
+path: /Users/sachinjain/Library/CloudStorage/GoogleDrive-sachinjain024@gmail.com/My Drive/02_Work/Projects/aiBytes/aiBytes Posts Export Nov 3 2026.csv
+added_at: 2026-11-03T10:38:07.097Z
+added_by:
+  type: human
+  id: local
+-->
+[aiBytes Posts Export Nov 3 2026.csv](</Users/sachinjain/Library/CloudStorage/GoogleDrive-sachinjain024@gmail.com/My Drive/02_Work/Projects/aiBytes/aiBytes Posts Export Nov 3 2026.csv>)
+<!-- /longclaw:reference -->
 
 ## Activity
 
@@ -177,4 +201,539 @@ changes:
 ### claude-code updated this ticket
 
 Item 4 done: tested in the Substack editor and email preview. Picked layout 4 (ranked lists) on the current website theme (#FFF7ED / #FF6719). Decision record: newsletter/artifacts/2026-Nov-03-Substack-design-taste.html. Pattern: .claude/skills/generate-newsletter-content/references/substack-layout.md. Found along the way: built-in Beehiiv post importer, a separate welcome email for imported subscribers, and a 'Forward reader emails to' setting for contact@aibytes.io.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_01a62485
+kind: update
+occurred_at: 2026-11-03T10:38:00.635Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: references.ref_127b2c48.added
+    to: aiBytes Basic Subscriber Export Nov 3 2026.csv
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_098ef320
+kind: update
+occurred_at: 2026-11-03T10:38:07.097Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: references.ref_79e1a060.added
+    to: aiBytes Posts Export Nov 3 2026.csv
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_81cab761
+kind: update
+occurred_at: 2026-11-03T10:42:42.281Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_bf067783.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_71c54dc1
+kind: update
+occurred_at: 2026-11-03T10:56:58.922Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_cabf4949.moved
+    from: "4"
+    to: "15"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_89db6315
+kind: update
+occurred_at: 2026-11-03T10:57:03.418Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_ae1d81a7.moved
+    from: "3"
+    to: "13"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_a5d2889d
+kind: update
+occurred_at: 2026-11-03T10:57:05.959Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_94516fde.moved
+    from: "3"
+    to: "14"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_b018b170
+kind: update
+occurred_at: 2026-11-03T10:57:10.303Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_b6bf1aea.moved
+    from: "4"
+    to: "12"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_74594ab6
+kind: comment
+occurred_at: 2026-11-03T12:36:37.360Z
+actor:
+  type: human
+  id: local
+-->
+### You commented
+
+Backfill tracked per issue in AIB-136r (checklist + live URLs).
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e9cd3820
+kind: update
+occurred_at: 2026-11-03T12:53:20.047Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_3227c899.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+
+Backfill done: Issues 1-16 published web-only and backdated, URLs on AIB-136r.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ebb21dc9
+kind: update
+occurred_at: 2026-11-03T13:39:47.226Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_7cd2b392.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_a9abba5e
+kind: update
+occurred_at: 2026-11-03T13:39:58.275Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_b6bf1aea.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e30def3a
+kind: update
+occurred_at: 2026-11-03T13:40:02.439Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_cd8a7611.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_13e6fcee
+kind: update
+occurred_at: 2026-11-03T13:42:12.859Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_68860357.added
+    to: Import the 2,632 active Beehiiv subscribers into Substack - submitted 3 Nov 2026, waiting on Substack's import review
+-->
+### You updated this ticket
+
+Subscriber import submitted on 3 Nov 2026: 2,632 active subscribers (313 inactive left out of the 2,945 in the Beehiiv export). Substack is reviewing the import; tick the import item once it's approved and the count shows in Substack.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_4baba577
+kind: update
+occurred_at: 2026-11-03T13:42:18.865Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_68860357.moved
+    from: "19"
+    to: "7"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_7d237560
+kind: update
+occurred_at: 2026-11-04T10:21:37.006Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_e2387144.removed
+    from: Send a confirmation email about the platform shift (ask readers to add the new sender address to their contacts)
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_2f093ad7
+kind: update
+occurred_at: 2026-11-04T10:22:03.101Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_68860357.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_307f2912
+kind: comment
+occurred_at: 2026-11-04T10:22:18.156Z
+actor:
+  type: human
+  id: local
+-->
+### You commented
+
+Imported all the subscribers. Reviewed and added by Substack team.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_afb17c8a
+kind: comment
+occurred_at: 2026-11-04T10:26:14.561Z
+actor:
+  type: human
+  id: local
+-->
+### You commented
+
+Substack approved the subscriber import (2,632 active subscribers).
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_4d26d127
+kind: update
+occurred_at: 2026-11-04T10:26:14.594Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_c1434142.added
+    to: Finalise the image-generation provider for the issue banner (style guide and reference image in docs/image-guide/); try each option below
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_0d7353a4
+kind: update
+occurred_at: 2026-11-04T10:26:14.638Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_c1434142.moved
+    from: "19"
+    to: "5"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_4e89e05a
+kind: update
+occurred_at: 2026-11-04T10:26:14.665Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_4956aac8.added
+    to: "Image provider option: OpenAI app"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8636b54b
+kind: update
+occurred_at: 2026-11-04T10:26:14.698Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_4956aac8.moved
+    from: "20"
+    to: "6"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_65b9fdb1
+kind: update
+occurred_at: 2026-11-04T10:26:14.719Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_08e4696a.added
+    to: "Image provider option: OpenAI CLI"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_940c04f9
+kind: update
+occurred_at: 2026-11-04T10:26:14.749Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_08e4696a.moved
+    from: "21"
+    to: "7"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e3073c85
+kind: update
+occurred_at: 2026-11-04T10:26:14.771Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_87c6111c.added
+    to: "Image provider option: Claude CLI"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_01afdbec
+kind: update
+occurred_at: 2026-11-04T10:26:14.802Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_87c6111c.moved
+    from: "22"
+    to: "8"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_7a0171ae
+kind: update
+occurred_at: 2026-11-04T10:26:14.820Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_18ef5f66.added
+    to: "Image provider option: Grok CLI"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_1f5283a5
+kind: update
+occurred_at: 2026-11-04T10:26:14.851Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_18ef5f66.moved
+    from: "23"
+    to: "9"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_249a9eee
+kind: update
+occurred_at: 2026-11-04T10:26:14.870Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_fd60fbc6.added
+    to: "Image provider option: Gemini"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8d154b77
+kind: update
+occurred_at: 2026-11-04T10:26:14.908Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_fd60fbc6.moved
+    from: "24"
+    to: "10"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_505058f7
+kind: update
+occurred_at: 2026-11-04T10:26:26.069Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_fd60fbc6.removed
+    from: "Image provider option: Gemini"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_01561506
+kind: update
+occurred_at: 2026-11-04T10:26:35.839Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_c1434142.removed
+    from: Finalise the image-generation provider for the issue banner (style guide and reference image in docs/image-guide/); try each option below
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_155332c8
+kind: update
+occurred_at: 2026-11-04T10:26:35.864Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_4956aac8.removed
+    from: "Image provider option: OpenAI app"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f4a2d29f
+kind: update
+occurred_at: 2026-11-04T10:26:35.902Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_08e4696a.removed
+    from: "Image provider option: OpenAI CLI"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_3818b70d
+kind: update
+occurred_at: 2026-11-04T10:26:35.922Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_87c6111c.removed
+    from: "Image provider option: Claude CLI"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_3396620d
+kind: update
+occurred_at: 2026-11-04T10:26:35.951Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_18ef5f66.removed
+    from: "Image provider option: Grok CLI"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_297c1a9c
+kind: comment
+occurred_at: 2026-11-04T10:26:50.965Z
+actor:
+  type: human
+  id: local
+-->
+### You commented
+
+Image-provider choice split out into AIB-137j.
 <!-- /longclaw:event -->
