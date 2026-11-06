@@ -3,11 +3,11 @@ format: longclaw.ticket/v1
 id: 1a875705-e01f-4039-b9f5-0fb78714d291
 key: AIB-105j
 title: Publish the weekly issue on aibytes.io/weekly
-status: in_review
+status: done
 priority: p2
 type: feature
 created_at: 2026-10-18T04:50:25.960Z
-updated_at: 2026-11-06T10:28:11.396Z
+updated_at: 2026-11-06T21:42:33.335Z
 ---
 
 Publish each weekly aiBytes_ issue on our own site at `aibytes.io/weekly/<slug>`, before the Substack send.
@@ -32,6 +32,7 @@ Depends on / coordinates with:
 - [x] Back-fill past issues under /weekly <!-- longclaw:item=ck_e685259b -->
 - [x] Tests pass; commit and open a PR <!-- longclaw:item=ck_4d755e79 -->
 - [x] Add a Substack subscribe CTA on /weekly pages (covers AIB-134j custom-subscribe-button item) <!-- longclaw:item=ck_55165593 -->
+- [x] Spot-check aibytes.io/weekly and older issues after the deploy <!-- longclaw:item=ck_c1dd4fe8 -->
 
 ## Ticket References
 
@@ -230,4 +231,40 @@ actor:
 ### Grok commented
 
 PR: https://github.com/sachinjain024/aibytes/pull/51
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_39ba7d62
+kind: update
+occurred_at: 2026-11-06T21:42:33.175Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_c1dd4fe8.added
+    to: Spot-check aibytes.io/weekly and older issues after the deploy
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_5927ac96
+kind: update
+occurred_at: 2026-11-06T21:42:33.335Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: status
+    from: in_review
+    to: done
+  - field: checklist.ck_c1dd4fe8.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Merged as #51 (0121b04) and live on aibytes.io. Checked after the Pages deploy: /weekly lists issues 1-16; /weekly/issue-16 returns 200 with its canonical URL, title and OG tags; older issues render with their items. Review fixes landed before merge: template placeholders and stat text removed from the issue JSON, weekly content validated by validate.py, per-page head tags, a Substack subscribe bar, and one feed shell shared with the daily edition. Two approved site-wide defaults shipped with it: list + grouped for the daily edition, and the light theme regardless of the OS setting. Follow-up: AIB-134n (Substack iframe embed).
 <!-- /longclaw:event -->
