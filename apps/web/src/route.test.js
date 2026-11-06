@@ -1,6 +1,16 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { editionPath, issueRedirect, olderEdition, parseRoute, pickEdition } from "./route.js";
+import {
+  editionPath,
+  issueRedirect,
+  olderEdition,
+  olderWeeklyIssue,
+  parseRoute,
+  pickEdition,
+  pickWeeklyIssue,
+  weeklyPath,
+  weeklyUrl,
+} from "./route.js";
 
 const EDITIONS = [
   { date: "2026-10-07", path: "editions/2026-10-07.json" },
@@ -49,4 +59,36 @@ test("the older edition is the next entry, and the oldest has none", () => {
   assert.equal(olderEdition(EDITIONS, "2026-10-07").date, "2026-10-06");
   assert.equal(olderEdition(EDITIONS, "2026-10-06"), null);
   assert.equal(olderEdition(EDITIONS, "2026-01-01"), null);
+});
+
+test("the weekly archive route", () => {
+  for (const path of ["/weekly", "/weekly/"]) {
+    assert.deepEqual(parseRoute(path), { kind: "weekly_index" });
+  }
+  assert.equal(weeklyPath(), "/weekly");
+});
+
+test("a weekly issue slug path", () => {
+  for (const path of ["/weekly/issue-16", "/weekly/issue-16/"]) {
+    assert.deepEqual(parseRoute(path), { kind: "weekly_issue", slug: "issue-16" });
+  }
+  assert.equal(weeklyPath("issue-16"), "/weekly/issue-16");
+  assert.equal(weeklyUrl("issue-16"), "https://aibytes.io/weekly/issue-16");
+});
+
+test("weekly issue paths do not steal edition dates or /p/ links", () => {
+  assert.deepEqual(parseRoute("/weekly/2026-10-07"), { kind: "notfound" });
+  assert.deepEqual(parseRoute("/weekly/issue"), { kind: "notfound" });
+  assert.deepEqual(parseRoute("/weekly/issue-16/extra"), { kind: "notfound" });
+});
+
+test("pickWeeklyIssue and olderWeeklyIssue read the weekly index", () => {
+  const issues = [
+    { slug: "issue-16", number: 16, path: "weekly/issues/issue-16.json" },
+    { slug: "issue-15", number: 15, path: "weekly/issues/issue-15.json" },
+  ];
+  assert.equal(pickWeeklyIssue(parseRoute("/weekly/issue-16"), issues).number, 16);
+  assert.equal(pickWeeklyIssue(parseRoute("/weekly/issue-1"), issues), null);
+  assert.equal(olderWeeklyIssue(issues, "issue-16").slug, "issue-15");
+  assert.equal(olderWeeklyIssue(issues, "issue-15"), null);
 });

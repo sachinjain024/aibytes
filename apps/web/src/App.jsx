@@ -11,7 +11,7 @@ import { EditionBar } from "@aibytes/design-system/components/navigation/Edition
 import { FilterPanel } from "@aibytes/design-system/components/navigation/FilterPanel.jsx";
 import { Sidebar } from "@aibytes/design-system/components/navigation/Sidebar.jsx";
 import { Toolbar } from "@aibytes/design-system/components/navigation/Toolbar.jsx";
-import { loadEdition, loadIndex, loadTags } from "./content.js";
+import { loadEdition, loadIndex, loadTags, loadWeeklyIndex, loadWeeklyIssue } from "./content.js";
 import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, SOURCES } from "./filters.js";
 import { FOOTER_LINKS, GITHUB_URL, SUBSCRIBE_URL } from "./footer.js";
 import { longDate, midDate, shortDate } from "./format.js";
@@ -19,7 +19,7 @@ import { useChoice, useDismiss, useGridColumns, useMedia, useReturnFocus, useThe
 import { shownView } from "./layout.js";
 import { groupedItems, rankedItems } from "./order.js";
 import { ORDER, VIEW } from "./prefs.js";
-import { editionPath, olderEdition, parseRoute, pickEdition } from "./route.js";
+import { editionPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, weeklyPath } from "./route.js";
 
 // The sidebar's links: live ones first, then those not live yet. GitHub is
 // left out because the masthead already carries it.
@@ -73,8 +73,40 @@ export function App() {
   const route = parseRoute(location.pathname);
   const [theme, toggleTheme] = useTheme();
   React.useEffect(() => { document.documentElement.dataset.theme = theme; }, [theme]);
-  const [view, setView] = useChoice(VIEW, "grid");
-  const [mode, setMode] = useChoice(ORDER, "ranked");
+
+  // Weekly archive and issue pages share the Ledger shell with the daily
+  // edition (AIB-105j). Intro / Official Announcements / Viral on X are omitted
+  // from the issue JSON for now.
+  if (route.kind === "weekly_index") {
+    return <WeeklyArchive theme={theme} onToggleTheme={toggleTheme} />;
+  }
+  if (route.kind === "weekly_issue") {
+    return (
+      <WeeklyIssueApp
+        route={route}
+        location={location}
+        navigate={navigate}
+        theme={theme}
+        onToggleTheme={toggleTheme}
+      />
+    );
+  }
+
+  return (
+    <EditionApp
+      route={route}
+      location={location}
+      navigate={navigate}
+      theme={theme}
+      onToggleTheme={toggleTheme}
+    />
+  );
+}
+
+function EditionApp({ route, location, navigate, theme, onToggleTheme }) {
+  // Defaults: list + grouped (AIB-105j). A stored preference still wins.
+  const [view, setView] = useChoice(VIEW, "list");
+  const [mode, setMode] = useChoice(ORDER, "grouped");
   const [index, setIndex] = React.useState({ status: "loading" });
   const [edition, setEdition] = React.useState({ status: "loading" });
   const [tags, setTags] = React.useState({ status: "loading", groups: [] });
@@ -171,7 +203,7 @@ export function App() {
   return (
     <div className={"app-shell redesign" + (shown === "grid" ? " redesign-grid" : "") + (menuOpen ? " mobile-menu-open" : "")} ref={shell} data-theme={theme}>
       <a className="app-skip" href="#main">Skip to the edition</a>
-      <AppHeader theme={theme} onToggleTheme={toggleTheme} menuOpen={menuOpen} onMenu={() => setMenuOpen(o => !o)} githubUrl={GITHUB_URL} />
+      <AppHeader theme={theme} onToggleTheme={onToggleTheme} menuOpen={menuOpen} onMenu={() => setMenuOpen(o => !o)} githubUrl={GITHUB_URL} />
       <Sidebar categories={categories} count={visible?.length} active={filters.category} open={menuOpen} onClose={() => setMenuOpen(false)}
         links={SIDEBAR_LINKS} subscribeUrl={SUBSCRIBE_URL}
         onCategory={key => { if (filterable) setCategory(key); setMenuOpen(false); }} />
@@ -288,5 +320,249 @@ function body({ route, index, ref, edition, view, mode, items, filters, older, p
           </section>)}
       <EndCard dateLabel={shortDate(ref.date)} prevLabel={older ? shortDate(older.date) : undefined} onPrev={() => older && goTo(older.date)} />
     </>
+  );
+}
+
+// /weekly — Ledger list of published issues.
+function WeeklyArchive({ theme, onToggleTheme }) {
+  const [weekly, setWeekly] = React.useState({ status: "loading" });
+  React.useEffect(() => {
+    document.title = "aiBytes_ · Weekly";
+    let live = true;
+    loadWeeklyIndex()
+      .then((data) => live && setWeekly({ status: "ready", data }))
+      .catch((error) => live && setWeekly({ status: "error", error }));
+    return () => { live = false; };
+  }, []);
+
+  const issues = weekly.status === "ready" ? weekly.data.issues || [] : [];
+
+  return (
+    <div className="app-shell redesign" data-theme={theme}>
+      <a className="app-skip" href="#main">Skip to the archive</a>
+      <AppHeader theme={theme} onToggleTheme={onToggleTheme} githubUrl={GITHUB_URL} />
+      <main id="main" className="redesign-main" tabIndex={-1}>
+        <div className="workspace">
+          <section className="feed" style={{ maxWidth: 720, margin: "0 auto", padding: "28px 20px 56px" }}>
+            <header style={{ marginBottom: 28 }}>
+              <p style={{ fontFamily: "var(--font-mono, ui-monospace, monospace)", fontSize: 12, letterSpacing: "0.08em", color: "var(--text-muted, var(--slate, #6B7080))", marginBottom: 8 }}>WEEKLY</p>
+              <h1 style={{ fontFamily: "var(--font-display, inherit)", fontSize: 28, fontWeight: 800, letterSpacing: "-0.02em", margin: "0 0 10px" }}>aiBytes_ archive</h1>
+              <p style={{ color: "var(--text-muted, var(--slate, #6B7080))", margin: "0 0 16px", lineHeight: 1.5 }}>
+                Every Monday issue on aibytes.io.{" "}
+                <a href={SUBSCRIBE_URL}>Subscribe</a>
+                {" · "}
+                <a href="/">Daily edition</a>
+              </p>
+            </header>
+            {weekly.status === "loading" && <StatusMessage>Loading...</StatusMessage>}
+            {weekly.status === "error" && (
+              <StatusMessage role="alert">Could not load the weekly archive: {weekly.error.message}</StatusMessage>
+            )}
+            {weekly.status === "ready" && !issues.length && (
+              <StatusMessage>No weekly issues published yet.</StatusMessage>
+            )}
+            {weekly.status === "ready" && issues.length > 0 && (
+              <ol style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 12 }}>
+                {issues.map((issue) => (
+                  <li key={issue.slug} style={{ border: "1px solid var(--border, var(--line, #E4E4DC))", borderRadius: 12, background: "var(--surface, var(--card, #fff))" }}>
+                    <a
+                      href={weeklyPath(issue.slug)}
+                      style={{ display: "block", padding: "16px 18px", color: "inherit", textDecoration: "none" }}
+                    >
+                      <div style={{ display: "flex", justifyContent: "space-between", gap: 12, marginBottom: 6, fontFamily: "var(--font-mono, ui-monospace, monospace)", fontSize: 12, color: "var(--text-muted, var(--slate, #6B7080))" }}>
+                        <span>Issue #{issue.number}</span>
+                        <time dateTime={issue.published_on}>{midDate(issue.published_on)}</time>
+                      </div>
+                      <div style={{ fontWeight: 700, fontSize: 17, lineHeight: 1.35, marginBottom: issue.description ? 6 : 0 }}>
+                        {issue.title}
+                      </div>
+                      {issue.description ? (
+                        <div style={{ fontSize: 14, lineHeight: 1.5, color: "var(--text-muted, var(--slate, #6B7080))" }}>
+                          {issue.description}
+                        </div>
+                      ) : null}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            )}
+          </section>
+        </div>
+      </main>
+    </div>
+  );
+}
+
+// /weekly/issue-N — same Ledger shell as the daily edition: side nav filters,
+// list/grid, ranked/grouped. Defaults to list + grouped. No intro block.
+function WeeklyIssueApp({ route, location, navigate, theme, onToggleTheme }) {
+  const [view, setView] = useChoice(VIEW, "list");
+  const [mode, setMode] = useChoice(ORDER, "grouped");
+  const [weekly, setWeekly] = React.useState({ status: "loading" });
+  const [issue, setIssue] = React.useState({ status: "loading" });
+  const [tags, setTags] = React.useState({ status: "loading", groups: [] });
+  const tagGroups = tags.groups;
+  const [panel, setPanel] = React.useState(null);
+  const [menuRequested, setMenuOpen] = React.useState(false);
+  const mobile = useMedia("(max-width: 760px)");
+  const menuOpen = mobile && menuRequested;
+  React.useEffect(() => { if (!mobile) setMenuOpen(false); }, [mobile]);
+  const closePanel = React.useCallback(() => setPanel(null), []);
+  const sticky = React.useRef(null);
+  const shell = React.useRef(null);
+  const [mainEl, setMainEl] = React.useState(null);
+  const columns = useGridColumns(mainEl);
+  const shown = shownView(view, columns);
+  useDismiss(sticky, panel !== null, closePanel);
+  useReturnFocus(panel !== null);
+  useReturnFocus(menuOpen);
+
+  React.useEffect(() => {
+    if (!menuOpen) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const behind = [document.getElementById("main"), shell.current && shell.current.querySelector(".app-skip")].filter(Boolean);
+    behind.forEach((el) => { el.inert = true; });
+    return () => {
+      document.body.style.overflow = previous;
+      behind.forEach((el) => { el.inert = false; });
+    };
+  }, [menuOpen]);
+
+  React.useEffect(() => {
+    loadTags()
+      .then((data) => setTags({ status: "ready", groups: data.groups }))
+      .catch(() => setTags({ status: "failed", groups: [] }));
+  }, []);
+
+  const filters = parseFilters(location.search, tagGroups);
+  const setFilters = (next) => navigate(location.pathname + filtersToSearch(next, tagGroups), { replace: true });
+
+  React.useEffect(() => {
+    let live = true;
+    loadWeeklyIndex()
+      .then((data) => live && setWeekly({ status: "ready", data }))
+      .catch((error) => live && setWeekly({ status: "error", error }));
+    return () => { live = false; };
+  }, []);
+
+  const issues = weekly.status === "ready" ? weekly.data.issues || [] : [];
+  const ref = pickWeeklyIssue(route, issues);
+
+  React.useEffect(() => {
+    if (!ref || !ref.path) {
+      setIssue({ status: ref ? "error" : "loading", error: ref ? new Error("weekly issue has no path") : undefined });
+      return undefined;
+    }
+    let live = true;
+    setIssue({ status: "loading" });
+    loadWeeklyIssue(ref)
+      .then((data) => live && setIssue({ status: "ready", data }))
+      .catch((error) => live && setIssue({ status: "error", error }));
+    return () => { live = false; };
+  }, [ref && ref.slug, ref && ref.path]);
+
+  React.useEffect(() => {
+    document.title = ref ? `aiBytes_ · Issue #${ref.number}` : "aiBytes_ · Weekly";
+  }, [ref && ref.number]);
+
+  const visible = issue.status === "ready" && ref && issue.data.slug === ref.slug
+    ? issue.data.items.filter((item) => !item.hidden) : null;
+  const categories = CATEGORIES.map((c) => ({ ...c, count: visible ? visible.filter((i) => i.category === c.key).length : undefined }));
+  const onPanel = (name) => setPanel((open) => (open === name ? null : name));
+  const filterable = Boolean(visible) && tags.status !== "loading";
+  const items = visible && rankedItems(issue.data.items)
+    .filter((item) => !item.hidden && matches(item, filters));
+  const older = ref && olderWeeklyIssue(issues, ref.slug);
+  const setCategory = (key) => setFilters({ ...filters, category: key });
+  const setQuery = (query) => setFilters({ ...filters, query });
+  const goTo = (slug) => navigate(weeklyPath(slug) + location.search);
+
+  const message = (text, role) => <StatusMessage role={role}>{text}</StatusMessage>;
+  let feed;
+  if (weekly.status === "loading" || (ref && issue.status === "loading" && !visible)) {
+    feed = message("Loading...");
+  } else if (weekly.status === "error") {
+    feed = message(`Could not load the weekly archive: ${weekly.error.message}`, "alert");
+  } else if (!ref) {
+    feed = message(<>No weekly issue at this address. <a href={weeklyPath()}>Back to the archive</a>.</>);
+  } else if (issue.status === "error") {
+    feed = message(`Could not load the issue: ${issue.error.message}`, "alert");
+  } else if (!items) {
+    feed = message("Loading the issue...");
+  } else if (!items.length && filters.query.trim()) {
+    feed = <EmptyState query={filters.query} onClearQuery={() => setQuery("")} />;
+  } else if (!items.length) {
+    feed = <EmptyState category={describeFilters(filters)} onClear={() => setFilters(NO_FILTERS)} />;
+  } else {
+    const render = (list) => (shown === "list"
+      ? <RowList>{list.map((item) => <ListRow key={item.id} item={item} />)}</RowList>
+      : <CardGrid>{list.map((item) => <Card key={item.id} item={item} />)}</CardGrid>);
+    feed = (
+      <>
+        {mode === "grouped"
+          ? groupedItems(items).map(({ category, items: group }) => (
+            <section className="app-sec" key={category.key} aria-labelledby={category.key}>
+              <SectionHeading name={category.label} count={group.length} id={category.key} />
+              {render(group)}
+            </section>))
+          : (
+            <section className="app-sec" aria-labelledby="items-heading">
+              <h2 className="app-sr" id="items-heading">{items.length} items</h2>
+              {render(items)}
+            </section>)}
+        <EndCard
+          dateLabel={`Issue #${ref.number}`}
+          prevLabel={older ? `Issue #${older.number}` : undefined}
+          onPrev={() => older && goTo(older.slug)}
+        />
+      </>
+    );
+  }
+
+  return (
+    <div className={"app-shell redesign" + (shown === "grid" ? " redesign-grid" : "") + (menuOpen ? " mobile-menu-open" : "")} ref={shell} data-theme={theme}>
+      <a className="app-skip" href="#main">Skip to the issue</a>
+      <AppHeader theme={theme} onToggleTheme={onToggleTheme} menuOpen={menuOpen} onMenu={() => setMenuOpen((o) => !o)} githubUrl={GITHUB_URL} />
+      <Sidebar categories={categories} count={visible?.length} active={filters.category} open={menuOpen} onClose={() => setMenuOpen(false)}
+        links={SIDEBAR_LINKS} subscribeUrl={SUBSCRIBE_URL}
+        onCategory={(key) => { if (filterable) setCategory(key); setMenuOpen(false); }} />
+      <main id="main" className="redesign-main" tabIndex={-1}>
+        <h1 className="app-sr">{ref ? `aiBytes_ weekly issue #${ref.number}` : "aiBytes_ weekly"}</h1>
+        <div className="workspace"><section className="feed">
+          <div ref={sticky} className="toolbar-slot">
+            <Toolbar
+              count={items ? `${items.length} items` : null}
+              query={filters.query}
+              onQuery={setQuery}
+              view={view}
+              onView={columns > 1 ? setView : undefined}
+              mode={mode}
+              onMode={setMode}
+              disabled={!filterable}
+              filterCount={filters.tags.length + filters.sources.length}
+              open={panel !== null}
+              onFilters={() => onPanel("filters")}
+              date={ref ? <WeeklyBar refAt={ref} navigate={navigate} /> : null}
+            />
+            {panel && <FilterPanel groups={tagGroups} filters={filters} onChange={setFilters} sources={SOURCES} />}
+          </div>
+          <ActiveFilters filters={filters} onChange={setFilters} />
+          <div className="app-main" ref={setMainEl}>{feed}</div>
+        </section></div>
+      </main>
+    </div>
+  );
+}
+
+function WeeklyBar({ refAt, navigate }) {
+  // CalendarPopover is date-grid based; weekly issues use Issue #N, so the
+  // control opens the archive instead of a month grid.
+  return (
+    <EditionBar
+      dateLabel={`Issue #${refAt.number}`}
+      onDateClick={() => navigate(weeklyPath())}
+      calendarOpen={false}
+    />
   );
 }

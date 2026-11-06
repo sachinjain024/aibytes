@@ -1,0 +1,438 @@
+{
+  "schema_version": "1.0",
+  "number": 4,
+  "slug": "issue-4",
+  "title": "DeepMind's shake-up and the week Oracle said no",
+  "description": "Plus OpenAI claiming ten new results in mathematics, a 3B open-weights moderation model from Mistral, and the launch that reviews your agents' work before you do.",
+  "published_on": "2026-08-10",
+  "generated_at": "2026-11-06T10:04:10Z",
+  "counts": {
+    "launches": 5,
+    "repos": 7,
+    "news": 7,
+    "hn": 5
+  },
+  "items": [
+    {
+      "id": "weekly-4-news-changes-at-google-deepmind-hassabis-to-chair-jef",
+      "title": "Changes at Google DeepMind: Hassabis to Chair, Jeff Dean departs",
+      "summary": "Google restructures the top of its AI org, and the succession question is suddenly live.",
+      "url": "https://blog.google/company-news/inside-google/message-ceo/next-chapter-ai-momentum/",
+      "source": "hackernews",
+      "source_url": "https://blog.google/company-news/inside-google/message-ceo/next-chapter-ai-momentum/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "weekly-4-news-oracle-bans-ai-generated-code-from-openjdk",
+      "title": "Oracle bans AI-generated code from OpenJDK",
+      "summary": "AI-written contributions are out of the JDK, in the same week everyone else turned oversight down.",
+      "url": "https://app.dealroom.co/news/feed/oracle-bans-ai-generated-code-from-openjdk-despite-ellison-s-claim-oracle-isn-t-writing-its-own-code",
+      "source": "hackernews",
+      "source_url": "https://app.dealroom.co/news/feed/oracle-bans-ai-generated-code-from-openjdk-despite-ellison-s-claim-oracle-isn-t-writing-its-own-code",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "weekly-4-news-anthropic-is-turning-claude-code-s-auto-mode-on-",
+      "title": "Anthropic is turning Claude Code's auto mode on by default",
+      "summary": "Less human oversight in the loop, shipped as the default rather than a flag you opt into.",
+      "url": "https://techcrunch.com/2026/08/09/anthropic-is-turning-claude-codes-auto-mode-on-by-default/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/08/09/anthropic-is-turning-claude-codes-auto-mode-on-by-default/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "weekly-4-news-the-ai-safety-test-is-becoming-a-safety-risk",
+      "title": "The AI safety test is becoming a safety risk",
+      "summary": "Agents are escaping cybersecurity test environments and reaching real systems.",
+      "url": "https://techcrunch.com/2026/08/09/the-ai-safety-test-is-becoming-a-safety-risk/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/08/09/the-ai-safety-test-is-becoming-a-safety-risk/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "weekly-4-news-ten-advances-in-mathematics-and-theoretical-comp",
+      "title": "Ten advances in mathematics and theoretical computer science",
+      "summary": "OpenAI's claim of genuinely new results, and the longest argument of the week about what counts as new.",
+      "url": "https://openai.com/index/ten-advances-in-mathematics/",
+      "source": "hackernews",
+      "source_url": "https://openai.com/index/ten-advances-in-mathematics/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "weekly-4-news-cloudflare-launches-kitesurf-a-browser-built-for",
+      "title": "Cloudflare launches Kitesurf, a browser built for AI agents",
+      "summary": "A cloud browser aimed at agents rather than people, cheaper than driving Chromium.",
+      "url": "https://techcrunch.com/2026/08/07/cloudflare-launches-kitesurf-a-browser-built-for-ai-agents/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/08/07/cloudflare-launches-kitesurf-a-browser-built-for-ai-agents/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "weekly-4-news-mistral-s-shieldstral-3b-open-weights-model-for-",
+      "title": "Mistral's Shieldstral: 3B open-weights model for multimodal moderation",
+      "summary": "A moderation model small enough to self-host next to whatever you are already running.",
+      "url": "https://mistral.ai/news/shieldstral/",
+      "source": "hackernews",
+      "source_url": "https://mistral.ai/news/shieldstral/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "weekly-4-launches-adant-ai",
+      "title": "AdAnt AI",
+      "summary": "Creative agents that plan, write and iterate social ads for TikTok and Instagram. ▲ 599",
+      "url": "https://adant.ai/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/adant-ai",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 8,
+      "signals": {
+        "upvotes": 599
+      }
+    },
+    {
+      "id": "weekly-4-launches-hey-noah",
+      "title": "Hey Noah",
+      "summary": "An executive assistant that talks to your network across email, text and WhatsApp. ▲ 596",
+      "url": "https://heynoah.io/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/hey-noah",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 9,
+      "signals": {
+        "upvotes": 596
+      }
+    },
+    {
+      "id": "weekly-4-launches-wispr-flow-notetaker",
+      "title": "Wispr Flow Notetaker",
+      "summary": "Reads the invite before the call, so names and jargon land right in the recap. ▲ 572",
+      "url": "https://wisprflow.ai/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/wisprflow",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 10,
+      "signals": {
+        "upvotes": 572
+      }
+    },
+    {
+      "id": "weekly-4-launches-coldtea-ai",
+      "title": "Coldtea.ai",
+      "summary": "An agentic IDE where QA agents catch what the coding agents just broke. ▲ 511",
+      "url": "https://coldtea.ai/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/coldtea",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 11,
+      "signals": {
+        "upvotes": 511
+      }
+    },
+    {
+      "id": "weekly-4-launches-soloop",
+      "title": "Soloop",
+      "summary": "Approval-first agent OS for solo founders, with an AI CEO, CTO and CMO. ▲ 493",
+      "url": "https://www.soloop.io/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/soloop",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 12,
+      "signals": {
+        "upvotes": 493
+      }
+    },
+    {
+      "id": "weekly-4-repos-zhaoxuya520-reverse-skill",
+      "title": "zhaoxuya520/reverse-skill",
+      "summary": "a skill router for reverse engineering and pentest work, with on-demand toolchain bootstrap.+9.8k ★",
+      "url": "https://github.com/zhaoxuya520/reverse-skill",
+      "source": "github",
+      "source_url": "https://github.com/zhaoxuya520/reverse-skill",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/zhaoxuya520.png?size=80"
+      },
+      "hidden": false,
+      "rank": 13,
+      "signals": {
+        "stars_gained": 9000
+      }
+    },
+    {
+      "id": "weekly-4-repos-tencentcloud-tencentdb-agent-memory",
+      "title": "TencentCloud/TencentDB-Agent-Memory",
+      "summary": "team-level memory hub: chat memory, skills, an LLM wiki and a code graph.+8.0k ★",
+      "url": "https://github.com/TencentCloud/TencentDB-Agent-Memory",
+      "source": "github",
+      "source_url": "https://github.com/TencentCloud/TencentDB-Agent-Memory",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/TencentCloud.png?size=80"
+      },
+      "hidden": false,
+      "rank": 14,
+      "signals": {
+        "stars_gained": 8000
+      }
+    },
+    {
+      "id": "weekly-4-repos-microsoft-ai-for-beginners",
+      "title": "microsoft/AI-For-Beginners",
+      "summary": "Microsoft's 24-lesson curriculum, near the top of the charts a second week running.+5.5k ★",
+      "url": "https://github.com/microsoft/AI-For-Beginners",
+      "source": "github",
+      "source_url": "https://github.com/microsoft/AI-For-Beginners",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/microsoft.png?size=80"
+      },
+      "hidden": false,
+      "rank": 15,
+      "signals": {
+        "stars_gained": 5000
+      }
+    },
+    {
+      "id": "weekly-4-repos-lyogavin-airllm",
+      "title": "lyogavin/airllm",
+      "summary": "70B inference on a single 4GB GPU.+5.1k ★",
+      "url": "https://github.com/lyogavin/airllm",
+      "source": "github",
+      "source_url": "https://github.com/lyogavin/airllm",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/lyogavin.png?size=80"
+      },
+      "hidden": false,
+      "rank": 16,
+      "signals": {
+        "stars_gained": 5000
+      }
+    },
+    {
+      "id": "weekly-4-repos-esengine-deepseek-reasonix",
+      "title": "esengine/DeepSeek-Reasonix",
+      "summary": "DeepSeek-native terminal agent, built around prefix-cache stability so you can leave it running.+4.7k ★",
+      "url": "https://github.com/esengine/DeepSeek-Reasonix",
+      "source": "github",
+      "source_url": "https://github.com/esengine/DeepSeek-Reasonix",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/esengine.png?size=80"
+      },
+      "hidden": false,
+      "rank": 17,
+      "signals": {
+        "stars_gained": 4000
+      }
+    },
+    {
+      "id": "weekly-4-repos-virgiliojr94-book-to-skill",
+      "title": "virgiliojr94/book-to-skill",
+      "summary": "turns a technical book PDF into a Claude Code skill.+4.1k ★",
+      "url": "https://github.com/virgiliojr94/book-to-skill",
+      "source": "github",
+      "source_url": "https://github.com/virgiliojr94/book-to-skill",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/virgiliojr94.png?size=80"
+      },
+      "hidden": false,
+      "rank": 18,
+      "signals": {
+        "stars_gained": 4000
+      }
+    },
+    {
+      "id": "weekly-4-repos-comfy-org-comfyui",
+      "title": "Comfy-Org/ComfyUI",
+      "summary": "the modular node graph for diffusion models, still climbing.+2.0k ★",
+      "url": "https://github.com/Comfy-Org/ComfyUI",
+      "source": "github",
+      "source_url": "https://github.com/Comfy-Org/ComfyUI",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Comfy-Org.png?size=80"
+      },
+      "hidden": false,
+      "rank": 19,
+      "signals": {
+        "stars_gained": 2000
+      }
+    },
+    {
+      "id": "weekly-4-hn-llms-reward-expertise",
+      "title": "LLMs reward expertise",
+      "summary": "the week's most-read argument: the model pays off in proportion to what you already know. 1,411 pts · 572 💬",
+      "url": "https://www.seangoedecke.com/llms-reward-expertise/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49161518",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 20,
+      "signals": {
+        "points": 1411,
+        "comments": 572
+      }
+    },
+    {
+      "id": "weekly-4-hn-ai-generated-images-discourage-me-from-reading-y",
+      "title": "AI-Generated Images Discourage Me from Reading Your Blog",
+      "summary": "what a generated header image now signals to the person deciding whether to read you. 794 pts · 465 💬",
+      "url": "https://nelson.cloud/ai-generated-images-discourage-me-from-reading-your-blog/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49167113",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 21,
+      "signals": {
+        "points": 794,
+        "comments": 465
+      }
+    },
+    {
+      "id": "weekly-4-hn-deepseek-v4-flash-0731",
+      "title": "DeepSeek V4 Flash 0731",
+      "summary": "the ARC Prize numbers, a week after the launch made the rounds. 784 pts",
+      "url": "https://arcprize.org/results/deepseek-v4-flash-0731",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49214008",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 22,
+      "signals": {
+        "points": 784
+      }
+    },
+    {
+      "id": "weekly-4-hn-sqlite-critical-cves-or-llm-slop",
+      "title": "SQLite Critical CVEs or LLM Slop?",
+      "summary": "JFrog works through the AI-written vulnerability reports one by one. 726 pts",
+      "url": "https://research.jfrog.com/post/sqlite-critical-cves-or-llm-slops/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49154332",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 23,
+      "signals": {
+        "points": 726
+      }
+    },
+    {
+      "id": "weekly-4-hn-prevent-cognitive-debt-by-manually-retyping-llm-",
+      "title": "Prevent cognitive debt by manually retyping LLM-generated code",
+      "summary": "a deliberately slow habit, argued seriously. 540 pts · 444 💬",
+      "url": "https://ankursethi.com/blog/prevent-cognitive-debt-by-manually-retyping-llm-generated-code/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49153374",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 24,
+      "signals": {
+        "points": 540,
+        "comments": 444
+      }
+    }
+  ]
+}

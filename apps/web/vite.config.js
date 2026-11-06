@@ -7,6 +7,7 @@ import react from "@vitejs/plugin-react";
 const here = path.dirname(fileURLToPath(import.meta.url));
 const CONTENT = path.resolve(here, "../../content");
 const SCHEMAS = path.resolve(here, "../../packages/feed-schema");
+const WEEKLY_INDEX = path.join(CONTENT, "weekly", "index.json");
 
 // The app is served from the root of aibytes.io, a custom domain on GitHub
 // Pages, so nothing needs a path prefix. A deploy without that domain set
@@ -22,6 +23,16 @@ const BASE = "/";
 function isPublished(src) {
   const name = path.basename(src);
   return !name.startsWith(".") && (!path.extname(name) || name.endsWith(".json"));
+}
+
+async function loadWeeklyIssues() {
+  try {
+    if (!(await stat(WEEKLY_INDEX)).isFile()) return [];
+  } catch {
+    return [];
+  }
+  const index = JSON.parse(await readFile(WEEKLY_INDEX, "utf8"));
+  return Array.isArray(index.issues) ? index.issues : [];
 }
 
 function content() {
@@ -51,12 +62,12 @@ function content() {
   };
 }
 
-// One real page per edition, so /2026-10-07 is a 200 on GitHub Pages rather
-// than a 404 that happens to render. Each is the same index.html: the app reads
-// the date from the URL. Assets are absolute (/assets/...), so the copy works
-// one directory down. 404.html catches everything else, including old
-// /p/<slug> newsletter links, which the app sends on to newsletter.aibytes.io.
-// A new edition needs a rebuild to get its page; the Pages deploy on push does that.
+// One real page per edition and weekly issue, so /2026-10-07 and
+// /weekly/issue-16 are 200s on GitHub Pages rather than a 404 that happens to
+// render. Each is the same index.html: the app reads the path from the URL.
+// Assets are absolute (/assets/...), so the copy works one directory down.
+// 404.html catches everything else, including old /p/<slug> newsletter links,
+// which the app sends on to newsletter.aibytes.io.
 function editionPages() {
   return {
     name: "aibytes-edition-pages",
@@ -68,6 +79,15 @@ function editionPages() {
         await writeFile(path.join(options.dir, date, "index.html"), html);
       }
       await writeFile(path.join(options.dir, "404.html"), html);
+
+      await mkdir(path.join(options.dir, "weekly"), { recursive: true });
+      await writeFile(path.join(options.dir, "weekly", "index.html"), html);
+      for (const entry of await loadWeeklyIssues()) {
+        if (!entry.slug) continue;
+        const dir = path.join(options.dir, "weekly", entry.slug);
+        await mkdir(dir, { recursive: true });
+        await writeFile(path.join(dir, "index.html"), html);
+      }
     },
   };
 }

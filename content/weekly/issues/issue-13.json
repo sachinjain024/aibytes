@@ -1,0 +1,465 @@
+{
+  "schema_version": "1.0",
+  "number": 13,
+  "slug": "issue-13",
+  "title": "🚔 Anthropic's AI misleads police and OpenAI's Decisions API",
+  "description": "Plus Claude agents that run on a schedule, Rill, a browser built for coding agents, and a trust ladder for agentic coding.",
+  "published_on": "2026-10-12",
+  "generated_at": "2026-11-06T10:04:10Z",
+  "counts": {
+    "launches": 5,
+    "repos": 7,
+    "news": 9,
+    "hn": 5
+  },
+  "items": [
+    {
+      "id": "weekly-13-news-an-anthropic-model-sent-police-a-false-homicide-",
+      "title": "An Anthropic model sent police a false homicide tip",
+      "summary": "Anthropic didn't discover what its AI had done until more than two months later.",
+      "url": "https://techcrunch.com/2026/10/09/an-anthropic-ai-model-sent-a-false-homicide-tip-to-philadelphia-police/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/09/an-anthropic-ai-model-sent-a-false-homicide-tip-to-philadelphia-police/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "weekly-13-news-anthropic-cuts-its-internal-evals-off-from-the-l",
+      "title": "Anthropic cuts its internal evals off from the live internet",
+      "summary": "Live internet access is off for every internal evaluation until further notice.",
+      "url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "weekly-13-news-anthropic-releases-claude-haiku-5-5",
+      "title": "Anthropic releases Claude Haiku 5.5",
+      "summary": "Its cheapest, fastest small model yet, around 75% cheaper to run than Haiku 4.5.",
+      "url": "https://www.anthropic.com/claude-haiku-5-5",
+      "source": "hackernews",
+      "source_url": "https://www.anthropic.com/claude-haiku-5-5",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "weekly-13-news-mistral-launches-mistral-large-4",
+      "title": "Mistral launches Mistral Large 4",
+      "summary": "Mistral's new flagship, pitched as one of the strongest models for cybersecurity.",
+      "url": "https://mistral.ai/news/mistral-large-4/",
+      "source": "hackernews",
+      "source_url": "https://mistral.ai/news/mistral-large-4/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "weekly-13-news-gpt-6-and-intelligent-ui-roll-out-to-everyone",
+      "title": "GPT-6 and Intelligent UI roll out to everyone",
+      "summary": "ChatGPT answers turn into interactive visuals and tools, on every tier.",
+      "url": "https://openai.com/index/gpt-6-for-everyone/",
+      "source": "hackernews",
+      "source_url": "https://openai.com/index/gpt-6-for-everyone/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "weekly-13-news-openai-opens-the-decisions-api",
+      "title": "OpenAI opens the Decisions API",
+      "summary": "Lets an app pick a model, tool or action in near real time, in public beta.",
+      "url": "https://developers.openai.com/api/docs/guides/decisions",
+      "source": "hackernews",
+      "source_url": "https://developers.openai.com/api/docs/guides/decisions",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "weekly-13-news-openai-shares-math-results-from-an-internal-fron",
+      "title": "OpenAI shares math results from an internal frontier model",
+      "summary": "Released with advice from the Institute for Advanced Study's advisory group.",
+      "url": "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+      "source": "hackernews",
+      "source_url": "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "weekly-13-news-fired-openai-safety-researchers-dispute-miscondu",
+      "title": "Fired OpenAI safety researchers dispute misconduct claims",
+      "summary": "Three of them warn in an open letter of a chilling effect on safety work.",
+      "url": "https://techcrunch.com/2026/10/08/fired-openai-safety-researchers-dispute-misconduct-claims-warn-of-chilling-effect/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/08/fired-openai-safety-researchers-dispute-misconduct-claims-warn-of-chilling-effect/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "id": "weekly-13-news-openai-will-watermark-chatgpt-text-in-the-eu",
+      "title": "OpenAI will watermark ChatGPT text in the EU",
+      "summary": "ChatGPT and Codex output gets invisible marks to comply with the AI Act.",
+      "url": "https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "id": "weekly-13-launches-spira-maxima",
+      "title": "Spira Maxima",
+      "summary": "A video model that turns a script into a finished social video, with presenter, B-roll, captions and music. ▲ 558",
+      "url": "https://spira.ai",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/spira-ai",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 10,
+      "signals": {
+        "upvotes": 558
+      }
+    },
+    {
+      "id": "weekly-13-launches-irisgo-for-solopreneurs",
+      "title": "IrisGo for Solopreneurs",
+      "summary": "Show it a task once and it becomes a reusable workflow, alongside daily briefs and email triage. ▲ 537",
+      "url": "https://irisgo.ai/solopreneur",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/irisgo-public-beta",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 11,
+      "signals": {
+        "upvotes": 537
+      }
+    },
+    {
+      "id": "weekly-13-launches-genpage-3-0",
+      "title": "GenPage 3.0",
+      "summary": "Builds a dedicated landing page for every ad, keyword or target account, then keeps testing it. ▲ 511",
+      "url": "https://www.genpage.ai/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/genpage",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 12,
+      "signals": {
+        "upvotes": 511
+      }
+    },
+    {
+      "id": "weekly-13-launches-rill-browser",
+      "title": "Rill Browser",
+      "summary": "A browser built around Claude Code and Codex: press ⌘E on any page to turn it into a task for your agent. ▲ 501",
+      "url": "https://rill.love",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/rill-3",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 13,
+      "signals": {
+        "upvotes": 501
+      }
+    },
+    {
+      "id": "weekly-13-launches-velozity",
+      "title": "Velozity",
+      "summary": "A multiplayer AI office: chat, calls, tasks and files in one app, with AI agents beside the team. ▲ 472",
+      "url": "https://getvelozity.com/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/velozity-2",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 14,
+      "signals": {
+        "upvotes": 472
+      }
+    },
+    {
+      "id": "weekly-13-repos-mattpocock-skills",
+      "title": "mattpocock/skills",
+      "summary": "Matt Pocock's agent skills for real engineers, straight from his .agents directory.+8,156 ★",
+      "url": "https://github.com/mattpocock/skills",
+      "source": "github",
+      "source_url": "https://github.com/mattpocock/skills",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mattpocock.png?size=80"
+      },
+      "hidden": false,
+      "rank": 15,
+      "signals": {
+        "stars_gained": 8156
+      }
+    },
+    {
+      "id": "weekly-13-repos-heygen-com-hyperframes",
+      "title": "heygen-com/hyperframes",
+      "summary": "Write HTML, render video: a video framework built for agents.+4,003 ★",
+      "url": "https://github.com/heygen-com/hyperframes",
+      "source": "github",
+      "source_url": "https://github.com/heygen-com/hyperframes",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/heygen-com.png?size=80"
+      },
+      "hidden": false,
+      "rank": 16,
+      "signals": {
+        "stars_gained": 4003
+      }
+    },
+    {
+      "id": "weekly-13-repos-thedotmack-claude-mem",
+      "title": "thedotmack/claude-mem",
+      "summary": "Captures what your agent does, compresses it, and feeds the relevant context back into later sessions.+3,850 ★",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source": "github",
+      "source_url": "https://github.com/thedotmack/claude-mem",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/thedotmack.png?size=80"
+      },
+      "hidden": false,
+      "rank": 17,
+      "signals": {
+        "stars_gained": 3850
+      }
+    },
+    {
+      "id": "weekly-13-repos-mvschwarz-openrig",
+      "title": "mvschwarz/openrig",
+      "summary": "Persistent teams of Claude Code, Codex and Pi agents, with roles, shared context and owned work.+2,338 ★",
+      "url": "https://github.com/mvschwarz/openrig",
+      "source": "github",
+      "source_url": "https://github.com/mvschwarz/openrig",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mvschwarz.png?size=80"
+      },
+      "hidden": false,
+      "rank": 18,
+      "signals": {
+        "stars_gained": 2338
+      }
+    },
+    {
+      "id": "weekly-13-repos-earthtojake-text-to-cad",
+      "title": "earthtojake/text-to-cad",
+      "summary": "Text-to-CAD tooling that gives your coding agent CAD superpowers.+2,125 ★",
+      "url": "https://github.com/earthtojake/text-to-cad",
+      "source": "github",
+      "source_url": "https://github.com/earthtojake/text-to-cad",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/earthtojake.png?size=80"
+      },
+      "hidden": false,
+      "rank": 19,
+      "signals": {
+        "stars_gained": 2125
+      }
+    },
+    {
+      "id": "weekly-13-repos-cursor-plugins",
+      "title": "cursor/plugins",
+      "summary": "The Cursor plugin specification, plus Cursor's official plugins.+1,125 ★",
+      "url": "https://github.com/cursor/plugins",
+      "source": "github",
+      "source_url": "https://github.com/cursor/plugins",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/cursor.png?size=80"
+      },
+      "hidden": false,
+      "rank": 20,
+      "signals": {
+        "stars_gained": 1125
+      }
+    },
+    {
+      "id": "weekly-13-repos-ranxianglei-billion-context",
+      "title": "ranxianglei/billion-context",
+      "summary": "A context-compression plugin: 5x fewer tokens and month-long sessions inside a 100K window.+246 ★",
+      "url": "https://github.com/ranxianglei/billion-context",
+      "source": "github",
+      "source_url": "https://github.com/ranxianglei/billion-context",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/ranxianglei.png?size=80"
+      },
+      "hidden": false,
+      "rank": 21,
+      "signals": {
+        "stars_gained": 246
+      }
+    },
+    {
+      "id": "weekly-13-hn-why-isn-t-the-industry-freaking-out-about-deepse",
+      "title": "Why isn't the industry freaking out about DeepSeek 4.1 Flash?",
+      "summary": "A blog post arguing DeepSeek's latest Flash model deserved a far bigger reaction. 1110 pts",
+      "url": "https://www.dgt.is/blog/2026-10-07-deepseek-freek-out/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50000488",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 22,
+      "signals": {
+        "points": 1110
+      }
+    },
+    {
+      "id": "weekly-13-hn-run-qwen-3-8-flash-next-125b-on-an-rtx-4090-at-1",
+      "title": "Run Qwen 3.8 Flash Next (125B) on an RTX 4090 at 100T/s",
+      "summary": "Strata, an open-source runtime for a 125B model on one consumer GPU. 935 pts",
+      "url": "https://github.com/Niko1221/Strata",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49953495",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 23,
+      "signals": {
+        "points": 935
+      }
+    },
+    {
+      "id": "weekly-13-hn-anthropic-reported-a-diary-entry-to-police-and-a",
+      "title": "Anthropic reported a diary entry to police, and a woman faces a felony charge",
+      "summary": "A Claude user's private writing ended in a police report. 836 pts",
+      "url": "https://www.techspot.com/news/114091-florida-woman-used-claude-diary-anthropic-reported-shoot.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49961057",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 24,
+      "signals": {
+        "points": 836
+      }
+    },
+    {
+      "id": "weekly-13-hn-chatgpt-is-adding-real-cartoonists-signatures-to",
+      "title": "ChatGPT is adding real cartoonists' signatures to fake New Yorker cartoons",
+      "summary": "Nieman Lab on generated cartoons that carry real artists' names. 558 pts",
+      "url": "https://www.niemanlab.org/2026/10/chatgpt-is-adding-real-cartoonists-signatures-to-fake-new-yorker-cartoons/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49971846",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 25,
+      "signals": {
+        "points": 558
+      }
+    },
+    {
+      "id": "weekly-13-hn-openai-s-annualised-revenue-is-20b-less-than-it-",
+      "title": "OpenAI's annualised revenue is $20B less than it signalled",
+      "summary": "CNBC on the gap, and what it means for Nvidia, Oracle and CoreWeave. 429 pts",
+      "url": "https://www.cnbc.com/2026/10/08/open-ai-revenue-nvidia-oracle-coreweave.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50008187",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 26,
+      "signals": {
+        "points": 429
+      }
+    }
+  ]
+}

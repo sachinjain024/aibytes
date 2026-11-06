@@ -1,0 +1,420 @@
+{
+  "schema_version": "1.0",
+  "number": 10,
+  "slug": "issue-10",
+  "title": "📋 Claude reads AGENTS.md and Mistral joins Firefox",
+  "description": "Plus Voiskey dictation, WeKnora’s document wiki, and Bend’s proof-checked code.",
+  "published_on": "2026-09-21",
+  "generated_at": "2026-11-06T10:04:10Z",
+  "counts": {
+    "launches": 5,
+    "repos": 7,
+    "news": 6,
+    "hn": 5
+  },
+  "items": [
+    {
+      "id": "weekly-10-news-claude-code-reads-agents-md",
+      "title": "Claude Code reads AGENTS.md",
+      "summary": "Falls back when CLAUDE.md is absent; not yet available on Bedrock, Vertex or Foundry.",
+      "url": "https://code.claude.com/docs/en/changelog",
+      "source": "hackernews",
+      "source_url": "https://code.claude.com/docs/en/changelog",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "weekly-10-news-microsoft-s-internal-scraping-alarm",
+      "title": "Microsoft’s internal scraping alarm",
+      "summary": "Court filings reveal private concerns about training data acquisition.",
+      "url": "https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "weekly-10-news-mistral-comes-to-firefox-smart-window",
+      "title": "Mistral comes to Firefox Smart Window",
+      "summary": "The browsing assistant beta adds Mistral models, with zero data retention agreed by the provider.",
+      "url": "https://mistral.ai/news/mistral-x-mozilla/",
+      "source": "hackernews",
+      "source_url": "https://mistral.ai/news/mistral-x-mozilla/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "weekly-10-news-openai-introduces-astra-for-law",
+      "title": "OpenAI introduces Astra for Law",
+      "summary": "A legal research setup with a dedicated search index starts with selected law firms; API access is coming later.",
+      "url": "https://openai.com/index/astra-for-law/",
+      "source": "hackernews",
+      "source_url": "https://openai.com/index/astra-for-law/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "weekly-10-news-openai-reportedly-buys-glass-imaging",
+      "title": "OpenAI reportedly buys Glass Imaging",
+      "summary": "The reported $300 million deal brings in a camera startup founded by former Apple engineers.",
+      "url": "https://techcrunch.com/2026/09/14/openai-buys-smartphone-camera-maker-glass-imaging-for-300-million-report-says/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/09/14/openai-buys-smartphone-camera-maker-glass-imaging-for-300-million-report-says/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "weekly-10-news-faa-plans-875-million-ai-program",
+      "title": "FAA plans $875 million AI program",
+      "summary": "New software is intended to help air traffic controllers navigate their work.",
+      "url": "https://techcrunch.com/2026/09/17/the-faas-plan-to-fix-air-traffic-875-million-worth-of-ai/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/09/17/the-faas-plan-to-fix-air-traffic-875-million-worth-of-ai/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "weekly-10-launches-creem-2-0",
+      "title": "CREEM 2.0",
+      "summary": "Payments, tax handling, payouts and usage billing for software and digital products. ▲ 575",
+      "url": "https://www.creem.io/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/creem",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 7,
+      "signals": {
+        "upvotes": 575
+      }
+    },
+    {
+      "id": "weekly-10-launches-tiun",
+      "title": "tiun.",
+      "summary": "Authentication, billing, payments and customer analytics in one system. ▲ 572",
+      "url": "https://tiun.io/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/tiun-2",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 8,
+      "signals": {
+        "upvotes": 572
+      }
+    },
+    {
+      "id": "weekly-10-launches-ami-ai",
+      "title": "Ami AI",
+      "summary": "Plans sales outreach from your website and targets, then runs approved campaigns. ▲ 532",
+      "url": "https://aisdr.com/ai-gtm-agent-ami",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/ami-ai",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 9,
+      "signals": {
+        "upvotes": 532
+      }
+    },
+    {
+      "id": "weekly-10-launches-naoma-ai-demo-agent-v2",
+      "title": "Naoma AI Demo Agent V2",
+      "summary": "An AI demo agent that walks prospects through your product and logs sessions to your CRM. ▲ 520",
+      "url": "https://naoma.ai/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/naoma",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 10,
+      "signals": {
+        "upvotes": 520
+      }
+    },
+    {
+      "id": "weekly-10-launches-voiskey",
+      "title": "Voiskey",
+      "summary": "Voice dictation that adjusts wording and tone for the app and audience. ▲ 519",
+      "url": "https://www.voiskey.ai/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/voiskey",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 11,
+      "signals": {
+        "upvotes": 519
+      }
+    },
+    {
+      "id": "weekly-10-repos-alibaba-open-code-review",
+      "title": "alibaba/open-code-review",
+      "summary": "Combines deterministic checks with LLM review and line-level comments.+15,028 ★",
+      "url": "https://github.com/alibaba/open-code-review",
+      "source": "github",
+      "source_url": "https://github.com/alibaba/open-code-review",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/alibaba.png?size=80"
+      },
+      "hidden": false,
+      "rank": 12,
+      "signals": {
+        "stars_gained": 15028
+      }
+    },
+    {
+      "id": "weekly-10-repos-affaan-m-ecc",
+      "title": "affaan-m/ECC",
+      "summary": "Skills, memory and security tooling for several coding-agent environments.+6,265 ★",
+      "url": "https://github.com/affaan-m/ECC",
+      "source": "github",
+      "source_url": "https://github.com/affaan-m/ECC",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/affaan-m.png?size=80"
+      },
+      "hidden": false,
+      "rank": 13,
+      "signals": {
+        "stars_gained": 6265
+      }
+    },
+    {
+      "id": "weekly-10-repos-ayghri-i-have-adhd",
+      "title": "ayghri/i-have-adhd",
+      "summary": "A skill that puts the answer first and keeps coding-agent output easier to scan.+5,589 ★",
+      "url": "https://github.com/ayghri/i-have-adhd",
+      "source": "github",
+      "source_url": "https://github.com/ayghri/i-have-adhd",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/ayghri.png?size=80"
+      },
+      "hidden": false,
+      "rank": 14,
+      "signals": {
+        "stars_gained": 5589
+      }
+    },
+    {
+      "id": "weekly-10-repos-stablyai-orca",
+      "title": "stablyai/orca",
+      "summary": "Runs parallel coding agents across desktop, mobile and remote environments.+5,404 ★",
+      "url": "https://github.com/stablyai/orca",
+      "source": "github",
+      "source_url": "https://github.com/stablyai/orca",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/stablyai.png?size=80"
+      },
+      "hidden": false,
+      "rank": 15,
+      "signals": {
+        "stars_gained": 5404
+      }
+    },
+    {
+      "id": "weekly-10-repos-tencent-weknora",
+      "title": "Tencent/WeKnora",
+      "summary": "Turns documents into retrieval, a reasoning agent and a maintained wiki.+4,867 ★",
+      "url": "https://github.com/Tencent/WeKnora",
+      "source": "github",
+      "source_url": "https://github.com/Tencent/WeKnora",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Tencent.png?size=80"
+      },
+      "hidden": false,
+      "rank": 16,
+      "signals": {
+        "stars_gained": 4867
+      }
+    },
+    {
+      "id": "weekly-10-repos-panniantong-agent-reach",
+      "title": "Panniantong/Agent-Reach",
+      "summary": "A CLI for agents to read and search content across social and developer platforms.+3,914 ★",
+      "url": "https://github.com/Panniantong/Agent-Reach",
+      "source": "github",
+      "source_url": "https://github.com/Panniantong/Agent-Reach",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Panniantong.png?size=80"
+      },
+      "hidden": false,
+      "rank": 17,
+      "signals": {
+        "stars_gained": 3914
+      }
+    },
+    {
+      "id": "weekly-10-repos-addyosmani-agent-skills",
+      "title": "addyosmani/agent-skills",
+      "summary": "Engineering skills intended for production work with coding agents.+3,445 ★",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "source": "github",
+      "source_url": "https://github.com/addyosmani/agent-skills",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/addyosmani.png?size=80"
+      },
+      "hidden": false,
+      "rank": 18,
+      "signals": {
+        "stars_gained": 3445
+      }
+    },
+    {
+      "id": "weekly-10-hn-ai-posters-beyond-the-default-look",
+      "title": "AI posters beyond the default look",
+      "summary": "A visual experiment in escaping the default AI poster aesthetic; a June post resurfacing on HN. 1623 pts",
+      "url": "https://john.hartnup.uk/2026/06/07/ai-event-posters.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49764791",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 19,
+      "signals": {
+        "points": 1623
+      }
+    },
+    {
+      "id": "weekly-10-hn-everyone-should-slow-down-ai-except-me",
+      "title": "Everyone should slow down AI except me",
+      "summary": "A critique of the double standard in calls to slow AI development. 811 pts",
+      "url": "https://xeiaso.net/notes/2026/everyone-slowdown-but-me/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49678683",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 20,
+      "signals": {
+        "points": 811
+      }
+    },
+    {
+      "id": "weekly-10-hn-how-to-write-with-an-llm",
+      "title": "How to write with an LLM",
+      "summary": "Use the model to flag weak prose while keeping the wording and editorial judgment yours. 678 pts",
+      "url": "https://sockpuppet.org/blog/2026/09/17/how-to-write-with-an-llm/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49747070",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 21,
+      "signals": {
+        "points": 678
+      }
+    },
+    {
+      "id": "weekly-10-hn-why-agents-lie-cheat-and-coordinate",
+      "title": "Why agents lie, cheat and coordinate",
+      "summary": "Yoshua Bengio examines how reward-seeking and imitation may produce deceptive agent behavior. 657 pts",
+      "url": "https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49678969",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 22,
+      "signals": {
+        "points": 657
+      }
+    },
+    {
+      "id": "weekly-10-hn-bend-puts-proofs-beside-ai-written-code",
+      "title": "Bend puts proofs beside AI-written code",
+      "summary": "A language using proofs to check declared properties, with native and GPU execution. 606 pts",
+      "url": "https://bend-lang.com/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49746163",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 23,
+      "signals": {
+        "points": 606
+      }
+    }
+  ]
+}

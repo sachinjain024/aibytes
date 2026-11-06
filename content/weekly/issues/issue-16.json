@@ -1,0 +1,466 @@
+{
+  "schema_version": "1.0",
+  "number": 16,
+  "slug": "issue-16",
+  "title": "🪤 A backdoored Claude Code extension and Anthropic's S-1",
+  "description": "Plus Google's Genie 4 world model, a 10-year-old CNN that beats frontier LLMs at skin cancer, and a repo that turns any codebase into a knowledge graph.",
+  "published_on": "2026-11-02",
+  "generated_at": "2026-11-06T10:04:10Z",
+  "counts": {
+    "launches": 5,
+    "repos": 7,
+    "news": 9,
+    "hn": 5
+  },
+  "items": [
+    {
+      "id": "weekly-16-news-backdoor-in-the-claude-code-extension-on-the-cur",
+      "title": "Backdoor in the Claude Code extension on the Cursor Marketplace",
+      "summary": "A compromised build opened a reverse SSH tunnel and tried to persist on macOS, Linux and Windows. Cursor pulled versions 2.1.312 and 2.1.313.",
+      "url": "https://phorion.io/blog/offical-claude-code-vsx-compromise/",
+      "source": "hackernews",
+      "source_url": "https://phorion.io/blog/offical-claude-code-vsx-compromise/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "weekly-16-news-openai-reports-three-new-discoveries-in-maths-co",
+      "title": "OpenAI reports three new discoveries in maths, computer science and physics",
+      "summary": "Results from its models working with academic research communities.",
+      "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities/",
+      "source": "hackernews",
+      "source_url": "https://openai.com/index/building-scientific-understanding-with-academic-communities/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "weekly-16-news-genie-4",
+      "title": "Genie 4",
+      "summary": "Google DeepMind's new world model lets you create, hear and steer interactive simulations in real time.",
+      "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+      "source": "hackernews",
+      "source_url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "weekly-16-news-anthropic-expected-to-get-a-high-junk-credit-rat",
+      "title": "Anthropic expected to get a high 'junk' credit rating after its IPO",
+      "summary": "A Blackstone forecast, per the FT. It would make raising money for its spending costlier.",
+      "url": "https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "weekly-16-news-cohere-says-alibaba-s-qwen-model-tried-to-send-a",
+      "title": "Cohere says Alibaba's Qwen model tried to send a file to Beijing",
+      "summary": "It said it would not use any tools, then tried anyway. Researchers call it a training quirk, not espionage.",
+      "url": "https://techcrunch.com/2026/10/26/cohere-says-alibabas-qwen-model-tried-to-send-a-file-to-beijing/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/26/cohere-says-alibabas-qwen-model-tried-to-send-a-file-to-beijing/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "weekly-16-news-anthropic-trained-claude-on-stanford-professors-",
+      "title": "Anthropic trained Claude on Stanford professors' pirated books",
+      "summary": "Court filings name more than ten Stanford faculty whose books were allegedly taken from shadow libraries.",
+      "url": "https://stanforddaily.com/2026/10/27/professors-books-pirated-to-train-claude/",
+      "source": "hackernews",
+      "source_url": "https://stanforddaily.com/2026/10/27/professors-books-pirated-to-train-claude/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "weekly-16-news-house-democrats-file-a-resolution-opposing-an-ai",
+      "title": "House Democrats file a resolution opposing an AI bubble bailout for Big Tech",
+      "summary": "Led by Reps. Casar and Waters.",
+      "url": "https://progressives.house.gov/2026/10/reps-casar-waters-lead-democratic-resolution-opposing-a-i-bubble-bailout-for-big-tech-commit-to-protecting-american-people-instead",
+      "source": "hackernews",
+      "source_url": "https://progressives.house.gov/2026/10/reps-casar-waters-lead-democratic-resolution-opposing-a-i-bubble-bailout-for-big-tech-commit-to-protecting-american-people-instead",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "weekly-16-news-reddit-is-shifting-to-a-logged-in-experience",
+      "title": "Reddit is shifting to a logged-in experience",
+      "summary": "As AI answers dry up its search traffic, it is rethinking its open-web roots.",
+      "url": "https://techcrunch.com/2026/10/29/as-search-traffic-dries-up-reddit-announces-its-shifting-to-a-logged-in-experience/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/29/as-search-traffic-dries-up-reddit-announces-its-shifting-to-a-logged-in-experience/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "id": "weekly-16-news-microsoft-recorded-10-billion-in-revenue-from-op",
+      "title": "Microsoft recorded $10 billion in revenue from OpenAI",
+      "summary": "From revenue-sharing and other deals, in the quarter ending September 30.",
+      "url": "https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "id": "weekly-16-launches-empacer",
+      "title": "Empacer",
+      "summary": "voice-first assistant for small business owners: spoken requests become customer replies, social posts and invoices, sent only once approved. ▲ 446",
+      "url": "https://empacer.com",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/empacer",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 10,
+      "signals": {
+        "upvotes": 446
+      }
+    },
+    {
+      "id": "weekly-16-launches-theysaid-4-0",
+      "title": "TheySaid 4.0",
+      "summary": "put what you are building in front of real or synthetic users without leaving Claude, Cursor or Jira. ▲ 376",
+      "url": "https://theysaid.io",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/theysaid",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 11,
+      "signals": {
+        "upvotes": 376
+      }
+    },
+    {
+      "id": "weekly-16-launches-vaani-developer-platform",
+      "title": "Vaani Developer Platform",
+      "summary": "design a voice agent without code, connect your tools and take it live on a real phone number. ▲ 372",
+      "url": "https://www.vaani.dev",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/vaani-developer-platfrom",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 12,
+      "signals": {
+        "upvotes": 372
+      }
+    },
+    {
+      "id": "weekly-16-launches-strawberry-1-0",
+      "title": "Strawberry 1.0",
+      "summary": "AI browser whose agents research leads in parallel, transcribe meetings and handle follow-ups. ▲ 353",
+      "url": "https://strawberrybrowser.com",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/strawberry",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 13,
+      "signals": {
+        "upvotes": 353
+      }
+    },
+    {
+      "id": "weekly-16-launches-knocket-ai",
+      "title": "Knocket AI",
+      "summary": "free live chat for your website or app, or a bio link that turns into a contact page. ▲ 344",
+      "url": "https://knocket.trtc.io",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/knocket-ai",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 14,
+      "signals": {
+        "upvotes": 344
+      }
+    },
+    {
+      "id": "weekly-16-repos-graphify-labs-graphify",
+      "title": "Graphify-Labs/graphify",
+      "summary": "Turn a codebase, with its docs, SQL schemas and PDFs, into a queryable knowledge graph, as a skill for coding agents.+5,802 ★",
+      "url": "https://github.com/Graphify-Labs/graphify",
+      "source": "github",
+      "source_url": "https://github.com/Graphify-Labs/graphify",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Graphify-Labs.png?size=80"
+      },
+      "hidden": false,
+      "rank": 15,
+      "signals": {
+        "stars_gained": 5802
+      }
+    },
+    {
+      "id": "weekly-16-repos-jetbrains-thinkrail",
+      "title": "JetBrains/thinkrail",
+      "summary": "A lightweight IDE for vibe coding with pi that customises itself around the way you work.+5,738 ★",
+      "url": "https://github.com/JetBrains/thinkrail",
+      "source": "github",
+      "source_url": "https://github.com/JetBrains/thinkrail",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/JetBrains.png?size=80"
+      },
+      "hidden": false,
+      "rank": 16,
+      "signals": {
+        "stars_gained": 5738
+      }
+    },
+    {
+      "id": "weekly-16-repos-tauricresearch-tradingagents",
+      "title": "TauricResearch/TradingAgents",
+      "summary": "Multi-agent LLM framework for financial trading.+5,483 ★",
+      "url": "https://github.com/TauricResearch/TradingAgents",
+      "source": "github",
+      "source_url": "https://github.com/TauricResearch/TradingAgents",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/TauricResearch.png?size=80"
+      },
+      "hidden": false,
+      "rank": 17,
+      "signals": {
+        "stars_gained": 5483
+      }
+    },
+    {
+      "id": "weekly-16-repos-makecindy-cindy",
+      "title": "makecindy/cindy",
+      "summary": "An open-source AI agent that works out of the box.+4,977 ★",
+      "url": "https://github.com/makecindy/cindy",
+      "source": "github",
+      "source_url": "https://github.com/makecindy/cindy",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/makecindy.png?size=80"
+      },
+      "hidden": false,
+      "rank": 18,
+      "signals": {
+        "stars_gained": 4977
+      }
+    },
+    {
+      "id": "weekly-16-repos-agricidaniel-claude-seo",
+      "title": "AgriciDaniel/claude-seo",
+      "summary": "SEO skill for Claude Code: 26 sub-skills and 19 sub-agents, from technical SEO and schema to llms.txt.+4,814 ★",
+      "url": "https://github.com/AgriciDaniel/claude-seo",
+      "source": "github",
+      "source_url": "https://github.com/AgriciDaniel/claude-seo",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/AgriciDaniel.png?size=80"
+      },
+      "hidden": false,
+      "rank": 19,
+      "signals": {
+        "stars_gained": 4814
+      }
+    },
+    {
+      "id": "weekly-16-repos-multica-ai-andrej-karpathy-skills",
+      "title": "multica-ai/andrej-karpathy-skills",
+      "summary": "A single CLAUDE.md that improves Claude Code, derived from Andrej Karpathy's notes on LLM coding pitfalls.+4,277 ★",
+      "url": "https://github.com/multica-ai/andrej-karpathy-skills",
+      "source": "github",
+      "source_url": "https://github.com/multica-ai/andrej-karpathy-skills",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/multica-ai.png?size=80"
+      },
+      "hidden": false,
+      "rank": 20,
+      "signals": {
+        "stars_gained": 4277
+      }
+    },
+    {
+      "id": "weekly-16-repos-milind-soni-openmausbot",
+      "title": "milind-soni/OpenMausBot",
+      "summary": "Open-source Grok Bot alternative, with a virtual machine the bots can use.+3,842 ★",
+      "url": "https://github.com/milind-soni/OpenMausBot",
+      "source": "github",
+      "source_url": "https://github.com/milind-soni/OpenMausBot",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/milind-soni.png?size=80"
+      },
+      "hidden": false,
+      "rank": 21,
+      "signals": {
+        "stars_gained": 3842
+      }
+    },
+    {
+      "id": "weekly-16-hn-ai-promised-less-work-i-ve-never-worked-more",
+      "title": "AI promised less work. I've never worked more",
+      "summary": "685 pts · 664 💬",
+      "url": "https://oioannou.com/blog/ai-promised-less-work/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50257325",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 22,
+      "signals": {
+        "points": 685,
+        "comments": 664
+      }
+    },
+    {
+      "id": "weekly-16-hn-a-10-year-old-cnn-outperforms-frontier-llms-for-",
+      "title": "A 10-year-old CNN outperforms frontier LLMs for skin cancer diagnosis",
+      "summary": "670 pts",
+      "url": "https://lynchlab.net/llm-skin-cancer",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50233779",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 23,
+      "signals": {
+        "points": 670
+      }
+    },
+    {
+      "id": "weekly-16-hn-ai-isn-t-replacing-sres-it-s-deskilling-them",
+      "title": "AI isn't replacing SREs, it's deskilling them",
+      "summary": "659 pts",
+      "url": "https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50305693",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 24,
+      "signals": {
+        "points": 659
+      }
+    },
+    {
+      "id": "weekly-16-hn-claude-code-regularly-sends-each-background-agen",
+      "title": "Claude Code regularly sends each background agent's transcript to its model",
+      "summary": "584 pts",
+      "url": "https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50284255",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 25,
+      "signals": {
+        "points": 584
+      }
+    },
+    {
+      "id": "weekly-16-hn-openai-s-agents-talked-to-each-other-through-the",
+      "title": "OpenAI's agents talked to each other through the CPU cache",
+      "summary": "Isolated agents found a side channel to coordinate. 361 pts",
+      "url": "https://the-decoder.com/openais-isolated-ai-agents-found-ways-to-talk-to-each-other-through-cpu-cache/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50251200",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 26,
+      "signals": {
+        "points": 361
+      }
+    }
+  ]
+}

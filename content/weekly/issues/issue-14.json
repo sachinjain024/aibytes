@@ -1,0 +1,391 @@
+{
+  "schema_version": "1.0",
+  "number": 14,
+  "slug": "issue-14",
+  "title": "🌳 Anthropic replaces git and Meta's Muse Spark Open",
+  "description": "Plus Replit drops Anthropic, Character.AI files for bankruptcy, and a benchmark map of the US economy.",
+  "published_on": "2026-10-19",
+  "generated_at": "2026-11-06T10:04:10Z",
+  "counts": {
+    "launches": 5,
+    "repos": 4,
+    "news": 9,
+    "hn": 4
+  },
+  "items": [
+    {
+      "id": "weekly-14-news-anthropic-replaced-git-with-its-own-version-cont",
+      "title": "Anthropic replaced git with its own version control in five months",
+      "summary": "Merges grew from about 2,500 a day in May to over 30,000 in September, so Claude helped build Scion, plus code review and code search.",
+      "url": "https://www.anthropic.com/engineering/redesigning-source-control",
+      "source": "hackernews",
+      "source_url": "https://www.anthropic.com/engineering/redesigning-source-control",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "weekly-14-news-claude-explains-where-the-ecdsa-curve-seeds-came",
+      "title": "Claude explains where the ECDSA curve seeds came from",
+      "summary": "Anthropic says Claude traced the origin of the seed behind NIST's P-256 curve, a mystery cryptographers argued over for decades.",
+      "url": "https://www.anthropic.com/research/ecdsa-curve-origins",
+      "source": "hackernews",
+      "source_url": "https://www.anthropic.com/research/ecdsa-curve-origins",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "weekly-14-news-experts-blame-the-ai-hacking-scares-on-labs-not-",
+      "title": "Experts blame the AI hacking scares on labs, not rogue agents",
+      "summary": "Containment and monitoring failures at frontier labs are behind the recent reports, and CISOs should vet their AI vendors.",
+      "url": "https://www.csoonline.com/article/4234854/ai-agents-arent-going-rogue-frontier-labs-are-skipping-security-basics.html",
+      "source": "hackernews",
+      "source_url": "https://www.csoonline.com/article/4234854/ai-agents-arent-going-rogue-frontier-labs-are-skipping-security-basics.html",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "weekly-14-news-replit-is-no-longer-working-with-anthropic",
+      "title": "Replit is no longer working with Anthropic",
+      "summary": "CEO Amjad Masad cites cost among several reasons; Replit announced an OpenAI partnership in August.",
+      "url": "https://techcrunch.com/2026/10/16/replit-is-no-longer-working-with-anthropic-ceo-says/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/16/replit-is-no-longer-working-with-anthropic-ceo-says/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "weekly-14-news-character-ai-files-for-bankruptcy",
+      "title": "Character.AI files for bankruptcy",
+      "summary": "Five years in, the chatbot platform will sell some of its assets to Disney for $20 million.",
+      "url": "https://techcrunch.com/2026/10/13/just-5-years-in-interactive-chatbot-platform-character-ai-files-for-bankruptcy/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/13/just-5-years-in-interactive-chatbot-platform-character-ai-files-for-bankruptcy/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "weekly-14-news-google-play-now-runs-private-vibe-coded-android-",
+      "title": "Google Play now runs private, vibe-coded Android apps",
+      "summary": "Build a personal app with AI and use it without publishing it to everyone on the Play Store.",
+      "url": "https://techcrunch.com/2026/10/13/google-play-now-supports-private-vibe-coded-apps-built-just-for-you/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/13/google-play-now-supports-private-vibe-coded-apps-built-just-for-you/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "weekly-14-news-amex-sets-rules-for-ai-agents-that-shop",
+      "title": "Amex sets rules for AI agents that shop",
+      "summary": "A framework meant to ensure agents only make the purchases their users have authorized.",
+      "url": "https://techcrunch.com/2026/10/13/amex-introduces-a-framework-to-prevent-ai-agents-from-making-unauthorized-purchases/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/13/amex-introduces-a-framework-to-prevent-ai-agents-from-making-unauthorized-purchases/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "weekly-14-news-z-ai-releases-glm-legal",
+      "title": "Z.ai releases GLM-Legal",
+      "summary": "A GLM model aimed at legal work.",
+      "url": "https://z.ai/blog/glm-legal",
+      "source": "hackernews",
+      "source_url": "https://z.ai/blog/glm-legal",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "id": "weekly-14-news-elorian-s-first-model-reasons-with-images",
+      "title": "Elorian's first model reasons with images",
+      "summary": "By Elorian's own evals, Glimpse beats GPT-6 Astra on scientific chart reasoning and short video captioning.",
+      "url": "https://techcrunch.com/2026/10/16/elorians-first-ai-model-wants-to-reason-with-images-not-just-about-them/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/16/elorians-first-ai-model-wants-to-reason-with-images-not-just-about-them/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "id": "weekly-14-launches-pancake",
+      "title": "Pancake",
+      "summary": "Pitched as the Vercel for GTM: deploy go-to-market ideas from Claude or Codex, with sending and 40+ data providers behind one MCP connection. ▲ 585",
+      "url": "https://pancake.ai",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/pancake-6",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 10,
+      "signals": {
+        "upvotes": 585
+      }
+    },
+    {
+      "id": "weekly-14-launches-reso-ai",
+      "title": "ReSO AI",
+      "summary": "Generative engine optimization: helps brands get recommended and cited in ChatGPT, Perplexity and Google AI Overviews. ▲ 509",
+      "url": "https://www.resollm.ai",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/reso",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 11,
+      "signals": {
+        "upvotes": 509
+      }
+    },
+    {
+      "id": "weekly-14-launches-jockey-by-twelvelabs",
+      "title": "Jockey by TwelveLabs",
+      "summary": "Organizes and searches a whole photo and video library, from inside Claude or ChatGPT or through its API. ▲ 415",
+      "url": "https://www.twelvelabs.io",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/twelvelabs",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 12,
+      "signals": {
+        "upvotes": 415
+      }
+    },
+    {
+      "id": "weekly-14-launches-inferock",
+      "title": "Inferock",
+      "summary": "Serverless pay-per-token inference that shows where calls fail and credits back eligible failed calls. ▲ 400",
+      "url": "https://inferock.ai",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/inferock",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 13,
+      "signals": {
+        "upvotes": 400
+      }
+    },
+    {
+      "id": "weekly-14-launches-onepin",
+      "title": "Onepin",
+      "summary": "Checks AI voiceover for names, prices and dates, and fixes a wrong word without re-rendering the take. ▲ 384",
+      "url": "https://onepin.ai",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/onepin",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 14,
+      "signals": {
+        "upvotes": 384
+      }
+    },
+    {
+      "id": "weekly-14-repos-morluto-rea",
+      "title": "morluto/rea",
+      "summary": "Reverse engineer anything with agents, from app behavior down to native binaries.+248,962 ★",
+      "url": "https://github.com/morluto/rea",
+      "source": "github",
+      "source_url": "https://github.com/morluto/rea",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/morluto.png?size=80"
+      },
+      "hidden": false,
+      "rank": 15,
+      "signals": {
+        "stars_gained": 248962
+      }
+    },
+    {
+      "id": "weekly-14-repos-cathrynlavery-diagram-design",
+      "title": "cathrynlavery/diagram-design",
+      "summary": "Editorial diagrams for Claude Code, Codex, Copilot, Cursor and more: 44 types, as self-contained HTML and SVG.+9,024 ★",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "source": "github",
+      "source_url": "https://github.com/cathrynlavery/diagram-design",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/cathrynlavery.png?size=80"
+      },
+      "hidden": false,
+      "rank": 16,
+      "signals": {
+        "stars_gained": 9024
+      }
+    },
+    {
+      "id": "weekly-14-repos-mksglu-context-mode",
+      "title": "mksglu/context-mode",
+      "summary": "Context-window optimization for coding agents: sandboxes tool output and keeps session memory, via MCP and hooks.+4,207 ★",
+      "url": "https://github.com/mksglu/context-mode",
+      "source": "github",
+      "source_url": "https://github.com/mksglu/context-mode",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mksglu.png?size=80"
+      },
+      "hidden": false,
+      "rank": 17,
+      "signals": {
+        "stars_gained": 4207
+      }
+    },
+    {
+      "id": "weekly-14-repos-anthropics-claude-plugins-official",
+      "title": "anthropics/claude-plugins-official",
+      "summary": "Anthropic's official directory of Claude Code plugins.+2,328 ★",
+      "url": "https://github.com/anthropics/claude-plugins-official",
+      "source": "github",
+      "source_url": "https://github.com/anthropics/claude-plugins-official",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/anthropics.png?size=80"
+      },
+      "hidden": false,
+      "rank": 18,
+      "signals": {
+        "stars_gained": 2328
+      }
+    },
+    {
+      "id": "weekly-14-hn-neural-networks-are-already-clean",
+      "title": "Neural networks are already clean",
+      "summary": "Goodfire's working hypothesis about neurons, generalization and the ecology of circuits. 807 pts",
+      "url": "https://already-clean.goodfire.com/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50105647",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 19,
+      "signals": {
+        "points": 807
+      }
+    },
+    {
+      "id": "weekly-14-hn-ai-is-a-tool-and-using-it-well-takes-skill",
+      "title": "AI is a tool, and using it well takes skill",
+      "summary": "A reply to Rich Hickey's \"'AI' is Not a Tool\". 802 pts",
+      "url": "https://yyhh.org/blog/2026/10/ai-is-a-tool/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50063427",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 20,
+      "signals": {
+        "points": 802
+      }
+    },
+    {
+      "id": "weekly-14-hn-the-gap-in-shared-understanding-of-llm-capabilit",
+      "title": "The gap in shared understanding of LLM capability is widening",
+      "summary": "Andrej Karpathy's post, and the week's most-argued thread. 727 pts · 1,072 💬",
+      "url": "https://twitter.com/karpathy/status/2109361546505966046",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50047422",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 21,
+      "signals": {
+        "points": 727,
+        "comments": 1072
+      }
+    },
+    {
+      "id": "weekly-14-hn-90-of-us-working-hours-are-spent-on-tasks-ai-ben",
+      "title": "90% of US working hours are spent on tasks AI benchmarks barely cover",
+      "summary": "Mercor maps which parts of the labor force public agentic benchmarks actually measure. 571 pts",
+      "url": "https://www.mercor.com/research/labor-index/benchmark-map/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50121179",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 22,
+      "signals": {
+        "points": 571
+      }
+    }
+  ]
+}

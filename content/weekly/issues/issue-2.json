@@ -1,0 +1,504 @@
+{
+  "schema_version": "1.0",
+  "number": 2,
+  "slug": "issue-2",
+  "title": "Opus 5, $1.5B copyright & open weights",
+  "description": "Catch up on Claude Opus 5, an AI-evaluation security incident, and the open-weight strategy fight.",
+  "published_on": "2026-07-20",
+  "generated_at": "2026-11-06T10:04:10Z",
+  "counts": {
+    "launches": 6,
+    "repos": 8,
+    "news": 8,
+    "hn": 6
+  },
+  "items": [
+    {
+      "id": "weekly-2-news-headline",
+      "title": "Headline",
+      "summary": "one-line context",
+      "url": "URL",
+      "source": "hackernews",
+      "source_url": "URL",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "weekly-2-news-claude-opus-5",
+      "title": "Claude Opus 5",
+      "summary": "Anthropic's announcement pulled 1,752 points and 1,290 comments on Hacker News.",
+      "url": "https://www.anthropic.com/news/claude-opus-5",
+      "source": "hackernews",
+      "source_url": "https://www.anthropic.com/news/claude-opus-5",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "weekly-2-news-openai-and-hugging-face-address-security-inciden",
+      "title": "OpenAI and Hugging Face address security incident during model evaluation",
+      "summary": "the two teams addressed a security incident during a model evaluation.",
+      "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
+      "source": "hackernews",
+      "source_url": "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "weekly-2-news-anthropic-s-landmark-1-5b-copyright-settlement-i",
+      "title": "Anthropic’s landmark $1.5B copyright settlement is approved",
+      "summary": "final approval closes one case while the wider training-data question remains open.",
+      "url": "https://techcrunch.com/2026/07/20/anthropics-landmark-1-5b-copyright-settlement-is-approved/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/07/20/anthropics-landmark-1-5b-copyright-settlement-is-approved/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "weekly-2-news-china-s-open-weights-ai-strategy-is-winning",
+      "title": "China’s open-weights AI strategy is winning",
+      "summary": "an argument for open models as a strategic advantage reached 1,241 HN points.",
+      "url": "https://werd.io/american-ai-is-locked-down-and-proprietary-its-losing/",
+      "source": "hackernews",
+      "source_url": "https://werd.io/american-ai-is-locked-down-and-proprietary-its-losing/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "weekly-2-news-travis-kalanick-s-robotics-company-raises-1-7b-l",
+      "title": "Travis Kalanick’s robotics company raises $1.7B, led by a16z",
+      "summary": "Atoms raised $1.7B for its industrial-AI and robotics pitch.",
+      "url": "https://techcrunch.com/2026/07/22/travis-kalanicks-robotics-company-raises-1-7b-led-by-a16z/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/07/22/travis-kalanicks-robotics-company-raises-1-7b-led-by-a16z/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "weekly-2-news-monday-com-lays-off-hundreds-to-focus-on-ai",
+      "title": "Monday.com lays off hundreds to focus on AI",
+      "summary": "the company is cutting about 630 roles, or 20% of staff, as it focuses on its AI Work Platform.",
+      "url": "https://techcrunch.com/2026/07/22/monday-com-lays-off-hundreds-to-focuses-on-ai/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/07/22/monday-com-lays-off-hundreds-to-focuses-on-ai/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "weekly-2-news-ai-s-most-important-protocol-is-getting-a-little",
+      "title": "AI’s most important protocol is getting a little bit easier to use",
+      "summary": "the protocol is moving toward looser, stateless server-side session IDs.",
+      "url": "https://techcrunch.com/2026/07/20/ais-most-important-protocol-is-getting-a-little-bit-easier-to-use/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/07/20/ais-most-important-protocol-is-getting-a-little-bit-easier-to-use/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "id": "weekly-2-launches-name",
+      "title": "Name",
+      "summary": "one-line description.▲ 776",
+      "url": "URL",
+      "source": "producthunt",
+      "source_url": "URL",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 9,
+      "signals": {
+        "upvotes": 776
+      }
+    },
+    {
+      "id": "weekly-2-launches-openseo",
+      "title": "OpenSEO",
+      "summary": "The open source Ahrefs alternative.▲ 893",
+      "url": "https://www.producthunt.com/products/openseo?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/openseo?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 10,
+      "signals": {
+        "upvotes": 893
+      }
+    },
+    {
+      "id": "weekly-2-launches-fuzzy-ai",
+      "title": "Fuzzy AI",
+      "summary": "We warm your prospects before reaching out.▲ 691",
+      "url": "https://www.producthunt.com/products/fuzzy-ai-2?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/fuzzy-ai-2?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 11,
+      "signals": {
+        "upvotes": 691
+      }
+    },
+    {
+      "id": "weekly-2-launches-lev8",
+      "title": "Lev8",
+      "summary": "Find, research, and reach the right people.▲ 667",
+      "url": "https://www.producthunt.com/products/lev8?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/lev8?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 12,
+      "signals": {
+        "upvotes": 667
+      }
+    },
+    {
+      "id": "weekly-2-launches-humalike-x-hermes",
+      "title": "Humalike x Hermes",
+      "summary": "Social intelligence plugin for Hermes Agent.▲ 523",
+      "url": "https://www.producthunt.com/products/humalike-2?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/humalike-2?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 13,
+      "signals": {
+        "upvotes": 523
+      }
+    },
+    {
+      "id": "weekly-2-launches-nautis",
+      "title": "Nautis",
+      "summary": "The AI-native Operating System for founders.▲ 509",
+      "url": "https://www.producthunt.com/products/nautis?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/nautis?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 14,
+      "signals": {
+        "upvotes": 509
+      }
+    },
+    {
+      "id": "weekly-2-repos-repo-name",
+      "title": "repo-name",
+      "summary": "one-line description.+6.4k ★",
+      "url": "URL",
+      "source": "github",
+      "source_url": "URL",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 15,
+      "signals": {
+        "stars_gained": 6000
+      }
+    },
+    {
+      "id": "weekly-2-repos-bojieli-ai-agent-book",
+      "title": "bojieli/ai-agent-book",
+      "summary": "an open book, PDF, and chapter code on AI-agent design and engineering.+16.6k ★",
+      "url": "https://github.com/bojieli/ai-agent-book",
+      "source": "github",
+      "source_url": "https://github.com/bojieli/ai-agent-book",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/bojieli.png?size=80"
+      },
+      "hidden": false,
+      "rank": 16,
+      "signals": {
+        "stars_gained": 16000
+      }
+    },
+    {
+      "id": "weekly-2-repos-koala73-worldmonitor",
+      "title": "koala73/worldmonitor",
+      "summary": "a real-time global intelligence dashboard with AI news aggregation and infrastructure tracking.+12.1k ★",
+      "url": "https://github.com/koala73/worldmonitor",
+      "source": "github",
+      "source_url": "https://github.com/koala73/worldmonitor",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/koala73.png?size=80"
+      },
+      "hidden": false,
+      "rank": 17,
+      "signals": {
+        "stars_gained": 12000
+      }
+    },
+    {
+      "id": "weekly-2-repos-diegosouzapw-omniroute",
+      "title": "diegosouzapw/OmniRoute",
+      "summary": "one gateway for 290+ providers and 500+ models, with quota-aware fallback and compression.+11.1k ★",
+      "url": "https://github.com/diegosouzapw/OmniRoute",
+      "source": "github",
+      "source_url": "https://github.com/diegosouzapw/OmniRoute",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/diegosouzapw.png?size=80"
+      },
+      "hidden": false,
+      "rank": 18,
+      "signals": {
+        "stars_gained": 11000
+      }
+    },
+    {
+      "id": "weekly-2-repos-stablyai-orca",
+      "title": "stablyai/orca",
+      "summary": "an agent development environment for running fleets of parallel coding agents.+7.3k ★",
+      "url": "https://github.com/stablyai/orca",
+      "source": "github",
+      "source_url": "https://github.com/stablyai/orca",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/stablyai.png?size=80"
+      },
+      "hidden": false,
+      "rank": 19,
+      "signals": {
+        "stars_gained": 7000
+      }
+    },
+    {
+      "id": "weekly-2-repos-tirth8205-code-review-graph",
+      "title": "tirth8205/code-review-graph",
+      "summary": "a local-first code graph that trims context for AI reviews and large-repo work.+6.4k ★",
+      "url": "https://github.com/tirth8205/code-review-graph",
+      "source": "github",
+      "source_url": "https://github.com/tirth8205/code-review-graph",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/tirth8205.png?size=80"
+      },
+      "hidden": false,
+      "rank": 20,
+      "signals": {
+        "stars_gained": 6000
+      }
+    },
+    {
+      "id": "weekly-2-repos-earendil-works-pi",
+      "title": "earendil-works/pi",
+      "summary": "a unified LLM API, agent loop, TUI, and coding-agent CLI.+5.2k ★",
+      "url": "https://github.com/earendil-works/pi",
+      "source": "github",
+      "source_url": "https://github.com/earendil-works/pi",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/earendil-works.png?size=80"
+      },
+      "hidden": false,
+      "rank": 21,
+      "signals": {
+        "stars_gained": 5000
+      }
+    },
+    {
+      "id": "weekly-2-repos-nutlope-hallmark",
+      "title": "Nutlope/hallmark",
+      "summary": "an anti-AI-slop design skill for Claude Code, Cursor, and Codex.+4.9k ★",
+      "url": "https://github.com/Nutlope/hallmark",
+      "source": "github",
+      "source_url": "https://github.com/Nutlope/hallmark",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Nutlope.png?size=80"
+      },
+      "hidden": false,
+      "rank": 22,
+      "signals": {
+        "stars_gained": 4000
+      }
+    },
+    {
+      "id": "weekly-2-hn-post-title",
+      "title": "Post title",
+      "summary": "optional context.699 pts",
+      "url": "URL",
+      "source": "hackernews",
+      "source_url": "URL",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 23,
+      "signals": {
+        "points": 699
+      }
+    },
+    {
+      "id": "weekly-2-hn-terence-tao-s-chatgpt-conversation-about-the-jac",
+      "title": "Terence Tao's ChatGPT conversation about the Jacobian Conjecture counterexample",
+      "summary": "1117 pts",
+      "url": "https://chatgpt.com/share/6a5fdc7a-d6f8-83e8-bbea-8deb42cfed56",
+      "source": "hackernews",
+      "source_url": "https://chatgpt.com/share/6a5fdc7a-d6f8-83e8-bbea-8deb42cfed56",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 24,
+      "signals": {
+        "points": 1117
+      }
+    },
+    {
+      "id": "weekly-2-hn-advertise-in-chatgpt",
+      "title": "Advertise in ChatGPT",
+      "summary": "1093 pts",
+      "url": "https://ads.openai.com/",
+      "source": "hackernews",
+      "source_url": "https://ads.openai.com/",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 25,
+      "signals": {
+        "points": 1093
+      }
+    },
+    {
+      "id": "weekly-2-hn-qwen-3-8",
+      "title": "Qwen 3.8",
+      "summary": "961 pts",
+      "url": "https://twitter.com/Alibaba_Qwen/status/2078759124914098291",
+      "source": "hackernews",
+      "source_url": "https://twitter.com/Alibaba_Qwen/status/2078759124914098291",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 26,
+      "signals": {
+        "points": 961
+      }
+    },
+    {
+      "id": "weekly-2-hn-claude-fable-produced-a-counterexample-to-the-ja",
+      "title": "Claude Fable produced a counterexample to the Jacobian Conjecture",
+      "summary": "801 pts",
+      "url": "https://xcancel.com/__alpoge__/status/2079028340955197566",
+      "source": "hackernews",
+      "source_url": "https://xcancel.com/__alpoge__/status/2079028340955197566",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 27,
+      "signals": {
+        "points": 801
+      }
+    },
+    {
+      "id": "weekly-2-hn-gemini-3-6-flash-3-5-flash-lite-and-3-5-flash-cy",
+      "title": "Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber",
+      "summary": "755 pts",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/",
+      "source": "hackernews",
+      "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 28,
+      "signals": {
+        "points": 755
+      }
+    }
+  ]
+}

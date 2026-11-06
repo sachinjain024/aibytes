@@ -1,0 +1,420 @@
+{
+  "schema_version": "1.0",
+  "number": 1,
+  "slug": "issue-1",
+  "title": "Open weights surge, a $1.5B bill & AI cracks old math",
+  "description": "Catch up on China's open-weights lead, Qwen 3.8 and Inkling, Anthropic's $1.5B copyright settlement, and the week's top launches and repos.",
+  "published_on": "2026-07-20",
+  "generated_at": "2026-11-06T10:04:10Z",
+  "counts": {
+    "launches": 5,
+    "repos": 7,
+    "news": 6,
+    "hn": 5
+  },
+  "items": [
+    {
+      "id": "weekly-1-news-china-s-open-weights-ai-strategy-is-winning",
+      "title": "China's open-weights AI strategy is winning",
+      "summary": "the week's most-discussed post argues US labs' locked-down, proprietary approach is quietly costing them the lead.",
+      "url": "https://news.ycombinator.com/item?id=48979269",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=48979269",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "weekly-1-news-qwen-3-8",
+      "title": "Qwen 3.8",
+      "summary": "Alibaba dropped its latest open model and it shot straight up the charts, right behind the open-weights debate itself.",
+      "url": "https://news.ycombinator.com/item?id=48966120",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=48966120",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "weekly-1-news-anthropic-s-landmark-1-5b-copyright-settlement-i",
+      "title": "Anthropic's landmark $1.5B copyright settlement is approved",
+      "summary": "the payout for training on authors' books is now final, but it settles one case, not the broader training-data question.",
+      "url": "https://techcrunch.com/2026/07/20/anthropics-landmark-1-5b-copyright-settlement-is-approved/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/07/20/anthropics-landmark-1-5b-copyright-settlement-is-approved/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "weekly-1-news-thinking-machines-ships-inkling-its-first-open-m",
+      "title": "Thinking Machines ships Inkling, its first open model",
+      "summary": "the lab's first public proof point after a year and a half spent building infrastructure out of view.",
+      "url": "https://techcrunch.com/2026/07/15/thinking-machines-amps-up-its-bet-against-one-size-fits-all-ai-with-its-first-open-model-inkling/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/07/15/thinking-machines-amps-up-its-bet-against-one-size-fits-all-ai-with-its-first-open-model-inkling/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "weekly-1-news-grok-build-is-open-source",
+      "title": "Grok Build is open source",
+      "summary": "xAI put its build agent on GitHub, adding one more open release to a very crowded week.",
+      "url": "https://news.ycombinator.com/item?id=48926590",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=48926590",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "weekly-1-news-databricks-hits-a-188b-valuation",
+      "title": "Databricks hits a $188B valuation",
+      "summary": "and published research on just how much cheaper open-weight models are for coding.",
+      "url": "https://techcrunch.com/2026/07/17/databricks-hits-188b-valuation-extending-its-run-as-ais-favorite-second-act/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/07/17/databricks-hits-188b-valuation-extending-its-run-as-ais-favorite-second-act/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "weekly-1-launches-clawteams",
+      "title": "ClawTeams",
+      "summary": "a goal-driven, proactive AI team that plans and runs e-commerce ops for you.▲ 973",
+      "url": "https://www.producthunt.com/products/clawteams",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/clawteams",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 7,
+      "signals": {
+        "upvotes": 973
+      }
+    },
+    {
+      "id": "weekly-1-launches-paradigm",
+      "title": "Paradigm",
+      "summary": "turns any learning goal into an adaptive path that evolves with your progress.▲ 943",
+      "url": "https://www.producthunt.com/products/paradigm-3",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/paradigm-3",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 8,
+      "signals": {
+        "upvotes": 943
+      }
+    },
+    {
+      "id": "weekly-1-launches-pazi",
+      "title": "Pazi",
+      "summary": "vibe-code your business ops: describe the idea, get a team of agents that moves it forward.▲ 894",
+      "url": "https://www.producthunt.com/products/pazi",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/pazi",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 9,
+      "signals": {
+        "upvotes": 894
+      }
+    },
+    {
+      "id": "weekly-1-launches-openseo",
+      "title": "OpenSEO",
+      "summary": "an open-source Ahrefs alternative with MCP, from $10/month instead of $100+.▲ 798",
+      "url": "https://www.producthunt.com/products/openseo",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/openseo",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 10,
+      "signals": {
+        "upvotes": 798
+      }
+    },
+    {
+      "id": "weekly-1-launches-v2fun",
+      "title": "V2Fun",
+      "summary": "generate 3D characters with 8K textures and AI motion capture from images or prompts.▲ 780",
+      "url": "https://www.producthunt.com/products/v2fun",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/v2fun",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 11,
+      "signals": {
+        "upvotes": 780
+      }
+    },
+    {
+      "id": "weekly-1-repos-nutlope-hallmark",
+      "title": "Nutlope/hallmark",
+      "summary": "an anti-AI-slop design skill for Claude Code, Cursor, and Codex.+9.2k ★",
+      "url": "https://github.com/Nutlope/hallmark",
+      "source": "github",
+      "source_url": "https://github.com/Nutlope/hallmark",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Nutlope.png?size=80"
+      },
+      "hidden": false,
+      "rank": 12,
+      "signals": {
+        "stars_gained": 9000
+      }
+    },
+    {
+      "id": "weekly-1-repos-shubhamsaboo-awesome-llm-apps",
+      "title": "Shubhamsaboo/awesome-llm-apps",
+      "summary": "100+ agent & RAG apps you can clone, customize, and ship.+5.9k ★",
+      "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+      "source": "github",
+      "source_url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Shubhamsaboo.png?size=80"
+      },
+      "hidden": false,
+      "rank": 13,
+      "signals": {
+        "stars_gained": 5000
+      }
+    },
+    {
+      "id": "weekly-1-repos-hkuds-vibe-trading",
+      "title": "HKUDS/Vibe-Trading",
+      "summary": "a personal trading agent you can vibe-code.+4.4k ★",
+      "url": "https://github.com/HKUDS/Vibe-Trading",
+      "source": "github",
+      "source_url": "https://github.com/HKUDS/Vibe-Trading",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/HKUDS.png?size=80"
+      },
+      "hidden": false,
+      "rank": 14,
+      "signals": {
+        "stars_gained": 4000
+      }
+    },
+    {
+      "id": "weekly-1-repos-iofficeai-officecli",
+      "title": "iOfficeAI/OfficeCLI",
+      "summary": "an Office suite built for agents to read and edit Word, Excel, and PowerPoint.+4.1k ★",
+      "url": "https://github.com/iOfficeAI/OfficeCLI",
+      "source": "github",
+      "source_url": "https://github.com/iOfficeAI/OfficeCLI",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/iOfficeAI.png?size=80"
+      },
+      "hidden": false,
+      "rank": 15,
+      "signals": {
+        "stars_gained": 4000
+      }
+    },
+    {
+      "id": "weekly-1-repos-tirth8205-code-review-graph",
+      "title": "tirth8205/code-review-graph",
+      "summary": "a local-first code graph so AI tools read only what matters.+3.1k ★",
+      "url": "https://github.com/tirth8205/code-review-graph",
+      "source": "github",
+      "source_url": "https://github.com/tirth8205/code-review-graph",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/tirth8205.png?size=80"
+      },
+      "hidden": false,
+      "rank": 16,
+      "signals": {
+        "stars_gained": 3000
+      }
+    },
+    {
+      "id": "weekly-1-repos-earendil-works-pi",
+      "title": "earendil-works/pi",
+      "summary": "an AI agent toolkit: unified LLM API, agent loop, TUI, and coding CLI.+2.9k ★",
+      "url": "https://github.com/earendil-works/pi",
+      "source": "github",
+      "source_url": "https://github.com/earendil-works/pi",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/earendil-works.png?size=80"
+      },
+      "hidden": false,
+      "rank": 17,
+      "signals": {
+        "stars_gained": 2000
+      }
+    },
+    {
+      "id": "weekly-1-repos-openinterpreter-openinterpreter",
+      "title": "openinterpreter/openinterpreter",
+      "summary": "a coding agent for open models like Kimi K3.+2.6k ★",
+      "url": "https://github.com/openinterpreter/openinterpreter",
+      "source": "github",
+      "source_url": "https://github.com/openinterpreter/openinterpreter",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/openinterpreter.png?size=80"
+      },
+      "hidden": false,
+      "rank": 18,
+      "signals": {
+        "stars_gained": 2000
+      }
+    },
+    {
+      "id": "weekly-1-hn-claude-fable-produced-a-counterexample-to-the-ja",
+      "title": "Claude Fable produced a counterexample to the Jacobian Conjecture",
+      "summary": "an AI chips at a problem open since the 1930s.700 pts",
+      "url": "https://news.ycombinator.com/item?id=48973869",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=48973869",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 19,
+      "signals": {
+        "points": 700
+      }
+    },
+    {
+      "id": "weekly-1-hn-i-tricked-claude-into-leaking-your-deepest-darke",
+      "title": "I tricked Claude into leaking your deepest, darkest secrets",
+      "summary": "a memory-heist writeup on agent data exfiltration.668 pts",
+      "url": "https://news.ycombinator.com/item?id=48916975",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=48916975",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 20,
+      "signals": {
+        "points": 668
+      }
+    },
+    {
+      "id": "weekly-1-hn-how-to-stop-claude-from-saying-load-bearing",
+      "title": "How to stop Claude from saying \"load-bearing\"",
+      "summary": "a field guide to taming a model's verbal tics.608 pts",
+      "url": "https://news.ycombinator.com/item?id=48905248",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=48905248",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 21,
+      "signals": {
+        "points": 608
+      }
+    },
+    {
+      "id": "weekly-1-hn-gpt-5-6-used-a-prompt-to-close-a-30-year-gap-in-",
+      "title": "GPT-5.6 used a prompt to close a 30-year gap in convex optimization",
+      "summary": "the second AI-driven math result of the week.598 pts",
+      "url": "https://news.ycombinator.com/item?id=48957779",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=48957779",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 22,
+      "signals": {
+        "points": 598
+      }
+    },
+    {
+      "id": "weekly-1-hn-claude-code-uses-bun-written-in-rust-now",
+      "title": "Claude Code uses Bun written in Rust now",
+      "summary": "Simon Willison unpacks the new runtime under the hood.594 pts",
+      "url": "https://news.ycombinator.com/item?id=48966569",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=48966569",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 23,
+      "signals": {
+        "points": 594
+      }
+    }
+  ]
+}

@@ -38,6 +38,9 @@ INDEX_ENTRY_REQUIRED = ("date", "path", "total", "generated_at")
 TAGS_REQUIRED = ("schema_version", "groups")
 HIDDEN_REQUIRED = ("schema_version", "hidden")
 HIDDEN_ENTRY_REQUIRED = ("id", "edition_date", "hidden_at")
+WEEKLY_REQUIRED = ("schema_version", "issues")
+WEEKLY_ENTRY_REQUIRED = ("number", "slug", "title", "description", "published_on", "source", "path")
+WEEKLY_SLUG_RE = re.compile(r"^issue-(\d+)$")
 
 CATEGORIES = ("launches", "repos", "news", "hn")
 SOURCES = ("producthunt", "hackernews", "techcrunch", "github")
@@ -585,11 +588,103 @@ def validate_content_root(root):
 
     problems += _index_agrees_with_editions(documents.get("index"), editions)
     problems += _hidden_agrees_with_editions(documents.get("hidden"), editions)
+    problems += _weekly_index_problems(root)
 
     problems = list(problems)
     if problems:
         raise FeedValidationError("\n".join(problems))
     return True
+
+
+def _weekly_index_problems(root):
+    """Optional content/weekly/index.json (AIB-105j). Absent is fine."""
+    path = pathlib.Path(root) / "weekly" / "index.json"
+    if not path.exists():
+        return []
+
+    problems = []
+    try:
+        document = json.loads(path.read_text())
+    except ValueError as exc:
+        return [f"weekly/index.json: not valid JSON: {exc}"]
+
+    if not isinstance(document, dict):
+        return ["weekly/index.json: must be an object"]
+
+    problems += (f"weekly/index.json: {p}" for p in _missing(document, WEEKLY_REQUIRED))
+    version = document.get("schema_version")
+    if version is not None and version not in (1, "1", "1.0"):
+        problems.append(f"weekly/index.json: schema_version {version!r} is not supported")
+
+    issues = document.get("issues")
+    if issues is None:
+        return list(problems)
+    if not isinstance(issues, list):
+        problems.append("weekly/index.json: issues must be an array")
+        return list(problems)
+
+    repo_root = pathlib.Path(root).resolve().parent
+    seen_numbers = set()
+    seen_slugs = set()
+    for i, entry in enumerate(issues):
+        prefix = f"weekly/index.json: issues[{i}]"
+        if not isinstance(entry, dict):
+            problems.append(f"{prefix}: must be an object")
+            continue
+        problems += (f"{prefix}: {p}" for p in _missing(entry, WEEKLY_ENTRY_REQUIRED))
+        for key in entry:
+            if key not in WEEKLY_ENTRY_REQUIRED:
+                problems.append(f"{prefix}: unknown key: {key}")
+
+        number = entry.get("number")
+        if number is not None and not (isinstance(number, int) and not isinstance(number, bool) and number >= 1):
+            problems.append(f"{prefix}: number must be a positive integer")
+        elif isinstance(number, int):
+            if number in seen_numbers:
+                problems.append(f"{prefix}: duplicate number {number}")
+            seen_numbers.add(number)
+
+        slug = entry.get("slug")
+        match = WEEKLY_SLUG_RE.fullmatch(slug) if isinstance(slug, str) else None
+        if slug is not None and match is None:
+            problems.append(f"{prefix}: slug {slug!r} must match issue-{{N}}")
+        elif match is not None:
+            if int(match.group(1)) != number:
+                problems.append(f"{prefix}: slug {slug!r} does not match number {number!r}")
+            if slug in seen_slugs:
+                problems.append(f"{prefix}: duplicate slug {slug!r}")
+            seen_slugs.add(slug)
+
+        for field in ("title", "description", "source"):
+            value = entry.get(field)
+            if value is not None and not (isinstance(value, str) and (field == "description" or value.strip())):
+                problems.append(f"{prefix}: {field} must be a string" + ("" if field == "description" else " and non-empty"))
+
+        published = entry.get("published_on")
+        if published is not None and not _is_date(published):
+            problems.append(f"{prefix}: published_on {published!r} is not a YYYY-MM-DD date")
+
+        source = entry.get("source")
+        if isinstance(source, str) and source.strip():
+            source_path = (repo_root / source).resolve()
+            try:
+                source_path.relative_to(repo_root)
+            except ValueError:
+                problems.append(f"{prefix}: source escapes the repo ({source!r})")
+            else:
+                if not source_path.is_file():
+                    problems.append(f"{prefix}: source file missing ({source})")
+
+        path_value = entry.get("path")
+        if isinstance(path_value, str) and path_value.strip():
+            if path_value.startswith("/") or ".." in pathlib.PurePosixPath(path_value).parts:
+                problems.append(f"{prefix}: path {path_value!r} must be a relative content path")
+            else:
+                issue_path = pathlib.Path(root) / path_value
+                if not issue_path.is_file():
+                    problems.append(f"{prefix}: path file missing ({path_value})")
+
+    return list(problems)
 
 
 def _index_agrees_with_editions(index, editions):

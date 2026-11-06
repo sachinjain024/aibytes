@@ -1,0 +1,425 @@
+{
+  "schema_version": "1.0",
+  "number": 9,
+  "slug": "issue-9",
+  "title": "💎 The RubyGems attack and Claude token theft",
+  "description": "Plus DeepSeek v4.1 Flash, Mistral’s €3B raise, ECC’s agent tooling, and ponytail’s push for less code.",
+  "published_on": "2026-09-14",
+  "generated_at": "2026-11-06T10:04:10Z",
+  "counts": {
+    "launches": 5,
+    "repos": 7,
+    "news": 6,
+    "hn": 5
+  },
+  "items": [
+    {
+      "id": "weekly-9-news-researchers-link-the-rubygems-attack-to-openai-a",
+      "title": "Researchers link the RubyGems attack to OpenAI agents",
+      "summary": "The analysis traces malicious packages to a May incident; authors say the agents’ motives and whether key theft succeeded remain unknown.",
+      "url": "https://www.rubyhack.ai/",
+      "source": "hackernews",
+      "source_url": "https://www.rubyhack.ai/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "weekly-9-news-nyu-mathematician-disputes-openai-s-conduct",
+      "title": "NYU mathematician disputes OpenAI’s conduct",
+      "summary": "A dispute over credit surrounds the Navier-Stokes problem.",
+      "url": "https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "weekly-9-news-deepseek-announces-v4-1-flash",
+      "title": "DeepSeek announces v4.1 Flash",
+      "summary": "The new model announcement drew a busy HN discussion; read the original release before choosing what to test.",
+      "url": "https://twitter.com/deepseek_ai/status/2097930608790167907",
+      "source": "hackernews",
+      "source_url": "https://twitter.com/deepseek_ai/status/2097930608790167907",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "weekly-9-news-mistral-raises-3b",
+      "title": "Mistral raises €3B",
+      "summary": "New funding backs its push for sovereign, open-weight AI.",
+      "url": "https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/",
+      "source": "hackernews",
+      "source_url": "https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "weekly-9-news-claude-subscribers-report-stolen-token-usage",
+      "title": "Claude subscribers report stolen token usage",
+      "summary": "Anthropic has warned users about hackers after unexplained consumption appeared on accounts.",
+      "url": "https://techcrunch.com/2026/09/08/hackers-are-stealing-claude-tokens-from-subscribers/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/09/08/hackers-are-stealing-claude-tokens-from-subscribers/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "weekly-9-news-anthropic-researcher-resigns-over-self-improving",
+      "title": "Anthropic researcher resigns over self-improving AI",
+      "summary": "Jacob Coxon calls for pacing agreements between labs, according to TechCrunch.",
+      "url": "https://techcrunch.com/2026/09/09/gambling-with-our-lives-anthropic-researcher-quits-warns-against-self-improving-ai/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/09/09/gambling-with-our-lives-anthropic-researcher-quits-warns-against-self-improving-ai/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "weekly-9-launches-mastra-factory",
+      "title": "Mastra Factory",
+      "summary": "An open-source workspace for persistent agents, from issue intake through implementation and PR review. ▲ 521",
+      "url": "https://factory.mastra.ai/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/mastra",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 7,
+      "signals": {
+        "upvotes": 521
+      }
+    },
+    {
+      "id": "weekly-9-launches-switch",
+      "title": "Switch",
+      "summary": "Connect agents to Slack, Teams, Discord or Telegram with shared room context. ▲ 519",
+      "url": "https://www.flintai.dev/products/switch",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/switch-11",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 8,
+      "signals": {
+        "upvotes": 519
+      }
+    },
+    {
+      "id": "weekly-9-launches-anysite-io",
+      "title": "Anysite.io",
+      "summary": "Build and enrich company and contact lists through an agent using MCP or REST. ▲ 460",
+      "url": "https://anysite.io/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/anysite",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 9,
+      "signals": {
+        "upvotes": 460
+      }
+    },
+    {
+      "id": "weekly-9-launches-widgo",
+      "title": "Widgo",
+      "summary": "Answer site visitors from your docs, score leads and book demos. ▲ 435",
+      "url": "https://widgo.ai/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/widgo",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 10,
+      "signals": {
+        "upvotes": 435
+      }
+    },
+    {
+      "id": "weekly-9-launches-ai-toolbox-3-0",
+      "title": "AI Toolbox 3.0",
+      "summary": "Search, organize and export chats across ChatGPT, Claude, Gemini and Grok. ▲ 434",
+      "url": "https://www.ai-toolbox.co/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/chatgpt-toolbox",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 11,
+      "signals": {
+        "upvotes": 434
+      }
+    },
+    {
+      "id": "weekly-9-repos-ayghri-i-have-adhd",
+      "title": "ayghri/i-have-adhd",
+      "summary": "A skill that puts the answer first and makes coding-agent output easier to scan.+15.9k ★",
+      "url": "https://github.com/ayghri/i-have-adhd",
+      "source": "github",
+      "source_url": "https://github.com/ayghri/i-have-adhd",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/ayghri.png?size=80"
+      },
+      "hidden": false,
+      "rank": 12,
+      "signals": {
+        "stars_gained": 15000
+      }
+    },
+    {
+      "id": "weekly-9-repos-tt-a1i-archify",
+      "title": "tt-a1i/archify",
+      "summary": "Generate architecture and workflow diagrams as self-contained HTML with export.+10.4k ★",
+      "url": "https://github.com/tt-a1i/archify",
+      "source": "github",
+      "source_url": "https://github.com/tt-a1i/archify",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/tt-a1i.png?size=80"
+      },
+      "hidden": false,
+      "rank": 13,
+      "signals": {
+        "stars_gained": 10000
+      }
+    },
+    {
+      "id": "weekly-9-repos-dietrichgebert-ponytail",
+      "title": "DietrichGebert/ponytail",
+      "summary": "A skill that nudges agents toward simpler solutions and less code.+9.3k ★",
+      "url": "https://github.com/DietrichGebert/ponytail",
+      "source": "github",
+      "source_url": "https://github.com/DietrichGebert/ponytail",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/DietrichGebert.png?size=80"
+      },
+      "hidden": false,
+      "rank": 14,
+      "signals": {
+        "stars_gained": 9000
+      }
+    },
+    {
+      "id": "weekly-9-repos-affaan-m-ecc",
+      "title": "affaan-m/ECC",
+      "summary": "Skills, memory and security tooling for improving coding-agent workflows.+8.1k ★",
+      "url": "https://github.com/affaan-m/ECC",
+      "source": "github",
+      "source_url": "https://github.com/affaan-m/ECC",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/affaan-m.png?size=80"
+      },
+      "hidden": false,
+      "rank": 15,
+      "signals": {
+        "stars_gained": 8000
+      }
+    },
+    {
+      "id": "weekly-9-repos-cathrynlavery-diagram-design",
+      "title": "cathrynlavery/diagram-design",
+      "summary": "A catalog of 38 diagram types rendered as HTML and SVG.+7.4k ★",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "source": "github",
+      "source_url": "https://github.com/cathrynlavery/diagram-design",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/cathrynlavery.png?size=80"
+      },
+      "hidden": false,
+      "rank": 16,
+      "signals": {
+        "stars_gained": 7000
+      }
+    },
+    {
+      "id": "weekly-9-repos-blader-humanizer",
+      "title": "blader/humanizer",
+      "summary": "Edit common signs of AI-generated prose out of text.+4.1k ★",
+      "url": "https://github.com/blader/humanizer",
+      "source": "github",
+      "source_url": "https://github.com/blader/humanizer",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/blader.png?size=80"
+      },
+      "hidden": false,
+      "rank": 17,
+      "signals": {
+        "stars_gained": 4000
+      }
+    },
+    {
+      "id": "weekly-9-repos-obra-superpowers",
+      "title": "obra/superpowers",
+      "summary": "A skills framework and software development workflow for agents.+3.9k ★",
+      "url": "https://github.com/obra/superpowers",
+      "source": "github",
+      "source_url": "https://github.com/obra/superpowers",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/obra.png?size=80"
+      },
+      "hidden": false,
+      "rank": 18,
+      "signals": {
+        "stars_gained": 3000
+      }
+    },
+    {
+      "id": "weekly-9-hn-claude-make-the-button-blue",
+      "title": "Claude, make the button blue",
+      "summary": "An interactive challenge: change “Add to Cart” to blue without letting Claude change anything else. 1196 pts · 448 💬",
+      "url": "https://opusfived.dev/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49623754",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 19,
+      "signals": {
+        "points": 1196,
+        "comments": 448
+      }
+    },
+    {
+      "id": "weekly-9-hn-a-misalignment-of-ai-in-mathematics",
+      "title": "A misalignment of AI in mathematics",
+      "summary": "Mathematicians argue that solving benchmarks can undermine understanding, attribution and the development of new researchers. 1179 pts · 1141 💬",
+      "url": "https://mathandai.org/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49662371",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 20,
+      "signals": {
+        "points": 1179,
+        "comments": 1141
+      }
+    },
+    {
+      "id": "weekly-9-hn-can-researchers-trust-ai-labs-with-unpublished-m",
+      "title": "Can researchers trust AI labs with unpublished math?",
+      "summary": "A researcher’s post on the trust question behind sharing unfinished work. 864 pts · 813 💬",
+      "url": "https://mathstodon.xyz/@andreasthom/117240535270608201",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49639408",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 21,
+      "signals": {
+        "points": 864,
+        "comments": 813
+      }
+    },
+    {
+      "id": "weekly-9-hn-can-hn-limit-the-ai-news-flood",
+      "title": "Can HN limit the AI news flood?",
+      "summary": "An Ask HN discussion about what belongs on the front page; the discussion itself is the source. 816 pts · 382 💬",
+      "url": "https://news.ycombinator.com/item?id=49657850",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49657850",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 22,
+      "signals": {
+        "points": 816,
+        "comments": 382
+      }
+    },
+    {
+      "id": "weekly-9-hn-what-llm-authored-posts-reveal",
+      "title": "What LLM-authored posts reveal",
+      "summary": "A resurfaced 2025 essay by Bryan Cantrill on writing with LLMs. 729 pts · 433 💬",
+      "url": "https://bcantrill.dtrace.org/2025/12/05/your-intellectual-fly-is-open/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49585644",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 23,
+      "signals": {
+        "points": 729,
+        "comments": 433
+      }
+    }
+  ]
+}

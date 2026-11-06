@@ -17,6 +17,16 @@ export function loadIndex() {
   return getJson(new URL("index.json", CONTENT_URL));
 }
 
+/** content/weekly/index.json: the published weekly issues, newest first. */
+export function loadWeeklyIndex() {
+  return getJson(new URL("weekly/index.json", CONTENT_URL));
+}
+
+/** A weekly issue JSON; `ref.path` is relative to content/ (e.g. weekly/issues/issue-16.json). */
+export function loadWeeklyIssue(ref) {
+  return getJson(new URL(ref.path, CONTENT_URL));
+}
+
 // An edition's `path` is relative to index.json (feed.d.ts, EditionRef.path).
 export function loadEdition(ref) {
   return getJson(new URL(ref.path, CONTENT_URL));
