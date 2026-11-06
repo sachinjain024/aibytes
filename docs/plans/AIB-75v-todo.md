@@ -15,12 +15,12 @@ image, at a 28px target with a 16px glyph; `"actions"` (the default) is
 today's markup.
 
 **Acceptance criteria:**
-- [ ] `Card.test.js` pins today's markup for a card and a row with no
+- [x] `Card.test.js` pins today's markup for a card and a row with no
       `starPos`, then covers `"visual"` (star inside `story-visual`, not in
       `item-actions`) and that no star renders without `onToggleSave`.
-- [ ] `Card.d.ts` and `ListRow.d.ts` document the prop; the `.prompt.md`
+- [x] `Card.d.ts` and `ListRow.d.ts` document the prop; the `.prompt.md`
       files show it.
-- [ ] In the preview, the star under the icon fits the visual column on grid
+- [x] In the preview, the star under the icon fits the visual column on grid
       cards and list rows at 1280 and 390px, in both themes.
 
 **Files:** `components/content/FeedItem.jsx`, `Card.jsx`, `ListRow.jsx`,
