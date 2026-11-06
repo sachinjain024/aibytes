@@ -10,7 +10,7 @@ labels:
 type: chore
 due: 2026-11-08
 created_at: 2026-11-03T07:55:49.030Z
-updated_at: 2026-11-04T10:26:35.951Z
+updated_at: 2026-11-06T07:04:33.406Z
 ---
 
 Move the aiBytes_ weekly newsletter from Beehiiv to Substack.
@@ -31,13 +31,21 @@ Move the aiBytes_ weekly newsletter from Beehiiv to Substack.
 - [x] Add audience so they don't receive previous posts email <!-- longclaw:item=ck_7cd2b392 -->
 - [x] Import the 2,632 active Beehiiv subscribers into Substack - submitted 3 Nov 2026, waiting on Substack's import review <!-- longclaw:item=ck_68860357 -->
 - [x] Check the imported subscriber count against the Beehiiv export; leave out unsubscribed and bounced addresses <!-- longclaw:item=ck_bf067783 -->
-- [ ] Send a test email to Gmail and Outlook; check the inbox tab, images, links, and the mobile layout <!-- longclaw:item=ck_893b8330 -->
-- [ ] Point every subscribe link at Substack: aibytes.io app, docs, social bios <!-- longclaw:item=ck_bb1521c1 -->
-- [ ] Set up the Substack publication: name, logo, about page, sender name, reply-to, welcome email; turn paid subscriptions off <!-- longclaw:item=ck_ae1d81a7 -->
+- [x] Send a test email to Gmail and Outlook; check the inbox tab, images, links, and the mobile layout <!-- longclaw:item=ck_893b8330 -->
+- [x] Point every subscribe link at Substack: aibytes.io app, docs, social bios <!-- longclaw:item=ck_bb1521c1 -->
+- [x] Set up the Substack publication: name, sender name, and reply-to; turn paid subscriptions off <!-- longclaw:item=ck_ae1d81a7 -->
+- [ ] Configure the email header and footer <!-- longclaw:item=ck_437942e6 -->
+- [ ] Configure the welcome email <!-- longclaw:item=ck_4a58c8f2 -->
+- [ ] Create custom tags <!-- longclaw:item=ck_7a7c5aee -->
+- [ ] Edit the About page <!-- longclaw:item=ck_05ad5d11 -->
+- [ ] Embed a custom subscribe button in the weekly pages to be generated <!-- longclaw:item=ck_131f2e50 -->
+- [ ] Update the publication logo <!-- longclaw:item=ck_8e43a26f -->
+- [ ] Configure the Google Analytics Measurement ID <!-- longclaw:item=ck_664a3c0e -->
 - [x] Once the newsletter structure is finalized, figure out how to publish <!-- longclaw:item=ck_b6bf1aea -->
 - [x] Turn off Beehiiv automations and the welcome email so nobody gets a double send <!-- longclaw:item=ck_cd8a7611 -->
-- [ ] Connect the custom domain newsletter.aibytes.io to the Substack publication (one-time $50; CNAME at the DNS provider) before backfilling, so old posts get their final URLs <!-- longclaw:item=ck_94516fde -->
-- [ ] Create the email alias contact@aibytes.io, forwarding to the personal Gmail inbox; use it as the Substack reply-to and the public contact address <!-- longclaw:item=ck_cabf4949 -->
+- [x] Connect the custom domain newsletter.aibytes.io to the Substack publication (one-time $50; CNAME at the DNS provider) - CNAME added 6 Nov 2026 and DNS verified; waiting on Substack's domain verification (up to 36h), until then the domain redirects to substack.com <!-- longclaw:item=ck_94516fde -->
+- [x] Remove the old Beehiiv DNS records from Cloudflare (2 bh1234 CNAMEs, 3 SendGrid em886/e95/e952 records) <!-- longclaw:item=ck_1911b836 -->
+- [x] Create the email alias contact@aibytes.io, forwarding to the personal Gmail inbox; use it as the Substack reply-to and the public contact address <!-- longclaw:item=ck_cabf4949 -->
 - [ ] Monitor the stats on the next issue (opens, clicks, unsubscribes vs. the Beehiiv baseline) <!-- longclaw:item=ck_d318a1de -->
 - [ ] Record the migration decision in newsletter/artifacts/ <!-- longclaw:item=ck_6a5e6a1d -->
 - [ ] Remove Beehiiv-specific tooling from the repo, keeping it recoverable - AIB-135b <!-- longclaw:item=ck_4ca0624d -->
@@ -736,4 +744,284 @@ actor:
 ### You commented
 
 Image-provider choice split out into AIB-137j.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_d7799eaf
+kind: update
+occurred_at: 2026-11-06T05:49:02.600Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_893b8330.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_269ec52a
+kind: update
+occurred_at: 2026-11-06T06:44:30.496Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_94516fde.text
+    from: Connect the custom domain newsletter.aibytes.io to the Substack publication (one-time $50; CNAME at the DNS provider) before backfilling, so old posts get their final URLs
+    to: Connect the custom domain newsletter.aibytes.io to the Substack publication (one-time $50; CNAME at the DNS provider) - CNAME added 6 Nov 2026 and DNS verified; waiting on Substack's domain verification (up to 36h), until then the domain redirects to substack.com
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_c459858f
+kind: update
+occurred_at: 2026-11-06T06:44:44.025Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_1911b836.added
+    to: Remove the old Beehiiv DNS records from Cloudflare (2 bh1234 CNAMEs, 3 SendGrid em886/e95/e952 records)
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_eb31e4b5
+kind: update
+occurred_at: 2026-11-06T06:44:44.064Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_1911b836.moved
+    from: "19"
+    to: "15"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_33d37b48
+kind: update
+occurred_at: 2026-11-06T06:44:44.089Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_1911b836.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+
+Removed the 5 old Beehiiv DNS records from Cloudflare on 6 Nov 2026. newsletter.aibytes.io CNAME -> target.substack-custom-domains.com (DNS only) is in place and Substack shows DNS verified; domain verification still pending, so the domain 302s to substack.com until it completes. Root domain redirects stay off: aibytes.io and www serve the GitHub Pages app.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_fb425c73
+kind: update
+occurred_at: 2026-11-06T06:46:48.836Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_94516fde.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_06d9cec9
+kind: update
+occurred_at: 2026-11-06T06:55:47.192Z
+actor:
+  type: agent
+  id: grok
+  name: Grok
+changes:
+  - field: checklist.ck_ae1d81a7.text
+    from: "Set up the Substack publication: name, logo, about page, sender name, reply-to, welcome email; turn paid subscriptions off"
+    to: "Set up the Substack publication: name, sender name, and reply-to; turn paid subscriptions off"
+  - field: checklist.ck_437942e6.added
+    to: Configure the email header and footer
+  - field: checklist.ck_4a58c8f2.added
+    to: Configure the welcome email
+  - field: checklist.ck_7a7c5aee.added
+    to: Create custom tags
+  - field: checklist.ck_05ad5d11.added
+    to: Edit the About page
+  - field: checklist.ck_131f2e50.added
+    to: Embed a custom subscribe button in the weekly pages to be generated
+  - field: checklist.ck_8e43a26f.added
+    to: Update the publication logo
+  - field: checklist.ck_664a3c0e.added
+    to: Configure the Google Analytics Measurement ID
+-->
+### Grok updated this ticket
+
+Split the remaining Substack newsletter settings into their own checklist items: email header and footer, welcome email, custom tags, About page, subscribe button on generated weekly pages, publication logo, and Google Analytics Measurement ID.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8b5be72b
+kind: update
+occurred_at: 2026-11-06T06:56:00.686Z
+actor:
+  type: agent
+  id: grok
+  name: Grok
+changes:
+  - field: checklist.ck_664a3c0e.moved
+    from: "26"
+    to: "12"
+-->
+### Grok updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_13394e5d
+kind: update
+occurred_at: 2026-11-06T06:56:00.705Z
+actor:
+  type: agent
+  id: grok
+  name: Grok
+changes:
+  - field: checklist.ck_8e43a26f.moved
+    from: "26"
+    to: "12"
+-->
+### Grok updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_7757325f
+kind: update
+occurred_at: 2026-11-06T06:56:00.722Z
+actor:
+  type: agent
+  id: grok
+  name: Grok
+changes:
+  - field: checklist.ck_131f2e50.moved
+    from: "26"
+    to: "12"
+-->
+### Grok updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_199fcdc0
+kind: update
+occurred_at: 2026-11-06T06:56:00.742Z
+actor:
+  type: agent
+  id: grok
+  name: Grok
+changes:
+  - field: checklist.ck_05ad5d11.moved
+    from: "26"
+    to: "12"
+-->
+### Grok updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_aa0455aa
+kind: update
+occurred_at: 2026-11-06T06:56:00.761Z
+actor:
+  type: agent
+  id: grok
+  name: Grok
+changes:
+  - field: checklist.ck_7a7c5aee.moved
+    from: "26"
+    to: "12"
+-->
+### Grok updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_484260cb
+kind: update
+occurred_at: 2026-11-06T06:56:00.780Z
+actor:
+  type: agent
+  id: grok
+  name: Grok
+changes:
+  - field: checklist.ck_4a58c8f2.moved
+    from: "26"
+    to: "12"
+-->
+### Grok updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_c9a4be4b
+kind: update
+occurred_at: 2026-11-06T06:56:00.804Z
+actor:
+  type: agent
+  id: grok
+  name: Grok
+changes:
+  - field: checklist.ck_437942e6.moved
+    from: "26"
+    to: "12"
+-->
+### Grok updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_7752b6a7
+kind: update
+occurred_at: 2026-11-06T07:04:17.700Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_bb1521c1.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_49554f4d
+kind: update
+occurred_at: 2026-11-06T07:04:21.807Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_ae1d81a7.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_1b2ead4d
+kind: update
+occurred_at: 2026-11-06T07:04:33.406Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_cabf4949.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
 <!-- /longclaw:event -->

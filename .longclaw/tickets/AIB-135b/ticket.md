@@ -3,13 +3,13 @@ format: longclaw.ticket/v1
 id: 295a9ae2-b16f-4473-887b-4f89c8af95ba
 key: AIB-135b
 title: Remove Beehiiv-specific tooling from the repo (recoverable)
-status: todo
+status: in_progress
 priority: p2
 labels:
   - marketing
 type: chore
 created_at: 2026-11-03T07:58:59.954Z
-updated_at: 2026-11-03T07:58:59.954Z
+updated_at: 2026-11-06T07:10:01.515Z
 ---
 
 Remove the Beehiiv-specific skills, templates, code paths, and docs from the repo once the Substack migration (AIB-134j) is done, and keep them recoverable in case we go back to Beehiiv.
@@ -56,4 +56,19 @@ actor:
   id: claude-code
 -->
 ### claude-code created this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_6ce7d118
+kind: update
+occurred_at: 2026-11-06T07:10:01.515Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: status
+    from: todo
+    to: in_progress
+-->
+### You updated this ticket
 <!-- /longclaw:event -->

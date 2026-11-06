@@ -3,11 +3,11 @@ format: longclaw.ticket/v1
 id: abc5f550-9afd-4eea-b839-3a5cefeb7eb3
 key: AIB-85v
 title: Issue template supports a Beehiiv ad at the top
-status: todo
+status: canceled
 priority: p1
 type: feature
 created_at: 2026-10-10T23:38:45.208Z
-updated_at: 2026-10-10T23:38:45.208Z
+updated_at: 2026-11-06T07:10:09.617Z
 ---
 
 The issue layout looks broken when Beehiiv inserts an ad at the top of the email. The template should leave a clean slot for an ad above the content, so the masthead and intro still read as one piece whether or not an ad is there.
@@ -44,4 +44,21 @@ actor:
   name: Claude Code
 -->
 ### Claude Code created this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_22b8682f
+kind: update
+occurred_at: 2026-11-06T07:10:09.617Z
+actor:
+  type: agent
+  id: grok
+changes:
+  - field: status
+    from: todo
+    to: canceled
+-->
+### grok updated this ticket
+
+Canceled: Beehiiv-only ad-slot issue. Newsletter has moved to Substack (AIB-134j), so this no longer applies.
 <!-- /longclaw:event -->

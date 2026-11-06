@@ -3,11 +3,11 @@ format: longclaw.ticket/v1
 id: d0db81af-e84e-449c-9fd2-3a5ec3fb9fb9
 key: AIB-130g
 title: Connect to the Beehiiv MCP server
-status: todo
+status: canceled
 priority: p2
 type: feature
 created_at: 2026-10-23T22:28:44.114Z
-updated_at: 2026-10-23T22:28:44.114Z
+updated_at: 2026-11-06T06:48:02.178Z
 ---
 
 Connect Claude Code to a Beehiiv MCP server, so the weekly issue can go from the Beehiiv export into a Beehiiv post (title, subtitle, thumbnail, body) without copy-paste.
@@ -34,4 +34,19 @@ actor:
   name: Claude Code
 -->
 ### Claude Code created this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_83cf3da2
+kind: update
+occurred_at: 2026-11-06T06:48:02.178Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: status
+    from: todo
+    to: canceled
+-->
+### You updated this ticket
 <!-- /longclaw:event -->
