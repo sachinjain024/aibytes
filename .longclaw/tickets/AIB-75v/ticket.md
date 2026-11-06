@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T06:08:19.592Z
-updated_at: 2026-11-06T12:19:09.840Z
+updated_at: 2026-11-06T22:26:27.698Z
 ---
 
 Saving items (the ☆ on every card and row) and signing in with Google, split out of AIB-8h on 2026-10-08. AIB-8h shipped the web app without them: no star, no Saved entry, no Sign in. This ticket brings them in.
@@ -48,7 +48,7 @@ Decisions on the map: the publisher creates a new Firebase project for aibytes.i
 
 - [x] Design decided: decision record and prototype <!-- longclaw:item=ck_9f53b82f -->
 - [x] Capability map approved (docs/specs/AIB-75v-capability-map.md) <!-- longclaw:item=ck_74b4e788 -->
-- [ ] ledger-saves-ui: spec approved <!-- longclaw:item=ck_eafa6b6e -->
+- [x] ledger-saves-ui: spec approved <!-- longclaw:item=ck_eafa6b6e -->
 - [ ] ledger-saves-ui: Saved entry in Sidebar, Sign in and account menu in AppHeader, sticky SaveBanner with icon, star position on FeedItem / Card / ListRow (PR merged) <!-- longclaw:item=ck_bbf07bb8 -->
 - [ ] app-local-saves: spec approved <!-- longclaw:item=ck_e869ea35 -->
 - [ ] app-local-saves: the ☆ saves to local storage at once, Saved entry and count in the sidebar (PR merged) <!-- longclaw:item=ck_d5ac2437 -->
@@ -407,4 +407,36 @@ changes:
 ### Claude Code updated this ticket
 
 Plan set: capability map approved with four modules (ledger-saves-ui, app-local-saves, app-saved-view, app-accounts), one PR each in that order, each with its own approved spec. Answers: new Firebase project created by the publisher; rules deployed by hand; Saved lists items in the edition's rank order; prototype checked in at docs/ux/prototypes/AIB-75v-saves/. The checklist now tracks each module's spec and PR. Next: the ledger-saves-ui spec.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_c6653687
+kind: comment
+occurred_at: 2026-11-06T22:21:49.066Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Spec drafted for ledger-saves-ui: docs/specs/AIB-75v-ledger-saves-ui.md. Awaiting review; two open questions (avatar photo, the YOURS label).
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_b5b94528
+kind: update
+occurred_at: 2026-11-06T22:26:27.698Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_eafa6b6e.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+ledger-saves-ui spec reviewed: the avatar shows the Google profile photo with the initial as fallback, and the sidebar label is LIBRARY. Spec: docs/specs/AIB-75v-ledger-saves-ui.md. Next: break the module into tasks.
 <!-- /longclaw:event -->

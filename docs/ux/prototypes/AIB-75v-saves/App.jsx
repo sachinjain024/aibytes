@@ -341,7 +341,7 @@ function Proto() {
   );
   const railEntry = opts.where === "1" && (
     <div className="proto-rail-you">
-      <div className="sidebar-label">YOURS</div>
+      <div className="sidebar-label">LIBRARY</div>
       <button className={"category" + (page === "saved" ? " active" : "")} aria-current={page === "saved" || undefined} onClick={openSaved}>
         <span className="proto-rail-saved"><StarGlyph filled />Saved</span><span>{savedCount}</span>
       </button>

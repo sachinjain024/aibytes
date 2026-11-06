@@ -14,7 +14,7 @@ These are the picks:
 
 | | Choice | Picked | Not picked |
 |---|---|---|---|
-| A | Where Saved lives | **A1 · a Saved entry in the sidebar**, under a `YOURS` label below the categories | A2 · a Saved chip in the header |
+| A | Where Saved lives | **A1 · a Saved entry in the sidebar**, under a `LIBRARY` label below the categories | A2 · a Saved chip in the header |
 | B | Sign in in the header | **B2 · always shown** while signed out | B1 · shown only after the first save |
 | C | Save banner | **C2 · a full-width strip** under the header | C1 · a box above the feed |
 | D | Saved items that were later hidden | **D2 · left out, with a note** | D1 · shown greyed, unsave only |
@@ -48,7 +48,8 @@ list is empty, because the empty state already says it.
 
 **B2 · Sign in.** A `Sign in` control sits at the right end of the header
 whenever the reader is signed out. Signed in, it becomes an avatar with the
-reader's initial, opening a menu with their name, "Signed in with Google",
+reader's Google profile photo (their initial when there is none, or it fails
+to load), opening a menu with their name, "Signed in with Google",
 `Saved` and `Sign out`.
 
 **C2 · The banner.** It shows while the reader is signed out, has at least
