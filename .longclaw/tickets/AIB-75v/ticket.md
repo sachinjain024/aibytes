@@ -3,13 +3,14 @@ format: longclaw.ticket/v1
 id: 6ef6489e-6e94-477f-947d-f4964ff401e2
 key: AIB-75v
 title: Saves and Google sign-in for the web app
-status: backlog
+status: in_progress
 priority: p2
+rank: a0
 labels:
   - app
 type: feature
 created_at: 2026-10-08T06:08:19.592Z
-updated_at: 2026-10-08T06:08:19.592Z
+updated_at: 2026-11-06T12:01:20.147Z
 ---
 
 Saving items (the ☆ on every card and row) and signing in with Google, split out of AIB-8h on 2026-10-08. AIB-8h ships the web app without them: no star, no Saved chip, no Sign in button. This ticket brings them in.
@@ -39,6 +40,7 @@ Saving items (the ☆ on every card and row) and signing in with Google, split o
 - [ ] Firestore `users/{uid}/saves/{itemId}`, with security rules reviewed <!-- longclaw:item=ck_4661cf94 -->
 - [ ] Merge local saves into the account on first sign-in, then clear local storage <!-- longclaw:item=ck_75ad990d -->
 - [ ] Saved view, grouped by edition date <!-- longclaw:item=ck_92ac9854 -->
+- [ ] Ledger: Saved entry in Sidebar, Sign in and account menu in AppHeader, sticky SaveBanner with icon, star position option on FeedItem <!-- longclaw:item=ck_bbf07bb8 -->
 
 ## Activity
 
@@ -52,4 +54,50 @@ actor:
   name: Claude Code
 -->
 ### Claude Code created this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_7c92b730
+kind: update
+occurred_at: 2026-11-06T10:44:41.750Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: status
+    from: backlog
+    to: in_progress
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_fb1b62f0
+kind: update
+occurred_at: 2026-11-06T11:14:37.149Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: rank
+    to: a0
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_00c86a89
+kind: update
+occurred_at: 2026-11-06T12:01:20.147Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_bbf07bb8.added
+    to: "Ledger: Saved entry in Sidebar, Sign in and account menu in AppHeader, sticky SaveBanner with icon, star position option on FeedItem"
+-->
+### Claude Code updated this ticket
+
+Design decided from the prototype: A1 Saved in the sidebar (always shown, with an empty state), B2 Sign in always in the header, C2 sticky full-width banner with a warning icon, D2 hidden saves left out with a note, E2 star under the source icon. Decision record: docs/decisions/product/AIB-75v-saves-and-sign-in-design.md
 <!-- /longclaw:event -->
