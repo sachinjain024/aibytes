@@ -148,7 +148,36 @@ newsletter/issues/{yyyy}/week-{week_num}-Issue-{num}/aiBytes-substack-export-iss
 
 Create the directories if they don't exist. Then present both files to the user and, if an artifact/preview mechanism is available, render the main issue so they can see it immediately.
 
-### 7. Verify
+### 7. Publish on aibytes.io/weekly (before the Substack send)
+
+Own-site publish lands **before** the email send (AIB-105j). The issue's home on the app domain is `https://aibytes.io/weekly/issue-{num}`; that URL is `ISSUE_URL` for social posts and any "read the full issue" link. The Substack post URL is secondary once it exists.
+
+1. Upsert `content/weekly/index.json` (create the file if missing; schema in `docs/specs/AIB-105j-weekly-publish.md`). Put this issue first in `issues[]`:
+
+```json
+{
+  "number": {num},
+  "slug": "issue-{num}",
+  "title": "{EMAIL_SUBJECT with any aiBytes_ #N prefix already absent}",
+  "description": "{EMAIL_DESCRIPTION}",
+  "published_on": "{issue_date as YYYY-MM-DD}",
+  "source": "newsletter/issues/{yyyy}/week-{week_num}-Issue-{num}/aiBytes-issue-{num}.html",
+  "path": "weekly/issues/issue-{num}.json"
+}
+```
+
+   Keep every older entry. `slug` is always `issue-{num}`. Then rebuild the Ledger issue JSON (AI News / Products / Repos / HN only; intro and X sections skipped for now):
+
+```bash
+python3 packages/feed-schema/build_weekly_issues.py
+python3 packages/feed-schema/validate.py
+```
+
+2. Tell the publisher that merging the issue PR (which must include `content/weekly/index.json` and the issue HTML) deploys the page via GitHub Pages. Do not paste into Substack until that URL is live, or until they explicitly choose to send first.
+
+3. Hand them `ISSUE_URL=https://aibytes.io/weekly/issue-{num}` for social and for any follow-up skill run.
+
+### 8. Verify
 
 Open both generated files and check: no `{{` tokens remain, every link came from the data, sections with no data were removed cleanly (including their `sec-head`), the hex issue number matches the decimal one, the title/description are filled in both files, and the export's counts (printed by the script and shown in its after-paste steps) match the issue's table of contents.
 

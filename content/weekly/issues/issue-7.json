@@ -1,0 +1,437 @@
+{
+  "schema_version": 1,
+  "number": 7,
+  "slug": "issue-7",
+  "title": "🔌 OpenAI cuts off Cursor and Nvidia circles Hugging Face",
+  "description": "Plus GLM-5.3 arrives with open weights, Android apps get a memory budget, and a usage meter for Claude's rate limits.",
+  "published_on": "2026-08-31",
+  "generated_at": "2026-11-06T11:03:27Z",
+  "counts": {
+    "launches": 5,
+    "repos": 7,
+    "news": 7,
+    "hn": 5
+  },
+  "items": [
+    {
+      "id": "hn-openai-is-cutting-cursor-off-from-its-models-issue-7",
+      "title": "OpenAI is cutting Cursor off from its models",
+      "summary": "SpaceX bought the editor, and OpenAI named November 12 as the day its models stop serving it. Your own API key still works.",
+      "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/",
+      "source": "hackernews",
+      "source_url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "hn-nvidia-is-reportedly-in-talks-to-buy-hugging-fac-issue-7",
+      "title": "Nvidia is reportedly in talks to buy Hugging Face for $13B",
+      "summary": "The default home for open weights would belong to the company that makes the chips they run on.",
+      "url": "https://www.businessinsider.com/nvidia-in-talks-to-buy-hugging-face-13-billion-dollars-2026-8",
+      "source": "hackernews",
+      "source_url": "https://www.businessinsider.com/nvidia-in-talks-to-buy-hugging-face-13-billion-dollars-2026-8",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "hn-glm-5-3-is-now-open-weight-issue-7",
+      "title": "GLM-5.3 is now open-weight",
+      "summary": "Z.ai published the full weights days after shipping the Flash variant.",
+      "url": "https://huggingface.co/zai-org/GLM-5.3",
+      "source": "hackernews",
+      "source_url": "https://huggingface.co/zai-org/GLM-5.3",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "tc-sony-music-and-warner-are-suing-anthropic-issue-7",
+      "title": "Sony Music and Warner are suing Anthropic",
+      "summary": "The complaint leans on piracy rather than fair use, which makes it broader than the training cases before it.",
+      "url": "https://techcrunch.com/2026/08/29/sony-music-warner-sue-anthropic-alleging-a-brazen-campaign-of-intellectual-property-theft/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/08/29/sony-music-warner-sue-anthropic-alleging-a-brazen-campaign-of-intellectual-property-theft/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "hn-a-judge-ruled-the-blacklisting-of-anthropic-ille-issue-7",
+      "title": "A judge ruled the blacklisting of Anthropic illegal",
+      "summary": "The Trump administration's move to bar the company from federal work did not survive review.",
+      "url": "https://www.nytimes.com/2026/08/27/technology/anthropic-government-blacklisting-ruling.html",
+      "source": "hackernews",
+      "source_url": "https://www.nytimes.com/2026/08/27/technology/anthropic-government-blacklisting-ruling.html",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "tc-ai-s-memory-crunch-is-coming-for-android-apps-issue-7",
+      "title": "AI's memory crunch is coming for Android apps",
+      "summary": "Google is capping app memory use as data centre demand squeezes RAM out of cheaper phones.",
+      "url": "https://techcrunch.com/2026/08/27/ais-memory-crunch-is-coming-for-android-apps/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/08/27/ais-memory-crunch-is-coming-for-android-apps/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "tc-amazon-tripled-its-nvidia-order-issue-7",
+      "title": "Amazon tripled its Nvidia order",
+      "summary": "Another two million GPUs into its data centres over the next two years.",
+      "url": "https://techcrunch.com/2026/08/26/amazon-just-tripled-its-order-of-nvidia-chips-over-surging-demand/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/08/26/amazon-just-tripled-its-order-of-nvidia-chips-over-surging-demand/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "ph-x1-issue-7",
+      "title": "x1",
+      "summary": "Describe an iPhone app step by step and ship it to the App Store.",
+      "url": "https://x1.new",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/x1-2",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 501
+      },
+      "rank": 8
+    },
+    {
+      "id": "ph-paymentkit-issue-7",
+      "title": "PaymentKit",
+      "summary": "Multi-processor billing that keeps charging when one processor cuts you off.",
+      "url": "https://www.paymentkit.com/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/paymentkit",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 457
+      },
+      "rank": 9
+    },
+    {
+      "id": "ph-akta-pro-issue-7",
+      "title": "akta.pro",
+      "summary": "Private company data and event signals as a pay-as-you-go API for agents.",
+      "url": "https://akta.pro",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/akta-pro",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 429
+      },
+      "rank": 10
+    },
+    {
+      "id": "ph-skydive-issue-7",
+      "title": "Skydive",
+      "summary": "Cloud agents that work across your tools and report back in Slack or email.",
+      "url": "https://skydive.com/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/skydive",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 417
+      },
+      "rank": 11
+    },
+    {
+      "id": "ph-diet-claude-issue-7",
+      "title": "Diet Claude",
+      "summary": "A live meter for how much of your Claude session is left.",
+      "url": "https://www.dietclaude.com/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/diet-claude",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 411
+      },
+      "rank": 12
+    },
+    {
+      "id": "gh-tt-a1i-archify-issue-7",
+      "title": "tt-a1i/archify",
+      "summary": "Agent skill that renders architecture, sequence and data-flow diagrams as self-contained HTML.",
+      "url": "https://github.com/tt-a1i/archify",
+      "source": "github",
+      "source_url": "https://github.com/tt-a1i/archify",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/tt-a1i.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 14900
+      },
+      "rank": 13
+    },
+    {
+      "id": "gh-freestylefly-awesome-gpt-image-2-issue-7",
+      "title": "freestylefly/awesome-gpt-image-2",
+      "summary": "530+ reverse-engineered GPT-Image2 prompts, packaged as templates and skills.",
+      "url": "https://github.com/freestylefly/awesome-gpt-image-2",
+      "source": "github",
+      "source_url": "https://github.com/freestylefly/awesome-gpt-image-2",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/freestylefly.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 13100
+      },
+      "rank": 14
+    },
+    {
+      "id": "gh-openai-codex-issue-7",
+      "title": "openai/codex",
+      "summary": "OpenAI's lightweight terminal coding agent, written in Rust.",
+      "url": "https://github.com/openai/codex",
+      "source": "github",
+      "source_url": "https://github.com/openai/codex",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/openai.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 7800
+      },
+      "rank": 15
+    },
+    {
+      "id": "gh-madslorentzen-ai-job-search-issue-7",
+      "title": "MadsLorentzen/ai-job-search",
+      "summary": "Claude Code framework that scores postings, tailors your CV and preps interviews on your machine.",
+      "url": "https://github.com/MadsLorentzen/ai-job-search",
+      "source": "github",
+      "source_url": "https://github.com/MadsLorentzen/ai-job-search",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/MadsLorentzen.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 5100
+      },
+      "rank": 16
+    },
+    {
+      "id": "gh-alishahryar1-free-claude-code-issue-7",
+      "title": "Alishahryar1/free-claude-code",
+      "summary": "Points Claude Code, Codex and OpenCode at free token allowances from your terminal or phone.",
+      "url": "https://github.com/Alishahryar1/free-claude-code",
+      "source": "github",
+      "source_url": "https://github.com/Alishahryar1/free-claude-code",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Alishahryar1.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 4900
+      },
+      "rank": 17
+    },
+    {
+      "id": "gh-k-dense-ai-scientific-agent-skills-issue-7",
+      "title": "K-Dense-AI/scientific-agent-skills",
+      "summary": "165 validated skills that aim an agent at biology, chemistry and medical databases.",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "source": "github",
+      "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/K-Dense-AI.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 3600
+      },
+      "rank": 18
+    },
+    {
+      "id": "gh-tashfeenahmed-freellmapi-issue-7",
+      "title": "tashfeenahmed/freellmapi",
+      "summary": "34 free model providers behind one OpenAI-compatible /v1 endpoint, with failover.",
+      "url": "https://github.com/tashfeenahmed/freellmapi",
+      "source": "github",
+      "source_url": "https://github.com/tashfeenahmed/freellmapi",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/tashfeenahmed.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 2700
+      },
+      "rank": 19
+    },
+    {
+      "id": "hn-openexecutive-issue-7",
+      "title": "OpenExecutive",
+      "summary": "A CEO fired developers to make room for AI, so developers open-sourced an AI CEO.",
+      "url": "https://github.com/SenteLabsAI/OpenExecutive",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49458418",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 1022,
+        "comments": 710
+      },
+      "rank": 20
+    },
+    {
+      "id": "hn-the-load-bearing-vocabulary-of-claude-issue-7",
+      "title": "The load-bearing vocabulary of Claude",
+      "summary": "Which words are actually holding your prompt up.",
+      "url": "https://louisabraham.github.io/load-bearing/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49461817",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 676
+      },
+      "rank": 21
+    },
+    {
+      "id": "hn-openai-jalape-o-better-than-nvidia-blackwell-issue-7",
+      "title": "OpenAI Jalapeño: better than Nvidia Blackwell",
+      "summary": "SemiAnalysis on the silicon OpenAI is building to stop renting.",
+      "url": "https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49434378",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 584
+      },
+      "rank": 22
+    },
+    {
+      "id": "hn-coding-expertise-is-going-to-collapse-from-ai-re-issue-7",
+      "title": "Coding expertise is going to collapse from AI reliance",
+      "summary": "The argument that the juniors never get the reps.",
+      "url": "https://larsfaye.com/articles/ai-coding-will-prevent-expertise",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49421554",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 558,
+        "comments": 545
+      },
+      "rank": 23
+    },
+    {
+      "id": "hn-luanti-removed-from-google-play-over-a-baseless-issue-7",
+      "title": "Luanti removed from Google Play over a baseless AI copyright notice",
+      "summary": "An automated DMCA tracer took down an open source game.",
+      "url": "https://blog.luanti.org/2026/08/27/luanti-dmca-tracer-ai/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49475079",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 513
+      },
+      "rank": 24
+    }
+  ]
+}

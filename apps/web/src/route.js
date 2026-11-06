@@ -1,18 +1,26 @@
 // The app's URLs, as pure functions so `node --test` can check them without a
 // browser. Vite's base is "/", so a pathname maps straight onto a route.
 //
-//   /             the latest edition
-//   /2026-10-07   that edition (a real page at build time, see vite.config.js)
-//   /p/<slug>     an old newsletter issue link from when aibytes.io was Beehiiv
-//   anything else not found
+//   /                    the latest edition
+//   /2026-10-07          that edition (a real page at build time, see vite.config.js)
+//   /weekly              the weekly issue archive
+//   /weekly/issue-16     a published weekly issue (static HTML at build time)
+//   /p/<slug>            an old newsletter issue link from when aibytes.io was Beehiiv
+//   anything else        not found
 
 export const NEWSLETTER_ORIGIN = "https://newsletter.aibytes.io";
+export const SITE_ORIGIN = "https://aibytes.io";
 
 const EDITION = /^\/(\d{4}-\d{2}-\d{2})\/?$/;
+const WEEKLY_INDEX = /^\/weekly\/?$/;
+const WEEKLY_ISSUE = /^\/weekly\/(issue-\d+)\/?$/;
 const ISSUE = /^\/p\/([^/]+)\/?$/;
 
 export function parseRoute(pathname) {
   if (pathname === "/" || pathname === "") return { kind: "latest" };
+  if (WEEKLY_INDEX.test(pathname)) return { kind: "weekly_index" };
+  const weekly = WEEKLY_ISSUE.exec(pathname);
+  if (weekly) return { kind: "weekly_issue", slug: weekly[1] };
   const edition = EDITION.exec(pathname);
   if (edition && isRealDate(edition[1])) return { kind: "edition", date: edition[1] };
   const issue = ISSUE.exec(pathname);
@@ -22,6 +30,26 @@ export function parseRoute(pathname) {
 
 export function editionPath(date) {
   return "/" + date;
+}
+
+export function weeklyPath(slug) {
+  return slug ? "/weekly/" + slug : "/weekly";
+}
+
+export function weeklyUrl(slug) {
+  return SITE_ORIGIN + weeklyPath(slug);
+}
+
+/** The weekly issue ref for a route, given weekly/index.json (newest first). */
+export function pickWeeklyIssue(route, issues) {
+  if (route.kind !== "weekly_issue") return null;
+  return issues.find((ref) => ref.slug === route.slug) || null;
+}
+
+/** The issue after `slug` in weekly/index.json (newest first), or null. */
+export function olderWeeklyIssue(issues, slug) {
+  const at = issues.findIndex((ref) => ref.slug === slug);
+  return at === -1 ? null : issues[at + 1] || null;
 }
 
 // Where an old aibytes.io/p/<slug> link lives now, query and hash kept.

@@ -1,0 +1,437 @@
+{
+  "schema_version": 1,
+  "number": 3,
+  "slug": "issue-3",
+  "title": "Kimi-K3, cheaper frontier models & agents that break in",
+  "description": "Catch up on Kimi-K3's open-weights launch, the DeepSeek and GPT-5.6 price cuts, and the week AI models started breaching companies.",
+  "published_on": "2026-08-03",
+  "generated_at": "2026-11-06T11:03:27Z",
+  "counts": {
+    "launches": 5,
+    "repos": 7,
+    "news": 7,
+    "hn": 5
+  },
+  "items": [
+    {
+      "id": "hn-kimi-k3-on-huggingface-issue-3",
+      "title": "Kimi-K3 on HuggingFace",
+      "summary": "Moonshot's new open-weights flagship took 1,378 points and 545 comments, the top AI thread of the week.",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3",
+      "source": "hackernews",
+      "source_url": "https://huggingface.co/moonshotai/Kimi-K3",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "hn-our-position-on-open-weights-models-issue-3",
+      "title": "Our position on open-weights models",
+      "summary": "Anthropic laid out where it stands, and 1,746 comments piled in behind it.",
+      "url": "https://www.anthropic.com/news/position-open-weights-models",
+      "source": "hackernews",
+      "source_url": "https://www.anthropic.com/news/position-open-weights-models",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "hn-deepseek-v4-flash-update-issue-3",
+      "title": "DeepSeek-V4-Flash Update",
+      "summary": "another price-performance jump, shipped straight into the API changelog.",
+      "url": "https://api-docs.deepseek.com/updates/",
+      "source": "hackernews",
+      "source_url": "https://api-docs.deepseek.com/updates/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "hn-advancing-the-price-performance-frontier-with-gp-issue-3",
+      "title": "Advancing the price-performance frontier with GPT‑5.6",
+      "summary": "OpenAI's answer landed the day after, same argument, different curve.",
+      "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
+      "source": "hackernews",
+      "source_url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "hn-gemini-robotics-2-brings-whole-body-intelligence-issue-3",
+      "title": "Gemini Robotics 2 brings whole body intelligence to robots",
+      "summary": "DeepMind moves past manipulation to whole-body control.",
+      "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+      "source": "hackernews",
+      "source_url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "tc-anthropic-says-its-own-ai-models-breached-three-issue-3",
+      "title": "Anthropic says its own AI models breached three companies during security tests",
+      "summary": "after OpenAI's models broke into Hugging Face, Anthropic checked its history and found three more.",
+      "url": "https://techcrunch.com/2026/07/30/anthropic-says-its-own-ai-models-breached-three-companies-during-security-tests/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/07/30/anthropic-says-its-own-ai-models-breached-three-companies-during-security-tests/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "tc-sam-altman-is-ready-to-decelerate-issue-3",
+      "title": "Sam Altman is ready to decelerate",
+      "summary": "the reversal follows \"the first security incident that I have felt very viscerally.\"",
+      "url": "https://techcrunch.com/2026/07/28/sam-altman-is-ready-to-decelerate/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/07/28/sam-altman-is-ready-to-decelerate/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "ph-prelint-issue-3",
+      "title": "Prelint",
+      "summary": "Reviews every PR against your ADRs and past decisions to catch product drift.",
+      "url": "https://www.producthunt.com/products/prelint?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/prelint?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 640
+      },
+      "rank": 8
+    },
+    {
+      "id": "ph-prefactor-issue-3",
+      "title": "Prefactor",
+      "summary": "Scores every agent run in real time and surfaces quality regressions as they happen.",
+      "url": "https://www.producthunt.com/products/prefactor?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/prefactor?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 639
+      },
+      "rank": 9
+    },
+    {
+      "id": "ph-ski-issue-3",
+      "title": "SKI",
+      "summary": "Voice coding for Claude Code and Codex; the agent answers you out loud.",
+      "url": "https://www.producthunt.com/products/ski?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/ski?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 622
+      },
+      "rank": 10
+    },
+    {
+      "id": "ph-adomate-issue-3",
+      "title": "Adomate",
+      "summary": "Builds branded ad concepts from ad-account and review data, traceable to the source.",
+      "url": "https://www.producthunt.com/products/adomate?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/adomate?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 574
+      },
+      "rank": 11
+    },
+    {
+      "id": "ph-memmy-agent-issue-3",
+      "title": "Memmy Agent",
+      "summary": "One shared local memory hub so every AI tool remembers the same you.",
+      "url": "https://www.producthunt.com/products/memmy?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/memmy?utm_campaign=producthunt-api&amp;utm_medium=api-v2&amp;utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 564
+      },
+      "rank": 12
+    },
+    {
+      "id": "gh-diegosouzapw-omniroute-issue-3",
+      "title": "diegosouzapw/OmniRoute",
+      "summary": "one MIT gateway for 290+ providers and 500+ models, with quota-aware fallback.",
+      "url": "https://github.com/diegosouzapw/OmniRoute",
+      "source": "github",
+      "source_url": "https://github.com/diegosouzapw/OmniRoute",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/diegosouzapw.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 7100
+      },
+      "rank": 13
+    },
+    {
+      "id": "gh-microsoft-ai-for-beginners-issue-3",
+      "title": "microsoft/AI-For-Beginners",
+      "summary": "Microsoft's 24-lesson AI curriculum, back near the top of the charts.",
+      "url": "https://github.com/microsoft/AI-For-Beginners",
+      "source": "github",
+      "source_url": "https://github.com/microsoft/AI-For-Beginners",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/microsoft.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 5600
+      },
+      "rank": 14
+    },
+    {
+      "id": "gh-ayghri-i-have-adhd-issue-3",
+      "title": "ayghri/i-have-adhd",
+      "summary": "a skill that stops your coding agent from burying the answer.",
+      "url": "https://github.com/ayghri/i-have-adhd",
+      "source": "github",
+      "source_url": "https://github.com/ayghri/i-have-adhd",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/ayghri.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 5200
+      },
+      "rank": 15
+    },
+    {
+      "id": "gh-virgiliojr94-book-to-skill-issue-3",
+      "title": "virgiliojr94/book-to-skill",
+      "summary": "turns any technical book PDF into a Claude Code skill.",
+      "url": "https://github.com/virgiliojr94/book-to-skill",
+      "source": "github",
+      "source_url": "https://github.com/virgiliojr94/book-to-skill",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/virgiliojr94.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 5200
+      },
+      "rank": 16
+    },
+    {
+      "id": "gh-alibaba-open-code-review-issue-3",
+      "title": "alibaba/open-code-review",
+      "summary": "Alibaba's hybrid reviewer: deterministic pipelines plus an LLM agent, line-level.",
+      "url": "https://github.com/alibaba/open-code-review",
+      "source": "github",
+      "source_url": "https://github.com/alibaba/open-code-review",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/alibaba.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 4400
+      },
+      "rank": 17
+    },
+    {
+      "id": "gh-citrolabs-ego-lite-issue-3",
+      "title": "citrolabs/ego-lite",
+      "summary": "shares your logged-in browser state with agents without disturbing your session.",
+      "url": "https://github.com/citrolabs/ego-lite",
+      "source": "github",
+      "source_url": "https://github.com/citrolabs/ego-lite",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/citrolabs.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 3600
+      },
+      "rank": 18
+    },
+    {
+      "id": "gh-moeru-ai-airi-issue-3",
+      "title": "moeru-ai/airi",
+      "summary": "a self-hosted companion with realtime voice chat, and it plays Minecraft.",
+      "url": "https://github.com/moeru-ai/airi",
+      "source": "github",
+      "source_url": "https://github.com/moeru-ai/airi",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/moeru-ai.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 3400
+      },
+      "rank": 19
+    },
+    {
+      "id": "hn-ai-companies-are-shredding-rare-books-issue-3",
+      "title": "AI companies are shredding rare books",
+      "summary": "what training-data acquisition costs when it is physical.",
+      "url": "https://news.ycombinator.com/item?id=49068738",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49068738",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 797,
+        "comments": 513
+      },
+      "rank": 20
+    },
+    {
+      "id": "hn-tailscale-didn-t-stop-the-hugging-face-intrusion-issue-3",
+      "title": "Tailscale didn't stop the Hugging Face intrusion",
+      "summary": "a vendor post-mortem on what its own product did and didn't cover.",
+      "url": "https://tailscale.com/blog/hugging-face-intrusion",
+      "source": "hackernews",
+      "source_url": "https://tailscale.com/blog/hugging-face-intrusion",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 619
+      },
+      "rank": 21
+    },
+    {
+      "id": "hn-ai-s-top-startups-are-barely-publishing-their-re-issue-3",
+      "title": "AI's top startups are barely publishing their research",
+      "summary": "Science on the closing of the frontier labs.",
+      "url": "https://www.science.org/content/article/ai-s-top-startups-are-barely-publishing-their-research",
+      "source": "hackernews",
+      "source_url": "https://www.science.org/content/article/ai-s-top-startups-are-barely-publishing-their-research",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 616
+      },
+      "rank": 22
+    },
+    {
+      "id": "hn-deepseek-v4-flash-0731-intelligence-performance-issue-3",
+      "title": "DeepSeek V4 Flash 0731 Intelligence, Performance and Price Analysis",
+      "summary": "the independent numbers behind the launch.",
+      "url": "https://artificialanalysis.ai/models/deepseek-v4-flash",
+      "source": "hackernews",
+      "source_url": "https://artificialanalysis.ai/models/deepseek-v4-flash",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 585
+      },
+      "rank": 23
+    },
+    {
+      "id": "hn-google-fixed-more-chrome-bugs-in-june-than-over-issue-3",
+      "title": "Google fixed more Chrome bugs in June than over the past two years, thanks to AI",
+      "summary": "the same capability, pointed the other way.",
+      "url": "https://blog.google/security/chrome-stronger-with-every-update/",
+      "source": "hackernews",
+      "source_url": "https://blog.google/security/chrome-stronger-with-every-update/",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 573,
+        "comments": 598
+      },
+      "rank": 24
+    }
+  ]
+}

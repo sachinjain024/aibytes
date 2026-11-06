@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "issues": [
+    {
+      "number": 16,
+      "slug": "issue-16",
+      "title": "🪤 A backdoored Claude Code extension and Anthropic's S-1",
+      "description": "Plus Google's Genie 4 world model, a 10-year-old CNN that beats frontier LLMs at skin cancer, and a repo that turns any codebase into a knowledge graph.",
+      "published_on": "2026-11-02",
+      "source": "newsletter/issues/2026/week-45-Issue-16/aiBytes-issue-16.html",
+      "path": "weekly/issues/issue-16.json"
+    },
+    {
+      "number": 15,
+      "slug": "issue-15",
+      "title": "🐘 OpenAI's models find PHP flaws and the US bans DeepSeek",
+      "description": "Plus 1Password's agent logins, a search engine built for agents, and why OpenAI doesn't just start 100 companies.",
+      "published_on": "2026-10-26",
+      "source": "newsletter/issues/2026/week-44-Issue-15/aiBytes-issue-15.html",
+      "path": "weekly/issues/issue-15.json"
+    },
+    {
+      "number": 14,
+      "slug": "issue-14",
+      "title": "🌳 Anthropic replaces git and Meta's Muse Spark Open",
+      "description": "Plus Replit drops Anthropic, Character.AI files for bankruptcy, and a benchmark map of the US economy.",
+      "published_on": "2026-10-19",
+      "source": "newsletter/issues/2026/week-43-Issue-14/aiBytes-issue-14.html",
+      "path": "weekly/issues/issue-14.json"
+    },
+    {
+      "number": 13,
+      "slug": "issue-13",
+      "title": "🚔 Anthropic's AI misleads police and OpenAI's Decisions API",
+      "description": "Plus Claude agents that run on a schedule, Rill, a browser built for coding agents, and a trust ladder for agentic coding.",
+      "published_on": "2026-10-12",
+      "source": "newsletter/issues/2026/week-42-Issue-13/aiBytes-issue-13.html",
+      "path": "weekly/issues/issue-13.json"
+    },
+    {
+      "number": 12,
+      "slug": "issue-12",
+      "title": "🏁 Gemini 4 Argon lands and Apple locks down your disk",
+      "description": "Plus GPT 6.1 Sol at a fifth of Astra's price, Karpathy on reading what your agents write, and a design language that makes coding agents better at design.",
+      "published_on": "2026-10-05",
+      "source": "newsletter/issues/2026/week-41-Issue-12/aiBytes-issue-12.html",
+      "path": "weekly/issues/issue-12.json"
+    },
+    {
+      "number": 11,
+      "slug": "issue-11",
+      "title": "🧠 Jev turns AI calls into decisions and Opus 5.5 gets cheaper",
+      "description": "Plus Cloudflare's security-audit skill for coding agents, OpenAI's agents leaking user images, and Qwen Image 2.1.",
+      "published_on": "2026-09-28",
+      "source": "newsletter/issues/2026/week-40-Issue-11/aiBytes-issue-11.html",
+      "path": "weekly/issues/issue-11.json"
+    },
+    {
+      "number": 10,
+      "slug": "issue-10",
+      "title": "📋 Claude reads AGENTS.md and Mistral joins Firefox",
+      "description": "Plus Voiskey dictation, WeKnora’s document wiki, and Bend’s proof-checked code.",
+      "published_on": "2026-09-21",
+      "source": "newsletter/issues/2026/week-39-Issue-10/aiBytes-issue-10.html",
+      "path": "weekly/issues/issue-10.json"
+    },
+    {
+      "number": 9,
+      "slug": "issue-9",
+      "title": "💎 The RubyGems attack and Claude token theft",
+      "description": "Plus DeepSeek v4.1 Flash, Mistral’s €3B raise, ECC’s agent tooling, and ponytail’s push for less code.",
+      "published_on": "2026-09-14",
+      "source": "newsletter/issues/2026/week-38-Issue-9/aiBytes-issue-9.html",
+      "path": "weekly/issues/issue-9.json"
+    },
+    {
+      "number": 8,
+      "slug": "issue-8",
+      "title": "🚀 GPT-6 Astra lands and OpenAI's agents reach the open web",
+      "description": "Plus a formal proof of Fermat's Last Theorem, an audit of Ed Zitron's AI predictions, and the three sites that manufactured 215,128 pages for Perplexity to cite.",
+      "published_on": "2026-09-07",
+      "source": "newsletter/issues/2026/week-37-Issue-8/aiBytes-issue-8.html",
+      "path": "weekly/issues/issue-8.json"
+    },
+    {
+      "number": 7,
+      "slug": "issue-7",
+      "title": "🔌 OpenAI cuts off Cursor and Nvidia circles Hugging Face",
+      "description": "Plus GLM-5.3 arrives with open weights, Android apps get a memory budget, and a usage meter for Claude's rate limits.",
+      "published_on": "2026-08-31",
+      "source": "newsletter/issues/2026/week-36-Issue-7/aiBytes-issue-7.html",
+      "path": "weekly/issues/issue-7.json"
+    },
+    {
+      "number": 6,
+      "slug": "issue-6",
+      "title": "📚 Amazon pulps rare books and Cursor fights GitHub",
+      "description": "Plus a fake think tank built to fool chatbots, a Copilot autofix that opened Snowflake's Jira, and GPT-5.6 Sol at half price.",
+      "published_on": "2026-08-24",
+      "source": "newsletter/issues/2026/week-35-Issue-6/aiBytes-issue-6.html",
+      "path": "weekly/issues/issue-6.json"
+    },
+    {
+      "number": 5,
+      "slug": "issue-5",
+      "title": "Stripe's $7B+ OpenRouter deal and Claude watermarks",
+      "description": "Plus an argument about the disappearing middle of software engineering, code review that boots your app first, and a 14MB model built for wearables.",
+      "published_on": "2026-08-17",
+      "source": "newsletter/issues/2026/week-34-Issue-5/aiBytes-issue-5.html",
+      "path": "weekly/issues/issue-5.json"
+    },
+    {
+      "number": 4,
+      "slug": "issue-4",
+      "title": "DeepMind's shake-up and the week Oracle said no",
+      "description": "Plus OpenAI claiming ten new results in mathematics, a 3B open-weights moderation model from Mistral, and the launch that reviews your agents' work before you do.",
+      "published_on": "2026-08-10",
+      "source": "newsletter/issues/2026/week-33-Issue-4/aiBytes-issue-4.html",
+      "path": "weekly/issues/issue-4.json"
+    },
+    {
+      "number": 3,
+      "slug": "issue-3",
+      "title": "Kimi-K3, cheaper frontier models & agents that break in",
+      "description": "Catch up on Kimi-K3's open-weights launch, the DeepSeek and GPT-5.6 price cuts, and the week AI models started breaching companies.",
+      "published_on": "2026-08-03",
+      "source": "newsletter/issues/2026/week-32-Issue-3/aiBytes-issue-3.html",
+      "path": "weekly/issues/issue-3.json"
+    },
+    {
+      "number": 2,
+      "slug": "issue-2",
+      "title": "Opus 5, $1.5B copyright & open weights",
+      "description": "Catch up on Claude Opus 5, an AI-evaluation security incident, and the open-weight strategy fight.",
+      "published_on": "2026-07-20",
+      "source": "newsletter/issues/2026/week-30-Issue-2/aiBytes-issue-2.html",
+      "path": "weekly/issues/issue-2.json"
+    },
+    {
+      "number": 1,
+      "slug": "issue-1",
+      "title": "Open weights surge, a $1.5B bill & AI cracks old math",
+      "description": "Catch up on China's open-weights lead, Qwen 3.8 and Inkling, Anthropic's $1.5B copyright settlement, and the week's top launches and repos.",
+      "published_on": "2026-07-20",
+      "source": "newsletter/issues/2026/week-30-Issue-1/aiBytes-issue-1.html",
+      "path": "weekly/issues/issue-1.json"
+    }
+  ]
+}
