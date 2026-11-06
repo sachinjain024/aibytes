@@ -19,11 +19,11 @@ on:
       - "package.json"
       - "package-lock.json"
       - ".github/workflows/pages.yml"
-  # A push made with GITHUB_TOKEN starts no workflows, so the manual edition
-  # fallback's push would never deploy on its own.
+  # A push made with GITHUB_TOKEN starts no workflows, so the scheduled edition
+  # workflow's push would never deploy on its own.
   workflow_run:
     workflows:
-      - "edition (manual fallback)"
+      - "edition"
     types: [completed]
   workflow_dispatch:
 

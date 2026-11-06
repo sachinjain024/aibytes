@@ -1,7 +1,9 @@
 # The daily runner
 
-The scheduled job behind `content/editions/`. It runs on the iMac at 13:30 IST,
-publishes one edition, and says so in Slack either way.
+The scheduled job behind `content/editions/`. It runs as the `edition` GitHub Actions
+workflow at 13:30 IST (08:00 UTC), publishes one edition, and says so in Slack
+either way. The launchd agents below are the fallback for when Actions is
+unavailable; run only one scheduler at a time.
 
 ```
 sync -> fetch -> draft -> Claude writes the summaries -> build -> validate -> commit and push
@@ -10,8 +12,8 @@ sync -> fetch -> draft -> Claude writes the summaries -> build -> validate -> co
 ## It curates with what is on `main`
 
 `sync` runs `git pull --ff-only origin main` before anything is fetched, so a
-curate change merged during the day reaches the next edition. Without it the
-iMac curates with whatever it last pushed, which is how 2026-10-09 went out
+curate change merged during the day reaches the next edition. Without it a
+stale checkout curates with whatever it last pushed, which is how 2026-10-09 went out
 without `rank`.
 
 - **It fails the run if the checkout is not on `main`, or cannot fast-forward**
@@ -60,7 +62,14 @@ python3 packages/runner/notify.py
 An unset webhook is supported: the job still runs and still logs, it just
 reports to nobody.
 
-**2. The LaunchAgents.**
+**2. The scheduler.** In GitHub Actions this is `.github/workflows/edition.yml`
+and `watchdog.yml`; they need the repo secrets `CLAUDE_CODE_OAUTH_TOKEN`
+(from `claude setup-token`), `PH_API_KEY` and `AIBYTES_SLACK_WEBHOOK`, set with
+`gh secret set`. Nothing else to install.
+
+**Fallback: the LaunchAgents.** Only if Actions is unavailable, and only after
+disabling the workflows (`gh workflow disable edition`, `gh workflow disable
+watchdog`) so nothing else is scheduling.
 
 ```bash
 bash packages/runner/aibytes_runner/launchd/install.sh
@@ -88,25 +97,30 @@ the command the Slack message already quotes at you.
 
 ## The two jobs
 
-| Label | When | What it does |
+| Actions workflow (launchd label) | When | What it does |
 |---|---|---|
-| `io.aibytes.edition` | 13:30 | the run above |
-| `io.aibytes.watchdog` | 14:30 | checks that today's edition is on disk and in `index.json` |
+| `edition` (`io.aibytes.edition`) | 13:30 IST | the run above |
+| `watchdog` (`io.aibytes.watchdog`) | 14:30 IST | checks that today's edition is on disk and in `index.json` |
 
 The watchdog exists because a failure notification cannot report the failure
-that matters most. If launchd never fires the job - the agent unloaded by an OS
-update, a typo in the plist, a reboot into a strange state - then nothing
+that matters most. If the scheduler never fires the job - a disabled workflow, GitHub
+skipping a cron under load, or on the fallback an agent unloaded by an OS
+update - then nothing
 failed, so nothing was sent, and silence looks exactly like a clean run. The
 watchdog is the only thing that notices.
 
 ## When it goes wrong
 
-Logs are in `logs/YYYY-MM-DD.log` (git-ignored), one per edition date, with
-every command and both its streams. `logs/launchd.edition.log` catches anything
-that dies before that file is open - a bad interpreter path, an import error -
-which is otherwise invisible.
+On Actions, read the run's log in the Actions tab, and re-run with
+`gh workflow run edition.yml -f date=YYYY-MM-DD`. Locally (and on the launchd
+fallback), logs are in `logs/YYYY-MM-DD.log` (git-ignored), one per edition
+date, with every command and both its streams. On the fallback,
+`logs/launchd.edition.log` catches anything that dies before that file is open -
+a bad interpreter path, an import error - which is otherwise invisible.
 
 ```bash
+gh run list -w edition.yml                            # Actions: recent runs
+# launchd fallback only:
 launchctl list | grep io.aibytes                      # loaded? last exit code?
 launchctl kickstart -p gui/$(id -u)/io.aibytes.edition # run it now
 tail -f logs/$(date +%F).log

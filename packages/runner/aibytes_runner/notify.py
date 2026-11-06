@@ -131,7 +131,7 @@ def failed(date, step, detail, tail, log_path, rerun):
 def missing(date, expected, log_path):
     """The watchdog's message - the one a failure notification cannot send.
 
-    If launchd never fired the job, nothing failed, so nothing was sent. This
+    If the scheduler never fired the job, nothing failed, so nothing was sent. This
     is the only message that catches that.
     """
     return "\n".join([

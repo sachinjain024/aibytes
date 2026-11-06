@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Publish one day's edition, end to end. This is what launchd calls.
+"""Publish one day's edition, end to end. This is what the edition workflow (or launchd, as fallback) calls.
 
     python3 packages/runner/run.py                    # today
     python3 packages/runner/run.py --date 2026-08-31  # backfill or re-run

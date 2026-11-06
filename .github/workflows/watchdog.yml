@@ -1,0 +1,40 @@
+name: watchdog
+
+# Is today's edition published? Runs at 09:00 UTC (14:30 IST), an hour after
+# the edition job, and posts to Slack when it is missing - the one failure a
+# job that never ran cannot report itself. Replaces io.aibytes.watchdog.
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Edition date (YYYY-MM-DD). Blank means today."
+        required: false
+        default: ""
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.8"
+
+      - name: Write .env from secrets
+        env:
+          AIBYTES_SLACK_WEBHOOK: ${{ secrets.AIBYTES_SLACK_WEBHOOK }}
+        run: |
+          umask 077
+          echo "AIBYTES_SLACK_WEBHOOK=$AIBYTES_SLACK_WEBHOOK" > .env
+
+      - name: Check today's edition is published
+        run: |
+          python3 packages/runner/check.py \
+            ${{ inputs.date && format('--date {0}', inputs.date) || '' }}
