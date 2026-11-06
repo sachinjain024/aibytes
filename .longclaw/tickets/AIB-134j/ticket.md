@@ -10,7 +10,7 @@ labels:
 type: chore
 due: 2026-11-08
 created_at: 2026-11-03T07:55:49.030Z
-updated_at: 2026-11-06T10:08:49.129Z
+updated_at: 2026-11-06T10:21:10.944Z
 ---
 
 Move the aiBytes_ weekly newsletter from Beehiiv to Substack.
@@ -27,7 +27,7 @@ Move the aiBytes_ weekly newsletter from Beehiiv to Substack.
 - [x] Export the subscriber list (CSV) and the post archive from Beehiiv before access ends <!-- longclaw:item=ck_bd7f67c7 -->
 - [x] Figure out the right set of elements for how the newsletter should appear on Substack (no HTML support) - play around with Substack editor components <!-- longclaw:item=ck_363d4f0f -->
 - [x] Update the generate-newsletter-content and thumbnail skills to produce Substack-ready output instead of the Beehiiv export <!-- longclaw:item=ck_16018973 -->
-- [ ] Embed the first Official Announcements post as an X embed on Substack, rest as text - AIB-138v <!-- longclaw:item=ck_ee25177a -->
+- [x] Embed the first Official Announcements post as an X embed on Substack, rest as text - AIB-138v <!-- longclaw:item=ck_ee25177a -->
 - [x] Backfill previous posts (with email sending off) <!-- longclaw:item=ck_3227c899 -->
 - [x] Add audience so they don't receive previous posts email <!-- longclaw:item=ck_7cd2b392 -->
 - [x] Import the 2,632 active Beehiiv subscribers into Substack - submitted 3 Nov 2026, waiting on Substack's import review <!-- longclaw:item=ck_68860357 -->
@@ -35,13 +35,7 @@ Move the aiBytes_ weekly newsletter from Beehiiv to Substack.
 - [x] Send a test email to Gmail and Outlook; check the inbox tab, images, links, and the mobile layout <!-- longclaw:item=ck_893b8330 -->
 - [x] Point every subscribe link at Substack: aibytes.io app, docs, social bios <!-- longclaw:item=ck_bb1521c1 -->
 - [x] Set up the Substack publication: name, sender name, and reply-to; turn paid subscriptions off <!-- longclaw:item=ck_ae1d81a7 -->
-- [ ] Configure the email header and footer <!-- longclaw:item=ck_437942e6 -->
-- [ ] Configure the welcome email <!-- longclaw:item=ck_4a58c8f2 -->
-- [ ] Create custom tags <!-- longclaw:item=ck_7a7c5aee -->
-- [ ] Edit the About page <!-- longclaw:item=ck_05ad5d11 -->
-- [ ] Embed a custom subscribe button in the weekly pages to be generated <!-- longclaw:item=ck_131f2e50 -->
-- [ ] Update the publication logo <!-- longclaw:item=ck_8e43a26f -->
-- [ ] Configure the Google Analytics Measurement ID <!-- longclaw:item=ck_664a3c0e -->
+- [x] Finish the Substack publication settings (header and footer, welcome email, tags, About page, logo, Google Analytics) - AIB-139y <!-- longclaw:item=ck_b8497150 -->
 - [x] Once the newsletter structure is finalized, figure out how to publish <!-- longclaw:item=ck_b6bf1aea -->
 - [x] Turn off Beehiiv automations and the welcome email so nobody gets a double send <!-- longclaw:item=ck_cd8a7611 -->
 - [x] Connect the custom domain newsletter.aibytes.io to the Substack publication (one-time $50; CNAME at the DNS provider) - CNAME added 6 Nov 2026 and DNS verified; waiting on Substack's domain verification (up to 36h), until then the domain redirects to substack.com <!-- longclaw:item=ck_94516fde -->
@@ -1116,4 +1110,161 @@ changes:
     to: Embed the first Official Announcements post as an X embed on Substack, rest as text - AIB-138v
 -->
 ### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_c34f0e4e
+kind: update
+occurred_at: 2026-11-06T10:12:52.877Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_ee25177a.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_dcdb9a2a
+kind: update
+occurred_at: 2026-11-06T10:19:35.145Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_437942e6.removed
+    from: Configure the email header and footer
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_1429be00
+kind: update
+occurred_at: 2026-11-06T10:19:35.170Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_4a58c8f2.removed
+    from: Configure the welcome email
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_c8e46172
+kind: update
+occurred_at: 2026-11-06T10:19:35.193Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_7a7c5aee.removed
+    from: Create custom tags
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_b6d091cd
+kind: update
+occurred_at: 2026-11-06T10:19:35.215Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_05ad5d11.removed
+    from: Edit the About page
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8a874049
+kind: update
+occurred_at: 2026-11-06T10:19:35.237Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_8e43a26f.removed
+    from: Update the publication logo
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_008df3e8
+kind: update
+occurred_at: 2026-11-06T10:19:35.257Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_664a3c0e.removed
+    from: Configure the Google Analytics Measurement ID
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_280d511c
+kind: update
+occurred_at: 2026-11-06T10:19:35.280Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_b8497150.added
+    to: Finish the Substack publication settings (header and footer, welcome email, tags, About page, logo, Google Analytics) - AIB-139y
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f5bf7f16
+kind: update
+occurred_at: 2026-11-06T10:19:35.314Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_b8497150.moved
+    from: "22"
+    to: "13"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_56a7f9bc
+kind: update
+occurred_at: 2026-11-06T10:21:07.185Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_b8497150.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_dd9422c3
+kind: update
+occurred_at: 2026-11-06T10:21:10.944Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_131f2e50.removed
+    from: Embed a custom subscribe button in the weekly pages to be generated
+-->
+### You updated this ticket
 <!-- /longclaw:event -->
