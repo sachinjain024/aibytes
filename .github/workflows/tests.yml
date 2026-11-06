@@ -17,7 +17,7 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          # The iMac that runs the daily job is on 3.8, so that is the floor.
+          # The edition workflow (and the launchd fallback on the iMac) run on 3.8, so that is the floor.
           python-version: "3.8"
 
       - name: Run the suite

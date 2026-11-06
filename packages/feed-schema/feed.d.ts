@@ -1,7 +1,7 @@
 /**
  * The aiBytes_ content contract - types for consumers.
  *
- * The producer is the curate step in this repo, run daily on the iMac. The
+ * The producer is the curate step in this repo, run daily by GitHub Actions. The
  * output is committed and served as static JSON from GitHub Pages, at aibytes.io:
  *
  *   https://aibytes.io/content/index.json

@@ -111,12 +111,16 @@ watchdog is the only thing that notices.
 
 ## When it goes wrong
 
-On Actions, read the run's log in the Actions tab. Locally, logs are in `logs/YYYY-MM-DD.log` (git-ignored), one per edition date, with
-every command and both its streams. `logs/launchd.edition.log` catches anything
-that dies before that file is open - a bad interpreter path, an import error -
-which is otherwise invisible.
+On Actions, read the run's log in the Actions tab, and re-run with
+`gh workflow run edition.yml -f date=YYYY-MM-DD`. Locally (and on the launchd
+fallback), logs are in `logs/YYYY-MM-DD.log` (git-ignored), one per edition
+date, with every command and both its streams. On the fallback,
+`logs/launchd.edition.log` catches anything that dies before that file is open -
+a bad interpreter path, an import error - which is otherwise invisible.
 
 ```bash
+gh run list -w edition.yml                            # Actions: recent runs
+# launchd fallback only:
 launchctl list | grep io.aibytes                      # loaded? last exit code?
 launchctl kickstart -p gui/$(id -u)/io.aibytes.edition # run it now
 tail -f logs/$(date +%F).log
