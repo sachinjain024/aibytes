@@ -1,11 +1,11 @@
 {
-  "schema_version": "1.0",
+  "schema_version": 1,
   "number": 11,
   "slug": "issue-11",
   "title": "🧠 Jev turns AI calls into decisions and Opus 5.5 gets cheaper",
   "description": "Plus Cloudflare's security-audit skill for coding agents, OpenAI's agents leaking user images, and Qwen Image 2.1.",
   "published_on": "2026-09-28",
-  "generated_at": "2026-11-06T10:04:10Z",
+  "generated_at": "2026-11-06T11:03:27Z",
   "counts": {
     "launches": 5,
     "repos": 5,
@@ -14,7 +14,7 @@
   },
   "items": [
     {
-      "id": "weekly-11-news-claude-discovers-a-novel-enzyme-system",
+      "id": "hn-claude-discovers-a-novel-enzyme-system-issue-11",
       "title": "Claude discovers a novel enzyme system",
       "summary": "The system carries CRISPR-like repeats, and Anthropic says humans are still in the loop in its biology lab.",
       "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
@@ -29,7 +29,7 @@
       "rank": 1
     },
     {
-      "id": "weekly-11-news-anthropic-releases-claude-opus-5-5",
+      "id": "hn-anthropic-releases-claude-opus-5-5-issue-11",
       "title": "Anthropic releases Claude Opus 5.5",
       "summary": "The first model in the Claude 5.5 family performs at the level of Claude Fable 5.1 on most tasks and costs 40% less to run than Opus 5.",
       "url": "https://www.anthropic.com/claude-opus-5-5",
@@ -44,7 +44,7 @@
       "rank": 2
     },
     {
-      "id": "weekly-11-news-openai-launches-gpt-6-sol-and-luna",
+      "id": "hn-openai-launches-gpt-6-sol-and-luna-issue-11",
       "title": "OpenAI launches GPT-6 Sol and Luna",
       "summary": "Faster, cheaper models built on GPT-6 Astra, with API prices 50% below GPT-5.6 promotional pricing.",
       "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
@@ -59,7 +59,7 @@
       "rank": 3
     },
     {
-      "id": "weekly-11-news-pentagon-links-ai-to-a-strike-on-an-iranian-scho",
+      "id": "hn-pentagon-links-ai-to-a-strike-on-an-iranian-scho-issue-11",
       "title": "Pentagon links AI to a strike on an Iranian school",
       "summary": "It says overreliance on AI contributed to the missile strike.",
       "url": "https://www.bloomberg.com/graphics/2026-iran-school-attack/",
@@ -74,7 +74,7 @@
       "rank": 4
     },
     {
-      "id": "weekly-11-news-openai-s-agents-posted-53-user-images-online",
+      "id": "tc-openai-s-agents-posted-53-user-images-online-issue-11",
       "title": "OpenAI's agents posted 53 user images online",
       "summary": "Unsecured agents in its research environment used public image hosts without the lab's knowledge.",
       "url": "https://techcrunch.com/2026/09/25/unsecured-openai-agents-posted-53-user-images-on-the-internet-without-the-labs-knowledge/",
@@ -89,7 +89,7 @@
       "rank": 5
     },
     {
-      "id": "weekly-11-news-australia-investigates-an-openai-hack-of-a-healt",
+      "id": "tc-australia-investigates-an-openai-hack-of-a-healt-issue-11",
       "title": "Australia investigates an OpenAI hack of a health website",
       "summary": "The first known breach to hit a government agency; the prime minister has vowed to hold OpenAI accountable.",
       "url": "https://techcrunch.com/2026/09/24/australia-to-investigate-if-openai-hack-of-government-health-website-broke-the-law/",
@@ -104,7 +104,7 @@
       "rank": 6
     },
     {
-      "id": "weekly-11-news-chatgpt-sees-what-you-do-on-other-websites",
+      "id": "hn-chatgpt-sees-what-you-do-on-other-websites-issue-11",
       "title": "ChatGPT sees what you do on other websites",
       "summary": "A write-up traces the tracking to an ad collector.",
       "url": "https://www.buchodi.com/chatgpt-now-knows-what-you-do-on-other-websites-via-ad-collector/",
@@ -119,7 +119,7 @@
       "rank": 7
     },
     {
-      "id": "weekly-11-news-supabase-customers-are-exposing-user-data",
+      "id": "tc-supabase-customers-are-exposing-user-data-issue-11",
       "title": "Supabase customers are exposing user data",
       "summary": "AI-generated and vibe-coded apps are spilling data when left misconfigured.",
       "url": "https://techcrunch.com/2026/09/25/some-supabase-customers-are-publicly-exposing-reams-of-peoples-data-to-the-web/",
@@ -134,7 +134,7 @@
       "rank": 8
     },
     {
-      "id": "weekly-11-news-openai-forms-a-math-advisory-group",
+      "id": "tc-openai-forms-a-math-advisory-group-issue-11",
       "title": "OpenAI forms a math advisory group",
       "summary": "Its AI has resolved more than 100 open problems; the group can't slow or redirect the research.",
       "url": "https://techcrunch.com/2026/09/21/openai-forms-math-advisory-group-as-its-ai-resolves-more-than-100-open-problems/",
@@ -149,9 +149,9 @@
       "rank": 9
     },
     {
-      "id": "weekly-11-launches-clueso-mcp",
+      "id": "ph-clueso-mcp-issue-11",
       "title": "Clueso MCP",
-      "summary": "Makes videos from Claude, ChatGPT or any agent, from storyboard and voiceover to music and editing. ▲ 544",
+      "summary": "Makes videos from Claude, ChatGPT or any agent, from storyboard and voiceover to music and editing.",
       "url": "https://clueso.io/",
       "source": "producthunt",
       "source_url": "https://www.producthunt.com/products/clueso",
@@ -161,15 +161,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 10,
       "signals": {
         "upvotes": 544
-      }
+      },
+      "rank": 10
     },
     {
-      "id": "weekly-11-launches-jev",
+      "id": "ph-jev-issue-11",
       "title": "Jev",
-      "summary": "A model that returns typed decisions with calibrated probabilities instead of text. ▲ 538",
+      "summary": "A model that returns typed decisions with calibrated probabilities instead of text.",
       "url": "https://console.typesafe.ai/",
       "source": "producthunt",
       "source_url": "https://www.producthunt.com/products/jev",
@@ -179,15 +179,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 11,
       "signals": {
         "upvotes": 538
-      }
+      },
+      "rank": 11
     },
     {
-      "id": "weekly-11-launches-superset-mobile",
+      "id": "ph-superset-mobile-issue-11",
       "title": "Superset Mobile",
-      "summary": "Runs your coding agents from an iPhone: review diffs and merge PRs away from your desk. ▲ 503",
+      "summary": "Runs your coding agents from an iPhone: review diffs and merge PRs away from your desk.",
       "url": "https://superset.sh/",
       "source": "producthunt",
       "source_url": "https://www.producthunt.com/products/superset-5",
@@ -197,15 +197,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 12,
       "signals": {
         "upvotes": 503
-      }
+      },
+      "rank": 12
     },
     {
-      "id": "weekly-11-launches-solid",
+      "id": "ph-solid-issue-11",
       "title": "Solid",
-      "summary": "Agents that set up their own machines, create accounts and pay for services. ▲ 461",
+      "summary": "Agents that set up their own machines, create accounts and pay for services.",
       "url": "https://solid.tech/",
       "source": "producthunt",
       "source_url": "https://www.producthunt.com/products/solid-3",
@@ -215,15 +215,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 13,
       "signals": {
         "upvotes": 461
-      }
+      },
+      "rank": 13
     },
     {
-      "id": "weekly-11-launches-arcjet",
+      "id": "ph-arcjet-issue-11",
       "title": "Arcjet",
-      "summary": "Runtime security for AI agents: prompt injection detection, tool-call authorization and data redaction. ▲ 425",
+      "summary": "Runtime security for AI agents: prompt injection detection, tool-call authorization and data redaction.",
       "url": "https://arcjet.com/",
       "source": "producthunt",
       "source_url": "https://www.producthunt.com/products/arcjet",
@@ -233,15 +233,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 14,
       "signals": {
         "upvotes": 425
-      }
+      },
+      "rank": 14
     },
     {
-      "id": "weekly-11-repos-cloudflare-security-audit-skill",
+      "id": "gh-cloudflare-security-audit-skill-issue-11",
       "title": "cloudflare/security-audit-skill",
-      "summary": "A coding-agent skill for multi-phase security audits with independently verified findings.+9,547 ★",
+      "summary": "A coding-agent skill for multi-phase security audits with independently verified findings.",
       "url": "https://github.com/cloudflare/security-audit-skill",
       "source": "github",
       "source_url": "https://github.com/cloudflare/security-audit-skill",
@@ -252,15 +252,15 @@
         "url": "https://github.com/cloudflare.png?size=80"
       },
       "hidden": false,
-      "rank": 15,
       "signals": {
         "stars_gained": 9547
-      }
+      },
+      "rank": 15
     },
     {
-      "id": "weekly-11-repos-dream-num-univer",
+      "id": "gh-dream-num-univer-issue-11",
       "title": "dream-num/univer",
-      "summary": "Spreadsheets, docs, slides and PDF in one runtime built for AI agents.+3,928 ★",
+      "summary": "Spreadsheets, docs, slides and PDF in one runtime built for AI agents.",
       "url": "https://github.com/dream-num/univer",
       "source": "github",
       "source_url": "https://github.com/dream-num/univer",
@@ -271,15 +271,15 @@
         "url": "https://github.com/dream-num.png?size=80"
       },
       "hidden": false,
-      "rank": 16,
       "signals": {
         "stars_gained": 3928
-      }
+      },
+      "rank": 16
     },
     {
-      "id": "weekly-11-repos-anthropics-claude-code",
+      "id": "gh-anthropics-claude-code-issue-11",
       "title": "anthropics/claude-code",
-      "summary": "Anthropic's agentic coding tool for the terminal.+2,102 ★",
+      "summary": "Anthropic's agentic coding tool for the terminal.",
       "url": "https://github.com/anthropics/claude-code",
       "source": "github",
       "source_url": "https://github.com/anthropics/claude-code",
@@ -290,15 +290,15 @@
         "url": "https://github.com/anthropics.png?size=80"
       },
       "hidden": false,
-      "rank": 17,
       "signals": {
         "stars_gained": 2102
-      }
+      },
+      "rank": 17
     },
     {
-      "id": "weekly-11-repos-tencentcloud-octop",
+      "id": "gh-tencentcloud-octop-issue-11",
       "title": "TencentCloud/Octop",
-      "summary": "A self-hosted AI assistant with multi-user and multi-agent support.+1,149 ★",
+      "summary": "A self-hosted AI assistant with multi-user and multi-agent support.",
       "url": "https://github.com/TencentCloud/Octop",
       "source": "github",
       "source_url": "https://github.com/TencentCloud/Octop",
@@ -309,15 +309,15 @@
         "url": "https://github.com/TencentCloud.png?size=80"
       },
       "hidden": false,
-      "rank": 18,
       "signals": {
         "stars_gained": 1149
-      }
+      },
+      "rank": 18
     },
     {
-      "id": "weekly-11-repos-davila7-claude-code-templates",
+      "id": "gh-davila7-claude-code-templates-issue-11",
       "title": "davila7/claude-code-templates",
-      "summary": "A CLI for configuring and monitoring Claude Code.+1,041 ★",
+      "summary": "A CLI for configuring and monitoring Claude Code.",
       "url": "https://github.com/davila7/claude-code-templates",
       "source": "github",
       "source_url": "https://github.com/davila7/claude-code-templates",
@@ -328,15 +328,15 @@
         "url": "https://github.com/davila7.png?size=80"
       },
       "hidden": false,
-      "rank": 19,
       "signals": {
         "stars_gained": 1041
-      }
+      },
+      "rank": 19
     },
     {
-      "id": "weekly-11-hn-qwen-image-2-1",
+      "id": "hn-qwen-image-2-1-issue-11",
       "title": "Qwen Image 2.1",
-      "summary": "The Qwen team's new image model release. 739 pts",
+      "summary": "The Qwen team's new image model release.",
       "url": "https://qwen.ai/blog?id=qwen-image-2.1",
       "source": "hackernews",
       "source_url": "https://news.ycombinator.com/item?id=49775499",
@@ -346,15 +346,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 20,
       "signals": {
         "points": 739
-      }
+      },
+      "rank": 20
     },
     {
-      "id": "weekly-11-hn-gpt-6-astra-breaks-a-2005-enigma-message",
+      "id": "hn-gpt-6-astra-breaks-a-2005-enigma-message-issue-11",
       "title": "GPT-6 Astra breaks a 2005 Enigma message",
-      "summary": "A message that had resisted every attempt since 2005 falls to an OpenAI model. 734 pts",
+      "summary": "A message that had resisted every attempt since 2005 falls to an OpenAI model.",
       "url": "https://www.cryptocellar.org/bgac/the-mvueh-break.html",
       "source": "hackernews",
       "source_url": "https://news.ycombinator.com/item?id=49801324",
@@ -364,15 +364,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 21,
       "signals": {
         "points": 734
-      }
+      },
+      "rank": 21
     },
     {
-      "id": "weekly-11-hn-transformers-explained-visually",
+      "id": "hn-transformers-explained-visually-issue-11",
       "title": "Transformers explained visually",
-      "summary": "An interactive walkthrough of how a transformer turns text into the next token. 653 pts",
+      "summary": "An interactive walkthrough of how a transformer turns text into the next token.",
       "url": "https://poloclub.github.io/transformer-explainer/",
       "source": "hackernews",
       "source_url": "https://news.ycombinator.com/item?id=49792342",
@@ -382,15 +382,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 22,
       "signals": {
         "points": 653
-      }
+      },
+      "rank": 22
     },
     {
-      "id": "weekly-11-hn-meta-pulls-a-critical-video-about-its-ai-glasses",
+      "id": "hn-meta-pulls-a-critical-video-about-its-ai-glasses-issue-11",
       "title": "Meta pulls a critical video about its AI glasses",
-      "summary": "The video had been filmed at Meta. 627 pts",
+      "summary": "The video had been filmed at Meta.",
       "url": "https://www.reddit.com/r/facebook/comments/1wotwrk/meta_takes_down_a_critical_video_about_meta_ai/",
       "source": "hackernews",
       "source_url": "https://news.ycombinator.com/item?id=49827794",
@@ -400,10 +400,10 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 23,
       "signals": {
         "points": 627
-      }
+      },
+      "rank": 23
     }
   ]
 }

@@ -616,6 +616,141 @@ class TestValidateContentRoot(unittest.TestCase):
         self.assertIn("tags.json: missing", str(ctx.exception))
 
 
+def weekly_item(**overrides):
+    return item(**{"id": "ph-chatcut-issue-16", "rank": 1, **overrides})
+
+
+def weekly_issue(**overrides):
+    base = {
+        "schema_version": 1,
+        "number": 16,
+        "slug": "issue-16",
+        "title": "A backdoored Claude Code extension",
+        "description": "Plus Genie 4.",
+        "published_on": "2026-11-02",
+        "generated_at": "2026-11-06T10:04:10Z",
+        "counts": {"launches": 1, "repos": 0, "news": 0, "hn": 0},
+        "items": [weekly_item()],
+    }
+    base.update(overrides)
+    return base
+
+
+def weekly_entry(**overrides):
+    base = {
+        "number": 16,
+        "slug": "issue-16",
+        "title": "A backdoored Claude Code extension",
+        "description": "Plus Genie 4.",
+        "published_on": "2026-11-02",
+        "source": "newsletter/issue-16.html",
+        "path": "weekly/issues/issue-16.json",
+    }
+    base.update(overrides)
+    return base
+
+
+class TestValidateWeeklyIssue(unittest.TestCase):
+    def test_accepts_a_well_formed_issue(self):
+        self.assertTrue(contract.validate_weekly_issue(weekly_issue()))
+
+    def test_ids_end_with_the_issue_not_a_date(self):
+        for bad in ("ph-chatcut-2026-08-27", "ph-chatcut-issue-15"):
+            with self.subTest(bad=bad):
+                with self.assertRaises(contract.FeedValidationError) as ctx:
+                    contract.validate_weekly_issue(weekly_issue(items=[weekly_item(id=bad)]))
+                self.assertIn(f"id {bad!r} must", str(ctx.exception))
+
+    def test_items_follow_the_edition_item_contract(self):
+        broken = weekly_item(url="URL", summary="")
+        with self.assertRaises(contract.FeedValidationError) as ctx:
+            contract.validate_weekly_issue(weekly_issue(items=[broken]))
+        message = str(ctx.exception)
+        self.assertIn("url 'URL' must be an http(s) URL", message)
+        self.assertIn("summary must be a non-empty string", message)
+
+    def test_counts_and_ranks_must_agree_with_the_items(self):
+        with self.assertRaises(contract.FeedValidationError) as ctx:
+            contract.validate_weekly_issue(weekly_issue(
+                counts={"launches": 2, "repos": 0, "news": 0, "hn": 0},
+                items=[weekly_item(rank=3)]))
+        self.assertIn("counts.launches is 2", str(ctx.exception))
+        self.assertIn("ranks must be", str(ctx.exception))
+
+    def test_slug_must_be_the_issue_number(self):
+        with self.assertRaises(contract.FeedValidationError) as ctx:
+            contract.validate_weekly_issue(weekly_issue(slug="issue-15"))
+        self.assertIn("slug 'issue-15' must be issue-16", str(ctx.exception))
+
+
+class TestValidateWeeklyArchive(unittest.TestCase):
+    """content/weekly/ is optional, but once present it must hang together."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.repo = pathlib.Path(self.tmp.name)
+        self.root = self.repo / "content"
+        (self.root / "editions").mkdir(parents=True)
+        (self.root / "weekly" / "issues").mkdir(parents=True)
+        (self.repo / "newsletter").mkdir()
+        (self.repo / "newsletter" / "issue-16.html").write_text("<html></html>")
+        self.write("tags.json", tags())
+        self.write("index.json", index())
+        self.write("hidden.json", hidden())
+        self.write("editions/2026-08-27.json", edition())
+        self.write("weekly/index.json", {"schema_version": 1, "issues": [weekly_entry()]})
+        self.write("weekly/issues/issue-16.json", weekly_issue())
+
+    def write(self, name, document):
+        (self.root / name).write_text(json.dumps(document, indent=2) + "\n")
+
+    def problems(self):
+        with self.assertRaises(contract.FeedValidationError) as ctx:
+            contract.validate_content_root(self.root)
+        return str(ctx.exception)
+
+    def test_accepts_a_consistent_archive(self):
+        self.assertTrue(contract.validate_content_root(self.root))
+
+    def test_no_weekly_directory_is_fine(self):
+        for name in ("weekly/issues/issue-16.json", "weekly/index.json"):
+            (self.root / name).unlink()
+        self.assertTrue(contract.validate_content_root(self.root))
+
+    def test_a_bad_item_in_an_issue_file_is_caught(self):
+        self.write("weekly/issues/issue-16.json", weekly_issue(items=[weekly_item(url="URL")]))
+        self.assertIn("weekly/issues/issue-16.json: items[0]: url 'URL'", self.problems())
+
+    def test_an_issue_file_that_disagrees_with_its_entry_is_caught(self):
+        self.write("weekly/issues/issue-16.json", weekly_issue(title="Something else"))
+        self.assertIn("title 'Something else' does not match", self.problems())
+
+    def test_a_missing_issue_file_or_source_is_caught(self):
+        (self.root / "weekly" / "issues" / "issue-16.json").unlink()
+        (self.repo / "newsletter" / "issue-16.html").unlink()
+        message = self.problems()
+        self.assertIn("path file missing (weekly/issues/issue-16.json)", message)
+        self.assertIn("source file missing (newsletter/issue-16.html)", message)
+
+    def test_a_source_outside_the_repo_is_caught(self):
+        self.write("weekly/index.json", {"schema_version": 1, "issues": [weekly_entry(source="../elsewhere.html")]})
+        self.assertIn("source escapes the repo", self.problems())
+
+    def test_a_duplicate_or_misordered_number_is_caught(self):
+        older = weekly_entry(number=17, slug="issue-17", path="weekly/issues/issue-17.json")
+        self.write("weekly/issues/issue-17.json", weekly_issue(number=17, slug="issue-17",
+                                                               items=[weekly_item(id="ph-chatcut-issue-17")]))
+        for issues in ([weekly_entry(), weekly_entry()], [weekly_entry(), older]):
+            with self.subTest(numbers=[e["number"] for e in issues]):
+                self.write("weekly/index.json", {"schema_version": 1, "issues": issues})
+                self.assertIn("newest first", self.problems())
+
+    def test_a_slug_that_disagrees_with_its_number_is_caught(self):
+        self.write("weekly/index.json", {"schema_version": 1, "issues": [weekly_entry(slug="issue-15")]})
+        self.assertIn("slug 'issue-15' does not match number 16", self.problems())
+
+
 @unittest.skipUnless(Draft202012Validator, "jsonschema is not installed")
 class TestSchemasAgainstARealEngine(unittest.TestCase):
     """Everything else here exercises the hand-written validator.

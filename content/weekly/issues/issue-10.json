@@ -1,11 +1,11 @@
 {
-  "schema_version": "1.0",
+  "schema_version": 1,
   "number": 10,
   "slug": "issue-10",
   "title": "📋 Claude reads AGENTS.md and Mistral joins Firefox",
   "description": "Plus Voiskey dictation, WeKnora’s document wiki, and Bend’s proof-checked code.",
   "published_on": "2026-09-21",
-  "generated_at": "2026-11-06T10:04:10Z",
+  "generated_at": "2026-11-06T11:03:27Z",
   "counts": {
     "launches": 5,
     "repos": 7,
@@ -14,7 +14,7 @@
   },
   "items": [
     {
-      "id": "weekly-10-news-claude-code-reads-agents-md",
+      "id": "hn-claude-code-reads-agents-md-issue-10",
       "title": "Claude Code reads AGENTS.md",
       "summary": "Falls back when CLAUDE.md is absent; not yet available on Bedrock, Vertex or Foundry.",
       "url": "https://code.claude.com/docs/en/changelog",
@@ -29,7 +29,7 @@
       "rank": 1
     },
     {
-      "id": "weekly-10-news-microsoft-s-internal-scraping-alarm",
+      "id": "tc-microsoft-s-internal-scraping-alarm-issue-10",
       "title": "Microsoft’s internal scraping alarm",
       "summary": "Court filings reveal private concerns about training data acquisition.",
       "url": "https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal/",
@@ -44,7 +44,7 @@
       "rank": 2
     },
     {
-      "id": "weekly-10-news-mistral-comes-to-firefox-smart-window",
+      "id": "hn-mistral-comes-to-firefox-smart-window-issue-10",
       "title": "Mistral comes to Firefox Smart Window",
       "summary": "The browsing assistant beta adds Mistral models, with zero data retention agreed by the provider.",
       "url": "https://mistral.ai/news/mistral-x-mozilla/",
@@ -59,7 +59,7 @@
       "rank": 3
     },
     {
-      "id": "weekly-10-news-openai-introduces-astra-for-law",
+      "id": "hn-openai-introduces-astra-for-law-issue-10",
       "title": "OpenAI introduces Astra for Law",
       "summary": "A legal research setup with a dedicated search index starts with selected law firms; API access is coming later.",
       "url": "https://openai.com/index/astra-for-law/",
@@ -74,7 +74,7 @@
       "rank": 4
     },
     {
-      "id": "weekly-10-news-openai-reportedly-buys-glass-imaging",
+      "id": "tc-openai-reportedly-buys-glass-imaging-issue-10",
       "title": "OpenAI reportedly buys Glass Imaging",
       "summary": "The reported $300 million deal brings in a camera startup founded by former Apple engineers.",
       "url": "https://techcrunch.com/2026/09/14/openai-buys-smartphone-camera-maker-glass-imaging-for-300-million-report-says/",
@@ -89,7 +89,7 @@
       "rank": 5
     },
     {
-      "id": "weekly-10-news-faa-plans-875-million-ai-program",
+      "id": "tc-faa-plans-875-million-ai-program-issue-10",
       "title": "FAA plans $875 million AI program",
       "summary": "New software is intended to help air traffic controllers navigate their work.",
       "url": "https://techcrunch.com/2026/09/17/the-faas-plan-to-fix-air-traffic-875-million-worth-of-ai/",
@@ -104,9 +104,9 @@
       "rank": 6
     },
     {
-      "id": "weekly-10-launches-creem-2-0",
+      "id": "ph-creem-2-0-issue-10",
       "title": "CREEM 2.0",
-      "summary": "Payments, tax handling, payouts and usage billing for software and digital products. ▲ 575",
+      "summary": "Payments, tax handling, payouts and usage billing for software and digital products.",
       "url": "https://www.creem.io/",
       "source": "producthunt",
       "source_url": "https://www.producthunt.com/products/creem",
@@ -116,15 +116,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 7,
       "signals": {
         "upvotes": 575
-      }
+      },
+      "rank": 7
     },
     {
-      "id": "weekly-10-launches-tiun",
+      "id": "ph-tiun-issue-10",
       "title": "tiun.",
-      "summary": "Authentication, billing, payments and customer analytics in one system. ▲ 572",
+      "summary": "Authentication, billing, payments and customer analytics in one system.",
       "url": "https://tiun.io/",
       "source": "producthunt",
       "source_url": "https://www.producthunt.com/products/tiun-2",
@@ -134,15 +134,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 8,
       "signals": {
         "upvotes": 572
-      }
+      },
+      "rank": 8
     },
     {
-      "id": "weekly-10-launches-ami-ai",
+      "id": "ph-ami-ai-issue-10",
       "title": "Ami AI",
-      "summary": "Plans sales outreach from your website and targets, then runs approved campaigns. ▲ 532",
+      "summary": "Plans sales outreach from your website and targets, then runs approved campaigns.",
       "url": "https://aisdr.com/ai-gtm-agent-ami",
       "source": "producthunt",
       "source_url": "https://www.producthunt.com/products/ami-ai",
@@ -152,15 +152,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 9,
       "signals": {
         "upvotes": 532
-      }
+      },
+      "rank": 9
     },
     {
-      "id": "weekly-10-launches-naoma-ai-demo-agent-v2",
+      "id": "ph-naoma-ai-demo-agent-v2-issue-10",
       "title": "Naoma AI Demo Agent V2",
-      "summary": "An AI demo agent that walks prospects through your product and logs sessions to your CRM. ▲ 520",
+      "summary": "An AI demo agent that walks prospects through your product and logs sessions to your CRM.",
       "url": "https://naoma.ai/",
       "source": "producthunt",
       "source_url": "https://www.producthunt.com/products/naoma",
@@ -170,15 +170,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 10,
       "signals": {
         "upvotes": 520
-      }
+      },
+      "rank": 10
     },
     {
-      "id": "weekly-10-launches-voiskey",
+      "id": "ph-voiskey-issue-10",
       "title": "Voiskey",
-      "summary": "Voice dictation that adjusts wording and tone for the app and audience. ▲ 519",
+      "summary": "Voice dictation that adjusts wording and tone for the app and audience.",
       "url": "https://www.voiskey.ai/",
       "source": "producthunt",
       "source_url": "https://www.producthunt.com/products/voiskey",
@@ -188,15 +188,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 11,
       "signals": {
         "upvotes": 519
-      }
+      },
+      "rank": 11
     },
     {
-      "id": "weekly-10-repos-alibaba-open-code-review",
+      "id": "gh-alibaba-open-code-review-issue-10",
       "title": "alibaba/open-code-review",
-      "summary": "Combines deterministic checks with LLM review and line-level comments.+15,028 ★",
+      "summary": "Combines deterministic checks with LLM review and line-level comments.",
       "url": "https://github.com/alibaba/open-code-review",
       "source": "github",
       "source_url": "https://github.com/alibaba/open-code-review",
@@ -207,15 +207,15 @@
         "url": "https://github.com/alibaba.png?size=80"
       },
       "hidden": false,
-      "rank": 12,
       "signals": {
         "stars_gained": 15028
-      }
+      },
+      "rank": 12
     },
     {
-      "id": "weekly-10-repos-affaan-m-ecc",
+      "id": "gh-affaan-m-ecc-issue-10",
       "title": "affaan-m/ECC",
-      "summary": "Skills, memory and security tooling for several coding-agent environments.+6,265 ★",
+      "summary": "Skills, memory and security tooling for several coding-agent environments.",
       "url": "https://github.com/affaan-m/ECC",
       "source": "github",
       "source_url": "https://github.com/affaan-m/ECC",
@@ -226,15 +226,15 @@
         "url": "https://github.com/affaan-m.png?size=80"
       },
       "hidden": false,
-      "rank": 13,
       "signals": {
         "stars_gained": 6265
-      }
+      },
+      "rank": 13
     },
     {
-      "id": "weekly-10-repos-ayghri-i-have-adhd",
+      "id": "gh-ayghri-i-have-adhd-issue-10",
       "title": "ayghri/i-have-adhd",
-      "summary": "A skill that puts the answer first and keeps coding-agent output easier to scan.+5,589 ★",
+      "summary": "A skill that puts the answer first and keeps coding-agent output easier to scan.",
       "url": "https://github.com/ayghri/i-have-adhd",
       "source": "github",
       "source_url": "https://github.com/ayghri/i-have-adhd",
@@ -245,15 +245,15 @@
         "url": "https://github.com/ayghri.png?size=80"
       },
       "hidden": false,
-      "rank": 14,
       "signals": {
         "stars_gained": 5589
-      }
+      },
+      "rank": 14
     },
     {
-      "id": "weekly-10-repos-stablyai-orca",
+      "id": "gh-stablyai-orca-issue-10",
       "title": "stablyai/orca",
-      "summary": "Runs parallel coding agents across desktop, mobile and remote environments.+5,404 ★",
+      "summary": "Runs parallel coding agents across desktop, mobile and remote environments.",
       "url": "https://github.com/stablyai/orca",
       "source": "github",
       "source_url": "https://github.com/stablyai/orca",
@@ -264,15 +264,15 @@
         "url": "https://github.com/stablyai.png?size=80"
       },
       "hidden": false,
-      "rank": 15,
       "signals": {
         "stars_gained": 5404
-      }
+      },
+      "rank": 15
     },
     {
-      "id": "weekly-10-repos-tencent-weknora",
+      "id": "gh-tencent-weknora-issue-10",
       "title": "Tencent/WeKnora",
-      "summary": "Turns documents into retrieval, a reasoning agent and a maintained wiki.+4,867 ★",
+      "summary": "Turns documents into retrieval, a reasoning agent and a maintained wiki.",
       "url": "https://github.com/Tencent/WeKnora",
       "source": "github",
       "source_url": "https://github.com/Tencent/WeKnora",
@@ -283,15 +283,15 @@
         "url": "https://github.com/Tencent.png?size=80"
       },
       "hidden": false,
-      "rank": 16,
       "signals": {
         "stars_gained": 4867
-      }
+      },
+      "rank": 16
     },
     {
-      "id": "weekly-10-repos-panniantong-agent-reach",
+      "id": "gh-panniantong-agent-reach-issue-10",
       "title": "Panniantong/Agent-Reach",
-      "summary": "A CLI for agents to read and search content across social and developer platforms.+3,914 ★",
+      "summary": "A CLI for agents to read and search content across social and developer platforms.",
       "url": "https://github.com/Panniantong/Agent-Reach",
       "source": "github",
       "source_url": "https://github.com/Panniantong/Agent-Reach",
@@ -302,15 +302,15 @@
         "url": "https://github.com/Panniantong.png?size=80"
       },
       "hidden": false,
-      "rank": 17,
       "signals": {
         "stars_gained": 3914
-      }
+      },
+      "rank": 17
     },
     {
-      "id": "weekly-10-repos-addyosmani-agent-skills",
+      "id": "gh-addyosmani-agent-skills-issue-10",
       "title": "addyosmani/agent-skills",
-      "summary": "Engineering skills intended for production work with coding agents.+3,445 ★",
+      "summary": "Engineering skills intended for production work with coding agents.",
       "url": "https://github.com/addyosmani/agent-skills",
       "source": "github",
       "source_url": "https://github.com/addyosmani/agent-skills",
@@ -321,15 +321,15 @@
         "url": "https://github.com/addyosmani.png?size=80"
       },
       "hidden": false,
-      "rank": 18,
       "signals": {
         "stars_gained": 3445
-      }
+      },
+      "rank": 18
     },
     {
-      "id": "weekly-10-hn-ai-posters-beyond-the-default-look",
+      "id": "hn-ai-posters-beyond-the-default-look-issue-10",
       "title": "AI posters beyond the default look",
-      "summary": "A visual experiment in escaping the default AI poster aesthetic; a June post resurfacing on HN. 1623 pts",
+      "summary": "A visual experiment in escaping the default AI poster aesthetic; a June post resurfacing on HN.",
       "url": "https://john.hartnup.uk/2026/06/07/ai-event-posters.html",
       "source": "hackernews",
       "source_url": "https://news.ycombinator.com/item?id=49764791",
@@ -339,15 +339,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 19,
       "signals": {
         "points": 1623
-      }
+      },
+      "rank": 19
     },
     {
-      "id": "weekly-10-hn-everyone-should-slow-down-ai-except-me",
+      "id": "hn-everyone-should-slow-down-ai-except-me-issue-10",
       "title": "Everyone should slow down AI except me",
-      "summary": "A critique of the double standard in calls to slow AI development. 811 pts",
+      "summary": "A critique of the double standard in calls to slow AI development.",
       "url": "https://xeiaso.net/notes/2026/everyone-slowdown-but-me/",
       "source": "hackernews",
       "source_url": "https://news.ycombinator.com/item?id=49678683",
@@ -357,15 +357,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 20,
       "signals": {
         "points": 811
-      }
+      },
+      "rank": 20
     },
     {
-      "id": "weekly-10-hn-how-to-write-with-an-llm",
+      "id": "hn-how-to-write-with-an-llm-issue-10",
       "title": "How to write with an LLM",
-      "summary": "Use the model to flag weak prose while keeping the wording and editorial judgment yours. 678 pts",
+      "summary": "Use the model to flag weak prose while keeping the wording and editorial judgment yours.",
       "url": "https://sockpuppet.org/blog/2026/09/17/how-to-write-with-an-llm/",
       "source": "hackernews",
       "source_url": "https://news.ycombinator.com/item?id=49747070",
@@ -375,15 +375,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 21,
       "signals": {
         "points": 678
-      }
+      },
+      "rank": 21
     },
     {
-      "id": "weekly-10-hn-why-agents-lie-cheat-and-coordinate",
+      "id": "hn-why-agents-lie-cheat-and-coordinate-issue-10",
       "title": "Why agents lie, cheat and coordinate",
-      "summary": "Yoshua Bengio examines how reward-seeking and imitation may produce deceptive agent behavior. 657 pts",
+      "summary": "Yoshua Bengio examines how reward-seeking and imitation may produce deceptive agent behavior.",
       "url": "https://yoshuabengio.org/en/publication/why-are-ai-agents-lying-cheating-and-coordinating",
       "source": "hackernews",
       "source_url": "https://news.ycombinator.com/item?id=49678969",
@@ -393,15 +393,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 22,
       "signals": {
         "points": 657
-      }
+      },
+      "rank": 22
     },
     {
-      "id": "weekly-10-hn-bend-puts-proofs-beside-ai-written-code",
+      "id": "hn-bend-puts-proofs-beside-ai-written-code-issue-10",
       "title": "Bend puts proofs beside AI-written code",
-      "summary": "A language using proofs to check declared properties, with native and GPU execution. 606 pts",
+      "summary": "A language using proofs to check declared properties, with native and GPU execution.",
       "url": "https://bend-lang.com/",
       "source": "hackernews",
       "source_url": "https://news.ycombinator.com/item?id=49746163",
@@ -411,10 +411,10 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 23,
       "signals": {
         "points": 606
-      }
+      },
+      "rank": 23
     }
   ]
 }

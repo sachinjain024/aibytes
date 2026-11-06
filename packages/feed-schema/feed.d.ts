@@ -7,6 +7,7 @@
  *   https://aibytes.io/content/index.json
  *   https://aibytes.io/content/editions/2026-08-27.json
  *   https://aibytes.io/content/tags.json
+ *   https://aibytes.io/content/weekly/index.json
  *
  * Consumers are the web app, the Chrome extension, and the weekly newsletter
  * skill. They import this from the workspace. Keep it in step with the
@@ -190,4 +191,48 @@ export interface HiddenEntry {
 export interface HiddenLog {
   schema_version: SchemaVersion;
   hidden: HiddenEntry[];
+}
+
+/** One published weekly issue in `content/weekly/index.json` (AIB-105j). */
+export interface WeeklyIssueRef {
+  /** The issue number, 1 up. */
+  number: number;
+  /** Always `issue-{number}`; the page lives at `https://aibytes.io/weekly/{slug}`. */
+  slug: string;
+  title: string;
+  /** May be empty. */
+  description: string;
+  /** The Monday send date, YYYY-MM-DD. */
+  published_on: string;
+  /** Repo-relative path of the issue's newsletter HTML, the source of `path`. */
+  source: string;
+  /** Relative to `content/`: `weekly/issues/{slug}.json`. */
+  path: string;
+}
+
+/** `content/weekly/index.json` - the archive at `/weekly`, newest first. */
+export interface WeeklyIndex {
+  schema_version: SchemaVersion;
+  /** Strictly descending by `number`. */
+  issues: WeeklyIssueRef[];
+}
+
+/**
+ * `content/weekly/issues/issue-N.json` - one weekly issue as an edition-shaped
+ * feed: AI News, Products, Repos and HN. The intro, Official Announcements and
+ * Viral on X are not carried. Items follow `EditionItem`, except that `id`
+ * ends `-issue-{number}` instead of an edition date, and `rank` is the issue's
+ * reading order.
+ */
+export interface WeeklyIssue {
+  schema_version: SchemaVersion;
+  number: number;
+  slug: string;
+  title: string;
+  description: string;
+  published_on: string;
+  /** UTC timestamp of the last build that changed the issue. */
+  generated_at: string;
+  counts: EditionCounts;
+  items: EditionItem[];
 }

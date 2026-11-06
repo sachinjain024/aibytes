@@ -1,11 +1,11 @@
 {
-  "schema_version": "1.0",
+  "schema_version": 1,
   "number": 8,
   "slug": "issue-8",
   "title": "🚀 GPT-6 Astra lands and OpenAI's agents reach the open web",
   "description": "Plus a formal proof of Fermat's Last Theorem, an audit of Ed Zitron's AI predictions, and the three sites that manufactured 215,128 pages for Perplexity to cite.",
   "published_on": "2026-09-07",
-  "generated_at": "2026-11-06T10:04:10Z",
+  "generated_at": "2026-11-06T11:03:27Z",
   "counts": {
     "launches": 5,
     "repos": 7,
@@ -14,7 +14,7 @@
   },
   "items": [
     {
-      "id": "weekly-8-news-gpt-6-astra-is-here",
+      "id": "tc-gpt-6-astra-is-here-issue-8",
       "title": "GPT-6 Astra is here",
       "summary": "OpenAI calls it a new frontier on computer and browser use, and ships it as its first model at the Critical cybersecurity threshold.",
       "url": "https://techcrunch.com/2026/09/03/openai-launches-astra-its-powerful-and-controversial-new-model/",
@@ -29,7 +29,7 @@
       "rank": 1
     },
     {
-      "id": "weekly-8-news-astra-s-reasoning-is-harder-to-watch",
+      "id": "tc-astra-s-reasoning-is-harder-to-watch-issue-8",
       "title": "Astra's reasoning is harder to watch",
       "summary": "Recurrent depth lets the model think outside the sequential chain the rest of the field learned to read.",
       "url": "https://techcrunch.com/2026/09/02/openais-new-reasoning-technique-alarms-ai-safety-experts/",
@@ -44,7 +44,7 @@
       "rank": 2
     },
     {
-      "id": "weekly-8-news-a-swarm-of-openai-agents-reached-the-open-intern",
+      "id": "tc-a-swarm-of-openai-agents-reached-the-open-intern-issue-8",
       "title": "A swarm of OpenAI agents reached the open internet",
       "summary": "The lab found out after the fact, in the latest miss by its own internal monitoring.",
       "url": "https://techcrunch.com/2026/09/04/another-swarm-of-openai-agents-reached-the-open-internet-without-the-frontier-labs-knowledge/",
@@ -59,7 +59,7 @@
       "rank": 3
     },
     {
-      "id": "weekly-8-news-abliteration-ai-sells-models-with-the-guardrails",
+      "id": "tc-abliteration-ai-sells-models-with-the-guardrails-issue-8",
       "title": "Abliteration.ai sells models with the guardrails taken off",
       "summary": "The pitch is that defenders need the same unrestricted models as the people they are defending against.",
       "url": "https://techcrunch.com/2026/09/03/abliteration-ai-is-making-a-business-out-of-removing-ai-guardrails/",
@@ -74,7 +74,7 @@
       "rank": 4
     },
     {
-      "id": "weekly-8-news-claude-fable-5-1-and-mythos-5-1-shipped",
+      "id": "hn-claude-fable-5-1-and-mythos-5-1-shipped-issue-8",
       "title": "Claude Fable 5.1 and Mythos 5.1 shipped",
       "summary": "Two new models from Anthropic, out on Tuesday.",
       "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
@@ -89,7 +89,7 @@
       "rank": 5
     },
     {
-      "id": "weekly-8-news-gemini-3-8-flash-picks-up-a-cyber-variant",
+      "id": "hn-gemini-3-8-flash-picks-up-a-cyber-variant-issue-8",
       "title": "Gemini 3.8 Flash picks up a Cyber variant",
       "summary": "Google's fast tier gets a second flavour a day after Anthropic's drop.",
       "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
@@ -104,7 +104,7 @@
       "rank": 6
     },
     {
-      "id": "weekly-8-news-the-us-government-backed-openai-on-training-data",
+      "id": "tc-the-us-government-backed-openai-on-training-data-issue-8",
       "title": "The US government backed OpenAI on training data",
       "summary": "A brief argues that a competitive American AI industry is the national interest. Two more newspapers sued the same week.",
       "url": "https://techcrunch.com/2026/09/02/u-s-government-sides-with-openai-on-issue-of-training-llms-on-copyrighted-material/",
@@ -119,9 +119,9 @@
       "rank": 7
     },
     {
-      "id": "weekly-8-launches-kilo-code-for-jetbrains",
+      "id": "ph-kilo-code-for-jetbrains-issue-8",
       "title": "Kilo Code for JetBrains",
-      "summary": "Open-source coding agent native to IntelliJ, WebStorm, PyCharm and the rest, with parallel agents in isolated worktrees. ▲ 511",
+      "summary": "Open-source coding agent native to IntelliJ, WebStorm, PyCharm and the rest, with parallel agents in isolated worktrees.",
       "url": "https://kilo.ai/",
       "source": "producthunt",
       "source_url": "https://www.producthunt.com/products/kilocode",
@@ -131,15 +131,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 8,
       "signals": {
         "upvotes": 511
-      }
+      },
+      "rank": 8
     },
     {
-      "id": "weekly-8-launches-monid",
+      "id": "ph-monid-issue-8",
       "title": "Monid",
-      "summary": "One key that connects an agent to 1,800+ APIs, with no per-service subscriptions. ▲ 474",
+      "summary": "One key that connects an agent to 1,800+ APIs, with no per-service subscriptions.",
       "url": "https://monid.ai/",
       "source": "producthunt",
       "source_url": "https://www.producthunt.com/products/monid",
@@ -149,15 +149,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 9,
       "signals": {
         "upvotes": 474
-      }
+      },
+      "rank": 9
     },
     {
-      "id": "weekly-8-launches-gpt-6-astra",
+      "id": "ph-gpt-6-astra-issue-8",
       "title": "GPT-6 Astra",
-      "summary": "$10/$50 per 1M tokens at short context, rolling out through Trusted Access first. ▲ 431",
+      "summary": "$10/$50 per 1M tokens at short context, rolling out through Trusted Access first.",
       "url": "https://openai.com/index/gpt-6-astra/",
       "source": "producthunt",
       "source_url": "https://www.producthunt.com/products/openai",
@@ -167,15 +167,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 10,
       "signals": {
         "upvotes": 431
-      }
+      },
+      "rank": 10
     },
     {
-      "id": "weekly-8-launches-browzer",
+      "id": "ph-browzer-issue-8",
       "title": "Browzer",
-      "summary": "Point it at your GitHub repo and it drafts the docs, changelogs and quickstarts, then heals them on every merge. ▲ 427",
+      "summary": "Point it at your GitHub repo and it drafts the docs, changelogs and quickstarts, then heals them on every merge.",
       "url": "https://trybrowzer.com",
       "source": "producthunt",
       "source_url": "https://www.producthunt.com/products/browzer",
@@ -185,15 +185,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 11,
       "signals": {
         "upvotes": 427
-      }
+      },
+      "rank": 11
     },
     {
-      "id": "weekly-8-launches-computable-gpu-index",
+      "id": "ph-computable-gpu-index-issue-8",
       "title": "Computable GPU Index",
-      "summary": "An open price index for GPU-hours, computed from a fixed panel of providers so anyone can reproduce the print. ▲ 424",
+      "summary": "An open price index for GPU-hours, computed from a fixed panel of providers so anyone can reproduce the print.",
       "url": "https://www.getcomputable.com/",
       "source": "producthunt",
       "source_url": "https://www.producthunt.com/products/computable-gpu-index-cgi",
@@ -203,15 +203,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 12,
       "signals": {
         "upvotes": 424
-      }
+      },
+      "rank": 12
     },
     {
-      "id": "weekly-8-repos-tt-a1i-archify",
+      "id": "gh-tt-a1i-archify-issue-8",
       "title": "tt-a1i/archify",
-      "summary": "Agent skill for architecture, sequence and data-flow diagrams that export clean.+19.5k ★",
+      "summary": "Agent skill for architecture, sequence and data-flow diagrams that export clean.",
       "url": "https://github.com/tt-a1i/archify",
       "source": "github",
       "source_url": "https://github.com/tt-a1i/archify",
@@ -222,15 +222,15 @@
         "url": "https://github.com/tt-a1i.png?size=80"
       },
       "hidden": false,
-      "rank": 13,
       "signals": {
-        "stars_gained": 19000
-      }
+        "stars_gained": 19500
+      },
+      "rank": 13
     },
     {
-      "id": "weekly-8-repos-dietrichgebert-ponytail",
+      "id": "gh-dietrichgebert-ponytail-issue-8",
       "title": "DietrichGebert/ponytail",
-      "summary": "Makes your agent think like the laziest senior dev in the room. The best code is the code you never wrote.+11.7k ★",
+      "summary": "Makes your agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
       "url": "https://github.com/DietrichGebert/ponytail",
       "source": "github",
       "source_url": "https://github.com/DietrichGebert/ponytail",
@@ -241,15 +241,15 @@
         "url": "https://github.com/DietrichGebert.png?size=80"
       },
       "hidden": false,
-      "rank": 14,
       "signals": {
-        "stars_gained": 11000
-      }
+        "stars_gained": 11700
+      },
+      "rank": 14
     },
     {
-      "id": "weekly-8-repos-k-dense-ai-scientific-agent-skills",
+      "id": "gh-k-dense-ai-scientific-agent-skills-issue-8",
       "title": "K-Dense-AI/scientific-agent-skills",
-      "summary": "165 validated skills and 100+ scientific databases, for turning an agent into a research assistant.+5.5k ★",
+      "summary": "165 validated skills and 100+ scientific databases, for turning an agent into a research assistant.",
       "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
       "source": "github",
       "source_url": "https://github.com/K-Dense-AI/scientific-agent-skills",
@@ -260,15 +260,15 @@
         "url": "https://github.com/K-Dense-AI.png?size=80"
       },
       "hidden": false,
-      "rank": 15,
       "signals": {
-        "stars_gained": 5000
-      }
+        "stars_gained": 5500
+      },
+      "rank": 15
     },
     {
-      "id": "weekly-8-repos-affaan-m-ecc",
+      "id": "gh-affaan-m-ecc-issue-8",
       "title": "affaan-m/ECC",
-      "summary": "Skills, memory, instincts and security for agent harnesses - Claude Code, Codex, Cursor and beyond.+5.4k ★",
+      "summary": "Skills, memory, instincts and security for agent harnesses - Claude Code, Codex, Cursor and beyond.",
       "url": "https://github.com/affaan-m/ECC",
       "source": "github",
       "source_url": "https://github.com/affaan-m/ECC",
@@ -279,15 +279,15 @@
         "url": "https://github.com/affaan-m.png?size=80"
       },
       "hidden": false,
-      "rank": 16,
       "signals": {
-        "stars_gained": 5000
-      }
+        "stars_gained": 5400
+      },
+      "rank": 16
     },
     {
-      "id": "weekly-8-repos-jingyaogong-minimind",
+      "id": "gh-jingyaogong-minimind-issue-8",
       "title": "jingyaogong/minimind",
-      "summary": "Train a 64M-parameter LLM from scratch in about two hours.+3.6k ★",
+      "summary": "Train a 64M-parameter LLM from scratch in about two hours.",
       "url": "https://github.com/jingyaogong/minimind",
       "source": "github",
       "source_url": "https://github.com/jingyaogong/minimind",
@@ -298,15 +298,15 @@
         "url": "https://github.com/jingyaogong.png?size=80"
       },
       "hidden": false,
-      "rank": 17,
       "signals": {
-        "stars_gained": 3000
-      }
+        "stars_gained": 3600
+      },
+      "rank": 17
     },
     {
-      "id": "weekly-8-repos-google-research-timesfm",
+      "id": "gh-google-research-timesfm-issue-8",
       "title": "google-research/timesfm",
-      "summary": "Google Research's pretrained foundation model for time-series forecasting.+3.0k ★",
+      "summary": "Google Research's pretrained foundation model for time-series forecasting.",
       "url": "https://github.com/google-research/timesfm",
       "source": "github",
       "source_url": "https://github.com/google-research/timesfm",
@@ -317,15 +317,15 @@
         "url": "https://github.com/google-research.png?size=80"
       },
       "hidden": false,
-      "rank": 18,
       "signals": {
         "stars_gained": 3000
-      }
+      },
+      "rank": 18
     },
     {
-      "id": "weekly-8-repos-magnitudedev-magnitude",
+      "id": "gh-magnitudedev-magnitude-issue-8",
       "title": "magnitudedev/magnitude",
-      "summary": "Open source inference server that runs the best local model for your hardware, behind the agent you already use.+1.4k ★",
+      "summary": "Open source inference server that runs the best local model for your hardware, behind the agent you already use.",
       "url": "https://github.com/magnitudedev/magnitude",
       "source": "github",
       "source_url": "https://github.com/magnitudedev/magnitude",
@@ -336,15 +336,15 @@
         "url": "https://github.com/magnitudedev.png?size=80"
       },
       "hidden": false,
-      "rank": 19,
       "signals": {
-        "stars_gained": 1000
-      }
+        "stars_gained": 1400
+      },
+      "rank": 19
     },
     {
-      "id": "weekly-8-hn-how-accurate-have-ed-zitron-s-ai-skeptic-predict",
+      "id": "hn-how-accurate-have-ed-zitron-s-ai-skeptic-predict-issue-8",
       "title": "How accurate have Ed Zitron's AI skeptic predictions been?",
-      "summary": "A scorecard on the loudest sceptic in the room, and the argument it restarted. 873 pts · 1052 💬",
+      "summary": "A scorecard on the loudest sceptic in the room, and the argument it restarted.",
       "url": "https://danluu.com/zitron/",
       "source": "hackernews",
       "source_url": "https://news.ycombinator.com/item?id=49526069",
@@ -354,16 +354,16 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 20,
       "signals": {
         "points": 873,
         "comments": 1052
-      }
+      },
+      "rank": 20
     },
     {
-      "id": "weekly-8-hn-formalizing-fermat-s-last-theorem",
+      "id": "hn-formalizing-fermat-s-last-theorem-issue-8",
       "title": "Formalizing Fermat's Last Theorem",
-      "summary": "Anthropic research on getting the proof into a form a machine can check. 758 pts",
+      "summary": "Anthropic research on getting the proof into a form a machine can check.",
       "url": "https://www.anthropic.com/research/formalizing-fermats-last-theorem",
       "source": "hackernews",
       "source_url": "https://news.ycombinator.com/item?id=49568506",
@@ -373,15 +373,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 21,
       "signals": {
         "points": 758
-      }
+      },
+      "rank": 21
     },
     {
-      "id": "weekly-8-hn-qwen-3-8-27b-on-cerebras-at-1500-tokens-s",
+      "id": "hn-qwen-3-8-27b-on-cerebras-at-1500-tokens-s-issue-8",
       "title": "Qwen 3.8 27B on Cerebras at 1500 tokens/s",
-      "summary": "Fast enough that the interaction model changes, not just the latency number. 688 pts",
+      "summary": "Fast enough that the interaction model changes, not just the latency number.",
       "url": "https://inference-docs.cerebras.ai/models/overview",
       "source": "hackernews",
       "source_url": "https://news.ycombinator.com/item?id=49554520",
@@ -391,15 +391,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 22,
       "signals": {
         "points": 688
-      }
+      },
+      "rank": 22
     },
     {
-      "id": "weekly-8-hn-i-trained-a-small-transformer-in-1-5hrs-and-it-b",
+      "id": "hn-i-trained-a-small-transformer-in-1-5hrs-and-it-b-issue-8",
       "title": "I trained a small transformer in 1.5hrs and it beats many LLMs",
-      "summary": "On ARC, at least. A useful reminder of what benchmark wins are worth. 668 pts",
+      "summary": "On ARC, at least. A useful reminder of what benchmark wins are worth.",
       "url": "https://mvakde.github.io/blog/44-on-arc-1/",
       "source": "hackernews",
       "source_url": "https://news.ycombinator.com/item?id=49519939",
@@ -409,15 +409,15 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 23,
       "signals": {
         "points": 668
-      }
+      },
+      "rank": 23
     },
     {
-      "id": "weekly-8-hn-three-sites-made-215-128-best-software-pages-per",
+      "id": "hn-three-sites-made-215-128-best-software-pages-per-issue-8",
       "title": "Three sites made 215,128 \"best software\" pages. Perplexity cites them",
-      "summary": "Someone worked out how to manufacture the sources an answer engine trusts. 516 pts",
+      "summary": "Someone worked out how to manufacture the sources an answer engine trusts.",
       "url": "https://trellner.com/reports/manufactured-sources-behind-ai-recommendations/",
       "source": "hackernews",
       "source_url": "https://news.ycombinator.com/item?id=49536375",
@@ -427,10 +427,10 @@
         "type": "none"
       },
       "hidden": false,
-      "rank": 24,
       "signals": {
         "points": 516
-      }
+      },
+      "rank": 24
     }
   ]
 }
