@@ -15,7 +15,7 @@ Open questions: whether any fetcher is blocked from cloud IPs. The Claude creden
 
 ## Checklist
 
-- [ ] Read packages/runner/aibytes_runner/cli.py and check.py for anything that depends on the Mac (keychain, launchd paths, absolute interpreter paths, local-only tools) <!-- longclaw:item=ck_3ccee8f6 -->
+- [x] Read packages/runner/aibytes_runner/cli.py and check.py for anything that depends on the Mac (keychain, launchd paths, absolute interpreter paths, local-only tools) <!-- longclaw:item=ck_3ccee8f6 -->
 - [x] Confirm every fetcher (HackerNews, TechCrunch, GitHub, Product Hunt) works from a GitHub-hosted runner IP; do a manual workflow_dispatch run with skip_fetch off <!-- longclaw:item=ck_d6f3fdc3 -->
 - [x] Use CLAUDE_CODE_OAUTH_TOKEN (from `claude setup-token`), not ANTHROPIC_API_KEY: replace the API-key check and env in edition.yml with the token (cli.py already reads it from the environment) <!-- longclaw:item=ck_e16051cd -->
 - [x] Add repo secrets CLAUDE_CODE_OAUTH_TOKEN, PH_API_KEY and AIBYTES_SLACK_WEBHOOK, with `gh secret set` from the local .env rather than pasting into the UI; drop PH_API_SECRET if unused <!-- longclaw:item=ck_9f52e74e -->
@@ -26,7 +26,7 @@ Open questions: whether any fetcher is blocked from cloud IPs. The Claude creden
 - [x] Create a watchdog workflow that runs check.py at 09:00 UTC (14:30 IST) and posts to Slack if today's edition is missing <!-- longclaw:item=ck_7a4c0338 -->
 - [ ] Dry-run the scheduled workflow with workflow_dispatch for a past --date and confirm the commit lands on main and Pages deploys <!-- longclaw:item=ck_9d6f5e11 -->
 - [ ] Cut over: uninstall both launchd agents (io.aibytes.edition, io.aibytes.watchdog) so only one scheduler runs <!-- longclaw:item=ck_ac59fd0d -->
-- [ ] Update CLAUDE.md, packages/runner/README.md and .claude/rules docs: the scheduler is now GitHub Actions; launchd/install.sh becomes a fallback or is removed <!-- longclaw:item=ck_78bd3bc9 -->
+- [x] Update CLAUDE.md, packages/runner/README.md and .claude/rules docs: the scheduler is now GitHub Actions; launchd/install.sh becomes a fallback or is removed <!-- longclaw:item=ck_78bd3bc9 -->
 - [ ] Watch the first three scheduled runs (including start-time delay and any skipped run) before removing the launchd templates <!-- longclaw:item=ck_41b4eccb -->
 
 ## Activity

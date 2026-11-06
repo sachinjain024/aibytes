@@ -20,7 +20,7 @@ matching files — this file stays a map.
 | `packages/design-system/` | **Ledger**: tokens + React components for the app and extension (**not** the newsletter) |
 | `packages/fetchers/` | Shared, cadence-agnostic Python fetch machinery for every data source |
 | `packages/curate/` | The curate step: a day's raw snapshots become one published edition |
-| `packages/runner/` | The daily runner: the scheduled job that publishes an edition, its launchd agents, and the watchdog |
+| `packages/runner/` | The daily runner: the scheduled job that publishes an edition, the GitHub Actions workflows that schedule it (launchd agents as a fallback), and the watchdog |
 | `packages/feed-schema/` | The contract for everything in `content/`: schemas, `feed.d.ts`, `validate.py`, `hide.py` |
 | `content/` | The published data — `editions/YYYY-MM-DD.json`, `index.json`, `tags.json`, `hidden.json` |
 | `.claude/skills/` | Claude Code skills. Stays at the repo root — nested skill dirs are not in autocomplete until a file in them is touched |
@@ -53,11 +53,11 @@ python3 packages/curate/curate.py build --date 2026-08-31 --summaries summaries.
 python3 packages/curate/curate.py rank --date 2026-08-31   # back-fill rank only, offline
 
 # The daily runner: sync main -> fetch -> curate -> validate -> commit -> push, then Slack.
-# This is what launchd calls at 13:30; --date backfills or re-runs a day.
+# This is what the edition workflow calls at 13:30 IST (08:00 UTC); --date backfills or re-runs a day.
 python3 packages/runner/run.py --date 2026-08-31
 python3 packages/runner/run.py --skip-fetch --no-push   # rehearse, change nothing
 python3 packages/runner/check.py                        # is today's edition published?
-bash packages/runner/aibytes_runner/launchd/install.sh  # (re)install the two agents
+bash packages/runner/aibytes_runner/launchd/install.sh  # fallback only: (re)install the launchd agents
 
 # The web app (apps/web). Dev serves content/ live; build copies it to dist/content/
 npm install
@@ -142,7 +142,7 @@ Two special cases:
   the content commits so they can be reviewed apart. Only tooling work that
   isn't tied to an issue gets its own branch and PR.
 - **The daily edition** is automated and cannot open PRs.
-  `packages/runner/run.py`, started by launchd at 13:30 IST, pushes
+  `packages/runner/run.py`, started by the `edition` GitHub Actions workflow at 13:30 IST, pushes
   `content/` and `newsletter/data/` straight to `main`; GitHub Pages deploys on
   push. That is the one case where generated content bypasses review. It stages
   only those two paths - never `git add -A` - and it refuses to push from any

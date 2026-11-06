@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Is today's edition actually published? The watchdog launchd runs at 14:30.
+"""Is today's edition actually published? The watchdog workflow runs at 14:30 IST.
 
     python3 packages/runner/check.py
     python3 packages/runner/check.py --date 2026-08-31 --no-notify
