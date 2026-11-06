@@ -207,7 +207,7 @@ Filters apply before ordering in both modes, and grid and list work in both. See
 
 ### Theme
 
-Light and dark. Follows system by default, manual override persisted in local storage. Tokens in section 7.
+Light and dark. Light by default, whatever the system setting; the toggle switches to dark and the choice is persisted in local storage. Tokens in section 7.
 
 ### Navigation links
 
