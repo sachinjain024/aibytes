@@ -97,5 +97,8 @@ updates the component's `.d.ts` and `.prompt.md`, and the UI kit.
 - **E2:** the star lines up down the left edge, so a reader can see what they
   saved at a glance in list view and on cards.
 
-The prototype was a private Claude artifact built from the live Ledger
-sources; it is not checked in. This record is the reference for the build.
+The prototype is checked in at `docs/ux/prototypes/AIB-75v-saves/`: open
+`aib-75v-saves.html`, or rebuild it from the live Ledger sources with
+`node docs/ux/prototypes/AIB-75v-saves/build.mjs`. It opens on the picks
+above; its options panel still switches between all of them. The capability
+map for the build is `docs/specs/AIB-75v-capability-map.md`.
