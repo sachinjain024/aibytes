@@ -221,7 +221,7 @@ class TestRender(unittest.TestCase):
             png = out_root / "thumbnails" / f"issue-4-thumbnail-{variant}.png"
             self.assertTrue(png.is_file(), f"missing {png}")
             self.assertEqual(thumb.png_size(png), (1200, 630))
-            # Beehiiv rejects oversized uploads; these land far under this.
+            # Keep uploads small for the social-image field; these land far under this.
             self.assertLess(png.stat().st_size, 2 * 1024 * 1024)
 
 

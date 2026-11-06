@@ -82,21 +82,21 @@ Rule of thumb: 1 to 4 tags per item. Claude picks from this fixed list only (no 
 Content is produced by the existing fetchers and skills, written to plain JSON files, committed to the repo, and served statically. No app server, no database for content. The only dynamic piece is auth + saves.
 
 ```
-launchd on iMac (13:30 IST daily)
+GitHub Actions `edition` workflow (13:30 IST / 08:00 UTC daily)
   -> existing Python fetchers (PH, HN, GitHub, TechCrunch) -> data/YYYY-MM-DD/*.json (raw, as today)
   -> curation skill (tweaked): dedup, relevance filter, category, tags, 1-line summary, image_url
   -> content/editions/YYYY-MM-DD.json  +  content/index.json (list of editions, counts)
-  -> git commit + push from the iMac -> static host rebuilds/deploys -> aibytes.io shows today's edition
+  -> git commit + push from the runner -> static host rebuilds/deploys -> aibytes.io shows today's edition
 ```
 
-**Runner:** a local iMac, scheduled via `launchd` (preferred on macOS over plain cron: it runs missed jobs after sleep/wake and logs cleanly) at 13:30 IST daily. The job runs the same scripts and skill logic used for the newsletter, then `git commit && git push`; the static host deploys on push. Secrets live in a local `.env` (git-ignored) or the macOS Keychain.
+**Runner:** a GitHub Actions workflow (`.github/workflows/edition.yml`, cron `0 8 * * *`) at 13:30 IST daily; it moved off a local iMac scheduled via `launchd` (AIB-134r) so a sleeping or offline Mac can no longer miss an edition. The launchd agents remain as a documented fallback. The job runs the same scripts and skill logic used for the newsletter, then `git commit && git push`; the static host deploys on push. Secrets are GitHub repo secrets (`CLAUDE_CODE_OAUTH_TOKEN`, `PH_API_KEY`, `AIBYTES_SLACK_WEBHOOK`); locally they live in a git-ignored `.env`.
 
-Operational notes for the iMac runner:
+Operational notes for the runner (the first three notes apply to the launchd fallback only):
 - Set the machine to never sleep at the job window (Energy Saver / `pmset` schedule wake at 13:25 IST) or rely on launchd's catch-up on wake.
 - `launchd` plist at `~/Library/LaunchAgents/io.aibytes.edition.plist` with `StartCalendarInterval` (Hour 13, Minute 30 local time; confirm the Mac's timezone is IST).
 - The script logs to `logs/YYYY-MM-DD.log` and exits non-zero on failure; a simple failure hook (macOS notification or a message to yourself) so a silent miss is noticed.
 - **Manual re-run:** `make edition` (or `./run.sh`) with an optional `--date` flag; the same entry point launchd calls.
-- **Fallback:** keep a GitHub Actions workflow with `workflow_dispatch` only (no schedule) so an edition can be generated from anywhere if the iMac is off or away. Same script, same output.
+- **Manual run:** the same workflow has `workflow_dispatch`, so an edition can be generated from anywhere. A `watchdog` workflow at 14:30 IST alerts Slack if the edition is missing.
 - If a day is missed, the next run backfills only the current day; the edition bar shows the gap naturally (no fake editions).
 
 **Skill changes needed**

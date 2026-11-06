@@ -13,14 +13,15 @@ Claude Code skills fetch the top AI content from around the web and commit it
 here as dated JSON snapshots. The pipeline is deliberately boring: stdlib-only
 Python, no database, no server, content as files in git.
 
-**Running on the iMac (launchd):** the daily job host's setup is in
+**Running on GitHub Actions:** the daily job is the `edition` workflow, with a
+`watchdog` workflow beside it; setup (repo secrets) and the launchd fallback are in
 [packages/runner/README.md](packages/runner/README.md#setup).
 
 | Path | What it is |
 |---|---|
 | `newsletter/` | The newsletter pipeline: issues, data snapshots, source mirrors, decision records |
 | `packages/fetchers/` | Shared, cadence-agnostic fetch machinery for every data source |
-| `packages/runner/` | The daily runner: the scheduled job that publishes an edition, its launchd agents, and the watchdog |
+| `packages/runner/` | The daily runner: the scheduled job that publishes an edition, the GitHub Actions workflows that schedule it (launchd agents as a fallback), and the watchdog |
 | `packages/feed-schema/` | The contract for `content/`: schemas, TypeScript types, a validator |
 | `packages/design-system/` | Ledger — design tokens + React components for the app and extension |
 | `content/` | The published data the app and extension read — editions, index, tags, hide log |

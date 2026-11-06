@@ -17,3 +17,6 @@ apps/web/src/generated/
 
 # Scheduled-job run logs (local only)
 logs/
+
+# Local scratch: exports with subscriber emails, drafts. Never commit.
+tmp/

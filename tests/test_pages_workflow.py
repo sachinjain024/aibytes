@@ -63,9 +63,9 @@ class PagesWorkflowTest(unittest.TestCase):
             with self.subTest(path=path):
                 self.assertTrue(covered(path, self.paths), f"{path} is read by the build but not in pages.yml's paths")
 
-    def test_the_manual_edition_fallback_triggers_a_deploy(self):
+    def test_the_edition_workflow_triggers_a_deploy(self):
         # A push made with GITHUB_TOKEN does not start other workflows, so the
-        # fallback's own push never would.
+        # edition workflow's own push never would.
         name = re.search(r"^name:\s*(.+)$", (WORKFLOWS / "edition.yml").read_text(), re.M).group(1).strip()
         self.assertEqual(block_list(self.text, "workflows", after="workflow_run"), [name])
 

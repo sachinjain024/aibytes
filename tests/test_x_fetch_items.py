@@ -346,6 +346,28 @@ class TestRender(unittest.TestCase):
         # The last row of each table drops its hairline.
         self.assertEqual(blocks["viral"].count("border-bottom"), 2 * 4)
 
+    def test_substack_uses_only_editor_blocks(self):
+        blocks, _ = x_render.render(self.snap, "substack")
+        for block in blocks.values():
+            self.assertNotIn("class=", block)
+            self.assertNotIn("style=", block)
+        self.assertEqual(blocks["viral"].count("<li>"), 5)
+
+    def test_substack_announcement_is_verbatim(self):
+        post = self.by_url["https://x.com/lab/status/1"]
+        rendered = x_render.announcement_substack(post)
+        inner = re.search(r"<blockquote>(.*?)</blockquote>", rendered).group(1)
+        self.assertEqual(untag(inner), post["text"])
+        self.assertTrue(rendered.startswith("<h3>Lab @lab · Wed 23</h3>"), rendered)
+        self.assertIn(' · <a href="https://www.lab.example/lab-2">lab.example ↗</a>', rendered)
+
+    def test_substack_x_row_links_only_the_handle_to_the_post(self):
+        row = x_render.x_row_substack(self.by_url["https://x.com/alice/status/3"])
+        self.assertTrue(row.startswith('<li>🔬 <a href="https://x.com/alice/status/3"><b>@alice</b></a> I asked Lab 2'), row)
+        self.assertEqual(row.count("<a "), 1)
+        self.assertIn(" / Here's", row)
+        self.assertTrue(row.endswith(f"keeps … {x_render.HEART} 3.0k</li>"), row)
+
     def test_render_keeps_shortlist_order(self):
         blocks, warnings = x_render.render(self.snap)
         order = [blocks["viral"].find(f"/{h}/status/") for h in ("alice", "bob", "carol", "dave", "erin")]

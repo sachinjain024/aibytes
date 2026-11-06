@@ -1,6 +1,6 @@
 """The check that catches the failure a failure notification cannot report.
 
-If launchd never fires the daily job - the agent got unloaded by an OS update,
+If the scheduler never fires the daily job - the agent got unloaded by an OS update,
 the plist has a typo, the machine came back from a reboot in a strange state -
 then nothing fails, so nothing is sent, and silence looks exactly like a clean
 run. This runs an hour after the job and asks the only question that matters:
