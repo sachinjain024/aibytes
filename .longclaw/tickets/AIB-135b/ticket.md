@@ -9,7 +9,7 @@ labels:
   - marketing
 type: chore
 created_at: 2026-11-03T07:58:59.954Z
-updated_at: 2026-11-06T07:10:01.515Z
+updated_at: 2026-11-06T10:28:40.170Z
 ---
 
 Remove the Beehiiv-specific skills, templates, code paths, and docs from the repo once the Substack migration (AIB-134j) is done, and keep them recoverable in case we go back to Beehiiv.
@@ -33,7 +33,7 @@ Beehiiv references at the time of writing (`git grep -il beehiiv`, history exclu
 ## Checklist
 
 - [ ] Tag the last commit with the full Beehiiv tooling as beehiiv-final and push the tag <!-- longclaw:item=ck_751c3f6d -->
-- [ ] Write a decision record in newsletter/artifacts/ listing every removed Beehiiv file and how to restore it from the tag <!-- longclaw:item=ck_55fad5b3 -->
+- [ ] Write a decision record in docs/decisions/architecture/ listing every removed Beehiiv file and how to restore it from the tag <!-- longclaw:item=ck_55fad5b3 -->
 - [ ] generate-newsletter-content: remove the Beehiiv export template, the Beehiiv patterns reference, and the Beehiiv steps in SKILL.md <!-- longclaw:item=ck_ccd65516 -->
 - [ ] generate-followup-thumbnail: drop the Beehiiv upload wording and any Beehiiv-only sizing from SKILL.md, the template, and the script <!-- longclaw:item=ck_bdd1a119 -->
 - [ ] x-fetch-items and packages/fetchers x_render.py: remove the Beehiiv-specific rendering <!-- longclaw:item=ck_88b133b9 -->
@@ -71,4 +71,19 @@ changes:
     to: in_progress
 -->
 ### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_2d3d3f73
+kind: update
+occurred_at: 2026-11-06T10:28:40.170Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_55fad5b3.text
+    from: Write a decision record in newsletter/artifacts/ listing every removed Beehiiv file and how to restore it from the tag
+    to: Write a decision record in docs/decisions/architecture/ listing every removed Beehiiv file and how to restore it from the tag
+-->
+### claude-code updated this ticket
 <!-- /longclaw:event -->

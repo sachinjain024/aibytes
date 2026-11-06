@@ -10,7 +10,7 @@ labels:
 type: chore
 due: 2026-11-08
 created_at: 2026-11-03T07:55:49.030Z
-updated_at: 2026-11-06T10:21:10.944Z
+updated_at: 2026-11-06T10:32:04.690Z
 ---
 
 Move the aiBytes_ weekly newsletter from Beehiiv to Substack.
@@ -42,7 +42,7 @@ Move the aiBytes_ weekly newsletter from Beehiiv to Substack.
 - [x] Remove the old Beehiiv DNS records from Cloudflare (2 bh1234 CNAMEs, 3 SendGrid em886/e95/e952 records) <!-- longclaw:item=ck_1911b836 -->
 - [x] Create the email alias contact@aibytes.io, forwarding to the personal Gmail inbox; use it as the Substack reply-to and the public contact address <!-- longclaw:item=ck_cabf4949 -->
 - [ ] Monitor the stats on the next issue (opens, clicks, unsubscribes vs. the Beehiiv baseline) <!-- longclaw:item=ck_d318a1de -->
-- [ ] Record the migration decision in newsletter/artifacts/ <!-- longclaw:item=ck_6a5e6a1d -->
+- [x] Record the migration decision in docs/decisions/product/AIB-134j-newsletter-on-substack.md (drafted 6 Nov 2026; why and what we gained to fill in, stats after Issue 17) <!-- longclaw:item=ck_6a5e6a1d -->
 - [ ] Remove Beehiiv-specific tooling from the repo, keeping it recoverable - AIB-135b <!-- longclaw:item=ck_4ca0624d -->
 
 ## Ticket References
@@ -1267,4 +1267,94 @@ changes:
     from: Embed a custom subscribe button in the weekly pages to be generated
 -->
 ### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_6c95d33c
+kind: update
+occurred_at: 2026-11-06T10:25:09.308Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_6a5e6a1d.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_54eb3aa1
+kind: update
+occurred_at: 2026-11-06T10:25:09.502Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_6a5e6a1d.checked
+    from: "true"
+    to: "false"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_5b89f14c
+kind: update
+occurred_at: 2026-11-06T10:25:09.651Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_6a5e6a1d.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_b24fe153
+kind: update
+occurred_at: 2026-11-06T10:25:10.454Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_6a5e6a1d.checked
+    from: "true"
+    to: "false"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_3074175d
+kind: update
+occurred_at: 2026-11-06T10:28:40.144Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_6a5e6a1d.text
+    from: Record the migration decision in newsletter/artifacts/
+    to: Record the migration decision in docs/decisions/product/AIB-134j-newsletter-on-substack.md (drafted 6 Nov 2026; why and what we gained to fill in, stats after Issue 17)
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_353b7fdd
+kind: update
+occurred_at: 2026-11-06T10:32:04.690Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_6a5e6a1d.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
 <!-- /longclaw:event -->
