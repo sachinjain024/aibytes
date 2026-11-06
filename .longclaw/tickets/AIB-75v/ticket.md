@@ -440,3 +440,17 @@ changes:
 
 ledger-saves-ui spec reviewed: the avatar shows the Google profile photo with the initial as fallback, and the sidebar label is LIBRARY. Spec: docs/specs/AIB-75v-ledger-saves-ui.md. Next: break the module into tasks.
 <!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_bc7cddac
+kind: comment
+occurred_at: 2026-11-06T22:37:07.568Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Plan approved for ledger-saves-ui: docs/plans/AIB-75v-plan.md and docs/plans/AIB-75v-todo.md. Five tasks (T1-T5) on one branch, aib-75v-ledger-saves-ui, one commit per task, one PR squash-merged to main.
+<!-- /longclaw:event -->
