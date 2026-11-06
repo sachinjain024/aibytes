@@ -10,7 +10,7 @@ labels:
 type: chore
 due: 2026-11-08
 created_at: 2026-11-03T07:55:49.030Z
-updated_at: 2026-11-06T10:07:51.453Z
+updated_at: 2026-11-06T10:08:49.129Z
 ---
 
 Move the aiBytes_ weekly newsletter from Beehiiv to Substack.
@@ -27,7 +27,7 @@ Move the aiBytes_ weekly newsletter from Beehiiv to Substack.
 - [x] Export the subscriber list (CSV) and the post archive from Beehiiv before access ends <!-- longclaw:item=ck_bd7f67c7 -->
 - [x] Figure out the right set of elements for how the newsletter should appear on Substack (no HTML support) - play around with Substack editor components <!-- longclaw:item=ck_363d4f0f -->
 - [x] Update the generate-newsletter-content and thumbnail skills to produce Substack-ready output instead of the Beehiiv export <!-- longclaw:item=ck_16018973 -->
-- [ ] Parked until Issue 17: embed the first Official Announcements post as an X embed on Substack, rest as text - test a draft embed and a test email first, then a taste round, then the export script, layout doc and x_render verify <!-- longclaw:item=ck_ee25177a -->
+- [ ] Embed the first Official Announcements post as an X embed on Substack, rest as text - AIB-138v <!-- longclaw:item=ck_ee25177a -->
 - [x] Backfill previous posts (with email sending off) <!-- longclaw:item=ck_3227c899 -->
 - [x] Add audience so they don't receive previous posts email <!-- longclaw:item=ck_7cd2b392 -->
 - [x] Import the 2,632 active Beehiiv subscribers into Substack - submitted 3 Nov 2026, waiting on Substack's import review <!-- longclaw:item=ck_68860357 -->
@@ -1101,4 +1101,19 @@ changes:
     to: "false"
 -->
 ### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_618009c4
+kind: update
+occurred_at: 2026-11-06T10:08:49.129Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_ee25177a.text
+    from: "Parked until Issue 17: embed the first Official Announcements post as an X embed on Substack, rest as text - test a draft embed and a test email first, then a taste round, then the export script, layout doc and x_render verify"
+    to: Embed the first Official Announcements post as an X embed on Substack, rest as text - AIB-138v
+-->
+### claude-code updated this ticket
 <!-- /longclaw:event -->
