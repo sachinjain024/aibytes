@@ -29,17 +29,18 @@ jobs:
         with:
           python-version: "3.8"
 
-      # Unlike the iMac, a runner has no login keychain, so the summaries step
-      # authenticates with an API key. Without it there is nothing to fall back
-      # to, so fail early and say why rather than half-publishing.
-      - name: Check the API key is configured
+      # A runner has no login keychain, so the summaries step authenticates
+      # with a Claude Code OAuth token (from `claude setup-token`). Without it
+      # there is nothing to fall back to, so fail early and say why rather
+      # than half-publishing.
+      - name: Check the Claude token is configured
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: |
-          if [ -z "$ANTHROPIC_API_KEY" ]; then
-            echo "::error::ANTHROPIC_API_KEY is not set in this repo's secrets."
-            echo "The summaries step needs a model. On the iMac that comes from"
-            echo "the login keychain; here it has to be a secret."
+          if [ -z "$CLAUDE_CODE_OAUTH_TOKEN" ]; then
+            echo "::error::CLAUDE_CODE_OAUTH_TOKEN is not set in this repo's secrets."
+            echo "The summaries step needs a model. Run 'claude setup-token' and"
+            echo "store the result with 'gh secret set CLAUDE_CODE_OAUTH_TOKEN'."
             exit 1
           fi
 
@@ -68,7 +69,7 @@ jobs:
 
       - name: Publish the edition
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: |
           git config user.name "The Infin8y"
           git config user.email "the.infin8y@gmail.com"
