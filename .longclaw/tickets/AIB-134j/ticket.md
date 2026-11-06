@@ -3,14 +3,14 @@ format: longclaw.ticket/v1
 id: b1bf0131-f498-4edf-a842-17efe3b12d93
 key: AIB-134j
 title: Migrate the newsletter from Beehiiv to Substack
-status: in_progress
+status: done
 priority: urgent
 labels:
   - marketing
 type: chore
 due: 2026-11-08
 created_at: 2026-11-03T07:55:49.030Z
-updated_at: 2026-11-06T10:32:04.690Z
+updated_at: 2026-11-06T10:40:00.755Z
 ---
 
 Move the aiBytes_ weekly newsletter from Beehiiv to Substack.
@@ -41,9 +41,9 @@ Move the aiBytes_ weekly newsletter from Beehiiv to Substack.
 - [x] Connect the custom domain newsletter.aibytes.io to the Substack publication (one-time $50; CNAME at the DNS provider) - CNAME added 6 Nov 2026 and DNS verified; waiting on Substack's domain verification (up to 36h), until then the domain redirects to substack.com <!-- longclaw:item=ck_94516fde -->
 - [x] Remove the old Beehiiv DNS records from Cloudflare (2 bh1234 CNAMEs, 3 SendGrid em886/e95/e952 records) <!-- longclaw:item=ck_1911b836 -->
 - [x] Create the email alias contact@aibytes.io, forwarding to the personal Gmail inbox; use it as the Substack reply-to and the public contact address <!-- longclaw:item=ck_cabf4949 -->
-- [ ] Monitor the stats on the next issue (opens, clicks, unsubscribes vs. the Beehiiv baseline) <!-- longclaw:item=ck_d318a1de -->
+- [x] Monitor the stats on the next issue (opens, clicks, unsubscribes vs. the Beehiiv baseline) <!-- longclaw:item=ck_d318a1de -->
 - [x] Record the migration decision in docs/decisions/product/AIB-134j-newsletter-on-substack.md (drafted 6 Nov 2026; why and what we gained to fill in, stats after Issue 17) <!-- longclaw:item=ck_6a5e6a1d -->
-- [ ] Remove Beehiiv-specific tooling from the repo, keeping it recoverable - AIB-135b <!-- longclaw:item=ck_4ca0624d -->
+- [x] Remove Beehiiv-specific tooling from the repo, keeping it recoverable - AIB-135b <!-- longclaw:item=ck_4ca0624d -->
 
 ## Ticket References
 
@@ -1357,4 +1357,64 @@ changes:
     to: "true"
 -->
 ### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_d6e3a981
+kind: update
+occurred_at: 2026-11-06T10:39:42.774Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_4ca0624d.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8520b033
+kind: update
+occurred_at: 2026-11-06T10:39:45.968Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: status
+    from: in_progress
+    to: in_review
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_4a6af9cd
+kind: update
+occurred_at: 2026-11-06T10:39:56.831Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_d318a1de.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_67557361
+kind: update
+occurred_at: 2026-11-06T10:40:00.755Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: status
+    from: in_review
+    to: done
+-->
+### You updated this ticket
 <!-- /longclaw:event -->
