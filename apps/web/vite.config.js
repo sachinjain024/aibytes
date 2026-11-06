@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { WEEKLY_ARCHIVE_HEAD, weeklyIssueHead, withHead } from "./src/pageMeta.js";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const CONTENT = path.resolve(here, "../../content");
@@ -64,15 +65,16 @@ function content() {
 
 // One real page per edition and weekly issue, so /2026-10-07 and
 // /weekly/issue-16 are 200s on GitHub Pages rather than a 404 that happens to
-// render. Each is the same index.html: the app reads the path from the URL.
-// Assets are absolute (/assets/...), so the copy works one directory down.
-// 404.html catches everything else, including old /p/<slug> newsletter links,
-// which the app sends on to newsletter.aibytes.io.
+// render. Each is index.html: the app reads the path from the URL. Weekly pages
+// also get their own title, description, canonical URL and OG tags, since they
+// are meant to be indexed and shared. Assets are absolute (/assets/...), so the
+// copy works one directory down. 404.html catches everything else, including
+// old /p/<slug> newsletter links, which the app sends on to newsletter.aibytes.io.
 function editionPages() {
   return {
     name: "aibytes-edition-pages",
     async writeBundle(options) {
-      const html = await readFile(path.join(options.dir, "index.html"));
+      const html = await readFile(path.join(options.dir, "index.html"), "utf8");
       const index = JSON.parse(await readFile(path.join(CONTENT, "index.json"), "utf8"));
       for (const { date } of index.editions) {
         await mkdir(path.join(options.dir, date), { recursive: true });
@@ -81,12 +83,11 @@ function editionPages() {
       await writeFile(path.join(options.dir, "404.html"), html);
 
       await mkdir(path.join(options.dir, "weekly"), { recursive: true });
-      await writeFile(path.join(options.dir, "weekly", "index.html"), html);
+      await writeFile(path.join(options.dir, "weekly", "index.html"), withHead(html, WEEKLY_ARCHIVE_HEAD));
       for (const entry of await loadWeeklyIssues()) {
-        if (!entry.slug) continue;
         const dir = path.join(options.dir, "weekly", entry.slug);
         await mkdir(dir, { recursive: true });
-        await writeFile(path.join(dir, "index.html"), html);
+        await writeFile(path.join(dir, "index.html"), withHead(html, weeklyIssueHead(entry)));
       }
     },
   };

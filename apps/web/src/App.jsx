@@ -103,12 +103,15 @@ export function App() {
   );
 }
 
-function EditionApp({ route, location, navigate, theme, onToggleTheme }) {
+// The Ledger shell a daily edition and a weekly issue share: masthead, category
+// sidebar, and the toolbar with search, view, order and filters, all kept in
+// the URL and preferences. `all` is the open feed's items, hidden ones
+// included, or null while it loads; `children` renders the feed from what the
+// filters leave.
+function FeedShell({ theme, onToggleTheme, location, navigate, skipLabel, heading, date, all, children }) {
   // Defaults: list + grouped (AIB-105j). A stored preference still wins.
   const [view, setView] = useChoice(VIEW, "list");
   const [mode, setMode] = useChoice(ORDER, "grouped");
-  const [index, setIndex] = React.useState({ status: "loading" });
-  const [edition, setEdition] = React.useState({ status: "loading" });
   const [tags, setTags] = React.useState({ status: "loading", groups: [] });
   const tagGroups = tags.groups;
   const [panel, setPanel] = React.useState(null);
@@ -151,80 +154,113 @@ function EditionApp({ route, location, navigate, theme, onToggleTheme }) {
   const filters = parseFilters(location.search, tagGroups);
   const setFilters = (next) => navigate(location.pathname + filtersToSearch(next, tagGroups), { replace: true });
 
-  React.useEffect(() => {
-    let live = true;
-    loadIndex()
-      .then((data) => live && setIndex({ status: "ready", data }))
-      .catch((error) => live && setIndex({ status: "error", error }));
-    return () => {
-      live = false;
-    };
-  }, []);
-
-  const editions = index.status === "ready" ? index.data.editions : [];
-  const ref = pickEdition(route, editions);
-
-  React.useEffect(() => {
-    if (!ref) return undefined;
-    let live = true;
-    setEdition({ status: "loading" });
-    loadEdition(ref)
-      .then((data) => live && setEdition({ status: "ready", data }))
-      .catch((error) => live && setEdition({ status: "error", error }));
-    return () => {
-      live = false;
-    };
-  }, [ref && ref.date]);
-
-  React.useEffect(() => {
-    document.title = ref ? `aiBytes_ · ${longDate(ref.date)}` : "aiBytes_";
-  }, [ref && ref.date]);
-
-  const visible = edition.status === "ready" && ref && edition.data.date === ref.date
-    ? edition.data.items.filter((item) => !item.hidden) : null;
+  const visible = all && all.filter((item) => !item.hidden);
   const categories = CATEGORIES.map((c) => ({ ...c, count: visible ? visible.filter((i) => i.category === c.key).length : undefined }));
   const onPanel = (name) => setPanel((open) => (open === name ? null : name));
   // No filter controls until tags.json has settled: rewriting the URL before
   // then would silently drop any t= tags it already carries.
   const filterable = Boolean(visible) && tags.status !== "loading";
-  // Order the whole edition, hidden items included, then filter: rank (and the
-  // fallback's standing) is over the whole edition, so a filter never
-  // reshuffles what it leaves. Both modes use it - Grouped only splits the
-  // ranked list by category - so the two never disagree about what is best.
-  const items = visible && rankedItems(edition.data.items)
-    .filter((item) => !item.hidden && matches(item, filters));
-  const older = ref && olderEdition(editions, ref.date);
-  const prev = usePrevious(items && !items.length ? older : null);
-  // Paging back or forward keeps the filters, as the edition bar does.
-  const goTo = (date) => navigate(editionPath(date) + location.search);
+  // Order the whole feed, hidden items included, then filter: rank (and the
+  // fallback's standing) is over the whole feed, so a filter never reshuffles
+  // what it leaves. Both modes use it - Grouped only splits the ranked list by
+  // category - so the two never disagree about what is best.
+  const items = all && rankedItems(all).filter((item) => !item.hidden && matches(item, filters));
   const setCategory = (key) => setFilters({ ...filters, category: key });
   const setQuery = (query) => setFilters({ ...filters, query });
 
   return (
     <div className={"app-shell redesign" + (shown === "grid" ? " redesign-grid" : "") + (menuOpen ? " mobile-menu-open" : "")} ref={shell} data-theme={theme}>
-      <a className="app-skip" href="#main">Skip to the edition</a>
+      <a className="app-skip" href="#main">{skipLabel}</a>
       <AppHeader theme={theme} onToggleTheme={onToggleTheme} menuOpen={menuOpen} onMenu={() => setMenuOpen(o => !o)} githubUrl={GITHUB_URL} />
       <Sidebar categories={categories} count={visible?.length} active={filters.category} open={menuOpen} onClose={() => setMenuOpen(false)}
         links={SIDEBAR_LINKS} subscribeUrl={SUBSCRIBE_URL}
         onCategory={key => { if (filterable) setCategory(key); setMenuOpen(false); }} />
       <main id="main" className="redesign-main" tabIndex={-1}>
         {/* No visible heading: the toolbar is the first row of the content, and its
-            edition bar already shows the date. Screen readers still get an h1. */}
-        <h1 className="app-sr">{ref ? `aiBytes_ edition, ${new Date(ref.date + "T12:00:00").toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}` : "aiBytes_"}</h1>
+            date control already shows the edition or issue. Screen readers still get an h1. */}
+        <h1 className="app-sr">{heading}</h1>
         <div className="workspace"><section className="feed">
           <div ref={sticky} className="toolbar-slot">
             <Toolbar count={items ? `${items.length} items` : null} query={filters.query} onQuery={setQuery} view={view} onView={columns > 1 ? setView : undefined} mode={mode} onMode={setMode}
               disabled={!filterable} filterCount={filters.tags.length + filters.sources.length} open={panel !== null} onFilters={() => onPanel("filters")}
-              date={ref ? <Bar refAt={ref} editions={editions} search={location.search} navigate={navigate} /> : null} />
+              date={date} />
             {panel && <FilterPanel groups={tagGroups} filters={filters} onChange={setFilters} sources={SOURCES} /> }
           </div>
           <ActiveFilters filters={filters} onChange={setFilters} />
           <div className="app-main" ref={setMainEl}>
-            {body({ route, index, ref, edition, view: shown, mode, items, filters, older, prev, goTo, query: filters.query, clearQuery: () => setQuery(""), clearFilters: () => setFilters(NO_FILTERS) })}
+            {children({ items, filters, view: shown, mode, clearQuery: () => setQuery(""), clearFilters: () => setFilters(NO_FILTERS) })}
           </div>
         </section></div>
       </main>
     </div>
+  );
+}
+
+// A feed's items as sections. The date (edition bar or hidden h1) is the h1 and
+// card titles are h3, so each mode supplies the h2s: one hidden count in Ranked,
+// a visible heading per category in Grouped. A category the filters empty has
+// no section.
+function ItemSections({ items, view, mode }) {
+  const render = (list) => (view === "list"
+    ? <RowList>{list.map((item) => <ListRow key={item.id} item={item} />)}</RowList>
+    : <CardGrid>{list.map((item) => <Card key={item.id} item={item} />)}</CardGrid>);
+  return mode === "grouped"
+    ? groupedItems(items).map(({ category, items: group }) => (
+      <section className="app-sec" key={category.key} aria-labelledby={category.key}>
+        <SectionHeading name={category.label} count={group.length} id={category.key} />
+        {render(group)}
+      </section>))
+    : (
+      <section className="app-sec" aria-labelledby="items-heading">
+        <h2 className="app-sr" id="items-heading">{items.length} items</h2>
+        {render(items)}
+      </section>);
+}
+
+// A JSON document's load state: loading, ready with data, or error. `ref` null
+// means nothing to load yet; `key` is what makes a new ref a new load.
+function useLoaded(load, ref, key) {
+  const [state, setState] = React.useState({ status: "loading" });
+  React.useEffect(() => {
+    if (!ref) return undefined;
+    let live = true;
+    setState({ status: "loading" });
+    load(ref)
+      .then((data) => live && setState({ status: "ready", key, data }))
+      .catch((error) => live && setState({ status: "error", key, error }));
+    return () => {
+      live = false;
+    };
+  }, [key]);
+  // A result for an older ref is still loading as far as this one is concerned.
+  return state.status !== "loading" && state.key !== key ? { status: "loading" } : state;
+}
+
+// The ref for a document that has no ref: the index, which loads once.
+const ONCE = {};
+
+function EditionApp({ route, location, navigate, theme, onToggleTheme }) {
+  const index = useLoaded(loadIndex, ONCE, "index");
+  const editions = index.status === "ready" ? index.data.editions : [];
+  const ref = pickEdition(route, editions);
+  const edition = useLoaded(loadEdition, ref, ref && ref.date);
+
+  React.useEffect(() => {
+    document.title = ref ? `aiBytes_ · ${longDate(ref.date)}` : "aiBytes_";
+  }, [ref && ref.date]);
+
+  const older = ref && olderEdition(editions, ref.date);
+  // Paging back or forward keeps the filters, as the edition bar does.
+  const goTo = (date) => navigate(editionPath(date) + location.search);
+
+  return (
+    <FeedShell theme={theme} onToggleTheme={onToggleTheme} location={location} navigate={navigate}
+      skipLabel="Skip to the edition"
+      heading={ref ? `aiBytes_ edition, ${new Date(ref.date + "T12:00:00").toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}` : "aiBytes_"}
+      date={ref ? <Bar refAt={ref} editions={editions} search={location.search} navigate={navigate} /> : null}
+      all={edition.status === "ready" ? edition.data.items : null}>
+      {(feed) => <EditionFeed route={route} index={index} editionRef={ref} edition={edition} older={older} goTo={goTo} {...feed} />}
+    </FeedShell>
   );
 }
 
@@ -272,7 +308,8 @@ function Bar({ refAt, editions, search, navigate }) {
   );
 }
 
-function body({ route, index, ref, edition, view, mode, items, filters, older, prev, goTo, query, clearQuery, clearFilters }) {
+function EditionFeed({ route, index, editionRef: ref, edition, older, goTo, items, filters, view, mode, clearQuery, clearFilters }) {
+  const prev = usePrevious(items && !items.length ? older : null);
   const message = (text, role) => <StatusMessage role={role}>{text}</StatusMessage>;
   const toLatest = <a href="/">Go to the latest edition</a>;
 
@@ -290,7 +327,7 @@ function body({ route, index, ref, edition, view, mode, items, filters, older, p
   // reversible, and readers never see them. Empty means a filter emptied it,
   // since editions are never published empty. Paging back is offered only once
   // the older edition is known to have some; otherwise clearing is the way out.
-  if (!items.length && query.trim()) return <EmptyState query={query} onClearQuery={clearQuery} />;
+  if (!items.length && filters.query.trim()) return <EmptyState query={filters.query} onClearQuery={clearQuery} />;
   if (!items.length) {
     const what = describeFilters(filters);
     if (older && !prev) return <EmptyState category={what} />;
@@ -299,43 +336,54 @@ function body({ route, index, ref, edition, view, mode, items, filters, older, p
       ? <EmptyState category={what} prevLabel={shortDate(older.date)} prevCount={prevCount} onPrev={() => goTo(older.date)} />
       : <EmptyState category={what} onClear={clearFilters} />;
   }
-  const render = (list) => (view === "list"
-    ? <RowList>{list.map((item) => <ListRow key={item.id} item={item} />)}</RowList>
-    : <CardGrid>{list.map((item) => <Card key={item.id} item={item} />)}</CardGrid>);
-  // The date (edition bar or hidden h1) is the h1 and card titles are h3, so
-  // each mode supplies the h2s: one hidden count in Ranked, a visible heading
-  // per category in Grouped. A category the filters empty has no section.
   return (
     <>
-      {mode === "grouped"
-        ? groupedItems(items).map(({ category, items: group }) => (
-          <section className="app-sec" key={category.key} aria-labelledby={category.key}>
-            <SectionHeading name={category.label} count={group.length} id={category.key} />
-            {render(group)}
-          </section>))
-        : (
-          <section className="app-sec" aria-labelledby="items-heading">
-            <h2 className="app-sr" id="items-heading">{items.length} items</h2>
-            {render(items)}
-          </section>)}
+      <ItemSections items={items} view={view} mode={mode} />
       <EndCard dateLabel={shortDate(ref.date)} prevLabel={older ? shortDate(older.date) : undefined} onPrev={() => older && goTo(older.date)} />
     </>
   );
 }
 
-// /weekly — Ledger list of published issues.
-function WeeklyArchive({ theme, onToggleTheme }) {
-  const [weekly, setWeekly] = React.useState({ status: "loading" });
-  React.useEffect(() => {
-    document.title = "aiBytes_ · Weekly";
-    let live = true;
-    loadWeeklyIndex()
-      .then((data) => live && setWeekly({ status: "ready", data }))
-      .catch((error) => live && setWeekly({ status: "error", error }));
-    return () => { live = false; };
-  }, []);
+// A compact Substack subscribe bar at the top of a weekly issue, so a reader
+// arriving cold from social can subscribe without finding the sidebar.
+function SubscribeBar() {
+  return (
+    <aside className="weekly-subscribe" aria-label="Subscribe">
+      <p className="weekly-subscribe__text"><b>Get aiBytes_ every Monday.</b> The week in AI for developers, in your inbox.</p>
+      <a className="ldg-btn ldg-btn--primary weekly-subscribe__action" href={SUBSCRIBE_URL}>Subscribe</a>
+    </aside>
+  );
+}
 
-  const issues = weekly.status === "ready" ? weekly.data.issues || [] : [];
+// /weekly - every published issue, newest first. Issue links are plain hrefs:
+// each issue is its own built page, with its own title and canonical URL.
+function WeeklyArchive({ theme, onToggleTheme }) {
+  const weekly = useLoaded(loadWeeklyIndex, ONCE, "weekly");
+  React.useEffect(() => { document.title = "aiBytes_ · Weekly"; }, []);
+  const issues = weekly.status === "ready" ? weekly.data.issues : [];
+
+  let list;
+  if (weekly.status === "loading") list = <StatusMessage>Loading...</StatusMessage>;
+  else if (weekly.status === "error") list = <StatusMessage role="alert">Could not load the weekly archive: {weekly.error.message}</StatusMessage>;
+  else if (!issues.length) list = <StatusMessage>No weekly issues published yet.</StatusMessage>;
+  else {
+    list = (
+      <ol className="weekly-list">
+        {issues.map((issue) => (
+          <li key={issue.slug}>
+            <a className="weekly-issue" href={weeklyPath(issue.slug)}>
+              <span className="weekly-issue__meta">
+                <span>Issue #{issue.number}</span>
+                <time dateTime={issue.published_on}>{midDate(issue.published_on)}</time>
+              </span>
+              <span className="weekly-issue__title">{issue.title}</span>
+              {issue.description && <span className="weekly-issue__desc">{issue.description}</span>}
+            </a>
+          </li>
+        ))}
+      </ol>
+    );
+  }
 
   return (
     <div className="app-shell redesign" data-theme={theme}>
@@ -343,49 +391,15 @@ function WeeklyArchive({ theme, onToggleTheme }) {
       <AppHeader theme={theme} onToggleTheme={onToggleTheme} githubUrl={GITHUB_URL} />
       <main id="main" className="redesign-main" tabIndex={-1}>
         <div className="workspace">
-          <section className="feed" style={{ maxWidth: 720, margin: "0 auto", padding: "28px 20px 56px" }}>
-            <header style={{ marginBottom: 28 }}>
-              <p style={{ fontFamily: "var(--font-mono, ui-monospace, monospace)", fontSize: 12, letterSpacing: "0.08em", color: "var(--text-muted, var(--slate, #6B7080))", marginBottom: 8 }}>WEEKLY</p>
-              <h1 style={{ fontFamily: "var(--font-display, inherit)", fontSize: 28, fontWeight: 800, letterSpacing: "-0.02em", margin: "0 0 10px" }}>aiBytes_ archive</h1>
-              <p style={{ color: "var(--text-muted, var(--slate, #6B7080))", margin: "0 0 16px", lineHeight: 1.5 }}>
-                Every Monday issue on aibytes.io.{" "}
-                <a href={SUBSCRIBE_URL}>Subscribe</a>
-                {" · "}
-                <a href="/">Daily edition</a>
+          <section className="weekly-archive">
+            <header className="weekly-archive__head">
+              <p className="weekly-archive__kicker">Weekly</p>
+              <h1 className="weekly-archive__title">aiBytes_ archive</h1>
+              <p className="weekly-archive__lede">
+                Every Monday issue on aibytes.io. <a href={SUBSCRIBE_URL}>Subscribe</a> · <a href="/">Daily edition</a>
               </p>
             </header>
-            {weekly.status === "loading" && <StatusMessage>Loading...</StatusMessage>}
-            {weekly.status === "error" && (
-              <StatusMessage role="alert">Could not load the weekly archive: {weekly.error.message}</StatusMessage>
-            )}
-            {weekly.status === "ready" && !issues.length && (
-              <StatusMessage>No weekly issues published yet.</StatusMessage>
-            )}
-            {weekly.status === "ready" && issues.length > 0 && (
-              <ol style={{ listStyle: "none", margin: 0, padding: 0, display: "flex", flexDirection: "column", gap: 12 }}>
-                {issues.map((issue) => (
-                  <li key={issue.slug} style={{ border: "1px solid var(--border, var(--line, #E4E4DC))", borderRadius: 12, background: "var(--surface, var(--card, #fff))" }}>
-                    <a
-                      href={weeklyPath(issue.slug)}
-                      style={{ display: "block", padding: "16px 18px", color: "inherit", textDecoration: "none" }}
-                    >
-                      <div style={{ display: "flex", justifyContent: "space-between", gap: 12, marginBottom: 6, fontFamily: "var(--font-mono, ui-monospace, monospace)", fontSize: 12, color: "var(--text-muted, var(--slate, #6B7080))" }}>
-                        <span>Issue #{issue.number}</span>
-                        <time dateTime={issue.published_on}>{midDate(issue.published_on)}</time>
-                      </div>
-                      <div style={{ fontWeight: 700, fontSize: 17, lineHeight: 1.35, marginBottom: issue.description ? 6 : 0 }}>
-                        {issue.title}
-                      </div>
-                      {issue.description ? (
-                        <div style={{ fontSize: 14, lineHeight: 1.5, color: "var(--text-muted, var(--slate, #6B7080))" }}>
-                          {issue.description}
-                        </div>
-                      ) : null}
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            )}
+            {list}
           </section>
         </div>
       </main>
@@ -393,176 +407,56 @@ function WeeklyArchive({ theme, onToggleTheme }) {
   );
 }
 
-// /weekly/issue-N — same Ledger shell as the daily edition: side nav filters,
-// list/grid, ranked/grouped. Defaults to list + grouped. No intro block.
+// /weekly/issue-N - the issue's AI News, Products, Repos and HN in the same
+// shell as the daily edition. No intro block, Official Announcements or Viral on X.
 function WeeklyIssueApp({ route, location, navigate, theme, onToggleTheme }) {
-  const [view, setView] = useChoice(VIEW, "list");
-  const [mode, setMode] = useChoice(ORDER, "grouped");
-  const [weekly, setWeekly] = React.useState({ status: "loading" });
-  const [issue, setIssue] = React.useState({ status: "loading" });
-  const [tags, setTags] = React.useState({ status: "loading", groups: [] });
-  const tagGroups = tags.groups;
-  const [panel, setPanel] = React.useState(null);
-  const [menuRequested, setMenuOpen] = React.useState(false);
-  const mobile = useMedia("(max-width: 760px)");
-  const menuOpen = mobile && menuRequested;
-  React.useEffect(() => { if (!mobile) setMenuOpen(false); }, [mobile]);
-  const closePanel = React.useCallback(() => setPanel(null), []);
-  const sticky = React.useRef(null);
-  const shell = React.useRef(null);
-  const [mainEl, setMainEl] = React.useState(null);
-  const columns = useGridColumns(mainEl);
-  const shown = shownView(view, columns);
-  useDismiss(sticky, panel !== null, closePanel);
-  useReturnFocus(panel !== null);
-  useReturnFocus(menuOpen);
-
-  React.useEffect(() => {
-    if (!menuOpen) return;
-    const previous = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    const behind = [document.getElementById("main"), shell.current && shell.current.querySelector(".app-skip")].filter(Boolean);
-    behind.forEach((el) => { el.inert = true; });
-    return () => {
-      document.body.style.overflow = previous;
-      behind.forEach((el) => { el.inert = false; });
-    };
-  }, [menuOpen]);
-
-  React.useEffect(() => {
-    loadTags()
-      .then((data) => setTags({ status: "ready", groups: data.groups }))
-      .catch(() => setTags({ status: "failed", groups: [] }));
-  }, []);
-
-  const filters = parseFilters(location.search, tagGroups);
-  const setFilters = (next) => navigate(location.pathname + filtersToSearch(next, tagGroups), { replace: true });
-
-  React.useEffect(() => {
-    let live = true;
-    loadWeeklyIndex()
-      .then((data) => live && setWeekly({ status: "ready", data }))
-      .catch((error) => live && setWeekly({ status: "error", error }));
-    return () => { live = false; };
-  }, []);
-
-  const issues = weekly.status === "ready" ? weekly.data.issues || [] : [];
+  const weekly = useLoaded(loadWeeklyIndex, ONCE, "weekly");
+  const issues = weekly.status === "ready" ? weekly.data.issues : [];
   const ref = pickWeeklyIssue(route, issues);
+  const issue = useLoaded(loadWeeklyIssue, ref, ref && ref.slug);
 
   React.useEffect(() => {
-    if (!ref || !ref.path) {
-      setIssue({ status: ref ? "error" : "loading", error: ref ? new Error("weekly issue has no path") : undefined });
-      return undefined;
-    }
-    let live = true;
-    setIssue({ status: "loading" });
-    loadWeeklyIssue(ref)
-      .then((data) => live && setIssue({ status: "ready", data }))
-      .catch((error) => live && setIssue({ status: "error", error }));
-    return () => { live = false; };
-  }, [ref && ref.slug, ref && ref.path]);
+    document.title = ref ? `aiBytes_ · Issue #${ref.number}: ${ref.title}` : "aiBytes_ · Weekly";
+  }, [ref && ref.slug]);
 
-  React.useEffect(() => {
-    document.title = ref ? `aiBytes_ · Issue #${ref.number}` : "aiBytes_ · Weekly";
-  }, [ref && ref.number]);
-
-  const visible = issue.status === "ready" && ref && issue.data.slug === ref.slug
-    ? issue.data.items.filter((item) => !item.hidden) : null;
-  const categories = CATEGORIES.map((c) => ({ ...c, count: visible ? visible.filter((i) => i.category === c.key).length : undefined }));
-  const onPanel = (name) => setPanel((open) => (open === name ? null : name));
-  const filterable = Boolean(visible) && tags.status !== "loading";
-  const items = visible && rankedItems(issue.data.items)
-    .filter((item) => !item.hidden && matches(item, filters));
   const older = ref && olderWeeklyIssue(issues, ref.slug);
-  const setCategory = (key) => setFilters({ ...filters, category: key });
-  const setQuery = (query) => setFilters({ ...filters, query });
   const goTo = (slug) => navigate(weeklyPath(slug) + location.search);
 
-  const message = (text, role) => <StatusMessage role={role}>{text}</StatusMessage>;
-  let feed;
-  if (weekly.status === "loading" || (ref && issue.status === "loading" && !visible)) {
-    feed = message("Loading...");
-  } else if (weekly.status === "error") {
-    feed = message(`Could not load the weekly archive: ${weekly.error.message}`, "alert");
-  } else if (!ref) {
-    feed = message(<>No weekly issue at this address. <a href={weeklyPath()}>Back to the archive</a>.</>);
-  } else if (issue.status === "error") {
-    feed = message(`Could not load the issue: ${issue.error.message}`, "alert");
-  } else if (!items) {
-    feed = message("Loading the issue...");
-  } else if (!items.length && filters.query.trim()) {
-    feed = <EmptyState query={filters.query} onClearQuery={() => setQuery("")} />;
-  } else if (!items.length) {
-    feed = <EmptyState category={describeFilters(filters)} onClear={() => setFilters(NO_FILTERS)} />;
-  } else {
-    const render = (list) => (shown === "list"
-      ? <RowList>{list.map((item) => <ListRow key={item.id} item={item} />)}</RowList>
-      : <CardGrid>{list.map((item) => <Card key={item.id} item={item} />)}</CardGrid>);
-    feed = (
-      <>
-        {mode === "grouped"
-          ? groupedItems(items).map(({ category, items: group }) => (
-            <section className="app-sec" key={category.key} aria-labelledby={category.key}>
-              <SectionHeading name={category.label} count={group.length} id={category.key} />
-              {render(group)}
-            </section>))
-          : (
-            <section className="app-sec" aria-labelledby="items-heading">
-              <h2 className="app-sr" id="items-heading">{items.length} items</h2>
-              {render(items)}
-            </section>)}
-        <EndCard
-          dateLabel={`Issue #${ref.number}`}
-          prevLabel={older ? `Issue #${older.number}` : undefined}
-          onPrev={() => older && goTo(older.slug)}
-        />
-      </>
-    );
-  }
-
   return (
-    <div className={"app-shell redesign" + (shown === "grid" ? " redesign-grid" : "") + (menuOpen ? " mobile-menu-open" : "")} ref={shell} data-theme={theme}>
-      <a className="app-skip" href="#main">Skip to the issue</a>
-      <AppHeader theme={theme} onToggleTheme={onToggleTheme} menuOpen={menuOpen} onMenu={() => setMenuOpen((o) => !o)} githubUrl={GITHUB_URL} />
-      <Sidebar categories={categories} count={visible?.length} active={filters.category} open={menuOpen} onClose={() => setMenuOpen(false)}
-        links={SIDEBAR_LINKS} subscribeUrl={SUBSCRIBE_URL}
-        onCategory={(key) => { if (filterable) setCategory(key); setMenuOpen(false); }} />
-      <main id="main" className="redesign-main" tabIndex={-1}>
-        <h1 className="app-sr">{ref ? `aiBytes_ weekly issue #${ref.number}` : "aiBytes_ weekly"}</h1>
-        <div className="workspace"><section className="feed">
-          <div ref={sticky} className="toolbar-slot">
-            <Toolbar
-              count={items ? `${items.length} items` : null}
-              query={filters.query}
-              onQuery={setQuery}
-              view={view}
-              onView={columns > 1 ? setView : undefined}
-              mode={mode}
-              onMode={setMode}
-              disabled={!filterable}
-              filterCount={filters.tags.length + filters.sources.length}
-              open={panel !== null}
-              onFilters={() => onPanel("filters")}
-              date={ref ? <WeeklyBar refAt={ref} navigate={navigate} /> : null}
-            />
-            {panel && <FilterPanel groups={tagGroups} filters={filters} onChange={setFilters} sources={SOURCES} />}
-          </div>
-          <ActiveFilters filters={filters} onChange={setFilters} />
-          <div className="app-main" ref={setMainEl}>{feed}</div>
-        </section></div>
-      </main>
-    </div>
+    <FeedShell theme={theme} onToggleTheme={onToggleTheme} location={location} navigate={navigate}
+      skipLabel="Skip to the issue"
+      heading={ref ? `aiBytes_ weekly issue #${ref.number}: ${ref.title}` : "aiBytes_ weekly"}
+      date={ref ? <WeeklyBar refAt={ref} navigate={navigate} /> : null}
+      all={issue.status === "ready" ? issue.data.items : null}>
+      {({ items, filters, view, mode, clearQuery, clearFilters }) => {
+        const message = (text, role) => <StatusMessage role={role}>{text}</StatusMessage>;
+        let feed;
+        if (weekly.status === "loading") feed = message("Loading...");
+        else if (weekly.status === "error") feed = message(`Could not load the weekly archive: ${weekly.error.message}`, "alert");
+        else if (!ref) feed = message(<>No weekly issue at this address. <a href={weeklyPath()}>Back to the archive</a>.</>);
+        else if (issue.status === "error") feed = message(`Could not load the issue: ${issue.error.message}`, "alert");
+        else if (!items) feed = message("Loading the issue...");
+        else if (!items.length && filters.query.trim()) feed = <EmptyState query={filters.query} onClearQuery={clearQuery} />;
+        else if (!items.length) feed = <EmptyState category={describeFilters(filters)} onClear={clearFilters} />;
+        else {
+          feed = (
+            <>
+              <ItemSections items={items} view={view} mode={mode} />
+              <EndCard dateLabel={`Issue #${ref.number}`} prevLabel={older ? `Issue #${older.number}` : undefined}
+                onPrev={() => older && goTo(older.slug)} note="That's the week. Next issue Monday." prevText="Previous issue" />
+            </>
+          );
+        }
+        return <><SubscribeBar />{feed}</>;
+      }}
+    </FeedShell>
   );
 }
 
+// The toolbar's date control on an issue. The calendar is a date grid and
+// issues are numbered, so the control opens the archive instead.
 function WeeklyBar({ refAt, navigate }) {
-  // CalendarPopover is date-grid based; weekly issues use Issue #N, so the
-  // control opens the archive instead of a month grid.
   return (
-    <EditionBar
-      dateLabel={`Issue #${refAt.number}`}
-      onDateClick={() => navigate(weeklyPath())}
-      calendarOpen={false}
-    />
+    <EditionBar dateLabel={`Issue #${refAt.number}`} onDateClick={() => navigate(weeklyPath())} calendarOpen={false} />
   );
 }

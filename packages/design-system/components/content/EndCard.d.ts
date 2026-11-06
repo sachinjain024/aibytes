@@ -4,5 +4,9 @@ export interface EndCardProps {
   dateLabel: string;
   prevLabel?: string;
   onPrev?: () => void;
+  /** The line under "You're all caught up." Defaults to "A little more informed. See you tomorrow." */
+  note?: string;
+  /** The back button's text. Defaults to "Previous edition". */
+  prevText?: string;
 }
 export declare function EndCard(props: EndCardProps): JSX.Element;
