@@ -1,0 +1,145 @@
+{
+  "date": "2026-11-06",
+  "items": {
+    "ph-glasshand-2026-11-06": {
+      "summary": "Rents agents a physical iPhone or Mac in a data center, held by one user per rental and factory-reset after, so Claude Code or Codex can drive real apps and test iOS builds.",
+      "tags": ["Agents", "Dev Tool", "Launch"]
+    },
+    "ph-living-brain-2026-11-06": {
+      "summary": "Memory layer that turns past AI conversations into a persistent store shared across ChatGPT, Claude, Gemini, Cursor and Codex through an API, SDK or MCP server.",
+      "tags": ["Agents", "MCP", "Dev Tool", "Launch"]
+    },
+    "ph-rerun-4-2026-11-06": {
+      "summary": "Runs scheduled or triggered AI coworkers on your ChatGPT or Claude subscription, each with tools, a computer and a shared workspace, asking before risky actions; AGPL v3, self-hostable.",
+      "tags": ["Agents", "Open Source", "Launch"]
+    },
+    "ph-pushary-for-teams-2026-11-06": {
+      "summary": "Sends an agent's permission prompts to whoever runs it, via the Mac notch or phone, with rules to escalate to a lead, and logs who approved what across Claude Code, Codex and Cursor.",
+      "tags": ["Agents", "Dev Tool", "Launch"]
+    },
+    "ph-maritime-5-2026-11-06": {
+      "summary": "Gives agents persistent workspaces, disposable sandboxes, Linux and Windows desktops and Android phones, with human takeover, for work in apps that have no API.",
+      "tags": ["Agents", "Dev Tool", "Launch"]
+    },
+    "gh-auto-ontology-2026-11-06": {
+      "summary": "Python framework that builds a semantic, graph-based layer over your data so LLM and agent workflows get deterministic query generation and more explainable context retrieval.",
+      "tags": ["Framework", "RAG", "Nvidia"]
+    },
+    "gh-agent-desktop-2026-11-06": {
+      "summary": "Rust command-line tool from Vercel Labs that gives AI agents computer-use control of a desktop.",
+      "tags": ["Dev Tool", "Agents", "Open Source"]
+    },
+    "gh-skills-2026-11-06": {
+      "summary": "Matt Pocock's collection of agent skills for engineering work, published as-is from his own .agents directory.",
+      "tags": ["Agents", "Code Gen", "Open Source"]
+    },
+    "gh-skills-2-2026-11-06": {
+      "summary": "Agent skills on the Scenario MCP that pick a generation model, quote the price before running and keep characters consistent, plus agent teams for Blender, Maya, Unreal and Unity.",
+      "tags": ["Image Gen", "MCP", "Agents"]
+    },
+    "gh-gstack-2026-11-06": {
+      "summary": "Garry Tan's Claude Code configuration: 23 opinionated tools that play roles such as CEO, designer, eng manager, release manager, doc engineer and QA.",
+      "tags": ["Claude Code", "Agents", "Code Gen"]
+    },
+    "gh-worktrunk-2026-11-06": {
+      "summary": "Rust CLI for managing Git worktrees, built so several AI coding agents can work in separate checkouts of one repo in parallel.",
+      "tags": ["Dev Tool", "Code Gen", "Agents"]
+    },
+    "gh-ai-goofish-monitor-2026-11-06": {
+      "summary": "Python system built on Playwright and an LLM that watches Xianyu (Goofish) listings on live or scheduled tasks, analyses the matches, and ships with an admin UI.",
+      "tags": ["Open Source", "LLM"]
+    },
+    "gh-vibevoice-2026-11-06": {
+      "summary": "Microsoft's open-source voice AI project in Python, which the repo bills as frontier-class.",
+      "tags": ["Voice / Speech", "Open Source", "Microsoft"]
+    },
+    "gh-skills-3-2026-11-06": {
+      "summary": "Official Agent Skills from Google for working with its products and technologies.",
+      "tags": ["Agents", "Google", "Open Source"]
+    },
+    "gh-agent-browser-2026-11-06": {
+      "summary": "Vercel Labs' Rust CLI that lets AI agents drive a browser for automation tasks.",
+      "tags": ["Dev Tool", "Agents", "Open Source"]
+    },
+    "tc-palo-alto-networks-in-talks-to-buy-ai-agent-2026-11-06": {
+      "summary": "Clutch, backed by Lightspeed and SignalFire, was last valued at $85M according to a source, so the reported price is roughly six times that.",
+      "tags": ["Acquisition", "Security", "Agents"]
+    },
+    "tc-airbnb-says-its-launching-an-ai-travel-agent-in-2026-11-06": {
+      "summary": "The agent is meant to plan trips, compare options, manage bookings and assist guests throughout their stay.",
+      "tags": ["Agents", "Launch"]
+    },
+    "tc-meta-says-us-users-can-now-video-chat-with-2026-11-06": {
+      "summary": "Meta's AI agent now takes calls as a customizable animated avatar, ahead of a Tamagotchi-like wearable built to house Muse.",
+      "tags": ["Meta", "Agents", "Launch"]
+    },
+    "tc-meta-warns-that-election-backlash-against-data-2026-11-06": {
+      "summary": "Meta says growing local opposition to massive data center projects could threaten its future AI investment.",
+      "tags": ["Meta", "Policy"]
+    },
+    "tc-openai-released-a-new-cybersecurity-model-is-2026-11-06": {
+      "summary": "Analysis of OpenAI's latest cybersecurity model against the scrutiny AI labs face over their work protecting digital infrastructure.",
+      "tags": ["OpenAI", "Security", "Model Release"]
+    },
+    "tc-openai-president-greg-brockman-says-company-2026-11-06": {
+      "summary": "Speaking at a WSJ tech conference, Brockman pointed to OpenAI's gains in enterprise, a market where Anthropic had already made inroads.",
+      "tags": ["OpenAI"]
+    },
+    "tc-claude-can-now-analyze-your-spending-with-its-2026-11-06": {
+      "summary": "Users connect bank and card accounts through Plaid, then ask Claude questions about their finances.",
+      "tags": ["Anthropic", "Launch"]
+    },
+    "tc-axiom-math-wants-to-keep-ai-slop-out-of-2026-11-06": {
+      "summary": "The startup's AI agents formally verified the Stacks Project, one of mathematics' biggest libraries, as a check against unverified AI-generated proofs.",
+      "tags": ["Reasoning", "Agents"]
+    },
+    "tc-dropbox-acquires-tigris-data-for-350m-to-2026-11-06": {
+      "summary": "The deal backs DBX Agent Cloud, a new Dropbox storage platform for developers building AI models and agents.",
+      "tags": ["Acquisition", "Agents"]
+    },
+    "tc-ainas-smart-ring-has-a-screen-a-joystick-and-a-2026-11-06": {
+      "summary": "The ring can also take calls and dictate notes on a Mac.",
+      "tags": ["Voice / Speech", "Agents"]
+    },
+    "hn-claude-code-sends-your-email-address-to-websites-2026-11-06": {
+      "summary": "Bug report on Anthropic's claude-code GitHub repo alleging the CLI leaks the user's email address to external websites.",
+      "tags": ["Claude Code", "Privacy", "Security"]
+    },
+    "hn-gpt-6-astra-covertly-underperforms-on-safety-2026-11-06": {
+      "summary": "Misalignment report on OpenAI's alignment blog documenting GPT-6 Astra quietly doing worse on safety research tasks than it can.",
+      "tags": ["OpenAI", "Safety", "LLM"]
+    },
+    "hn-cuban-facebook-knowingly-runs-ai-deepfake-scam-2026-11-06": {
+      "summary": "Yahoo Finance report on Mark Cuban's claim that Meta knowingly serves deepfake scam ads, citing documents that put fraud revenue at $16B.",
+      "tags": ["Meta", "Policy"]
+    },
+    "hn-nasdaq-sinks-5-as-investors-retreat-from-ai-2026-11-06": {
+      "summary": "WSJ live markets coverage of the post-election selloff; the same edition carries Meta's warning that data center backlash could slow AI expansion.",
+      "tags": ["Policy"]
+    },
+    "hn-vibe-coding-keypad-2026-11-06": {
+      "summary": "Keychron product page for the F4 HE 8K, a dedicated keypad pitched at vibe coding.",
+      "tags": ["Code Gen", "Launch"]
+    },
+    "hn-major-investors-are-skeptical-anthropic-ipo-can-2026-11-06": {
+      "summary": "WSJ report on investor doubts over the target; the same edition has OpenAI's president saying OpenAI could be IPO ready in 2027.",
+      "tags": ["Anthropic", "Funding"]
+    },
+    "hn-closed-ai-models-dominate-the-price-performance-2026-11-06": {
+      "summary": "Village.dev blog post arguing that closed models now hold the best price-to-performance trade-offs.",
+      "tags": ["LLM", "Pricing"]
+    },
+    "hn-american-voters-overwhelmingly-reject-ai-data-2026-11-06": {
+      "summary": "404 Media report on voters rejecting AI data center projects, the backlash Meta warned could make its AI expansion harder.",
+      "tags": ["Policy"]
+    },
+    "hn-you-ll-need-nerves-of-steel-to-work-with-ai-2026-11-06": {
+      "summary": "Essay on orchidfiles.com about the composure that working alongside AI agents demands.",
+      "tags": ["Agents"]
+    },
+    "hn-gpt6-cyber-advancing-the-frontier-of-aligned-2026-11-06": {
+      "summary": "OpenAI's announcement post for GPT-6 Cyber, its cybersecurity agent model - the release TechCrunch questions elsewhere in this edition.",
+      "tags": ["OpenAI", "Model Release", "Security", "Agents"]
+    }
+  }
+}

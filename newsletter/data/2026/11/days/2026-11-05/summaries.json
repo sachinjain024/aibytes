@@ -1,0 +1,141 @@
+{
+  "date": "2026-11-05",
+  "items": {
+    "ph-wanaka-studio-2026-11-05": {
+      "summary": "An AI agent builds a 3D game that stays synced with a visual editor, with auto-rigging, multiplayer and one-click publishing built into the engine.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-floot-payments-2026-11-05": {
+      "summary": "Ask ChatGPT, Claude or Cursor for a subscription, checkout or shipping labels and Floot wires it up on Stripe, with no API keys or webhooks to manage.",
+      "tags": ["Code Gen", "Launch"]
+    },
+    "ph-prelulu-2026-11-05": {
+      "summary": "Interactive stories with AI characters you can text or roleplay with over live video avatars, plus a builder for your own avatar-backed characters.",
+      "tags": ["Video", "Launch"]
+    },
+    "ph-render-sandboxes-2026-11-05": {
+      "summary": "Isolated Linux machines per agent that boot in under a second, run Docker Compose, restrict outbound domains, and suspend with files and memory intact when idle.",
+      "tags": ["Dev Tool", "Agents", "Launch"]
+    },
+    "ph-openmail-2026-11-05": {
+      "summary": "One API call gives each agent its own inbox on your domain with separate sending reputation; inbound mail arrives by webhook or WebSocket, with a hosted MCP server.",
+      "tags": ["API", "Agents", "MCP", "Launch"]
+    },
+    "gh-agent-desktop-2026-11-05": {
+      "summary": "A Rust command-line tool from Vercel Labs that lets AI agents drive a desktop through computer use.",
+      "tags": ["Dev Tool", "Agents", "Open Source"]
+    },
+    "gh-auto-ontology-2026-11-05": {
+      "summary": "Nvidia's Python framework for building graph-based semantic layers over data, so LLM agents generate deterministic queries and retrieve context they can explain.",
+      "tags": ["Framework", "RAG", "Nvidia"]
+    },
+    "gh-skills-2026-11-05": {
+      "summary": "Matt Pocock's personal agent skills, published as shell scripts straight from his .agents directory.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-claude-mem-2026-11-05": {
+      "summary": "Records what an agent does in a session, compresses it with an LLM, and injects the relevant parts into later sessions; supports Claude Code, Codex, Gemini and others.",
+      "tags": ["Dev Tool", "Agents", "Claude Code"]
+    },
+    "gh-moneyprinterturbo-2026-11-05": {
+      "summary": "Python pipeline that turns a topic or keyword into a finished HD short video using LLMs and an automated workflow, documented in Chinese and English.",
+      "tags": ["Open Source", "Video"]
+    },
+    "gh-worktrunk-2026-11-05": {
+      "summary": "A Rust CLI that creates and manages Git worktrees so several coding agents can work on the same repo in parallel without colliding.",
+      "tags": ["Dev Tool", "Agents", "Open Source"]
+    },
+    "gh-kimi-k3-in-c-2026-11-05": {
+      "summary": "Portable C99 inference for the 2.78T-parameter Kimi K3 that runs on one CPU in 8.24 GB of RAM, with no BLAS, framework or GPU.",
+      "tags": ["Open Source", "Inference", "Local LLM"]
+    },
+    "gh-gstack-2026-11-05": {
+      "summary": "Garry Tan's Claude Code configuration: 23 opinionated tools that play roles such as designer, eng manager, release manager and QA.",
+      "tags": ["Dev Tool", "Agents", "Claude Code"]
+    },
+    "gh-skills-2-2026-11-05": {
+      "summary": "Agent skills over the Scenario MCP that pick an image, video, audio or 3D model, quote cost before running, and keep characters consistent; also drives Blender and Unity.",
+      "tags": ["Agents", "Image Gen", "MCP"]
+    },
+    "gh-horizon-2026-11-05": {
+      "summary": "A Python news radar you run yourself that uses AI to compile daily briefings in English and Chinese.",
+      "tags": ["Open Source", "LLM"]
+    },
+    "tc-apple-is-reportedly-cutting-budgets-for-its-2026-11-05": {
+      "summary": "The reported cuts target what Apple spends on AI tools for its own engineering teams, not its consumer AI features.",
+      "tags": ["Apple", "Pricing"]
+    },
+    "tc-after-the-midterms-a-bigger-clash-over-data-2026-11-05": {
+      "summary": "Opposition to new data centers crossed party lines in Tuesday's US midterms, setting up wider fights over where AI compute gets built.",
+      "tags": ["Policy"]
+    },
+    "tc-ai-pacs-spent-millions-trying-to-shape-congress-2026-11-05": {
+      "summary": "Industry-funded AI PACs saw mixed results in the 2026 midterms and are already planning for the next election cycle.",
+      "tags": ["Policy"]
+    },
+    "tc-nothing-ceo-says-companys-mysterious-ai-first-2026-11-05": {
+      "summary": "Nothing has not said what form the device takes, only that it is built around AI for productivity.",
+      "tags": ["Launch"]
+    },
+    "tc-almost-no-one-uses-ai-agents-to-book-their-uber-2026-11-05": {
+      "summary": "In its busiest week last quarter, Uber says just four rides were booked through an AI agent.",
+      "tags": ["Agents"]
+    },
+    "tc-openai-is-already-trying-to-shape-the-2028-2026-11-05": {
+      "summary": "OpenAI policy chief Chris Lehane is pitching a new social contract around AI as a 2028 campaign theme, one that also serves OpenAI's business.",
+      "tags": ["OpenAI", "Policy"]
+    },
+    "tc-meta-acquires-ai-coding-startup-conductor-2026-11-05": {
+      "summary": "Conductor lets engineers run teams of coding agents on different parts of one project at the same time.",
+      "tags": ["Meta", "Acquisition", "Code Gen", "Agents"]
+    },
+    "tc-open-source-ai-is-booming-hugging-face-explains-2026-11-05": {
+      "summary": "Video: Hugging Face's Irene Solaiman on Equity, covering what startups should know when building on open models and how to vet the tooling around them.",
+      "tags": ["Hugging Face", "Open Source"]
+    },
+    "tc-building-on-open-source-ai-hugging-faces-policy-2026-11-05": {
+      "summary": "Equity podcast episode with Irene Solaiman on evaluating open models and their tooling, and keeping the open ecosystem secure.",
+      "tags": ["Hugging Face", "Open Source", "Security"]
+    },
+    "hn-ai-is-forcing-us-to-pay-off-40-years-of-2026-11-05": {
+      "summary": "An IEEE Spectrum feature on AI in cybersecurity, built around the PHP2Shell vulnerability.",
+      "tags": ["Security", "Deep Dive"]
+    },
+    "hn-tell-hn-gemini-trains-on-chat-history-even-for-2026-11-05": {
+      "summary": "A Hacker News text post warning that Google uses Gemini chats from personal accounts for training, paid subscriptions included.",
+      "tags": ["Google", "Privacy"]
+    },
+    "hn-kimi-k3-1-pro-model-weights-are-out-2026-11-05": {
+      "summary": "Moonshot AI's Kimi K3.1 Pro is up on Hugging Face as an open-weights release, following the K3 that a C99 port in today's repos runs on a single CPU.",
+      "tags": ["Model Release", "Open Source", "LLM"]
+    },
+    "hn-geoffrey-hinton-it-might-turn-out-we-were-2026-11-05": {
+      "summary": "The Guardian interviews Geoffrey Hinton, who says AI's net effect on society may end up negative.",
+      "tags": ["Safety"]
+    },
+    "hn-a-thousand-fewer-paths-to-root-2026-11-05": {
+      "summary": "A security post on OpenAI's own blog about removing privilege-escalation paths to root.",
+      "tags": ["OpenAI", "Security"]
+    },
+    "hn-ask-hn-what-s-your-current-ai-agentic-setup-2026-11-05": {
+      "summary": "An Ask HN thread where developers describe the agent tools, harnesses and workflows they use day to day.",
+      "tags": ["Agents", "Code Gen"]
+    },
+    "hn-images-2-6-2026-11-05": {
+      "summary": "OpenAI's release post for version 2.6 of its Images model.",
+      "tags": ["Model Release", "Image Gen", "OpenAI"]
+    },
+    "hn-openai-to-acquire-pierre-computer-company-2026-11-05": {
+      "summary": "OpenAI's announcement, on its own blog, of a deal to buy Pierre Computer Company.",
+      "tags": ["OpenAI", "Acquisition"]
+    },
+    "hn-progress-on-provable-inference-for-large-2026-11-05": {
+      "summary": "An Anthropic research post reporting its progress on provable inference for LLMs.",
+      "tags": ["Paper", "Inference", "Anthropic"]
+    },
+    "hn-qualcomm-cloud-ai-100-ultra-150w-ai-accelerator-2026-11-05": {
+      "summary": "Qualcomm's data-center product page for its Cloud AI 100 Ultra inference card.",
+      "tags": ["Inference"]
+    }
+  }
+}

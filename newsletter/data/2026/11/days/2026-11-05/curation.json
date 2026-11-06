@@ -1,0 +1,778 @@
+{
+  "date": "2026-11-05",
+  "generated_at": "2026-11-05T08:00:24Z",
+  "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
+  "tags": [
+    {
+      "name": "What it is",
+      "tags": [
+        {
+          "name": "Model Release",
+          "slug": "model-release"
+        },
+        {
+          "name": "Open Source",
+          "slug": "open-source"
+        },
+        {
+          "name": "Paper",
+          "slug": "paper"
+        },
+        {
+          "name": "Benchmark",
+          "slug": "benchmark"
+        },
+        {
+          "name": "Dataset",
+          "slug": "dataset"
+        },
+        {
+          "name": "Framework",
+          "slug": "framework"
+        },
+        {
+          "name": "Dev Tool",
+          "slug": "dev-tool"
+        },
+        {
+          "name": "API",
+          "slug": "api"
+        }
+      ]
+    },
+    {
+      "name": "Domain",
+      "tags": [
+        {
+          "name": "LLM",
+          "slug": "llm"
+        },
+        {
+          "name": "Agents",
+          "slug": "agents"
+        },
+        {
+          "name": "RAG",
+          "slug": "rag"
+        },
+        {
+          "name": "Fine-tuning",
+          "slug": "fine-tuning"
+        },
+        {
+          "name": "Inference",
+          "slug": "inference"
+        },
+        {
+          "name": "Local LLM",
+          "slug": "local-llm"
+        },
+        {
+          "name": "Vision",
+          "slug": "vision"
+        },
+        {
+          "name": "Voice / Speech",
+          "slug": "voice-speech"
+        },
+        {
+          "name": "Video",
+          "slug": "video"
+        },
+        {
+          "name": "Image Gen",
+          "slug": "image-gen"
+        },
+        {
+          "name": "Code Gen",
+          "slug": "code-gen"
+        },
+        {
+          "name": "Embeddings",
+          "slug": "embeddings"
+        },
+        {
+          "name": "Eval",
+          "slug": "eval"
+        },
+        {
+          "name": "Reasoning",
+          "slug": "reasoning"
+        },
+        {
+          "name": "Multimodal",
+          "slug": "multimodal"
+        },
+        {
+          "name": "Robotics",
+          "slug": "robotics"
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem",
+      "tags": [
+        {
+          "name": "OpenAI",
+          "slug": "openai"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic"
+        },
+        {
+          "name": "Google",
+          "slug": "google"
+        },
+        {
+          "name": "Meta",
+          "slug": "meta"
+        },
+        {
+          "name": "Nvidia",
+          "slug": "nvidia"
+        },
+        {
+          "name": "Hugging Face",
+          "slug": "hugging-face"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft"
+        },
+        {
+          "name": "Claude Code",
+          "slug": "claude-code"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor"
+        },
+        {
+          "name": "MCP",
+          "slug": "mcp"
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "tags": [
+        {
+          "name": "Funding",
+          "slug": "funding"
+        },
+        {
+          "name": "Acquisition",
+          "slug": "acquisition"
+        },
+        {
+          "name": "Launch",
+          "slug": "launch"
+        },
+        {
+          "name": "Pricing",
+          "slug": "pricing"
+        },
+        {
+          "name": "Policy",
+          "slug": "policy"
+        },
+        {
+          "name": "Legal",
+          "slug": "legal"
+        },
+        {
+          "name": "Security",
+          "slug": "security"
+        },
+        {
+          "name": "Privacy",
+          "slug": "privacy"
+        },
+        {
+          "name": "Safety",
+          "slug": "safety"
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "tags": [
+        {
+          "name": "Show HN",
+          "slug": "show-hn"
+        },
+        {
+          "name": "Tutorial",
+          "slug": "tutorial"
+        },
+        {
+          "name": "Deep Dive",
+          "slug": "deep-dive"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ph-wanaka-studio-2026-11-05",
+      "title": "Wanaka Studio",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/wanaka-studio",
+      "source_url": "https://www.producthunt.com/products/wanaka-studio",
+      "source_text": "Wanaka Studio Make and publish 3D games with the first AI game engine The first all-in-one, AI-native game engine. An AI agent builds your AAA-style 3D game. You can edit it directly in a synced visual editor. No code. Auto-rigging, multiplayer, and 1-click publish built in. Uses ~80% fewer tokens and generates faster than Claude Opus 5.5 + Unity. Artificial Intelligence Games No-Code",
+      "signals": {
+        "upvotes": 416,
+        "comments": 105
+      },
+      "published_at": "2026-11-04T08:01:00Z"
+    },
+    {
+      "id": "ph-floot-payments-2026-11-05",
+      "title": "Floot Payments",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/floot",
+      "source_url": "https://www.producthunt.com/products/floot",
+      "source_text": "Floot Payments Take payments in apps you build in ChatGPT and Claude Floot apps can now take real money. Ask your AI in ChatGPT, Claude or Cursor for \"a $9/month plan\", \"a checkout for this course\" or \"shipping labels for my orders\", and Floot sets it up: subscriptions with a billing page, one-time payments, tickets and deposits, coupons and refunds, plus shipping with live rates, labels and tracking. Runs on Stripe, no API keys or webhooks. Test free in preview, go live when you publish. Payments Artificial Intelligence Vibe coding",
+      "signals": {
+        "upvotes": 314,
+        "comments": 86
+      },
+      "published_at": "2026-11-04T08:01:00Z"
+    },
+    {
+      "id": "ph-prelulu-2026-11-05",
+      "title": "Prelulu",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/prelulu",
+      "source_url": "https://www.producthunt.com/products/prelulu",
+      "source_text": "Prelulu Be the main character: chat & video roleplay any story Immersive stories with AI characters you can text or video roleplay with. It's our first time bringing real-time avatar technology to consumer scale. You can create your own characters with live avatar capability. Artificial Intelligence Games Entertainment",
+      "signals": {
+        "upvotes": 261,
+        "comments": 52
+      },
+      "published_at": "2026-11-04T08:01:00Z"
+    },
+    {
+      "id": "ph-render-sandboxes-2026-11-05",
+      "title": "Render Sandboxes",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/render",
+      "source_url": "https://www.producthunt.com/products/render",
+      "source_text": "Render Sandboxes A computer for every agent Render Sandboxes give every agent its own isolated Linux computer. Sandboxes starts in under a second and can run any agent or harness, like Claude Code or Codex. Your agent can also run your app with Docker Compose to test its changes. You decide which domains each sandbox can reach. When your agent goes idle, the sandbox suspends and compute charges stop. It wakes with files and memory intact. And you can reliably run thousands at once - all on the same platform as the rest of your app. Developer Tools Artificial Intelligence SDK",
+      "signals": {
+        "upvotes": 229,
+        "comments": 10
+      },
+      "published_at": "2026-11-04T08:01:00Z"
+    },
+    {
+      "id": "ph-openmail-2026-11-05",
+      "title": "OpenMail",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/openmail",
+      "source_url": "https://www.producthunt.com/products/openmail",
+      "source_text": "OpenMail Give your AI agents an identity through email Your agents sign up for tools, receive verification codes and reply to customers, mostly from your Gmail or a shared sending pool where one bad actor gets everyone flagged. OpenMail gives every AI agent its own inbox on your domain with its own sending reputation, for one API call each. Incoming mail reaches your code over webhook or WebSocket, attachments arrive as text, and there's a hosted MCP server and a Hermes plugin. Built and hosted in the EU, free for 3 inboxes. Email Developer Tools Artificial Intelligence",
+      "signals": {
+        "upvotes": 196,
+        "comments": 34
+      },
+      "published_at": "2026-11-04T08:01:00Z"
+    },
+    {
+      "id": "gh-agent-desktop-2026-11-05",
+      "title": "vercel-labs/agent-desktop",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/vercel-labs/agent-desktop",
+      "source_url": "https://github.com/vercel-labs/agent-desktop",
+      "source_text": "vercel-labs/agent-desktop Computer use CLI for AI agents Rust",
+      "signals": {
+        "stars": 15817,
+        "stars_gained": 2470,
+        "forks": 1103
+      },
+      "meta": {
+        "language": "Rust"
+      }
+    },
+    {
+      "id": "gh-auto-ontology-2026-11-05",
+      "title": "NVIDIA/auto-ontology",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/NVIDIA/auto-ontology",
+      "source_url": "https://github.com/NVIDIA/auto-ontology",
+      "source_text": "NVIDIA/auto-ontology Auto Ontology is a Python framework for building semantic, graph-based reasoning layers over data. It enables deterministic query generation, better context retrieval, and more explainable AI for LLM and agent workflows. Python",
+      "signals": {
+        "stars": 5896,
+        "stars_gained": 2050,
+        "forks": 461
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-skills-2026-11-05",
+      "title": "mattpocock/skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills",
+      "source_text": "mattpocock/skills Skills for Real Engineers. Straight from my .agents directory. Shell",
+      "signals": {
+        "stars": 313807,
+        "stars_gained": 1379,
+        "forks": 26310
+      },
+      "meta": {
+        "language": "Shell"
+      }
+    },
+    {
+      "id": "gh-claude-mem-2026-11-05",
+      "title": "thedotmack/claude-mem",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source_url": "https://github.com/thedotmack/claude-mem",
+      "source_text": "thedotmack/claude-mem Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More TypeScript",
+      "signals": {
+        "stars": 113132,
+        "stars_gained": 1172,
+        "forks": 9820
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-moneyprinterturbo-2026-11-05",
+      "title": "harry0703/MoneyPrinterTurbo",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/harry0703/MoneyPrinterTurbo",
+      "source_url": "https://github.com/harry0703/MoneyPrinterTurbo",
+      "source_text": "harry0703/MoneyPrinterTurbo 利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow. Python",
+      "signals": {
+        "stars": 139352,
+        "stars_gained": 617,
+        "forks": 22228
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-worktrunk-2026-11-05",
+      "title": "max-sixty/worktrunk",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/max-sixty/worktrunk",
+      "source_url": "https://github.com/max-sixty/worktrunk",
+      "source_text": "max-sixty/worktrunk Worktrunk is a CLI for Git worktree management, designed for parallel AI agent workflows Rust",
+      "signals": {
+        "stars": 11219,
+        "stars_gained": 531,
+        "forks": 420
+      },
+      "meta": {
+        "language": "Rust"
+      }
+    },
+    {
+      "id": "gh-kimi-k3-in-c-2026-11-05",
+      "title": "FareedKhan-dev/kimi-k3-in-c",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/FareedKhan-dev/kimi-k3-in-c",
+      "source_url": "https://github.com/FareedKhan-dev/kimi-k3-in-c",
+      "source_text": "FareedKhan-dev/kimi-k3-in-c A 2.78-trillion-parameter Kimi K3 running inference on a single CPU in 8.24 GB of RAM. Portable C99: no BLAS, no framework, no GPU. C",
+      "signals": {
+        "stars": 10540,
+        "stars_gained": 351,
+        "forks": 1650
+      },
+      "meta": {
+        "language": "C"
+      }
+    },
+    {
+      "id": "gh-gstack-2026-11-05",
+      "title": "garrytan/gstack",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/garrytan/gstack",
+      "source_url": "https://github.com/garrytan/gstack",
+      "source_text": "garrytan/gstack Use Garry Tan's exact Claude Code setup: 23 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA TypeScript",
+      "signals": {
+        "stars": 139524,
+        "stars_gained": 290,
+        "forks": 20650
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-skills-2-2026-11-05",
+      "title": "scenario-labs/skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/scenario-labs/skills",
+      "source_url": "https://github.com/scenario-labs/skills",
+      "source_text": "scenario-labs/skills Get production-ready images, video, audio, and 3D from any AI agent: skills that pick the right model, price before spending, and keep characters and brands consistent through the Scenario MCP, plus expert teams that drive Blender, Maya, ZBrush, Unreal, and Unity. Python",
+      "signals": {
+        "stars": 2638,
+        "stars_gained": 224,
+        "forks": 251
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-horizon-2026-11-05",
+      "title": "Thysrael/Horizon",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/Thysrael/Horizon",
+      "source_url": "https://github.com/Thysrael/Horizon",
+      "source_text": "Thysrael/Horizon 📡 Your own AI-powered news radar. Generates daily briefings in English & Chinese. | 用 AI 构建你专属的新闻雷达 Python",
+      "signals": {
+        "stars": 12737,
+        "stars_gained": 121,
+        "forks": 1834
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "tc-apple-is-reportedly-cutting-budgets-for-its-2026-11-05",
+      "title": "Apple is reportedly cutting budgets for its internal AI usage",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/04/apple-is-reportedly-cutting-budgets-for-its-internal-ai-usage/",
+      "source_url": "https://techcrunch.com/2026/11/04/apple-is-reportedly-cutting-budgets-for-its-internal-ai-usage/",
+      "source_text": "Apple is reportedly cutting budgets for its internal AI usage The company is said to be significantly dropping the amount it's spending on AI for its engineering teams.",
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "1 minute"
+      },
+      "published_at": "2026-11-05T01:26:22Z"
+    },
+    {
+      "id": "tc-after-the-midterms-a-bigger-clash-over-data-2026-11-05",
+      "title": "After the midterms, a bigger clash over data centers could be coming",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/04/after-the-midterms-a-bigger-clash-over-data-centers-could-be-coming/",
+      "source_url": "https://techcrunch.com/2026/11/04/after-the-midterms-a-bigger-clash-over-data-centers-could-be-coming/",
+      "source_text": "After the midterms, a bigger clash over data centers could be coming Data center opposition crossed party lines in Tuesday’s midterms.",
+      "meta": {
+        "author": "Dominic-Madori Davis",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-11-05T01:02:14Z"
+    },
+    {
+      "id": "tc-ai-pacs-spent-millions-trying-to-shape-congress-2026-11-05",
+      "title": "AI PACs spent millions trying to shape Congress — here’s how they fared",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/04/ai-pacs-spent-millions-trying-to-shape-congress-heres-how-they-fared/",
+      "source_url": "https://techcrunch.com/2026/11/04/ai-pacs-spent-millions-trying-to-shape-congress-heres-how-they-fared/",
+      "source_text": "AI PACs spent millions trying to shape Congress — here’s how they fared AI industry PACs spent millions influencing the 2026 midterms, with mixed results. Political groups are already looking toward the next election cycle.",
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-04T22:45:09Z"
+    },
+    {
+      "id": "tc-nothing-ceo-says-companys-mysterious-ai-first-2026-11-05",
+      "title": "Nothing CEO says company’s mysterious AI-first device is dropping next month",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/04/nothing-ceo-says-companys-mysterious-ai-first-device-is-dropping-next-month/",
+      "source_url": "https://techcrunch.com/2026/11/04/nothing-ceo-says-companys-mysterious-ai-first-device-is-dropping-next-month/",
+      "source_text": "Nothing CEO says company’s mysterious AI-first device is dropping next month While it's not yet clear what kind of product the smartphone startup is cooking up, Nothing's CEO said the product is designed to leverage AI for productivity gains.",
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-04T22:13:16Z"
+    },
+    {
+      "id": "tc-almost-no-one-uses-ai-agents-to-book-their-uber-2026-11-05",
+      "title": "Almost no one uses AI agents to book their Uber, company says",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/04/almost-no-one-uses-ai-agents-to-book-their-uber-company-says/",
+      "source_url": "https://techcrunch.com/2026/11/04/almost-no-one-uses-ai-agents-to-book-their-uber-company-says/",
+      "source_text": "Almost no one uses AI agents to book their Uber, company says During its busiest week last quarter, Uber said only four people booked a ride using an AI agent.",
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-04T21:56:01Z"
+    },
+    {
+      "id": "tc-openai-is-already-trying-to-shape-the-2028-2026-11-05",
+      "title": "OpenAI is already trying to shape the 2028 election",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/04/openai-is-already-trying-to-shape-the-2028-election/",
+      "source_url": "https://techcrunch.com/2026/11/04/openai-is-already-trying-to-shape-the-2028-election/",
+      "source_text": "OpenAI is already trying to shape the 2028 election OpenAI’s Chris Lehane wants AI to define the 2028 election, proposing a new social contract that could benefit Americans while also advancing the AI giant’s own business interests.",
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-11-04T21:25:44Z"
+    },
+    {
+      "id": "tc-meta-acquires-ai-coding-startup-conductor-2026-11-05",
+      "title": "Meta acquires AI coding startup Conductor",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/",
+      "source_url": "https://techcrunch.com/2026/11/04/meta-acquires-ai-coding-startup-conductor/",
+      "source_text": "Meta acquires AI coding startup Conductor The startup allows software engineers to deploy teams of agents to work on various aspects of a project simultaneously.",
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-04T21:10:56Z"
+    },
+    {
+      "id": "tc-open-source-ai-is-booming-hugging-face-explains-2026-11-05",
+      "title": "Open source AI is booming. Hugging Face explains who profits.",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/video/open-source-ai-is-booming-hugging-face-explains-who-profits/",
+      "source_url": "https://techcrunch.com/video/open-source-ai-is-booming-hugging-face-explains-who-profits/",
+      "source_text": "Open source AI is booming. Hugging Face explains who profits. Watch as Hugging Face's Irene Solaiman joins Equity to explain what startups need to know when building on open AI models, and how to evaluate the tools around them and keep the open ecosystem secure.",
+      "meta": {
+        "reading_time": "1 minute"
+      },
+      "published_at": "2026-11-04T19:30:04Z"
+    },
+    {
+      "id": "tc-duckduckgo-pitches-itself-to-schools-amid-2026-11-05",
+      "title": "DuckDuckGo pitches itself to schools amid backlash over Google’s AI policy",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/04/duckduckgo-pitches-itself-to-schools-amid-backlash-over-googles-ai-policy/",
+      "source_url": "https://techcrunch.com/2026/11/04/duckduckgo-pitches-itself-to-schools-amid-backlash-over-googles-ai-policy/",
+      "source_text": "DuckDuckGo pitches itself to schools amid backlash over Google’s AI policy DuckDuckGo is courting schools frustrated by Google's AI restrictions, pointing educators to its search engine and options to disable AI features.",
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-04T19:29:52Z"
+    },
+    {
+      "id": "tc-building-on-open-source-ai-hugging-faces-policy-2026-11-05",
+      "title": "Building on open source AI? Hugging Face’s policy chief on the costs, risks, and trade-offs",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/podcast/building-on-open-source-ai-hugging-faces-policy-chief-on-the-costs-risks-and-trade-offs/",
+      "source_url": "https://techcrunch.com/podcast/building-on-open-source-ai-hugging-faces-policy-chief-on-the-costs-risks-and-trade-offs/",
+      "source_text": "Building on open source AI? Hugging Face’s policy chief on the costs, risks, and trade-offs Hugging Face's Irene Solaiman joins Equity to explain what startups need to know when building on open AI models, and how to evaluate the tools around them and keep the open ecosystem secure.",
+      "meta": {
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-04T18:44:57Z"
+    },
+    {
+      "id": "hn-ai-is-forcing-us-to-pay-off-40-years-of-2026-11-05",
+      "title": "AI is forcing us to pay off 40 years of technical debt",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability",
+      "source_url": "https://news.ycombinator.com/item?id=50364336",
+      "source_text": "AI is forcing us to pay off 40 years of technical debt",
+      "signals": {
+        "points": 1165,
+        "comments": 670
+      },
+      "meta": {
+        "author": "pseudolus"
+      },
+      "published_at": "2026-11-04T11:52:17Z"
+    },
+    {
+      "id": "hn-tell-hn-gemini-trains-on-chat-history-even-for-2026-11-05",
+      "title": "Tell HN: Gemini trains on chat history, even for subscribers (personal accounts)",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=50363461",
+      "source_url": "https://news.ycombinator.com/item?id=50363461",
+      "source_text": "Tell HN: Gemini trains on chat history, even for subscribers (personal accounts)",
+      "signals": {
+        "points": 662,
+        "comments": 170
+      },
+      "meta": {
+        "author": "jameslk"
+      },
+      "published_at": "2026-11-04T10:10:27Z"
+    },
+    {
+      "id": "hn-kimi-k3-1-pro-model-weights-are-out-2026-11-05",
+      "title": "Kimi K3.1 Pro model weights are out",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+      "source_url": "https://news.ycombinator.com/item?id=50366999",
+      "source_text": "Kimi K3.1 Pro model weights are out",
+      "signals": {
+        "points": 498,
+        "comments": 141
+      },
+      "meta": {
+        "author": "abrarthought"
+      },
+      "published_at": "2026-11-04T15:30:30Z"
+    },
+    {
+      "id": "hn-geoffrey-hinton-it-might-turn-out-we-were-2026-11-05",
+      "title": "Geoffrey Hinton: it might turn out we were better off without AI",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.theguardian.com/uk-news/2026/nov/03/ai-godfather-geoffrey-hinton-better-off-without-ai",
+      "source_url": "https://news.ycombinator.com/item?id=50363554",
+      "source_text": "Geoffrey Hinton: it might turn out we were better off without AI",
+      "signals": {
+        "points": 304,
+        "comments": 303
+      },
+      "meta": {
+        "author": "alkyon"
+      },
+      "published_at": "2026-11-04T10:23:34Z"
+    },
+    {
+      "id": "hn-a-thousand-fewer-paths-to-root-2026-11-05",
+      "title": "A thousand fewer paths to root",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/",
+      "source_url": "https://news.ycombinator.com/item?id=50372929",
+      "source_text": "A thousand fewer paths to root",
+      "signals": {
+        "points": 291,
+        "comments": 187
+      },
+      "meta": {
+        "author": "dangelosaurus"
+      },
+      "published_at": "2026-11-04T23:33:14Z"
+    },
+    {
+      "id": "hn-ask-hn-what-s-your-current-ai-agentic-setup-2026-11-05",
+      "title": "Ask HN: What's your current AI agentic setup?",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=50366117",
+      "source_url": "https://news.ycombinator.com/item?id=50366117",
+      "source_text": "Ask HN: What's your current AI agentic setup?",
+      "signals": {
+        "points": 289,
+        "comments": 288
+      },
+      "meta": {
+        "author": "eggbrain"
+      },
+      "published_at": "2026-11-04T14:37:22Z"
+    },
+    {
+      "id": "hn-images-2-6-2026-11-05",
+      "title": "Images 2.6",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://openai.com/index/introducing-images-2-6/",
+      "source_url": "https://news.ycombinator.com/item?id=50372945",
+      "source_text": "Images 2.6",
+      "signals": {
+        "points": 248,
+        "comments": 160
+      },
+      "meta": {
+        "author": "davidbarker"
+      },
+      "published_at": "2026-11-04T23:35:44Z"
+    },
+    {
+      "id": "hn-openai-to-acquire-pierre-computer-company-2026-11-05",
+      "title": "OpenAI to acquire Pierre Computer Company",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://openai.com/index/openai-to-acquire-pierre/",
+      "source_url": "https://news.ycombinator.com/item?id=50366863",
+      "source_text": "OpenAI to acquire Pierre Computer Company",
+      "signals": {
+        "points": 230,
+        "comments": 70
+      },
+      "meta": {
+        "author": "itunpredictable"
+      },
+      "published_at": "2026-11-04T15:21:21Z"
+    },
+    {
+      "id": "hn-progress-on-provable-inference-for-large-2026-11-05",
+      "title": "Progress on provable inference for large language models",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.anthropic.com/research/provable-inference",
+      "source_url": "https://news.ycombinator.com/item?id=50368626",
+      "source_text": "Progress on provable inference for large language models",
+      "signals": {
+        "points": 210,
+        "comments": 98
+      },
+      "meta": {
+        "author": "ltononro"
+      },
+      "published_at": "2026-11-04T17:17:46Z"
+    },
+    {
+      "id": "hn-qualcomm-cloud-ai-100-ultra-150w-ai-accelerator-2026-11-05",
+      "title": "Qualcomm Cloud AI 100 Ultra – 150W AI Accelerator Card with 128GB at 548GB/s",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.qualcomm.com/data-center/products/cloud-ai-100-ultra",
+      "source_url": "https://news.ycombinator.com/item?id=50370654",
+      "source_text": "Qualcomm Cloud AI 100 Ultra – 150W AI Accelerator Card with 128GB at 548GB/s",
+      "signals": {
+        "points": 140,
+        "comments": 54
+      },
+      "meta": {
+        "author": "peter_d_sherman"
+      },
+      "published_at": "2026-11-04T19:55:14Z"
+    }
+  ]
+}
