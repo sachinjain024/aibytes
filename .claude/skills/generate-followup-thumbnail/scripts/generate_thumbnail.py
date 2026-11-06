@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Render the 1200x630 Beehiiv thumbnails for one aiBytes_ issue.
+"""Render the 1200x630 social-preview thumbnails for one aiBytes_ issue.
 
 Reads a generated issue HTML, pulls the issue number, hex tag, date and
 subject line out of it, fills assets/thumbnail.html once per background
 variant, and screenshots each with headless Chrome at 2x before downsampling
 to exactly 1200x630. Every run writes all three variants into the issue's
-thumbnails/ folder; the pick happens at upload time in Beehiiv.
+thumbnails/ folder; the pick happens at upload time in Substack.
 
 Stdlib only. The only external dependency is Google Chrome, which every macOS
 box running this repo already has; --html-only skips it entirely.

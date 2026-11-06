@@ -1,11 +1,11 @@
 ---
 name: generate-followup-thumbnail
-description: Render the 1200x630 thumbnail images for a published aiBytes_ issue - three background variants saved in the issue's thumbnails/ folder, one of which gets uploaded to Beehiiv. Use whenever the user wants a thumbnail, cover image, header image, post image, social preview, or OG image for the newsletter - triggers include "make the thumbnail", "generate the cover for issue N", "I need the Beehiiv image", or "/generate-followup-thumbnail".
+description: Render the 1200x630 thumbnail images for a published aiBytes_ issue - three background variants saved in the issue's thumbnails/ folder, one of which gets uploaded as the Substack post's social image. Use whenever the user wants a thumbnail, cover image, header image, post image, social preview, or OG image for the newsletter - triggers include "make the thumbnail", "generate the cover for issue N", "I need the Substack image", or "/generate-followup-thumbnail".
 ---
 
 # Generate Follow-up Thumbnail (aiBytes_)
 
-Beehiiv wants one image per post at **1200x630**. That image is doing two jobs: it is the card on the Beehiiv web archive, and it is the Open Graph preview whenever anyone shares the issue. Both get seen small, so the thumbnail is the issue's headline set large, not a decorated poster.
+Each Substack post carries one social image, and **1200x630** is the size this series is set at. That image is doing two jobs: it is the post's card on the Substack archive and in readers' feeds, and it is the Open Graph preview whenever anyone shares the issue. Both get seen small, so the thumbnail is the issue's headline set large, not a decorated poster.
 
 Every run renders the same card with **three background treatments** - dot grid, cobalt wash, graph grid - into the issue's `thumbnails/` folder. Which one ships is decided at upload time, issue by issue; the alternatives cost nothing to keep.
 
@@ -60,7 +60,9 @@ Always open the PNGs after generating - all three, since a background can misbeh
 
 ### 4. Hand them over
 
-Report the three paths and the dimensions, and show all three so the user can pick. Exactly one goes in Beehiiv's post thumbnail field - not pasted into the body as an HTML snippet - and the other two stay in `thumbnails/` as the record of what the card could have been.
+Report the three paths and the dimensions, and show all three so the user can pick. Exactly one goes in as the Substack social image - in the post editor, **Continue → Social preview → Edit**, not into the body - and the other two stay in `thumbnails/` as the record of what the card could have been.
+
+The 16:9 illustrated banner tried on the Issue 16 backfill (`issue-16-banner.png`) is a separate image. Its provider is still being chosen in AIB-137j, and this skill doesn't make it until that ticket records the choice.
 
 ## Design
 

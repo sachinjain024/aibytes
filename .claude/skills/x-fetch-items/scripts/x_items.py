@@ -9,8 +9,8 @@ Thin CLI wrapper. The logic lives in packages/fetchers
     x_items.py move      URL... --to BUCKET [--date D]       re-file posts Grok put in the wrong list
     x_items.py shortlist --insight URL... --announcement URL... [--date D]
     x_items.py emoji     URL EMOJI [URL EMOJI ...] [--date D]  the emoji each Viral on X row opens with
-    x_items.py render    [--format html|beehiiv] [--section S] [--number 0x02] [--date D]
-    x_items.py verify    [--issue ISSUE.html] [--export EXPORT.html] [--section S] [--date D]
+    x_items.py render    [--format html|substack|beehiiv] [--section S] [--number 0x02] [--date D]
+    x_items.py verify    [--issue ISSUE.html] [--substack EXPORT.html] [--export EXPORT.html] [--section S] [--date D]
 
 render prints the shortlisted posts as newsletter HTML, word for word, for
 /generate-newsletter-content to paste in; verify checks a built issue carries
@@ -51,12 +51,14 @@ def main(argv=None):
     em = sub.add_parser("emoji", parents=[common], help="set the emoji each Viral on X row opens with")
     em.add_argument("pairs", nargs="+", metavar="URL EMOJI", help="shortlisted insight url, then its emoji; repeatable")
     rd = sub.add_parser("render", parents=[common], help="print the shortlisted posts as newsletter HTML")
-    rd.add_argument("--format", choices=("html", "beehiiv"), default="html",
-                    help="html fills the issue template; beehiiv is the export snippet (default html)")
+    rd.add_argument("--format", choices=("html", "substack", "beehiiv"), default="html",
+                    help="html fills the issue template; substack is the Substack export's markup; "
+                         "beehiiv is the old Beehiiv export snippet (default html)")
     rd.add_argument("--section", choices=("announcements", "viral", "both"), default="both")
     rd.add_argument("--number", default="0x02", help="Viral on X section number, beehiiv only (default 0x02)")
     vf = sub.add_parser("verify", parents=[common], help="check an issue carries the shortlisted posts unchanged")
     vf.add_argument("--issue", help="the issue HTML (checked against the html format)")
+    vf.add_argument("--substack", help="the Substack export page (checked against the substack format)")
     vf.add_argument("--export", help="the Beehiiv export page (checked against the beehiiv format)")
     vf.add_argument("--section", choices=("announcements", "viral", "both"), default="both",
                     help="the X sections the issue carries (default both); viral when it has no announcements card")
@@ -133,9 +135,9 @@ def _render(args, snapshot):
 
 
 def _verify(args, snapshot):
-    pages = [(f, fmt) for f, fmt in ((args.issue, "html"), (args.export, "beehiiv")) if f]
+    pages = [(f, fmt) for f, fmt in ((args.issue, "html"), (args.substack, "substack"), (args.export, "beehiiv")) if f]
     if not pages:
-        print("error: pass --issue and/or --export", file=sys.stderr)
+        print("error: pass --issue, --substack and/or --export", file=sys.stderr)
         return 1
     failed = False
     for file, fmt in pages:

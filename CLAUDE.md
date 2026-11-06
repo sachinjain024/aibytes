@@ -17,6 +17,7 @@ matching files — this file stays a map.
 | `docs/` | The app product spec and the design-system brief — the source documents for the app and extension |
 | `docs/specs/` | Feature specs, one file per spec, named for the ticket: `AIB-79t-rank-backfill.md` |
 | `docs/plans/` | Implementation plans and their task lists: `AIB-77u-plan.md`, `AIB-77u-todo.md` |
+| `docs/decisions/` | Decision records, one per ticket: `product/` for product and business decisions (`AIB-134j-newsletter-on-substack.md`), `architecture/` for engineering ones. Newsletter taste decisions stay in `newsletter/artifacts/` |
 | `packages/design-system/` | **Ledger**: tokens + React components for the app and extension (**not** the newsletter) |
 | `packages/fetchers/` | Shared, cadence-agnostic Python fetch machinery for every data source |
 | `packages/curate/` | The curate step: a day's raw snapshots become one published edition |
@@ -106,6 +107,10 @@ user will call that out explicitly — do not infer the connection yourself.
   each file prefixed with its LongClaw ticket key. This overrides any skill
   default such as `SPEC.md` at the root or `tasks/plan.md` and `tasks/todo.md`.
   Record the spec's path in the ticket.
+- Decision records go in `docs/decisions/product/` or
+  `docs/decisions/architecture/`, prefixed with the ticket key the same way.
+  Taste decisions about the newsletter are the exception and stay in
+  `newsletter/artifacts/`.
 - New skills go in `.claude/skills/<skill-name>/` with a `SKILL.md` (name +
   description frontmatter) and scripts under `scripts/`.
 - Skill scripts that write snapshots must support `--output-root` and a

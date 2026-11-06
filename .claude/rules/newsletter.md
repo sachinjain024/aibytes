@@ -12,7 +12,8 @@ paths:
 Everything the weekly aiBytes_ issue needs lives under `newsletter/`:
 
 - `newsletter/issues/{yyyy}/week-NN-Issue-N/` — the published issue HTML, its
-  Beehiiv export, `social/`, and `thumbnails/`.
+  Substack export (its Beehiiv export up to Issue 16), `social/`, and
+  `thumbnails/`.
 - `newsletter/data/{yyyy}/{mm}/weeks/week-NN/` — the weekly source snapshots the
   issue is written from. Produced by the fetch skills; committed.
 - `newsletter/sources/<provider>/<api>/` — downloaded/mirrored reference docs

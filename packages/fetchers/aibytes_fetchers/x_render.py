@@ -7,9 +7,10 @@ only text this module writes is labels: the company, the date, the link text,
 the author's @handle, and the row's emoji (the post's `emoji`, picked at
 shortlist time).
 
-Two formats: "html" fills the issue template's {{ANNOUNCEMENT_ITEMS}} and
-{{X_ROWS}}; "beehiiv" is the inline-styled, table-based snippet for the export
-page. `verify` checks an issue carries the rendered entries unchanged, in order.
+Three formats: "html" fills the issue template's {{ANNOUNCEMENT_ITEMS}} and
+{{X_ROWS}}; "substack" is the plain-block markup the Substack export carries
+(generate-newsletter-content/references/substack-layout.md); "beehiiv" is the
+inline-styled, table-based snippet for the old Beehiiv export page. `verify` checks an issue carries the rendered entries unchanged, in order.
 The designs are recorded in newsletter/artifacts/2026-Sep-26-*-taste.html.
 """
 
@@ -214,6 +215,35 @@ def viral_section_beehiiv(posts, number="0x02"):
             f'<table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="border-collapse:collapse;">\n  {rows}\n</table>')
 
 
+# ── substack: the editor's own blocks, no classes or styles ─────────────────
+# Rows are whitespace-collapsed, as the Substack export's converter writes them.
+
+def _squash(markup):
+    return re.sub(r"\s+", " ", markup).strip()
+
+
+def announcement_substack(post):
+    name, _ = company(post)
+    paras, cut = trim_long(paragraphs(post["text"]))
+    body = "".join("<p>" + _squash("<br>".join(_e(line) for line in para)) + "</p>" for para in paras)
+    if cut:
+        body = body[:-4] + f" {ELLIPSIS}</p>"
+    links = f'<a href="{_a(post["url"])}">Post on X ↗</a>'
+    if post["link_url"]:
+        links += f' · <a href="{_a(post["link_url"])}">{_e(domain(post["link_url"]))} ↗</a>'
+    return (f'<h3>{_e(name)} {_e(post["author_handle"])} · {day(post["posted_at"]).title()}</h3>'
+            f'<blockquote>{body}</blockquote><p>{links}</p>')
+
+
+def x_row_substack(post):
+    # Only the handle is a link, and it points at the post; the words stay body ink.
+    lines, cut = excerpt(post["text"])
+    words = " / ".join(_e(line) for line in lines)
+    tail = f" {ELLIPSIS}" if cut else ""
+    return _squash(f'<li>{_e(post.get("emoji") or "")} <a href="{_a(post["url"])}"><b>{_e(post["author_handle"])}</b></a> '
+                   f'{words}{tail} {HEART} {likes(post["likes"])}</li>')
+
+
 # ── the command's two jobs ───────────────────────────────────────────────────
 
 def render(snapshot, fmt="html", number="0x02"):
@@ -225,6 +255,9 @@ def render(snapshot, fmt="html", number="0x02"):
     if fmt == "html":
         out = {"announcements": "\n".join(announcement_html(p) for p in oa),
                "viral": "\n".join(x_row_html(p) for p in xs)}
+    elif fmt == "substack":
+        out = {"announcements": "\n".join(announcement_substack(p) for p in oa),
+               "viral": "\n".join(x_row_substack(p) for p in xs)}
     else:
         out = {"announcements": announcements_card_beehiiv(oa) if oa else "",
                "viral": viral_section_beehiiv(xs, number) if xs else ""}
@@ -244,6 +277,9 @@ def verify(snapshot, page, fmt="html", sections=("announcements", "viral")):
     if fmt == "html":
         groups = {"Official Announcements": [announcement_html(p) for p in oa],
                   TITLE_X: [x_row_html(p) for p in xs]}
+    elif fmt == "substack":
+        groups = {"Official Announcements": [announcement_substack(p) for p in oa],
+                  TITLE_X: [x_row_substack(p) for p in xs]}
     else:
         groups = {"Official Announcements": [announcement_beehiiv(p, i == len(oa) - 1) for i, p in enumerate(oa)],
                   TITLE_X: [x_row_beehiiv(p, i == len(xs) - 1) for i, p in enumerate(xs)]}

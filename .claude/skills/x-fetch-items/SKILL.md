@@ -77,8 +77,9 @@ Every command also takes `--output-root DIR` (default `newsletter/data`).
 with no `shortlist` has not been reviewed yet.
 
 It never types the posts itself. `render` prints them as newsletter HTML,
-word for word: `--format html` for the issue template, `--format beehiiv` for
-the export page, one `--section` (`announcements` or `viral`) per slot.
-`verify --issue ... --export ...` then checks the built issue carries every
+word for word: `--format html` for the issue template, `--format substack` for
+the Substack export's markup (`--format beehiiv` is the old Beehiiv export, kept
+until AIB-135b), one `--section` (`announcements` or `viral`) per slot.
+`verify --issue ... --substack ...` then checks the built issue carries every
 shortlisted post unchanged and in order, and fails if anything was retyped.
 Pass `--section viral` for an issue that leaves out Official Announcements.
