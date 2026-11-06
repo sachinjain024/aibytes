@@ -10,7 +10,7 @@ labels:
 type: chore
 due: 2026-11-08
 created_at: 2026-11-03T07:55:49.030Z
-updated_at: 2026-11-06T07:04:33.406Z
+updated_at: 2026-11-06T10:07:51.453Z
 ---
 
 Move the aiBytes_ weekly newsletter from Beehiiv to Substack.
@@ -26,7 +26,8 @@ Move the aiBytes_ weekly newsletter from Beehiiv to Substack.
 - [x] Cancel Beehiiv subscription plan <!-- longclaw:item=ck_a979463d -->
 - [x] Export the subscriber list (CSV) and the post archive from Beehiiv before access ends <!-- longclaw:item=ck_bd7f67c7 -->
 - [x] Figure out the right set of elements for how the newsletter should appear on Substack (no HTML support) - play around with Substack editor components <!-- longclaw:item=ck_363d4f0f -->
-- [ ] Update the generate-newsletter-content and thumbnail skills to produce Substack-ready output instead of the Beehiiv export <!-- longclaw:item=ck_16018973 -->
+- [x] Update the generate-newsletter-content and thumbnail skills to produce Substack-ready output instead of the Beehiiv export <!-- longclaw:item=ck_16018973 -->
+- [ ] Parked until Issue 17: embed the first Official Announcements post as an X embed on Substack, rest as text - test a draft embed and a test email first, then a taste round, then the export script, layout doc and x_render verify <!-- longclaw:item=ck_ee25177a -->
 - [x] Backfill previous posts (with email sending off) <!-- longclaw:item=ck_3227c899 -->
 - [x] Add audience so they don't receive previous posts email <!-- longclaw:item=ck_7cd2b392 -->
 - [x] Import the 2,632 active Beehiiv subscribers into Substack - submitted 3 Nov 2026, waiting on Substack's import review <!-- longclaw:item=ck_68860357 -->
@@ -1022,6 +1023,82 @@ changes:
   - field: checklist.ck_cabf4949.checked
     from: "false"
     to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_133fc2e9
+kind: update
+occurred_at: 2026-11-06T07:13:46.384Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_16018973.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+Skills now produce Substack-ready output (6 Nov 2026). generate-newsletter-content step 5 runs scripts/substack_export.py, which rebuilds the issue HTML into Substack blocks (references/substack-layout.md) and writes aiBytes-substack-export-issue-{num}.html with copy buttons for the title, subtitle and rich-HTML body. x_render gained a substack format, and x_items.py verify --substack checks the export's X rows word for word (checked on Issue 16's real snapshot). The thumbnail skill keeps the 1200x630 card, now uploaded as the Substack social image; the 16:9 banner waits on AIB-137j. The Beehiiv export is no longer built and stays in the repo until AIB-135b. Tests: tests/test_substack_export.py plus new substack cases in tests/test_x_fetch_items.py; full suite passes. First real run: Issue 17.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8d9d1308
+kind: update
+occurred_at: 2026-11-06T10:03:49.936Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_ee25177a.added
+    to: "Parked until Issue 17: embed the first Official Announcements post as an X embed on Substack, rest as text - test a draft embed and a test email first, then a taste round, then the export script, layout doc and x_render verify"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_bab42f8a
+kind: update
+occurred_at: 2026-11-06T10:03:49.969Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_ee25177a.moved
+    from: "27"
+    to: "5"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e5651172
+kind: update
+occurred_at: 2026-11-06T10:07:46.967Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_ee25177a.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e73ab8fe
+kind: update
+occurred_at: 2026-11-06T10:07:51.453Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_ee25177a.checked
+    from: "true"
+    to: "false"
 -->
 ### You updated this ticket
 <!-- /longclaw:event -->
