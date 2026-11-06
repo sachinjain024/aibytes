@@ -1,6 +1,6 @@
 {
   "date": "2026-11-06",
-  "generated_at": "2026-11-06T08:00:13Z",
+  "generated_at": "2026-11-06T10:37:25Z",
   "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
   "tags": [
     {
@@ -235,22 +235,8 @@
       "source_url": "https://www.producthunt.com/products/glasshand",
       "source_text": "Glasshand Give your agent a real iPhone and Mac Glasshand gives your AI agents real iPhones and Macs to work on. Connect Claude Code, Codex, or any other agent, and it can rent a device with a single prompt. The hardware sits in our data center, and your agent uses it the way you would: posting on TikTok, booking an Uber, or building and testing iOS apps. Each device is yours alone for as long as you rent it. When you’re done, we erase your data and factory-reset it. Productivity Artificial Intelligence Apple",
       "signals": {
-        "upvotes": 356,
-        "comments": 85
-      },
-      "published_at": "2026-11-05T08:01:00Z"
-    },
-    {
-      "id": "ph-living-brain-2026-11-06",
-      "title": "Living Brain",
-      "category": "launches",
-      "source": "producthunt",
-      "url": "https://www.producthunt.com/products/chatandbuild",
-      "source_url": "https://www.producthunt.com/products/chatandbuild",
-      "source_text": "Living Brain Interoperable, efficient memory layer for agentic AI Every AI conversation contains knowledge worth keeping, but most of it gets trapped in separate chats and tools. Living Brain captures that knowledge, connects it to what you already know, and turns it into a persistent memory that keeps evolving. Share that intelligence across AI models, apps, and agents through API, SDK, or MCP, so every new interaction builds on the last instead of starting over. Reuse memory across ChatGPT, Claude, Gemini, OpenClaw, Hermes, Cursor, Codex and more Productivity Developer Tools Artificial Intelligence",
-      "signals": {
-        "upvotes": 239,
-        "comments": 41
+        "upvotes": 363,
+        "comments": 79
       },
       "published_at": "2026-11-05T08:01:00Z"
     },
@@ -263,8 +249,22 @@
       "source_url": "https://www.producthunt.com/products/rerun-2",
       "source_text": "Rerun Turn your AI subscriptions into a team of coworkers Rerun turns your ChatGPT or Claude subscription into a team of AI coworkers. Each one has tools, a computer and a shared workspace, runs on a schedule or a trigger, and asks before risky actions. Now open-source (AGPL v3) and self-hostable. Productivity Open Source Artificial Intelligence GitHub",
       "signals": {
-        "upvotes": 237,
+        "upvotes": 242,
         "comments": 14
+      },
+      "published_at": "2026-11-05T08:01:00Z"
+    },
+    {
+      "id": "ph-living-brain-2026-11-06",
+      "title": "Living Brain",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/chatandbuild",
+      "source_url": "https://www.producthunt.com/products/chatandbuild",
+      "source_text": "Living Brain Interoperable, efficient memory layer for agentic AI Every AI conversation contains knowledge worth keeping, but most of it gets trapped in separate chats and tools. Living Brain captures that knowledge, connects it to what you already know, and turns it into a persistent memory that keeps evolving. Share that intelligence across AI models, apps, and agents through API, SDK, or MCP, so every new interaction builds on the last instead of starting over. Reuse memory across ChatGPT, Claude, Gemini, OpenClaw, Hermes, Cursor, Codex and more Productivity Developer Tools Artificial Intelligence",
+      "signals": {
+        "upvotes": 241,
+        "comments": 38
       },
       "published_at": "2026-11-05T08:01:00Z"
     },
@@ -277,8 +277,8 @@
       "source_url": "https://www.producthunt.com/products/pushary",
       "source_text": "Pushary for Teams See who said yes to your team’s AI agents When an AI agent stops to ask permission, Pushary sends the question to the person running it, in their Mac’s notch or on their phone. Lee’s agent asks Lee. Sam’s agent asks Sam. A rule can send a push to your infra repo to your lead instead. Answers from the phone, Mac app and dashboard are saved with a name, so when something breaks, one page shows whose agent asked and who said yes. Works with Claude Code, Codex, Cursor, Agy and Hermes. Productivity Developer Tools Artificial Intelligence",
       "signals": {
-        "upvotes": 193,
-        "comments": 33
+        "upvotes": 194,
+        "comments": 31
       },
       "published_at": "2026-11-05T08:01:00Z"
     },
@@ -291,8 +291,8 @@
       "source_url": "https://www.producthunt.com/products/maritime",
       "source_text": "Maritime Cloud computers for any AI agent, customized your way Maritime gives AI agents their own cloud computers: persistent workspaces, disposable sandboxes, Linux and Windows desktops, and Android phones. Agents can run code, use browsers, and work in apps without APIs, with a human able to take over when needed. Whether you’re building a personal assistant or running thousands of tasks in parallel, Maritime handles the computers so you can focus on what your agent does. Developer Tools Artificial Intelligence",
       "signals": {
-        "upvotes": 189,
-        "comments": 11
+        "upvotes": 193,
+        "comments": 10
       },
       "published_at": "2026-11-05T08:01:00Z"
     },
@@ -305,9 +305,9 @@
       "source_url": "https://github.com/NVIDIA/auto-ontology",
       "source_text": "NVIDIA/auto-ontology Auto Ontology is a Python framework for building semantic, graph-based reasoning layers over data. It enables deterministic query generation, better context retrieval, and more explainable AI for LLM and agent workflows. Python",
       "signals": {
-        "stars": 7960,
+        "stars": 8191,
         "stars_gained": 2679,
-        "forks": 640
+        "forks": 655
       },
       "meta": {
         "language": "Python"
@@ -322,9 +322,9 @@
       "source_url": "https://github.com/vercel-labs/agent-desktop",
       "source_text": "vercel-labs/agent-desktop Computer use CLI for AI agents Rust",
       "signals": {
-        "stars": 17404,
+        "stars": 17601,
         "stars_gained": 2173,
-        "forks": 1240
+        "forks": 1254
       },
       "meta": {
         "language": "Rust"
@@ -339,9 +339,9 @@
       "source_url": "https://github.com/mattpocock/skills",
       "source_text": "mattpocock/skills Skills for Real Engineers. Straight from my .agents directory. Shell",
       "signals": {
-        "stars": 315800,
+        "stars": 316021,
         "stars_gained": 2071,
-        "forks": 26432
+        "forks": 26442
       },
       "meta": {
         "language": "Shell"
@@ -356,9 +356,9 @@
       "source_url": "https://github.com/scenario-labs/skills",
       "source_text": "scenario-labs/skills Get production-ready images, video, audio, and 3D from any AI agent: skills that pick the right model, price before spending, and keep characters and brands consistent through the Scenario MCP, plus expert teams that drive Blender, Maya, ZBrush, Unreal, and Unity. Python",
       "signals": {
-        "stars": 3259,
+        "stars": 3324,
         "stars_gained": 667,
-        "forks": 283
+        "forks": 287
       },
       "meta": {
         "language": "Python"
@@ -373,9 +373,9 @@
       "source_url": "https://github.com/garrytan/gstack",
       "source_text": "garrytan/gstack Use Garry Tan's exact Claude Code setup: 23 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA TypeScript",
       "signals": {
-        "stars": 140187,
+        "stars": 140273,
         "stars_gained": 612,
-        "forks": 20709
+        "forks": 20713
       },
       "meta": {
         "language": "TypeScript"
@@ -390,9 +390,9 @@
       "source_url": "https://github.com/max-sixty/worktrunk",
       "source_text": "max-sixty/worktrunk Worktrunk is a CLI for Git worktree management, designed for parallel AI agent workflows Rust",
       "signals": {
-        "stars": 11665,
+        "stars": 11706,
         "stars_gained": 546,
-        "forks": 447
+        "forks": 449
       },
       "meta": {
         "language": "Rust"
@@ -407,9 +407,9 @@
       "source_url": "https://github.com/Usagi-org/ai-goofish-monitor",
       "source_text": "Usagi-org/ai-goofish-monitor 基于 Playwright 和AI实现的闲鱼多任务实时/定时监控与智能分析系统，配备了功能完善的后台管理UI。帮助用户从闲鱼海量商品中，找到心仪产品。 Python",
       "signals": {
-        "stars": 17985,
+        "stars": 18114,
         "stars_gained": 240,
-        "forks": 2981
+        "forks": 2994
       },
       "meta": {
         "language": "Python"
@@ -424,9 +424,9 @@
       "source_url": "https://github.com/microsoft/VibeVoice",
       "source_text": "microsoft/VibeVoice Open-Source Frontier Voice AI Python",
       "signals": {
-        "stars": 56258,
+        "stars": 56339,
         "stars_gained": 223,
-        "forks": 6336
+        "forks": 6343
       },
       "meta": {
         "language": "Python"
@@ -441,9 +441,9 @@
       "source_url": "https://github.com/google/skills",
       "source_text": "google/skills Agent Skills for Google products and technologies Python",
       "signals": {
-        "stars": 22535,
+        "stars": 22591,
         "stars_gained": 211,
-        "forks": 1898
+        "forks": 1901
       },
       "meta": {
         "language": "Python"
@@ -458,9 +458,9 @@
       "source_url": "https://github.com/vercel-labs/agent-browser",
       "source_text": "vercel-labs/agent-browser Browser automation CLI for AI agents Rust",
       "signals": {
-        "stars": 46125,
+        "stars": 46197,
         "stars_gained": 150,
-        "forks": 3157
+        "forks": 3163
       },
       "meta": {
         "language": "Rust"
@@ -615,30 +615,13 @@
       "source_url": "https://news.ycombinator.com/item?id=50385272",
       "source_text": "Claude Code sends your email address to websites",
       "signals": {
-        "points": 978,
-        "comments": 318
+        "points": 1169,
+        "comments": 365
       },
       "meta": {
         "author": "motoroco"
       },
       "published_at": "2026-11-05T22:17:15Z"
-    },
-    {
-      "id": "hn-gpt-6-astra-covertly-underperforms-on-safety-2026-11-06",
-      "title": "GPT-6 Astra covertly underperforms on safety research",
-      "category": "hn",
-      "source": "hackernews",
-      "url": "https://alignment.openai.com/misalignment-reports/covert-underperformance-on-safety-research-tasks/",
-      "source_url": "https://news.ycombinator.com/item?id=50376313",
-      "source_text": "GPT-6 Astra covertly underperforms on safety research",
-      "signals": {
-        "points": 320,
-        "comments": 178
-      },
-      "meta": {
-        "author": "lucrbvi"
-      },
-      "published_at": "2026-11-05T07:44:30Z"
     },
     {
       "id": "hn-cuban-facebook-knowingly-runs-ai-deepfake-scam-2026-11-06",
@@ -649,13 +632,30 @@
       "source_url": "https://news.ycombinator.com/item?id=50385870",
       "source_text": "Cuban: Facebook knowingly runs AI deepfake scam ads; docs say $16B fraud revenue",
       "signals": {
-        "points": 284,
-        "comments": 130
+        "points": 344,
+        "comments": 164
       },
       "meta": {
         "author": "randycupertino"
       },
       "published_at": "2026-11-05T23:09:57Z"
+    },
+    {
+      "id": "hn-gpt-6-astra-covertly-underperforms-on-safety-2026-11-06",
+      "title": "GPT-6 Astra covertly underperforms on safety research",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://alignment.openai.com/misalignment-reports/covert-underperformance-on-safety-research-tasks/",
+      "source_url": "https://news.ycombinator.com/item?id=50376313",
+      "source_text": "GPT-6 Astra covertly underperforms on safety research",
+      "signals": {
+        "points": 327,
+        "comments": 179
+      },
+      "meta": {
+        "author": "lucrbvi"
+      },
+      "published_at": "2026-11-05T07:44:30Z"
     },
     {
       "id": "hn-nasdaq-sinks-5-as-investors-retreat-from-ai-2026-11-06",
@@ -666,13 +666,30 @@
       "source_url": "https://news.ycombinator.com/item?id=50382179",
       "source_text": "Nasdaq Sinks 5% as Investors Retreat from AI Trade After Election",
       "signals": {
-        "points": 158,
-        "comments": 188
+        "points": 160,
+        "comments": 190
       },
       "meta": {
         "author": "armcat"
       },
       "published_at": "2026-11-05T18:00:01Z"
+    },
+    {
+      "id": "hn-i-struggle-to-believe-that-ai-r-d-is-ingenious-2026-11-06",
+      "title": "I struggle to believe that AI R&D is ingenious",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.lesswrong.com/posts/DALNiKBjMGMF8grme/arjun-panickssery-s-shortform?commentId=fJtaHHHfx45tD7BSL",
+      "source_url": "https://news.ycombinator.com/item?id=50388513",
+      "source_text": "I struggle to believe that AI R&D is ingenious",
+      "signals": {
+        "points": 92,
+        "comments": 77
+      },
+      "meta": {
+        "author": "porridgeraisin"
+      },
+      "published_at": "2026-11-06T05:19:04Z"
     },
     {
       "id": "hn-vibe-coding-keypad-2026-11-06",
@@ -700,8 +717,8 @@
       "source_url": "https://news.ycombinator.com/item?id=50386597",
       "source_text": "Major Investors Are Skeptical Anthropic IPO Can Achieve $1.5T Valuation",
       "signals": {
-        "points": 81,
-        "comments": 93
+        "points": 85,
+        "comments": 94
       },
       "meta": {
         "author": "JumpCrisscross"
@@ -717,8 +734,8 @@
       "source_url": "https://news.ycombinator.com/item?id=50387546",
       "source_text": "Closed AI models dominate the price-performance frontier",
       "signals": {
-        "points": 66,
-        "comments": 52
+        "points": 73,
+        "comments": 61
       },
       "meta": {
         "author": "kevin_hu"
@@ -758,23 +775,6 @@
         "author": "theorchid"
       },
       "published_at": "2026-11-05T00:01:30Z"
-    },
-    {
-      "id": "hn-gpt6-cyber-advancing-the-frontier-of-aligned-2026-11-06",
-      "title": "GPT‑6 Cyber: Advancing the frontier of aligned cybersecurity agents",
-      "category": "hn",
-      "source": "hackernews",
-      "url": "https://openai.com/index/introducing-gpt-6-cyber/",
-      "source_url": "https://news.ycombinator.com/item?id=50381590",
-      "source_text": "GPT‑6 Cyber: Advancing the frontier of aligned cybersecurity agents",
-      "signals": {
-        "points": 52,
-        "comments": 7
-      },
-      "meta": {
-        "author": "meetpateltech"
-      },
-      "published_at": "2026-11-05T17:07:57Z"
     }
   ]
 }

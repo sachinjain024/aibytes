@@ -10,7 +10,7 @@
     "order": "VOTES",
     "featured": true
   },
-  "totalCount": 35,
+  "totalCount": 90,
   "posts": [
     {
       "id": "1302121",
@@ -18,8 +18,8 @@
       "tagline": "Give your agent a real iPhone and Mac",
       "description": "Glasshand gives your AI agents real iPhones and Macs to work on. Connect Claude Code, Codex, or any other agent, and it can rent a device with a single prompt. The hardware sits in our data center, and your agent uses it the way you would: posting on TikTok, booking an Uber, or building and testing iOS apps. Each device is yours alone for as long as you rent it. When you\u2019re done, we erase your data and factory-reset it.",
       "slug": "glasshand",
-      "votesCount": 356,
-      "commentsCount": 85,
+      "votesCount": 363,
+      "commentsCount": 79,
       "reviewsRating": 0.0,
       "reviewsCount": 0,
       "dailyRank": 1,
@@ -125,13 +125,118 @@
       }
     },
     {
+      "id": "1302947",
+      "name": "Rerun",
+      "tagline": "Turn your AI subscriptions into a team of coworkers",
+      "description": "Rerun turns your ChatGPT or Claude subscription into a team of AI coworkers. Each one has tools, a computer and a shared workspace, runs on a schedule or a trigger, and asks before risky actions. Now open-source (AGPL v3) and self-hostable.",
+      "slug": "rerun-4",
+      "votesCount": 242,
+      "commentsCount": 14,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 3,
+      "weeklyRank": 12,
+      "url": "https://www.producthunt.com/products/rerun-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/RMMH5HQHCIQO64?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-05T08:01:00Z",
+      "createdAt": "2026-11-05T08:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/7c4a85f1-6f1c-47eb-8e6f-e57232f4d987.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/0cb6c50c-7dbb-4b41-9d6e-e3aa1fce28ae.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/e4ce7eda-dc11-4489-b5e1-76dabf4cc96d.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/dbaf8f84-438c-4ae0-b618-64af705539c9.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/5b57362a-ca5a-4a61-a1d9-2c7a925cf5bd.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/d7cc31d5-76c0-4f2f-9a5c-9275290bdbcd.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/ab27f923-cef4-47b0-9b4c-bdc943dd0e6a.jpeg?auto=format",
+          "videoUrl": "https://youtu.be/hV9nXLr6YfE"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Github",
+          "url": "https://www.producthunt.com/r/3AZABO2UQPMILI?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/RMMH5HQHCIQO64?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Productivity",
+            "slug": "productivity"
+          },
+          {
+            "name": "Open Source",
+            "slug": "open-source"
+          },
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          },
+          {
+            "name": "GitHub",
+            "slug": "github"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Th\u00e9o Louro",
+          "username": "theolouro",
+          "headline": "I help SaaS through their growth phase",
+          "url": "https://www.producthunt.com/@theolouro?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Cl\u00e9ment Janssens",
+        "username": "clement_janssens",
+        "headline": "i make cool stuff",
+        "url": "https://www.producthunt.com/@clement_janssens?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
       "id": "1301788",
       "name": "Living Brain",
       "tagline": "Interoperable, efficient memory layer for agentic AI",
       "description": "Every AI conversation contains knowledge worth keeping, but most of it gets trapped in separate chats and tools. Living Brain captures that knowledge, connects it to what you already know, and turns it into a persistent memory that keeps evolving. Share that intelligence across AI models, apps, and agents through API, SDK, or MCP, so every new interaction builds on the last instead of starting over. Reuse memory across ChatGPT, Claude, Gemini, OpenClaw, Hermes, Cursor, Codex and more",
       "slug": "living-brain",
-      "votesCount": 239,
-      "commentsCount": 41,
+      "votesCount": 241,
+      "commentsCount": 38,
       "reviewsRating": 5.0,
       "reviewsCount": 1,
       "dailyRank": 2,
@@ -327,122 +432,17 @@
       }
     },
     {
-      "id": "1302947",
-      "name": "Rerun",
-      "tagline": "Turn your AI subscriptions into a team of coworkers",
-      "description": "Rerun turns your ChatGPT or Claude subscription into a team of AI coworkers. Each one has tools, a computer and a shared workspace, runs on a schedule or a trigger, and asks before risky actions. Now open-source (AGPL v3) and self-hostable.",
-      "slug": "rerun-4",
-      "votesCount": 237,
-      "commentsCount": 14,
-      "reviewsRating": 0.0,
-      "reviewsCount": 0,
-      "dailyRank": 3,
-      "weeklyRank": 13,
-      "url": "https://www.producthunt.com/products/rerun-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
-      "website": "https://www.producthunt.com/r/RMMH5HQHCIQO64?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
-      "featuredAt": "2026-11-05T08:01:00Z",
-      "createdAt": "2026-11-05T08:01:00Z",
-      "thumbnail": {
-        "type": "image",
-        "url": "https://ph-files.imgix.net/7c4a85f1-6f1c-47eb-8e6f-e57232f4d987.png?auto=format"
-      },
-      "media": [
-        {
-          "type": "image",
-          "url": "https://ph-files.imgix.net/0cb6c50c-7dbb-4b41-9d6e-e3aa1fce28ae.jpeg?auto=format",
-          "videoUrl": null
-        },
-        {
-          "type": "image",
-          "url": "https://ph-files.imgix.net/e4ce7eda-dc11-4489-b5e1-76dabf4cc96d.jpeg?auto=format",
-          "videoUrl": null
-        },
-        {
-          "type": "image",
-          "url": "https://ph-files.imgix.net/dbaf8f84-438c-4ae0-b618-64af705539c9.jpeg?auto=format",
-          "videoUrl": null
-        },
-        {
-          "type": "image",
-          "url": "https://ph-files.imgix.net/5b57362a-ca5a-4a61-a1d9-2c7a925cf5bd.jpeg?auto=format",
-          "videoUrl": null
-        },
-        {
-          "type": "image",
-          "url": "https://ph-files.imgix.net/d7cc31d5-76c0-4f2f-9a5c-9275290bdbcd.jpeg?auto=format",
-          "videoUrl": null
-        },
-        {
-          "type": "video",
-          "url": "https://ph-files.imgix.net/ab27f923-cef4-47b0-9b4c-bdc943dd0e6a.jpeg?auto=format",
-          "videoUrl": "https://youtu.be/hV9nXLr6YfE"
-        }
-      ],
-      "productLinks": [
-        {
-          "type": "Github",
-          "url": "https://www.producthunt.com/r/3AZABO2UQPMILI?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
-        },
-        {
-          "type": "Website",
-          "url": "https://www.producthunt.com/r/RMMH5HQHCIQO64?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
-        }
-      ],
-      "topics": {
-        "nodes": [
-          {
-            "name": "Productivity",
-            "slug": "productivity"
-          },
-          {
-            "name": "Open Source",
-            "slug": "open-source"
-          },
-          {
-            "name": "Artificial Intelligence",
-            "slug": "artificial-intelligence"
-          },
-          {
-            "name": "GitHub",
-            "slug": "github"
-          }
-        ]
-      },
-      "makers": [
-        {
-          "name": "[REDACTED]",
-          "username": "[REDACTED]",
-          "headline": null,
-          "url": "[REDACTED]",
-          "twitterUsername": null
-        },
-        {
-          "name": "Th\u00e9o Louro",
-          "username": "theolouro",
-          "headline": "I help SaaS through their growth phase",
-          "url": "https://www.producthunt.com/@theolouro?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
-          "twitterUsername": null
-        }
-      ],
-      "user": {
-        "name": "Cl\u00e9ment Janssens",
-        "username": "clement_janssens",
-        "headline": "i make cool stuff",
-        "url": "https://www.producthunt.com/@clement_janssens?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
-      }
-    },
-    {
       "id": "1300616",
       "name": "Pushary for Teams",
       "tagline": "See who said yes to your team\u2019s AI agents",
       "description": "When an AI agent stops to ask permission, Pushary sends the question to the person running it, in their Mac\u2019s notch or on their phone. Lee\u2019s agent asks Lee. Sam\u2019s agent asks Sam. A rule can send a push to your infra repo to your lead instead. Answers from the phone, Mac app and dashboard are saved with a name, so when something breaks, one page shows whose agent asked and who said yes. Works with Claude Code, Codex, Cursor, Agy and Hermes.",
       "slug": "pushary-for-teams",
-      "votesCount": 193,
-      "commentsCount": 33,
+      "votesCount": 194,
+      "commentsCount": 31,
       "reviewsRating": 5.0,
       "reviewsCount": 1,
       "dailyRank": 4,
-      "weeklyRank": 19,
+      "weeklyRank": 18,
       "url": "https://www.producthunt.com/products/pushary?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
       "website": "https://www.producthunt.com/r/FKYLG6Q6UE7GI2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
       "featuredAt": "2026-11-05T08:01:00Z",
@@ -569,12 +569,12 @@
       "tagline": "Cloud computers for any AI agent, customized your way",
       "description": "Maritime gives AI agents their own cloud computers: persistent workspaces, disposable sandboxes, Linux and Windows desktops, and Android phones. Agents can run code, use browsers, and work in apps without APIs, with a human able to take over when needed. Whether you\u2019re building a personal assistant or running thousands of tasks in parallel, Maritime handles the computers so you can focus on what your agent does.",
       "slug": "maritime-5",
-      "votesCount": 189,
-      "commentsCount": 11,
+      "votesCount": 193,
+      "commentsCount": 10,
       "reviewsRating": 0.0,
       "reviewsCount": 0,
       "dailyRank": 5,
-      "weeklyRank": 20,
+      "weeklyRank": 19,
       "url": "https://www.producthunt.com/products/maritime?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
       "website": "https://www.producthunt.com/r/LXZBKU4W5VMFPL?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
       "featuredAt": "2026-11-05T08:01:00Z",
