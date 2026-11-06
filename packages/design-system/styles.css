@@ -2267,6 +2267,19 @@ html:not([data-input-modality="keyboard"]) .app-shell :focus,.app-shell :focus:n
   min-width: 0;
 }
 
+/* starPos="visual": the save star sits under the source image, sized to the
+   image column (26-30px wide), so it never widens the row. */
+.story-visual .ldg-star {
+  width: 28px;
+  max-width: 100%;
+  height: 28px;
+}
+
+.story-visual .ldg-star svg {
+  width: 16px;
+  height: 16px;
+}
+
 .story-tags {
   grid-column: 1;
   min-width: 0;

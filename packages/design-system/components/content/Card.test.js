@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import { createRequire } from 'node:module';
 import Module from 'node:module';
@@ -42,4 +43,36 @@ test('save control stays optional and destination links remain safe new-tab link
   const html=render({onToggleSave:()=>{}});
   assert.match(html,/aria-label="Save"/);assert.match(html,/aria-pressed="false"/);assert.match(html,/rel="noopener noreferrer"/);
   assert.match(render({saved:true,onToggleSave:()=>{}}),/aria-label="Saved"/);
+});
+
+// ListRow is FeedItem too, bundled the same way; the fixture is the markup on
+// main before starPos existed (AIB-75v), so the default can never drift.
+const rowBuild = await build({entryPoints:[new URL('./ListRow.jsx',import.meta.url).pathname],
+  bundle:true,platform:'node',format:'cjs',external:['react'],write:false});
+const rowMod = new Module(import.meta.filename+'#row');
+rowMod.filename=import.meta.filename;rowMod.paths=mod.paths;rowMod.require=mod.require;rowMod._compile(rowBuild.outputFiles[0].text,import.meta.filename);
+const { ListRow } = rowMod.exports;
+const before = JSON.parse(readFileSync(new URL('./FeedItem.default.json',import.meta.url),'utf8'));
+const saving={item,saved:true,onToggleSave:()=>{}};
+const renderRow=props=>renderToStaticMarkup(React.createElement(ListRow,{...saving,...props}));
+const between=(html,from,to)=>html.slice(html.indexOf(from),html.indexOf(to,html.indexOf(from)));
+
+test('without starPos, cards and rows render exactly as before it existed',()=>{
+  assert.equal(render(saving),before.card);assert.equal(renderRow({}),before.row);
+  assert.equal(render({...saving,starPos:'actions'}),before.card);assert.equal(renderRow({starPos:'actions'}),before.row);
+});
+test('starPos "visual" moves the star under the source icon, on cards and rows',()=>{
+  for(const html of [render({...saving,starPos:'visual'}),renderRow({starPos:'visual'})]){
+    const visual=between(html,'class="story-visual"','class="story-content"');
+    assert.match(visual,/aria-label="Saved"/);
+    assert.doesNotMatch(between(html,'class="item-actions"','</article>'),/ldg-star/);
+    assert.equal((html.match(/class="ldg-star[ "]/g)||[]).length,1);
+    assert.ok(visual.indexOf('source-icon')<visual.indexOf('ldg-star'));
+  }
+});
+test('no star renders in either position without onToggleSave',()=>{
+  for(const starPos of ['actions','visual']){
+    assert.doesNotMatch(render({starPos}),/ldg-star/);
+    assert.doesNotMatch(renderToStaticMarkup(React.createElement(ListRow,{item,starPos})),/ldg-star/);
+  }
 });
