@@ -24,7 +24,7 @@ Open questions: whether any fetcher is blocked from cloud IPs. The Claude creden
 - [x] Add `schedule: cron "0 8 * * *"` (13:30 IST) to edition.yml and update its header comment, which says there is deliberately no schedule <!-- longclaw:item=ck_e56148ee -->
 - [x] Add a concurrency group to edition.yml so a manual and a scheduled run cannot race to push the same edition <!-- longclaw:item=ck_882ded06 -->
 - [x] Create a watchdog workflow that runs check.py at 09:00 UTC (14:30 IST) and posts to Slack if today's edition is missing <!-- longclaw:item=ck_7a4c0338 -->
-- [ ] Dry-run the scheduled workflow with workflow_dispatch for a past --date and confirm the commit lands on main and Pages deploys <!-- longclaw:item=ck_9d6f5e11 -->
+- [x] Dry-run the scheduled workflow with workflow_dispatch for a past --date and confirm the commit lands on main and Pages deploys <!-- longclaw:item=ck_9d6f5e11 -->
 - [x] Cut over: uninstall both launchd agents (io.aibytes.edition, io.aibytes.watchdog) so only one scheduler runs <!-- longclaw:item=ck_ac59fd0d -->
 - [x] Update CLAUDE.md, packages/runner/README.md and .claude/rules docs: the scheduler is now GitHub Actions; launchd/install.sh becomes a fallback or is removed <!-- longclaw:item=ck_78bd3bc9 -->
 - [ ] Watch the first three scheduled runs (including start-time delay and any skipped run) before removing the launchd templates <!-- longclaw:item=ck_41b4eccb -->
