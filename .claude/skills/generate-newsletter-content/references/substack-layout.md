@@ -91,8 +91,10 @@ the row, as plain text:
   the article isn't linked here (picked 3 Nov 2026 on the Issue 16 backfill).
   HN only. The other sections keep their linked bold names.
 
-The X words are still verbatim and still come from the `x_items.py` render. It
-has no Substack format yet, so add one rather than retyping the posts.
+The X words are still verbatim and still come from the `x_items.py` render.
+`scripts/substack_export.py` builds this whole layout from the issue HTML, and
+its X rows match `x_items.py render --format substack` exactly, so
+`x_items.py verify --substack <export page>` checks them.
 
 ### Close
 

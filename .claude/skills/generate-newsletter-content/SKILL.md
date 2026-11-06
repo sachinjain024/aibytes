@@ -1,6 +1,6 @@
 ---
 name: generate-newsletter-content
-description: Generate the weekly "aiBytes_" (AI Bytes) newsletter as a styled HTML file from raw content in the data/ directory. Use this skill whenever the user wants to create, build, or generate a newsletter issue - triggers include "generate the newsletter", "create this week's issue", "build aiBytes", "make the newsletter html", or any mention of turning collected news/launches/repos/HN links into the newsletter. Also use when the user drops files into data/ and asks to "process" or "publish" them, or wants Beehiiv-ready snippets or copy-paste blocks for pasting sections into the Beehiiv editor.
+description: Generate the weekly "aiBytes_" (AI Bytes) newsletter as a styled HTML file from raw content in the data/ directory. Use this skill whenever the user wants to create, build, or generate a newsletter issue - triggers include "generate the newsletter", "create this week's issue", "build aiBytes", "make the newsletter html", or any mention of turning collected news/launches/repos/HN links into the newsletter. Also use when the user drops files into data/ and asks to "process" or "publish" them, or wants the Substack-ready export or copy-paste blocks for pasting the issue into the Substack editor.
 ---
 
 # Generate Newsletter Content (aiBytes_)
@@ -70,7 +70,7 @@ Copy `assets/template.html` and replace every `{{TOKEN}}`. The template is the c
 - **The X sections are verbatim, and rendered by script.** Every word shown from a post is the author's, exactly as in `text`: never reword, summarise, fix typos, add or drop emoji, or retitle. The words are already checked against X by `/x-fetch-items`. This overrides the punctuation rule below: a post's own em dashes stay. **Don't type the posts in.** Paste the output of the x-fetch-items script unchanged (`S=.claude/skills/x-fetch-items/scripts/x_items.py`, with `--date` set to the snapshot's date):
   - `{{ANNOUNCEMENT_ITEMS}}` ← `python3 $S render --section announcements`
   - `{{X_ROWS}}` ← `python3 $S render --section viral`
-  - In the Beehiiv export, the Official Announcements card ← `render --format beehiiv --section announcements`, and the whole Viral on X section, header included, ← `render --format beehiiv --section viral`.
+  - The Substack export takes these rows from the issue itself (step 5), in the same words `render --format substack` prints, so nothing is pasted twice.
 
   The rules below are what the script does; they're here so you can read the output, not so you can rewrite it. The only things we write are the byline labels, the link text, the @handle and the row emoji, and the script writes those too. If it warns that an account has no company on file, add the account to `COMPANIES` in `packages/fetchers/aibytes_fetchers/x_render.py` and render again. If it warns that a post has no emoji, pick one for each Viral on X row from what the post is about, set them with `python3 $S emoji URL EMOJI [URL EMOJI ...]`, and render again.
 - **Official Announcements card**: directly after the AI News card, title `📣 OFFICIAL ANNOUNCEMENTS`, subtitle fixed copy "This week's launches, in the companies' own words." Each entry is a byline, the post in a paper inset, and a footer:
@@ -98,7 +98,7 @@ Copy `assets/template.html` and replace every `{{TOKEN}}`. The template is the c
 | Official Announcements | `Post on X ↗` to the post | `{domain} ↗` to `link_url`, when set |
 | Viral on X | the post on X (the opening words are the link); the `@handle` links to the author's profile | none |
 
-Attribution links use the same `<span class="src">` styling as the news source, with only the word inside the anchor: `<span class="src">(<a href="...">HackerNews</a>)</span>`. They render **grey with a hairline underline**, never cobalt - they are a quiet second door, and the bold name link stays the loud one. In the Beehiiv export that means `style="color:#6B7080;text-decoration:underline;"` on the anchor.
+Attribution links use the same `<span class="src">` styling as the news source, with only the word inside the anchor: `<span class="src">(<a href="...">HackerNews</a>)</span>`. They render **grey with a hairline underline**, never cobalt - they are a quiet second door, and the bold name link stays the loud one. Substack has one link colour, so the export can't keep the grey: there the trailing links are plain accent links, and `references/substack-layout.md` decides which text is linked at all.
 
 **Product Hunt websites need resolving.** The API's `website` and `productLinks` fields only ever return a `producthunt.com/r/...` redirect, never the product's real domain, and that redirect returns 403 to curl. Get the real URL by fetching the launch page (`https://www.producthunt.com/products/{slug}`) and reading the "Visit website" link out of it. Use that resolved domain for the bold name link.
 
@@ -106,7 +106,7 @@ Attribution links use the same `<span class="src">` styling as the news source, 
 
 Match the template's tone: terse, builder-focused, no hype words. The intro is the one place the voice warms up - it greets the reader and speaks as "I"; everything below it stays clipped.
 
-**Punctuation: single hyphens only.** Never emit an em dash (`—`) or en dash (`–`) anywhere in the output - not in prose, not between a name and its description, not in ranges. Use a spaced hyphen (` - `) where a dash is needed and a plain hyphen in ranges (`5-7 items`). This applies to the issue HTML, the Beehiiv export, and the title/description fields.
+**Punctuation: single hyphens only.** Never emit an em dash (`—`) or en dash (`–`) anywhere in the output - not in prose, not between a name and its description, not in ranges. Use a spaced hyphen (` - `) where a dash is needed and a plain hyphen in ranges (`5-7 items`). This applies to the issue HTML, the Substack export, and the title/description fields.
 
 ### 4. Write the post title and description
 
@@ -114,46 +114,47 @@ The title becomes the email subject line; the description becomes the preview/su
 
 - **Title**: `{emoji} {hook one} and {hook two}` - a single leading emoji, then the hooks (e.g. "📚 Amazon pulps rare books and Cursor fights GitHub" for a week whose lead story was Amazon pulping books). The emoji is not fixed: derive it from the issue's content, usually the story of the week or the first hook - the same instinct that picks each news row's emoji picks this one, and the story-of-week row's emoji is often the right answer. A standing brand emoji that never changes carries no information, so never fall back to one. No `aiBytes_` prefix and no issue number - the masthead and issue tag inside the issue carry those. Sentence case, concrete specifics, ≤ ~62 characters.
 
-  **Spend the opening on content, not chrome.** A mobile inbox shows roughly 35 to 40 characters of subject line, and Beehiiv already prints "aiBytes_" in the sender field, so the subject carries no brand prefix and no issue number - the leading emoji is the only thing before the first hook, and it earns that spot by pointing at the lead story rather than repeating the brand. No `#`, no colon, no ` - ` separator, and write "and" rather than `&`. Two hooks, not three - the third never survives truncation.
+  **Spend the opening on content, not chrome.** A mobile inbox shows roughly 35 to 40 characters of subject line, and Substack already prints "aiBytes_" in the sender field, so the subject carries no brand prefix and no issue number - the leading emoji is the only thing before the first hook, and it earns that spot by pointing at the lead story rather than repeating the brand. No `#`, no colon, no ` - ` separator, and write "and" rather than `&`. Two hooks, not three - the third never survives truncation.
 
 - **Description**: one sentence that **starts with "Plus"** and names 2-3 things the title does not. It extends the title, it never restates it. Never "Catch up on …", which only ever paraphrases the subject line back at the reader.
 
   Check it against the intro's hook and storyline too, not just the title. Pulling from the same items three times is the same repetition in a different place. Reach for what none of them mentions: a product, a repo, or an HN thread.
 
-Fill `{{EMAIL_SUBJECT}}` and `{{EMAIL_DESCRIPTION}}` in the main template (`<title>` and meta description) and in the export page's title panel.
+Fill `{{EMAIL_SUBJECT}}` and `{{EMAIL_DESCRIPTION}}` in the main template (`<title>` and meta description). The export script reads them from there into Substack's title and subtitle fields.
 
-### 5. Build the Beehiiv export
+### 5. Build the Substack export
 
-**Moving to Substack from Issue 17 (AIB-134j).** The Substack layout is decided and written up in `references/substack-layout.md`: Substack's own blocks, ranked sections as numbered lists, and the publication's current theme. The Substack export that replaces this step isn't built yet. Until it is, build the Beehiiv export below as usual, and lay out the Substack post by hand from that reference.
+aiBytes_ publishes on Substack from Issue 17 (AIB-134j). Substack's editor takes no custom HTML or CSS, so the issue is rebuilt from the editor's own blocks: the layout is in `references/substack-layout.md` (ranked sections as numbered lists, the publication's current theme). Don't lay it out by hand. Once the issue HTML is saved (step 6), run:
 
-The user publishes on Beehiiv, whose HTML Snippet block strips `<style>` tags - so the main file's CSS classes won't survive a paste. Alongside the main HTML, always generate a second file: a copy-paste export page.
+```bash
+python3 .claude/skills/generate-newsletter-content/scripts/substack_export.py \
+  --issue newsletter/issues/{yyyy}/week-{week_num}-Issue-{num}/aiBytes-issue-{num}.html
+```
 
-For each section of the issue (masthead, intro, news card, Official Announcements, Viral on X, New AI Products, Trending Github Projects, HN Deep Stories), rebuild the content as an email-safe snippet - inline styles only, `<table>` layout, no flexbox/clip-path/classes. The exact pattern for every section is in `references/beehiiv-patterns.html`; read it and fill the tokens with the same content as the main file.
+It writes `aiBytes-substack-export-issue-{num}.html` beside the issue, from `assets/substack-export-template.html`: the title and subtitle with their own copy buttons (they're typed into Substack's fields as plain text), the after-paste steps, and the body with **⧉ Copy body**, which puts rich HTML on the clipboard for a `⌘V` into the empty post body. A live preview approximates the theme. `--body-only` prints the body instead, for pasting it some other way (for example onto the macOS clipboard as HTML).
 
-Every exported `<p>` must include inline `padding:0`; Beehiiv otherwise adds paragraph padding on top of our margins (confirmed in issue #10). Keep `margin:0 0 14px 0` between intro paragraphs and news items, but use `margin:0` on the final paragraph in each group and on the quote. If an edit removes the last intro paragraph, reset the new last paragraph too. Apply these resets inside the snippets, not just in the export page CSS.
+The script is the layout: it maps sections to `h2`s, the story of the week to an `h3`, the quote to a pull quote, ranked rows to `<ol>`s, and applies the link rules (Viral on X links only the handle, to the post; HN titles are plain bold). Change the layout there and in the reference together, and take layout changes through a taste round first. It refuses an issue that still has `{{TOKENS}}`. If the issue's template markup changes, `tests/test_substack_export.py` fails until the script reads the new shape.
 
-Then take `assets/beehiiv-export-template.html` and fill its tokens: `{{PART1_HTML}}` with the merged snippets for masthead + intro + news card + Official Announcements, `{{PART2_HTML}}` with Viral on X + New AI Products + Trending Github Projects + HN Deep Stories (sections joined by a blank line, in reading order), plus `{{EMAIL_SUBJECT}}`, `{{EMAIL_DESCRIPTION}}`, and `{{ISSUE_NUM}}`. The page shows the title panel - carrying its own **Copy Title** and **Copy Desc** buttons, since those two are typed into Beehiiv's title and subtitle fields as plain text rather than pasted as a snippet - then two HTML copy buttons, Part 1 and Part 2, each with a live preview. Two parts rather than one because the user pastes native Beehiiv blocks (subscribe form, ads, polls) between them. Put the snippets into the textareas as **raw HTML, not entity-escaped**: the browser reads a textarea's content as text anyway, and `x_items.py verify --export` looks for the rendered X rows in the raw page, so escaped snippets fail it.
+The Beehiiv export (`assets/beehiiv-export-template.html`, `references/beehiiv-patterns.html`, `x_items.py render --format beehiiv`) is no longer built. It stays in the repo until AIB-135b removes it.
 
 ### 6. Save the output
 
-Write both files to:
+Write the issue, then run step 5's script to write the export beside it:
 
 ```
 newsletter/issues/{yyyy}/week-{week_num}-Issue-{num}/aiBytes-issue-{num}.html
-newsletter/issues/{yyyy}/week-{week_num}-Issue-{num}/aiBytes-beehiiv-export-issue-{num}.html
+newsletter/issues/{yyyy}/week-{week_num}-Issue-{num}/aiBytes-substack-export-issue-{num}.html
 ```
 
 Create the directories if they don't exist. Then present both files to the user and, if an artifact/preview mechanism is available, render the main issue so they can see it immediately.
 
 ### 7. Verify
 
-Open both generated files and check: no `{{` tokens remain, every link came from the data, sections with no data were removed cleanly (including their `sec-head`), the hex issue number matches the decimal one, the title/description are filled in both files, and the export page contains no `<style>`-dependent markup inside its textareas (inline styles only) with content matching the main file section for section.
+Open both generated files and check: no `{{` tokens remain, every link came from the data, sections with no data were removed cleanly (including their `sec-head`), the hex issue number matches the decimal one, the title/description are filled in both files, and the export's counts (printed by the script and shown in its after-paste steps) match the issue's table of contents.
 
-Check exported paragraph spacing: every `<p>` has inline `padding:0`, and the final intro paragraph, final news item and quote have `margin:0`.
+Check the X sections with `python3 .claude/skills/x-fetch-items/scripts/x_items.py verify --date <snapshot date> --issue <issue.html> --substack <export.html>`, adding `--section viral` when the issue has no Official Announcements card. It fails if any shortlisted post is missing, retyped, or out of order in either file; fix it by pasting the render output into the issue again, never by editing the post, then rerun the export script. Never hand-edit the export page. Then check by eye that no story in Official Announcements also appears in AI News, and that the section numbers run without a gap.
 
-Check the X sections with `python3 .claude/skills/x-fetch-items/scripts/x_items.py verify --date <snapshot date> --issue <issue.html> --export <export.html>`, adding `--section viral` when the issue has no Official Announcements card. It fails if any shortlisted post is missing, retyped, or out of order in either file; fix it by pasting the render output again, never by editing the post. Then check by eye that no story in Official Announcements also appears in AI News, and that the section numbers run without a gap.
-
-Then check the links specifically: no URL carries a `ref` or `utm_*` parameter, no launch name still points at a `producthunt.com/r/` redirect, every HN deep cut name points at the article rather than the thread, and the quote block has no attribution line. Strip the template's fill-in comments from both output files before saving.
+Then check the links specifically: no URL carries a `ref` or `utm_*` parameter, no launch name still points at a `producthunt.com/r/` redirect, every HN deep cut name points at the article rather than the thread, and the quote block has no attribution line. Strip the template's fill-in comments from the issue before saving; the export script drops them on its own.
 
 Check the table of contents: one row per section actually present, in the same order as the issue, each count matching the rows that section really has, and no row for a section that was left out.
 

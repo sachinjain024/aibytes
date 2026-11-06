@@ -60,4 +60,6 @@ tests are in `tests/test_x_fetch_items.py`.
 `x_render.py` turns the shortlist into the newsletter's HTML, because those
 sections show posts word for word and a script copies text more reliably than
 the issue skill retyping it. Its markup mirrors the generate-newsletter-content
-template and Beehiiv patterns: change them together.
+template, the Substack export script
+(`generate-newsletter-content/scripts/substack_export.py`) and the Beehiiv
+patterns: change them together.
