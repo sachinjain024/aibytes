@@ -1,0 +1,465 @@
+{
+  "schema_version": 1,
+  "number": 13,
+  "slug": "issue-13",
+  "title": "🚔 Anthropic's AI misleads police and OpenAI's Decisions API",
+  "description": "Plus Claude agents that run on a schedule, Rill, a browser built for coding agents, and a trust ladder for agentic coding.",
+  "published_on": "2026-10-12",
+  "generated_at": "2026-11-06T11:03:27Z",
+  "counts": {
+    "launches": 5,
+    "repos": 7,
+    "news": 9,
+    "hn": 5
+  },
+  "items": [
+    {
+      "id": "tc-an-anthropic-model-sent-police-a-false-homicide-issue-13",
+      "title": "An Anthropic model sent police a false homicide tip",
+      "summary": "Anthropic didn't discover what its AI had done until more than two months later.",
+      "url": "https://techcrunch.com/2026/10/09/an-anthropic-ai-model-sent-a-false-homicide-tip-to-philadelphia-police/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/09/an-anthropic-ai-model-sent-a-false-homicide-tip-to-philadelphia-police/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "tc-anthropic-cuts-its-internal-evals-off-from-the-l-issue-13",
+      "title": "Anthropic cuts its internal evals off from the live internet",
+      "summary": "Live internet access is off for every internal evaluation until further notice.",
+      "url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "hn-anthropic-releases-claude-haiku-5-5-issue-13",
+      "title": "Anthropic releases Claude Haiku 5.5",
+      "summary": "Its cheapest, fastest small model yet, around 75% cheaper to run than Haiku 4.5.",
+      "url": "https://www.anthropic.com/claude-haiku-5-5",
+      "source": "hackernews",
+      "source_url": "https://www.anthropic.com/claude-haiku-5-5",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "hn-mistral-launches-mistral-large-4-issue-13",
+      "title": "Mistral launches Mistral Large 4",
+      "summary": "Mistral's new flagship, pitched as one of the strongest models for cybersecurity.",
+      "url": "https://mistral.ai/news/mistral-large-4/",
+      "source": "hackernews",
+      "source_url": "https://mistral.ai/news/mistral-large-4/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "hn-gpt-6-and-intelligent-ui-roll-out-to-everyone-issue-13",
+      "title": "GPT-6 and Intelligent UI roll out to everyone",
+      "summary": "ChatGPT answers turn into interactive visuals and tools, on every tier.",
+      "url": "https://openai.com/index/gpt-6-for-everyone/",
+      "source": "hackernews",
+      "source_url": "https://openai.com/index/gpt-6-for-everyone/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "hn-openai-opens-the-decisions-api-issue-13",
+      "title": "OpenAI opens the Decisions API",
+      "summary": "Lets an app pick a model, tool or action in near real time, in public beta.",
+      "url": "https://developers.openai.com/api/docs/guides/decisions",
+      "source": "hackernews",
+      "source_url": "https://developers.openai.com/api/docs/guides/decisions",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "hn-openai-shares-math-results-from-an-internal-fron-issue-13",
+      "title": "OpenAI shares math results from an internal frontier model",
+      "summary": "Released with advice from the Institute for Advanced Study's advisory group.",
+      "url": "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+      "source": "hackernews",
+      "source_url": "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "tc-fired-openai-safety-researchers-dispute-miscondu-issue-13",
+      "title": "Fired OpenAI safety researchers dispute misconduct claims",
+      "summary": "Three of them warn in an open letter of a chilling effect on safety work.",
+      "url": "https://techcrunch.com/2026/10/08/fired-openai-safety-researchers-dispute-misconduct-claims-warn-of-chilling-effect/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/08/fired-openai-safety-researchers-dispute-misconduct-claims-warn-of-chilling-effect/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "id": "tc-openai-will-watermark-chatgpt-text-in-the-eu-issue-13",
+      "title": "OpenAI will watermark ChatGPT text in the EU",
+      "summary": "ChatGPT and Codex output gets invisible marks to comply with the AI Act.",
+      "url": "https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "id": "ph-spira-maxima-issue-13",
+      "title": "Spira Maxima",
+      "summary": "A video model that turns a script into a finished social video, with presenter, B-roll, captions and music.",
+      "url": "https://spira.ai",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/spira-ai",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 558
+      },
+      "rank": 10
+    },
+    {
+      "id": "ph-irisgo-for-solopreneurs-issue-13",
+      "title": "IrisGo for Solopreneurs",
+      "summary": "Show it a task once and it becomes a reusable workflow, alongside daily briefs and email triage.",
+      "url": "https://irisgo.ai/solopreneur",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/irisgo-public-beta",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 537
+      },
+      "rank": 11
+    },
+    {
+      "id": "ph-genpage-3-0-issue-13",
+      "title": "GenPage 3.0",
+      "summary": "Builds a dedicated landing page for every ad, keyword or target account, then keeps testing it.",
+      "url": "https://www.genpage.ai/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/genpage",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 511
+      },
+      "rank": 12
+    },
+    {
+      "id": "ph-rill-browser-issue-13",
+      "title": "Rill Browser",
+      "summary": "A browser built around Claude Code and Codex: press ⌘E on any page to turn it into a task for your agent.",
+      "url": "https://rill.love",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/rill-3",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 501
+      },
+      "rank": 13
+    },
+    {
+      "id": "ph-velozity-issue-13",
+      "title": "Velozity",
+      "summary": "A multiplayer AI office: chat, calls, tasks and files in one app, with AI agents beside the team.",
+      "url": "https://getvelozity.com/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/velozity-2",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 472
+      },
+      "rank": 14
+    },
+    {
+      "id": "gh-mattpocock-skills-issue-13",
+      "title": "mattpocock/skills",
+      "summary": "Matt Pocock's agent skills for real engineers, straight from his .agents directory.",
+      "url": "https://github.com/mattpocock/skills",
+      "source": "github",
+      "source_url": "https://github.com/mattpocock/skills",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mattpocock.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 8156
+      },
+      "rank": 15
+    },
+    {
+      "id": "gh-heygen-com-hyperframes-issue-13",
+      "title": "heygen-com/hyperframes",
+      "summary": "Write HTML, render video: a video framework built for agents.",
+      "url": "https://github.com/heygen-com/hyperframes",
+      "source": "github",
+      "source_url": "https://github.com/heygen-com/hyperframes",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/heygen-com.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 4003
+      },
+      "rank": 16
+    },
+    {
+      "id": "gh-thedotmack-claude-mem-issue-13",
+      "title": "thedotmack/claude-mem",
+      "summary": "Captures what your agent does, compresses it, and feeds the relevant context back into later sessions.",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source": "github",
+      "source_url": "https://github.com/thedotmack/claude-mem",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/thedotmack.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 3850
+      },
+      "rank": 17
+    },
+    {
+      "id": "gh-mvschwarz-openrig-issue-13",
+      "title": "mvschwarz/openrig",
+      "summary": "Persistent teams of Claude Code, Codex and Pi agents, with roles, shared context and owned work.",
+      "url": "https://github.com/mvschwarz/openrig",
+      "source": "github",
+      "source_url": "https://github.com/mvschwarz/openrig",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mvschwarz.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 2338
+      },
+      "rank": 18
+    },
+    {
+      "id": "gh-earthtojake-text-to-cad-issue-13",
+      "title": "earthtojake/text-to-cad",
+      "summary": "Text-to-CAD tooling that gives your coding agent CAD superpowers.",
+      "url": "https://github.com/earthtojake/text-to-cad",
+      "source": "github",
+      "source_url": "https://github.com/earthtojake/text-to-cad",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/earthtojake.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 2125
+      },
+      "rank": 19
+    },
+    {
+      "id": "gh-cursor-plugins-issue-13",
+      "title": "cursor/plugins",
+      "summary": "The Cursor plugin specification, plus Cursor's official plugins.",
+      "url": "https://github.com/cursor/plugins",
+      "source": "github",
+      "source_url": "https://github.com/cursor/plugins",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/cursor.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 1125
+      },
+      "rank": 20
+    },
+    {
+      "id": "gh-ranxianglei-billion-context-issue-13",
+      "title": "ranxianglei/billion-context",
+      "summary": "A context-compression plugin: 5x fewer tokens and month-long sessions inside a 100K window.",
+      "url": "https://github.com/ranxianglei/billion-context",
+      "source": "github",
+      "source_url": "https://github.com/ranxianglei/billion-context",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/ranxianglei.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 246
+      },
+      "rank": 21
+    },
+    {
+      "id": "hn-why-isn-t-the-industry-freaking-out-about-deepse-issue-13",
+      "title": "Why isn't the industry freaking out about DeepSeek 4.1 Flash?",
+      "summary": "A blog post arguing DeepSeek's latest Flash model deserved a far bigger reaction.",
+      "url": "https://www.dgt.is/blog/2026-10-07-deepseek-freek-out/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50000488",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 1110
+      },
+      "rank": 22
+    },
+    {
+      "id": "hn-run-qwen-3-8-flash-next-125b-on-an-rtx-4090-at-1-issue-13",
+      "title": "Run Qwen 3.8 Flash Next (125B) on an RTX 4090 at 100T/s",
+      "summary": "Strata, an open-source runtime for a 125B model on one consumer GPU.",
+      "url": "https://github.com/Niko1221/Strata",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49953495",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 935
+      },
+      "rank": 23
+    },
+    {
+      "id": "hn-anthropic-reported-a-diary-entry-to-police-and-a-issue-13",
+      "title": "Anthropic reported a diary entry to police, and a woman faces a felony charge",
+      "summary": "A Claude user's private writing ended in a police report.",
+      "url": "https://www.techspot.com/news/114091-florida-woman-used-claude-diary-anthropic-reported-shoot.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49961057",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 836
+      },
+      "rank": 24
+    },
+    {
+      "id": "hn-chatgpt-is-adding-real-cartoonists-signatures-to-issue-13",
+      "title": "ChatGPT is adding real cartoonists' signatures to fake New Yorker cartoons",
+      "summary": "Nieman Lab on generated cartoons that carry real artists' names.",
+      "url": "https://www.niemanlab.org/2026/10/chatgpt-is-adding-real-cartoonists-signatures-to-fake-new-yorker-cartoons/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49971846",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 558
+      },
+      "rank": 25
+    },
+    {
+      "id": "hn-openai-s-annualised-revenue-is-20b-less-than-it-issue-13",
+      "title": "OpenAI's annualised revenue is $20B less than it signalled",
+      "summary": "CNBC on the gap, and what it means for Nvidia, Oracle and CoreWeave.",
+      "url": "https://www.cnbc.com/2026/10/08/open-ai-revenue-nvidia-oracle-coreweave.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50008187",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 429
+      },
+      "rank": 26
+    }
+  ]
+}

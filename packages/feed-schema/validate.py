@@ -1,4 +1,5 @@
-"""Validate the published content contract: editions, the index, tags, hidden.
+"""Validate the published content contract: editions, the index, tags, hidden,
+and the optional weekly archive under content/weekly/.
 
 Stdlib only, like the rest of the repo's Python. This checks the constraints
 the schema files actually declare rather than pulling in a JSON Schema engine,
@@ -38,6 +39,11 @@ INDEX_ENTRY_REQUIRED = ("date", "path", "total", "generated_at")
 TAGS_REQUIRED = ("schema_version", "groups")
 HIDDEN_REQUIRED = ("schema_version", "hidden")
 HIDDEN_ENTRY_REQUIRED = ("id", "edition_date", "hidden_at")
+WEEKLY_REQUIRED = ("schema_version", "issues")
+WEEKLY_ENTRY_REQUIRED = ("number", "slug", "title", "description", "published_on", "source", "path")
+WEEKLY_ISSUE_REQUIRED = ("schema_version", "number", "slug", "title", "description",
+                         "published_on", "generated_at", "counts", "items")
+WEEKLY_SLUG_RE = re.compile(r"^issue-(\d+)$")
 
 CATEGORIES = ("launches", "repos", "news", "hn")
 SOURCES = ("producthunt", "hackernews", "techcrunch", "github")
@@ -51,6 +57,8 @@ RANK_MIN = 1
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]*-\d{4}-\d{2}-\d{2}$")
+# A weekly issue's items end in the issue instead of a date: hn-genie-4-issue-16.
+WEEKLY_ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]*-issue-\d+$")
 PATH_RE = re.compile(r"^(?!.*\.\.)[A-Za-z0-9._-]+(?:/[A-Za-z0-9._-]+)*\.json$")
 SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 URL_RE = re.compile(r"^https?://[^\s]+$")
@@ -96,28 +104,34 @@ def validate_edition(edition, *, tag_names=None):
     if counts is not None:
         problems += (f"counts: {p}" for p in _counts_problems(counts))
 
-    items = edition.get("items")
-    if items is None:
-        pass
-    elif not isinstance(items, list):
-        problems.append("items must be an array")
-    else:
-        seen = set()
-        for i, item in enumerate(items):
-            problems += (f"items[{i}]: {p}" for p in _item_problems(item, date, tag_names))
-            item_id = isinstance(item, dict) and item.get("id")
-            if item_id:
-                if item_id in seen:
-                    problems.append(f"items[{i}]: duplicate item id {item_id!r}")
-                seen.add(item_id)
-        if isinstance(counts, dict):
-            problems += _counts_match_items(counts, items)
-        problems += _ranks_match_items(items)
+    problems += _items_problems(edition.get("items"), counts,
+                                lambda item: _item_problems(item, date, tag_names))
 
     problems = list(problems)
     if problems:
         raise FeedValidationError("\n".join(problems))
     return edition
+
+
+def _items_problems(items, counts, item_problems):
+    """Each item on its own, then ids, counts, and ranks across them."""
+    if items is None:
+        return []
+    if not isinstance(items, list):
+        return ["items must be an array"]
+    problems = []
+    seen = set()
+    for i, item in enumerate(items):
+        problems += (f"items[{i}]: {p}" for p in item_problems(item))
+        item_id = isinstance(item, dict) and item.get("id")
+        if item_id:
+            if item_id in seen:
+                problems.append(f"items[{i}]: duplicate item id {item_id!r}")
+            seen.add(item_id)
+    if isinstance(counts, dict):
+        problems += _counts_match_items(counts, items)
+    problems += _ranks_match_items(items)
+    return problems
 
 
 def _ranks_match_items(items):
@@ -185,7 +199,8 @@ def _counts_match_items(counts, items):
     ]
 
 
-def _item_problems(item, edition_date, tag_names):
+def _item_problems(item, edition_date, tag_names, *, issue_number=None):
+    """One item. A weekly issue's item passes `issue_number` instead of a date."""
     if not isinstance(item, dict):
         return ["must be an object"]
     problems = _missing(item, ITEM_REQUIRED)
@@ -194,13 +209,16 @@ def _item_problems(item, edition_date, tag_names):
             problems.append(f"unknown key: {key}")
 
     item_id = item.get("id")
+    id_re, suffix, what = (
+        (ID_RE, edition_date and f"-{edition_date}", "the edition date") if issue_number is None
+        else (WEEKLY_ID_RE, f"-issue-{issue_number}", "the issue"))
     if item_id is not None:
-        if not (isinstance(item_id, str) and ID_RE.match(item_id)):
-            problems.append(f"id {item_id!r} must match {ID_RE.pattern}")
-        elif edition_date and not item_id.endswith(f"-{edition_date}"):
+        if not (isinstance(item_id, str) and id_re.match(item_id)):
+            problems.append(f"id {item_id!r} must match {id_re.pattern}")
+        elif suffix and not item_id.endswith(suffix):
             # A global id is what makes a save (item_id + edition_date)
             # resolvable, and this catches an item carried over from yesterday.
-            problems.append(f"id {item_id!r} must end with the edition date -{edition_date}")
+            problems.append(f"id {item_id!r} must end with {what} {suffix}")
 
     for key in ("title", "summary"):
         value = item.get(key)
@@ -585,11 +603,153 @@ def validate_content_root(root):
 
     problems += _index_agrees_with_editions(documents.get("index"), editions)
     problems += _hidden_agrees_with_editions(documents.get("hidden"), editions)
+    problems += _weekly_index_problems(root, tags_doc)
 
     problems = list(problems)
     if problems:
         raise FeedValidationError("\n".join(problems))
     return True
+
+
+def validate_weekly_issue(issue, *, tag_names=None):
+    """Raise FeedValidationError listing every problem; return issue if clean.
+
+    content/weekly/issues/issue-N.json: an edition-shaped feed for one weekly
+    issue. Items follow the edition item contract, with ids ending -issue-N.
+    """
+    if not isinstance(issue, dict):
+        raise FeedValidationError("weekly issue must be a JSON object")
+    problems = _missing(issue, WEEKLY_ISSUE_REQUIRED)
+    problems += _version(issue)
+
+    number = issue.get("number")
+    if number is not None and not _is_issue_number(number):
+        problems.append(f"number {number!r} must be a positive integer")
+        number = None
+    slug = issue.get("slug")
+    if slug is not None and slug != f"issue-{number}":
+        problems.append(f"slug {slug!r} must be issue-{number}")
+    published = issue.get("published_on")
+    if published is not None and not _is_date(published):
+        problems.append(f"published_on {published!r} is not a YYYY-MM-DD date")
+    generated = issue.get("generated_at")
+    if generated is not None and not _is_datetime(generated):
+        problems.append(f"generated_at {generated!r} is not an ISO 8601 timestamp")
+
+    counts = issue.get("counts")
+    if counts is not None:
+        problems += (f"counts: {p}" for p in _counts_problems(counts))
+    problems += _items_problems(issue.get("items"), counts,
+                                lambda item: _item_problems(item, None, tag_names, issue_number=number))
+
+    if problems:
+        raise FeedValidationError("\n".join(problems))
+    return issue
+
+
+def _weekly_index_problems(root, tag_names=None):
+    """Optional content/weekly/ (AIB-105j): the index and every issue it lists.
+
+    Absent is fine. When present the index is newest first, each entry names
+    its source HTML and its issue file, and each issue file agrees with its
+    entry.
+    """
+    root = pathlib.Path(root)
+    path = root / "weekly" / "index.json"
+    if not path.exists():
+        return []
+    try:
+        document = json.loads(path.read_text())
+    except ValueError as exc:
+        return [f"weekly/index.json: not valid JSON: {exc}"]
+    if not isinstance(document, dict):
+        return ["weekly/index.json: must be an object"]
+
+    problems = [f"weekly/index.json: {p}" for p in _missing(document, WEEKLY_REQUIRED) + _version(document)]
+    issues = document.get("issues")
+    if issues is None:
+        return problems
+    if not isinstance(issues, list):
+        return problems + ["weekly/index.json: issues must be an array"]
+
+    repo_root = root.resolve().parent
+    previous = None
+    for i, entry in enumerate(issues):
+        prefix = f"weekly/index.json: issues[{i}]"
+        if not isinstance(entry, dict):
+            problems.append(f"{prefix}: must be an object")
+            continue
+        problems += (f"{prefix}: {p}" for p in _missing(entry, WEEKLY_ENTRY_REQUIRED))
+        problems += (f"{prefix}: unknown key: {key}" for key in entry if key not in WEEKLY_ENTRY_REQUIRED)
+
+        number = entry.get("number")
+        if number is not None and not _is_issue_number(number):
+            problems.append(f"{prefix}: number must be a positive integer")
+            number = None
+        if number is not None:
+            if previous is not None and number >= previous:
+                problems.append(f"{prefix}: issues must be newest first, strictly descending; {number} follows {previous}")
+            previous = number
+
+        slug = entry.get("slug")
+        if slug is not None and not (isinstance(slug, str) and WEEKLY_SLUG_RE.match(slug)):
+            problems.append(f"{prefix}: slug {slug!r} must match issue-{{N}}")
+        elif slug is not None and number is not None and slug != f"issue-{number}":
+            problems.append(f"{prefix}: slug {slug!r} does not match number {number}")
+
+        for field in ("title", "source"):
+            value = entry.get(field)
+            if value is not None and not (isinstance(value, str) and value.strip()):
+                problems.append(f"{prefix}: {field} must be a non-empty string")
+        if "description" in entry and not isinstance(entry["description"], str):
+            problems.append(f"{prefix}: description must be a string")
+        published = entry.get("published_on")
+        if published is not None and not _is_date(published):
+            problems.append(f"{prefix}: published_on {published!r} is not a YYYY-MM-DD date")
+
+        source = entry.get("source")
+        if isinstance(source, str) and source.strip():
+            source_path = (repo_root / source).resolve()
+            try:
+                source_path.relative_to(repo_root)
+            except ValueError:
+                problems.append(f"{prefix}: source escapes the repo ({source!r})")
+            else:
+                if not source_path.is_file():
+                    problems.append(f"{prefix}: source file missing ({source})")
+
+        problems += _weekly_issue_file_problems(root, prefix, entry, tag_names)
+    return problems
+
+
+def _weekly_issue_file_problems(root, prefix, entry, tag_names):
+    """The issue file an index entry points at: there, valid, and in step."""
+    issue_path = entry.get("path")
+    if issue_path is None:
+        return []
+    slug = entry.get("slug")
+    if not (isinstance(issue_path, str) and PATH_RE.match(issue_path)):
+        return [f"{prefix}: path {issue_path!r} must be a relative content path"]
+    if isinstance(slug, str) and issue_path != f"weekly/issues/{slug}.json":
+        return [f"{prefix}: path {issue_path!r} must be weekly/issues/{slug}.json"]
+    file = root / issue_path
+    if not file.is_file():
+        return [f"{prefix}: path file missing ({issue_path})"]
+    try:
+        issue = json.loads(file.read_text())
+    except ValueError as exc:
+        return [f"{issue_path}: not valid JSON: {exc}"]
+    try:
+        validate_weekly_issue(issue, tag_names=tag_names)
+    except FeedValidationError as exc:
+        return [f"{issue_path}: {line}" for line in str(exc).splitlines()]
+    return [f"{issue_path}: {key} {issue.get(key)!r} does not match the index entry's {entry.get(key)!r}"
+            for key in ("number", "slug", "title", "description", "published_on")
+            if key in entry and issue.get(key) != entry.get(key)]
+
+
+def _is_issue_number(value):
+    return isinstance(value, int) and not isinstance(value, bool) and value >= 1
 
 
 def _index_agrees_with_editions(index, editions):

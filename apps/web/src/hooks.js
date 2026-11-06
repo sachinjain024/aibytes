@@ -2,24 +2,13 @@ import React from "react";
 import { gridColumns } from "./layout.js";
 import { readChoice, THEME, writeChoice } from "./prefs.js";
 
-const DARK = "(prefers-color-scheme: dark)";
-
-// The theme on screen, and a toggle. With no stored choice the OS decides,
-// live, through Ledger's prefers-color-scheme tokens and no data-theme at all.
-// The toggle pins a choice on <html> and remembers it; index.html applies a
-// stored choice before first paint so it never flashes the other theme.
+// The theme on screen, and a toggle. Light unless the reader picked dark: the
+// OS setting is not followed. The theme is always pinned on <html>, so Ledger's
+// prefers-color-scheme tokens never apply; index.html sets it before first
+// paint so a stored dark never flashes light, and the default never flashes dark.
 export function useTheme() {
   const [choice, setChoice] = React.useState(() => readChoice(THEME));
-  const [systemDark, setSystemDark] = React.useState(() => window.matchMedia(DARK).matches);
-
-  React.useEffect(() => {
-    const query = window.matchMedia(DARK);
-    const onChange = () => setSystemDark(query.matches);
-    query.addEventListener("change", onChange);
-    return () => query.removeEventListener("change", onChange);
-  }, []);
-
-  const theme = choice || (systemDark ? "dark" : "light");
+  const theme = choice || "light";
   const toggle = React.useCallback(() => {
     const next = theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;

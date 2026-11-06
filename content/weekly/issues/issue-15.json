@@ -1,0 +1,396 @@
+{
+  "schema_version": 1,
+  "number": 15,
+  "slug": "issue-15",
+  "title": "🐘 OpenAI's models find PHP flaws and the US bans DeepSeek",
+  "description": "Plus 1Password's agent logins, a search engine built for agents, and why OpenAI doesn't just start 100 companies.",
+  "published_on": "2026-10-26",
+  "generated_at": "2026-11-06T11:06:05Z",
+  "counts": {
+    "launches": 4,
+    "repos": 5,
+    "news": 8,
+    "hn": 5
+  },
+  "items": [
+    {
+      "id": "hn-openai-s-models-found-critical-security-flaws-in-issue-15",
+      "title": "OpenAI's models found critical security flaws in PHP",
+      "summary": "The language behind an estimated 70% of websites. Every PHP site can now safely upgrade.",
+      "url": "https://x.com/OpenAI/status/2112907856018309586",
+      "source": "hackernews",
+      "source_url": "https://x.com/OpenAI/status/2112907856018309586",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "hn-deepseek-banned-from-us-federal-civilian-agencie-issue-15",
+      "title": "DeepSeek banned from US federal civilian agencies",
+      "summary": "A new DHS order pulls DeepSeek out of government agency IT systems.",
+      "url": "https://www.reuters.com/technology/us-banning-chinese-ai-deepseek-government-agency-it-systems-2026-10-19/",
+      "source": "hackernews",
+      "source_url": "https://www.reuters.com/technology/us-banning-chinese-ai-deepseek-government-agency-it-systems-2026-10-19/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "hn-deepinfer-issue-15",
+      "title": "DeepInfer",
+      "summary": "DeepSeek's own high-performance inference framework for its models, on GitHub.",
+      "url": "https://github.com/deepseek-ai/DeepInfer",
+      "source": "hackernews",
+      "source_url": "https://github.com/deepseek-ai/DeepInfer",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "hn-deepseek-search-and-fetch-issue-15",
+      "title": "DeepSeek search and fetch",
+      "summary": "Web search and page fetch in the DeepSeek API, at $0.75 per 1,000 successful requests.",
+      "url": "https://api-docs.deepseek.com/guides/search/",
+      "source": "hackernews",
+      "source_url": "https://api-docs.deepseek.com/guides/search/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "tc-openai-is-working-on-a-30b-raise-at-a-1-25t-valu-issue-15",
+      "title": "OpenAI is working on a $30B raise at a $1.25T valuation",
+      "summary": "It would be the most highly valued private company ever, ahead of an IPO.",
+      "url": "https://techcrunch.com/2026/10/22/openai-working-on-new-30b-raise-at-1-25t-valuation-ahead-of-ipo/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/22/openai-working-on-new-30b-raise-at-1-25t-valuation-ahead-of-ipo/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "tc-openai-makes-its-jev-competitor-widely-available-issue-15",
+      "title": "OpenAI makes its Jev competitor widely available",
+      "summary": "OpenAI's decision model opens to everyone as the race with Jev heats up.",
+      "url": "https://techcrunch.com/2026/10/22/openai-makes-its-jev-competitor-widely-available-as-decision-model-competition-heats-up/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/22/openai-makes-its-jev-competitor-widely-available-as-decision-model-competition-heats-up/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "tc-1password-lets-ai-agents-log-in-for-you-issue-15",
+      "title": "1Password lets AI agents log in for you",
+      "summary": "Agents can sign in to your accounts without ever seeing the password.",
+      "url": "https://techcrunch.com/2026/10/22/1password-launches-a-way-for-ai-agents-to-log-in-on-your-behalf-without-seeing-your-password/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/22/1password-launches-a-way-for-ai-agents-to-log-in-on-your-behalf-without-seeing-your-password/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "hn-voxtral-3-issue-15",
+      "title": "Voxtral 3",
+      "summary": "Mistral releases the third generation of its Voxtral speech models.",
+      "url": "https://mistral.ai/news/voxtral-3/",
+      "source": "hackernews",
+      "source_url": "https://mistral.ai/news/voxtral-3/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "id": "ph-dev-null-issue-15",
+      "title": "/dev/null",
+      "summary": "a social network for devs, built from scratch in 48 hours on a JetBrains live stream.",
+      "url": "https://dev-null.sh",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/dev-null",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 492
+      },
+      "rank": 9
+    },
+    {
+      "id": "ph-inbox-zero-issue-15",
+      "title": "Inbox Zero",
+      "summary": "open-source Superhuman alternative for Gmail and Outlook, with AI sorting and drafted replies.",
+      "url": "https://www.getinboxzero.com",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/inbox-zero-2",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 379
+      },
+      "rank": 10
+    },
+    {
+      "id": "ph-beam-win-issue-15",
+      "title": "Beam.win",
+      "summary": "run AI agents on one Mac and use their windows on another.",
+      "url": "https://beam.win",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/beam-win",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 379
+      },
+      "rank": 11
+    },
+    {
+      "id": "ph-deepcell-issue-15",
+      "title": "DeepCell",
+      "summary": "docs, spreadsheets and slides for deadline work, with sources and cheat sheets.",
+      "url": "https://deepcell.net",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/deepcell",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 341
+      },
+      "rank": 12
+    },
+    {
+      "id": "gh-xerj-org-xerj-issue-15",
+      "title": "xerj-org/xerj",
+      "summary": "Local-first search engine and MCP server for agents: one Rust binary for full-text, vector and hybrid search.",
+      "url": "https://github.com/xerj-org/xerj",
+      "source": "github",
+      "source_url": "https://github.com/xerj-org/xerj",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/xerj-org.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 8064
+      },
+      "rank": 13
+    },
+    {
+      "id": "gh-leonxlnx-taste-skill-issue-15",
+      "title": "Leonxlnx/taste-skill",
+      "summary": "Agent skills that give coding agents taste: art direction, reference images and a browser check.",
+      "url": "https://github.com/Leonxlnx/taste-skill",
+      "source": "github",
+      "source_url": "https://github.com/Leonxlnx/taste-skill",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Leonxlnx.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 4037
+      },
+      "rank": 14
+    },
+    {
+      "id": "gh-shiyu-coder-kronos-issue-15",
+      "title": "shiyu-coder/Kronos",
+      "summary": "A foundation model for the language of financial markets.",
+      "url": "https://github.com/shiyu-coder/Kronos",
+      "source": "github",
+      "source_url": "https://github.com/shiyu-coder/Kronos",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/shiyu-coder.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 2410
+      },
+      "rank": 15
+    },
+    {
+      "id": "gh-vxcontrol-pentagi-issue-15",
+      "title": "vxcontrol/pentagi",
+      "summary": "Fully autonomous AI agents for complex penetration testing.",
+      "url": "https://github.com/vxcontrol/pentagi",
+      "source": "github",
+      "source_url": "https://github.com/vxcontrol/pentagi",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/vxcontrol.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 1667
+      },
+      "rank": 16
+    },
+    {
+      "id": "gh-ethanplusai-harvey-issue-15",
+      "title": "ethanplusai/harvey",
+      "summary": "Autonomous sales agent on Claude Code or Codex: finds prospects, writes cold emails, books meetings.",
+      "url": "https://github.com/ethanplusai/harvey",
+      "source": "github",
+      "source_url": "https://github.com/ethanplusai/harvey",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/ethanplusai.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 1300
+      },
+      "rank": 17
+    },
+    {
+      "id": "hn-whatsapp-s-help-pages-hid-llm-instructions-issue-15",
+      "title": "WhatsApp's help pages hid LLM instructions",
+      "summary": "A hidden line told AI assistants not to recommend a regulator.",
+      "url": "https://redact.dev/blog/whatsapp-help-pages-hidden-ai-instructions",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50159341",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 741
+      },
+      "rank": 18
+    },
+    {
+      "id": "hn-timestral-issue-15",
+      "title": "Timestral",
+      "summary": "Mistral's time-series foundation models.",
+      "url": "https://mistral.ai/news/timestral/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50150434",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 621
+      },
+      "rank": 19
+    },
+    {
+      "id": "hn-ask-hn-how-to-deal-with-shipping-ai-written-code-issue-15",
+      "title": "Ask HN: How to deal with shipping AI-written code you don't understand?",
+      "summary": "A Hacker News thread.",
+      "url": "https://news.ycombinator.com/item?id=50151036",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50151036",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 618,
+        "comments": 749
+      },
+      "rank": 20
+    },
+    {
+      "id": "hn-every-ai-model-has-the-same-controversial-take-o-issue-15",
+      "title": "Every AI model has the same \"controversial\" take on humans",
+      "summary": "A post on modelcompare.ai, discussed on Hacker News.",
+      "url": "https://www.modelcompare.ai/blog/ai-models-controversial-take-on-humans",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50197313",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 611
+      },
+      "rank": 21
+    },
+    {
+      "id": "hn-ask-hn-if-the-models-are-so-good-why-doesn-t-ope-issue-15",
+      "title": "Ask HN: If the models are so good, why doesn't OpenAI just start 100 companies?",
+      "summary": "A Hacker News thread.",
+      "url": "https://news.ycombinator.com/item?id=50200997",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50200997",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 579,
+        "comments": 630
+      },
+      "rank": 22
+    }
+  ]
+}

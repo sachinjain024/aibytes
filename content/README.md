@@ -9,9 +9,11 @@ committed to the repo and served statically — there is no content database.
 | `index.json` | the curate step | Every edition that exists, newest first |
 | `tags.json` | by hand | The fixed tag vocabulary |
 | `hidden.json` | `hide.py` | The admin hide log |
+| `weekly/index.json` | generate-newsletter-content (AIB-105j) | Index of published weekly issues for `/weekly` |
+| `weekly/issues/issue-N.json` | `build_weekly_issues.py` from issue HTML | Ledger feed for `/weekly/issue-N` (no intro / X sections yet) |
 
-The contract for all four lives in [`packages/feed-schema`](../packages/feed-schema),
-which also holds the validator:
+The contract for the daily feed lives in [`packages/feed-schema`](../packages/feed-schema),
+which also holds the validator. `weekly/index.json` is checked there too when present:
 
 ```bash
 python3 packages/feed-schema/validate.py

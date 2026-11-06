@@ -56,7 +56,7 @@ Structure per post:
 - **Facts**: insightful and factually correct beats punchy. Every number and claim must trace to `newsletter/data/` or a fetched source. If the story wants a figure that is not in the data (a revenue multiple, a valuation, a user count), fetch the source and cite what it actually says, or leave it out - never estimate one into existence.
 - **Close**: a real question or a stated position. Never "What do you think? Comment below."
 - **Link handling**: LinkedIn suppresses posts with external links in the body. Put the URL in a `First comment:` line instead, and say what the link is.
-- **Newsletter mention**: at most one, at the end, phrased as where the rest of the week lives. Not a pitch.
+- **Newsletter mention**: at most one, at the end, phrased as where the rest of the week lives. Not a pitch. The first-comment issue link is `https://aibytes.io/weekly/issue-{num}` (AIB-105j), never the Substack permalink as the primary URL.
 - **Emojis**: sparing - at most two per post, never in the opener.
 - **Hashtags**: three maximum, on their own line at the end, lowercase-specific (`#llmops`) over generic (`#AI #Tech #Innovation`). Zero is a valid choice.
 
@@ -68,6 +68,7 @@ Each variation is a thread of 5 to 7 tweets - a single tweet cannot go deep.
 - **One idea per tweet.** If a tweet needs "and", it is probably two tweets.
 - Hard limit 280 characters per tweet, counted and shown in the artifact. Line breaks inside a tweet are good; three or four short lines read better than one block.
 - **Last tweet** carries the links: the source, then the issue. No "follow me for more".
+- The issue link is `ISSUE_URL=https://aibytes.io/weekly/issue-{num}` (AIB-105j). Do not use the Substack post URL as the primary issue link; that archive URL is secondary when mentioned at all.
 - No "🧵", no "a thread", no "1/n" theatre. Number tweets `1/` `2/` only when the thread runs past four.
 - Zero hashtags.
 

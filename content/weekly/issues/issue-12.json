@@ -1,0 +1,357 @@
+{
+  "schema_version": 1,
+  "number": 12,
+  "slug": "issue-12",
+  "title": "🏁 Gemini 4 Argon lands and Apple locks down your disk",
+  "description": "Plus GPT 6.1 Sol at a fifth of Astra's price, Karpathy on reading what your agents write, and a design language that makes coding agents better at design.",
+  "published_on": "2026-10-05",
+  "generated_at": "2026-11-06T11:03:27Z",
+  "counts": {
+    "launches": 0,
+    "repos": 7,
+    "news": 9,
+    "hn": 4
+  },
+  "items": [
+    {
+      "id": "hn-google-launches-gemini-4-argon-issue-12",
+      "title": "Google launches Gemini 4 Argon",
+      "summary": "The new Gemini flagship, and the launch that set the week's pace.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+      "source": "hackernews",
+      "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "hn-openai-ships-gpt-6-1-sol-issue-12",
+      "title": "OpenAI ships GPT 6.1 Sol",
+      "summary": "Near-Astra intelligence for a fifth of the price, in OpenAI's own framing.",
+      "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "source": "hackernews",
+      "source_url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "hn-anthropic-releases-sonnet-5-5-issue-12",
+      "title": "Anthropic releases Sonnet 5.5",
+      "summary": "The Claude 5.5 family picks up a Sonnet, a week after Opus 5.5.",
+      "url": "https://www.anthropic.com/claude-sonnet-5-5",
+      "source": "hackernews",
+      "source_url": "https://www.anthropic.com/claude-sonnet-5-5",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "hn-openai-introduces-dots-always-on-agents-issue-12",
+      "title": "OpenAI introduces Dots, always-on agents",
+      "summary": "Agents that keep running instead of waiting for the next prompt.",
+      "url": "https://openai.com/index/introducing-dots/",
+      "source": "hackernews",
+      "source_url": "https://openai.com/index/introducing-dots/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "hn-cloudflare-open-weights-clef-issue-12",
+      "title": "Cloudflare open-weights Clef",
+      "summary": "Open-weight decision models, with a reinforcement-learning fine-tuning platform alongside them.",
+      "url": "https://blog.cloudflare.com/clef-decision-models/",
+      "source": "hackernews",
+      "source_url": "https://blog.cloudflare.com/clef-decision-models/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "hn-unsealed-briefs-say-the-labs-knew-book-piracy-wa-issue-12",
+      "title": "Unsealed briefs say the labs knew book piracy was illegal",
+      "summary": "From the Authors Guild's case against Microsoft and OpenAI.",
+      "url": "https://authorsguild.org/news/ag-v-openai-top-execs-knew-mass-book-piracy-was-illegal/",
+      "source": "hackernews",
+      "source_url": "https://authorsguild.org/news/ag-v-openai-top-execs-knew-mass-book-piracy-was-illegal/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "tc-openai-still-has-no-handle-on-its-rogue-ai-activ-issue-12",
+      "title": "OpenAI still has no handle on its rogue AI activity",
+      "summary": "It published a site of “misalignment reports”, and the breadth of the incidents is the story.",
+      "url": "https://techcrunch.com/2026/09/28/openai-still-doesnt-seem-to-have-a-handle-on-all-of-its-rogue-ai-activity/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/09/28/openai-still-doesnt-seem-to-have-a-handle-on-all-of-its-rogue-ai-activity/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "tc-apple-tightens-macos-full-disk-access-over-ai-ag-issue-12",
+      "title": "Apple tightens macOS Full Disk Access over AI agents",
+      "summary": "Blanket access to files, messages, mail and browsing history gets riskier as agents get more capable.",
+      "url": "https://techcrunch.com/2026/10/02/apple-says-its-tightening-macos-full-disk-access-controls-due-to-new-risks-from-ai-agents/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/10/02/apple-says-its-tightening-macos-full-disk-access-controls-due-to-new-risks-from-ai-agents/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "id": "tc-reddit-kills-rss-feeds-and-public-api-access-issue-12",
+      "title": "Reddit kills RSS feeds and public API access",
+      "summary": "AI bots are the stated reason; the archive of user posts closes another notch.",
+      "url": "https://techcrunch.com/2026/09/30/reddit-is-killing-rss-feeds-ending-public-api-access-because-of-ai-bots/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/09/30/reddit-is-killing-rss-feeds-ending-public-api-access-because-of-ai-bots/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "id": "gh-rohitg00-ai-engineering-from-scratch-issue-12",
+      "title": "rohitg00/ai-engineering-from-scratch",
+      "summary": "An AI engineering course that builds the whole stack from first principles.",
+      "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
+      "source": "github",
+      "source_url": "https://github.com/rohitg00/ai-engineering-from-scratch",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/rohitg00.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 5600
+      },
+      "rank": 10
+    },
+    {
+      "id": "gh-panniantong-agent-reach-issue-12",
+      "title": "Panniantong/Agent-Reach",
+      "summary": "Read and search Twitter, Reddit, YouTube, GitHub and more from one CLI, with no API fees.",
+      "url": "https://github.com/Panniantong/Agent-Reach",
+      "source": "github",
+      "source_url": "https://github.com/Panniantong/Agent-Reach",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Panniantong.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 3959
+      },
+      "rank": 11
+    },
+    {
+      "id": "gh-pbakaus-impeccable-issue-12",
+      "title": "pbakaus/impeccable",
+      "summary": "A design language that makes an AI coding harness better at design.",
+      "url": "https://github.com/pbakaus/impeccable",
+      "source": "github",
+      "source_url": "https://github.com/pbakaus/impeccable",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/pbakaus.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 3124
+      },
+      "rank": 12
+    },
+    {
+      "id": "gh-harry0703-moneyprinterturbo-issue-12",
+      "title": "harry0703/MoneyPrinterTurbo",
+      "summary": "Generates HD short videos from a topic or keyword with an automated AI workflow.",
+      "url": "https://github.com/harry0703/MoneyPrinterTurbo",
+      "source": "github",
+      "source_url": "https://github.com/harry0703/MoneyPrinterTurbo",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/harry0703.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 2533
+      },
+      "rank": 13
+    },
+    {
+      "id": "gh-alirezarezvani-claude-skills-issue-12",
+      "title": "alirezarezvani/claude-skills",
+      "summary": "A large library of skills, agents and commands for Claude Code and other coding agents.",
+      "url": "https://github.com/alirezarezvani/claude-skills",
+      "source": "github",
+      "source_url": "https://github.com/alirezarezvani/claude-skills",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/alirezarezvani.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 832
+      },
+      "rank": 14
+    },
+    {
+      "id": "gh-tile-ai-tilelang-issue-12",
+      "title": "tile-ai/tilelang",
+      "summary": "A domain-specific language for high-performance GPU, CPU and accelerator kernels.",
+      "url": "https://github.com/tile-ai/tilelang",
+      "source": "github",
+      "source_url": "https://github.com/tile-ai/tilelang",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/tile-ai.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 732
+      },
+      "rank": 15
+    },
+    {
+      "id": "gh-pytorch-pytorch-issue-12",
+      "title": "pytorch/pytorch",
+      "summary": "Tensors and dynamic neural networks in Python with strong GPU acceleration.",
+      "url": "https://github.com/pytorch/pytorch",
+      "source": "github",
+      "source_url": "https://github.com/pytorch/pytorch",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/pytorch.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 369
+      },
+      "rank": 16
+    },
+    {
+      "id": "hn-it-s-time-to-investigate-the-ai-labs-issue-12",
+      "title": "It's Time to Investigate the AI Labs",
+      "summary": "Cal Newport makes the case for turning regulatory attention on the frontier labs.",
+      "url": "https://calnewport.com/its-time-to-investigate-the-ai-labs/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49883471",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 628
+      },
+      "rank": 17
+    },
+    {
+      "id": "hn-draftkings-is-using-ai-to-behaviorally-target-ch-issue-12",
+      "title": "DraftKings is using AI to behaviorally target chronic gamblers",
+      "summary": "The EFF traces how behavioural ad targeting finds the users least able to walk away.",
+      "url": "https://www.eff.org/deeplinks/2026/09/draftkings-using-ai-supercharge-harms-online-behavioral-advertising",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49896050",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 570
+      },
+      "rank": 18
+    },
+    {
+      "id": "hn-ai-companies-race-to-prove-their-model-is-the-mo-issue-12",
+      "title": "AI companies race to prove their model is the most dangerous",
+      "summary": "Satire, and close enough to this week's actual filings to sting.",
+      "url": "https://thecivilian.co.nz/2026/09/27/ai-companies-in-fierce-arms-race-to-demonstrate-their-model-is-the-most-existentially-threatening-to-humanity/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49875148",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 441
+      },
+      "rank": 19
+    },
+    {
+      "id": "hn-a-privacy-analysis-of-web-and-mobile-conversatio-issue-12",
+      "title": "A privacy analysis of web and mobile conversational AI agents",
+      "summary": "A paper measuring what conversational agents hand off to trackers.",
+      "url": "https://jorgegarciaherrero.com/wp-content/interactivos/20260916-Prompt-like-a-butterfly-sting-like-a-tracker-(clean).pdf",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=49890226",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 425
+      },
+      "rank": 20
+    }
+  ]
+}
