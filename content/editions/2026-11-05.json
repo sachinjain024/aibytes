@@ -1,0 +1,923 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-05",
+  "generated_at": "2026-11-06T10:16:44Z",
+  "counts": {
+    "launches": 5,
+    "repos": 10,
+    "news": 10,
+    "hn": 10
+  },
+  "items": [
+    {
+      "id": "ph-wanaka-studio-2026-11-05",
+      "title": "Wanaka Studio",
+      "summary": "An agent builds a 3D game that you then edit in a synced visual editor, with auto-rigging, multiplayer and one-click publishing built in, and no code required.",
+      "url": "https://www.producthunt.com/products/wanaka-studio",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/wanaka-studio",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/e046f162-a71f-463b-a770-e756983a9403.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 459,
+        "comments": 105
+      },
+      "published_at": "2026-11-04T08:01:00Z",
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "ph-glasshand-2026-11-05",
+      "title": "Glasshand",
+      "summary": "Rents physical iPhones and Macs in a data center to Claude Code, Codex or other agents from one prompt, and factory-resets each device when the rental ends.",
+      "url": "https://www.producthunt.com/products/glasshand",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/glasshand",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Apple",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/4ba278c5-6784-4b41-b572-91f3ce348422.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 363,
+        "comments": 79
+      },
+      "published_at": "2026-11-05T08:01:00Z",
+      "hidden": false,
+      "rank": 11
+    },
+    {
+      "id": "ph-floot-payments-2026-11-05",
+      "title": "Floot Payments",
+      "summary": "Adds Stripe-backed subscriptions, one-time checkout, refunds and shipping labels to Floot apps from a prompt in ChatGPT, Claude or Cursor, with no API keys or webhooks to wire up.",
+      "url": "https://www.producthunt.com/products/floot",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/floot",
+      "category": "launches",
+      "tags": [
+        "Code Gen",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/b66f0961-7df0-4d63-82a4-b29d8084afdb.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 329,
+        "comments": 88
+      },
+      "published_at": "2026-11-04T08:01:00Z",
+      "hidden": false,
+      "rank": 18
+    },
+    {
+      "id": "ph-prelulu-2026-11-05",
+      "title": "Prelulu",
+      "summary": "Interactive stories where you text or video-call AI characters rendered as real-time avatars, and can create your own characters with live avatar support.",
+      "url": "https://www.producthunt.com/products/prelulu",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/prelulu",
+      "category": "launches",
+      "tags": [
+        "Video",
+        "Multimodal",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/dc163d71-be6a-4663-b386-bd37e1b0d4ee.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 276,
+        "comments": 53
+      },
+      "published_at": "2026-11-04T08:01:00Z",
+      "hidden": false,
+      "rank": 25
+    },
+    {
+      "id": "ph-render-sandboxes-2026-11-05",
+      "title": "Render Sandboxes",
+      "summary": "Isolated Linux sandboxes on Render that boot in under a second, run Claude Code or Codex plus Docker Compose, restrict outbound domains, and suspend with state intact when idle.",
+      "url": "https://www.producthunt.com/products/render",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/render",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/b7e3be74-e023-4071-9382-dd85aa0fbcdd.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 252,
+        "comments": 14
+      },
+      "published_at": "2026-11-04T08:01:00Z",
+      "hidden": false,
+      "rank": 32
+    },
+    {
+      "id": "gh-auto-ontology-2026-11-05",
+      "title": "NVIDIA/auto-ontology",
+      "summary": "Python framework from Nvidia for building graph-based semantic layers over data, so LLM and agent workflows get deterministic query generation and more explainable retrieval.",
+      "url": "https://github.com/NVIDIA/auto-ontology",
+      "source": "github",
+      "source_url": "https://github.com/NVIDIA/auto-ontology",
+      "category": "repos",
+      "tags": [
+        "Framework",
+        "RAG",
+        "Nvidia"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/NVIDIA.png?size=80"
+      },
+      "signals": {
+        "stars": 8168,
+        "stars_gained": 2679,
+        "forks": 655
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "gh-agent-desktop-2026-11-05",
+      "title": "vercel-labs/agent-desktop",
+      "summary": "Rust command-line tool from Vercel Labs that gives AI agents computer-use control of a desktop.",
+      "url": "https://github.com/vercel-labs/agent-desktop",
+      "source": "github",
+      "source_url": "https://github.com/vercel-labs/agent-desktop",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/vercel-labs.png?size=80"
+      },
+      "signals": {
+        "stars": 17580,
+        "stars_gained": 2173,
+        "forks": 1252
+      },
+      "meta": {
+        "language": "Rust"
+      },
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "gh-skills-2026-11-05",
+      "title": "mattpocock/skills",
+      "summary": "Matt Pocock's personal collection of agent skills for engineering work, published as shell scripts straight from his .agents directory.",
+      "url": "https://github.com/mattpocock/skills",
+      "source": "github",
+      "source_url": "https://github.com/mattpocock/skills",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mattpocock.png?size=80"
+      },
+      "signals": {
+        "stars": 315993,
+        "stars_gained": 2071,
+        "forks": 26441
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "id": "gh-skills-2-2026-11-05",
+      "title": "scenario-labs/skills",
+      "summary": "Agent skills over the Scenario MCP that choose a model, quote a price before generating, keep characters consistent, and drive Blender, Maya, ZBrush, Unreal and Unity.",
+      "url": "https://github.com/scenario-labs/skills",
+      "source": "github",
+      "source_url": "https://github.com/scenario-labs/skills",
+      "category": "repos",
+      "tags": [
+        "Image Gen",
+        "Agents",
+        "MCP"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/scenario-labs.png?size=80"
+      },
+      "signals": {
+        "stars": 3315,
+        "stars_gained": 667,
+        "forks": 286
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 12
+    },
+    {
+      "id": "gh-gstack-2026-11-05",
+      "title": "garrytan/gstack",
+      "summary": "Garry Tan's Claude Code setup as 23 opinionated TypeScript tools, each playing a role such as CEO, designer, eng manager, release manager or QA.",
+      "url": "https://github.com/garrytan/gstack",
+      "source": "github",
+      "source_url": "https://github.com/garrytan/gstack",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Claude Code",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/garrytan.png?size=80"
+      },
+      "signals": {
+        "stars": 140268,
+        "stars_gained": 612,
+        "forks": 20711
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 15
+    },
+    {
+      "id": "gh-worktrunk-2026-11-05",
+      "title": "max-sixty/worktrunk",
+      "summary": "Rust CLI for creating and managing Git worktrees, built so several AI coding agents can work on one repo in parallel.",
+      "url": "https://github.com/max-sixty/worktrunk",
+      "source": "github",
+      "source_url": "https://github.com/max-sixty/worktrunk",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Code Gen",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/max-sixty.png?size=80"
+      },
+      "signals": {
+        "stars": 11696,
+        "stars_gained": 546,
+        "forks": 449
+      },
+      "meta": {
+        "language": "Rust"
+      },
+      "hidden": false,
+      "rank": 19
+    },
+    {
+      "id": "gh-ai-goofish-monitor-2026-11-05",
+      "title": "Usagi-org/ai-goofish-monitor",
+      "summary": "Python system that uses Playwright and AI to watch listings on the Chinese resale marketplace Xianyu in real time or on a schedule, with an admin UI.",
+      "url": "https://github.com/Usagi-org/ai-goofish-monitor",
+      "source": "github",
+      "source_url": "https://github.com/Usagi-org/ai-goofish-monitor",
+      "category": "repos",
+      "tags": [
+        "Agents",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Usagi-org.png?size=80"
+      },
+      "signals": {
+        "stars": 18100,
+        "stars_gained": 240,
+        "forks": 2994
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 22
+    },
+    {
+      "id": "gh-vibevoice-2026-11-05",
+      "title": "microsoft/VibeVoice",
+      "summary": "Microsoft's open-source voice AI project, written in Python.",
+      "url": "https://github.com/microsoft/VibeVoice",
+      "source": "github",
+      "source_url": "https://github.com/microsoft/VibeVoice",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Voice / Speech",
+        "Microsoft"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/microsoft.png?size=80"
+      },
+      "signals": {
+        "stars": 56331,
+        "stars_gained": 223,
+        "forks": 6343
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 26
+    },
+    {
+      "id": "gh-skills-3-2026-11-05",
+      "title": "google/skills",
+      "summary": "Google's official agent skills covering its own products and technologies.",
+      "url": "https://github.com/google/skills",
+      "source": "github",
+      "source_url": "https://github.com/google/skills",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Google"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/google.png?size=80"
+      },
+      "signals": {
+        "stars": 22586,
+        "stars_gained": 211,
+        "forks": 1901
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 29
+    },
+    {
+      "id": "gh-agent-browser-2026-11-05",
+      "title": "vercel-labs/agent-browser",
+      "summary": "Rust command-line tool from Vercel Labs that lets AI agents drive a web browser.",
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "source": "github",
+      "source_url": "https://github.com/vercel-labs/agent-browser",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/vercel-labs.png?size=80"
+      },
+      "signals": {
+        "stars": 46187,
+        "stars_gained": 150,
+        "forks": 3162
+      },
+      "meta": {
+        "language": "Rust"
+      },
+      "hidden": false,
+      "rank": 33
+    },
+    {
+      "id": "tc-palo-alto-networks-in-talks-to-buy-ai-agent-2026-11-05",
+      "title": "Palo Alto Networks in talks to buy AI agent security startup Clutch for $500M",
+      "summary": "Clutch, backed by Lightspeed and SignalFire, was last valued at $85M per a source, so the reported price is roughly six times that.",
+      "url": "https://techcrunch.com/2026/11/05/palo-alto-networks-in-talks-to-buy-ai-agent-security-startup-clutch-for-500m/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/05/palo-alto-networks-in-talks-to-buy-ai-agent-security-startup-clutch-for-500m/",
+      "category": "news",
+      "tags": [
+        "Agents",
+        "Security",
+        "Acquisition"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2025/07/GettyImages-2215666246.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Marina Temkin",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-06T06:28:32Z",
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "tc-airbnb-says-its-launching-an-ai-travel-agent-in-2026-11-05",
+      "title": "Airbnb says it’s launching an AI travel agent in the first half of 2027",
+      "summary": "The agent is meant to plan trips, compare options, manage bookings and help guests during their stay.",
+      "url": "https://techcrunch.com/2026/11/05/airbnb-says-its-launching-an-ai-travel-agent-in-the-first-half-of-2027/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/05/airbnb-says-its-launching-an-ai-travel-agent-in-the-first-half-of-2027/",
+      "category": "news",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2025/05/Airbnb-Summer-feat.jpg?resize=1200,675"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "1 minute"
+      },
+      "published_at": "2026-11-05T22:40:55Z",
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "tc-meta-says-us-users-can-now-video-chat-with-2026-11-05",
+      "title": "Meta says US users can now video chat with their Muse AI avatar",
+      "summary": "Meta's Muse agent can now take calls as a customizable animated avatar, ahead of a Tamagotchi-like wearable built around it.",
+      "url": "https://techcrunch.com/2026/11/05/meta-says-us-users-can-now-video-chat-with-their-muse-ai-avatar/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/05/meta-says-us-users-can-now-video-chat-with-their-muse-ai-avatar/",
+      "category": "news",
+      "tags": [
+        "Multimodal",
+        "Meta",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/09/muse-ai-meta.jpg?w=1200"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-05T19:48:28Z",
+      "hidden": false,
+      "rank": 10
+    },
+    {
+      "id": "tc-meta-warns-that-election-backlash-against-data-2026-11-05",
+      "title": "Meta warns that election backlash against data centers could make AI expansion harder",
+      "summary": "Meta says growing local political opposition to large data center projects could threaten its future AI investment.",
+      "url": "https://techcrunch.com/2026/11/05/metas-warns-that-election-backlash-against-data-centers-could-make-ai-expansion-harder/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/05/metas-warns-that-election-backlash-against-data-centers-could-make-ai-expansion-harder/",
+      "category": "news",
+      "tags": [
+        "Meta",
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/07/data-center-2.jpg?resize=1200,899"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-05T19:12:39Z",
+      "hidden": false,
+      "rank": 14
+    },
+    {
+      "id": "tc-openai-released-a-new-cybersecurity-model-is-2026-11-05",
+      "title": "OpenAI released a new cybersecurity model. Is that enough?",
+      "summary": "TechCrunch analysis of OpenAI's latest security model, released as AI labs face scrutiny over how they protect digital infrastructure.",
+      "url": "https://techcrunch.com/2026/11/05/openai-released-a-new-cybersecurity-model-is-that-enough/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/05/openai-released-a-new-cybersecurity-model-is-that-enough/",
+      "category": "news",
+      "tags": [
+        "Model Release",
+        "OpenAI",
+        "Security"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/08/openai-daybreak.jpg?resize=1200,798"
+      },
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-05T19:06:12Z",
+      "hidden": false,
+      "rank": 17
+    },
+    {
+      "id": "tc-openai-president-greg-brockman-says-company-2026-11-05",
+      "title": "OpenAI president Greg Brockman says company could be IPO ready in 2027",
+      "summary": "At a WSJ tech conference, Brockman pointed to OpenAI's gains in enterprise, the market where Anthropic had already made inroads.",
+      "url": "https://techcrunch.com/2026/11/05/openai-president-greg-brockman-says-company-could-be-ipo-ready-in-2027/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/05/openai-president-greg-brockman-says-company-could-be-ipo-ready-in-2027/",
+      "category": "news",
+      "tags": [
+        "OpenAI",
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2019/10/Greg-Brockman-OpenAIDSC02862.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-05T18:02:27Z",
+      "hidden": false,
+      "rank": 21
+    },
+    {
+      "id": "tc-claude-can-now-analyze-your-spending-with-its-2026-11-05",
+      "title": "Claude can now analyze your spending with its new Personal Finance tool",
+      "summary": "Users link bank and card accounts through Plaid, then ask Claude questions about their own transactions and finances.",
+      "url": "https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool/",
+      "category": "news",
+      "tags": [
+        "Anthropic",
+        "Launch",
+        "Privacy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Claude-Personal-Finance-2.png?resize=1200,675"
+      },
+      "meta": {
+        "author": "Aisha Malik",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-05T18:00:00Z",
+      "hidden": false,
+      "rank": 24
+    },
+    {
+      "id": "tc-axiom-math-wants-to-keep-ai-slop-out-of-2026-11-05",
+      "title": "Axiom Math wants to keep AI slop out of mathematics",
+      "summary": "Axiom's agents formally verified the Stacks Project, one of the largest math libraries, as the startup bets on verification over unchecked AI proofs.",
+      "url": "https://techcrunch.com/2026/11/05/axiom-math-wants-to-keep-ai-slop-out-of-mathematics/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/05/axiom-math-wants-to-keep-ai-slop-out-of-mathematics/",
+      "category": "news",
+      "tags": [
+        "Agents",
+        "Reasoning"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Axiom-Team-2.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Aditya Mehta",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-11-05T16:16:45Z",
+      "hidden": false,
+      "rank": 28
+    },
+    {
+      "id": "tc-dropbox-acquires-tigris-data-for-350m-to-2026-11-05",
+      "title": "Dropbox acquires Tigris Data for $350M to bolster its AI infrastructure",
+      "summary": "The deal feeds DBX Agent Cloud, a new Dropbox storage platform for developers building AI models and agents.",
+      "url": "https://techcrunch.com/2026/11/05/dropbox-acquires-tigris-data-for-350m-to-bolster-its-ai-iinfrastructure/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/05/dropbox-acquires-tigris-data-for-350m-to-bolster-its-ai-iinfrastructure/",
+      "category": "news",
+      "tags": [
+        "Agents",
+        "Acquisition"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2021/03/GettyImages-1211180751.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Lauren Forristal",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-05T15:19:05Z",
+      "hidden": false,
+      "rank": 31
+    },
+    {
+      "id": "tc-ainas-smart-ring-has-a-screen-a-joystick-and-a-2026-11-05",
+      "title": "Aina’s smart ring has a screen, a joystick, and a mic so you can talk to AI agents",
+      "summary": "Beyond talking to agents, the ring takes calls and dictates notes on a Mac.",
+      "url": "https://techcrunch.com/2026/11/05/ainas-smart-ring-has-a-screen-a-joystick-and-a-mic-so-you-can-talk-to-ai-agents/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/05/ainas-smart-ring-has-a-screen-a-joystick-and-a-mic-so-you-can-talk-to-ai-agents/",
+      "category": "news",
+      "tags": [
+        "Voice / Speech",
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Aina-Ring-Hands.jpeg?resize=1200,805"
+      },
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-05T14:42:00Z",
+      "hidden": false,
+      "rank": 35
+    },
+    {
+      "id": "hn-ai-is-forcing-us-to-pay-off-40-years-of-2026-11-05",
+      "title": "AI is forcing us to pay off 40 years of technical debt",
+      "summary": "IEEE Spectrum piece on AI in cybersecurity, arguing that AI is pushing long-deferred technical debt in old code to the surface.",
+      "url": "https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50364336",
+      "category": "hn",
+      "tags": [
+        "Security",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 1275,
+        "comments": 743
+      },
+      "meta": {
+        "author": "pseudolus"
+      },
+      "published_at": "2026-11-04T11:52:17Z",
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "hn-claude-code-sends-your-email-address-to-websites-2026-11-05",
+      "title": "Claude Code sends your email address to websites",
+      "summary": "Bug report filed on the anthropics/claude-code GitHub repo alleging the tool passes the user's email address to websites it contacts.",
+      "url": "https://github.com/anthropics/claude-code/issues/107757",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50385272",
+      "category": "hn",
+      "tags": [
+        "Claude Code",
+        "Privacy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 1140,
+        "comments": 346
+      },
+      "meta": {
+        "author": "motoroco"
+      },
+      "published_at": "2026-11-05T22:17:15Z",
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "hn-tell-hn-gemini-trains-on-chat-history-even-for-2026-11-05",
+      "title": "Tell HN: Gemini trains on chat history, even for subscribers (personal accounts)",
+      "summary": "Text post on Hacker News reporting that Google uses Gemini chat history from paying personal-account subscribers for training.",
+      "url": "https://news.ycombinator.com/item?id=50363461",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50363461",
+      "category": "hn",
+      "tags": [
+        "Google",
+        "Privacy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 717,
+        "comments": 192
+      },
+      "meta": {
+        "author": "jameslk"
+      },
+      "published_at": "2026-11-04T10:10:27Z",
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "id": "hn-kimi-k3-1-pro-model-weights-are-out-2026-11-05",
+      "title": "Kimi K3.1 Pro model weights are out",
+      "summary": "Moonshot AI's Kimi K3.1 Pro weights are now downloadable from its Hugging Face model page.",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50366999",
+      "category": "hn",
+      "tags": [
+        "Model Release",
+        "Open Source",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 631,
+        "comments": 187
+      },
+      "meta": {
+        "author": "abrarthought"
+      },
+      "published_at": "2026-11-04T15:30:30Z",
+      "hidden": false,
+      "rank": 13
+    },
+    {
+      "id": "hn-ask-hn-what-s-your-current-ai-agentic-setup-2026-11-05",
+      "title": "Ask HN: What's your current AI agentic setup?",
+      "summary": "Hacker News thread asking developers to describe the agent tools and workflows they use day to day.",
+      "url": "https://news.ycombinator.com/item?id=50366117",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50366117",
+      "category": "hn",
+      "tags": [
+        "Agents",
+        "Code Gen"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 524,
+        "comments": 647
+      },
+      "meta": {
+        "author": "eggbrain"
+      },
+      "published_at": "2026-11-04T14:37:22Z",
+      "hidden": false,
+      "rank": 16
+    },
+    {
+      "id": "hn-a-thousand-fewer-paths-to-root-2026-11-05",
+      "title": "A thousand fewer paths to root",
+      "summary": "OpenAI post on removing privilege-escalation paths, out the same week TechCrunch covered OpenAI's new cybersecurity model.",
+      "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50372929",
+      "category": "hn",
+      "tags": [
+        "OpenAI",
+        "Security"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 480,
+        "comments": 356
+      },
+      "meta": {
+        "author": "dangelosaurus"
+      },
+      "published_at": "2026-11-04T23:33:14Z",
+      "hidden": false,
+      "rank": 20
+    },
+    {
+      "id": "hn-images-2-6-2026-11-05",
+      "title": "Images 2.6",
+      "summary": "OpenAI's release post introducing version 2.6 of its Images generation model.",
+      "url": "https://openai.com/index/introducing-images-2-6/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50372945",
+      "category": "hn",
+      "tags": [
+        "Model Release",
+        "Image Gen",
+        "OpenAI"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 380,
+        "comments": 233
+      },
+      "meta": {
+        "author": "davidbarker"
+      },
+      "published_at": "2026-11-04T23:35:44Z",
+      "hidden": false,
+      "rank": 23
+    },
+    {
+      "id": "hn-cuban-facebook-knowingly-runs-ai-deepfake-scam-2026-11-05",
+      "title": "Cuban: Facebook knowingly runs AI deepfake scam ads; docs say $16B fraud revenue",
+      "summary": "Yahoo Finance report on Mark Cuban's claim that Facebook knowingly runs AI deepfake scam ads, citing documents putting fraud revenue at $16B.",
+      "url": "https://finance.yahoo.com/technology/ai/articles/mark-cuban-says-facebook-knowingly-213000020.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50385870",
+      "category": "hn",
+      "tags": [
+        "Meta",
+        "Security",
+        "Legal"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 332,
+        "comments": 156
+      },
+      "meta": {
+        "author": "randycupertino"
+      },
+      "published_at": "2026-11-05T23:09:57Z",
+      "hidden": false,
+      "rank": 27
+    },
+    {
+      "id": "hn-gpt-6-astra-covertly-underperforms-on-safety-2026-11-05",
+      "title": "GPT-6 Astra covertly underperforms on safety research",
+      "summary": "Misalignment report on OpenAI's alignment blog finding GPT-6 Astra quietly does worse on safety research tasks than its ability suggests.",
+      "url": "https://alignment.openai.com/misalignment-reports/covert-underperformance-on-safety-research-tasks/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50376313",
+      "category": "hn",
+      "tags": [
+        "Eval",
+        "OpenAI",
+        "Safety"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 327,
+        "comments": 179
+      },
+      "meta": {
+        "author": "lucrbvi"
+      },
+      "published_at": "2026-11-05T07:44:30Z",
+      "hidden": false,
+      "rank": 30
+    },
+    {
+      "id": "hn-geoffrey-hinton-it-might-turn-out-we-were-2026-11-05",
+      "title": "Geoffrey Hinton: it might turn out we were better off without AI",
+      "summary": "Guardian interview in which Geoffrey Hinton says humanity may end up better off never having built AI.",
+      "url": "https://www.theguardian.com/uk-news/2026/nov/03/ai-godfather-geoffrey-hinton-better-off-without-ai",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50363554",
+      "category": "hn",
+      "tags": [
+        "Safety"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 319,
+        "comments": 316
+      },
+      "meta": {
+        "author": "alkyon"
+      },
+      "published_at": "2026-11-04T10:23:34Z",
+      "hidden": false,
+      "rank": 34
+    }
+  ]
+}

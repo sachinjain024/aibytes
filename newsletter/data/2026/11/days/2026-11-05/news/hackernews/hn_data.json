@@ -13,25 +13,35 @@
     "topic": "ai",
     "ranking": "points,recency"
   },
-  "totalCount": 15,
-  "poolCount": 62,
+  "totalCount": 23,
+  "poolCount": 115,
   "stories": [
     {
       "title": "AI is forcing us to pay off 40 years of technical debt",
       "url": "https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability",
       "type": "story",
-      "points": 1165,
-      "num_comments": 670,
+      "points": 1275,
+      "num_comments": 743,
       "author": "pseudolus",
       "created_at": "2026-11-04T11:52:17Z",
       "hn_url": "https://news.ycombinator.com/item?id=50364336"
     },
     {
+      "title": "Claude Code sends your email address to websites",
+      "url": "https://github.com/anthropics/claude-code/issues/107757",
+      "type": "story",
+      "points": 1140,
+      "num_comments": 346,
+      "author": "motoroco",
+      "created_at": "2026-11-05T22:17:15Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50385272"
+    },
+    {
       "title": "Tell HN: Gemini trains on chat history, even for subscribers (personal accounts)",
       "url": "https://news.ycombinator.com/item?id=50363461",
       "type": "ask_hn",
-      "points": 662,
-      "num_comments": 170,
+      "points": 717,
+      "num_comments": 192,
       "author": "jameslk",
       "created_at": "2026-11-04T10:10:27Z",
       "hn_url": "https://news.ycombinator.com/item?id=50363461"
@@ -40,81 +50,71 @@
       "title": "Kimi K3.1 Pro model weights are out",
       "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
       "type": "story",
-      "points": 498,
-      "num_comments": 141,
+      "points": 631,
+      "num_comments": 187,
       "author": "abrarthought",
       "created_at": "2026-11-04T15:30:30Z",
       "hn_url": "https://news.ycombinator.com/item?id=50366999"
     },
     {
-      "title": "Geoffrey Hinton: it might turn out we were better off without AI",
-      "url": "https://www.theguardian.com/uk-news/2026/nov/03/ai-godfather-geoffrey-hinton-better-off-without-ai",
-      "type": "story",
-      "points": 304,
-      "num_comments": 303,
-      "author": "alkyon",
-      "created_at": "2026-11-04T10:23:34Z",
-      "hn_url": "https://news.ycombinator.com/item?id=50363554"
-    },
-    {
-      "title": "A thousand fewer paths to root",
-      "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/",
-      "type": "story",
-      "points": 291,
-      "num_comments": 187,
-      "author": "dangelosaurus",
-      "created_at": "2026-11-04T23:33:14Z",
-      "hn_url": "https://news.ycombinator.com/item?id=50372929"
-    },
-    {
       "title": "Ask HN: What's your current AI agentic setup?",
       "url": "https://news.ycombinator.com/item?id=50366117",
       "type": "ask_hn",
-      "points": 289,
-      "num_comments": 288,
+      "points": 524,
+      "num_comments": 647,
       "author": "eggbrain",
       "created_at": "2026-11-04T14:37:22Z",
       "hn_url": "https://news.ycombinator.com/item?id=50366117"
     },
     {
+      "title": "A thousand fewer paths to root",
+      "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/",
+      "type": "story",
+      "points": 480,
+      "num_comments": 356,
+      "author": "dangelosaurus",
+      "created_at": "2026-11-04T23:33:14Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50372929"
+    },
+    {
       "title": "Images 2.6",
       "url": "https://openai.com/index/introducing-images-2-6/",
       "type": "story",
-      "points": 248,
-      "num_comments": 160,
+      "points": 380,
+      "num_comments": 233,
       "author": "davidbarker",
       "created_at": "2026-11-04T23:35:44Z",
       "hn_url": "https://news.ycombinator.com/item?id=50372945"
     },
     {
-      "title": "OpenAI to acquire Pierre Computer Company",
-      "url": "https://openai.com/index/openai-to-acquire-pierre/",
+      "title": "Cuban: Facebook knowingly runs AI deepfake scam ads; docs say $16B fraud revenue",
+      "url": "https://finance.yahoo.com/technology/ai/articles/mark-cuban-says-facebook-knowingly-213000020.html",
       "type": "story",
-      "points": 230,
-      "num_comments": 70,
-      "author": "itunpredictable",
-      "created_at": "2026-11-04T15:21:21Z",
-      "hn_url": "https://news.ycombinator.com/item?id=50366863"
+      "points": 332,
+      "num_comments": 156,
+      "author": "randycupertino",
+      "created_at": "2026-11-05T23:09:57Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50385870"
     },
     {
-      "title": "Progress on provable inference for large language models",
-      "url": "https://www.anthropic.com/research/provable-inference",
+      "title": "GPT-6 Astra covertly underperforms on safety research",
+      "url": "https://alignment.openai.com/misalignment-reports/covert-underperformance-on-safety-research-tasks/",
       "type": "story",
-      "points": 210,
-      "num_comments": 98,
-      "author": "ltononro",
-      "created_at": "2026-11-04T17:17:46Z",
-      "hn_url": "https://news.ycombinator.com/item?id=50368626"
+      "points": 327,
+      "num_comments": 179,
+      "author": "lucrbvi",
+      "created_at": "2026-11-05T07:44:30Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50376313"
     },
     {
-      "title": "Qualcomm Cloud AI 100 Ultra \u2013 150W AI Accelerator Card with 128GB at 548GB/s",
-      "url": "https://www.qualcomm.com/data-center/products/cloud-ai-100-ultra",
+      "title": "Geoffrey Hinton: it might turn out we were better off without AI",
+      "url": "https://www.theguardian.com/uk-news/2026/nov/03/ai-godfather-geoffrey-hinton-better-off-without-ai",
       "type": "story",
-      "points": 140,
-      "num_comments": 54,
-      "author": "peter_d_sherman",
-      "created_at": "2026-11-04T19:55:14Z",
-      "hn_url": "https://news.ycombinator.com/item?id=50370654"
+      "points": 319,
+      "num_comments": 316,
+      "author": "alkyon",
+      "created_at": "2026-11-04T10:23:34Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50363554"
     }
   ]
 }
