@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { ORDER, readChoice, THEME, VIEW, writeChoice } from "./prefs.js";
+import { withBlockedStorage } from "./blocked-storage.js";
 
 const memory = (entries = {}) => ({
   getItem: (key) => (key in entries ? entries[key] : null),
@@ -42,4 +43,11 @@ test("the feed order reads back both modes and nothing else", () => {
   assert.equal(readChoice(ORDER, memory({ "aibytes-order": "newest" })), null);
   assert.equal(readChoice(ORDER, broken), null);
   assert.throws(() => writeChoice(ORDER, "newest", memory()), /unknown value newest/);
+});
+
+test("blocked site data, where reading localStorage itself throws, is no choice and no write", () => {
+  withBlockedStorage(() => {
+    assert.equal(readChoice(THEME), null);
+    assert.equal(writeChoice(THEME, "dark"), false);
+  });
 });

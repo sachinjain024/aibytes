@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T06:08:19.592Z
-updated_at: 2026-11-06T22:26:27.698Z
+updated_at: 2026-11-07T09:35:57.757Z
 ---
 
 Saving items (the ☆ on every card and row) and signing in with Google, split out of AIB-8h on 2026-10-08. AIB-8h shipped the web app without them: no star, no Saved entry, no Sign in. This ticket brings them in.
@@ -49,11 +49,11 @@ Decisions on the map: the publisher creates a new Firebase project for aibytes.i
 - [x] Design decided: decision record and prototype <!-- longclaw:item=ck_9f53b82f -->
 - [x] Capability map approved (docs/specs/AIB-75v-capability-map.md) <!-- longclaw:item=ck_74b4e788 -->
 - [x] ledger-saves-ui: spec approved <!-- longclaw:item=ck_eafa6b6e -->
-- [ ] ledger-saves-ui: Saved entry in Sidebar, Sign in and account menu in AppHeader, sticky SaveBanner with icon, star position on FeedItem / Card / ListRow (PR merged) <!-- longclaw:item=ck_bbf07bb8 -->
-- [ ] app-local-saves: spec approved <!-- longclaw:item=ck_e869ea35 -->
-- [ ] app-local-saves: the ☆ saves to local storage at once, Saved entry and count in the sidebar (PR merged) <!-- longclaw:item=ck_d5ac2437 -->
+- [x] ledger-saves-ui: Saved entry in Sidebar, Sign in and account menu in AppHeader, sticky SaveBanner with icon, star position on FeedItem / Card / ListRow (PR merged) <!-- longclaw:item=ck_bbf07bb8 -->
+- [x] app-local-saves: spec approved <!-- longclaw:item=ck_e869ea35 -->
+- [ ] app-local-saves: the ☆ on edition and weekly issue pages saves to local storage at once (PR merged) <!-- longclaw:item=ck_d5ac2437 -->
 - [ ] app-saved-view: spec approved <!-- longclaw:item=ck_1b4555b9 -->
-- [ ] app-saved-view: /saved page grouped by edition date, rank order inside each, hidden items left out with a note, empty state (PR merged) <!-- longclaw:item=ck_92ac9854 -->
+- [ ] app-saved-view: Saved entry and count in the sidebar, /saved page grouped by edition date and weekly issue, rank order inside each, hidden items left out with a note, empty state (PR merged) <!-- longclaw:item=ck_92ac9854 -->
 - [ ] Firebase project created for aibytes.io (publisher): Google sign-in on, aibytes.io authorised <!-- longclaw:item=ck_af2bb5f2 -->
 - [ ] app-accounts: spec approved <!-- longclaw:item=ck_f3d1ec1d -->
 - [ ] app-accounts: Firebase Auth with the Google provider, client SDK only; Sign in, account menu and the sticky banner <!-- longclaw:item=ck_1f32b91e -->
@@ -453,4 +453,109 @@ actor:
 ### Claude Code commented
 
 Plan approved for ledger-saves-ui: docs/plans/AIB-75v-plan.md and docs/plans/AIB-75v-todo.md. Five tasks (T1-T5) on one branch, aib-75v-ledger-saves-ui, one commit per task, one PR squash-merged to main.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_cb09a84c
+kind: update
+occurred_at: 2026-11-07T09:19:19.808Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_bbf07bb8.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+
+Module 1 ledger-saves-ui squash-merged to main in #55 (e5fa1ab): starPos, the Sidebar Saved entry, Sign in and the account menu, the sticky SaveBanner with --redesign-top, and UI kit screens 12-14. #54 was superseded by #55. Next: the app-local-saves spec.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_94e8d15d
+kind: comment
+occurred_at: 2026-11-07T09:19:33.679Z
+actor:
+  type: human
+  id: local
+-->
+### You commented
+
+## Firebase Project Details
+
+- This is an existing Firebase project with Firestore and Functions defined
+- We can leave existing things as-is
+- Project is https://console.firebase.google.com/u/0/project/ai-bytes-b42d2/overview
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_91a5a804
+kind: comment
+occurred_at: 2026-11-07T09:21:36.232Z
+actor:
+  type: human
+  id: local
+-->
+### You commented
+
+Module 2 spec drafted, awaiting review: docs/specs/AIB-75v-app-local-saves.md (branch aib-75v-app-local-saves).
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_883f6601
+kind: update
+occurred_at: 2026-11-07T09:35:17.385Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_e869ea35.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_bbd7df27
+kind: update
+occurred_at: 2026-11-07T09:35:57.682Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_d5ac2437.text
+    from: "app-local-saves: the ☆ saves to local storage at once, Saved entry and count in the sidebar (PR merged)"
+    to: "app-local-saves: the ☆ on edition and weekly issue pages saves to local storage at once (PR merged)"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_fdfaf180
+kind: update
+occurred_at: 2026-11-07T09:35:57.757Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_92ac9854.text
+    from: "app-saved-view: /saved page grouped by edition date, rank order inside each, hidden items left out with a note, empty state (PR merged)"
+    to: "app-saved-view: Saved entry and count in the sidebar, /saved page grouped by edition date and weekly issue, rank order inside each, hidden items left out with a note, empty state (PR merged)"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_b826e396
+kind: comment
+occurred_at: 2026-11-07T09:35:57.810Z
+actor:
+  type: human
+  id: local
+-->
+### You commented
+
+Module 2 spec approved (docs/specs/AIB-75v-app-local-saves.md). Decisions: the Sidebar's Saved entry moves to module 3; weekly issue items get the star and store issue_slug. Plan and tasks T6-T7 in docs/plans/AIB-75v-plan.md and -todo.md, awaiting approval.
 <!-- /longclaw:event -->

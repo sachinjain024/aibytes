@@ -97,3 +97,13 @@ export function useReturnFocus(open) {
     if (el && el.isConnected && lost) el.focus();
   }, [open]);
 }
+
+/**
+ * A saves store (saves.js) as render state: `saves` newest first, `has(id)`,
+ * and the store's `toggle`. Re-renders on every change, in this tab or another.
+ */
+export function useSaves(store) {
+  const saves = React.useSyncExternalStore(store.subscribe, store.list, store.list);
+  const ids = React.useMemo(() => new Set(saves.map((save) => save.item_id)), [saves]);
+  return { saves, has: (id) => ids.has(id), toggle: store.toggle };
+}

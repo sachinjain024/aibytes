@@ -4,9 +4,9 @@ Spec: `docs/specs/AIB-75v-ledger-saves-ui.md`. Map:
 `docs/specs/AIB-75v-capability-map.md`. Ticket:
 `.longclaw/tickets/AIB-75v/ticket.md`. Task list: `docs/plans/AIB-75v-todo.md`.
 
-This plan covers the first module only. Modules 2 to 4 (`app-local-saves`,
-`app-saved-view`, `app-accounts`) get their own spec and are added to this plan
-and task list when their spec is approved.
+This plan covers modules 1 and 2. Modules 3 and 4 (`app-saved-view`,
+`app-accounts`) get their own spec and are added to this plan and task list
+when their spec is approved. Module 1 merged in #55 (`e5fa1ab`).
 
 ## Overview
 
@@ -82,3 +82,65 @@ task is committed, its boxes are ticked in the task list in the same commit,
 and the branch is pushed. When T5 is committed the PR is ready for review;
 once it is squash-merged, the ticket's `ledger-saves-ui … (PR merged)` item is
 ticked and module 2's spec starts.
+
+---
+
+# Module 2: `app-local-saves`
+
+Spec: `docs/specs/AIB-75v-app-local-saves.md` (approved 7 Nov 2026).
+
+## Overview
+
+Two tasks on branch `aib-75v-app-local-saves`, from `main` after #55: one
+commit per task, one PR, squash-merged.
+
+1. **T6 the saves store**: `apps/web/src/saves.js` and its tests. Pure, no UI,
+   so it lands and is fully tested before anything renders a star.
+2. **T7 the star on every page**: `useSaves`, the store created once in `App`,
+   and `saved` / `onToggleSave` / `starPos="visual"` on every `Card` and
+   `ListRow`, on edition pages (`edition_date`) and weekly issue pages
+   (`issue_slug`).
+
+Task numbers continue from module 1 so the ticket and commits never reuse one.
+
+## Dependency graph
+
+```
+T6 saves.js (store, validation, cross-tab) ──> T7 useSaves + stars on edition and weekly pages
+```
+
+T7 is one task rather than two because the weekly pages share `FeedShell`
+and `ItemSections` with editions: the only difference is the `from` object
+passed down, a one-line change once the edition path works.
+
+## Architecture decisions (from the spec)
+
+- **The store knows nothing about React.** `localSaves(storage)` returns
+  `list`, `has`, `toggle`, `subscribe`; module 4's account store returns the
+  same, and `App` picks one.
+- **`list()` returns the same array until something changes,** so
+  `useSyncExternalStore` can use it as the snapshot without re-rendering on
+  every call.
+- **Validated on read, every time the key changes,** never trusted from
+  storage. A failed write keeps the change in memory for the page view.
+- **Exactly one source field per save**: `edition_date` or `issue_slug`.
+- **No Ledger change and no new dependency.** The Sidebar is untouched until
+  module 3.
+
+## Risks
+
+| Risk | Mitigation |
+|---|---|
+| A snapshot that changes identity on every read makes `useSyncExternalStore` loop | T6 tests that two `list()` calls with no change return the same array, and a toggle returns a new one |
+| Another tab writes a corrupt value | The `storage` event re-reads through the same validation; T6 tests a corrupt write from "another tab" |
+| A blocked store throws on every call | Every storage call is wrapped; T6 runs the whole interface against the throwing storage from `prefs.test.js` |
+| Re-rendering every card on each toggle feels slow on a 30-item edition | One context value per toggle is cheap at this size; checked by hand in T7 at 390px. Memoising is left until it is measured |
+| A weekly item saved with an edition date, or the reverse | `toggle` rejects a `from` without exactly one valid field (a bug, like `writeChoice`'s unknown value); T7 passes `from` from the page kind, never from the item |
+
+## Verification checkpoint (every task)
+
+The module 1 check list, plus `python3 packages/feed-schema/validate.py` to
+confirm `content/` is untouched. T7 adds the browser checks in
+`npm run dev:web` listed in the task. Once T7 is committed the PR is ready for
+review; once it is squash-merged, the ticket's `app-local-saves` item is
+ticked and module 3's spec starts.
