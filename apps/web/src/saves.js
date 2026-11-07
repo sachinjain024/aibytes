@@ -8,6 +8,7 @@
 //
 // localSaves() is the interface the account store (app-accounts) implements
 // too, so the app picks a store and components never learn where saves live.
+import { browserStorage } from "./prefs.js";
 import { isRealDate } from "./route.js";
 
 export const SAVES_KEY = "aibytes-saves";
@@ -34,7 +35,7 @@ function asSave(entry) {
 }
 
 /** The stored saves, newest first: valid entries only, the first of each item_id. */
-export function readSaves(storage = globalThis.localStorage) {
+export function readSaves(storage = browserStorage()) {
   let parsed;
   try {
     parsed = JSON.parse(storage.getItem(SAVES_KEY) ?? "[]");
@@ -46,7 +47,7 @@ export function readSaves(storage = globalThis.localStorage) {
   return parsed.map(asSave).filter((save) => save && !seen.has(save.item_id) && seen.add(save.item_id));
 }
 
-export function localSaves(storage = globalThis.localStorage, events = globalThis) {
+export function localSaves(storage = browserStorage(), events = globalThis) {
   let saves = readSaves(storage);
   const listeners = new Set();
   const notify = () => listeners.forEach((listener) => listener());

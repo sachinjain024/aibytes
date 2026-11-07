@@ -160,16 +160,21 @@ or `{ issue_slug }`. New saves go first with an ISO `created_at`.
 `starPos="visual"`.
 
 **Acceptance criteria:**
-- [ ] `npm test -w @aibytes/web`, the build, `test_design_system.py` and
+- [x] `npm test -w @aibytes/web`, the build, `test_design_system.py` and
       `validate.py` pass; the Sidebar and the weekly archive are unchanged.
-- [ ] In `npm run dev:web` at 1280 and 390px, both themes: the star sits under
+- [x] In `npm run dev:web` at 1280 and 390px, both themes: the star sits under
       the source icon on grid cards and list rows, on an edition and a weekly
       issue; a click fills and empties it at once; `aibytes-saves` holds the
       spec's shape with `edition_date` or `issue_slug` as appropriate.
-- [ ] Saves survive a reload and a move to another edition or issue; a save
+- [x] Saves survive a reload and a move to another edition or issue; a save
       in one tab appears in a second tab without a reload.
-- [ ] With local storage blocked in DevTools the page renders and the star
+- [x] With local storage blocked in DevTools the page renders and the star
       still toggles for the page view; DevTools shows no network request on
       a save.
 
-**Files:** `apps/web/src/hooks.js`, `apps/web/src/App.jsx`.
+**Files:** `apps/web/src/hooks.js`, `hooks.test.js`, `App.jsx`; and, for a
+bug the blocked-storage check found, `prefs.js`, `prefs.test.js`, `saves.js`,
+`saves.test.js` and the test helper `blocked-storage.js`. With site data
+blocked, reading `window.localStorage` itself throws, and `prefs.js` read it
+in a default argument outside its `try`, so the whole app (on `main` too)
+rendered blank. Both modules now go through `browserStorage()`.

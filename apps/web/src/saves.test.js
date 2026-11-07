@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
+import { withBlockedStorage } from "./blocked-storage.js";
 import { localSaves, readSaves, SAVES_KEY } from "./saves.js";
 
 const memory = (entries = {}) => ({
@@ -137,4 +138,13 @@ test("saving without exactly one valid source, or without an id, is a bug, not a
   }
   assert.throws(() => saves.toggle({}, { edition_date: "2026-11-06" }), /needs an id/);
   assert.equal(SAVES_KEY in storage.entries, false);
+});
+
+test("blocked site data, where reading localStorage itself throws, is no saves and an in-memory save", () => {
+  withBlockedStorage(() => {
+    assert.deepEqual(readSaves(), []);
+    const saves = localSaves(undefined, new EventTarget());
+    assert.deepEqual(saves.toggle(EDITION_ITEM, { edition_date: "2026-11-06" }), { saved: true, kept: false });
+    assert.equal(saves.has(EDITION_ITEM.id), true);
+  });
 });

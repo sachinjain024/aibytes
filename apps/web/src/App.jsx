@@ -15,10 +15,11 @@ import { loadEdition, loadIndex, loadTags, loadWeeklyIndex, loadWeeklyIssue } fr
 import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, SOURCES } from "./filters.js";
 import { FOOTER_LINKS, GITHUB_URL, SUBSCRIBE_URL } from "./footer.js";
 import { longDate, midDate, shortDate } from "./format.js";
-import { useChoice, useDismiss, useGridColumns, useMedia, useReturnFocus, useTheme } from "./hooks.js";
+import { useChoice, useDismiss, useGridColumns, useMedia, useReturnFocus, useSaves, useTheme } from "./hooks.js";
 import { shownView } from "./layout.js";
 import { groupedItems, rankedItems } from "./order.js";
 import { ORDER, VIEW } from "./prefs.js";
+import { localSaves } from "./saves.js";
 import { editionPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, weeklyPath } from "./route.js";
 
 // The sidebar's links: live ones first, then those not live yet. GitHub is
@@ -46,7 +47,8 @@ function useLocation() {
 }
 
 // The approved presentation wraps the existing edition, URL filter and
-// preference logic. Saves and sign-in remain outside the shipped app scope.
+// preference logic. Saves live in this browser (AIB-75v app-local-saves);
+// sign-in is still to come.
 export function App() {
   // Text fields match :focus-visible even after pointer focus in browsers.
   // Track input modality so rings are reserved for keyboard navigation.
@@ -73,6 +75,8 @@ export function App() {
   const route = parseRoute(location.pathname);
   const [theme, toggleTheme] = useTheme();
   React.useEffect(() => { document.documentElement.dataset.theme = theme; }, [theme]);
+  // One saves store for the session, whichever page is open.
+  const [saves] = React.useState(() => localSaves());
 
   // Weekly archive and issue pages share the Ledger shell with the daily
   // edition (AIB-105j). Intro / Official Announcements / Viral on X are omitted
@@ -83,6 +87,7 @@ export function App() {
   if (route.kind === "weekly_issue") {
     return (
       <WeeklyIssueApp
+        saves={saves}
         route={route}
         location={location}
         navigate={navigate}
@@ -94,6 +99,7 @@ export function App() {
 
   return (
     <EditionApp
+      saves={saves}
       route={route}
       location={location}
       navigate={navigate}
@@ -199,11 +205,15 @@ function FeedShell({ theme, onToggleTheme, location, navigate, skipLabel, headin
 // A feed's items as sections. The date (edition bar or hidden h1) is the h1 and
 // card titles are h3, so each mode supplies the h2s: one hidden count in Ranked,
 // a visible heading per category in Grouped. A category the filters empty has
-// no section.
-function ItemSections({ items, view, mode }) {
+// no section. Every item carries the save star under its source icon; `from`
+// names the file it lives in ({ edition_date } or { issue_slug }), taken from
+// the page, never from the item.
+function ItemSections({ items, view, mode, saves: store, from }) {
+  const { has, toggle } = useSaves(store);
+  const star = (item) => ({ saved: has(item.id), onToggleSave: () => toggle(item, from), starPos: "visual" });
   const render = (list) => (view === "list"
-    ? <RowList>{list.map((item) => <ListRow key={item.id} item={item} />)}</RowList>
-    : <CardGrid>{list.map((item) => <Card key={item.id} item={item} />)}</CardGrid>);
+    ? <RowList>{list.map((item) => <ListRow key={item.id} item={item} {...star(item)} />)}</RowList>
+    : <CardGrid>{list.map((item) => <Card key={item.id} item={item} {...star(item)} />)}</CardGrid>);
   return mode === "grouped"
     ? groupedItems(items).map(({ category, items: group }) => (
       <section className="app-sec" key={category.key} aria-labelledby={category.key}>
@@ -239,7 +249,7 @@ function useLoaded(load, ref, key) {
 // The ref for a document that has no ref: the index, which loads once.
 const ONCE = {};
 
-function EditionApp({ route, location, navigate, theme, onToggleTheme }) {
+function EditionApp({ saves, route, location, navigate, theme, onToggleTheme }) {
   const index = useLoaded(loadIndex, ONCE, "index");
   const editions = index.status === "ready" ? index.data.editions : [];
   const ref = pickEdition(route, editions);
@@ -259,7 +269,7 @@ function EditionApp({ route, location, navigate, theme, onToggleTheme }) {
       heading={ref ? `aiBytes_ edition, ${new Date(ref.date + "T12:00:00").toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}` : "aiBytes_"}
       date={ref ? <Bar refAt={ref} editions={editions} search={location.search} navigate={navigate} /> : null}
       all={edition.status === "ready" ? edition.data.items : null}>
-      {(feed) => <EditionFeed route={route} index={index} editionRef={ref} edition={edition} older={older} goTo={goTo} {...feed} />}
+      {(feed) => <EditionFeed saves={saves} route={route} index={index} editionRef={ref} edition={edition} older={older} goTo={goTo} {...feed} />}
     </FeedShell>
   );
 }
@@ -308,7 +318,7 @@ function Bar({ refAt, editions, search, navigate }) {
   );
 }
 
-function EditionFeed({ route, index, editionRef: ref, edition, older, goTo, items, filters, view, mode, clearQuery, clearFilters }) {
+function EditionFeed({ saves, route, index, editionRef: ref, edition, older, goTo, items, filters, view, mode, clearQuery, clearFilters }) {
   const prev = usePrevious(items && !items.length ? older : null);
   const message = (text, role) => <StatusMessage role={role}>{text}</StatusMessage>;
   const toLatest = <a href="/">Go to the latest edition</a>;
@@ -338,7 +348,7 @@ function EditionFeed({ route, index, editionRef: ref, edition, older, goTo, item
   }
   return (
     <>
-      <ItemSections items={items} view={view} mode={mode} />
+      <ItemSections items={items} view={view} mode={mode} saves={saves} from={{ edition_date: ref.date }} />
       <EndCard dateLabel={shortDate(ref.date)} prevLabel={older ? shortDate(older.date) : undefined} onPrev={() => older && goTo(older.date)} />
     </>
   );
@@ -409,7 +419,7 @@ function WeeklyArchive({ theme, onToggleTheme }) {
 
 // /weekly/issue-N - the issue's AI News, Products, Repos and HN in the same
 // shell as the daily edition. No intro block, Official Announcements or Viral on X.
-function WeeklyIssueApp({ route, location, navigate, theme, onToggleTheme }) {
+function WeeklyIssueApp({ saves, route, location, navigate, theme, onToggleTheme }) {
   const weekly = useLoaded(loadWeeklyIndex, ONCE, "weekly");
   const issues = weekly.status === "ready" ? weekly.data.issues : [];
   const ref = pickWeeklyIssue(route, issues);
@@ -441,7 +451,7 @@ function WeeklyIssueApp({ route, location, navigate, theme, onToggleTheme }) {
         else {
           feed = (
             <>
-              <ItemSections items={items} view={view} mode={mode} />
+              <ItemSections items={items} view={view} mode={mode} saves={saves} from={{ issue_slug: ref.slug }} />
               <EndCard dateLabel={`Issue #${ref.number}`} prevLabel={older ? `Issue #${older.number}` : undefined}
                 onPrev={() => older && goTo(older.slug)} note="That's the week. Next issue Monday." prevText="Previous issue" />
             </>

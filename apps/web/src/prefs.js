@@ -8,7 +8,20 @@ export const VIEW = { key: "aibytes-view", values: ["grid", "list"] };
 // Ranked (by the curated rank) or Grouped (by category); spec AIB-77u app-feed-order.
 export const ORDER = { key: "aibytes-order", values: ["ranked", "grouped"] };
 
-export function readChoice(pref, storage = globalThis.localStorage) {
+/**
+ * The browser's local storage, or null. With site data blocked, reading
+ * `window.localStorage` itself throws, so a default argument of
+ * `globalThis.localStorage` would throw outside any try and blank the page.
+ */
+export function browserStorage() {
+  try {
+    return globalThis.localStorage ?? null;
+  } catch {
+    return null;
+  }
+}
+
+export function readChoice(pref, storage = browserStorage()) {
   try {
     const value = storage.getItem(pref.key);
     return pref.values.includes(value) ? value : null;
@@ -18,7 +31,7 @@ export function readChoice(pref, storage = globalThis.localStorage) {
 }
 
 /** True if it was kept. A failed write leaves the choice for this page view only. */
-export function writeChoice(pref, value, storage = globalThis.localStorage) {
+export function writeChoice(pref, value, storage = browserStorage()) {
   if (!pref.values.includes(value)) throw new Error(`${pref.key}: unknown value ${value}`);
   try {
     storage.setItem(pref.key, value);
