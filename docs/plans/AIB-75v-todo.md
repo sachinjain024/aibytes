@@ -35,11 +35,11 @@ count, `category` styling) render after the categories. `savedActive` marks
 the row current and no category. Add a `star` icon to `icons.jsx`.
 
 **Acceptance criteria:**
-- [ ] New `Sidebar.test.js` pins today's markup without `onSaved`, then
+- [x] New `Sidebar.test.js` pins today's markup without `onSaved`, then
       covers the entry with a count of 0 and 3, and `savedActive`
       (`aria-current="page"` on Saved, on no category).
-- [ ] The drawer's Tab trap includes the Saved row (checked at 390px).
-- [ ] `Sidebar.d.ts` and `Sidebar.prompt.md` updated.
+- [x] The drawer's Tab trap includes the Saved row (checked at 390px).
+- [x] `Sidebar.d.ts` and `Sidebar.prompt.md` updated.
 
 **Files:** `components/navigation/Sidebar.jsx`, `Sidebar.d.ts`,
 `Sidebar.prompt.md`, `Sidebar.test.js`, `icons.jsx`, `styles.css`.
