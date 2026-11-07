@@ -192,17 +192,17 @@ issues)`, `savedGroups(saves, { editions, issues, files })` and
 loading or failed is a group with `status: "loading"` or `"error"`.
 
 **Acceptance criteria:**
-- [ ] New `saved.test.js` (RED first): `filesToLoad` names only the
+- [x] New `saved.test.js` (RED first): `filesToLoad` names only the
       referenced editions and issues, once each, and skips saves whose file
       is not in its index.
-- [ ] Groups are newest first with editions and issues interleaved by date
+- [x] Groups are newest first with editions and issues interleaved by date
       (an issue by its `published_on`); labels are `Fri, Nov 6` and
       `Issue #9 · Nov 2`; items inside follow `rankedItems` over the whole
       file, with a hidden item between two saved ones not changing their order.
-- [ ] Left out and counted: a hidden item, an item gone from its file, a file
+- [x] Left out and counted: a hidden item, an item gone from its file, a file
       gone from its index. The note's wording for 1 and many, editions only,
       issues only, and mixed; no note when nothing is left out.
-- [ ] No saves give no groups and no note; a loading or failed file gives a
+- [x] No saves give no groups and no note; a loading or failed file gives a
       group in that state without losing the others.
 
 **Files:** `apps/web/src/saved.js`, `apps/web/src/saved.test.js`.
