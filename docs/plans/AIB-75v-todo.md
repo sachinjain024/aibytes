@@ -54,14 +54,16 @@ fails to load, opening a menu built on `CardMenu`'s popover: name and
 "Signed in with Google", `Saved`, `Sign out`.
 
 **Acceptance criteria:**
-- [ ] New `AppHeader.test.js` pins today's markup with none of the new props,
+- [x] New `AppHeader.test.js` pins today's markup with none of the new props,
       then covers Sign in, the photo, the initial without `photoUrl`, the
       accessible name, and the menu's Saved item only with `onSaved`.
-- [ ] In the preview: Escape closes the menu and returns focus to the avatar;
+- [x] In the preview: Escape closes the menu and returns focus to the avatar;
       a click outside closes it; a bad `photoUrl` shows the initial.
-- [ ] `contrast.test.js` covers the initial on `--surface-2` and the menu's
-      secondary line on `--surface`, in both themes.
-- [ ] `AppHeader.d.ts` and `AppHeader.prompt.md` updated.
+- [x] `contrast.test.js` covers the initial on `--surface-2` and the menu's
+      secondary line on `--surface`, in both themes. (Already true: its pairs
+      check `--text` and `--text-2` on `--surface` and `--surface-2`, the only
+      colours these pieces use, so no new pair was needed.)
+- [x] `AppHeader.d.ts` and `AppHeader.prompt.md` updated.
 
 **Files:** `components/navigation/AppHeader.jsx`, `AppHeader.d.ts`,
 `AppHeader.prompt.md`, `AppHeader.test.js`, `components/components.css` or

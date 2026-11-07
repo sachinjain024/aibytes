@@ -1,8 +1,58 @@
 import React from "react";
 import { Icon } from "./icons.jsx";
 
-// The masthead: menu button (phones only), brand, GitHub and the theme toggle.
-export function AppHeader({ theme = "light", onToggleTheme, menuOpen = false, onMenu, githubUrl }) {
+// Photo URLs that failed to load this session; the avatar shows the initial for them from then on.
+const failedPhotos = new Set();
+
+// The signed-in reader's menu: who they are, then Saved and Sign out. Each item closes the menu first.
+export function AccountMenuPanel({ user, onSaved, onSignOut, onClose }) {
+  const pick = handler => () => { onClose?.(); handler(); };
+  return (
+    <div className="ldg-menu__panel account__panel" role="menu" aria-label="Account">
+      <div className="account__who">
+        <span className="account__name">{user.name}</span>
+        <span className="account__via">Signed in with Google</span>
+      </div>
+      {onSaved && <button type="button" role="menuitem" className="account__item" onClick={pick(onSaved)}>Saved</button>}
+      <button type="button" role="menuitem" className="account__item" onClick={pick(onSignOut)}>Sign out</button>
+    </div>
+  );
+}
+
+// The avatar: the Google profile photo, or the reader's initial when there is none or it fails to load.
+// It opens AccountMenuPanel, which closes like CardMenu: Escape (focus returns here) or a pointer down outside.
+function Account({ user, onSaved, onSignOut }) {
+  const [open, setOpen] = React.useState(false);
+  const [failed, setFailed] = React.useState(() => failedPhotos.has(user.photoUrl));
+  const root = React.useRef(null);
+  React.useEffect(() => {
+    if (!open) return;
+    root.current?.querySelector('[role="menuitem"]')?.focus();
+    const dismiss = event => {
+      if (event.key === "Escape") { setOpen(false); root.current?.querySelector(".account")?.focus(); }
+      if (event.type === "pointerdown" && !root.current?.contains(event.target)) setOpen(false);
+    };
+    document.addEventListener("keydown", dismiss);
+    document.addEventListener("pointerdown", dismiss);
+    return () => { document.removeEventListener("keydown", dismiss); document.removeEventListener("pointerdown", dismiss); };
+  }, [open]);
+  const initial = (Array.from(user.name.trim())[0] || "?").toUpperCase();
+  const photo = user.photoUrl && !failed;
+  return (
+    <span className="ldg-menu account__wrap" ref={root}>
+      <button type="button" className="account" aria-label={`Account: ${user.name}`} aria-haspopup="menu" aria-expanded={open} onClick={() => setOpen(o => !o)}>
+        {photo
+          ? <img className="account__photo" src={user.photoUrl} alt="" referrerPolicy="no-referrer" onError={() => { failedPhotos.add(user.photoUrl); setFailed(true); }} />
+          : <span className="account__initial" aria-hidden="true">{initial}</span>}
+      </button>
+      {open && <AccountMenuPanel user={user} onSaved={onSaved} onSignOut={onSignOut} onClose={() => setOpen(false)} />}
+    </span>
+  );
+}
+
+// The masthead: menu button (phones only), brand, GitHub and the theme toggle, then Sign in
+// (signed out, with onSignIn) or the account avatar (signed in, with user and onSignOut).
+export function AppHeader({ theme = "light", onToggleTheme, menuOpen = false, onMenu, githubUrl, onSignIn, user, onSignOut, onSaved }) {
   return (
     <header className="masthead">
       {onMenu && (
@@ -29,6 +79,9 @@ export function AppHeader({ theme = "light", onToggleTheme, menuOpen = false, on
             <Icon name={theme === "dark" ? "sun" : "moon"} />
           </button>
         )}
+        {user && onSignOut
+          ? <Account user={user} onSaved={onSaved} onSignOut={onSignOut} />
+          : !user && onSignIn && <button type="button" className="control signin" onClick={onSignIn}>Sign in</button>}
       </nav>
     </header>
   );
