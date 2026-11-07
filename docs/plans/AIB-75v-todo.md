@@ -2,7 +2,8 @@
 
 Plan: `docs/plans/AIB-75v-plan.md`. Spec: `docs/specs/AIB-75v-ledger-saves-ui.md`.
 
-All five tasks are built on branch `aib-75v-ledger-saves-ui`, one commit per
+Module 1 (T1-T5) was built on `aib-75v-ledger-saves-ui` and squash-merged in
+#55. Module 2 (T6-T7) is built on `aib-75v-app-local-saves`, one commit per
 task, in one PR squash-merged to `main`.
 
 ## Module 1: `ledger-saves-ui`
@@ -119,3 +120,55 @@ banner and star position.
 **Files:** `ui_kits/aibytes-app/App.jsx`, `index.html` (tweak),
 `12-saves-signed-out.html`, `13-signed-in-menu.html`,
 `14-mobile-banner.html`, `ui_kits/aibytes-app/README.md`, `readme.md`.
+
+## Module 2: `app-local-saves`
+
+Spec: `docs/specs/AIB-75v-app-local-saves.md`.
+
+### T6: the saves store
+
+**Description:** Add `apps/web/src/saves.js`: `SAVES_KEY = "aibytes-saves"`,
+`readSaves(storage)` (validate, drop bad entries, keep the first of each
+`item_id`), and `localSaves(storage)` returning `list()`, `has(itemId)`,
+`toggle(item, from)` and `subscribe(listener)`. `from` is `{ edition_date }`
+or `{ issue_slug }`. New saves go first with an ISO `created_at`.
+
+**Acceptance criteria:**
+- [ ] New `saves.test.js` (RED first), using `prefs.test.js`'s `memory` and
+      `broken` storages: save, unsave and `has` round-trip for an edition item
+      and a weekly item; the stored JSON is exactly the spec's shape, newest
+      first.
+- [ ] Corrupt JSON, a non-array, entries with both or neither source field, a
+      bad date (`2026-02-30`) or slug, and duplicates all read as specified.
+- [ ] A throwing storage: `list()` is empty, `toggle` returns `kept: false`,
+      and `has` still reports the change for the page view.
+- [ ] `list()` returns the same array until a change; `subscribe` fires on a
+      local toggle and on a `storage` event for `aibytes-saves` (including a
+      corrupt value), not for other keys, and not after unsubscribe.
+- [ ] `toggle` throws on a `from` without exactly one valid field.
+
+**Files:** `apps/web/src/saves.js`, `apps/web/src/saves.test.js`.
+
+### T7: the star on edition and weekly pages
+
+**Description:** Add `useSaves(store)` to `hooks.js`
+(`useSyncExternalStore` over `subscribe` and `list`). `App` creates one
+`localSaves()` and passes it to `EditionApp` and `WeeklyIssueApp`, which pass
+`{ edition_date: ref.date }` or `{ issue_slug: ref.slug }` down through
+`ItemSections`. Every `Card` and `ListRow` gets `saved`, `onToggleSave` and
+`starPos="visual"`.
+
+**Acceptance criteria:**
+- [ ] `npm test -w @aibytes/web`, the build, `test_design_system.py` and
+      `validate.py` pass; the Sidebar and the weekly archive are unchanged.
+- [ ] In `npm run dev:web` at 1280 and 390px, both themes: the star sits under
+      the source icon on grid cards and list rows, on an edition and a weekly
+      issue; a click fills and empties it at once; `aibytes-saves` holds the
+      spec's shape with `edition_date` or `issue_slug` as appropriate.
+- [ ] Saves survive a reload and a move to another edition or issue; a save
+      in one tab appears in a second tab without a reload.
+- [ ] With local storage blocked in DevTools the page renders and the star
+      still toggles for the page view; DevTools shows no network request on
+      a save.
+
+**Files:** `apps/web/src/hooks.js`, `apps/web/src/App.jsx`.

@@ -27,9 +27,9 @@ and can ship and be checked without the others:
 | Module id | Responsibility | Depends on |
 |---|---|---|
 | `ledger-saves-ui` | Ledger options the design needs, all off by default so today's app is unchanged: a Saved entry in `Sidebar` (count, active state, always shown when given a handler); a Sign in control and signed-in avatar menu in `AppHeader`; `SaveBanner` with the warning icon, centred message, and a sticky placement that offsets the rail, drawer and toolbar; a star-position option on `FeedItem` / `Card` / `ListRow` for E2. `.d.ts`, `.prompt.md`, UI kit screens, `Card.test.js`, and the contrast tests | — |
-| `app-local-saves` | The ☆ on every card and row in `apps/web`, saving at once to local storage as `{ item_id, edition_date, created_at }`. A saves module beside `prefs.js`, validated on read so a bad or blocked store behaves like an empty one, and the same interface the account store will implement later. The rail's Saved entry and count | `ledger-saves-ui` |
-| `app-saved-view` | The Saved page at `/saved`: a real page in the static build, loading only the editions the saves point at, grouped by edition date, newest first, in the reader's grid or list choice; hidden items left out with a note (D2); the empty state; unsaving from the page | `app-local-saves` |
-| `app-accounts` | Firebase Auth (Google provider) and Firestore, client SDK only. Saves at `users/{uid}/saves/{itemId}` with `edition_date` and `created_at`; `firestore.rules` in the repo, reviewed; the Sign in control and avatar menu; the sticky banner; merge on first sign-in (union, then clear local storage); the "added from this browser" line | `app-local-saves`, `app-saved-view` (the merged line shows there) |
+| `app-local-saves` | The ☆ on every card and row in `apps/web`, on edition and weekly issue pages, saving at once to local storage as `{ item_id, edition_date \| issue_slug, created_at }`. A saves module beside `prefs.js`, validated on read so a bad or blocked store behaves like an empty one, and the same interface the account store will implement later | `ledger-saves-ui` |
+| `app-saved-view` | The rail's Saved entry and count, and the Saved page at `/saved`: a real page in the static build, loading only the editions and weekly issues the saves point at, grouped by edition date, newest first, in the reader's grid or list choice; hidden items left out with a note (D2); the empty state; unsaving from the page | `app-local-saves` |
+| `app-accounts` | Firebase Auth (Google provider) and Firestore, client SDK only. Saves at `users/{uid}/saves/{itemId}` with `edition_date` or `issue_slug`, and `created_at`; `firestore.rules` in the repo, reviewed; the Sign in control and avatar menu; the sticky banner; merge on first sign-in (union, then clear local storage); the "added from this browser" line | `app-local-saves`, `app-saved-view` (the merged line shows there) |
 
 Out of scope, per the ticket and spec: saves in the Chrome extension (read-only
 in v1); save counts or "most saved" (`stats/{editionDate}`, spec §8, later);
@@ -79,3 +79,11 @@ Correct any of these now; otherwise the module specs are written on them.
    order, the same order the feed uses. *Module: `app-saved-view`.*
 4. **The prototype:** checked in at `docs/ux/prototypes/AIB-75v-saves/`, so
    the module specs can cite it.
+
+## Changes from module 2's review (7 Nov 2026)
+
+1. **The rail's Saved entry and count move from `app-local-saves` to
+   `app-saved-view`,** so the entry ships with the page it opens.
+2. **Weekly issue items can be saved too.** A save names its item's file by
+   `edition_date` or `issue_slug`; `app-saved-view` loads both kinds and
+   `app-accounts` stores the same fields.
