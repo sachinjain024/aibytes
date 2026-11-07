@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { WEEKLY_ARCHIVE_HEAD, weeklyIssueHead, withHead } from "./pageMeta.js";
+import { SAVED_HEAD, WEEKLY_ARCHIVE_HEAD, weeklyIssueHead, withHead } from "./pageMeta.js";
 
 const SHELL = `<!doctype html>
 <html lang="en">
@@ -45,4 +45,16 @@ test("the archive is canonical at /weekly", () => {
 test("a $ in the title is kept literally, not read as a replacement pattern", () => {
   const html = withHead(SHELL, { title: "Costs $& more", description: "d", url: "https://aibytes.io/weekly" });
   assert.match(html, /<title>Costs \$&amp; more<\/title>/);
+});
+
+test("the Saved page is titled and kept out of search engines", () => {
+  const html = withHead(SHELL, SAVED_HEAD);
+  assert.match(html, /<title>aiBytes_ · Saved<\/title>/);
+  assert.match(html, /<meta name="robots" content="noindex" \/>/);
+  assert.ok(html.indexOf('name="robots"') < html.indexOf("</head>"));
+});
+
+test("a page without robots gets no robots tag", () => {
+  assert.doesNotMatch(withHead(SHELL, weeklyIssueHead(ENTRY)), /name="robots"/);
+  assert.doesNotMatch(withHead(SHELL, WEEKLY_ARCHIVE_HEAD), /name="robots"/);
 });

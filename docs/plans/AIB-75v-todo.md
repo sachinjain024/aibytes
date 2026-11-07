@@ -215,16 +215,18 @@ loading or failed is a group with `status: "loading"` or `"error"`.
 `robots`. `vite.config.js` writes `dist/saved/index.html` with that head.
 
 **Acceptance criteria:**
-- [ ] `route.test.js` and `pageMeta.test.js` cover the route, `savedPath`,
+- [x] `route.test.js` and `pageMeta.test.js` cover the route, `savedPath`,
       `SAVED_HEAD`, and that `robots` is added only when given (weekly pages
       unchanged).
-- [ ] `npm run build:web` writes `dist/saved/index.html` with the title and
+- [x] `npm run build:web` writes `dist/saved/index.html` with the title and
       `<meta name="robots" content="noindex" />`.
-- [ ] Until T10, `/saved` in `npm run dev:web` shows the not-found message,
+- [x] Until T10, `/saved` in `npm run dev:web` shows the not-found message,
       as any unknown path does today.
 
 **Files:** `apps/web/src/route.js`, `route.test.js`, `pageMeta.js`,
-`pageMeta.test.js`, `apps/web/vite.config.js`.
+`pageMeta.test.js`, `apps/web/vite.config.js`, and `App.jsx`: the edition
+feed treats `saved` as not found until T10, because any route it does not
+know otherwise reaches `longDate(route.date)` and throws.
 
 ### T10: the page and the entry
 

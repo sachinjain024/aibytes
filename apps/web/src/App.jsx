@@ -323,7 +323,8 @@ function EditionFeed({ saves, route, index, editionRef: ref, edition, older, goT
   const message = (text, role) => <StatusMessage role={role}>{text}</StatusMessage>;
   const toLatest = <a href="/">Go to the latest edition</a>;
 
-  if (route.kind === "notfound") return message(<>Nothing lives at this address. {toLatest}.</>);
+  // /saved is a route before it is a page (AIB-75v T10); until then it is not found.
+  if (route.kind === "notfound" || route.kind === "saved") return message(<>Nothing lives at this address. {toLatest}.</>);
   if (index.status === "loading") return message("Loading...");
   if (index.status === "error") return message(`Could not load the editions: ${index.error.message}`, "alert");
   if (!ref) {

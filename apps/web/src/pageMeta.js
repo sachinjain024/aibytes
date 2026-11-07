@@ -2,14 +2,15 @@
 // Graph tags, so a weekly issue is indexable and shares with a real preview
 // before any script runs. Pure string work, so `node --test` can check it;
 // vite.config.js applies it when it writes each page.
-import { weeklyUrl } from "./route.js";
+import { savedPath, SITE_ORIGIN, weeklyUrl } from "./route.js";
 
 const escape = (text) => String(text)
   .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
-/** `html` with its <title> and description replaced and canonical + OG tags added. */
-export function withHead(html, { title, description, url }) {
+/** `html` with its <title> and description replaced and canonical + OG tags added, and a robots tag if given. */
+export function withHead(html, { title, description, url, robots }) {
   const tags = [
+    ...(robots ? [`<meta name="robots" content="${escape(robots)}" />`] : []),
     `<link rel="canonical" href="${escape(url)}" />`,
     `<meta property="og:type" content="article" />`,
     `<meta property="og:site_name" content="aiBytes_" />`,
@@ -38,4 +39,12 @@ export const WEEKLY_ARCHIVE_HEAD = {
   title: "aiBytes_ · Weekly archive",
   description: "Every aiBytes_ weekly issue: the week's AI news, launches, repos and Hacker News threads for developers.",
   url: weeklyUrl(),
+};
+
+/** The head for /saved: personal, so nothing for a search engine to index. */
+export const SAVED_HEAD = {
+  title: "aiBytes_ · Saved",
+  description: "Your saved aiBytes_ items, from every edition and weekly issue.",
+  url: SITE_ORIGIN + savedPath(),
+  robots: "noindex",
 };

@@ -5,6 +5,7 @@
 //   /2026-10-07          that edition (a real page at build time, see vite.config.js)
 //   /weekly              the weekly issue archive
 //   /weekly/issue-16     a published weekly issue (static HTML at build time)
+//   /saved               the reader's saved items (a real page too, noindex)
 //   /p/<slug>            an old newsletter issue link from when aibytes.io was Beehiiv
 //   anything else        not found
 
@@ -15,10 +16,12 @@ const EDITION = /^\/(\d{4}-\d{2}-\d{2})\/?$/;
 const WEEKLY_INDEX = /^\/weekly\/?$/;
 const WEEKLY_ISSUE = /^\/weekly\/(issue-\d+)\/?$/;
 const ISSUE = /^\/p\/([^/]+)\/?$/;
+const SAVED = /^\/saved\/?$/;
 
 export function parseRoute(pathname) {
   if (pathname === "/" || pathname === "") return { kind: "latest" };
   if (WEEKLY_INDEX.test(pathname)) return { kind: "weekly_index" };
+  if (SAVED.test(pathname)) return { kind: "saved" };
   const weekly = WEEKLY_ISSUE.exec(pathname);
   if (weekly) return { kind: "weekly_issue", slug: weekly[1] };
   const edition = EDITION.exec(pathname);
@@ -30,6 +33,10 @@ export function parseRoute(pathname) {
 
 export function editionPath(date) {
   return "/" + date;
+}
+
+export function savedPath() {
+  return "/saved";
 }
 
 export function weeklyPath(slug) {
