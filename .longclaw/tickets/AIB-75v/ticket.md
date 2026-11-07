@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T06:08:19.592Z
-updated_at: 2026-11-07T09:35:57.757Z
+updated_at: 2026-11-07T10:34:55.495Z
 ---
 
 Saving items (the ☆ on every card and row) and signing in with Google, split out of AIB-8h on 2026-10-08. AIB-8h shipped the web app without them: no star, no Saved entry, no Sign in. This ticket brings them in.
@@ -51,8 +51,8 @@ Decisions on the map: the publisher creates a new Firebase project for aibytes.i
 - [x] ledger-saves-ui: spec approved <!-- longclaw:item=ck_eafa6b6e -->
 - [x] ledger-saves-ui: Saved entry in Sidebar, Sign in and account menu in AppHeader, sticky SaveBanner with icon, star position on FeedItem / Card / ListRow (PR merged) <!-- longclaw:item=ck_bbf07bb8 -->
 - [x] app-local-saves: spec approved <!-- longclaw:item=ck_e869ea35 -->
-- [ ] app-local-saves: the ☆ on edition and weekly issue pages saves to local storage at once (PR merged) <!-- longclaw:item=ck_d5ac2437 -->
-- [ ] app-saved-view: spec approved <!-- longclaw:item=ck_1b4555b9 -->
+- [x] app-local-saves: the ☆ on edition and weekly issue pages saves to local storage at once (PR merged) <!-- longclaw:item=ck_d5ac2437 -->
+- [x] app-saved-view: spec approved <!-- longclaw:item=ck_1b4555b9 -->
 - [ ] app-saved-view: Saved entry and count in the sidebar, /saved page grouped by edition date and weekly issue, rank order inside each, hidden items left out with a note, empty state (PR merged) <!-- longclaw:item=ck_92ac9854 -->
 - [ ] Firebase project created for aibytes.io (publisher): Google sign-in on, aibytes.io authorised <!-- longclaw:item=ck_af2bb5f2 -->
 - [ ] app-accounts: spec approved <!-- longclaw:item=ck_f3d1ec1d -->
@@ -558,4 +558,51 @@ actor:
 ### You commented
 
 Module 2 spec approved (docs/specs/AIB-75v-app-local-saves.md). Decisions: the Sidebar's Saved entry moves to module 3; weekly issue items get the star and store issue_slug. Plan and tasks T6-T7 in docs/plans/AIB-75v-plan.md and -todo.md, awaiting approval.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_6efb01db
+kind: update
+occurred_at: 2026-11-07T10:27:09.160Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_d5ac2437.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+
+Module 2 app-local-saves squash-merged to main in #56 (c3fad8d): the star on edition and weekly pages saves to local storage; also fixed a blank page when site data is blocked. Next: the app-saved-view spec.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_86417f9c
+kind: comment
+occurred_at: 2026-11-07T10:28:20.011Z
+actor:
+  type: human
+  id: local
+-->
+### You commented
+
+Module 3 spec drafted, awaiting review: docs/specs/AIB-75v-app-saved-view.md (branch aib-75v-app-saved-view).
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_25599cf8
+kind: update
+occurred_at: 2026-11-07T10:34:55.495Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_1b4555b9.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+
+Module 3 spec approved (docs/specs/AIB-75v-app-saved-view.md): Sidebar count is the stored count, weekly issues interleaved by date, unstarring on /saved removes at once. Tasks T8-T10 in docs/plans/AIB-75v-todo.md.
 <!-- /longclaw:event -->
