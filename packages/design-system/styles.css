@@ -519,7 +519,7 @@ h1 {
   .sidebar-backdrop:not([hidden]) {
     display: block;
     position: fixed;
-    inset: 52px 0 0;
+    inset: var(--redesign-top) 0 0;
     background: #0006;
     z-index: 34;
     border: 0;
@@ -816,9 +816,9 @@ h1,footer .brand {
   align-self: start;
   position: fixed;
   z-index: 2;
-  top: 52px;
+  top: var(--redesign-top);
   bottom: 0;
-  height: calc(100dvh - 52px);
+  height: calc(100dvh - var(--redesign-top));
   overscroll-behavior: contain;
   display: flex;
   flex-direction: column;
@@ -957,7 +957,7 @@ h1,footer .brand {
   .sidebar {
     width: var(--redesign-rail);
     min-width: var(--redesign-rail);
-    top: var(--redesign-header);
+    top: var(--redesign-top);
     padding-top: 24px;
   }
   .redesign .workspace {
@@ -1160,6 +1160,36 @@ h1,footer .brand {
   margin-bottom: 24px;
 }
 
+/* The LIBRARY section under the categories: one Saved row, styled as a category. */
+.sidebar-saved {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.sidebar-saved__name {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* The category rules style every span in a row as the count badge (12px, and
+   a tinted chip when active). The label is a span too, so it opts out. */
+.sidebar .category span.sidebar-saved__name,
+.sidebar .category.active span.sidebar-saved__name {
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.sidebar .sidebar-saved__star {
+  width: 14px;
+  height: 14px;
+  color: var(--save);
+}
+
 .end-note {
   display: flex;
   gap: 14px;
@@ -1217,12 +1247,12 @@ h1,footer .brand {
     min-width: 0;
     display: flex;
     position: fixed;
-    top: 52px;
+    top: var(--redesign-top);
     left: 0;
     bottom: 0;
     width: 260px;
     max-width: calc(100vw - 52px);
-    height: calc(100dvh - 52px);
+    height: calc(100dvh - var(--redesign-top));
     padding: 24px 18px 16px;
     background: var(--paper);
     border-right: 1px solid var(--line);
@@ -2094,7 +2124,7 @@ html[data-theme=light] .calendar-days button:disabled {
   /* The toolbar sticks under the masthead at the column's own width; the filter panel hangs from it (position:absolute; top:100%). */
   .redesign .toolbar-slot {
     position: sticky;
-    top: var(--redesign-header);
+    top: var(--redesign-top);
     z-index: 30;
     background: var(--paper);
   }
@@ -2115,6 +2145,94 @@ html[data-theme=light] .calendar-days button:disabled {
   padding: 8px;
   border-radius: 7px;
   box-shadow: 0 10px 30px #0004;
+}
+
+/* The header's account controls: Sign in while signed out, then the avatar
+   (Google photo or initial) and its menu, which reuses the card menu's panel. */
+.masthead .signin {
+  height: 32px;
+  padding: 0 12px;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.account {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+}
+
+.account__photo,
+.account__initial {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.account__photo {
+  object-fit: cover;
+}
+
+.account__initial {
+  display: grid;
+  place-items: center;
+  background: var(--surface-2);
+  color: var(--text);
+  font: 600 13px Inter, system-ui, sans-serif;
+}
+
+.account__panel {
+  top: calc(100% + 8px);
+  width: auto;
+  min-width: 200px;
+  max-width: min(280px, calc(100vw - 32px));
+}
+
+.account__who {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 4px 8px 10px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.account__name {
+  overflow: hidden;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.account__via {
+  color: var(--text-2);
+  font-size: 12px;
+}
+
+.account__item {
+  padding: 8px;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  color: var(--text);
+  font: 500 14px Inter, system-ui, sans-serif;
+  text-align: left;
+  cursor: pointer;
+}
+
+.account__item:hover {
+  background: var(--surface-2);
 }
 
 .ldg-menu__item {
@@ -2265,6 +2383,19 @@ html:not([data-input-modality="keyboard"]) .app-shell :focus,.app-shell :focus:n
   align-items: center;
   gap: 8px;
   min-width: 0;
+}
+
+/* starPos="visual": the save star sits under the source image, sized to the
+   image column (26-30px wide), so it never widens the row. */
+.story-visual .ldg-star {
+  width: 28px;
+  max-width: 100%;
+  height: 28px;
+}
+
+.story-visual .ldg-star svg {
+  width: 16px;
+  height: 16px;
 }
 
 .story-tags {

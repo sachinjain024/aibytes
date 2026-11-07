@@ -5,5 +5,7 @@ export interface ListRowProps {
   saved?: boolean;
   /** the save star renders only when this is passed */
   onToggleSave?: (id: string) => void;
+  /** Where the save star sits: "actions" = after the ⋮ menu (default); "visual" = under the source image, in its column. */
+  starPos?: "actions" | "visual";
 }
 export declare function ListRow(props: ListRowProps): JSX.Element;

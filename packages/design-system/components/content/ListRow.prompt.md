@@ -8,4 +8,6 @@ List-view row, two text lines: title over a one-line summary, the source image a
 <ListRow item={item} saved={saved.has(item.id)} onToggleSave={toggle} />
 ```
 
+`starPos="visual"` puts the save star under the source image instead of after the ⋮ menu, as on `Card`; the default is `"actions"`.
+
 Both lines truncate with ellipsis. Wrap consecutive rows in a bordered, rounded container.

@@ -13,6 +13,9 @@ const ICON_PATHS = {
   arrow: "M7 17 17 7M7 7h10v10",
   sun: "M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2",
   moon: "M20 15A9 9 0 0 1 9 4a9 9 0 1 0 11 11",
+  warning: "M10.3 4.2 2.6 17.5A2 2 0 0 0 4.3 20.5h15.4a2 2 0 0 0 1.7-3L13.7 4.2a2 2 0 0 0-3.4 0ZM12 9.5v4.5M12 17.2h.01",
+  // SaveStar's outline; pass fill="currentColor" for the filled star.
+  star: "M12 3l2.9 6 6.6.8-4.9 4.5 1.3 6.5L12 17.6 6.1 20.8l1.3-6.5L2.5 9.8 9.1 9z",
 };
 
 // The app shell's line icons. An unknown name falls back to the arrow rather

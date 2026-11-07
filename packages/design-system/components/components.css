@@ -123,7 +123,12 @@
 .ldg-cal__row .ldg-count{color:var(--text-2)}
 /* — save banner — */
 .ldg-banner{background:var(--surface-2);border-bottom:var(--border-w) solid var(--border);font-size:var(--text-13);color:var(--text-2)}
-.ldg-banner__in{max-width:var(--content-max);margin:0 auto;display:flex;align-items:center;gap:12px;padding:8px 20px}
+.ldg-banner__in{position:relative;display:flex;align-items:center;justify-content:center;padding:9px 48px}
+.ldg-banner__msg{display:inline-flex;align-items:flex-start;gap:8px;color:var(--text)}
+.ldg-banner .ldg-banner__icon{flex:none;width:16px;height:16px;margin-top:1px}
+.ldg-banner__dismiss{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:28px;height:28px}
+.ldg-banner--sticky{position:sticky;top:var(--redesign-header);z-index:38}
+@media (max-width:760px){.ldg-banner__in{justify-content:flex-start;padding:9px 44px 9px 16px}}
 .ldg-banner__in b{color:var(--text);font-weight:500}
 .ldg-banner a{font-weight:600}
 /* — empty / end cards — */

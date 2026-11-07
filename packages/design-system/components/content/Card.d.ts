@@ -28,5 +28,7 @@ export interface CardProps {
   tagStyle?: "dots" | "pills" | "hash";
   /** Max tags shown (default 0: the app's cards carry no tags). 0 drops the whole tags row, language dot included. */
   maxTags?: number;
+  /** Where the save star sits: "actions" = after the ⋮ menu (default); "visual" = under the source image, in its column. Either way it renders only with `onToggleSave`. */
+  starPos?: "actions" | "visual";
 }
 export declare function Card(props: CardProps): JSX.Element;

@@ -13,3 +13,9 @@ Image rules: PH logo rounded 8px, GitHub avatar circle (+ language dot in meta),
 Default card: title, summary, then the source and its counts (`GitHub +1.5K ★`) in a row pinned to the bottom edge, so every card in a row ends on the same line. No tags. This is how the app shows it; use the defaults.
 
 Layout variants: `signalsPos` places upvotes — "source" after the source name (default), "logo" stacked under the image, "bottom" bottom-aligned under the image, "row" own row between summary and tags; comments never show on cards. `tagStyle`: "dots" mono ·-separated (default), "pills" bordered chips, "hash" accent #tags. `maxTags` caps tags (default 0, no tags row; the language dot goes with it). Pass a number only for a surface that wants tags back. With `signalsPos` ≠ "bottom" the menu + star move to the top-right corner cluster.
+
+Star position: `starPos="visual"` takes the save star out of that cluster and puts it under the source image, sized to the image column, so saved items line up down the left edge (the app's choice, AIB-75v). The default `"actions"` keeps it after the ⋮ menu. It renders only when `onToggleSave` is passed.
+
+```jsx
+<Card item={item} saved={saved.has(item.id)} onToggleSave={toggle} starPos="visual" />
+```

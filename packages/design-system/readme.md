@@ -85,7 +85,16 @@ Design system for **aiBytes_** (`aibytes.io`): a curated daily feed of AI resour
 - `components/navigation/` — the app shell: AppHeader, Sidebar, Toolbar, FilterPanel, ActiveFilters; and EditionBar (the toolbar's date picker), CalendarPopover. The app (`apps/web`) is built from these, so what ships and what Claude Design shows are the same components.
 - `components/content/` — Card, ListRow, CardGrid / RowList / StatusMessage (`Feed.jsx`), ItemImage, SectionHeading, Tag, SaveStar, CardMenu, SaveBanner, EmptyState, EndCard
 - `components/forms/` — Button, Input
-- `ui_kits/aibytes-app/` — the nine screens + interactive `index.html`, shared `data.js`
+- `ui_kits/aibytes-app/` — the screens + interactive `index.html`, shared `data.js`; 12–14 show saves and sign-in
+
+### Saves and sign-in (AIB-75v)
+
+Every option is off unless passed, so a page that passes none renders as before.
+
+- **Star position.** `Card` and `ListRow` take `starPos`: `"actions"` (default) keeps the star beside the ⋮ menu; `"visual"` puts it under the source icon (28px target, 16px glyph). Either way it renders only with `onToggleSave`.
+- **Sidebar.** `onSaved` adds a `LIBRARY` section with a Saved row (filled `--save` star, `savedCount`, shown at 0). `savedActive` marks it the current page and no category.
+- **AppHeader.** Signed out, `onSignIn` adds a `Sign in` control after the theme toggle. Signed in, `user` (`{ name, photoUrl? }`) with `onSignOut` shows a 30px avatar — the Google photo, or the initial when there is none or it fails — opening the account menu: name, "Signed in with Google", Saved (with `onSaved`) and Sign out. It shares `CardMenu`'s popover and dismissal.
+- **SaveBanner.** A warning icon leads the centred message. `sticky` sticks it under the header over the rail and publishes its height as `--redesign-banner`; the rail, drawer, backdrop and toolbar are offset by `--redesign-top` (`--redesign-header` plus that height), so they clear it and move back up on dismissal. `--redesign-header` stays the masthead's height.
 - `guidelines/` — foundation specimen cards, `extending-ledger.md`
 - `SKILL.md` — agent skill entry point
 

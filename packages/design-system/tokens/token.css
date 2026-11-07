@@ -50,6 +50,9 @@
   --img-slot-list: 24px;
   --redesign-rail: 250px;
   --redesign-header: 52px;
+  /* What the rail, drawer and toolbar clear: the masthead plus a sticky SaveBanner,
+     which sets --redesign-banner on the root while it is mounted. */
+  --redesign-top: calc(var(--redesign-header) + var(--redesign-banner, 0px));
   --lang-python: #4B78A8;
   --lang-ts: #4F7CC9;
   --lang-rust: #B06A4A;

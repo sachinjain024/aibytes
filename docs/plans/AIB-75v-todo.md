@@ -15,12 +15,12 @@ image, at a 28px target with a 16px glyph; `"actions"` (the default) is
 today's markup.
 
 **Acceptance criteria:**
-- [ ] `Card.test.js` pins today's markup for a card and a row with no
+- [x] `Card.test.js` pins today's markup for a card and a row with no
       `starPos`, then covers `"visual"` (star inside `story-visual`, not in
       `item-actions`) and that no star renders without `onToggleSave`.
-- [ ] `Card.d.ts` and `ListRow.d.ts` document the prop; the `.prompt.md`
+- [x] `Card.d.ts` and `ListRow.d.ts` document the prop; the `.prompt.md`
       files show it.
-- [ ] In the preview, the star under the icon fits the visual column on grid
+- [x] In the preview, the star under the icon fits the visual column on grid
       cards and list rows at 1280 and 390px, in both themes.
 
 **Files:** `components/content/FeedItem.jsx`, `Card.jsx`, `ListRow.jsx`,
@@ -35,11 +35,11 @@ count, `category` styling) render after the categories. `savedActive` marks
 the row current and no category. Add a `star` icon to `icons.jsx`.
 
 **Acceptance criteria:**
-- [ ] New `Sidebar.test.js` pins today's markup without `onSaved`, then
+- [x] New `Sidebar.test.js` pins today's markup without `onSaved`, then
       covers the entry with a count of 0 and 3, and `savedActive`
       (`aria-current="page"` on Saved, on no category).
-- [ ] The drawer's Tab trap includes the Saved row (checked at 390px).
-- [ ] `Sidebar.d.ts` and `Sidebar.prompt.md` updated.
+- [x] The drawer's Tab trap includes the Saved row (checked at 390px).
+- [x] `Sidebar.d.ts` and `Sidebar.prompt.md` updated.
 
 **Files:** `components/navigation/Sidebar.jsx`, `Sidebar.d.ts`,
 `Sidebar.prompt.md`, `Sidebar.test.js`, `icons.jsx`, `styles.css`.
@@ -54,14 +54,16 @@ fails to load, opening a menu built on `CardMenu`'s popover: name and
 "Signed in with Google", `Saved`, `Sign out`.
 
 **Acceptance criteria:**
-- [ ] New `AppHeader.test.js` pins today's markup with none of the new props,
+- [x] New `AppHeader.test.js` pins today's markup with none of the new props,
       then covers Sign in, the photo, the initial without `photoUrl`, the
       accessible name, and the menu's Saved item only with `onSaved`.
-- [ ] In the preview: Escape closes the menu and returns focus to the avatar;
+- [x] In the preview: Escape closes the menu and returns focus to the avatar;
       a click outside closes it; a bad `photoUrl` shows the initial.
-- [ ] `contrast.test.js` covers the initial on `--surface-2` and the menu's
-      secondary line on `--surface`, in both themes.
-- [ ] `AppHeader.d.ts` and `AppHeader.prompt.md` updated.
+- [x] `contrast.test.js` covers the initial on `--surface-2` and the menu's
+      secondary line on `--surface`, in both themes. (Already true: its pairs
+      check `--text` and `--text-2` on `--surface` and `--surface-2`, the only
+      colours these pieces use, so no new pair was needed.)
+- [x] `AppHeader.d.ts` and `AppHeader.prompt.md` updated.
 
 **Files:** `components/navigation/AppHeader.jsx`, `AppHeader.d.ts`,
 `AppHeader.prompt.md`, `AppHeader.test.js`, `components/components.css` or
@@ -77,18 +79,19 @@ dismiss button in `SaveBanner`, and add `sticky`. A sticky banner sticks at
 drawer and the backdrop onto it, replacing the literal `52px`s.
 
 **Acceptance criteria:**
-- [ ] New `SaveBanner.test.js` covers the icon, the copy, the dismiss label,
+- [x] New `SaveBanner.test.js` covers the icon, the copy, the dismiss label,
       and the sticky class only with `sticky`.
-- [ ] `tests/test_design_system.py`: `ToolbarTests` read `--redesign-top`;
+- [x] `tests/test_design_system.py`: `ToolbarTests` read `--redesign-top`;
       new checks that the rail, drawer and backdrop use it with no literal
       `52px`, that it is built from `--redesign-header` and
       `--redesign-banner`, and the z-index order masthead > banner > rail >
       toolbar.
-- [ ] `contrast.test.js` covers banner text and link on `--surface-2`.
-- [ ] In the preview at 1280, 900 and 390px, both themes: the banner stays
+- [x] `contrast.test.js` covers banner text and link on `--surface-2`.
+      (Already true: `--text` and `--link` on `--surface-2` are in its pairs.)
+- [x] In the preview at 1280, 900 and 390px, both themes: the banner stays
       under the header while the feed scrolls, spans over the rail, and the
       rail, drawer and toolbar clear it and move back up on dismissal.
-- [ ] `SaveBanner.d.ts` and `SaveBanner.prompt.md` updated.
+- [x] `SaveBanner.d.ts` and `SaveBanner.prompt.md` updated.
 
 **Files:** `components/content/SaveBanner.jsx`, `SaveBanner.d.ts`,
 `SaveBanner.prompt.md`, `SaveBanner.test.js`,
@@ -104,11 +107,11 @@ Update the kit `README.md` and Ledger's `readme.md` for the header, sidebar,
 banner and star position.
 
 **Acceptance criteria:**
-- [ ] `12-saves-signed-out.html`, `13-signed-in-menu.html` and
+- [x] `12-saves-signed-out.html`, `13-signed-in-menu.html` and
       `14-mobile-banner.html` render through `npm run preview:design-system`
       and match the prototype's states.
-- [ ] `RemovedComponentTests` and the rest of `test_design_system.py` pass.
-- [ ] The kit `README.md` lists the new screens; `readme.md` describes the
+- [x] `RemovedComponentTests` and the rest of `test_design_system.py` pass.
+- [x] The kit `README.md` lists the new screens; `readme.md` describes the
       new options.
 - [ ] The ticket's `ledger-saves-ui … (PR merged)` item is ticked when the
       PR is squash-merged.
