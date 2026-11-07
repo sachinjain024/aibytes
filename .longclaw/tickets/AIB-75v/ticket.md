@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T06:08:19.592Z
-updated_at: 2026-11-07T10:34:55.495Z
+updated_at: 2026-11-07T10:47:10.438Z
 ---
 
 Saving items (the ☆ on every card and row) and signing in with Google, split out of AIB-8h on 2026-10-08. AIB-8h shipped the web app without them: no star, no Saved entry, no Sign in. This ticket brings them in.
@@ -53,7 +53,7 @@ Decisions on the map: the publisher creates a new Firebase project for aibytes.i
 - [x] app-local-saves: spec approved <!-- longclaw:item=ck_e869ea35 -->
 - [x] app-local-saves: the ☆ on edition and weekly issue pages saves to local storage at once (PR merged) <!-- longclaw:item=ck_d5ac2437 -->
 - [x] app-saved-view: spec approved <!-- longclaw:item=ck_1b4555b9 -->
-- [ ] app-saved-view: Saved entry and count in the sidebar, /saved page grouped by edition date and weekly issue, rank order inside each, hidden items left out with a note, empty state (PR merged) <!-- longclaw:item=ck_92ac9854 -->
+- [x] app-saved-view: Saved entry and count in the sidebar, /saved page grouped by edition date and weekly issue, rank order inside each, hidden items left out with a note, empty state (PR merged) <!-- longclaw:item=ck_92ac9854 -->
 - [ ] Firebase project created for aibytes.io (publisher): Google sign-in on, aibytes.io authorised <!-- longclaw:item=ck_af2bb5f2 -->
 - [ ] app-accounts: spec approved <!-- longclaw:item=ck_f3d1ec1d -->
 - [ ] app-accounts: Firebase Auth with the Google provider, client SDK only; Sign in, account menu and the sticky banner <!-- longclaw:item=ck_1f32b91e -->
@@ -605,4 +605,21 @@ changes:
 ### You updated this ticket
 
 Module 3 spec approved (docs/specs/AIB-75v-app-saved-view.md): Sidebar count is the stored count, weekly issues interleaved by date, unstarring on /saved removes at once. Tasks T8-T10 in docs/plans/AIB-75v-todo.md.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f34cf7a0
+kind: update
+occurred_at: 2026-11-07T10:47:10.438Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_92ac9854.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+
+Module 3 app-saved-view squash-merged to main in #57 (95a71bc): Saved and its count in every Sidebar, and /saved grouped by edition and weekly issue. Open for module 4 or a follow-up: category counts show '–' on /saved, and the page title uses the section-heading style. Next: app-accounts, waiting on the Firebase project.
 <!-- /longclaw:event -->
