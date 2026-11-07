@@ -12,6 +12,7 @@ import { FilterPanel } from "@aibytes/design-system/components/navigation/Filter
 import { Sidebar } from "@aibytes/design-system/components/navigation/Sidebar.jsx";
 import { Toolbar } from "@aibytes/design-system/components/navigation/Toolbar.jsx";
 import { loadEdition, loadIndex, loadTags, loadWeeklyIndex, loadWeeklyIssue } from "./content.js";
+import { filesToLoad, leftOutNote, savedGroups } from "./saved.js";
 import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, SOURCES } from "./filters.js";
 import { FOOTER_LINKS, GITHUB_URL, SUBSCRIBE_URL } from "./footer.js";
 import { longDate, midDate, shortDate } from "./format.js";
@@ -20,7 +21,7 @@ import { shownView } from "./layout.js";
 import { groupedItems, rankedItems } from "./order.js";
 import { ORDER, VIEW } from "./prefs.js";
 import { localSaves } from "./saves.js";
-import { editionPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, weeklyPath } from "./route.js";
+import { editionPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, savedPath, weeklyPath } from "./route.js";
 
 // The sidebar's links: live ones first, then those not live yet. GitHub is
 // left out because the masthead already carries it.
@@ -84,6 +85,9 @@ export function App() {
   if (route.kind === "weekly_index") {
     return <WeeklyArchive theme={theme} onToggleTheme={toggleTheme} />;
   }
+  if (route.kind === "saved") {
+    return <SavedApp saves={saves} location={location} navigate={navigate} theme={theme} onToggleTheme={toggleTheme} />;
+  }
   if (route.kind === "weekly_issue") {
     return (
       <WeeklyIssueApp
@@ -113,8 +117,13 @@ export function App() {
 // sidebar, and the toolbar with search, view, order and filters, all kept in
 // the URL and preferences. `all` is the open feed's items, hidden ones
 // included, or null while it loads; `children` renders the feed from what the
-// filters leave.
-function FeedShell({ theme, onToggleTheme, location, navigate, skipLabel, heading, date, all, children }) {
+// filters leave. Every page's Sidebar carries Saved and the stored count.
+//
+// `savedPage` is the /saved page: no toolbar, filters or tags; Saved is the
+// current entry; a category opens the latest edition filtered to it; and the
+// page draws its own visible h1, so `heading` is left out.
+function FeedShell({ saves: store, savedPage = false, theme, onToggleTheme, location, navigate, skipLabel, heading, date, all, children }) {
+  const { saves } = useSaves(store);
   // Defaults: list + grouped (AIB-105j). A stored preference still wins.
   const [view, setView] = useChoice(VIEW, "list");
   const [mode, setMode] = useChoice(ORDER, "grouped");
@@ -153,6 +162,7 @@ function FeedShell({ theme, onToggleTheme, location, navigate, skipLabel, headin
 
   React.useEffect(() => {
     // Only the Tags panel and tag URLs need it; if it fails, tags just do not filter.
+    if (savedPage) return;
     loadTags()
       .then((data) => setTags({ status: "ready", groups: data.groups }))
       .catch(() => setTags({ status: "failed", groups: [] }));
@@ -180,12 +190,18 @@ function FeedShell({ theme, onToggleTheme, location, navigate, skipLabel, headin
       <AppHeader theme={theme} onToggleTheme={onToggleTheme} menuOpen={menuOpen} onMenu={() => setMenuOpen(o => !o)} githubUrl={GITHUB_URL} />
       <Sidebar categories={categories} count={visible?.length} active={filters.category} open={menuOpen} onClose={() => setMenuOpen(false)}
         links={SIDEBAR_LINKS} subscribeUrl={SUBSCRIBE_URL}
-        onCategory={key => { if (filterable) setCategory(key); setMenuOpen(false); }} />
+        onCategory={key => {
+          if (savedPage) navigate("/" + filtersToSearch({ ...NO_FILTERS, category: key }, []));
+          else if (filterable) setCategory(key);
+          setMenuOpen(false);
+        }}
+        onSaved={() => { if (!savedPage) navigate(savedPath()); setMenuOpen(false); }} savedCount={saves.length} savedActive={savedPage} />
       <main id="main" className="redesign-main" tabIndex={-1}>
         {/* No visible heading: the toolbar is the first row of the content, and its
             date control already shows the edition or issue. Screen readers still get an h1. */}
-        <h1 className="app-sr">{heading}</h1>
+        {heading && <h1 className="app-sr">{heading}</h1>}
         <div className="workspace"><section className="feed">
+          {!savedPage && <>
           <div ref={sticky} className="toolbar-slot">
             <Toolbar count={items ? `${items.length} items` : null} query={filters.query} onQuery={setQuery} view={view} onView={columns > 1 ? setView : undefined} mode={mode} onMode={setMode}
               disabled={!filterable} filterCount={filters.tags.length + filters.sources.length} open={panel !== null} onFilters={() => onPanel("filters")}
@@ -193,6 +209,7 @@ function FeedShell({ theme, onToggleTheme, location, navigate, skipLabel, headin
             {panel && <FilterPanel groups={tagGroups} filters={filters} onChange={setFilters} sources={SOURCES} /> }
           </div>
           <ActiveFilters filters={filters} onChange={setFilters} />
+          </>}
           <div className="app-main" ref={setMainEl}>
             {children({ items, filters, view: shown, mode, clearQuery: () => setQuery(""), clearFilters: () => setFilters(NO_FILTERS) })}
           </div>
@@ -208,12 +225,8 @@ function FeedShell({ theme, onToggleTheme, location, navigate, skipLabel, headin
 // no section. Every item carries the save star under its source icon; `from`
 // names the file it lives in ({ edition_date } or { issue_slug }), taken from
 // the page, never from the item.
-function ItemSections({ items, view, mode, saves: store, from }) {
-  const { has, toggle } = useSaves(store);
-  const star = (item) => ({ saved: has(item.id), onToggleSave: () => toggle(item, from), starPos: "visual" });
-  const render = (list) => (view === "list"
-    ? <RowList>{list.map((item) => <ListRow key={item.id} item={item} {...star(item)} />)}</RowList>
-    : <CardGrid>{list.map((item) => <Card key={item.id} item={item} {...star(item)} />)}</CardGrid>);
+function ItemSections({ items, view, mode, saves, from }) {
+  const render = (list) => <ItemList items={list} view={view} saves={saves} from={from} />;
   return mode === "grouped"
     ? groupedItems(items).map(({ category, items: group }) => (
       <section className="app-sec" key={category.key} aria-labelledby={category.key}>
@@ -225,6 +238,15 @@ function ItemSections({ items, view, mode, saves: store, from }) {
         <h2 className="app-sr" id="items-heading">{items.length} items</h2>
         {render(items)}
       </section>);
+}
+
+// Cards or rows, each with its save star.
+function ItemList({ items, view, saves: store, from }) {
+  const { has, toggle } = useSaves(store);
+  const star = (item) => ({ saved: has(item.id), onToggleSave: () => toggle(item, from), starPos: "visual" });
+  return view === "list"
+    ? <RowList>{items.map((item) => <ListRow key={item.id} item={item} {...star(item)} />)}</RowList>
+    : <CardGrid>{items.map((item) => <Card key={item.id} item={item} {...star(item)} />)}</CardGrid>;
 }
 
 // A JSON document's load state: loading, ready with data, or error. `ref` null
@@ -264,7 +286,7 @@ function EditionApp({ saves, route, location, navigate, theme, onToggleTheme }) 
   const goTo = (date) => navigate(editionPath(date) + location.search);
 
   return (
-    <FeedShell theme={theme} onToggleTheme={onToggleTheme} location={location} navigate={navigate}
+    <FeedShell saves={saves} theme={theme} onToggleTheme={onToggleTheme} location={location} navigate={navigate}
       skipLabel="Skip to the edition"
       heading={ref ? `aiBytes_ edition, ${new Date(ref.date + "T12:00:00").toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}` : "aiBytes_"}
       date={ref ? <Bar refAt={ref} editions={editions} search={location.search} navigate={navigate} /> : null}
@@ -354,6 +376,80 @@ function EditionFeed({ saves, route, index, editionRef: ref, edition, older, goT
   );
 }
 
+// /saved - every saved item, one section per edition or weekly issue, newest
+// first (spec AIB-75v app-saved-view). It loads the two indexes, then only the
+// files the saves name; saved.js decides the sections, order and what is left out.
+function SavedApp({ saves: store, location, navigate, theme, onToggleTheme }) {
+  const index = useLoaded(loadIndex, ONCE, "index");
+  const weekly = useLoaded(loadWeeklyIndex, ONCE, "weekly");
+  const { saves } = useSaves(store);
+  React.useEffect(() => { document.title = "aiBytes_ · Saved"; }, []);
+
+  const settled = index.status !== "loading" && weekly.status !== "loading";
+  const failed = [index, weekly].find((state) => state.status === "error");
+  const editions = index.status === "ready" ? index.data.editions : [];
+  const issues = weekly.status === "ready" ? weekly.data.issues : [];
+  const files = useSavedFiles(settled && !failed ? filesToLoad(saves, editions, issues) : []);
+  const { groups, leftOut } = savedGroups(saves, { editions, issues, files });
+
+  return (
+    <FeedShell saves={store} savedPage theme={theme} onToggleTheme={onToggleTheme} location={location} navigate={navigate}
+      skipLabel="Skip to your saved items" date={null} all={null}>
+      {({ view }) => {
+        const message = (text, role) => <StatusMessage role={role}>{text}</StatusMessage>;
+        if (!settled) return message("Loading your saves...");
+        if (failed) return message(`Could not load your saves: ${failed.error.message}`, "alert");
+        if (!saves.length) {
+          return message(<>
+            <b>No saved items yet.</b> Select the ☆ on any card or row to save it. Saved items from every edition
+            collect here, newest edition first. <a href="/">← Back to the latest edition</a>
+          </>, "status");
+        }
+        // The count waits for every file, so it never counts up while they land.
+        const loading = groups.some((group) => group.status === "loading");
+        const shown = groups.reduce((n, group) => n + group.items.length, 0);
+        const note = leftOutNote(leftOut);
+        return (
+          <>
+            <h1 className="ldg-section-h">Saved {!loading && <span className="ldg-count">{shown}</span>}</h1>
+            {shown > 0 && <p>Stored in this browser only.</p>}
+            {groups.map((group) => {
+              const id = "saved-" + group.key.replace(":", "-");
+              return (
+                <section className="app-sec" key={group.key} aria-labelledby={id}>
+                  <SectionHeading name={group.label} count={group.status === "ready" ? group.items.length : ""} id={id} />
+                  {group.status === "ready" ? <ItemList items={group.items} view={view} saves={store} from={group.from} />
+                    : group.status === "error" ? message(group.kind === "edition" ? `Could not load the ${group.label} edition.` : `Could not load ${group.label}.`, "alert")
+                    : message(`Loading ${group.label}...`)}
+                </section>
+              );
+            })}
+            {note && <p>{note}</p>}
+          </>
+        );
+      }}
+    </FeedShell>
+  );
+}
+
+// Each edition or issue in `toLoad`, fetched once and kept: { [key]: { status, data | error } }.
+function useSavedFiles(toLoad) {
+  const [files, setFiles] = React.useState({});
+  const asked = React.useRef(new Set());
+  const keys = toLoad.map((file) => file.key).join(" ");
+  React.useEffect(() => {
+    for (const file of toLoad) {
+      if (asked.current.has(file.key)) continue;
+      asked.current.add(file.key);
+      const load = file.kind === "edition" ? loadEdition : loadWeeklyIssue;
+      load(file.ref)
+        .then((data) => setFiles((now) => ({ ...now, [file.key]: { status: "ready", data } })))
+        .catch((error) => setFiles((now) => ({ ...now, [file.key]: { status: "error", error } })));
+    }
+  }, [keys]);
+  return files;
+}
+
 // A compact Substack subscribe bar at the top of a weekly issue, so a reader
 // arriving cold from social can subscribe without finding the sidebar.
 function SubscribeBar() {
@@ -433,7 +529,7 @@ function WeeklyIssueApp({ saves, route, location, navigate, theme, onToggleTheme
   const goTo = (slug) => navigate(weeklyPath(slug) + location.search);
 
   return (
-    <FeedShell theme={theme} onToggleTheme={onToggleTheme} location={location} navigate={navigate}
+    <FeedShell saves={saves} theme={theme} onToggleTheme={onToggleTheme} location={location} navigate={navigate}
       skipLabel="Skip to the issue"
       heading={ref ? `aiBytes_ weekly issue #${ref.number}: ${ref.title}` : "aiBytes_ weekly"}
       date={ref ? <WeeklyBar refAt={ref} navigate={navigate} /> : null}

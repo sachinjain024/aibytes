@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { WEEKLY_ARCHIVE_HEAD, weeklyIssueHead, withHead } from "./src/pageMeta.js";
+import { SAVED_HEAD, WEEKLY_ARCHIVE_HEAD, weeklyIssueHead, withHead } from "./src/pageMeta.js";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const CONTENT = path.resolve(here, "../../content");
@@ -65,7 +65,8 @@ function content() {
 
 // One real page per edition and weekly issue, so /2026-10-07 and
 // /weekly/issue-16 are 200s on GitHub Pages rather than a 404 that happens to
-// render. Each is index.html: the app reads the path from the URL. Weekly pages
+// render. Each is index.html: the app reads the path from the URL. /saved is
+// one too, noindex since it is the reader's own. Weekly pages
 // also get their own title, description, canonical URL and OG tags, since they
 // are meant to be indexed and shared. Assets are absolute (/assets/...), so the
 // copy works one directory down. 404.html catches everything else, including
@@ -81,6 +82,8 @@ function editionPages() {
         await writeFile(path.join(options.dir, date, "index.html"), html);
       }
       await writeFile(path.join(options.dir, "404.html"), html);
+      await mkdir(path.join(options.dir, "saved"), { recursive: true });
+      await writeFile(path.join(options.dir, "saved", "index.html"), withHead(html, SAVED_HEAD));
 
       await mkdir(path.join(options.dir, "weekly"), { recursive: true });
       await writeFile(path.join(options.dir, "weekly", "index.html"), withHead(html, WEEKLY_ARCHIVE_HEAD));

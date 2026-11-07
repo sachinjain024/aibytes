@@ -4,9 +4,9 @@ Spec: `docs/specs/AIB-75v-ledger-saves-ui.md`. Map:
 `docs/specs/AIB-75v-capability-map.md`. Ticket:
 `.longclaw/tickets/AIB-75v/ticket.md`. Task list: `docs/plans/AIB-75v-todo.md`.
 
-This plan covers modules 1 and 2. Modules 3 and 4 (`app-saved-view`,
-`app-accounts`) get their own spec and are added to this plan and task list
-when their spec is approved. Module 1 merged in #55 (`e5fa1ab`).
+This plan covers modules 1 to 3. Module 4 (`app-accounts`) gets its own spec
+and is added when that spec is approved. Module 1 merged in #55 (`e5fa1ab`),
+module 2 in #56 (`c3fad8d`).
 
 ## Overview
 
@@ -144,3 +144,65 @@ confirm `content/` is untouched. T7 adds the browser checks in
 `npm run dev:web` listed in the task. Once T7 is committed the PR is ready for
 review; once it is squash-merged, the ticket's `app-local-saves` item is
 ticked and module 3's spec starts.
+
+---
+
+# Module 3: `app-saved-view`
+
+Spec: `docs/specs/AIB-75v-app-saved-view.md`.
+
+## Overview
+
+Three tasks on branch `aib-75v-app-saved-view`, from `main` after #56: one
+commit per task, one PR, squash-merged.
+
+1. **T8 the grouping**: `apps/web/src/saved.js`. Pure: which files to load,
+   saves into sections in order, what is left out and the note. All the
+   page's rules, tested without a browser.
+2. **T9 the address**: the `saved` route, `SAVED_HEAD` with `noindex`, and
+   `dist/saved/index.html` in the build. `/saved` becomes a real page that
+   renders today's not-found message until T10.
+3. **T10 the page and the entry**: `SavedApp` in `App.jsx`, and the Sidebar's
+   Saved entry and count on every edition and weekly page.
+
+## Dependency graph
+
+```
+T8 saved.js ─────────┐
+                     ├──> T10 SavedApp + Sidebar Saved entry
+T9 route + build ────┘
+```
+
+T8 and T9 are independent. T10 needs both. The Sidebar entry lands in T10,
+not earlier, so no build has an entry pointing at an unfinished page
+(decision 1 of module 2).
+
+## Architecture decisions (from the spec)
+
+- **`saved.js` holds every rule**: order, interleaving, rank inside a
+  section, the left-out cases and the note's wording. `SavedApp` only loads
+  and renders.
+- **Load only what the saves name**: the two indexes, then the referenced
+  editions and issues in parallel, through `content.js`'s existing loaders.
+- **The Sidebar count is the stored count**; no page but `/saved` loads files
+  for it.
+- **No toolbar on `/saved`**, and the view comes from the stored VIEW choice
+  (grid at one column, as everywhere).
+- **No Ledger change, no new dependency.**
+
+## Risks
+
+| Risk | Mitigation |
+|---|---|
+| A reader with many saves across many editions waits on many requests | Requests go out in parallel and each section renders as its file lands; at one file per edition saved from, this stays small. Measured by hand in T10 |
+| One failed file blanks the page | Each file's load is independent; T8 models a failed file as a section error, T10 checks it by blocking one URL in DevTools |
+| Hidden items shift the rank order of what is shown | T8 ranks the whole file, hidden included, then filters, as the feed does; tested with a hidden item between two saved ones |
+| `/saved` gets indexed | `noindex` in its built head; T9 tests the built file |
+| The Sidebar entry needs a route the weekly pages do not share | `FeedShell` gets `navigate`, already passed in; T10 checks Saved from an edition, a weekly issue and the drawer |
+
+## Verification checkpoint (every task)
+
+The module 2 check list. T9 also checks `dist/saved/index.html`; T10 adds the
+browser checks in its task. Once T10 is in, the PR is ready for review; once
+it is squash-merged, the ticket's `app-saved-view` item is ticked and module
+4's spec starts.

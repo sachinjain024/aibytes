@@ -8,6 +8,7 @@ import {
   parseRoute,
   pickEdition,
   pickWeeklyIssue,
+  savedPath,
   weeklyPath,
   weeklyUrl,
 } from "./route.js";
@@ -91,4 +92,13 @@ test("pickWeeklyIssue and olderWeeklyIssue read the weekly index", () => {
   assert.equal(pickWeeklyIssue(parseRoute("/weekly/issue-1"), issues), null);
   assert.equal(olderWeeklyIssue(issues, "issue-16").slug, "issue-15");
   assert.equal(olderWeeklyIssue(issues, "issue-15"), null);
+});
+
+test("the Saved page route, with or without a trailing slash", () => {
+  for (const path of ["/saved", "/saved/"]) {
+    assert.deepEqual(parseRoute(path), { kind: "saved" });
+  }
+  assert.equal(savedPath(), "/saved");
+  assert.deepEqual(parseRoute(savedPath()), { kind: "saved" });
+  assert.deepEqual(parseRoute("/saved/2026-11-06"), { kind: "notfound" });
 });

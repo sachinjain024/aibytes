@@ -3,8 +3,9 @@
 Plan: `docs/plans/AIB-75v-plan.md`. Spec: `docs/specs/AIB-75v-ledger-saves-ui.md`.
 
 Module 1 (T1-T5) was built on `aib-75v-ledger-saves-ui` and squash-merged in
-#55. Module 2 (T6-T7) is built on `aib-75v-app-local-saves`, one commit per
-task, in one PR squash-merged to `main`.
+#55. Module 2 (T6-T7) was built on `aib-75v-app-local-saves` and
+squash-merged in #56. Module 3 (T8-T10) is built on `aib-75v-app-saved-view`,
+one commit per task, in one PR squash-merged to `main`.
 
 ## Module 1: `ledger-saves-ui`
 
@@ -178,3 +179,82 @@ bug the blocked-storage check found, `prefs.js`, `prefs.test.js`, `saves.js`,
 blocked, reading `window.localStorage` itself throws, and `prefs.js` read it
 in a default argument outside its `try`, so the whole app (on `main` too)
 rendered blank. Both modules now go through `browserStorage()`.
+
+## Module 3: `app-saved-view`
+
+Spec: `docs/specs/AIB-75v-app-saved-view.md`.
+
+### T8: the grouping
+
+**Description:** Add `apps/web/src/saved.js`: `filesToLoad(saves, editions,
+issues)`, `savedGroups(saves, { editions, issues, files })` and
+`leftOutNote(leftOut)`, as the spec's Code section describes. A file still
+loading or failed is a group with `status: "loading"` or `"error"`.
+
+**Acceptance criteria:**
+- [x] New `saved.test.js` (RED first): `filesToLoad` names only the
+      referenced editions and issues, once each, and skips saves whose file
+      is not in its index.
+- [x] Groups are newest first with editions and issues interleaved by date
+      (an issue by its `published_on`); labels are `Fri, Nov 6` and
+      `Issue #9 · Nov 2`; items inside follow `rankedItems` over the whole
+      file, with a hidden item between two saved ones not changing their order.
+- [x] Left out and counted: a hidden item, an item gone from its file, a file
+      gone from its index. The note's wording for 1 and many, editions only,
+      issues only, and mixed; no note when nothing is left out.
+- [x] No saves give no groups and no note; a loading or failed file gives a
+      group in that state without losing the others.
+
+**Files:** `apps/web/src/saved.js`, `apps/web/src/saved.test.js`.
+
+### T9: the address
+
+**Description:** `parseRoute` gains `{ kind: "saved" }` for `/saved` and
+`/saved/`, and `route.js` exports `savedPath()`. `pageMeta.js` gains
+`SAVED_HEAD` (title `aiBytes_ · Saved`, `noindex`) and `withHead` an optional
+`robots`. `vite.config.js` writes `dist/saved/index.html` with that head.
+
+**Acceptance criteria:**
+- [x] `route.test.js` and `pageMeta.test.js` cover the route, `savedPath`,
+      `SAVED_HEAD`, and that `robots` is added only when given (weekly pages
+      unchanged).
+- [x] `npm run build:web` writes `dist/saved/index.html` with the title and
+      `<meta name="robots" content="noindex" />`.
+- [x] Until T10, `/saved` in `npm run dev:web` shows the not-found message,
+      as any unknown path does today.
+
+**Files:** `apps/web/src/route.js`, `route.test.js`, `pageMeta.js`,
+`pageMeta.test.js`, `apps/web/vite.config.js`, and `App.jsx`: the edition
+feed treats `saved` as not found until T10, because any route it does not
+know otherwise reaches `longDate(route.date)` and throws.
+
+### T10: the page and the entry
+
+**Description:** `SavedApp` in `App.jsx`: the shell with `savedActive`, the
+`h1` and count, the "Stored in this browser only." line, sections with
+`SectionHeading` and `Card` / `ListRow` (star filled, `starPos="visual"`),
+the note, the empty state and the loading and error lines. `FeedShell` passes
+`onSaved={() => navigate(savedPath())}`, `savedCount` and
+`savedActive={false}` to `Sidebar`; on `/saved` a category navigates to
+`/?c=<key>`.
+
+**Acceptance criteria:**
+- [x] The full check list passes, and `test_design_system.py` still finds no
+      shell markup drawn by the app.
+- [x] In `npm run dev:web` at 1280 and 390px, both themes: Saved and its
+      count in the Sidebar and the drawer on an edition and a weekly issue,
+      `0` included; it opens `/saved` as the current entry.
+- [x] `/saved` with edition and weekly saves, in grid and list: sections in
+      date order, rank order inside; unstarring removes the item and an
+      emptied section; the empty state and its link.
+- [x] A left-out save is skipped with the note: a save written into local
+      storage for an id that is not in its edition (no published item is
+      hidden today, and the dev server always serves the real `content/`,
+      which is never edited for a test; `hidden: true` itself is covered in
+      T8). One file blocked in DevTools shows its section error and the rest;
+      Network shows only the two indexes and the referenced files.
+
+**Files:** `apps/web/src/App.jsx`, and `saved.js` / `saved.test.js`: each
+group now carries `from`, what unstarring its items needs. The browser checks
+ran on the production build through `vite preview`; the failed-file case
+deleted one edition from `dist/`, never `content/`, and the rebuild restored it.
