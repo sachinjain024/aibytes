@@ -48,6 +48,8 @@ test("sections are newest first, editions and issues interleaved by date, rank o
     ["edition:2026-11-04", "edition", "Wed, Nov 4", "2026-11-04", "ready"],
     ["issue:issue-9", "issue", "Issue #9 · Nov 2", "2026-11-02", "ready"],
   ]);
+  // Each section says where its items live, for unstarring them.
+  assert.deepEqual(groups.map((g) => g.from), [{ edition_date: "2026-11-06" }, { edition_date: "2026-11-04" }, { issue_slug: "issue-9" }]);
   // Ranked over the whole file, the hidden h (rank 2) included, then filtered.
   assert.deepEqual(groups[0].items.map((i) => i.id), ["a-11-06", "c-11-06", "b-11-06"]);
   assert.deepEqual(groups[2].items.map((i) => i.id), ["v-issue-9", "w-issue-9"]);

@@ -36,7 +36,8 @@ export function filesToLoad(saves, editions, issues) {
 /**
  * `files` maps a file's key to { status: "loading" | "ready" | "error", data }
  * (a key not there yet is loading). Returns { groups, leftOut }: groups as
- * { key, kind, label, date, status, items }, newest first, and leftOut as
+ * { key, kind, label, date, from, status, items }, newest first (`from` is
+ * what a save of its items carries, for unstarring), and leftOut as
  * { count, kinds }, kinds being which of "edition" and "issue" it came from.
  */
 export function savedGroups(saves, { editions, issues, files }) {
@@ -47,7 +48,8 @@ export function savedGroups(saves, { editions, issues, files }) {
     const state = files[file.key] || { status: "loading" };
     const date = file.kind === "edition" ? file.ref.date : file.ref.published_on;
     const label = file.kind === "edition" ? midDate(date) : `Issue #${file.ref.number} · ${shortDate(date)}`;
-    const group = { key: file.key, kind: file.kind, label, date, status: state.status, items: [] };
+    const from = file.kind === "edition" ? { edition_date: file.ref.date } : { issue_slug: file.ref.slug };
+    const group = { key: file.key, kind: file.kind, label, date, from, status: state.status, items: [] };
     if (state.status === "ready") {
       const ids = new Set(saves.filter((s) => keyOf(s) === file.key).map((s) => s.item_id));
       const all = state.data.items;

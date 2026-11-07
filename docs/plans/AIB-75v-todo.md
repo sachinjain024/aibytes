@@ -239,19 +239,22 @@ the note, the empty state and the loading and error lines. `FeedShell` passes
 `/?c=<key>`.
 
 **Acceptance criteria:**
-- [ ] The full check list passes, and `test_design_system.py` still finds no
+- [x] The full check list passes, and `test_design_system.py` still finds no
       shell markup drawn by the app.
-- [ ] In `npm run dev:web` at 1280 and 390px, both themes: Saved and its
+- [x] In `npm run dev:web` at 1280 and 390px, both themes: Saved and its
       count in the Sidebar and the drawer on an edition and a weekly issue,
       `0` included; it opens `/saved` as the current entry.
-- [ ] `/saved` with edition and weekly saves, in grid and list: sections in
+- [x] `/saved` with edition and weekly saves, in grid and list: sections in
       date order, rank order inside; unstarring removes the item and an
       emptied section; the empty state and its link.
-- [ ] A left-out save is skipped with the note: a save written into local
+- [x] A left-out save is skipped with the note: a save written into local
       storage for an id that is not in its edition (no published item is
       hidden today, and the dev server always serves the real `content/`,
       which is never edited for a test; `hidden: true` itself is covered in
       T8). One file blocked in DevTools shows its section error and the rest;
       Network shows only the two indexes and the referenced files.
 
-**Files:** `apps/web/src/App.jsx`.
+**Files:** `apps/web/src/App.jsx`, and `saved.js` / `saved.test.js`: each
+group now carries `from`, what unstarring its items needs. The browser checks
+ran on the production build through `vite preview`; the failed-file case
+deleted one edition from `dist/`, never `content/`, and the rebuild restored it.
