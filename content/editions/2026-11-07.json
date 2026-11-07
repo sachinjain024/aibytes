@@ -1,0 +1,856 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-07",
+  "generated_at": "2026-11-07T14:30:04Z",
+  "counts": {
+    "launches": 5,
+    "repos": 8,
+    "news": 10,
+    "hn": 10
+  },
+  "items": [
+    {
+      "id": "ph-tobira-site-agent-2026-11-07",
+      "title": "Tobira Site Agent",
+      "summary": "Builds a sales agent from a pasted URL that answers, negotiates, books calls and takes orders inside ChatGPT, Claude and Grok chats, sending leads to Telegram or email; free with your own AI key.",
+      "url": "https://www.producthunt.com/products/tobira-ai",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/tobira-ai",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/cfffedd6-2cb9-41bc-bee6-ad9f9b44c486.gif?auto=format"
+      },
+      "signals": {
+        "upvotes": 368,
+        "comments": 107
+      },
+      "published_at": "2026-11-06T08:01:00Z",
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "ph-turnstone-2026-11-07",
+      "title": "Turnstone",
+      "summary": "Mac and iPhone agent that runs on your existing AI subscriptions, API keys or a self-hosted model, and fails over to another provider when one hits its usage limit.",
+      "url": "https://www.producthunt.com/products/turnstone",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/turnstone",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Local LLM",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/fd976e8f-00db-4f28-9994-9638196e05e8.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 260,
+        "comments": 29
+      },
+      "published_at": "2026-11-06T08:01:00Z",
+      "hidden": false,
+      "rank": 10
+    },
+    {
+      "id": "ph-rankfender-v3-0-2026-11-07",
+      "title": "Rankfender v3.0",
+      "summary": "SEO suite covering keywords, rank tracking incl. AI Overviews, backlinks and audits, plus tracking of how ChatGPT, Claude, Gemini, Perplexity and four other assistants describe your brand.",
+      "url": "https://www.producthunt.com/products/rankfender",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/rankfender",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/773dfc07-4fbf-4485-a46b-4bb1ca0395a9.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 168,
+        "comments": 15
+      },
+      "published_at": "2026-11-06T08:01:00Z",
+      "hidden": false,
+      "rank": 17
+    },
+    {
+      "id": "ph-wonder-dev-view-2026-11-07",
+      "title": "Wonder Dev View",
+      "summary": "Runs Claude Code and Codex on your own subscriptions in parallel git worktrees, has one review the other's code, and lets you click an element in a live preview to direct changes.",
+      "url": "https://www.producthunt.com/products/wonder-dev-view",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/wonder-dev-view",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Code Gen",
+        "Claude Code",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/21cb3505-72bf-44c9-863e-eab9e01f3949.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 153,
+        "comments": 16
+      },
+      "published_at": "2026-11-06T08:01:00Z",
+      "hidden": false,
+      "rank": 23
+    },
+    {
+      "id": "ph-chatgpt-images-2-6-8-2026-11-07",
+      "title": "ChatGPT Images 2.6",
+      "summary": "OpenAI's image model update adds native GIF and looping animation output, SVG export, character consistency across edits and a complexity control, in ChatGPT, Codex and the API.",
+      "url": "https://www.producthunt.com/products/openai",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/openai",
+      "category": "launches",
+      "tags": [
+        "Model Release",
+        "Image Gen",
+        "OpenAI",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/27c1e3fb-bb68-4623-90e7-a5b8d7c2a4b6.jpeg?auto=format"
+      },
+      "signals": {
+        "upvotes": 140,
+        "comments": 4
+      },
+      "published_at": "2026-11-07T08:01:00Z",
+      "hidden": false,
+      "rank": 30
+    },
+    {
+      "id": "gh-security-audit-skill-2026-11-07",
+      "title": "cloudflare/security-audit-skill",
+      "summary": "Cloudflare's coding-agent skill that runs a security audit in multiple phases and emits machine-readable findings, each verified independently; written in JavaScript.",
+      "url": "https://github.com/cloudflare/security-audit-skill",
+      "source": "github",
+      "source_url": "https://github.com/cloudflare/security-audit-skill",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Security"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/cloudflare.png?size=80"
+      },
+      "signals": {
+        "stars": 65001,
+        "stars_gained": 2088,
+        "forks": 4217
+      },
+      "meta": {
+        "language": "JavaScript"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "gh-openmausbot-2026-11-07",
+      "title": "milind-soni/OpenMausBot",
+      "summary": "Open-source TypeScript take on the Grok Bot pattern that gives bots their own virtual machine to operate in.",
+      "url": "https://github.com/milind-soni/OpenMausBot",
+      "source": "github",
+      "source_url": "https://github.com/milind-soni/OpenMausBot",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/milind-soni.png?size=80"
+      },
+      "signals": {
+        "stars": 16402,
+        "stars_gained": 1986,
+        "forks": 2326
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "gh-skills-2026-11-07",
+      "title": "mattpocock/skills",
+      "summary": "Matt Pocock's personal collection of agent skills for engineering work, published straight from his .agents directory as shell scripts and instructions.",
+      "url": "https://github.com/mattpocock/skills",
+      "source": "github",
+      "source_url": "https://github.com/mattpocock/skills",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Code Gen"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mattpocock.png?size=80"
+      },
+      "signals": {
+        "stars": 317285,
+        "stars_gained": 1111,
+        "forks": 26549
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 11
+    },
+    {
+      "id": "gh-skills-2-2026-11-07",
+      "title": "google/skills",
+      "summary": "Google's official Agent Skills for its own products and technologies, written in Python, so coding agents can work with Google services out of the box.",
+      "url": "https://github.com/google/skills",
+      "source": "github",
+      "source_url": "https://github.com/google/skills",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Google"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/google.png?size=80"
+      },
+      "signals": {
+        "stars": 23115,
+        "stars_gained": 449,
+        "forks": 1941
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 14
+    },
+    {
+      "id": "gh-skills-3-2026-11-07",
+      "title": "anthropics/skills",
+      "summary": "Anthropic's public repository of Agent Skills, the packaged instructions and scripts that Claude loads on demand for specific tasks.",
+      "url": "https://github.com/anthropics/skills",
+      "source": "github",
+      "source_url": "https://github.com/anthropics/skills",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Anthropic"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/anthropics.png?size=80"
+      },
+      "signals": {
+        "stars": 188419,
+        "stars_gained": 386,
+        "forks": 22222
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 18
+    },
+    {
+      "id": "gh-billion-context-2026-11-07",
+      "title": "ranxianglei/billion-context",
+      "summary": "TypeScript context-compression plugin for month-long agent sessions that claims to fit work into a 100K window and cut token use about 5x.",
+      "url": "https://github.com/ranxianglei/billion-context",
+      "source": "github",
+      "source_url": "https://github.com/ranxianglei/billion-context",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "LLM",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/ranxianglei.png?size=80"
+      },
+      "signals": {
+        "stars": 4452,
+        "stars_gained": 185,
+        "forks": 359
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 24
+    },
+    {
+      "id": "gh-agent-browser-2026-11-07",
+      "title": "vercel-labs/agent-browser",
+      "summary": "Vercel Labs' Rust CLI that lets AI agents drive a browser from the command line for automation tasks.",
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "source": "github",
+      "source_url": "https://github.com/vercel-labs/agent-browser",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Dev Tool",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/vercel-labs.png?size=80"
+      },
+      "signals": {
+        "stars": 46495,
+        "stars_gained": 180,
+        "forks": 3187
+      },
+      "meta": {
+        "language": "Rust"
+      },
+      "hidden": false,
+      "rank": 27
+    },
+    {
+      "id": "gh-nvke-2026-11-07",
+      "title": "dsx-ai-factory/nvke",
+      "summary": "Go management plane for running GPU Kubernetes clusters on bare metal, published as the NVIDIA Kubernetes Engine.",
+      "url": "https://github.com/dsx-ai-factory/nvke",
+      "source": "github",
+      "source_url": "https://github.com/dsx-ai-factory/nvke",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Inference",
+        "Nvidia"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/dsx-ai-factory.png?size=80"
+      },
+      "signals": {
+        "stars": 382,
+        "stars_gained": 125,
+        "forks": 79
+      },
+      "meta": {
+        "language": "Go"
+      },
+      "hidden": false,
+      "rank": 31
+    },
+    {
+      "id": "tc-openai-reportedly-raises-an-additional-11-2026-11-07",
+      "title": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation",
+      "summary": "The $11B is part of a round that has not closed yet and is expected to finish in the coming weeks.",
+      "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+      "category": "news",
+      "tags": [
+        "OpenAI",
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/07/OpenAI-logo-green.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-06T22:53:46Z",
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "tc-ramp-data-shows-ai-spending-stalling-just-as-2026-11-07",
+      "title": "Ramp data shows AI spending stalling just as Anthropic nears its IPO",
+      "summary": "Ramp's spend data shows AI usage still rising while spending flattens, driven by price cuts and tighter cost controls among the largest buyers.",
+      "url": "https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/",
+      "category": "news",
+      "tags": [
+        "Anthropic",
+        "Pricing"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/ara-stripe-5.png?resize=1200,779"
+      },
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "6 minutes"
+      },
+      "published_at": "2026-11-06T15:54:47Z",
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "tc-crusoe-sells-troubled-wyoming-data-center-2026-11-07",
+      "title": "Crusoe sells troubled Wyoming data center project to Google",
+      "summary": "TechCrunch frames the sale as a sign of how hard it is to develop massive AI data centers.",
+      "url": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/",
+      "category": "news",
+      "tags": [
+        "Google",
+        "Acquisition"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/09/crusoe-ceo-getty.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Marina Temkin",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-07T01:40:28Z",
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "id": "tc-hundreds-of-artex-ai-hacking-tools-found-2026-11-07",
+      "title": "Hundreds of Artex AI hacking tools found publicly exposed to the web",
+      "summary": "Researchers found hundreds of servers running the Artex penetration testing tool open to the internet, letting anyone use the hacking tool.",
+      "url": "https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web/",
+      "category": "news",
+      "tags": [
+        "Security"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2024/02/GettyImages-1424498694.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Zack Whittaker",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-06T18:44:38Z",
+      "hidden": false,
+      "rank": 13
+    },
+    {
+      "id": "tc-meta-introduces-spaces-a-new-way-to-collaborate-2026-11-07",
+      "title": "Meta introduces Spaces, a new way to collaborate with your Muse agent",
+      "summary": "Spaces is a new interaction surface for Meta's Muse agents, the latest in a run of features and integrations added to them.",
+      "url": "https://techcrunch.com/2026/11/06/meta-introduces-spaces-a-new-way-to-collaborate-with-your-muse-agent/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/06/meta-introduces-spaces-a-new-way-to-collaborate-with-your-muse-agent/",
+      "category": "news",
+      "tags": [
+        "Agents",
+        "Meta",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/09/muse-ai-meta.jpg?w=1200"
+      },
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-06T18:44:20Z",
+      "hidden": false,
+      "rank": 16
+    },
+    {
+      "id": "tc-how-a-blue-wave-midterm-might-reshape-the-ai-2026-11-07",
+      "title": "How a Blue Wave midterm might reshape the AI industry",
+      "summary": "TechCrunch's Equity podcast on how election week is shifting the AI data center debate, plus Canva's layoffs, a $115B chip deal and microdramas.",
+      "url": "https://techcrunch.com/podcast/how-a-blue-wave-midterm-might-reshape-the-ai-industry/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/podcast/how-a-blue-wave-midterm-might-reshape-the-ai-industry/",
+      "category": "news",
+      "tags": [
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2022/11/GettyImages-1368458052.jpg?resize=1200,750"
+      },
+      "meta": {
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-06T18:00:00Z",
+      "hidden": false,
+      "rank": 20
+    },
+    {
+      "id": "tc-after-the-midterms-is-the-ai-industry-in-for-a-2026-11-07",
+      "title": "After the midterms, is the AI industry in for a rough two years?",
+      "summary": "Video edition of the Equity episode covering the election's effect on the AI data center debate, Canva's layoffs and a $115B chip deal.",
+      "url": "https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/",
+      "category": "news",
+      "tags": [
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2236543888.jpg?resize=1200,800"
+      },
+      "meta": {
+        "reading_time": "1 minute"
+      },
+      "published_at": "2026-11-06T17:23:52Z",
+      "hidden": false,
+      "rank": 22
+    },
+    {
+      "id": "tc-after-blocking-muse-amazon-now-lets-users-text-2026-11-07",
+      "title": "After blocking Muse, Amazon now lets users text Alexa to help them shop",
+      "summary": "Amazon is adding text chat to Alexa for shopping help, rolling out to millions of users in the coming weeks.",
+      "url": "https://techcrunch.com/2026/11/06/after-blocking-muse-amazon-now-lets-users-text-alexa-to-help-them-shop/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/06/after-blocking-muse-amazon-now-lets-users-text-alexa-to-help-them-shop/",
+      "category": "news",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Alexa-Shopping-Text-Hero.jpeg?resize=1200,725"
+      },
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-06T14:10:00Z",
+      "hidden": false,
+      "rank": 26
+    },
+    {
+      "id": "tc-underdog-shows-off-a-32mb-speech-model-in-new-2026-11-07",
+      "title": "Underdog shows off a 32MB speech model in new demo",
+      "summary": "Despite its 32MB size, Underdog's model generates both speech and music.",
+      "url": "https://techcrunch.com/2026/11/06/underdog-shows-off-a-32mb-speech-model-in-new-demo/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/06/underdog-shows-off-a-32mb-speech-model-in-new-demo/",
+      "category": "news",
+      "tags": [
+        "Model Release",
+        "Voice / Speech"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Screenshot-2026-11-05-at-7.02.34-PM.jpg?resize=1200,542"
+      },
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-06T13:02:16Z",
+      "hidden": false,
+      "rank": 29
+    },
+    {
+      "id": "tc-physicl-raises-10m-to-make-the-digital-world-2026-11-07",
+      "title": "Physicl raises $10M to make the digital world real enough for robots",
+      "summary": "Physicl targets the sim-to-real gap in robot training with a pipeline originally built to market goods online.",
+      "url": "https://techcrunch.com/2026/11/06/physicl-raises-10m-to-make-the-digital-world-real-enough-for-robots/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/06/physicl-raises-10m-to-make-the-digital-world-real-enough-for-robots/",
+      "category": "news",
+      "tags": [
+        "Robotics",
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/physicl-studio-hero-kitchen-16x9-1.jpg?resize=1200,675"
+      },
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-06T13:00:00Z",
+      "hidden": false,
+      "rank": 33
+    },
+    {
+      "id": "hn-gemini-omni-1-2-flash-2026-11-07",
+      "title": "Gemini Omni 1.2 Flash",
+      "summary": "Google's launch post for the Flash tier of Gemini Omni 1.2, published on its developer tools blog.",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50392118",
+      "category": "hn",
+      "tags": [
+        "Model Release",
+        "Multimodal",
+        "Google"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 350,
+        "comments": 238
+      },
+      "meta": {
+        "author": "thisisauserid"
+      },
+      "published_at": "2026-11-06T13:35:27Z",
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "hn-ai-is-dramatically-accelerating-ai-research-2026-11-07",
+      "title": "AI is dramatically accelerating AI research",
+      "summary": "Planned Obsolescence essay arguing that AI systems are already speeding up the pace of AI research itself.",
+      "url": "https://www.planned-obsolescence.org/p/ai-is-dramatically-accelerating-ai",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50397994",
+      "category": "hn",
+      "tags": [
+        "Deep Dive",
+        "Safety"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 337,
+        "comments": 305
+      },
+      "meta": {
+        "author": "yurivish"
+      },
+      "published_at": "2026-11-06T20:27:23Z",
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "hn-anthropic-ipo-buyers-see-valuation-as-low-as-1-2026-11-07",
+      "title": "Anthropic IPO buyers see valuation as low as $1.1T",
+      "summary": "Bloomberg reports prospective buyers pricing Anthropic's IPO lower after an AI stock rout, as Ramp data in this edition shows AI spending stalling.",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-06/anthropic-ipo-valuation-expectations-pressured-after-ai-rout",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50394906",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "Funding"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 288,
+        "comments": 579
+      },
+      "meta": {
+        "author": "dgellow"
+      },
+      "published_at": "2026-11-06T16:54:36Z",
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "id": "hn-i-struggle-to-believe-that-ai-r-d-is-ingenious-2026-11-07",
+      "title": "I struggle to believe that AI R&D is ingenious",
+      "summary": "LessWrong shortform comment skeptical that AI R&D relies on ingenuity, a counterpoint to the essay in this edition on AI accelerating AI research.",
+      "url": "https://www.lesswrong.com/posts/DALNiKBjMGMF8grme/arjun-panickssery-s-shortform?commentId=fJtaHHHfx45tD7BSL",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50388513",
+      "category": "hn",
+      "tags": [
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 205,
+        "comments": 205
+      },
+      "meta": {
+        "author": "porridgeraisin"
+      },
+      "published_at": "2026-11-06T05:19:04Z",
+      "hidden": false,
+      "rank": 12
+    },
+    {
+      "id": "hn-university-libraries-are-being-swarmed-by-ai-2026-11-07",
+      "title": "University libraries are being swarmed by AI bots, putting public access at risk",
+      "summary": "CBC News report on AI data-scraping bots overloading university library sites, putting public access to their collections at risk.",
+      "url": "https://www.cbc.ca/news/world/university-libraries-ai-data-scraping-bots-9.7408287",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50392499",
+      "category": "hn",
+      "tags": [
+        "Policy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 131,
+        "comments": 59
+      },
+      "meta": {
+        "author": "blakesterz"
+      },
+      "published_at": "2026-11-06T14:13:09Z",
+      "hidden": false,
+      "rank": 15
+    },
+    {
+      "id": "hn-memorilla-latent-semantic-memory-for-llms-2026-11-07",
+      "title": "Memorilla: Latent Semantic Memory for LLMs",
+      "summary": "arXiv paper proposing Memorilla, a latent semantic memory mechanism for LLMs.",
+      "url": "https://arxiv.org/abs/2610.21375",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50395919",
+      "category": "hn",
+      "tags": [
+        "Paper",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 112,
+        "comments": 13
+      },
+      "meta": {
+        "author": "handfuloflight"
+      },
+      "published_at": "2026-11-06T18:03:33Z",
+      "hidden": false,
+      "rank": 19
+    },
+    {
+      "id": "hn-microsoft-is-winding-down-oracle-deal-to-rent-2026-11-07",
+      "title": "Microsoft is winding down Oracle deal to rent AI cloud capacity",
+      "summary": "Reuters, citing Bloomberg News, reports Microsoft is pulling back from an arrangement to rent AI cloud capacity from Oracle.",
+      "url": "https://www.reuters.com/business/microsoft-is-winding-down-oracle-deal-rent-ai-cloud-capacity-bloomberg-news-2026-11-06/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50395933",
+      "category": "hn",
+      "tags": [
+        "Inference",
+        "Microsoft"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 102,
+        "comments": 18
+      },
+      "meta": {
+        "author": "brazukadev"
+      },
+      "published_at": "2026-11-06T18:04:06Z",
+      "hidden": false,
+      "rank": 21
+    },
+    {
+      "id": "hn-ai-for-scientific-discovery-how-researchers-use-2026-11-07",
+      "title": "AI for scientific discovery: How researchers use Claude",
+      "summary": "Anthropic research post on how scientists are using Claude in their research work.",
+      "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50389990",
+      "category": "hn",
+      "tags": [
+        "Anthropic"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 95,
+        "comments": 38
+      },
+      "meta": {
+        "author": "ersinesen"
+      },
+      "published_at": "2026-11-06T09:13:30Z",
+      "hidden": false,
+      "rank": 25
+    },
+    {
+      "id": "hn-anthropic-ipo-valuation-talks-drop-to-1-3t-2026-11-07",
+      "title": "Anthropic IPO valuation talks drop to $1.3T",
+      "summary": "A second report on falling Anthropic IPO expectations, citing pressure from major investors, alongside Bloomberg's $1.1T figure in this edition.",
+      "url": "https://epyhia.com/anthropic-ipo-valuation-talks-drop-to-1-3-trillion-as-major-investors",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50395318",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "Funding"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 93,
+        "comments": 2
+      },
+      "meta": {
+        "author": "arbuge"
+      },
+      "published_at": "2026-11-06T17:21:15Z",
+      "hidden": false,
+      "rank": 28
+    },
+    {
+      "id": "hn-chatgpt-silently-passes-data-between-connectors-2026-11-07",
+      "title": "ChatGPT silently passes data between connectors and the bounty wants an ID card",
+      "summary": "OpenAI community forum security report that a ChatGPT tool call was silently routed to a different connector, and that the bug bounty demanded ID verification.",
+      "url": "https://community.openai.com/t/security-follow-up-tool-call-silently-routed-to-a-different-connector/1413053",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50399569",
+      "category": "hn",
+      "tags": [
+        "OpenAI",
+        "Security",
+        "Privacy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 90,
+        "comments": 37
+      },
+      "meta": {
+        "author": "Aldipower"
+      },
+      "published_at": "2026-11-06T22:50:43Z",
+      "hidden": false,
+      "rank": 32
+    }
+  ]
+}

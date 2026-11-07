@@ -1,0 +1,744 @@
+{
+  "date": "2026-11-07",
+  "generated_at": "2026-11-07T14:29:25Z",
+  "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
+  "tags": [
+    {
+      "name": "What it is",
+      "tags": [
+        {
+          "name": "Model Release",
+          "slug": "model-release"
+        },
+        {
+          "name": "Open Source",
+          "slug": "open-source"
+        },
+        {
+          "name": "Paper",
+          "slug": "paper"
+        },
+        {
+          "name": "Benchmark",
+          "slug": "benchmark"
+        },
+        {
+          "name": "Dataset",
+          "slug": "dataset"
+        },
+        {
+          "name": "Framework",
+          "slug": "framework"
+        },
+        {
+          "name": "Dev Tool",
+          "slug": "dev-tool"
+        },
+        {
+          "name": "API",
+          "slug": "api"
+        }
+      ]
+    },
+    {
+      "name": "Domain",
+      "tags": [
+        {
+          "name": "LLM",
+          "slug": "llm"
+        },
+        {
+          "name": "Agents",
+          "slug": "agents"
+        },
+        {
+          "name": "RAG",
+          "slug": "rag"
+        },
+        {
+          "name": "Fine-tuning",
+          "slug": "fine-tuning"
+        },
+        {
+          "name": "Inference",
+          "slug": "inference"
+        },
+        {
+          "name": "Local LLM",
+          "slug": "local-llm"
+        },
+        {
+          "name": "Vision",
+          "slug": "vision"
+        },
+        {
+          "name": "Voice / Speech",
+          "slug": "voice-speech"
+        },
+        {
+          "name": "Video",
+          "slug": "video"
+        },
+        {
+          "name": "Image Gen",
+          "slug": "image-gen"
+        },
+        {
+          "name": "Code Gen",
+          "slug": "code-gen"
+        },
+        {
+          "name": "Embeddings",
+          "slug": "embeddings"
+        },
+        {
+          "name": "Eval",
+          "slug": "eval"
+        },
+        {
+          "name": "Reasoning",
+          "slug": "reasoning"
+        },
+        {
+          "name": "Multimodal",
+          "slug": "multimodal"
+        },
+        {
+          "name": "Robotics",
+          "slug": "robotics"
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem",
+      "tags": [
+        {
+          "name": "OpenAI",
+          "slug": "openai"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic"
+        },
+        {
+          "name": "Google",
+          "slug": "google"
+        },
+        {
+          "name": "Meta",
+          "slug": "meta"
+        },
+        {
+          "name": "Nvidia",
+          "slug": "nvidia"
+        },
+        {
+          "name": "Hugging Face",
+          "slug": "hugging-face"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft"
+        },
+        {
+          "name": "Claude Code",
+          "slug": "claude-code"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor"
+        },
+        {
+          "name": "MCP",
+          "slug": "mcp"
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "tags": [
+        {
+          "name": "Funding",
+          "slug": "funding"
+        },
+        {
+          "name": "Acquisition",
+          "slug": "acquisition"
+        },
+        {
+          "name": "Launch",
+          "slug": "launch"
+        },
+        {
+          "name": "Pricing",
+          "slug": "pricing"
+        },
+        {
+          "name": "Policy",
+          "slug": "policy"
+        },
+        {
+          "name": "Legal",
+          "slug": "legal"
+        },
+        {
+          "name": "Security",
+          "slug": "security"
+        },
+        {
+          "name": "Privacy",
+          "slug": "privacy"
+        },
+        {
+          "name": "Safety",
+          "slug": "safety"
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "tags": [
+        {
+          "name": "Show HN",
+          "slug": "show-hn"
+        },
+        {
+          "name": "Tutorial",
+          "slug": "tutorial"
+        },
+        {
+          "name": "Deep Dive",
+          "slug": "deep-dive"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ph-tobira-site-agent-2026-11-07",
+      "title": "Tobira Site Agent",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/tobira-ai",
+      "source_url": "https://www.producthunt.com/products/tobira-ai",
+      "source_text": "Tobira Site Agent Turn your website into an AI agent that sells to AI agents People already find you through AI. Tobira turns that AI traffic into real leads and customers. Paste your URL and in 10 minutes your website becomes an AI agent. It answers people and their AI, negotiates, books calls and takes orders right in customers' ChatGPT, Claude, Grok and other AI chats. Leads go to your Telegram or email. Also, AI agents read your site 2x faster and take action without navigating its interface. Free with your own AI key. Sales Customer Communication Artificial Intelligence",
+      "signals": {
+        "upvotes": 368,
+        "comments": 107
+      },
+      "published_at": "2026-11-06T08:01:00Z"
+    },
+    {
+      "id": "ph-turnstone-2026-11-07",
+      "title": "Turnstone",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/turnstone",
+      "source_url": "https://www.producthunt.com/products/turnstone",
+      "source_text": "Turnstone Grok Bot alternative that runs on your AI, completely free Turnstone is a Grok Bot alternative that runs on the AI you already have. Connect your own AI subscriptions, an API key, or your self-hosted model. When one hits its usage limit, your Agent switches to another and keeps going. Works on your Mac and iPhone. Completely free. Mac Productivity Artificial Intelligence",
+      "signals": {
+        "upvotes": 260,
+        "comments": 29
+      },
+      "published_at": "2026-11-06T08:01:00Z"
+    },
+    {
+      "id": "ph-rankfender-v3-0-2026-11-07",
+      "title": "Rankfender v3.0",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/rankfender",
+      "source_url": "https://www.producthunt.com/products/rankfender",
+      "source_text": "Rankfender v3.0 The SEO/GEO operating system, built for people and AI agents Built for marketers, founders and agencies tired of switching between SEO tools. Rankfender 3.0 brings keyword research, rank tracking incl. AI Overviews, competitor and backlink analysis, site audits, traffic, content and Social, and strategy into one place, and adds what the old tools miss: how ChatGPT, Claude, Gemini, Perplexity and 4 more AI assistants talk about your brand. Work in the app, or connect Claude or ChatGPT and let your AI agent run it. Marketing SEO Artificial Intelligence",
+      "signals": {
+        "upvotes": 168,
+        "comments": 15
+      },
+      "published_at": "2026-11-06T08:01:00Z"
+    },
+    {
+      "id": "ph-wonder-dev-view-2026-11-07",
+      "title": "Wonder Dev View",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/wonder-dev-view",
+      "source_url": "https://www.producthunt.com/products/wonder-dev-view",
+      "source_text": "Wonder Dev View Run many Claude Code and Codex agents in parallel Run Claude Code and Codex on your subscriptions, in parallel worktrees. Have one review the other’s code, then try your app beside the design. Select an element in Preview and tell your agent what to change. Productivity Developer Tools Artificial Intelligence",
+      "signals": {
+        "upvotes": 153,
+        "comments": 16
+      },
+      "published_at": "2026-11-06T08:01:00Z"
+    },
+    {
+      "id": "ph-chatgpt-images-2-6-8-2026-11-07",
+      "title": "ChatGPT Images 2.6",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/openai",
+      "source_url": "https://www.producthunt.com/products/openai",
+      "source_text": "ChatGPT Images 2.6 Create, edit, and animate images with AI Images 2.6 brings faster image generation, more precise editing, and native GIF creation to ChatGPT, Codex, and the API. Create looping animations, maintain character and product consistency across edits, export SVGs, and control generation complexity. API Artificial Intelligence Tech",
+      "signals": {
+        "upvotes": 140,
+        "comments": 4
+      },
+      "published_at": "2026-11-07T08:01:00Z"
+    },
+    {
+      "id": "gh-security-audit-skill-2026-11-07",
+      "title": "cloudflare/security-audit-skill",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/cloudflare/security-audit-skill",
+      "source_url": "https://github.com/cloudflare/security-audit-skill",
+      "source_text": "cloudflare/security-audit-skill A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings JavaScript",
+      "signals": {
+        "stars": 65001,
+        "stars_gained": 2088,
+        "forks": 4217
+      },
+      "meta": {
+        "language": "JavaScript"
+      }
+    },
+    {
+      "id": "gh-openmausbot-2026-11-07",
+      "title": "milind-soni/OpenMausBot",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/milind-soni/OpenMausBot",
+      "source_url": "https://github.com/milind-soni/OpenMausBot",
+      "source_text": "milind-soni/OpenMausBot Open-source Grok Bot alternative with a virtual machine that bots can use TypeScript",
+      "signals": {
+        "stars": 16402,
+        "stars_gained": 1986,
+        "forks": 2326
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-skills-2026-11-07",
+      "title": "mattpocock/skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills",
+      "source_text": "mattpocock/skills Skills for Real Engineers. Straight from my .agents directory. Shell",
+      "signals": {
+        "stars": 317285,
+        "stars_gained": 1111,
+        "forks": 26549
+      },
+      "meta": {
+        "language": "Shell"
+      }
+    },
+    {
+      "id": "gh-skills-2-2026-11-07",
+      "title": "google/skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/google/skills",
+      "source_url": "https://github.com/google/skills",
+      "source_text": "google/skills Agent Skills for Google products and technologies Python",
+      "signals": {
+        "stars": 23115,
+        "stars_gained": 449,
+        "forks": 1941
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-skills-3-2026-11-07",
+      "title": "anthropics/skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills",
+      "source_text": "anthropics/skills Public repository for Agent Skills Python",
+      "signals": {
+        "stars": 188419,
+        "stars_gained": 386,
+        "forks": 22222
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-billion-context-2026-11-07",
+      "title": "ranxianglei/billion-context",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/ranxianglei/billion-context",
+      "source_url": "https://github.com/ranxianglei/billion-context",
+      "source_text": "ranxianglei/billion-context A context-compression plugin for month-long single sessions (billions of tokens) ,small context windows (a 100K context is enough) and token savings (5x fewer tokens) .上下文压缩插件，月级长会话会话， 兼顾小窗口(100k上下文足矣)省token(省5倍token) . billion-context is all you need TypeScript",
+      "signals": {
+        "stars": 4452,
+        "stars_gained": 185,
+        "forks": 359
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-agent-browser-2026-11-07",
+      "title": "vercel-labs/agent-browser",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "source_url": "https://github.com/vercel-labs/agent-browser",
+      "source_text": "vercel-labs/agent-browser Browser automation CLI for AI agents Rust",
+      "signals": {
+        "stars": 46495,
+        "stars_gained": 180,
+        "forks": 3187
+      },
+      "meta": {
+        "language": "Rust"
+      }
+    },
+    {
+      "id": "gh-nvke-2026-11-07",
+      "title": "dsx-ai-factory/nvke",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/dsx-ai-factory/nvke",
+      "source_url": "https://github.com/dsx-ai-factory/nvke",
+      "source_text": "dsx-ai-factory/nvke NVIDIA Kubernetes Engine (NVKE). A management plane for GPU Kubernetes on bare metal. Go",
+      "signals": {
+        "stars": 382,
+        "stars_gained": 125,
+        "forks": 79
+      },
+      "meta": {
+        "language": "Go"
+      }
+    },
+    {
+      "id": "tc-openai-reportedly-raises-an-additional-11-2026-11-07",
+      "title": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+      "source_url": "https://techcrunch.com/2026/11/06/openai-reportedly-raises-an-additional-11-billion-at-a-1-25-trillion-valuation/",
+      "source_text": "OpenAI reportedly raises an additional $11 billion at a $1.25 trillion valuation OpenAI has reportedly raised an additional $11 billion as part of a funding round that hasn't closed yet but is expected to in the coming weeks.",
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-06T22:53:46Z"
+    },
+    {
+      "id": "tc-ramp-data-shows-ai-spending-stalling-just-as-2026-11-07",
+      "title": "Ramp data shows AI spending stalling just as Anthropic nears its IPO",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/",
+      "source_url": "https://techcrunch.com/2026/11/06/ramp-data-shows-ai-spending-stalling-just-as-anthropic-nears-its-ipo/",
+      "source_text": "Ramp data shows AI spending stalling just as Anthropic nears its IPO AI usage keeps climbing, but spending has stalled. Price cuts and smarter cost controls among the biggest spenders could challenge investor assumptions about AI hypergrowth.",
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "6 minutes"
+      },
+      "published_at": "2026-11-06T15:54:47Z"
+    },
+    {
+      "id": "tc-crusoe-sells-troubled-wyoming-data-center-2026-11-07",
+      "title": "Crusoe sells troubled Wyoming data center project to Google",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/",
+      "source_url": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/",
+      "source_text": "Crusoe sells troubled Wyoming data center project to Google The deal highlights the challenges of developing massive AI data centers.",
+      "meta": {
+        "author": "Marina Temkin",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-07T01:40:28Z"
+    },
+    {
+      "id": "tc-hundreds-of-artex-ai-hacking-tools-found-2026-11-07",
+      "title": "Hundreds of Artex AI hacking tools found publicly exposed to the web",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web/",
+      "source_url": "https://techcrunch.com/2026/11/06/hundreds-of-artex-ai-hacking-tools-found-publicly-exposed-to-the-web/",
+      "source_text": "Hundreds of Artex AI hacking tools found publicly exposed to the web Security researchers found hundreds of servers hosting the penetration testing tool Artex exposed to the internet, allowing anyone access to the hacking tool.",
+      "meta": {
+        "author": "Zack Whittaker",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-06T18:44:38Z"
+    },
+    {
+      "id": "tc-meta-introduces-spaces-a-new-way-to-collaborate-2026-11-07",
+      "title": "Meta introduces Spaces, a new way to collaborate with your Muse agent",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/06/meta-introduces-spaces-a-new-way-to-collaborate-with-your-muse-agent/",
+      "source_url": "https://techcrunch.com/2026/11/06/meta-introduces-spaces-a-new-way-to-collaborate-with-your-muse-agent/",
+      "source_text": "Meta introduces Spaces, a new way to collaborate with your Muse agent Meta's Muse agents continue to get new features and integrations. Spaces promises to be a new way to interact with the AI helpers.",
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-06T18:44:20Z"
+    },
+    {
+      "id": "tc-how-a-blue-wave-midterm-might-reshape-the-ai-2026-11-07",
+      "title": "How a Blue Wave midterm might reshape the AI industry",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/podcast/how-a-blue-wave-midterm-might-reshape-the-ai-industry/",
+      "source_url": "https://techcrunch.com/podcast/how-a-blue-wave-midterm-might-reshape-the-ai-industry/",
+      "source_text": "How a Blue Wave midterm might reshape the AI industry Election week is already reshaping the AI data center debate. This week on Equity, we dig into the fallout, plus Canva’s layoffs, a $115B chip deal, and microdramas.",
+      "meta": {
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-06T18:00:00Z"
+    },
+    {
+      "id": "tc-after-the-midterms-is-the-ai-industry-in-for-a-2026-11-07",
+      "title": "After the midterms, is the AI industry in for a rough two years?",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/",
+      "source_url": "https://techcrunch.com/video/after-the-midterms-is-the-ai-industry-in-for-a-rough-two-years/",
+      "source_text": "After the midterms, is the AI industry in for a rough two years? Watch as Equity breaks down how election week is already reshaping the AI data center debate, plus Canva’s layoffs, a $115B chip deal, and microdramas.",
+      "meta": {
+        "reading_time": "1 minute"
+      },
+      "published_at": "2026-11-06T17:23:52Z"
+    },
+    {
+      "id": "tc-after-blocking-muse-amazon-now-lets-users-text-2026-11-07",
+      "title": "After blocking Muse, Amazon now lets users text Alexa to help them shop",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/06/after-blocking-muse-amazon-now-lets-users-text-alexa-to-help-them-shop/",
+      "source_url": "https://techcrunch.com/2026/11/06/after-blocking-muse-amazon-now-lets-users-text-alexa-to-help-them-shop/",
+      "source_text": "After blocking Muse, Amazon now lets users text Alexa to help them shop Amazon said that the feature will roll out to millions of users in coming weeks.",
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-06T14:10:00Z"
+    },
+    {
+      "id": "tc-underdog-shows-off-a-32mb-speech-model-in-new-2026-11-07",
+      "title": "Underdog shows off a 32MB speech model in new demo",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/06/underdog-shows-off-a-32mb-speech-model-in-new-demo/",
+      "source_url": "https://techcrunch.com/2026/11/06/underdog-shows-off-a-32mb-speech-model-in-new-demo/",
+      "source_text": "Underdog shows off a 32MB speech model in new demo Despite its small size, Underdog's new model can generate both speech and music.",
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-06T13:02:16Z"
+    },
+    {
+      "id": "tc-physicl-raises-10m-to-make-the-digital-world-2026-11-07",
+      "title": "Physicl raises $10M to make the digital world real enough for robots",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/06/physicl-raises-10m-to-make-the-digital-world-real-enough-for-robots/",
+      "source_url": "https://techcrunch.com/2026/11/06/physicl-raises-10m-to-make-the-digital-world-real-enough-for-robots/",
+      "source_text": "Physicl raises $10M to make the digital world real enough for robots Physicl is trying to solve the sim-to-real gap with a pipeline originally built to market goods online.",
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-06T13:00:00Z"
+    },
+    {
+      "id": "hn-gemini-omni-1-2-flash-2026-11-07",
+      "title": "Gemini Omni 1.2 Flash",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+      "source_url": "https://news.ycombinator.com/item?id=50392118",
+      "source_text": "Gemini Omni 1.2 Flash",
+      "signals": {
+        "points": 350,
+        "comments": 238
+      },
+      "meta": {
+        "author": "thisisauserid"
+      },
+      "published_at": "2026-11-06T13:35:27Z"
+    },
+    {
+      "id": "hn-ai-is-dramatically-accelerating-ai-research-2026-11-07",
+      "title": "AI is dramatically accelerating AI research",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.planned-obsolescence.org/p/ai-is-dramatically-accelerating-ai",
+      "source_url": "https://news.ycombinator.com/item?id=50397994",
+      "source_text": "AI is dramatically accelerating AI research",
+      "signals": {
+        "points": 337,
+        "comments": 305
+      },
+      "meta": {
+        "author": "yurivish"
+      },
+      "published_at": "2026-11-06T20:27:23Z"
+    },
+    {
+      "id": "hn-anthropic-ipo-buyers-see-valuation-as-low-as-1-2026-11-07",
+      "title": "Anthropic IPO buyers see valuation as low as $1.1T",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-06/anthropic-ipo-valuation-expectations-pressured-after-ai-rout",
+      "source_url": "https://news.ycombinator.com/item?id=50394906",
+      "source_text": "Anthropic IPO buyers see valuation as low as $1.1T",
+      "signals": {
+        "points": 288,
+        "comments": 579
+      },
+      "meta": {
+        "author": "dgellow"
+      },
+      "published_at": "2026-11-06T16:54:36Z"
+    },
+    {
+      "id": "hn-i-struggle-to-believe-that-ai-r-d-is-ingenious-2026-11-07",
+      "title": "I struggle to believe that AI R&D is ingenious",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.lesswrong.com/posts/DALNiKBjMGMF8grme/arjun-panickssery-s-shortform?commentId=fJtaHHHfx45tD7BSL",
+      "source_url": "https://news.ycombinator.com/item?id=50388513",
+      "source_text": "I struggle to believe that AI R&D is ingenious",
+      "signals": {
+        "points": 205,
+        "comments": 205
+      },
+      "meta": {
+        "author": "porridgeraisin"
+      },
+      "published_at": "2026-11-06T05:19:04Z"
+    },
+    {
+      "id": "hn-university-libraries-are-being-swarmed-by-ai-2026-11-07",
+      "title": "University libraries are being swarmed by AI bots, putting public access at risk",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.cbc.ca/news/world/university-libraries-ai-data-scraping-bots-9.7408287",
+      "source_url": "https://news.ycombinator.com/item?id=50392499",
+      "source_text": "University libraries are being swarmed by AI bots, putting public access at risk",
+      "signals": {
+        "points": 131,
+        "comments": 59
+      },
+      "meta": {
+        "author": "blakesterz"
+      },
+      "published_at": "2026-11-06T14:13:09Z"
+    },
+    {
+      "id": "hn-memorilla-latent-semantic-memory-for-llms-2026-11-07",
+      "title": "Memorilla: Latent Semantic Memory for LLMs",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://arxiv.org/abs/2610.21375",
+      "source_url": "https://news.ycombinator.com/item?id=50395919",
+      "source_text": "Memorilla: Latent Semantic Memory for LLMs",
+      "signals": {
+        "points": 112,
+        "comments": 13
+      },
+      "meta": {
+        "author": "handfuloflight"
+      },
+      "published_at": "2026-11-06T18:03:33Z"
+    },
+    {
+      "id": "hn-microsoft-is-winding-down-oracle-deal-to-rent-2026-11-07",
+      "title": "Microsoft is winding down Oracle deal to rent AI cloud capacity",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.reuters.com/business/microsoft-is-winding-down-oracle-deal-rent-ai-cloud-capacity-bloomberg-news-2026-11-06/",
+      "source_url": "https://news.ycombinator.com/item?id=50395933",
+      "source_text": "Microsoft is winding down Oracle deal to rent AI cloud capacity",
+      "signals": {
+        "points": 102,
+        "comments": 18
+      },
+      "meta": {
+        "author": "brazukadev"
+      },
+      "published_at": "2026-11-06T18:04:06Z"
+    },
+    {
+      "id": "hn-ai-for-scientific-discovery-how-researchers-use-2026-11-07",
+      "title": "AI for scientific discovery: How researchers use Claude",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.anthropic.com/research/how-researchers-use-claude",
+      "source_url": "https://news.ycombinator.com/item?id=50389990",
+      "source_text": "AI for scientific discovery: How researchers use Claude",
+      "signals": {
+        "points": 95,
+        "comments": 38
+      },
+      "meta": {
+        "author": "ersinesen"
+      },
+      "published_at": "2026-11-06T09:13:30Z"
+    },
+    {
+      "id": "hn-anthropic-ipo-valuation-talks-drop-to-1-3t-2026-11-07",
+      "title": "Anthropic IPO valuation talks drop to $1.3T",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://epyhia.com/anthropic-ipo-valuation-talks-drop-to-1-3-trillion-as-major-investors",
+      "source_url": "https://news.ycombinator.com/item?id=50395318",
+      "source_text": "Anthropic IPO valuation talks drop to $1.3T",
+      "signals": {
+        "points": 93,
+        "comments": 2
+      },
+      "meta": {
+        "author": "arbuge"
+      },
+      "published_at": "2026-11-06T17:21:15Z"
+    },
+    {
+      "id": "hn-chatgpt-silently-passes-data-between-connectors-2026-11-07",
+      "title": "ChatGPT silently passes data between connectors and the bounty wants an ID card",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://community.openai.com/t/security-follow-up-tool-call-silently-routed-to-a-different-connector/1413053",
+      "source_url": "https://news.ycombinator.com/item?id=50399569",
+      "source_text": "ChatGPT silently passes data between connectors and the bounty wants an ID card",
+      "signals": {
+        "points": 90,
+        "comments": 37
+      },
+      "meta": {
+        "author": "Aldipower"
+      },
+      "published_at": "2026-11-06T22:50:43Z"
+    }
+  ]
+}

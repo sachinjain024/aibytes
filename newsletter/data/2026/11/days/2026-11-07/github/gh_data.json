@@ -1,0 +1,90 @@
+{
+  "source": "github-trending",
+  "section": "trending-repos",
+  "fetched_at": "2026-11-07",
+  "query_params": {
+    "since": "daily",
+    "languages": [
+      "all"
+    ],
+    "count": 10,
+    "topic": "ai",
+    "ranking": "period_stars,total_stars"
+  },
+  "totalCount": 8,
+  "poolCount": 15,
+  "repos": [
+    {
+      "name": "cloudflare/security-audit-skill",
+      "url": "https://github.com/cloudflare/security-audit-skill",
+      "description": "A coding-agent skill for multi-phase security audits with independently verified, machine-readable findings",
+      "language": "JavaScript",
+      "stars": 65001,
+      "forks": 4217,
+      "period_stars": 2088
+    },
+    {
+      "name": "milind-soni/OpenMausBot",
+      "url": "https://github.com/milind-soni/OpenMausBot",
+      "description": "Open-source Grok Bot alternative with a virtual machine that bots can use",
+      "language": "TypeScript",
+      "stars": 16402,
+      "forks": 2326,
+      "period_stars": 1986
+    },
+    {
+      "name": "mattpocock/skills",
+      "url": "https://github.com/mattpocock/skills",
+      "description": "Skills for Real Engineers. Straight from my .agents directory.",
+      "language": "Shell",
+      "stars": 317285,
+      "forks": 26549,
+      "period_stars": 1111
+    },
+    {
+      "name": "google/skills",
+      "url": "https://github.com/google/skills",
+      "description": "Agent Skills for Google products and technologies",
+      "language": "Python",
+      "stars": 23115,
+      "forks": 1941,
+      "period_stars": 449
+    },
+    {
+      "name": "anthropics/skills",
+      "url": "https://github.com/anthropics/skills",
+      "description": "Public repository for Agent Skills",
+      "language": "Python",
+      "stars": 188419,
+      "forks": 22222,
+      "period_stars": 386
+    },
+    {
+      "name": "ranxianglei/billion-context",
+      "url": "https://github.com/ranxianglei/billion-context",
+      "description": "A context-compression plugin for month-long single sessions (billions of tokens) ,small context windows (a 100K context is enough) and token savings (5x fewer tokens) .\u4e0a\u4e0b\u6587\u538b\u7f29\u63d2\u4ef6\uff0c\u6708\u7ea7\u957f\u4f1a\u8bdd\u4f1a\u8bdd\uff0c \u517c\u987e\u5c0f\u7a97\u53e3(100k\u4e0a\u4e0b\u6587\u8db3\u77e3)\u7701token(\u77015\u500dtoken) . billion-context is all you need",
+      "language": "TypeScript",
+      "stars": 4452,
+      "forks": 359,
+      "period_stars": 185
+    },
+    {
+      "name": "vercel-labs/agent-browser",
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "description": "Browser automation CLI for AI agents",
+      "language": "Rust",
+      "stars": 46495,
+      "forks": 3187,
+      "period_stars": 180
+    },
+    {
+      "name": "dsx-ai-factory/nvke",
+      "url": "https://github.com/dsx-ai-factory/nvke",
+      "description": "NVIDIA Kubernetes Engine (NVKE). A management plane for GPU Kubernetes on bare metal.",
+      "language": "Go",
+      "stars": 382,
+      "forks": 79,
+      "period_stars": 125
+    }
+  ]
+}

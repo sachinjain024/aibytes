@@ -1,0 +1,137 @@
+{
+  "date": "2026-11-07",
+  "items": {
+    "ph-tobira-site-agent-2026-11-07": {
+      "summary": "Builds a sales agent from a pasted URL that answers, negotiates, books calls and takes orders inside ChatGPT, Claude and Grok chats, sending leads to Telegram or email; free with your own AI key.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-turnstone-2026-11-07": {
+      "summary": "Mac and iPhone agent that runs on your existing AI subscriptions, API keys or a self-hosted model, and fails over to another provider when one hits its usage limit.",
+      "tags": ["Agents", "Local LLM", "Launch"]
+    },
+    "ph-rankfender-v3-0-2026-11-07": {
+      "summary": "SEO suite covering keywords, rank tracking incl. AI Overviews, backlinks and audits, plus tracking of how ChatGPT, Claude, Gemini, Perplexity and four other assistants describe your brand.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-wonder-dev-view-2026-11-07": {
+      "summary": "Runs Claude Code and Codex on your own subscriptions in parallel git worktrees, has one review the other's code, and lets you click an element in a live preview to direct changes.",
+      "tags": ["Dev Tool", "Code Gen", "Claude Code", "Launch"]
+    },
+    "ph-chatgpt-images-2-6-8-2026-11-07": {
+      "summary": "OpenAI's image model update adds native GIF and looping animation output, SVG export, character consistency across edits and a complexity control, in ChatGPT, Codex and the API.",
+      "tags": ["Model Release", "Image Gen", "OpenAI", "Launch"]
+    },
+    "gh-security-audit-skill-2026-11-07": {
+      "summary": "Cloudflare's coding-agent skill that runs a security audit in multiple phases and emits machine-readable findings, each verified independently; written in JavaScript.",
+      "tags": ["Open Source", "Agents", "Security"]
+    },
+    "gh-openmausbot-2026-11-07": {
+      "summary": "Open-source TypeScript take on the Grok Bot pattern that gives bots their own virtual machine to operate in.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-skills-2026-11-07": {
+      "summary": "Matt Pocock's personal collection of agent skills for engineering work, published straight from his .agents directory as shell scripts and instructions.",
+      "tags": ["Open Source", "Agents", "Code Gen"]
+    },
+    "gh-skills-2-2026-11-07": {
+      "summary": "Google's official Agent Skills for its own products and technologies, written in Python, so coding agents can work with Google services out of the box.",
+      "tags": ["Open Source", "Agents", "Google"]
+    },
+    "gh-skills-3-2026-11-07": {
+      "summary": "Anthropic's public repository of Agent Skills, the packaged instructions and scripts that Claude loads on demand for specific tasks.",
+      "tags": ["Open Source", "Agents", "Anthropic"]
+    },
+    "gh-billion-context-2026-11-07": {
+      "summary": "TypeScript context-compression plugin for month-long agent sessions that claims to fit work into a 100K window and cut token use about 5x.",
+      "tags": ["Open Source", "LLM", "Agents"]
+    },
+    "gh-agent-browser-2026-11-07": {
+      "summary": "Vercel Labs' Rust CLI that lets AI agents drive a browser from the command line for automation tasks.",
+      "tags": ["Open Source", "Dev Tool", "Agents"]
+    },
+    "gh-nvke-2026-11-07": {
+      "summary": "Go management plane for running GPU Kubernetes clusters on bare metal, published as the NVIDIA Kubernetes Engine.",
+      "tags": ["Open Source", "Inference", "Nvidia"]
+    },
+    "tc-openai-reportedly-raises-an-additional-11-2026-11-07": {
+      "summary": "The $11B is part of a round that has not closed yet and is expected to finish in the coming weeks.",
+      "tags": ["OpenAI", "Funding"]
+    },
+    "tc-ramp-data-shows-ai-spending-stalling-just-as-2026-11-07": {
+      "summary": "Ramp's spend data shows AI usage still rising while spending flattens, driven by price cuts and tighter cost controls among the largest buyers.",
+      "tags": ["Anthropic", "Pricing"]
+    },
+    "tc-crusoe-sells-troubled-wyoming-data-center-2026-11-07": {
+      "summary": "TechCrunch frames the sale as a sign of how hard it is to develop massive AI data centers.",
+      "tags": ["Google", "Acquisition"]
+    },
+    "tc-hundreds-of-artex-ai-hacking-tools-found-2026-11-07": {
+      "summary": "Researchers found hundreds of servers running the Artex penetration testing tool open to the internet, letting anyone use the hacking tool.",
+      "tags": ["Security"]
+    },
+    "tc-meta-introduces-spaces-a-new-way-to-collaborate-2026-11-07": {
+      "summary": "Spaces is a new interaction surface for Meta's Muse agents, the latest in a run of features and integrations added to them.",
+      "tags": ["Agents", "Meta", "Launch"]
+    },
+    "tc-how-a-blue-wave-midterm-might-reshape-the-ai-2026-11-07": {
+      "summary": "TechCrunch's Equity podcast on how election week is shifting the AI data center debate, plus Canva's layoffs, a $115B chip deal and microdramas.",
+      "tags": ["Policy"]
+    },
+    "tc-after-the-midterms-is-the-ai-industry-in-for-a-2026-11-07": {
+      "summary": "Video edition of the Equity episode covering the election's effect on the AI data center debate, Canva's layoffs and a $115B chip deal.",
+      "tags": ["Policy"]
+    },
+    "tc-after-blocking-muse-amazon-now-lets-users-text-2026-11-07": {
+      "summary": "Amazon is adding text chat to Alexa for shopping help, rolling out to millions of users in the coming weeks.",
+      "tags": ["Agents", "Launch"]
+    },
+    "tc-underdog-shows-off-a-32mb-speech-model-in-new-2026-11-07": {
+      "summary": "Despite its 32MB size, Underdog's model generates both speech and music.",
+      "tags": ["Model Release", "Voice / Speech"]
+    },
+    "tc-physicl-raises-10m-to-make-the-digital-world-2026-11-07": {
+      "summary": "Physicl targets the sim-to-real gap in robot training with a pipeline originally built to market goods online.",
+      "tags": ["Robotics", "Funding"]
+    },
+    "hn-gemini-omni-1-2-flash-2026-11-07": {
+      "summary": "Google's launch post for the Flash tier of Gemini Omni 1.2, published on its developer tools blog.",
+      "tags": ["Model Release", "Multimodal", "Google"]
+    },
+    "hn-ai-is-dramatically-accelerating-ai-research-2026-11-07": {
+      "summary": "Planned Obsolescence essay arguing that AI systems are already speeding up the pace of AI research itself.",
+      "tags": ["Deep Dive", "Safety"]
+    },
+    "hn-anthropic-ipo-buyers-see-valuation-as-low-as-1-2026-11-07": {
+      "summary": "Bloomberg reports prospective buyers pricing Anthropic's IPO lower after an AI stock rout, as Ramp data in this edition shows AI spending stalling.",
+      "tags": ["Anthropic", "Funding"]
+    },
+    "hn-i-struggle-to-believe-that-ai-r-d-is-ingenious-2026-11-07": {
+      "summary": "LessWrong shortform comment skeptical that AI R&D relies on ingenuity, a counterpoint to the essay in this edition on AI accelerating AI research.",
+      "tags": ["Deep Dive"]
+    },
+    "hn-university-libraries-are-being-swarmed-by-ai-2026-11-07": {
+      "summary": "CBC News report on AI data-scraping bots overloading university library sites, putting public access to their collections at risk.",
+      "tags": ["Policy"]
+    },
+    "hn-memorilla-latent-semantic-memory-for-llms-2026-11-07": {
+      "summary": "arXiv paper proposing Memorilla, a latent semantic memory mechanism for LLMs.",
+      "tags": ["Paper", "LLM"]
+    },
+    "hn-microsoft-is-winding-down-oracle-deal-to-rent-2026-11-07": {
+      "summary": "Reuters, citing Bloomberg News, reports Microsoft is pulling back from an arrangement to rent AI cloud capacity from Oracle.",
+      "tags": ["Inference", "Microsoft"]
+    },
+    "hn-ai-for-scientific-discovery-how-researchers-use-2026-11-07": {
+      "summary": "Anthropic research post on how scientists are using Claude in their research work.",
+      "tags": ["Anthropic"]
+    },
+    "hn-anthropic-ipo-valuation-talks-drop-to-1-3t-2026-11-07": {
+      "summary": "A second report on falling Anthropic IPO expectations, citing pressure from major investors, alongside Bloomberg's $1.1T figure in this edition.",
+      "tags": ["Anthropic", "Funding"]
+    },
+    "hn-chatgpt-silently-passes-data-between-connectors-2026-11-07": {
+      "summary": "OpenAI community forum security report that a ChatGPT tool call was silently routed to a different connector, and that the bug bounty demanded ID verification.",
+      "tags": ["OpenAI", "Security", "Privacy"]
+    }
+  }
+}
