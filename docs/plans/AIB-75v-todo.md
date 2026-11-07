@@ -113,7 +113,7 @@ banner and star position.
 - [x] `RemovedComponentTests` and the rest of `test_design_system.py` pass.
 - [x] The kit `README.md` lists the new screens; `readme.md` describes the
       new options.
-- [ ] The ticket's `ledger-saves-ui … (PR merged)` item is ticked when the
+- [x] The ticket's `ledger-saves-ui … (PR merged)` item is ticked when the
       PR is squash-merged.
 
 **Files:** `ui_kits/aibytes-app/App.jsx`, `index.html` (tweak),
