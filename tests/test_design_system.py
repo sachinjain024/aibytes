@@ -148,6 +148,39 @@ class TopOffsetTests(unittest.TestCase):
         self.assertGreater(rail, toolbar)
 
 
+class SavesKitTests(unittest.TestCase):
+    """UI kit screens 12-14 show the saves and sign-in states (AIB-75v)."""
+
+    KIT = DESIGN_SYSTEM / "ui_kits" / "aibytes-app"
+    SCREENS = {
+        "12-saves-signed-out.html": ("saved0",),
+        "13-signed-in-menu.html": ("signedIn0", "accountOpen0"),
+        "14-mobile-banner.html": ("saved0", "menuOpen0"),
+    }
+
+    def test_each_screen_is_a_seeded_kit_page(self):
+        for name, props in self.SCREENS.items():
+            with self.subTest(name):
+                html = (self.KIT / name).read_text()
+                self.assertTrue(html.startswith("<!-- @dsCard "), "the card marker must be the first line")
+                self.assertIn('src="App.jsx"', html)
+                for prop in props:
+                    self.assertIn(prop, html)
+
+    def test_the_kit_app_wires_the_new_options(self):
+        app = (self.KIT / "App.jsx").read_text()
+        for needle in ("SaveBanner", "sticky", "onSaved=", "savedCount=", "savedActive=", "onSignIn=", "onSignOut=", 'starPos="visual"', "onToggleSave="):
+            self.assertIn(needle, app)
+
+    def test_the_readmes_list_them(self):
+        readme = (self.KIT / "README.md").read_text()
+        for name in self.SCREENS:
+            self.assertIn(name, readme)
+        ledger = (DESIGN_SYSTEM / "readme.md").read_text()
+        for needle in ("starPos", "--redesign-top", "savedCount", "onSignIn"):
+            self.assertIn(needle, ledger)
+
+
 class RemovedComponentTests(unittest.TestCase):
     """Header, SideNav, Chip and Footer were replaced by the app shell (AIB-133k)."""
 

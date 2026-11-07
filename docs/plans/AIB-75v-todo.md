@@ -107,11 +107,11 @@ Update the kit `README.md` and Ledger's `readme.md` for the header, sidebar,
 banner and star position.
 
 **Acceptance criteria:**
-- [ ] `12-saves-signed-out.html`, `13-signed-in-menu.html` and
+- [x] `12-saves-signed-out.html`, `13-signed-in-menu.html` and
       `14-mobile-banner.html` render through `npm run preview:design-system`
       and match the prototype's states.
-- [ ] `RemovedComponentTests` and the rest of `test_design_system.py` pass.
-- [ ] The kit `README.md` lists the new screens; `readme.md` describes the
+- [x] `RemovedComponentTests` and the rest of `test_design_system.py` pass.
+- [x] The kit `README.md` lists the new screens; `readme.md` describes the
       new options.
 - [ ] The ticket's `ledger-saves-ui … (PR merged)` item is ticked when the
       PR is squash-merged.

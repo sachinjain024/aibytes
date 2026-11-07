@@ -17,18 +17,20 @@ const App = window.AiBytesApp;
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "theme": "Light",
   "view": "Grid",
-  "order": "Ranked"
+  "order": "Ranked",
+  "account": "Signed out"
 }/*EDITMODE-END*/;
 function Root() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
   return (
     <React.Fragment>
-      <App theme0={t.theme.toLowerCase()} view0={t.view.toLowerCase()} mode0={t.order.toLowerCase()} />
+      <App theme0={t.theme.toLowerCase()} view0={t.view.toLowerCase()} mode0={t.order.toLowerCase()} signedIn0={t.account === "Signed in"} />
       <TweaksPanel>
         <TweakSection label="Screen" />
         <TweakRadio label="Theme" value={t.theme} options={["Light", "Dark"]} onChange={v => setTweak("theme", v)} />
         <TweakRadio label="Layout" value={t.view} options={["Grid", "List"]} onChange={v => setTweak("view", v)} />
         <TweakRadio label="Order" value={t.order} options={["Ranked", "Grouped"]} onChange={v => setTweak("order", v)} />
+        <TweakRadio label="Account" value={t.account} options={["Signed out", "Signed in"]} onChange={v => setTweak("account", v)} />
       </TweaksPanel>
     </React.Fragment>);
 }

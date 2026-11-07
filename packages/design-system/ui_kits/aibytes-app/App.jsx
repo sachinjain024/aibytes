@@ -3,7 +3,9 @@
    the sample editions in data.js instead of content/. */
 const NS = window.LedgerAiBytesDesignSystem_b1be4f || {};
 if (!NS.AppHeader) document.body.insertAdjacentHTML("afterbegin", '<p style="font-family:monospace;font-size:13px;padding:16px">Ledger bundle not compiled yet — reload in a moment (_ds_bundle.js missing).</p>');
-const { AppHeader, Sidebar, Toolbar, FilterPanel, ActiveFilters, EditionBar, CardGrid, RowList, Card, ListRow, SectionHeading, EmptyState, EndCard } = NS;
+const { AppHeader, Sidebar, Toolbar, FilterPanel, ActiveFilters, EditionBar, CardGrid, RowList, Card, ListRow, SectionHeading, EmptyState, EndCard, SaveBanner, StatusMessage } = NS;
+// The kit's signed-in reader. No photoUrl, so the avatar shows the initial.
+const SAMPLE_USER = { name: "Ada Lovelace" };
 const D = window.LEDGER_DATA;
 const TAG_GROUPS = Object.entries(D.tagGroups).map(([name, tags]) => ({ name, tags: tags.map(tag => ({ name: tag })) }));
 const rankOf = item => item.rank || 99;
@@ -29,6 +31,13 @@ function AiBytesApp(props) {
   const [panel, setPanel] = React.useState(!!props.tagsOpen0);
   const [calOpen, setCalOpen] = React.useState(!!props.calOpen0);
   const [menuOpen, setMenuOpen] = React.useState(!!props.menuOpen0);
+  // Saves and sign-in (AIB-75v): ids saved in this browser, the Saved page, and
+  // the banner, which shows signed out once anything is saved until dismissed.
+  const [saved, setSaved] = React.useState(() => new Set(props.saved0 || []));
+  const [signedIn, setSignedIn] = React.useState(!!props.signedIn0);
+  const [savedPage, setSavedPage] = React.useState(!!props.savedPage0);
+  const [bannerDismissed, setBannerDismissed] = React.useState(false);
+  React.useEffect(() => setSignedIn(!!props.signedIn0), [props.signedIn0]);
   React.useEffect(() => { if (props.theme0) setTheme(props.theme0); }, [props.theme0]);
   React.useEffect(() => { if (props.view0) setView(props.view0); }, [props.view0]);
   React.useEffect(() => { if (props.mode0) setMode(props.mode0); }, [props.mode0]);
@@ -45,14 +54,30 @@ function AiBytesApp(props) {
     && (!filters.query.trim() || `${it.title} ${it.summary}`.toLowerCase().includes(filters.query.trim().toLowerCase()));
   const items = ed.items.filter(matches).slice().sort((a, b) => rankOf(a) - rankOf(b));
   const categories = D.categories.map(c => ({ ...c, count: ed.items.filter(i => i.category === c.key).length }));
-  const goTo = date => { setEdition(date); setCalOpen(false); };
+  const goTo = date => { setEdition(date); setCalOpen(false); setSavedPage(false); };
+  const toggleSave = id => setSaved(prev => { const next = new Set(prev); next.has(id) ? next.delete(id) : next.add(id); return next; });
+  const openSaved = () => { setSavedPage(true); setMenuOpen(false); };
+  const showBanner = !signedIn && saved.size > 0 && !bannerDismissed;
 
   const render = list => (shown === "list"
-    ? <RowList>{list.map(item => <ListRow key={item.id} item={item} />)}</RowList>
-    : <CardGrid>{list.map(item => <Card key={item.id} item={item} />)}</CardGrid>);
+    ? <RowList>{list.map(item => <ListRow key={item.id} item={item} saved={saved.has(item.id)} onToggleSave={() => toggleSave(item.id)} starPos="visual" />)}</RowList>
+    : <CardGrid>{list.map(item => <Card key={item.id} item={item} saved={saved.has(item.id)} onToggleSave={() => toggleSave(item.id)} starPos="visual" />)}</CardGrid>);
 
   let body;
-  if (!items.length && filters.query.trim()) {
+  if (savedPage) {
+    // A preview of the Saved view (module app-saved-view): newest edition first,
+    // each edition's saves in rank order.
+    const groups = D.order.slice().reverse()
+      .map(k => ({ key: k, ed: D.editions[k], list: D.editions[k].items.filter(i => saved.has(i.id)).sort((a, b) => rankOf(a) - rankOf(b)) }))
+      .filter(g => g.list.length);
+    body = groups.length
+      ? groups.map(g => (
+        <section className="app-sec" key={g.key} aria-labelledby={"saved-" + g.key}>
+          <SectionHeading name={g.ed.mid} count={g.list.length} id={"saved-" + g.key} />
+          {render(g.list)}
+        </section>))
+      : <StatusMessage role="status">Nothing saved yet. Select the ☆ on any card or row to save it; saves from every edition collect here.</StatusMessage>;
+  } else if (!items.length && filters.query.trim()) {
     body = <EmptyState query={filters.query} onClearQuery={() => setFilters({ ...filters, query: "" })} />;
   } else if (!items.length) {
     const what = filters.category !== "all" ? D.categories.find(c => c.key === filters.category).label : "items matching these filters";
@@ -89,10 +114,13 @@ function AiBytesApp(props) {
 
   return (
     <div className={"app-shell redesign" + (shown === "grid" ? " redesign-grid" : "") + (menuOpen ? " mobile-menu-open" : "")} data-theme={theme}>
-      <AppHeader theme={theme} onToggleTheme={() => setTheme(t => (t === "light" ? "dark" : "light"))} menuOpen={menuOpen} onMenu={() => setMenuOpen(o => !o)} githubUrl={D.githubUrl} />
+      <AppHeader theme={theme} onToggleTheme={() => setTheme(t => (t === "light" ? "dark" : "light"))} menuOpen={menuOpen} onMenu={() => setMenuOpen(o => !o)} githubUrl={D.githubUrl}
+        onSignIn={() => setSignedIn(true)} user={signedIn ? SAMPLE_USER : undefined} onSignOut={() => setSignedIn(false)} onSaved={openSaved} />
+      {showBanner && <SaveBanner sticky onSignIn={() => setSignedIn(true)} onDismiss={() => setBannerDismissed(true)} />}
       <Sidebar categories={categories} count={ed.items.length} active={filters.category} open={menuOpen} onClose={() => setMenuOpen(false)}
-        onCategory={key => { setFilters({ ...filters, category: key }); setMenuOpen(false); }}
-        links={D.links} subscribeUrl={D.subscribeUrl} />
+        onCategory={key => { setFilters({ ...filters, category: key }); setSavedPage(false); setMenuOpen(false); }}
+        links={D.links} subscribeUrl={D.subscribeUrl}
+        onSaved={openSaved} savedCount={saved.size} savedActive={savedPage} />
       <main id="main" className="redesign-main" tabIndex={-1}>
         <h1 className="app-sr">aiBytes_ edition, {ed.label}</h1>
         <div className="workspace"><section className="feed">
