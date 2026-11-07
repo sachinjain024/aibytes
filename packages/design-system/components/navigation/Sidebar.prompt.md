@@ -7,4 +7,10 @@ The sidebar: categories with counts on the left of the feed, the footer links an
   subscribeUrl="https://newsletter.aibytes.io/subscribe" />
 ```
 
+Saves: pass `onSaved` to add a LIBRARY section under the categories with one Saved row (filled star in `--save`, the count, category styling). It shows at every count, 0 included, so readers know saving exists. While the Saved page is showing, pass `savedActive`; the Saved row becomes the current one and no category is marked.
+
+```jsx
+<Sidebar … onSaved={openSaved} savedCount={saves.length} savedActive={page === "saved"} />
+```
+
 On phones it is the drawer the `AppHeader` menu button opens (pass the same open state to both); it renders its own backdrop. Put live links first and not-yet-live ones (no `href`) last. Leave GitHub out when the AppHeader already links it.

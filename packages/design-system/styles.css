@@ -1160,6 +1160,36 @@ h1,footer .brand {
   margin-bottom: 24px;
 }
 
+/* The LIBRARY section under the categories: one Saved row, styled as a category. */
+.sidebar-saved {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.sidebar-saved__name {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* The category rules style every span in a row as the count badge (12px, and
+   a tinted chip when active). The label is a span too, so it opts out. */
+.sidebar .category span.sidebar-saved__name,
+.sidebar .category.active span.sidebar-saved__name {
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.sidebar .sidebar-saved__star {
+  width: 14px;
+  height: 14px;
+  color: var(--save);
+}
+
 .end-note {
   display: flex;
   gap: 14px;
