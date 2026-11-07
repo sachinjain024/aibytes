@@ -71,7 +71,7 @@ export function olderEdition(editions, date) {
   return at === -1 ? null : editions[at + 1] || null;
 }
 
-function isRealDate(text) {
+export function isRealDate(text) {
   const date = new Date(text + "T00:00:00Z");
   return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === text;
 }

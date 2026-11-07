@@ -134,20 +134,21 @@ Spec: `docs/specs/AIB-75v-app-local-saves.md`.
 or `{ issue_slug }`. New saves go first with an ISO `created_at`.
 
 **Acceptance criteria:**
-- [ ] New `saves.test.js` (RED first), using `prefs.test.js`'s `memory` and
+- [x] New `saves.test.js` (RED first), using `prefs.test.js`'s `memory` and
       `broken` storages: save, unsave and `has` round-trip for an edition item
       and a weekly item; the stored JSON is exactly the spec's shape, newest
       first.
-- [ ] Corrupt JSON, a non-array, entries with both or neither source field, a
+- [x] Corrupt JSON, a non-array, entries with both or neither source field, a
       bad date (`2026-02-30`) or slug, and duplicates all read as specified.
-- [ ] A throwing storage: `list()` is empty, `toggle` returns `kept: false`,
+- [x] A throwing storage: `list()` is empty, `toggle` returns `kept: false`,
       and `has` still reports the change for the page view.
-- [ ] `list()` returns the same array until a change; `subscribe` fires on a
+- [x] `list()` returns the same array until a change; `subscribe` fires on a
       local toggle and on a `storage` event for `aibytes-saves` (including a
       corrupt value), not for other keys, and not after unsubscribe.
-- [ ] `toggle` throws on a `from` without exactly one valid field.
+- [x] `toggle` throws on a `from` without exactly one valid field.
 
-**Files:** `apps/web/src/saves.js`, `apps/web/src/saves.test.js`.
+**Files:** `apps/web/src/saves.js`, `apps/web/src/saves.test.js`, and
+`route.js` (exports `isRealDate`, reused for `edition_date`).
 
 ### T7: the star on edition and weekly pages
 
