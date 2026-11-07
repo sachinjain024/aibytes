@@ -519,7 +519,7 @@ h1 {
   .sidebar-backdrop:not([hidden]) {
     display: block;
     position: fixed;
-    inset: 52px 0 0;
+    inset: var(--redesign-top) 0 0;
     background: #0006;
     z-index: 34;
     border: 0;
@@ -816,9 +816,9 @@ h1,footer .brand {
   align-self: start;
   position: fixed;
   z-index: 2;
-  top: 52px;
+  top: var(--redesign-top);
   bottom: 0;
-  height: calc(100dvh - 52px);
+  height: calc(100dvh - var(--redesign-top));
   overscroll-behavior: contain;
   display: flex;
   flex-direction: column;
@@ -957,7 +957,7 @@ h1,footer .brand {
   .sidebar {
     width: var(--redesign-rail);
     min-width: var(--redesign-rail);
-    top: var(--redesign-header);
+    top: var(--redesign-top);
     padding-top: 24px;
   }
   .redesign .workspace {
@@ -1247,12 +1247,12 @@ h1,footer .brand {
     min-width: 0;
     display: flex;
     position: fixed;
-    top: 52px;
+    top: var(--redesign-top);
     left: 0;
     bottom: 0;
     width: 260px;
     max-width: calc(100vw - 52px);
-    height: calc(100dvh - 52px);
+    height: calc(100dvh - var(--redesign-top));
     padding: 24px 18px 16px;
     background: var(--paper);
     border-right: 1px solid var(--line);
@@ -2124,7 +2124,7 @@ html[data-theme=light] .calendar-days button:disabled {
   /* The toolbar sticks under the masthead at the column's own width; the filter panel hangs from it (position:absolute; top:100%). */
   .redesign .toolbar-slot {
     position: sticky;
-    top: var(--redesign-header);
+    top: var(--redesign-top);
     z-index: 30;
     background: var(--paper);
   }

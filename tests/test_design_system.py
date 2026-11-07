@@ -83,7 +83,7 @@ class ToolbarTests(unittest.TestCase):
     def test_the_slot_sticks_at_the_masthead_height(self):
         rule = declarations(block_after(self.css, "  .redesign .toolbar-slot"))
         self.assertEqual(rule["position"], "sticky")
-        self.assertEqual(rule["top"], "var(--redesign-header)")
+        self.assertEqual(rule["top"], "var(--redesign-top)")
 
     def test_it_stacks_under_the_masthead(self):
         slot = int(declarations(block_after(self.css, "  .redesign .toolbar-slot"))["z-index"])
@@ -99,6 +99,53 @@ class ToolbarTests(unittest.TestCase):
         self.assertNotIn("toolbar--docked", self.css + jsx)
         self.assertNotIn("addEventListener('scroll'", jsx)
 
+
+
+def rules(css, *selectors):
+    """(selector, declarations) for every innermost rule whose selector is one of `selectors`, media queries included."""
+    css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+    return [(sel.strip(), declarations(body)) for sel, body in re.findall(r"([^{}]+)\{([^{}]*)\}", css) if sel.strip() in selectors]
+
+
+class TopOffsetTests(unittest.TestCase):
+    """Everything that clears the top bar clears the masthead plus a sticky save banner (AIB-75v).
+
+    --redesign-header stays the masthead's height; the sticky SaveBanner writes its
+    own height to --redesign-banner while it is mounted, and --redesign-top is the sum."""
+
+    def setUp(self):
+        self.css = STYLES.read_text()
+        self.components = COMPONENTS_CSS.read_text()
+
+    def test_the_top_is_the_masthead_plus_the_banner(self):
+        tokens = declarations(COLORS.read_text())
+        self.assertEqual(tokens["--redesign-top"], "calc(var(--redesign-header) + var(--redesign-banner, 0px))")
+
+    def test_the_rail_drawer_and_backdrop_clear_the_top(self):
+        for selectors in ((".sidebar",), (".sidebar-backdrop", ".sidebar-backdrop:not([hidden])")):
+            found = [(sel, rule) for sel, rule in rules(self.css, *selectors) if {"top", "inset", "height"} & rule.keys()]
+            self.assertTrue(found, selectors)
+            for sel, rule in found:
+                with self.subTest(sel):
+                    for prop in ("top", "inset", "height") & rule.keys():
+                        value = rule[prop]
+                        self.assertNotIn("52px", value)
+                        if prop in ("top", "inset") or "100dvh" in value:
+                            self.assertIn("var(--redesign-top)", value)
+
+    def test_the_sticky_banner_sits_under_the_masthead(self):
+        rule = dict(rules(self.components, ".ldg-banner--sticky"))[".ldg-banner--sticky"]
+        self.assertEqual(rule["position"], "sticky")
+        self.assertEqual(rule["top"], "var(--redesign-header)")
+
+    def test_it_stacks_masthead_banner_rail_toolbar(self):
+        masthead = int(declarations(block_after(self.css, "\n.masthead"))["z-index"])
+        banner = int(dict(rules(self.components, ".ldg-banner--sticky"))[".ldg-banner--sticky"]["z-index"])
+        rail = max(int(r["z-index"]) for _, r in rules(self.css, ".sidebar") if "z-index" in r)
+        toolbar = int(declarations(block_after(self.css, "  .redesign .toolbar-slot"))["z-index"])
+        self.assertGreater(masthead, banner)
+        self.assertGreater(banner, rail)
+        self.assertGreater(rail, toolbar)
 
 
 class RemovedComponentTests(unittest.TestCase):

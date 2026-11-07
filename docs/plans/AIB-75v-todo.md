@@ -79,18 +79,19 @@ dismiss button in `SaveBanner`, and add `sticky`. A sticky banner sticks at
 drawer and the backdrop onto it, replacing the literal `52px`s.
 
 **Acceptance criteria:**
-- [ ] New `SaveBanner.test.js` covers the icon, the copy, the dismiss label,
+- [x] New `SaveBanner.test.js` covers the icon, the copy, the dismiss label,
       and the sticky class only with `sticky`.
-- [ ] `tests/test_design_system.py`: `ToolbarTests` read `--redesign-top`;
+- [x] `tests/test_design_system.py`: `ToolbarTests` read `--redesign-top`;
       new checks that the rail, drawer and backdrop use it with no literal
       `52px`, that it is built from `--redesign-header` and
       `--redesign-banner`, and the z-index order masthead > banner > rail >
       toolbar.
-- [ ] `contrast.test.js` covers banner text and link on `--surface-2`.
-- [ ] In the preview at 1280, 900 and 390px, both themes: the banner stays
+- [x] `contrast.test.js` covers banner text and link on `--surface-2`.
+      (Already true: `--text` and `--link` on `--surface-2` are in its pairs.)
+- [x] In the preview at 1280, 900 and 390px, both themes: the banner stays
       under the header while the feed scrolls, spans over the rail, and the
       rail, drawer and toolbar clear it and move back up on dismissal.
-- [ ] `SaveBanner.d.ts` and `SaveBanner.prompt.md` updated.
+- [x] `SaveBanner.d.ts` and `SaveBanner.prompt.md` updated.
 
 **Files:** `components/content/SaveBanner.jsx`, `SaveBanner.d.ts`,
 `SaveBanner.prompt.md`, `SaveBanner.test.js`,
