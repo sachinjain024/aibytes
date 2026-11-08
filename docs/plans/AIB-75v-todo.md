@@ -4,8 +4,9 @@ Plan: `docs/plans/AIB-75v-plan.md`. Spec: `docs/specs/AIB-75v-ledger-saves-ui.md
 
 Module 1 (T1-T5) was built on `aib-75v-ledger-saves-ui` and squash-merged in
 #55. Module 2 (T6-T7) was built on `aib-75v-app-local-saves` and
-squash-merged in #56. Module 3 (T8-T10) is built on `aib-75v-app-saved-view`,
-one commit per task, in one PR squash-merged to `main`.
+squash-merged in #56. Module 3 (T8-T10) was built on `aib-75v-app-saved-view`
+and squash-merged in #57. Module 4 (T11-T15) is built on
+`aib-75v-app-accounts`, one commit per task, in one PR squash-merged to `main`.
 
 ## Module 1: `ledger-saves-ui`
 
@@ -258,3 +259,108 @@ the note, the empty state and the loading and error lines. `FeedShell` passes
 group now carries `from`, what unstarring its items needs. The browser checks
 ran on the production build through `vite preview`; the failed-file case
 deleted one edition from `dist/`, never `content/`, and the rebuild restored it.
+
+## Module 4: `app-accounts`
+
+Spec: `docs/specs/AIB-75v-app-accounts.md`.
+
+### T11: the privacy page
+
+**Description:** `parseRoute("/privacy")` is `{ kind: "privacy" }`;
+`PRIVACY_HEAD` (indexable, canonical `https://aibytes.io/privacy`);
+`dist/privacy/index.html`; `PrivacyApp` in the shell with the spec's text; a
+"Privacy" link in the Sidebar's links.
+
+**Acceptance criteria:**
+- [ ] `route.test.js` and `pageMeta.test.js` cover the route and head (no
+      `noindex`); the build writes `dist/privacy/index.html`.
+- [ ] The page states only what is true: checked against the built site that
+      it sets no cookies and loads no analytics, before the claim ships.
+- [ ] In `npm run dev:web` at 1280 and 390px, both themes: the page reads
+      cleanly and the Sidebar link opens it.
+
+**Files:** `apps/web/src/route.js`, `route.test.js`, `pageMeta.js`,
+`pageMeta.test.js`, `footer.js`, `App.jsx`, `apps/web/vite.config.js`.
+
+### T12: the pure parts
+
+**Description:** `accountData.js`: `toSave(id, data)` and `toDoc(item, from,
+now)`. `merge.js`: `toAdd(local, account)` (local saves the account lacks,
+`created_at` kept) and `mergedLine(count)`. `showBanner({ signedIn, saveCount,
+dismissed, page })`.
+
+**Acceptance criteria:**
+- [ ] New tests (RED first): both source kinds both ways, timestamps as ISO;
+      `toAdd` with none, some and all already in the account; the line for
+      0 (none), 1 and many; the banner rule over each input.
+
+**Files:** `apps/web/src/accountData.js`, `merge.js`, their tests, and the
+banner rule beside `useSaves` in `hooks.js` or its own module.
+
+### T13: the rules
+
+**Description:** `firestore.rules` as in the spec, `firebase.json` (rules
+path, emulator port), `apps/web/rules.test.js` with
+`@firebase/rules-unit-testing` against the emulator under project id
+`demo-aibytes`, and `npm run test:rules -w @aibytes/web`
+(`firebase emulators:exec`).
+
+**Acceptance criteria:**
+- [ ] RED first against an empty-deny rules file, then GREEN: the owner
+      creates, reads, updates and deletes; another user and a signed-out
+      reader are denied each; a missing or extra field, both or neither
+      source, a bad date or slug, a mismatched `item_id`, and any other path
+      are denied.
+- [ ] The test skips with a message when Java or the CLI is missing; it is
+      not part of `npm test`.
+
+**Files:** `firestore.rules`, `firebase.json`, `apps/web/rules.test.js`,
+`apps/web/package.json`, `package-lock.json`.
+
+### T14: signing in and the account store (needs the Firebase project)
+
+**Description:** `firebase` in `apps/web`; `firebase-config.js` with the
+publisher's values; `.firebaserc` with the project id; `account.js` (init,
+`signIn` with the popup, `signOut`, `onUser`); `accountSaves.js` on
+`accountData.js`; `App` switches stores on the user and runs the merge;
+`AppHeader` gets `onSignIn`, `user`, `onSignOut`, `onSaved`, with neither
+control while the session restores.
+
+**Acceptance criteria:**
+- [ ] The full check list and `test:rules` pass; the build check records the
+      gzipped size Firebase adds.
+- [ ] On localhost with a real Google account: sign in and out; the photo
+      and the initial fallback; the menu's Saved and Sign out; a reload while
+      signed in shows no Sign in flash.
+- [ ] Merge: 3 local saves into an account holding 1 of them adds 2, clears
+      local storage, and keeps the account's copy; a forced failure leaves
+      local storage untouched.
+- [ ] A save in one browser appears in a second, signed in, without a reload.
+- [ ] Closing the popup does nothing; a blocked popup shows "Could not sign
+      in. Try again."
+
+**Files:** `apps/web/package.json`, `package-lock.json`,
+`apps/web/src/firebase-config.js`, `account.js`, `accountSaves.js`,
+`App.jsx`, `.firebaserc`.
+
+### T15: the banner and the signed-in lines
+
+**Description:** `SaveBanner sticky` by `showBanner`, its dismissal in
+`sessionStorage` through the safe-storage helper, its Sign in link; the
+`/saved` lines signed out and signed in, the empty state's last line, and the
+merge line once.
+
+**Acceptance criteria:**
+- [ ] At 1280 and 390px, both themes: the banner shows signed out with a
+      save, not on `/saved`, not after dismissal this session, and not signed
+      in; the rail, drawer and toolbar clear it.
+- [ ] `/saved` shows the right line for each state, and the merge line once.
+- [ ] The full check list and `test:rules` pass.
+
+**Files:** `apps/web/src/App.jsx`, `hooks.js`.
+
+### After the PR
+
+- [ ] The publisher reviews `firestore.rules` and deploys it:
+      `firebase deploy --only firestore:rules --project <id>`.
+- [ ] One sign-in on aibytes.io after Pages deploys.

@@ -4,9 +4,9 @@ Spec: `docs/specs/AIB-75v-ledger-saves-ui.md`. Map:
 `docs/specs/AIB-75v-capability-map.md`. Ticket:
 `.longclaw/tickets/AIB-75v/ticket.md`. Task list: `docs/plans/AIB-75v-todo.md`.
 
-This plan covers modules 1 to 3. Module 4 (`app-accounts`) gets its own spec
-and is added when that spec is approved. Module 1 merged in #55 (`e5fa1ab`),
-module 2 in #56 (`c3fad8d`).
+This plan covers all four modules. Module 1 merged in #55 (`e5fa1ab`),
+module 2 in #56 (`c3fad8d`), module 3 in #57 (`95a71bc`). The newsletter
+prompt after sign-in is a separate fast follow-up, AIB-140p.
 
 ## Overview
 
@@ -206,3 +206,78 @@ The module 2 check list. T9 also checks `dist/saved/index.html`; T10 adds the
 browser checks in its task. Once T10 is in, the PR is ready for review; once
 it is squash-merged, the ticket's `app-saved-view` item is ticked and module
 4's spec starts.
+
+---
+
+# Module 4: `app-accounts`
+
+Spec: `docs/specs/AIB-75v-app-accounts.md` (approved 8 Nov 2026).
+
+## Overview
+
+Five tasks on branch `aib-75v-app-accounts`, from `main` after #57: one commit
+per task, one PR, squash-merged. The first three need nothing from the
+Firebase project, so they can start now; the last two need its config.
+
+1. **T11 the privacy page**: `/privacy`, a real indexable page in the shell,
+   linked from the Sidebar. First, because the consent screen needs its URL
+   before the app can be published to all Google users.
+2. **T12 the pure parts**: `accountData.js` (Firestore document ⇄ save),
+   `merge.js` (what to add, the line's wording) and the banner's show rule.
+   All `node --test`, no Firebase import.
+3. **T13 the rules**: `firestore.rules`, `firebase.json`, and
+   `rules.test.js` against the Firestore emulator with a `demo-aibytes`
+   project id, so no real project is touched. `@firebase/rules-unit-testing`
+   as an `apps/web` dev dependency.
+4. **T14 signing in and the account store** *(needs the project)*: `firebase`
+   in `apps/web`, `firebase-config.js`, `account.js`, `accountSaves.js`, the
+   store switch in `App`, Sign in and the avatar menu, the merge on sign-in,
+   and `.firebaserc` with the real project id.
+5. **T15 the banner and the signed-in lines**: the sticky `SaveBanner` (C2),
+   the `/saved` lines for signed out and signed in, the empty state's last
+   line, and the merge line.
+
+Then, outside the PR's code: **the publisher deploys the rules** with the
+command in the spec, after review, and signs in once on aibytes.io.
+
+## Dependency graph
+
+```
+T11 /privacy ───────────────────────────────┐
+T12 pure parts ──┬──> T14 sign in + store ──┼──> T15 banner + lines ──> PR
+T13 rules ───────┘          ▲               │
+              Firebase project config ──────┘ (T14 waits for it)
+```
+
+## Architecture decisions (from the spec)
+
+- **One Firebase entry point.** Only `account.js` and `accountSaves.js`
+  import Firebase; components get a store and a user, never the SDK.
+- **The store follows the user**: `localSaves` signed out,
+  `accountSaves(uid)` signed in, the same interface, so `useSaves` and every
+  page are unchanged.
+- **Merge, then clear**: local storage is cleared only after the batch
+  commits; a failure leaves it for the next sign-in.
+- **Firebase loads on every page** (decision 1); its size is recorded in T14.
+- **Rules tested on the emulator** (decision 2) with a demo project id;
+  deployed by hand, never from CI.
+- **No new Ledger work**: every control already exists from module 1.
+
+## Risks
+
+| Risk | Mitigation |
+|---|---|
+| A rules mistake exposes saves or lets anyone write | T13's emulator tests cover owner, other user, signed out, bad shape, extra fields and other paths; the publisher reviews the rules before deploying them |
+| A failed merge loses local saves | Clear only after the batch commits; T12 tests the plan, T14 checks a forced failure by hand |
+| The returning reader sees Sign in flash | The header shows neither control until Firebase reports the restored user; checked by reload in T14 |
+| Firebase's size slows every page | Measured in T14's build check (gzipped); if it is far above the estimate, revisit decision 1 before T15 |
+| The popup is blocked (some mobile browsers, strict settings) | Sign in is a direct click, which browsers allow; a blocked popup shows the "Could not sign in" line. Checked on Safari and Chrome at 390px |
+| The stray root `firebase` dependency (uncommitted, not from this work) gets committed by accident | Never staged; the publisher reverts it before T14 adds `firebase` to `apps/web` |
+
+## Verification checkpoint (every task)
+
+The module 3 check list, plus `npm run test:rules -w @aibytes/web` from T13
+on (it skips when the emulator is missing). T14 and T15 add the browser checks
+in their tasks, on localhost with a real Google account. Once T15 is in, the
+PR is ready for review; once it is squash-merged and the rules are deployed,
+the ticket's module 4 items are ticked and AIB-140p can start.

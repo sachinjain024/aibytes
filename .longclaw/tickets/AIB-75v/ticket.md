@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T06:08:19.592Z
-updated_at: 2026-11-07T10:47:10.438Z
+updated_at: 2026-11-08T00:57:00.865Z
 ---
 
 Saving items (the ☆ on every card and row) and signing in with Google, split out of AIB-8h on 2026-10-08. AIB-8h shipped the web app without them: no star, no Saved entry, no Sign in. This ticket brings them in.
@@ -55,7 +55,7 @@ Decisions on the map: the publisher creates a new Firebase project for aibytes.i
 - [x] app-saved-view: spec approved <!-- longclaw:item=ck_1b4555b9 -->
 - [x] app-saved-view: Saved entry and count in the sidebar, /saved page grouped by edition date and weekly issue, rank order inside each, hidden items left out with a note, empty state (PR merged) <!-- longclaw:item=ck_92ac9854 -->
 - [ ] Firebase project created for aibytes.io (publisher): Google sign-in on, aibytes.io authorised <!-- longclaw:item=ck_af2bb5f2 -->
-- [ ] app-accounts: spec approved <!-- longclaw:item=ck_f3d1ec1d -->
+- [x] app-accounts: spec approved <!-- longclaw:item=ck_f3d1ec1d -->
 - [ ] app-accounts: Firebase Auth with the Google provider, client SDK only; Sign in, account menu and the sticky banner <!-- longclaw:item=ck_1f32b91e -->
 - [ ] app-accounts: Firestore users/{uid}/saves/{itemId}; firestore.rules reviewed and deployed by hand with the Firebase CLI <!-- longclaw:item=ck_4661cf94 -->
 - [ ] app-accounts: merge local saves into the account on first sign-in, then clear local storage (PR merged) <!-- longclaw:item=ck_75ad990d -->
@@ -622,4 +622,47 @@ changes:
 ### You updated this ticket
 
 Module 3 app-saved-view squash-merged to main in #57 (95a71bc): Saved and its count in every Sidebar, and /saved grouped by edition and weekly issue. Open for module 4 or a follow-up: category counts show '–' on /saved, and the page title uses the section-heading style. Next: app-accounts, waiting on the Firebase project.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_84f2a7ed
+kind: comment
+occurred_at: 2026-11-07T10:49:18.913Z
+actor:
+  type: human
+  id: local
+-->
+### You commented
+
+Module 4 spec drafted, awaiting review: docs/specs/AIB-75v-app-accounts.md (branch aib-75v-app-accounts).
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_605175d2
+kind: comment
+occurred_at: 2026-11-07T18:34:52.954Z
+actor:
+  type: human
+  id: local
+-->
+### You commented
+
+The newsletter prompt after sign-in is split out as a fast follow-up: AIB-140p.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e3b8c42d
+kind: update
+occurred_at: 2026-11-08T00:57:00.865Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_f3d1ec1d.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+
+Module 4 spec approved 8 Nov 2026 (docs/specs/AIB-75v-app-accounts.md): Firebase on every page, rules tested on the emulator, a /privacy page. Tasks T11-T15 in docs/plans/AIB-75v-todo.md; T11-T13 need no Firebase project, T14-T15 do.
 <!-- /longclaw:event -->
