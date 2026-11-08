@@ -272,15 +272,20 @@ Spec: `docs/specs/AIB-75v-app-accounts.md`.
 "Privacy" link in the Sidebar's links.
 
 **Acceptance criteria:**
-- [ ] `route.test.js` and `pageMeta.test.js` cover the route and head (no
+- [x] `route.test.js` and `pageMeta.test.js` cover the route and head (no
       `noindex`); the build writes `dist/privacy/index.html`.
-- [ ] The page states only what is true: checked against the built site that
+- [x] The page states only what is true: checked against the built site that
       it sets no cookies and loads no analytics, before the claim ships.
-- [ ] In `npm run dev:web` at 1280 and 390px, both themes: the page reads
+- [x] In `npm run dev:web` at 1280 and 390px, both themes: the page reads
       cleanly and the Sidebar link opens it.
 
 **Files:** `apps/web/src/route.js`, `route.test.js`, `pageMeta.js`,
-`pageMeta.test.js`, `footer.js`, `App.jsx`, `apps/web/vite.config.js`.
+`pageMeta.test.js`, `footer.js`, `footer.test.js`, `App.jsx`,
+`apps/web/vite.config.js`. `FeedShell`'s `savedPage` became `page` ("feed",
+"saved", "privacy"). Checked: the build loads only Google Fonts and the item
+images' own hosts, with no analytics script and no `document.cookie`. Open:
+links in the page's text are the body colour until hover (Ledger's base `a`
+rule), raised with the publisher.
 
 ### T12: the pure parts
 

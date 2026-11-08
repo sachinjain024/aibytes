@@ -14,7 +14,7 @@ import { Toolbar } from "@aibytes/design-system/components/navigation/Toolbar.js
 import { loadEdition, loadIndex, loadTags, loadWeeklyIndex, loadWeeklyIssue } from "./content.js";
 import { filesToLoad, leftOutNote, savedGroups } from "./saved.js";
 import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, SOURCES } from "./filters.js";
-import { FOOTER_LINKS, GITHUB_URL, SUBSCRIBE_URL } from "./footer.js";
+import { EMAIL, FOOTER_LINKS, GITHUB_URL, mailto, SUBSCRIBE_URL } from "./footer.js";
 import { longDate, midDate, shortDate } from "./format.js";
 import { useChoice, useDismiss, useGridColumns, useMedia, useReturnFocus, useSaves, useTheme } from "./hooks.js";
 import { shownView } from "./layout.js";
@@ -85,6 +85,9 @@ export function App() {
   if (route.kind === "weekly_index") {
     return <WeeklyArchive theme={theme} onToggleTheme={toggleTheme} />;
   }
+  if (route.kind === "privacy") {
+    return <PrivacyApp saves={saves} location={location} navigate={navigate} theme={theme} onToggleTheme={toggleTheme} />;
+  }
   if (route.kind === "saved") {
     return <SavedApp saves={saves} location={location} navigate={navigate} theme={theme} onToggleTheme={toggleTheme} />;
   }
@@ -119,11 +122,14 @@ export function App() {
 // included, or null while it loads; `children` renders the feed from what the
 // filters leave. Every page's Sidebar carries Saved and the stored count.
 //
-// `savedPage` is the /saved page: no toolbar, filters or tags; Saved is the
-// current entry; a category opens the latest edition filtered to it; and the
-// page draws its own visible h1, so `heading` is left out.
-function FeedShell({ saves: store, savedPage = false, theme, onToggleTheme, location, navigate, skipLabel, heading, date, all, children }) {
+// `page` is "feed" for an edition or weekly issue. "saved" (/saved) and
+// "privacy" (/privacy) have no toolbar, filters or tags; a category opens the
+// latest edition filtered to it; and the page draws its own visible h1, so
+// `heading` is left out. On "saved", Saved is the current entry.
+function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location, navigate, skipLabel, heading, date, all, children }) {
   const { saves } = useSaves(store);
+  const feedPage = page === "feed";
+  const savedPage = page === "saved";
   // Defaults: list + grouped (AIB-105j). A stored preference still wins.
   const [view, setView] = useChoice(VIEW, "list");
   const [mode, setMode] = useChoice(ORDER, "grouped");
@@ -162,7 +168,7 @@ function FeedShell({ saves: store, savedPage = false, theme, onToggleTheme, loca
 
   React.useEffect(() => {
     // Only the Tags panel and tag URLs need it; if it fails, tags just do not filter.
-    if (savedPage) return;
+    if (!feedPage) return;
     loadTags()
       .then((data) => setTags({ status: "ready", groups: data.groups }))
       .catch(() => setTags({ status: "failed", groups: [] }));
@@ -188,10 +194,10 @@ function FeedShell({ saves: store, savedPage = false, theme, onToggleTheme, loca
     <div className={"app-shell redesign" + (shown === "grid" ? " redesign-grid" : "") + (menuOpen ? " mobile-menu-open" : "")} ref={shell} data-theme={theme}>
       <a className="app-skip" href="#main">{skipLabel}</a>
       <AppHeader theme={theme} onToggleTheme={onToggleTheme} menuOpen={menuOpen} onMenu={() => setMenuOpen(o => !o)} githubUrl={GITHUB_URL} />
-      <Sidebar categories={categories} count={visible?.length} active={filters.category} open={menuOpen} onClose={() => setMenuOpen(false)}
+      <Sidebar categories={categories} count={visible?.length} active={feedPage ? filters.category : null} open={menuOpen} onClose={() => setMenuOpen(false)}
         links={SIDEBAR_LINKS} subscribeUrl={SUBSCRIBE_URL}
         onCategory={key => {
-          if (savedPage) navigate("/" + filtersToSearch({ ...NO_FILTERS, category: key }, []));
+          if (!feedPage) navigate("/" + filtersToSearch({ ...NO_FILTERS, category: key }, []));
           else if (filterable) setCategory(key);
           setMenuOpen(false);
         }}
@@ -201,7 +207,7 @@ function FeedShell({ saves: store, savedPage = false, theme, onToggleTheme, loca
             date control already shows the edition or issue. Screen readers still get an h1. */}
         {heading && <h1 className="app-sr">{heading}</h1>}
         <div className="workspace"><section className="feed">
-          {!savedPage && <>
+          {feedPage && <>
           <div ref={sticky} className="toolbar-slot">
             <Toolbar count={items ? `${items.length} items` : null} query={filters.query} onQuery={setQuery} view={view} onView={columns > 1 ? setView : undefined} mode={mode} onMode={setMode}
               disabled={!filterable} filterCount={filters.tags.length + filters.sources.length} open={panel !== null} onFilters={() => onPanel("filters")}
@@ -393,7 +399,7 @@ function SavedApp({ saves: store, location, navigate, theme, onToggleTheme }) {
   const { groups, leftOut } = savedGroups(saves, { editions, issues, files });
 
   return (
-    <FeedShell saves={store} savedPage theme={theme} onToggleTheme={onToggleTheme} location={location} navigate={navigate}
+    <FeedShell saves={store} page="saved" theme={theme} onToggleTheme={onToggleTheme} location={location} navigate={navigate}
       skipLabel="Skip to your saved items" date={null} all={null}>
       {({ view }) => {
         const message = (text, role) => <StatusMessage role={role}>{text}</StatusMessage>;
@@ -428,6 +434,51 @@ function SavedApp({ saves: store, location, navigate, theme, onToggleTheme }) {
           </>
         );
       }}
+    </FeedShell>
+  );
+}
+
+// /privacy: what saving and signing in keep, and where (AIB-75v T11). Its facts
+// were checked against the built site: no cookies or analytics of the site's own,
+// fonts from Google Fonts, item images from the sites they belong to. Change
+// them only with the site; Google's sign-in consent screen links here.
+function PrivacyApp({ saves, location, navigate, theme, onToggleTheme }) {
+  React.useEffect(() => { document.title = "aiBytes_ · Privacy"; }, []);
+  const contact = <a href={mailto(EMAIL, "Privacy: aiBytes_")}>{EMAIL}</a>;
+  return (
+    <FeedShell saves={saves} page="privacy" theme={theme} onToggleTheme={onToggleTheme} location={location} navigate={navigate}
+      skipLabel="Skip to the privacy page" date={null} all={null}>
+      {() => <article className="app-privacy">
+        <h1 className="ldg-section-h">Privacy</h1>
+        <p>Last changed 8 November 2026.</p>
+
+        <h2 className="ldg-section-h">Reading</h2>
+        <p>aiBytes_ sets no cookies and runs no analytics. The site is hosted on GitHub Pages; its fonts come from
+          Google Fonts, and item images from the sites they belong to, such as GitHub, TechCrunch and Product Hunt.
+          Like any web request, those services see your IP address and browser.</p>
+
+        <h2 className="ldg-section-h">Saving</h2>
+        <p>Items you save without signing in stay in this browser&apos;s local storage. Nothing about them leaves your
+          device.</p>
+
+        <h2 className="ldg-section-h">Signing in with Google</h2>
+        <p>Signing in uses Firebase Authentication, a Google service, which gives aiBytes_ your name, email address
+          and profile photo. The name and photo appear in the header; the email is not used for anything else. None
+          of it is sold or shared.</p>
+        <p>Your saves are then stored in Google Cloud Firestore under your account, where only you can read them.
+          Each save is the item&apos;s id, the edition or weekly issue it came from, and when you saved it. Firebase
+          keeps you signed in using this browser&apos;s storage.</p>
+
+        <h2 className="ldg-section-h">Deleting</h2>
+        <p>Unstar an item to delete its save. To delete your account and all its saves, email {contact}.</p>
+
+        <h2 className="ldg-section-h">The newsletter</h2>
+        <p>The weekly newsletter is on Substack, under <a href="https://substack.com/privacy">Substack&apos;s privacy
+          policy</a>. Signing in here does not subscribe you.</p>
+
+        <h2 className="ldg-section-h">Questions</h2>
+        <p>Email {contact}.</p>
+      </article>}
     </FeedShell>
   );
 }

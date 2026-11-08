@@ -2,7 +2,7 @@
 // Graph tags, so a weekly issue is indexable and shares with a real preview
 // before any script runs. Pure string work, so `node --test` can check it;
 // vite.config.js applies it when it writes each page.
-import { savedPath, SITE_ORIGIN, weeklyUrl } from "./route.js";
+import { privacyPath, savedPath, SITE_ORIGIN, weeklyUrl } from "./route.js";
 
 const escape = (text) => String(text)
   .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -47,4 +47,11 @@ export const SAVED_HEAD = {
   description: "Your saved aiBytes_ items, from every edition and weekly issue.",
   url: SITE_ORIGIN + savedPath(),
   robots: "noindex",
+};
+
+/** The head for /privacy: public, and the URL Google's sign-in consent screen links to. */
+export const PRIVACY_HEAD = {
+  title: "aiBytes_ · Privacy",
+  description: "What aiBytes_ keeps when you save items or sign in with Google, where it is kept, and how to delete it.",
+  url: SITE_ORIGIN + privacyPath(),
 };
