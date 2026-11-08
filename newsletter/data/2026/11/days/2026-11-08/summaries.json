@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-08",
+  "items": {
+    "ph-chatgpt-images-2-6-8-2026-11-08": {
+      "summary": "Adds native GIF and looping animation output, SVG export, a generation-complexity control and consistent characters across edits, in ChatGPT, Codex and the API.",
+      "tags": ["Image Gen", "OpenAI", "Launch"]
+    },
+    "ph-livereview-2026-11-08": {
+      "summary": "Risk-scores every PR with an LLM, an incident-trained ML model and code-graph analysis, auto-approving the lowest-risk 30-50% and routing the rest to engineers; free and self-hostable.",
+      "tags": ["Dev Tool", "Launch"]
+    },
+    "ph-quest-10-2026-11-08": {
+      "summary": "Personal advisor, listed as an iMessage app, that models your personality, values and ambitions to help you reflect on decisions rather than complete tasks for you.",
+      "tags": ["LLM", "Launch"]
+    },
+    "ph-exa-monitors-v2-2026-11-08": {
+      "summary": "Runs a described web search on an interval and calls your webhook only on new, relevant results with citations; v2 remembers past alerts and drops to $2 per 1k runs from $15.",
+      "tags": ["API", "Agents", "Pricing", "Launch"]
+    },
+    "hn-show-hn-we-compressed-a-31b-video-audio-2026-11-08": {
+      "summary": "Video-Rebirth's hyperflow-h3-flash repo on GitHub: a joint video and audio diffusion model distilled down for few-step, INT8 inference.",
+      "tags": ["Show HN", "Video", "Inference", "Open Source"]
+    },
+    "gh-openmausbot-2026-11-08": {
+      "summary": "TypeScript open-source alternative to Grok Bot that gives bots their own virtual machine to operate in.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-agent-browser-2026-11-08": {
+      "summary": "Vercel Labs command-line tool, written in Rust, that lets AI agents drive a browser for automation tasks.",
+      "tags": ["Dev Tool", "Agents", "Open Source"]
+    },
+    "gh-skills-2026-11-08": {
+      "summary": "Anthropic's public repository of Agent Skills, the shared collection agents can load, mostly in Python.",
+      "tags": ["Agents", "Anthropic", "Open Source"]
+    },
+    "gh-billion-context-2026-11-08": {
+      "summary": "TypeScript context-compression plugin aimed at month-long sessions spanning billions of tokens inside a 100K window, claiming 5x token savings.",
+      "tags": ["LLM", "Open Source"]
+    },
+    "gh-nvke-2026-11-08": {
+      "summary": "Go management plane for running GPU Kubernetes clusters on bare metal, published under the name NVIDIA Kubernetes Engine.",
+      "tags": ["Dev Tool", "Open Source"]
+    },
+    "gh-claude-quickstarts-2026-11-08": {
+      "summary": "Starter projects in Python for building deployable applications on the Claude API.",
+      "tags": ["API", "Anthropic", "Tutorial"]
+    },
+    "gh-mujoco-2026-11-08": {
+      "summary": "Google DeepMind's general-purpose C++ physics simulator, modelling multi-joint dynamics with contact.",
+      "tags": ["Robotics", "Open Source", "Google"]
+    },
+    "tc-after-the-midterms-things-are-looking-rocky-for-2026-11-08": {
+      "summary": "TechCrunch Equity episode unpacking what the midterm results mean for the tech industry, with Musk and data center buildouts in focus.",
+      "tags": ["Policy"]
+    },
+    "tc-megaspeed-exec-was-recruited-to-spy-on-nvidia-2026-11-08": {
+      "summary": "A memo circulated earlier this year reportedly claimed China's Ministry of State Security recruited a female technology executive to spy on Jensen Huang.",
+      "tags": ["Nvidia", "Security"]
+    },
+    "hn-the-end-of-microsoft-research-s-ai-frontiers-2026-11-08": {
+      "summary": "Post on hunch.net, John Langford's machine learning blog, on the closing of the Microsoft Research group.",
+      "tags": ["Microsoft"]
+    },
+    "hn-claude-code-s-don-t-ask-again-exposes-passwords-2026-11-08": {
+      "summary": "Apiiro research blog post on coding agents leaking secrets to GitHub, tying exposed credentials to Claude Code's persistent permission approvals.",
+      "tags": ["Claude Code", "Security"]
+    },
+    "hn-goodbye-claude-hello-pi-2026-11-08": {
+      "summary": "Personal blog post on caleb.software describing a developer's switch away from Claude to Pi.",
+      "tags": ["Anthropic"]
+    },
+    "hn-the-components-of-agent-memory-2026-11-08": {
+      "summary": "Anthropic research post breaking down the parts an agent's memory system is built from.",
+      "tags": ["Agents", "Anthropic", "Deep Dive"]
+    },
+    "hn-the-ai-sell-off-compared-to-well-known-stock-2026-11-08": {
+      "summary": "Kadoa insights piece setting the current AI stock drawdown against historical market crashes.",
+      "tags": ["Deep Dive"]
+    },
+    "hn-i-will-not-be-using-llms-in-my-coding-2026-11-08": {
+      "summary": "Personal essay on polso.info explaining the author's decision to keep LLMs out of their programming work.",
+      "tags": ["Code Gen"]
+    },
+    "hn-llama-modchip-284b-deepseek-on-64gb-ram-no-gpu-2026-11-08": {
+      "summary": "GitHub project from synchopate that runs a 284B-parameter DeepSeek model CPU-only within 64GB of system RAM.",
+      "tags": ["Local LLM", "Inference", "Open Source"]
+    }
+  }
+}

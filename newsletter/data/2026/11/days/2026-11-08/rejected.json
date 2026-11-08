@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-08",
+  "generated_at": "2026-11-08T14:38:30Z",
+  "counts": {
+    "kept": 21,
+    "rejected": 2
+  },
+  "rejected": [
+    {
+      "id": "ph-gpt-6-cyber-2026-11-08",
+      "source": "producthunt",
+      "title": "GPT‑6 Cyber",
+      "url": "https://www.producthunt.com/products/openai",
+      "reason": "duplicate",
+      "detail": "same destination as ph-chatgpt-images-2-6-8-2026-11-08 from producthunt"
+    },
+    {
+      "id": "hn-the-end-of-ai-frontiers-2026-11-08",
+      "source": "hackernews",
+      "title": "The End of AI Frontiers",
+      "url": "https://hunch.net/?p=13764006",
+      "reason": "duplicate",
+      "detail": "same destination as hn-the-end-of-microsoft-research-s-ai-frontiers-2026-11-08 from hackernews"
+    }
+  ]
+}

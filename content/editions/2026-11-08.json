@@ -1,0 +1,560 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-08",
+  "generated_at": "2026-11-08T14:38:30Z",
+  "counts": {
+    "launches": 5,
+    "repos": 7,
+    "news": 2,
+    "hn": 7
+  },
+  "items": [
+    {
+      "id": "ph-chatgpt-images-2-6-8-2026-11-08",
+      "title": "ChatGPT Images 2.6",
+      "summary": "Adds native GIF and looping animation output, SVG export, a generation-complexity control and consistent characters across edits, in ChatGPT, Codex and the API.",
+      "url": "https://www.producthunt.com/products/openai",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/openai",
+      "category": "launches",
+      "tags": [
+        "Image Gen",
+        "OpenAI",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/27c1e3fb-bb68-4623-90e7-a5b8d7c2a4b6.jpeg?auto=format"
+      },
+      "signals": {
+        "upvotes": 281,
+        "comments": 5
+      },
+      "published_at": "2026-11-07T08:01:00Z",
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "ph-livereview-2026-11-08",
+      "title": "LiveReview",
+      "summary": "Risk-scores every PR with an LLM, an incident-trained ML model and code-graph analysis, auto-approving the lowest-risk 30-50% and routing the rest to engineers; free and self-hostable.",
+      "url": "https://www.producthunt.com/products/livereview",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/livereview",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/b2c2dfcc-1984-408d-a268-16b35a67c388.gif?auto=format"
+      },
+      "signals": {
+        "upvotes": 243,
+        "comments": 48
+      },
+      "published_at": "2026-11-07T08:01:00Z",
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "id": "ph-quest-10-2026-11-08",
+      "title": "Quest",
+      "summary": "Personal advisor, listed as an iMessage app, that models your personality, values and ambitions to help you reflect on decisions rather than complete tasks for you.",
+      "url": "https://www.producthunt.com/products/quest-d8e9c4e8-cc0d-4b07-baee-e3dbf712c279",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/quest-d8e9c4e8-cc0d-4b07-baee-e3dbf712c279",
+      "category": "launches",
+      "tags": [
+        "LLM",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/44f0c99a-1818-432e-9134-46f367f54526.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 229,
+        "comments": 27
+      },
+      "published_at": "2026-11-07T08:01:00Z",
+      "hidden": false,
+      "rank": 14
+    },
+    {
+      "id": "ph-exa-monitors-v2-2026-11-08",
+      "title": "Exa Monitors v2",
+      "summary": "Runs a described web search on an interval and calls your webhook only on new, relevant results with citations; v2 remembers past alerts and drops to $2 per 1k runs from $15.",
+      "url": "https://www.producthunt.com/products/exa-ai",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/exa-ai",
+      "category": "launches",
+      "tags": [
+        "API",
+        "Agents",
+        "Pricing",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/37e2c4c1-361d-419e-a2f5-70bf1c6a56c0.jpeg?auto=format"
+      },
+      "signals": {
+        "upvotes": 202,
+        "comments": 6
+      },
+      "published_at": "2026-11-07T08:01:00Z",
+      "hidden": false,
+      "rank": 19
+    },
+    {
+      "id": "hn-show-hn-we-compressed-a-31b-video-audio-2026-11-08",
+      "title": "Show HN: We compressed a 31B video+audio diffusion model to 14B, 6 steps, INT8",
+      "summary": "Video-Rebirth's hyperflow-h3-flash repo on GitHub: a joint video and audio diffusion model distilled down for few-step, INT8 inference.",
+      "url": "https://github.com/Video-Rebirth/hyperflow-h3-flash",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50405263",
+      "category": "launches",
+      "tags": [
+        "Show HN",
+        "Video",
+        "Inference",
+        "Open Source"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 71,
+        "comments": 14
+      },
+      "meta": {
+        "author": "jiant"
+      },
+      "published_at": "2026-11-07T15:16:01Z",
+      "hidden": false,
+      "rank": 21
+    },
+    {
+      "id": "gh-openmausbot-2026-11-08",
+      "title": "milind-soni/OpenMausBot",
+      "summary": "TypeScript open-source alternative to Grok Bot that gives bots their own virtual machine to operate in.",
+      "url": "https://github.com/milind-soni/OpenMausBot",
+      "source": "github",
+      "source_url": "https://github.com/milind-soni/OpenMausBot",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/milind-soni.png?size=80"
+      },
+      "signals": {
+        "stars": 17787,
+        "stars_gained": 1437,
+        "forks": 2492
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "gh-agent-browser-2026-11-08",
+      "title": "vercel-labs/agent-browser",
+      "summary": "Vercel Labs command-line tool, written in Rust, that lets AI agents drive a browser for automation tasks.",
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "source": "github",
+      "source_url": "https://github.com/vercel-labs/agent-browser",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/vercel-labs.png?size=80"
+      },
+      "signals": {
+        "stars": 47303,
+        "stars_gained": 812,
+        "forks": 3242
+      },
+      "meta": {
+        "language": "Rust"
+      },
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "gh-skills-2026-11-08",
+      "title": "anthropics/skills",
+      "summary": "Anthropic's public repository of Agent Skills, the shared collection agents can load, mostly in Python.",
+      "url": "https://github.com/anthropics/skills",
+      "source": "github",
+      "source_url": "https://github.com/anthropics/skills",
+      "category": "repos",
+      "tags": [
+        "Agents",
+        "Anthropic",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/anthropics.png?size=80"
+      },
+      "signals": {
+        "stars": 189232,
+        "stars_gained": 793,
+        "forks": 22302
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "id": "gh-billion-context-2026-11-08",
+      "title": "ranxianglei/billion-context",
+      "summary": "TypeScript context-compression plugin aimed at month-long sessions spanning billions of tokens inside a 100K window, claiming 5x token savings.",
+      "url": "https://github.com/ranxianglei/billion-context",
+      "source": "github",
+      "source_url": "https://github.com/ranxianglei/billion-context",
+      "category": "repos",
+      "tags": [
+        "LLM",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/ranxianglei.png?size=80"
+      },
+      "signals": {
+        "stars": 4907,
+        "stars_gained": 460,
+        "forks": 394
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 11
+    },
+    {
+      "id": "gh-nvke-2026-11-08",
+      "title": "dsx-ai-factory/nvke",
+      "summary": "Go management plane for running GPU Kubernetes clusters on bare metal, published under the name NVIDIA Kubernetes Engine.",
+      "url": "https://github.com/dsx-ai-factory/nvke",
+      "source": "github",
+      "source_url": "https://github.com/dsx-ai-factory/nvke",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/dsx-ai-factory.png?size=80"
+      },
+      "signals": {
+        "stars": 719,
+        "stars_gained": 345,
+        "forks": 106
+      },
+      "meta": {
+        "language": "Go"
+      },
+      "hidden": false,
+      "rank": 15
+    },
+    {
+      "id": "gh-claude-quickstarts-2026-11-08",
+      "title": "anthropics/claude-quickstarts",
+      "summary": "Starter projects in Python for building deployable applications on the Claude API.",
+      "url": "https://github.com/anthropics/claude-quickstarts",
+      "source": "github",
+      "source_url": "https://github.com/anthropics/claude-quickstarts",
+      "category": "repos",
+      "tags": [
+        "API",
+        "Anthropic",
+        "Tutorial"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/anthropics.png?size=80"
+      },
+      "signals": {
+        "stars": 19227,
+        "stars_gained": 28,
+        "forks": 3267
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 17
+    },
+    {
+      "id": "gh-mujoco-2026-11-08",
+      "title": "google-deepmind/mujoco",
+      "summary": "Google DeepMind's general-purpose C++ physics simulator, modelling multi-joint dynamics with contact.",
+      "url": "https://github.com/google-deepmind/mujoco",
+      "source": "github",
+      "source_url": "https://github.com/google-deepmind/mujoco",
+      "category": "repos",
+      "tags": [
+        "Robotics",
+        "Open Source",
+        "Google"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/google-deepmind.png?size=80"
+      },
+      "signals": {
+        "stars": 16201,
+        "stars_gained": 26,
+        "forks": 1941
+      },
+      "meta": {
+        "language": "C++"
+      },
+      "hidden": false,
+      "rank": 20
+    },
+    {
+      "id": "tc-after-the-midterms-things-are-looking-rocky-for-2026-11-08",
+      "title": "After the midterms, things are looking rocky for Elon Musk and data centers",
+      "summary": "TechCrunch Equity episode unpacking what the midterm results mean for the tech industry, with Musk and data center buildouts in focus.",
+      "url": "https://techcrunch.com/2026/11/07/after-the-midterms-things-are-looking-rocky-for-elon-musk-and-data-centers/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/07/after-the-midterms-things-are-looking-rocky-for-elon-musk-and-data-centers/",
+      "category": "news",
+      "tags": [
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2025/05/GettyImages-2207245107-1.jpg?resize=1200,765"
+      },
+      "meta": {
+        "author": "Anthony Ha",
+        "reading_time": "6 minutes"
+      },
+      "published_at": "2026-11-07T22:07:22Z",
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "tc-megaspeed-exec-was-recruited-to-spy-on-nvidia-2026-11-08",
+      "title": "Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo",
+      "summary": "A memo circulated earlier this year reportedly claimed China's Ministry of State Security recruited a female technology executive to spy on Jensen Huang.",
+      "url": "https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Security"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/09/GettyImages-2294936867.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Anthony Ha",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-07T21:17:08Z",
+      "hidden": false,
+      "rank": 13
+    },
+    {
+      "id": "hn-the-end-of-microsoft-research-s-ai-frontiers-2026-11-08",
+      "title": "The end of Microsoft Research's AI Frontiers group",
+      "summary": "Post on hunch.net, John Langford's machine learning blog, on the closing of the Microsoft Research group.",
+      "url": "https://hunch.net/?p=13764006",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50406563",
+      "category": "hn",
+      "tags": [
+        "Microsoft"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 477,
+        "comments": 290
+      },
+      "meta": {
+        "author": "srean"
+      },
+      "published_at": "2026-11-07T18:02:17Z",
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "hn-claude-code-s-don-t-ask-again-exposes-passwords-2026-11-08",
+      "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
+      "summary": "Apiiro research blog post on coding agents leaking secrets to GitHub, tying exposed credentials to Claude Code's persistent permission approvals.",
+      "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50407882",
+      "category": "hn",
+      "tags": [
+        "Claude Code",
+        "Security"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 465,
+        "comments": 327
+      },
+      "meta": {
+        "author": "shmulc"
+      },
+      "published_at": "2026-11-07T20:45:32Z",
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "hn-goodbye-claude-hello-pi-2026-11-08",
+      "title": "Goodbye Claude, Hello Pi",
+      "summary": "Personal blog post on caleb.software describing a developer's switch away from Claude to Pi.",
+      "url": "https://caleb.software/posts/claude-to-pi.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50410107",
+      "category": "hn",
+      "tags": [
+        "Anthropic"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 455,
+        "comments": 301
+      },
+      "meta": {
+        "author": "karagenit"
+      },
+      "published_at": "2026-11-08T03:11:48Z",
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "hn-the-components-of-agent-memory-2026-11-08",
+      "title": "The Components of Agent Memory",
+      "summary": "Anthropic research post breaking down the parts an agent's memory system is built from.",
+      "url": "https://www.anthropic.com/research/components-of-agent-memory",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50402212",
+      "category": "hn",
+      "tags": [
+        "Agents",
+        "Anthropic",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 160,
+        "comments": 97
+      },
+      "meta": {
+        "author": "geoffbp"
+      },
+      "published_at": "2026-11-07T06:39:04Z",
+      "hidden": false,
+      "rank": 10
+    },
+    {
+      "id": "hn-the-ai-sell-off-compared-to-well-known-stock-2026-11-08",
+      "title": "The AI sell-off compared to well-known stock market crashes",
+      "summary": "Kadoa insights piece setting the current AI stock drawdown against historical market crashes.",
+      "url": "https://www.kadoa.com/companies/insights/ai-selloff-perspective",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50401029",
+      "category": "hn",
+      "tags": [
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 96,
+        "comments": 79
+      },
+      "meta": {
+        "author": "hubraumhugo"
+      },
+      "published_at": "2026-11-07T02:20:06Z",
+      "hidden": false,
+      "rank": 12
+    },
+    {
+      "id": "hn-i-will-not-be-using-llms-in-my-coding-2026-11-08",
+      "title": "I will not be using LLMs in my coding",
+      "summary": "Personal essay on polso.info explaining the author's decision to keep LLMs out of their programming work.",
+      "url": "https://www.polso.info/why-i-will-not-be-using-llms-coding",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50412591",
+      "category": "hn",
+      "tags": [
+        "Code Gen"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 75,
+        "comments": 133
+      },
+      "meta": {
+        "author": "Risse"
+      },
+      "published_at": "2026-11-08T12:14:10Z",
+      "hidden": false,
+      "rank": 16
+    },
+    {
+      "id": "hn-llama-modchip-284b-deepseek-on-64gb-ram-no-gpu-2026-11-08",
+      "title": "Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
+      "summary": "GitHub project from synchopate that runs a 284B-parameter DeepSeek model CPU-only within 64GB of system RAM.",
+      "url": "https://github.com/synchopate/llama-modchip",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50411961",
+      "category": "hn",
+      "tags": [
+        "Local LLM",
+        "Inference",
+        "Open Source"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 74,
+        "comments": 28
+      },
+      "meta": {
+        "author": "joshcsimmons"
+      },
+      "published_at": "2026-11-08T10:22:04Z",
+      "hidden": false,
+      "rank": 18
+    }
+  ]
+}
