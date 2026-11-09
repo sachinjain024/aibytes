@@ -167,13 +167,13 @@ All Ledger options already exist (`ledger-saves-ui`):
 - `AppHeader`: `onSignIn`; `user={{ name, photoUrl }}` and `onSignOut` when
   signed in; `onSaved` opens `/saved`.
 - `SaveBanner sticky`, straight after `AppHeader`, when signed out, with at
-  least one save, and **not on `/saved`** (C2). It has no dismiss button
-  (decided 10 Nov, amending C2): it goes when the reader signs in or has no
-  saves. Its Sign in link calls `signIn()`.
+  least one save, on every page (`/saved` too since T16). It has no dismiss
+  button (decided 10 Nov, amending C2): it goes when the reader signs in or
+  has no saves. Its Sign in link calls `signIn()`.
 - `/saved` lines (design record), restoring what module 3 left out:
-  - signed out, not empty: "Stored in this browser only. **Sign in with
-    Google** to keep them across devices." (a link that signs in);
-  - signed in, not empty: "Synced to your Google account.";
+  - *(T16 dropped the two lines under the heading: "Stored in this browser
+    only. Sign in with Google..." signed out, "Synced to your Google
+    account." signed in.)*
   - the empty state's last line: "Saves stay in this browser until you sign
     in with Google." or, signed in, "Your saves sync to your Google account.";
   - the merge line, once, after a sign-in that added saves.

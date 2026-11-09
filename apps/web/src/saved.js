@@ -77,3 +77,19 @@ export function leftOutNote({ count, kinds }) {
     ? `1 saved item was removed from its ${noun} and is not shown.`
     : `${count} saved items were removed from their ${noun} and are not shown.`;
 }
+
+/**
+ * The ready sections as one list, for the Saved view's Toolbar, filters and
+ * modes: { items } in the sections' order (newest file first, rank inside),
+ * { from } mapping each item's id to its file, for unstarring, and whether any
+ * file is still `loading`, and which sections `failed`.
+ */
+export function savedFeed(groups) {
+  const ready = groups.filter((group) => group.status === "ready");
+  return {
+    items: ready.flatMap((group) => group.items),
+    from: new Map(ready.flatMap((group) => group.items.map((item) => [item.id, group.from]))),
+    loading: groups.some((group) => group.status === "loading"),
+    failed: groups.filter((group) => group.status === "error"),
+  };
+}

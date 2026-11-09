@@ -1,6 +1,13 @@
 # Spec: AIB-75v, module 3 `app-saved-view`
 
-Status: **approved 7 Nov 2026**, with the answers under Decisions. Module 3 of 4 in
+Status: **approved 7 Nov 2026**, with the answers under Decisions. **Amended
+10 Nov** (AIB-75v T16, the publisher): `/saved` is now a category view. It has
+the Toolbar without the date picker; search, Filters, the Sidebar's categories
+and Ranked | Grouped work over the saves (Grouped by category, as on the feed;
+order newest file first, rank inside); the heading and the "Stored in this
+browser" / "Synced" line are gone (the sticky banner now shows here too); rows
+do not show their edition. "No toolbar" and the fixed order below are
+superseded. Module 3 of 4 in
 `docs/specs/AIB-75v-capability-map.md`. Builds on `app-local-saves` (#56,
 merged as `c3fad8d`). Design: A1 and D2 in
 `docs/decisions/product/AIB-75v-saves-and-sign-in-design.md`; prototype:

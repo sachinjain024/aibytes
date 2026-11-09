@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { filesToLoad, leftOutNote, savedGroups } from "./saved.js";
+import { filesToLoad, leftOutNote, savedFeed, savedGroups } from "./saved.js";
 
 // index.json and weekly/index.json refs, newest first, as the app loads them.
 const EDITIONS = [
@@ -108,4 +108,21 @@ test("the note says how many were left out, and from what", () => {
   assert.equal(leftOutNote({ count: 2, kinds: ["issue"] }), "2 saved items were removed from their issues and are not shown.");
   assert.equal(leftOutNote({ count: 2, kinds: ["edition", "issue"] }), "2 saved items were removed from their editions or issues and are not shown.");
   assert.equal(leftOutNote({ count: 0, kinds: [] }), null);
+});
+
+test("savedFeed lays the sections end to end, keeps each item's file, and reports loading and failed files", () => {
+  const saves = [ed("a-11-06", "2026-11-06"), ed("c-11-06", "2026-11-06"), ed("x-11-04", "2026-11-04"), wk("v-issue-9", "issue-9")];
+  const { groups } = savedGroups(saves, { editions: EDITIONS, issues: ISSUES, files: FILES });
+  const feed = savedFeed(groups);
+  assert.deepEqual(feed.items.map((i) => i.id), ["a-11-06", "c-11-06", "x-11-04", "v-issue-9"]);
+  assert.deepEqual(feed.from.get("x-11-04"), { edition_date: "2026-11-04" });
+  assert.deepEqual(feed.from.get("v-issue-9"), { issue_slug: "issue-9" });
+  assert.equal(feed.loading, false);
+  assert.deepEqual(feed.failed, []);
+
+  const files = { "edition:2026-11-04": { status: "error", error: new Error("HTTP 500") }, "issue:issue-9": FILES["issue:issue-9"] };
+  const partial = savedFeed(savedGroups(saves, { editions: EDITIONS, issues: ISSUES, files }).groups);
+  assert.deepEqual(partial.items.map((i) => i.id), ["v-issue-9"]);
+  assert.equal(partial.loading, true);
+  assert.deepEqual(partial.failed.map((g) => g.label), ["Wed, Nov 4"]);
 });

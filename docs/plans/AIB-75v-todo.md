@@ -401,6 +401,40 @@ result shared, so StrictMode's second effect run cannot report 0.
 
 **Files:** `apps/web/src/App.jsx`, `hooks.js`.
 
+### T16: the Saved view as a category view
+
+**Description:** the publisher, 10 Nov (ticket item `ck_c38f9423`): `/saved`
+looks and works like a category view such as HN Threads. Decisions: the
+Toolbar shows the count, search, Filters, Ranked | Grouped and List | Grid,
+with no date picker; Ranked and Grouped mean what they mean on the feed
+(Grouped by category, Ranked one list), over the saves ordered newest file
+first and rank inside; the "Stored in this browser only" / "Synced to your
+Google account" line goes, so the banner now shows on `/saved` too (amends
+C2); the merge line still shows once. This amends module 3's "No toolbar" and
+fixed order. The Sidebar's categories filter the saves, as they filter an
+edition.
+
+**Acceptance criteria:**
+- [x] `saved.js` `savedFeed(groups)`: one list in the groups' order, each
+      item's file, and which files are loading or failed (tests).
+- [x] `banner.js`: the banner shows on `/saved` (tests).
+- [x] `/saved` has the Toolbar without the date; search, Filters, the
+      Sidebar's categories and the two modes filter and order the saves; the
+      URL carries the filters as on the feed; unstarring still works per file.
+- [x] Empty states: no saves; a filter or search that empties the list
+      (clear it); a file that fails says so; the left-out note stays.
+- [x] At 1280 and 390px, both themes; the full check list passes.
+
+**Files:** `apps/web/src/saved.js`, `banner.js`, their tests, `App.jsx`.
+
+Checked signed out on the dev server with 7 saves from two editions and a
+weekly issue: Grouped and Ranked, a Sidebar category (`/saved?c=news`), search
+(`&q=`), a search with no match, unstarring, the banner, 1280 and 390px in both
+themes. Not done, needing a Ledger change (ask first): the search placeholder
+still says "Search this edition…", and `Sidebar` shows no category as current
+while `savedActive`, so a category picked on `/saved` shows only in the
+results and the URL. Rows do not show their edition (the publisher: not needed).
+
 ### After the PR
 
 - [x] The publisher reviews `firestore.rules` and deploys it to the
