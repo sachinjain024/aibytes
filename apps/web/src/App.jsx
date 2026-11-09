@@ -14,7 +14,7 @@ import { Toolbar } from "@aibytes/design-system/components/navigation/Toolbar.js
 import { loadEdition, loadIndex, loadTags, loadWeeklyIndex, loadWeeklyIssue } from "./content.js";
 import { filesToLoad, leftOutNote, savedGroups } from "./saved.js";
 import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, SOURCES } from "./filters.js";
-import { EMAIL, FOOTER_LINKS, GITHUB_URL, mailto, SUBSCRIBE_URL } from "./footer.js";
+import { FOOTER_LINKS, GITHUB_URL, mailto, SUBSCRIBE_URL } from "./footer.js";
 import { longDate, midDate, shortDate } from "./format.js";
 import { useChoice, useDismiss, useGridColumns, useMedia, useReturnFocus, useSaves, useTheme } from "./hooks.js";
 import { shownView } from "./layout.js";
@@ -442,9 +442,11 @@ function SavedApp({ saves: store, location, navigate, theme, onToggleTheme }) {
 // were checked against the built site: no cookies or analytics of the site's own,
 // fonts from Google Fonts, item images from the sites they belong to. Change
 // them only with the site; Google's sign-in consent screen links here.
+const PRIVACY_EMAIL = "contact@aibytes.io";
+
 function PrivacyApp({ saves, location, navigate, theme, onToggleTheme }) {
   React.useEffect(() => { document.title = "aiBytes_ · Privacy"; }, []);
-  const contact = <a href={mailto(EMAIL, "Privacy: aiBytes_")}>{EMAIL}</a>;
+  const contact = <a href={mailto(PRIVACY_EMAIL, "Privacy: aiBytes_")}>{PRIVACY_EMAIL}</a>;
   return (
     <FeedShell saves={saves} page="privacy" theme={theme} onToggleTheme={onToggleTheme} location={location} navigate={navigate}
       skipLabel="Skip to the privacy page" date={null} all={null}>

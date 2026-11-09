@@ -3,7 +3,7 @@
 // mail links go to the address Ledger's footer already shipped with.
 import { NEWSLETTER_ORIGIN, privacyPath } from "./route.js";
 
-export const EMAIL = "sachinjain.hq@gmail.com";
+const EMAIL = "sachinjain.hq@gmail.com";
 
 export const SUBSCRIBE_URL = NEWSLETTER_ORIGIN + "/subscribe";
 
