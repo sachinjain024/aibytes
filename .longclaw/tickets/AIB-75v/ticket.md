@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T06:08:19.592Z
-updated_at: 2026-11-09T21:54:07.961Z
+updated_at: 2026-11-09T21:55:30.703Z
 ---
 
 Saving items (the ☆ on every card and row) and signing in with Google, split out of AIB-8h on 2026-10-08. AIB-8h shipped the web app without them: no star, no Saved entry, no Sign in. This ticket brings them in.
@@ -64,7 +64,7 @@ Decisions on the map: the publisher creates a new Firebase project for aibytes.i
 - [x] T9: the address <!-- longclaw:item=ck_c49fa709 -->
 - [x] T10: the page and the entry <!-- longclaw:item=ck_522b50f3 -->
 - [x] app-saved-view: Saved entry and count in the sidebar, /saved page grouped by edition date and weekly issue, rank order inside each, hidden items left out with a note, empty state (PR merged) <!-- longclaw:item=ck_92ac9854 -->
-- [ ] Firebase project created for aibytes.io (publisher): Google sign-in on, aibytes.io authorised <!-- longclaw:item=ck_af2bb5f2 -->
+- [x] Firebase project created for aibytes.io (publisher): Google sign-in on, aibytes.io authorised <!-- longclaw:item=ck_af2bb5f2 -->
 - [x] app-accounts: spec approved <!-- longclaw:item=ck_f3d1ec1d -->
 - [x] T11: the privacy page <!-- longclaw:item=ck_071c6456 -->
 - [x] T12: the pure parts <!-- longclaw:item=ck_5c71b7c7 -->
@@ -1330,4 +1330,19 @@ Progress, 10 Nov (PR #58, branch aib-75v-app-accounts):
 - Rules deployed by the publisher on 9 Nov (firebase deploy --only firestore:rules).
 - Signed-in checks on localhost passed with a real account (9168edd): sign in and out, the avatar and its menu, no Sign in flash on reload, two local saves merged into the account and local storage cleared, a save syncing to a second browser without a reload.
 - Open: the blocked-popup check (deferred by the publisher); dev-console AbortErrors from Firestore streams around reloads, harmless so far, to check on the production build; T15 the banner and signed-in lines on /saved (replaces 'Stored in this browser only.' when signed in); one sign-in on aibytes.io after merge; add https://aibytes.io/privacy to the OAuth consent screen.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_632327ad
+kind: update
+occurred_at: 2026-11-09T21:55:30.703Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_af2bb5f2.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
 <!-- /longclaw:event -->
