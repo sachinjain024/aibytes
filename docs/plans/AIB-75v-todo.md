@@ -313,16 +313,20 @@ path, emulator port), `apps/web/rules.test.js` with
 (`firebase emulators:exec`).
 
 **Acceptance criteria:**
-- [ ] RED first against an empty-deny rules file, then GREEN: the owner
+- [x] RED first against an empty-deny rules file, then GREEN: the owner
       creates, reads, updates and deletes; another user and a signed-out
       reader are denied each; a missing or extra field, both or neither
       source, a bad date or slug, a mismatched `item_id`, and any other path
       are denied.
-- [ ] The test skips with a message when Java or the CLI is missing; it is
+- [x] The test skips with a message when Java or the CLI is missing; it is
       not part of `npm test`.
 
 **Files:** `firestore.rules`, `firebase.json`, `apps/web/rules.test.js`,
-`apps/web/package.json`, `package-lock.json`.
+`apps/web/package.json`, `package-lock.json`, `.gitignore` (the emulator's
+`*-debug.log`). 8 tests; each was checked to bite by loosening the rules (any
+signed-in user as owner; extra fields allowed) and watching the matching test
+fail. `firebase` is in the lock as the testing kit's peer; T14 makes it a
+dependency. The stray root `firebase` change was backed up and reverted first.
 
 ### T14: signing in and the account store (needs the Firebase project)
 

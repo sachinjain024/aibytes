@@ -20,3 +20,6 @@ logs/
 
 # Local scratch: exports with subscriber emails, drafts. Never commit.
 tmp/
+
+# Firebase emulator logs (npm run test:rules)
+*-debug.log
