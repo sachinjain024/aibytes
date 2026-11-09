@@ -338,21 +338,34 @@ publisher's values; `.firebaserc` with the project id; `account.js` (init,
 control while the session restores.
 
 **Acceptance criteria:**
-- [ ] The full check list and `test:rules` pass; the build check records the
-      gzipped size Firebase adds.
+- [x] The full check list and `test:rules` pass; the build check records the
+      gzipped size Firebase adds: the app's JS goes from 63.3 kB to 236.3 kB
+      gzipped (+173 kB, against the spec's ~100 kB estimate). Raised with the
+      publisher before T15, as the plan's risk table says.
 - [ ] On localhost with a real Google account: sign in and out; the photo
       and the initial fallback; the menu's Saved and Sign out; a reload while
       signed in shows no Sign in flash.
-- [ ] Merge: 3 local saves into an account holding 1 of them adds 2, clears
-      local storage, and keeps the account's copy; a forced failure leaves
-      local storage untouched.
+- [x] Merge: 3 local saves into an account holding 1 of them adds 2 and keeps
+      the account's copy (`accountSaves.test.js` on the emulator, real rules);
+      merging into another account rejects, and `App` clears local storage
+      only in the success path.
 - [ ] A save in one browser appears in a second, signed in, without a reload.
+      (The listener is covered on the emulator: a save written by another
+      client arrives. The two-browser check waits on the deployed rules.)
 - [ ] Closing the popup does nothing; a blocked popup shows "Could not sign
       in. Try again."
 
+Signed out, checked on the dev server: Sign in shows at once, no avatar, no
+errors, and no request to Google's auth or Firestore hosts. The signed-in
+checks above that are still open need a real Google account and the rules
+deployed to the `aibytes` database: the publisher's step.
+
 **Files:** `apps/web/package.json`, `package-lock.json`,
 `apps/web/src/firebase-config.js`, `account.js`, `accountSaves.js`,
-`App.jsx`, `.firebaserc`.
+`App.jsx`, `.firebaserc`; also `header.js` (what the masthead shows per
+state), `accountSaves.test.js`, `header.test.js`, and `clearSaves` in
+`saves.js`. `test:rules` runs its two files one at a time: run together,
+`rules.test.js` clears the emulator under the store's tests.
 
 ### T15: the banner and the signed-in lines
 

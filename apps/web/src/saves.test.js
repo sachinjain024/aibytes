@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { withBlockedStorage } from "./blocked-storage.js";
-import { localSaves, readSaves, SAVES_KEY } from "./saves.js";
+import { clearSaves, localSaves, readSaves, SAVES_KEY } from "./saves.js";
 
 const memory = (entries = {}) => ({
   entries,
@@ -147,4 +147,13 @@ test("blocked site data, where reading localStorage itself throws, is no saves a
     assert.deepEqual(saves.toggle(EDITION_ITEM, { edition_date: "2026-11-06" }), { saved: true, kept: false });
     assert.equal(saves.has(EDITION_ITEM.id), true);
   });
+});
+
+test("clearSaves empties the key after a merge, and reports a storage that throws", () => {
+  const storage = memory({ [SAVES_KEY]: JSON.stringify([{ item_id: "a", edition_date: "2026-11-06", created_at: "2026-11-07T09:30:00.000Z" }]), other: "kept" });
+  storage.removeItem = (key) => { delete storage.entries[key]; };
+  assert.equal(clearSaves(storage), true);
+  assert.deepEqual(readSaves(storage), []);
+  assert.equal(storage.entries.other, "kept");
+  assert.equal(clearSaves({ removeItem() { throw new Error("SecurityError"); } }), false);
 });

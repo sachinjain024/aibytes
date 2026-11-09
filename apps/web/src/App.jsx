@@ -20,7 +20,10 @@ import { useChoice, useDismiss, useGridColumns, useMedia, useReturnFocus, useSav
 import { shownView } from "./layout.js";
 import { groupedItems, rankedItems } from "./order.js";
 import { ORDER, VIEW } from "./prefs.js";
-import { localSaves } from "./saves.js";
+import { db, onUser, signIn, signOut } from "./account.js";
+import { accountSaves, mergeInto } from "./accountSaves.js";
+import { headerAccount } from "./header.js";
+import { clearSaves, localSaves, readSaves } from "./saves.js";
 import { editionPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, savedPath, weeklyPath } from "./route.js";
 
 // The sidebar's links: live ones first, then those not live yet. GitHub is
@@ -47,9 +50,61 @@ function useLocation() {
   return [location, navigate];
 }
 
+// The reader's account (AIB-75v app-accounts): `user` is undefined while
+// Firebase restores the session, null when signed out, and { uid, name,
+// photoUrl? } when signed in; `merged` is how many local saves the last
+// sign-in added; `signInFailed` shows the error line until the next try or page.
+const AccountContext = React.createContext({ user: null, merged: 0, signInFailed: false, signIn() {}, signOut() {}, dismiss() {} });
+
+// The saves store follows the user: this browser's while signed out, the
+// account's while signed in. Signing in with local saves merges them into the
+// account and clears them here only once the merge has committed; a failed
+// merge leaves them for the next sign-in.
+function useAccount() {
+  const [user, setUser] = React.useState(undefined);
+  const [merged, setMerged] = React.useState(0);
+  const [failed, setFailed] = React.useState(false);
+  React.useEffect(() => onUser(setUser), []);
+  const uid = user?.uid;
+  const saves = React.useMemo(
+    () => (uid ? accountSaves(db, uid, { onError: (e) => console.warn("Saves:", e.code || e) }) : localSaves()),
+    [uid],
+  );
+  React.useEffect(() => {
+    const local = uid ? readSaves() : [];
+    if (!local.length) return undefined;
+    let live = true;
+    mergeInto(db, uid, local).then(
+      (count) => { clearSaves(); if (live) setMerged(count); },
+      (e) => console.warn("Merging this browser's saves failed; they stay here for the next sign-in:", e.code || e),
+    );
+    return () => { live = false; };
+  }, [uid]);
+  const account = React.useMemo(() => ({
+    user,
+    merged,
+    signInFailed: failed,
+    signIn() { setFailed(false); signIn().then((result) => setFailed(result === "failed")); },
+    signOut() { setMerged(0); signOut(); },
+    dismiss() { setFailed(false); },
+  }), [user, merged, failed]);
+  return [saves, account];
+}
+
+// AppHeader's account props for this page: Sign in, the avatar, or neither while restoring.
+function useHeaderAccount(navigate) {
+  const account = React.useContext(AccountContext);
+  return headerAccount(account.user, { signIn: account.signIn, signOut: account.signOut, openSaved: () => navigate(savedPath()) });
+}
+
+// "Could not sign in. Try again." under the header, after a sign-in that failed for a reason other than the reader closing the popup.
+function SignInFailed() {
+  const { signInFailed } = React.useContext(AccountContext);
+  return signInFailed ? <StatusMessage role="alert">Could not sign in. Try again.</StatusMessage> : null;
+}
+
 // The approved presentation wraps the existing edition, URL filter and
-// preference logic. Saves live in this browser (AIB-75v app-local-saves);
-// sign-in is still to come.
+// preference logic, with saves and Google sign-in (AIB-75v).
 export function App() {
   // Text fields match :focus-visible even after pointer focus in browsers.
   // Track input modality so rings are reserved for keyboard navigation.
@@ -76,14 +131,18 @@ export function App() {
   const route = parseRoute(location.pathname);
   const [theme, toggleTheme] = useTheme();
   React.useEffect(() => { document.documentElement.dataset.theme = theme; }, [theme]);
-  // One saves store for the session, whichever page is open.
-  const [saves] = React.useState(() => localSaves());
+  // One saves store for the session, whichever page is open, swapped on sign-in and sign-out.
+  const [saves, account] = useAccount();
+  const { dismiss } = account;
+  React.useEffect(() => { dismiss(); }, [location.pathname, dismiss]);
+  return <AccountContext.Provider value={account}>{page()}</AccountContext.Provider>;
 
+  function page() {
   // Weekly archive and issue pages share the Ledger shell with the daily
   // edition (AIB-105j). Intro / Official Announcements / Viral on X are omitted
   // from the issue JSON for now.
   if (route.kind === "weekly_index") {
-    return <WeeklyArchive theme={theme} onToggleTheme={toggleTheme} />;
+    return <WeeklyArchive theme={theme} onToggleTheme={toggleTheme} navigate={navigate} />;
   }
   if (route.kind === "privacy") {
     return <PrivacyApp saves={saves} location={location} navigate={navigate} theme={theme} onToggleTheme={toggleTheme} />;
@@ -114,6 +173,7 @@ export function App() {
       onToggleTheme={toggleTheme}
     />
   );
+  }
 }
 
 // The Ledger shell a daily edition and a weekly issue share: masthead, category
@@ -128,6 +188,7 @@ export function App() {
 // `heading` is left out. On "saved", Saved is the current entry.
 function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location, navigate, skipLabel, heading, date, all, children }) {
   const { saves } = useSaves(store);
+  const headerProps = useHeaderAccount(navigate);
   const feedPage = page === "feed";
   const savedPage = page === "saved";
   // Defaults: list + grouped (AIB-105j). A stored preference still wins.
@@ -193,7 +254,7 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
   return (
     <div className={"app-shell redesign" + (shown === "grid" ? " redesign-grid" : "") + (menuOpen ? " mobile-menu-open" : "")} ref={shell} data-theme={theme}>
       <a className="app-skip" href="#main">{skipLabel}</a>
-      <AppHeader theme={theme} onToggleTheme={onToggleTheme} menuOpen={menuOpen} onMenu={() => setMenuOpen(o => !o)} githubUrl={GITHUB_URL} />
+      <AppHeader theme={theme} onToggleTheme={onToggleTheme} menuOpen={menuOpen} onMenu={() => setMenuOpen(o => !o)} githubUrl={GITHUB_URL} {...headerProps} />
       <Sidebar categories={categories} count={visible?.length} active={feedPage ? filters.category : null} open={menuOpen} onClose={() => setMenuOpen(false)}
         links={SIDEBAR_LINKS} subscribeUrl={SUBSCRIBE_URL}
         onCategory={key => {
@@ -217,6 +278,7 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
           <ActiveFilters filters={filters} onChange={setFilters} />
           </>}
           <div className="app-main" ref={setMainEl}>
+            <SignInFailed />
             {children({ items, filters, view: shown, mode, clearQuery: () => setQuery(""), clearFilters: () => setFilters(NO_FILTERS) })}
           </div>
         </section></div>
@@ -516,7 +578,8 @@ function SubscribeBar() {
 
 // /weekly - every published issue, newest first. Issue links are plain hrefs:
 // each issue is its own built page, with its own title and canonical URL.
-function WeeklyArchive({ theme, onToggleTheme }) {
+function WeeklyArchive({ theme, onToggleTheme, navigate }) {
+  const headerProps = useHeaderAccount(navigate);
   const weekly = useLoaded(loadWeeklyIndex, ONCE, "weekly");
   React.useEffect(() => { document.title = "aiBytes_ · Weekly"; }, []);
   const issues = weekly.status === "ready" ? weekly.data.issues : [];
@@ -547,7 +610,8 @@ function WeeklyArchive({ theme, onToggleTheme }) {
   return (
     <div className="app-shell redesign" data-theme={theme}>
       <a className="app-skip" href="#main">Skip to the archive</a>
-      <AppHeader theme={theme} onToggleTheme={onToggleTheme} githubUrl={GITHUB_URL} />
+      <AppHeader theme={theme} onToggleTheme={onToggleTheme} githubUrl={GITHUB_URL} {...headerProps} />
+      <SignInFailed />
       <main id="main" className="redesign-main" tabIndex={-1}>
         <div className="workspace">
           <section className="weekly-archive">

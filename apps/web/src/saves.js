@@ -47,6 +47,16 @@ export function readSaves(storage = browserStorage()) {
   return parsed.map(asSave).filter((save) => save && !seen.has(save.item_id) && seen.add(save.item_id));
 }
 
+/** Removes every local save, once a merge into the account has committed. False if storage threw. */
+export function clearSaves(storage = browserStorage()) {
+  try {
+    storage.removeItem(SAVES_KEY);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export function localSaves(storage = browserStorage(), events = globalThis) {
   let saves = readSaves(storage);
   const listeners = new Set();
