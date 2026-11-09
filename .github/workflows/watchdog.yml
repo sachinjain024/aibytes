@@ -1,11 +1,11 @@
 name: watchdog
 
-# Is today's edition published? Runs at 09:00 UTC (14:30 IST), an hour after
-# the edition job, and posts to Slack when it is missing - the one failure a
+# Is today's edition published? Runs at 16:17 UTC (21:47 IST), after the
+# edition job (08:07 UTC, which GitHub has started up to ~6.5h late), and posts to Slack when it is missing - the one failure a
 # job that never ran cannot report itself. Replaces io.aibytes.watchdog.
 on:
   schedule:
-    - cron: "0 9 * * *"
+    - cron: "17 16 * * *"
   workflow_dispatch:
     inputs:
       date:
