@@ -4,13 +4,13 @@ id: 6ef6489e-6e94-477f-947d-f4964ff401e2
 key: AIB-75v
 title: Saves and Google sign-in for the web app
 status: in_progress
-priority: p2
+priority: p1
 rank: a0
 labels:
   - app
 type: feature
 created_at: 2026-10-08T06:08:19.592Z
-updated_at: 2026-11-08T00:57:00.865Z
+updated_at: 2026-11-09T07:26:02.139Z
 ---
 
 Saving items (the ☆ on every card and row) and signing in with Google, split out of AIB-8h on 2026-10-08. AIB-8h shipped the web app without them: no star, no Saved entry, no Sign in. This ticket brings them in.
@@ -49,16 +49,192 @@ Decisions on the map: the publisher creates a new Firebase project for aibytes.i
 - [x] Design decided: decision record and prototype <!-- longclaw:item=ck_9f53b82f -->
 - [x] Capability map approved (docs/specs/AIB-75v-capability-map.md) <!-- longclaw:item=ck_74b4e788 -->
 - [x] ledger-saves-ui: spec approved <!-- longclaw:item=ck_eafa6b6e -->
+- [x] T1: star position on cards and rows <!-- longclaw:item=ck_f34fbba2 -->
+- [x] T2: the Saved entry in the sidebar <!-- longclaw:item=ck_6500736c -->
+- [x] T3: Sign in and the account menu in the header <!-- longclaw:item=ck_b91cc873 -->
+- [x] T4: the sticky save banner <!-- longclaw:item=ck_3e692f5c -->
+- [x] T5: UI kit screens and docs <!-- longclaw:item=ck_2ee982e4 -->
 - [x] ledger-saves-ui: Saved entry in Sidebar, Sign in and account menu in AppHeader, sticky SaveBanner with icon, star position on FeedItem / Card / ListRow (PR merged) <!-- longclaw:item=ck_bbf07bb8 -->
 - [x] app-local-saves: spec approved <!-- longclaw:item=ck_e869ea35 -->
+- [x] T6: the saves store <!-- longclaw:item=ck_1c92eda5 -->
+- [x] T7: the star on edition and weekly pages <!-- longclaw:item=ck_5edd6b32 -->
 - [x] app-local-saves: the ☆ on edition and weekly issue pages saves to local storage at once (PR merged) <!-- longclaw:item=ck_d5ac2437 -->
 - [x] app-saved-view: spec approved <!-- longclaw:item=ck_1b4555b9 -->
+- [x] T8: the grouping <!-- longclaw:item=ck_05ca07da -->
+- [x] T9: the address <!-- longclaw:item=ck_c49fa709 -->
+- [x] T10: the page and the entry <!-- longclaw:item=ck_522b50f3 -->
 - [x] app-saved-view: Saved entry and count in the sidebar, /saved page grouped by edition date and weekly issue, rank order inside each, hidden items left out with a note, empty state (PR merged) <!-- longclaw:item=ck_92ac9854 -->
 - [ ] Firebase project created for aibytes.io (publisher): Google sign-in on, aibytes.io authorised <!-- longclaw:item=ck_af2bb5f2 -->
 - [x] app-accounts: spec approved <!-- longclaw:item=ck_f3d1ec1d -->
+- [ ] T11: the privacy page <!-- longclaw:item=ck_071c6456 -->
+- [ ] T12: the pure parts <!-- longclaw:item=ck_5c71b7c7 -->
+- [ ] T13: the rules <!-- longclaw:item=ck_120354e4 -->
+- [ ] T14: signing in and the account store (needs the Firebase project) <!-- longclaw:item=ck_304c9fdc -->
+- [ ] T15: the banner and the signed-in lines <!-- longclaw:item=ck_ddb505c3 -->
 - [ ] app-accounts: Firebase Auth with the Google provider, client SDK only; Sign in, account menu and the sticky banner <!-- longclaw:item=ck_1f32b91e -->
 - [ ] app-accounts: Firestore users/{uid}/saves/{itemId}; firestore.rules reviewed and deployed by hand with the Firebase CLI <!-- longclaw:item=ck_4661cf94 -->
 - [ ] app-accounts: merge local saves into the account on first sign-in, then clear local storage (PR merged) <!-- longclaw:item=ck_75ad990d -->
+- [ ] After the PR: the publisher reviews firestore.rules and deploys it (firebase deploy --only firestore:rules) <!-- longclaw:item=ck_0a4eed5e -->
+- [ ] After the PR: one sign-in on aibytes.io after Pages deploys <!-- longclaw:item=ck_dc744d05 -->
+- [ ] Ledger: links in body text visible without hover (link colour + underline, WCAG 1.4.1) <!-- longclaw:item=ck_ec5f97c2 -->
+
+## Ticket References
+
+<!-- longclaw:reference
+id: ref_d61ca8a8
+path: docs/decisions/product/AIB-75v-saves-and-sign-in-design.md
+added_at: 2026-11-08T00:58:24.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[AIB-75v-saves-and-sign-in-design.md](docs/decisions/product/AIB-75v-saves-and-sign-in-design.md)
+<!-- /longclaw:reference -->
+
+<!-- longclaw:reference
+id: ref_17dbf81b
+path: docs/ux/prototypes/AIB-75v-saves/aib-75v-saves.html
+added_at: 2026-11-08T00:58:24.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[aib-75v-saves.html](docs/ux/prototypes/AIB-75v-saves/aib-75v-saves.html)
+<!-- /longclaw:reference -->
+
+<!-- longclaw:reference
+id: ref_2f0a3070
+path: packages/design-system/ui_kits/aibytes-app/12-saves-signed-out.html
+added_at: 2026-11-08T00:58:24.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[12-saves-signed-out.html](packages/design-system/ui_kits/aibytes-app/12-saves-signed-out.html)
+<!-- /longclaw:reference -->
+
+<!-- longclaw:reference
+id: ref_d303cf37
+path: packages/design-system/ui_kits/aibytes-app/13-signed-in-menu.html
+added_at: 2026-11-08T00:58:24.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[13-signed-in-menu.html](packages/design-system/ui_kits/aibytes-app/13-signed-in-menu.html)
+<!-- /longclaw:reference -->
+
+<!-- longclaw:reference
+id: ref_6dc51df4
+path: packages/design-system/ui_kits/aibytes-app/14-mobile-banner.html
+added_at: 2026-11-08T00:58:24.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[14-mobile-banner.html](packages/design-system/ui_kits/aibytes-app/14-mobile-banner.html)
+<!-- /longclaw:reference -->
+
+<!-- longclaw:reference
+id: ref_a1ac708b
+path: docs/aibytes-app-product-spec.md
+added_at: 2026-11-08T00:58:24.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[aibytes-app-product-spec.md](docs/aibytes-app-product-spec.md)
+<!-- /longclaw:reference -->
+
+<!-- longclaw:reference
+id: ref_d846d331
+path: docs/specs/AIB-75v-capability-map.md
+added_at: 2026-11-08T00:58:24.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[AIB-75v-capability-map.md](docs/specs/AIB-75v-capability-map.md)
+<!-- /longclaw:reference -->
+
+<!-- longclaw:reference
+id: ref_d6919c8e
+path: docs/specs/AIB-75v-ledger-saves-ui.md
+added_at: 2026-11-08T00:58:24.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[AIB-75v-ledger-saves-ui.md](docs/specs/AIB-75v-ledger-saves-ui.md)
+<!-- /longclaw:reference -->
+
+<!-- longclaw:reference
+id: ref_651be514
+path: docs/specs/AIB-75v-app-local-saves.md
+added_at: 2026-11-08T00:58:24.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[AIB-75v-app-local-saves.md](docs/specs/AIB-75v-app-local-saves.md)
+<!-- /longclaw:reference -->
+
+<!-- longclaw:reference
+id: ref_ba2f2f94
+path: docs/specs/AIB-75v-app-saved-view.md
+added_at: 2026-11-08T00:58:24.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[AIB-75v-app-saved-view.md](docs/specs/AIB-75v-app-saved-view.md)
+<!-- /longclaw:reference -->
+
+<!-- longclaw:reference
+id: ref_a3eb6bd3
+path: docs/specs/AIB-75v-app-accounts.md
+added_at: 2026-11-08T00:58:24.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[AIB-75v-app-accounts.md](docs/specs/AIB-75v-app-accounts.md)
+<!-- /longclaw:reference -->
+
+<!-- longclaw:reference
+id: ref_6750a930
+path: docs/plans/AIB-75v-plan.md
+added_at: 2026-11-08T00:58:24.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[AIB-75v-plan.md](docs/plans/AIB-75v-plan.md)
+<!-- /longclaw:reference -->
+
+<!-- longclaw:reference
+id: ref_6d416700
+path: docs/plans/AIB-75v-todo.md
+added_at: 2026-11-08T00:58:24.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[AIB-75v-todo.md](docs/plans/AIB-75v-todo.md)
+<!-- /longclaw:reference -->
 
 ## Activity
 
@@ -665,4 +841,384 @@ changes:
 ### You updated this ticket
 
 Module 4 spec approved 8 Nov 2026 (docs/specs/AIB-75v-app-accounts.md): Firebase on every page, rules tested on the emulator, a /privacy page. Tasks T11-T15 in docs/plans/AIB-75v-todo.md; T11-T13 need no Firebase project, T14-T15 do.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e869e59a
+kind: update
+occurred_at: 2026-11-08T01:01:05.233Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: priority
+    from: p2
+    to: p1
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e779d48f
+kind: update
+occurred_at: 2026-11-08T01:01:49.658Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_f34fbba2.added
+    to: "T1: star position on cards and rows"
+  - field: checklist.ck_6500736c.added
+    to: "T2: the Saved entry in the sidebar"
+  - field: checklist.ck_b91cc873.added
+    to: "T3: Sign in and the account menu in the header"
+  - field: checklist.ck_3e692f5c.added
+    to: "T4: the sticky save banner"
+  - field: checklist.ck_2ee982e4.added
+    to: "T5: UI kit screens and docs"
+  - field: checklist.ck_1c92eda5.added
+    to: "T6: the saves store"
+  - field: checklist.ck_5edd6b32.added
+    to: "T7: the star on edition and weekly pages"
+  - field: checklist.ck_05ca07da.added
+    to: "T8: the grouping"
+  - field: checklist.ck_c49fa709.added
+    to: "T9: the address"
+  - field: checklist.ck_522b50f3.added
+    to: "T10: the page and the entry"
+  - field: checklist.ck_071c6456.added
+    to: "T11: the privacy page"
+  - field: checklist.ck_5c71b7c7.added
+    to: "T12: the pure parts"
+  - field: checklist.ck_120354e4.added
+    to: "T13: the rules"
+  - field: checklist.ck_304c9fdc.added
+    to: "T14: signing in and the account store (needs the Firebase project)"
+  - field: checklist.ck_ddb505c3.added
+    to: "T15: the banner and the signed-in lines"
+  - field: checklist.ck_0a4eed5e.added
+    to: "After the PR: the publisher reviews firestore.rules and deploys it (firebase deploy --only firestore:rules)"
+  - field: checklist.ck_dc744d05.added
+    to: "After the PR: one sign-in on aibytes.io after Pages deploys"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8e0f3f0b
+kind: update
+occurred_at: 2026-11-08T01:01:57.783Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_f34fbba2.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_6500736c.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_b91cc873.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_3e692f5c.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_2ee982e4.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_1c92eda5.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_5edd6b32.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_05ca07da.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_c49fa709.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_522b50f3.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_289e63a1
+kind: update
+occurred_at: 2026-11-08T01:01:57.813Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_f34fbba2.moved
+    from: "14"
+    to: "4"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_054390a3
+kind: update
+occurred_at: 2026-11-08T01:01:57.838Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_6500736c.moved
+    from: "15"
+    to: "5"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_9965602d
+kind: update
+occurred_at: 2026-11-08T01:01:57.862Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_b91cc873.moved
+    from: "16"
+    to: "6"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_457020c0
+kind: update
+occurred_at: 2026-11-08T01:01:57.885Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_3e692f5c.moved
+    from: "17"
+    to: "7"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_786fb80a
+kind: update
+occurred_at: 2026-11-08T01:01:57.908Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_2ee982e4.moved
+    from: "18"
+    to: "8"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_b9f8fba4
+kind: update
+occurred_at: 2026-11-08T01:01:57.934Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_1c92eda5.moved
+    from: "19"
+    to: "11"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_a68d4cf8
+kind: update
+occurred_at: 2026-11-08T01:01:57.958Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_5edd6b32.moved
+    from: "20"
+    to: "12"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_5492aff4
+kind: update
+occurred_at: 2026-11-08T01:01:57.981Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_05ca07da.moved
+    from: "21"
+    to: "15"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_725b9b22
+kind: update
+occurred_at: 2026-11-08T01:01:58.004Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_c49fa709.moved
+    from: "22"
+    to: "16"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_78ed496e
+kind: update
+occurred_at: 2026-11-08T01:01:58.028Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_522b50f3.moved
+    from: "23"
+    to: "17"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_b0fd8604
+kind: update
+occurred_at: 2026-11-08T01:01:58.055Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_071c6456.moved
+    from: "24"
+    to: "21"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_910a29ca
+kind: update
+occurred_at: 2026-11-08T01:01:58.078Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_5c71b7c7.moved
+    from: "25"
+    to: "22"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_0b8b45c9
+kind: update
+occurred_at: 2026-11-08T01:01:58.101Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_120354e4.moved
+    from: "26"
+    to: "23"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_183c42c7
+kind: update
+occurred_at: 2026-11-08T01:01:58.125Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_304c9fdc.moved
+    from: "27"
+    to: "24"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f97edf8e
+kind: update
+occurred_at: 2026-11-08T01:01:58.147Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_ddb505c3.moved
+    from: "28"
+    to: "25"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_3440515f
+kind: update
+occurred_at: 2026-11-09T07:26:02.139Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_ec5f97c2.added
+    to: "Ledger: links in body text visible without hover (link colour + underline, WCAG 1.4.1)"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_eecf3a65
+kind: comment
+occurred_at: 2026-11-09T07:26:02.170Z
+actor:
+  type: human
+  id: local
+-->
+### You commented
+
+Open item, deferred (9 Nov 2026): links inside body text are indistinguishable from the text around them until hover.
+
+Where it shows: /privacy (T11, 815b6fd): the account-deletion and Questions email links and the Substack privacy-policy link. It will also hit T15's /saved lines ('Sign in with Google' inside the sentence) and any future prose page.
+
+Cause: Ledger's base rule in packages/design-system/styles.css (around line 34) sets a { color: inherit; text-decoration: none; } and only a:hover adds color: var(--link) and an underline. Measured on /privacy: link and paragraph both rgb(23, 37, 61) in light; the same in dark. Fails WCAG 2.2 SC 1.4.1 (Use of Color) - here there is not even a colour difference - and the brief's AA bar.
+
+Proposed fix (a Ledger change, so ask-first): a scoped rule for links in running text, e.g. .app-main p a, .ldg-prose a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; } with :hover thickening the underline, leaving nav, card, row and button links as they are. Contrast of --link on --bg in both themes via the existing contrast tests; a TopOffset-style assertion in tests/test_design_system.py; note in readme.md and extending-ledger.md. Not changing the global a rule, which would restyle every card and nav link.
+
+Until then nothing is broken functionally; the links work and are keyboard-focusable with the visible focus ring.
 <!-- /longclaw:event -->
