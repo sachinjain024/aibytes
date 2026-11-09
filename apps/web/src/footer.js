@@ -1,7 +1,7 @@
 // The footer's links (spec §6, Navigation links), as data so `node --test` can
 // check them. The X account is Sachin's own until aiBytes_ has one, and both
 // mail links go to the address Ledger's footer already shipped with.
-import { NEWSLETTER_ORIGIN } from "./route.js";
+import { NEWSLETTER_ORIGIN, privacyPath } from "./route.js";
 
 const EMAIL = "sachinjain.hq@gmail.com";
 
@@ -19,4 +19,5 @@ export const FOOTER_LINKS = [
   { label: "X", href: "https://x.com/sachinjain024" },
   { label: "Suggest a link", href: mailto(EMAIL, "Suggest a link: aiBytes_") },
   { label: "Advertise", href: mailto(EMAIL, "Advertise: aiBytes_") },
+  { label: "Privacy", href: privacyPath() },
 ];

@@ -8,6 +8,7 @@ import {
   parseRoute,
   pickEdition,
   pickWeeklyIssue,
+  privacyPath,
   savedPath,
   weeklyPath,
   weeklyUrl,
@@ -101,4 +102,12 @@ test("the Saved page route, with or without a trailing slash", () => {
   assert.equal(savedPath(), "/saved");
   assert.deepEqual(parseRoute(savedPath()), { kind: "saved" });
   assert.deepEqual(parseRoute("/saved/2026-11-06"), { kind: "notfound" });
+});
+
+test("the privacy page route, with or without a trailing slash", () => {
+  for (const path of ["/privacy", "/privacy/"]) {
+    assert.deepEqual(parseRoute(path), { kind: "privacy" });
+  }
+  assert.equal(privacyPath(), "/privacy");
+  assert.deepEqual(parseRoute("/privacy/policy"), { kind: "notfound" });
 });

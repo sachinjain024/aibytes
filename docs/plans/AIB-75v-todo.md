@@ -4,8 +4,9 @@ Plan: `docs/plans/AIB-75v-plan.md`. Spec: `docs/specs/AIB-75v-ledger-saves-ui.md
 
 Module 1 (T1-T5) was built on `aib-75v-ledger-saves-ui` and squash-merged in
 #55. Module 2 (T6-T7) was built on `aib-75v-app-local-saves` and
-squash-merged in #56. Module 3 (T8-T10) is built on `aib-75v-app-saved-view`,
-one commit per task, in one PR squash-merged to `main`.
+squash-merged in #56. Module 3 (T8-T10) was built on `aib-75v-app-saved-view`
+and squash-merged in #57. Module 4 (T11-T15) is built on
+`aib-75v-app-accounts`, one commit per task, in one PR squash-merged to `main`.
 
 ## Module 1: `ledger-saves-ui`
 
@@ -258,3 +259,186 @@ the note, the empty state and the loading and error lines. `FeedShell` passes
 group now carries `from`, what unstarring its items needs. The browser checks
 ran on the production build through `vite preview`; the failed-file case
 deleted one edition from `dist/`, never `content/`, and the rebuild restored it.
+
+## Module 4: `app-accounts`
+
+Spec: `docs/specs/AIB-75v-app-accounts.md`.
+
+### T11: the privacy page
+
+**Description:** `parseRoute("/privacy")` is `{ kind: "privacy" }`;
+`PRIVACY_HEAD` (indexable, canonical `https://aibytes.io/privacy`);
+`dist/privacy/index.html`; `PrivacyApp` in the shell with the spec's text; a
+"Privacy" link in the Sidebar's links.
+
+**Acceptance criteria:**
+- [x] `route.test.js` and `pageMeta.test.js` cover the route and head (no
+      `noindex`); the build writes `dist/privacy/index.html`.
+- [x] The page states only what is true: checked against the built site that
+      it sets no cookies and loads no analytics, before the claim ships.
+- [x] In `npm run dev:web` at 1280 and 390px, both themes: the page reads
+      cleanly and the Sidebar link opens it.
+
+**Files:** `apps/web/src/route.js`, `route.test.js`, `pageMeta.js`,
+`pageMeta.test.js`, `footer.js`, `footer.test.js`, `App.jsx`,
+`apps/web/vite.config.js`. `FeedShell`'s `savedPage` became `page` ("feed",
+"saved", "privacy"). Checked: the build loads only Google Fonts and the item
+images' own hosts, with no analytics script and no `document.cookie`. Open:
+links in the page's text are the body colour until hover (Ledger's base `a`
+rule), raised with the publisher.
+
+### T12: the pure parts
+
+**Description:** `accountData.js`: `toSave(id, data)` and `toDoc(item, from,
+now)`. `merge.js`: `toAdd(local, account)` (local saves the account lacks,
+`created_at` kept) and `mergedLine(count)`. `showBanner({ signedIn, saveCount,
+dismissed, page })`.
+
+**Acceptance criteria:**
+- [x] New tests (RED first): both source kinds both ways, timestamps as ISO;
+      `toAdd` with none, some and all already in the account; the line for
+      0 (none), 1 and many; the banner rule over each input.
+
+**Files:** `apps/web/src/accountData.js`, `merge.js`, `banner.js` (the
+banner rule in its own module) and their tests; `saves.js` exports `sourceOf`
+and `asSave`, so local and account saves share one validation. `showBanner`
+takes `signedIn: null` while the session restores and shows nothing then.
+
+### T13: the rules
+
+**Description:** `firestore.rules` as in the spec, `firebase.json` (rules
+path, emulator port), `apps/web/rules.test.js` with
+`@firebase/rules-unit-testing` against the emulator under project id
+`demo-aibytes`, and `npm run test:rules -w @aibytes/web`
+(`firebase emulators:exec`).
+
+**Acceptance criteria:**
+- [x] RED first against an empty-deny rules file, then GREEN: the owner
+      creates, reads, updates and deletes; another user and a signed-out
+      reader are denied each; a missing or extra field, both or neither
+      source, a bad date or slug, a mismatched `item_id`, and any other path
+      are denied.
+- [x] The test skips with a message when Java or the CLI is missing; it is
+      not part of `npm test`.
+
+**Files:** `firestore.rules`, `firebase.json`, `apps/web/rules.test.js`,
+`apps/web/package.json`, `package-lock.json`, `.gitignore` (the emulator's
+`*-debug.log`). 8 tests; each was checked to bite by loosening the rules (any
+signed-in user as owner; extra fields allowed) and watching the matching test
+fail. `firebase` is in the lock as the testing kit's peer; T14 makes it a
+dependency. The stray root `firebase` change was backed up and reverted first.
+
+### T14: signing in and the account store (needs the Firebase project)
+
+**Description:** `firebase` in `apps/web`; `firebase-config.js` with the
+publisher's values; `.firebaserc` with the project id; `account.js` (init,
+`signIn` with the popup, `signOut`, `onUser`); `accountSaves.js` on
+`accountData.js`; `App` switches stores on the user and runs the merge;
+`AppHeader` gets `onSignIn`, `user`, `onSignOut`, `onSaved`, with neither
+control while the session restores.
+
+**Acceptance criteria:**
+- [x] The full check list and `test:rules` pass; the build check records the
+      gzipped size Firebase adds: the app's JS goes from 63.3 kB to 236.3 kB
+      gzipped (+173 kB, against the spec's ~100 kB estimate). Raised with the
+      publisher before T15, who chose to load it just after the first paint:
+      the page's JS is 64.9 kB gzipped, Firebase 172.5 kB in its own chunks,
+      fetched after the edition request (checked on `vite preview`).
+- [x] On localhost with a real Google account: sign in and out; the photo
+      (the initial fallback is covered by `Avatar` in Ledger, not seen live:
+      the account has a photo); the menu's Saved and Sign out; a reload while
+      signed in shows neither control for ~0.4 s, then the avatar, no Sign in
+      flash. Two local saves merged on sign-in with their `created_at`, local
+      storage cleared, read back from the server (10 Nov).
+- [x] Merge: 3 local saves into an account holding 1 of them adds 2 and keeps
+      the account's copy (`accountSaves.test.js` on the emulator, real rules);
+      merging into another account rejects, and `App` clears local storage
+      only in the success path.
+- [x] A save in one browser appears in a second, signed in, without a reload
+      (the publisher, 10 Nov; also covered on the emulator).
+- [ ] Closing the popup does nothing; a blocked popup shows "Could not sign
+      in. Try again." Not run yet, by the publisher's choice; the result
+      mapping is in `account.js` and the line in `SignInFailed`.
+
+Signed out, checked on the dev server: Sign in appears once Firebase has
+loaded after the first paint, no avatar, no errors. Signed in, the dev console
+shows uncaught `AbortError: signal is aborted without reason` from Firestore's
+streams around page reloads and sign-in; nothing fails. To check on the
+production build in T15.
+
+**Files:** `apps/web/package.json`, `package-lock.json`,
+`apps/web/src/firebase-config.js`, `account.js`, `accountSaves.js`,
+`App.jsx`, `.firebaserc`; also `header.js` (what the masthead shows per
+state), `accountSaves.test.js`, `header.test.js`, and `clearSaves` in
+`saves.js`. `test:rules` runs its two files one at a time: run together,
+`rules.test.js` clears the emulator under the store's tests.
+
+### T15: the banner and the signed-in lines
+
+**Description:** `SaveBanner sticky` by `showBanner`, with no dismiss button
+(the publisher, 10 Nov), its Sign in link; the
+`/saved` lines signed out and signed in, the empty state's last line, and the
+merge line once.
+
+**Acceptance criteria:**
+- [x] At 1280 and 390px, both themes: the banner shows signed out with a
+      save, not on `/saved`, and not signed in; the rail, drawer and toolbar
+      clear it. Its Sign in link signs in (the publisher, 10 Nov).
+- [x] `/saved` shows the right line for each state, and the merge line once:
+      signed out, "Stored in this browser only. Sign in with Google..." and
+      the empty state's "Saves stay in this browser..."; signed in, "Synced to
+      your Google account."; after a sign-in that merged 1 save, "1 save from
+      this browser was added to your account.", gone after leaving `/saved`.
+      Neither line shows while the session restores.
+- [x] The full check list and `test:rules` pass: 94 web tests, 15 emulator
+      tests, 31 Ledger tests; page JS 65.6 kB gzipped.
+
+Also fixed here, from T14: the error line's `dismiss` and the new
+`clearMerged` are stable callbacks, so the effects that call them on
+navigation no longer fire on every account change (which cleared "Could not
+sign in" as soon as it was set); and the merge runs once per sign-in, its
+result shared, so StrictMode's second effect run cannot report 0.
+
+**Files:** `apps/web/src/App.jsx`, `hooks.js`.
+
+### T16: the Saved view as a category view
+
+**Description:** the publisher, 10 Nov (ticket item `ck_c38f9423`): `/saved`
+looks and works like a category view such as HN Threads. Decisions: the
+Toolbar shows the count, search, Filters, Ranked | Grouped and List | Grid,
+with no date picker; Ranked and Grouped mean what they mean on the feed
+(Grouped by category, Ranked one list), over the saves ordered newest file
+first and rank inside; the "Stored in this browser only" / "Synced to your
+Google account" line goes, so the banner now shows on `/saved` too (amends
+C2); the merge line still shows once. This amends module 3's "No toolbar" and
+fixed order. The Sidebar's categories do not filter the saves: Saved sits
+under Library, and the categories are sections of today's edition, so on
+`/saved` they open `/?c=<key>` as before (the publisher).
+
+**Acceptance criteria:**
+- [x] `saved.js` `savedFeed(groups)`: one list in the groups' order, each
+      item's file, and which files are loading or failed (tests).
+- [x] `banner.js`: the banner shows on `/saved` (tests).
+- [x] `/saved` has the Toolbar without the date; search, Filters and the two
+      modes filter and order the saves; the URL carries them as on the feed,
+      and a `c=` there is ignored; unstarring still works per file.
+- [x] Empty states: no saves; a filter or search that empties the list
+      (clear it); a file that fails says so; the left-out note stays.
+- [x] At 1280 and 390px, both themes; the full check list passes.
+
+**Files:** `apps/web/src/saved.js`, `banner.js`, their tests, `App.jsx`.
+
+Checked signed out on the dev server with 7 saves from two editions and a
+weekly issue: Grouped and Ranked, search (`?q=`), a search with no match,
+unstarring, the banner, 1280 and 390px in both themes; `/saved?c=news` shows
+all saves, and a Sidebar category opens `/?c=news`. Ledger's Toolbar
+placeholder is now the generic "Search…" (was "Search this edition…"), as
+the publisher chose. Rows do not show their edition (the publisher: not needed).
+
+### After the PR
+
+- [x] The publisher reviews `firestore.rules` and deploys it to the
+      `aibytes` database (the only one `firebase.json` names):
+      `firebase deploy --only firestore:rules --project ai-bytes-b42d2`.
+      Deployed 9 Nov, before the merge, for the signed-in checks.
+- [ ] One sign-in on aibytes.io after Pages deploys.

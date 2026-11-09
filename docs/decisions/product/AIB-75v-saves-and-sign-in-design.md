@@ -52,15 +52,19 @@ reader's Google profile photo (their initial when there is none, or it fails
 to load), opening a menu with their name, "Signed in with Google",
 `Saved` and `Sign out`.
 
-**C2 · The banner.** It shows while the reader is signed out, has at least
-one save, and has not dismissed it this session. It sits directly under the
-header and sticks with it, so it does not scroll with the items, and it runs
-the full width, over the sidebar. The sidebar, the phone drawer and the
-sticky toolbar start below the header plus the banner, and move back up when
-it is dismissed. The message is centred, with a 1.5px-stroke warning icon in
-front of it, in the text colour. The dismiss button is pinned to the right.
-At phone width the message wraps and is left-aligned. It is not shown on the
-Saved view, whose own line already offers sign-in.
+**C2 · The banner.** It shows on every page, the Saved view and the weekly
+archive included, while the reader is signed out and has at least one save,
+and it cannot be dismissed: it goes when the reader signs in or has no saves.
+It sits directly under the header and sticks with it, so it does not scroll
+with the items, and it runs the full width, over the sidebar. The sidebar,
+the phone drawer and the sticky toolbar start below the header plus the
+banner, and move back up when it goes. The message is centred, with a
+1.5px-stroke warning icon in front of it, in the text colour. At phone width
+the message wraps and is left-aligned. *(Amended 10 Nov in `app-accounts`:
+the first design had a dismiss button and a per-session dismissal, and kept
+the banner off the Saved view, which had its own sign-in line. Both were
+dropped; Ledger's `SaveBanner` still offers `onDismiss`, which the app does
+not pass.)*
 
 **D2 · Hidden items.** `hide.py` keeps a hidden item in its edition with
 `hidden: true`, so a save can point at one. The Saved view leaves those out

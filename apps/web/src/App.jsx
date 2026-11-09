@@ -4,6 +4,7 @@ import { EmptyState } from "@aibytes/design-system/components/content/EmptyState
 import { EndCard } from "@aibytes/design-system/components/content/EndCard.jsx";
 import { CardGrid, RowList, StatusMessage } from "@aibytes/design-system/components/content/Feed.jsx";
 import { ListRow } from "@aibytes/design-system/components/content/ListRow.jsx";
+import { SaveBanner } from "@aibytes/design-system/components/content/SaveBanner.jsx";
 import { SectionHeading } from "@aibytes/design-system/components/content/SectionHeading.jsx";
 import { ActiveFilters } from "@aibytes/design-system/components/navigation/ActiveFilters.jsx";
 import { AppHeader } from "@aibytes/design-system/components/navigation/AppHeader.jsx";
@@ -12,15 +13,18 @@ import { FilterPanel } from "@aibytes/design-system/components/navigation/Filter
 import { Sidebar } from "@aibytes/design-system/components/navigation/Sidebar.jsx";
 import { Toolbar } from "@aibytes/design-system/components/navigation/Toolbar.jsx";
 import { loadEdition, loadIndex, loadTags, loadWeeklyIndex, loadWeeklyIssue } from "./content.js";
-import { filesToLoad, leftOutNote, savedGroups } from "./saved.js";
+import { filesToLoad, leftOutNote, savedFeed, savedGroups } from "./saved.js";
 import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, SOURCES } from "./filters.js";
-import { FOOTER_LINKS, GITHUB_URL, SUBSCRIBE_URL } from "./footer.js";
+import { FOOTER_LINKS, GITHUB_URL, mailto, SUBSCRIBE_URL } from "./footer.js";
 import { longDate, midDate, shortDate } from "./format.js";
 import { useChoice, useDismiss, useGridColumns, useMedia, useReturnFocus, useSaves, useTheme } from "./hooks.js";
 import { shownView } from "./layout.js";
 import { groupedItems, rankedItems } from "./order.js";
 import { ORDER, VIEW } from "./prefs.js";
-import { localSaves } from "./saves.js";
+import { showBanner } from "./banner.js";
+import { headerAccount } from "./header.js";
+import { mergedLine } from "./merge.js";
+import { clearSaves, localSaves, readSaves } from "./saves.js";
 import { editionPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, savedPath, weeklyPath } from "./route.js";
 
 // The sidebar's links: live ones first, then those not live yet. GitHub is
@@ -47,9 +51,119 @@ function useLocation() {
   return [location, navigate];
 }
 
+// The reader's account (AIB-75v app-accounts): `user` is undefined while
+// Firebase restores the session, null when signed out, and { uid, name,
+// photoUrl? } when signed in; `merged` is how many local saves the last
+// sign-in added, shown once on /saved; `signInFailed` shows the error line until
+// the next try or page.
+const AccountContext = React.createContext({
+  user: null, merged: 0, signInFailed: false,
+  signIn() {}, signOut() {}, dismiss() {}, clearMerged() {},
+});
+
+// Firebase loads just after the first paint (decision 1, revised 9 Nov): every
+// page draws as fast as without it, and Sign in, or a returning reader's
+// avatar, appears a moment later. One load per session; a failed one (offline)
+// is retried by the next Sign in.
+let firebase = null;
+function loadFirebase() {
+  firebase ||= Promise.all([import("./account.js"), import("./accountSaves.js")]).then(
+    ([account, store]) => ({ ...account, ...store }),
+    (error) => { firebase = null; throw error; },
+  );
+  return firebase;
+}
+
+// After the browser has painted and gone idle, or at most a second later.
+function afterPaint(callback) {
+  if (typeof requestIdleCallback === "function") {
+    const id = requestIdleCallback(callback, { timeout: 1000 });
+    return () => cancelIdleCallback(id);
+  }
+  const id = setTimeout(callback, 1);
+  return () => clearTimeout(id);
+}
+
+// The saves store follows the user: this browser's while signed out, the
+// account's while signed in. Signing in with local saves merges them into the
+// account and clears them here only once the merge has committed; a failed
+// merge leaves them for the next sign-in.
+function useAccount() {
+  const [fb, setFb] = React.useState(null);
+  const [user, setUser] = React.useState(undefined);
+  const [merged, setMerged] = React.useState(0);
+  const [failed, setFailed] = React.useState(false);
+  React.useEffect(() => afterPaint(() => loadFirebase().then(setFb, (e) => {
+    console.warn("Could not load sign-in:", e);
+    setUser(null);
+  })), []);
+  React.useEffect(() => (fb ? fb.onUser(setUser) : undefined), [fb]);
+  const uid = user?.uid;
+  const saves = React.useMemo(
+    () => (uid && fb ? fb.accountSaves(fb.db, uid, { onError: (e) => console.warn("Saves:", e.code || e) }) : localSaves()),
+    [uid, fb],
+  );
+  // One merge per sign-in, shared by every run of the effect: StrictMode runs it
+  // twice, and a second merge would find nothing left to add and report 0.
+  const merging = React.useRef(null);
+  React.useEffect(() => {
+    if (!uid || !fb) { merging.current = null; return undefined; }
+    if (merging.current?.uid !== uid) {
+      const local = readSaves();
+      const done = !local.length ? Promise.resolve(0) : fb.mergeInto(fb.db, uid, local).then(
+        (count) => { clearSaves(); return count; },
+        (e) => { console.warn("Merging this browser's saves failed; they stay here for the next sign-in:", e.code || e); return 0; },
+      );
+      merging.current = { uid, done };
+    }
+    let live = true;
+    merging.current.done.then((count) => { if (live && count) setMerged(count); });
+    return () => { live = false; };
+  }, [uid, fb]);
+  // Stable, so the effects that call them on navigation run on navigation only.
+  const dismiss = React.useCallback(() => setFailed(false), []);
+  const clearMerged = React.useCallback(() => setMerged(0), []);
+  const account = React.useMemo(() => ({
+    user,
+    merged,
+    signInFailed: failed,
+    signIn() {
+      setFailed(false);
+      // Loaded already, the popup opens within the click; a load that failed
+      // earlier is retried, and the popup may then be blocked, which shows the error.
+      const result = fb ? fb.signIn() : loadFirebase().then((loaded) => { setFb(loaded); return loaded.signIn(); }, () => "failed");
+      result.then((r) => setFailed(r === "failed"));
+    },
+    signOut() { setMerged(0); fb?.signOut(); },
+    dismiss,
+    clearMerged,
+  }), [fb, user, merged, failed, dismiss, clearMerged]);
+  return [saves, account];
+}
+
+// AppHeader's account props for this page: Sign in, the avatar, or neither while restoring.
+function useHeaderAccount(navigate) {
+  const account = React.useContext(AccountContext);
+  return headerAccount(account.user, { signIn: account.signIn, signOut: account.signOut, openSaved: () => navigate(savedPath()) });
+}
+
+// true, false, or null while the session restores.
+const signedInOf = (user) => (user === undefined ? null : Boolean(user));
+
+// The sticky save banner (C2), straight after the AppHeader on every page: signed out with a save.
+function StickyBanner({ saveCount }) {
+  const account = React.useContext(AccountContext);
+  return showBanner({ signedIn: signedInOf(account.user), saveCount }) ? <SaveBanner sticky onSignIn={account.signIn} /> : null;
+}
+
+// "Could not sign in. Try again." under the header, after a sign-in that failed for a reason other than the reader closing the popup.
+function SignInFailed() {
+  const { signInFailed } = React.useContext(AccountContext);
+  return signInFailed ? <StatusMessage role="alert">Could not sign in. Try again.</StatusMessage> : null;
+}
+
 // The approved presentation wraps the existing edition, URL filter and
-// preference logic. Saves live in this browser (AIB-75v app-local-saves);
-// sign-in is still to come.
+// preference logic, with saves and Google sign-in (AIB-75v).
 export function App() {
   // Text fields match :focus-visible even after pointer focus in browsers.
   // Track input modality so rings are reserved for keyboard navigation.
@@ -76,14 +190,28 @@ export function App() {
   const route = parseRoute(location.pathname);
   const [theme, toggleTheme] = useTheme();
   React.useEffect(() => { document.documentElement.dataset.theme = theme; }, [theme]);
-  // One saves store for the session, whichever page is open.
-  const [saves] = React.useState(() => localSaves());
+  // One saves store for the session, whichever page is open, swapped on sign-in and sign-out.
+  const [saves, account] = useAccount();
+  const { dismiss, clearMerged } = account;
+  React.useEffect(() => { dismiss(); }, [location.pathname, dismiss]);
+  // The merge line shows on /saved until the reader leaves it, then not again.
+  const onSaved = route.kind === "saved";
+  const wasOnSaved = React.useRef(onSaved);
+  React.useEffect(() => {
+    if (wasOnSaved.current && !onSaved) clearMerged();
+    wasOnSaved.current = onSaved;
+  }, [onSaved, clearMerged]);
+  return <AccountContext.Provider value={account}>{page()}</AccountContext.Provider>;
 
+  function page() {
   // Weekly archive and issue pages share the Ledger shell with the daily
   // edition (AIB-105j). Intro / Official Announcements / Viral on X are omitted
   // from the issue JSON for now.
   if (route.kind === "weekly_index") {
-    return <WeeklyArchive theme={theme} onToggleTheme={toggleTheme} />;
+    return <WeeklyArchive saves={saves} theme={theme} onToggleTheme={toggleTheme} navigate={navigate} />;
+  }
+  if (route.kind === "privacy") {
+    return <PrivacyApp saves={saves} location={location} navigate={navigate} theme={theme} onToggleTheme={toggleTheme} />;
   }
   if (route.kind === "saved") {
     return <SavedApp saves={saves} location={location} navigate={navigate} theme={theme} onToggleTheme={toggleTheme} />;
@@ -111,6 +239,7 @@ export function App() {
       onToggleTheme={toggleTheme}
     />
   );
+  }
 }
 
 // The Ledger shell a daily edition and a weekly issue share: masthead, category
@@ -119,11 +248,19 @@ export function App() {
 // included, or null while it loads; `children` renders the feed from what the
 // filters leave. Every page's Sidebar carries Saved and the stored count.
 //
-// `savedPage` is the /saved page: no toolbar, filters or tags; Saved is the
-// current entry; a category opens the latest edition filtered to it; and the
-// page draws its own visible h1, so `heading` is left out.
-function FeedShell({ saves: store, savedPage = false, theme, onToggleTheme, location, navigate, skipLabel, heading, date, all, children }) {
+// `page` is "feed" for an edition or weekly issue. "saved" (/saved) and
+// "privacy" (/privacy) have no toolbar, filters or tags; a category opens the
+// latest edition filtered to it; and the page draws its own visible h1, so
+// `heading` is left out. On "saved", Saved is the current entry.
+function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location, navigate, skipLabel, heading, date, all, children }) {
   const { saves } = useSaves(store);
+  const headerProps = useHeaderAccount(navigate);
+  const feedPage = page === "feed";
+  const savedPage = page === "saved";
+  // The feed and /saved filter their items with the Toolbar; /privacy has none.
+  // The Sidebar's categories belong to the feed: elsewhere they open today's
+  // edition filtered to one, show no counts, and none is current.
+  const filtering = feedPage || savedPage;
   // Defaults: list + grouped (AIB-105j). A stored preference still wins.
   const [view, setView] = useChoice(VIEW, "list");
   const [mode, setMode] = useChoice(ORDER, "grouped");
@@ -162,16 +299,18 @@ function FeedShell({ saves: store, savedPage = false, theme, onToggleTheme, loca
 
   React.useEffect(() => {
     // Only the Tags panel and tag URLs need it; if it fails, tags just do not filter.
-    if (savedPage) return;
+    if (!filtering) return;
     loadTags()
       .then((data) => setTags({ status: "ready", groups: data.groups }))
       .catch(() => setTags({ status: "failed", groups: [] }));
-  }, []);
-  const filters = parseFilters(location.search, tagGroups);
+  }, [filtering]);
+  const parsed = parseFilters(location.search, tagGroups);
+  // /saved has no category filter, whatever its URL says.
+  const filters = feedPage ? parsed : { ...parsed, category: NO_FILTERS.category };
   const setFilters = (next) => navigate(location.pathname + filtersToSearch(next, tagGroups), { replace: true });
 
   const visible = all && all.filter((item) => !item.hidden);
-  const categories = CATEGORIES.map((c) => ({ ...c, count: visible ? visible.filter((i) => i.category === c.key).length : undefined }));
+  const categories = CATEGORIES.map((c) => ({ ...c, count: visible && feedPage ? visible.filter((i) => i.category === c.key).length : undefined }));
   const onPanel = (name) => setPanel((open) => (open === name ? null : name));
   // No filter controls until tags.json has settled: rewriting the URL before
   // then would silently drop any t= tags it already carries.
@@ -180,18 +319,20 @@ function FeedShell({ saves: store, savedPage = false, theme, onToggleTheme, loca
   // fallback's standing) is over the whole feed, so a filter never reshuffles
   // what it leaves. Both modes use it - Grouped only splits the ranked list by
   // category - so the two never disagree about what is best.
-  const items = all && rankedItems(all).filter((item) => !item.hidden && matches(item, filters));
+  // /saved passes its items already in order: newest file first, each file ranked on its own.
+  const items = all && (savedPage ? all : rankedItems(all)).filter((item) => !item.hidden && matches(item, filters));
   const setCategory = (key) => setFilters({ ...filters, category: key });
   const setQuery = (query) => setFilters({ ...filters, query });
 
   return (
     <div className={"app-shell redesign" + (shown === "grid" ? " redesign-grid" : "") + (menuOpen ? " mobile-menu-open" : "")} ref={shell} data-theme={theme}>
       <a className="app-skip" href="#main">{skipLabel}</a>
-      <AppHeader theme={theme} onToggleTheme={onToggleTheme} menuOpen={menuOpen} onMenu={() => setMenuOpen(o => !o)} githubUrl={GITHUB_URL} />
-      <Sidebar categories={categories} count={visible?.length} active={filters.category} open={menuOpen} onClose={() => setMenuOpen(false)}
+      <AppHeader theme={theme} onToggleTheme={onToggleTheme} menuOpen={menuOpen} onMenu={() => setMenuOpen(o => !o)} githubUrl={GITHUB_URL} {...headerProps} />
+      <StickyBanner saveCount={saves.length} />
+      <Sidebar categories={categories} count={feedPage ? visible?.length : undefined} active={feedPage ? filters.category : null} open={menuOpen} onClose={() => setMenuOpen(false)}
         links={SIDEBAR_LINKS} subscribeUrl={SUBSCRIBE_URL}
         onCategory={key => {
-          if (savedPage) navigate("/" + filtersToSearch({ ...NO_FILTERS, category: key }, []));
+          if (!feedPage) navigate("/" + filtersToSearch({ ...NO_FILTERS, category: key }, []));
           else if (filterable) setCategory(key);
           setMenuOpen(false);
         }}
@@ -201,7 +342,7 @@ function FeedShell({ saves: store, savedPage = false, theme, onToggleTheme, loca
             date control already shows the edition or issue. Screen readers still get an h1. */}
         {heading && <h1 className="app-sr">{heading}</h1>}
         <div className="workspace"><section className="feed">
-          {!savedPage && <>
+          {filtering && <>
           <div ref={sticky} className="toolbar-slot">
             <Toolbar count={items ? `${items.length} items` : null} query={filters.query} onQuery={setQuery} view={view} onView={columns > 1 ? setView : undefined} mode={mode} onMode={setMode}
               disabled={!filterable} filterCount={filters.tags.length + filters.sources.length} open={panel !== null} onFilters={() => onPanel("filters")}
@@ -211,6 +352,7 @@ function FeedShell({ saves: store, savedPage = false, theme, onToggleTheme, loca
           <ActiveFilters filters={filters} onChange={setFilters} />
           </>}
           <div className="app-main" ref={setMainEl}>
+            <SignInFailed />
             {children({ items, filters, view: shown, mode, clearQuery: () => setQuery(""), clearFilters: () => setFilters(NO_FILTERS) })}
           </div>
         </section></div>
@@ -240,10 +382,12 @@ function ItemSections({ items, view, mode, saves, from }) {
       </section>);
 }
 
-// Cards or rows, each with its save star.
+// Cards or rows, each with its save star. `from` names the file the items live
+// in, or is a function of the item when they come from several (/saved).
 function ItemList({ items, view, saves: store, from }) {
   const { has, toggle } = useSaves(store);
-  const star = (item) => ({ saved: has(item.id), onToggleSave: () => toggle(item, from), starPos: "visual" });
+  const fromOf = typeof from === "function" ? from : () => from;
+  const star = (item) => ({ saved: has(item.id), onToggleSave: () => toggle(item, fromOf(item)), starPos: "visual" });
   return view === "list"
     ? <RowList>{items.map((item) => <ListRow key={item.id} item={item} {...star(item)} />)}</RowList>
     : <CardGrid>{items.map((item) => <Card key={item.id} item={item} {...star(item)} />)}</CardGrid>;
@@ -376,13 +520,17 @@ function EditionFeed({ saves, route, index, editionRef: ref, edition, older, goT
   );
 }
 
-// /saved - every saved item, one section per edition or weekly issue, newest
-// first (spec AIB-75v app-saved-view). It loads the two indexes, then only the
-// files the saves name; saved.js decides the sections, order and what is left out.
+// /saved - every saved item, as a category view (spec AIB-75v app-saved-view,
+// amended by T16): the Toolbar without a date, the Sidebar's categories and both
+// modes over the saves, ordered newest file first and ranked inside each. It
+// loads the two indexes, then only the files the saves name; saved.js decides
+// the order and what is left out.
 function SavedApp({ saves: store, location, navigate, theme, onToggleTheme }) {
   const index = useLoaded(loadIndex, ONCE, "index");
   const weekly = useLoaded(loadWeeklyIndex, ONCE, "weekly");
   const { saves } = useSaves(store);
+  const account = React.useContext(AccountContext);
+  const merged = mergedLine(account.merged);
   React.useEffect(() => { document.title = "aiBytes_ · Saved"; }, []);
 
   const settled = index.status !== "loading" && weekly.status !== "loading";
@@ -391,43 +539,91 @@ function SavedApp({ saves: store, location, navigate, theme, onToggleTheme }) {
   const issues = weekly.status === "ready" ? weekly.data.issues : [];
   const files = useSavedFiles(settled && !failed ? filesToLoad(saves, editions, issues) : []);
   const { groups, leftOut } = savedGroups(saves, { editions, issues, files });
+  const feed = savedFeed(groups);
+  // Nothing to filter until every file has landed, so the count never counts up.
+  const all = settled && !failed && !feed.loading ? feed.items : null;
 
   return (
-    <FeedShell saves={store} savedPage theme={theme} onToggleTheme={onToggleTheme} location={location} navigate={navigate}
-      skipLabel="Skip to your saved items" date={null} all={null}>
-      {({ view }) => {
+    <FeedShell saves={store} page="saved" theme={theme} onToggleTheme={onToggleTheme} location={location} navigate={navigate}
+      skipLabel="Skip to your saved items" heading="Saved" date={null} all={all}>
+      {({ items, filters, view, mode, clearQuery, clearFilters }) => {
         const message = (text, role) => <StatusMessage role={role}>{text}</StatusMessage>;
-        if (!settled) return message("Loading your saves...");
         if (failed) return message(`Could not load your saves: ${failed.error.message}`, "alert");
+        if (!settled) return message("Loading your saves...");
         if (!saves.length) {
-          return message(<>
+          return message(<span className="ldg-prose">
             <b>No saved items yet.</b> Select the ☆ on any card or row to save it. Saved items from every edition
-            collect here, newest edition first. <a href="/">← Back to the latest edition</a>
-          </>, "status");
+            collect here, newest edition first.
+            {account.user !== undefined && (account.user ? " Your saves sync to your Google account." : " Saves stay in this browser until you sign in with Google.")}
+            {" "}<a href="/">← Back to the latest edition</a>
+          </span>, "status");
         }
-        // The count waits for every file, so it never counts up while they land.
-        const loading = groups.some((group) => group.status === "loading");
-        const shown = groups.reduce((n, group) => n + group.items.length, 0);
+        if (!items) return message("Loading your saves...");
         const note = leftOutNote(leftOut);
+        let body = null;
+        if (items.length) body = <ItemSections items={items} view={view} mode={mode} saves={store} from={(item) => feed.from.get(item.id)} />;
+        else if (feed.items.length && filters.query.trim()) body = <EmptyState query={filters.query} onClearQuery={clearQuery} />;
+        else if (feed.items.length) {
+          body = message(<span className="ldg-prose">No saved {describeFilters(filters)}. <a href="#clear" onClick={(e) => { e.preventDefault(); clearFilters(); }}>Clear filters.</a></span>);
+        }
         return (
           <>
-            <h1 className="ldg-section-h">Saved {!loading && <span className="ldg-count">{shown}</span>}</h1>
-            {shown > 0 && <p>Stored in this browser only.</p>}
-            {groups.map((group) => {
-              const id = "saved-" + group.key.replace(":", "-");
-              return (
-                <section className="app-sec" key={group.key} aria-labelledby={id}>
-                  <SectionHeading name={group.label} count={group.status === "ready" ? group.items.length : ""} id={id} />
-                  {group.status === "ready" ? <ItemList items={group.items} view={view} saves={store} from={group.from} />
-                    : group.status === "error" ? message(group.kind === "edition" ? `Could not load the ${group.label} edition.` : `Could not load ${group.label}.`, "alert")
-                    : message(`Loading ${group.label}...`)}
-                </section>
-              );
-            })}
+            {merged && <p role="status">{merged}</p>}
+            {feed.failed.map((group) => <React.Fragment key={group.key}>
+              {message(group.kind === "edition" ? `Could not load the ${group.label} edition.` : `Could not load ${group.label}.`, "alert")}
+            </React.Fragment>)}
+            {body}
             {note && <p>{note}</p>}
           </>
         );
       }}
+    </FeedShell>
+  );
+}
+
+// /privacy: what saving and signing in keep, and where (AIB-75v T11). Its facts
+// were checked against the built site: no cookies or analytics of the site's own,
+// fonts from Google Fonts, item images from the sites they belong to. Change
+// them only with the site; Google's sign-in consent screen links here.
+const PRIVACY_EMAIL = "contact@aibytes.io";
+
+function PrivacyApp({ saves, location, navigate, theme, onToggleTheme }) {
+  React.useEffect(() => { document.title = "aiBytes_ · Privacy"; }, []);
+  const contact = <a href={mailto(PRIVACY_EMAIL, "Privacy: aiBytes_")}>{PRIVACY_EMAIL}</a>;
+  return (
+    <FeedShell saves={saves} page="privacy" theme={theme} onToggleTheme={onToggleTheme} location={location} navigate={navigate}
+      skipLabel="Skip to the privacy page" date={null} all={null}>
+      {() => <article className="app-privacy">
+        <h1 className="ldg-section-h">Privacy</h1>
+        <p>Last changed 8 November 2026.</p>
+
+        <h2 className="ldg-section-h">Reading</h2>
+        <p>aiBytes_ sets no cookies and runs no analytics. The site is hosted on GitHub Pages; its fonts come from
+          Google Fonts, and item images from the sites they belong to, such as GitHub, TechCrunch and Product Hunt.
+          Like any web request, those services see your IP address and browser.</p>
+
+        <h2 className="ldg-section-h">Saving</h2>
+        <p>Items you save without signing in stay in this browser&apos;s local storage. Nothing about them leaves your
+          device.</p>
+
+        <h2 className="ldg-section-h">Signing in with Google</h2>
+        <p>Signing in uses Firebase Authentication, a Google service, which gives aiBytes_ your name, email address
+          and profile photo. The name and photo appear in the header; the email is not used for anything else. None
+          of it is sold or shared.</p>
+        <p>Your saves are then stored in Google Cloud Firestore under your account, where only you can read them.
+          Each save is the item&apos;s id, the edition or weekly issue it came from, and when you saved it. Firebase
+          keeps you signed in using this browser&apos;s storage.</p>
+
+        <h2 className="ldg-section-h">Deleting</h2>
+        <p>Unstar an item to delete its save. To delete your account and all its saves, email {contact}.</p>
+
+        <h2 className="ldg-section-h">The newsletter</h2>
+        <p>The weekly newsletter is on Substack, under <a href="https://substack.com/privacy">Substack&apos;s privacy
+          policy</a>. Signing in here does not subscribe you.</p>
+
+        <h2 className="ldg-section-h">Questions</h2>
+        <p>Email {contact}.</p>
+      </article>}
     </FeedShell>
   );
 }
@@ -463,7 +659,9 @@ function SubscribeBar() {
 
 // /weekly - every published issue, newest first. Issue links are plain hrefs:
 // each issue is its own built page, with its own title and canonical URL.
-function WeeklyArchive({ theme, onToggleTheme }) {
+function WeeklyArchive({ saves: store, theme, onToggleTheme, navigate }) {
+  const headerProps = useHeaderAccount(navigate);
+  const { saves } = useSaves(store);
   const weekly = useLoaded(loadWeeklyIndex, ONCE, "weekly");
   React.useEffect(() => { document.title = "aiBytes_ · Weekly"; }, []);
   const issues = weekly.status === "ready" ? weekly.data.issues : [];
@@ -494,14 +692,16 @@ function WeeklyArchive({ theme, onToggleTheme }) {
   return (
     <div className="app-shell redesign" data-theme={theme}>
       <a className="app-skip" href="#main">Skip to the archive</a>
-      <AppHeader theme={theme} onToggleTheme={onToggleTheme} githubUrl={GITHUB_URL} />
+      <AppHeader theme={theme} onToggleTheme={onToggleTheme} githubUrl={GITHUB_URL} {...headerProps} />
+      <StickyBanner saveCount={saves.length} />
+      <SignInFailed />
       <main id="main" className="redesign-main" tabIndex={-1}>
         <div className="workspace">
           <section className="weekly-archive">
             <header className="weekly-archive__head">
               <p className="weekly-archive__kicker">Weekly</p>
               <h1 className="weekly-archive__title">aiBytes_ archive</h1>
-              <p className="weekly-archive__lede">
+              <p className="weekly-archive__lede ldg-prose">
                 Every Monday issue on aibytes.io. <a href={SUBSCRIBE_URL}>Subscribe</a> · <a href="/">Daily edition</a>
               </p>
             </header>

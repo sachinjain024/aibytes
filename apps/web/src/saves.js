@@ -15,7 +15,7 @@ export const SAVES_KEY = "aibytes-saves";
 const SLUG = /^issue-\d+$/;
 
 // { edition_date } or { issue_slug }, if `from` carries exactly one valid one.
-function sourceOf(from) {
+export function sourceOf(from) {
   const date = from && from.edition_date;
   const slug = from && from.issue_slug;
   if (date !== undefined && slug !== undefined) return null;
@@ -25,7 +25,7 @@ function sourceOf(from) {
 }
 
 // The entry as stored, with only the known fields, or null if it is not a save.
-function asSave(entry) {
+export function asSave(entry) {
   if (!entry || typeof entry !== "object") return null;
   const source = sourceOf(entry);
   const { item_id, created_at } = entry;
@@ -45,6 +45,16 @@ export function readSaves(storage = browserStorage()) {
   if (!Array.isArray(parsed)) return [];
   const seen = new Set();
   return parsed.map(asSave).filter((save) => save && !seen.has(save.item_id) && seen.add(save.item_id));
+}
+
+/** Removes every local save, once a merge into the account has committed. False if storage threw. */
+export function clearSaves(storage = browserStorage()) {
+  try {
+    storage.removeItem(SAVES_KEY);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 export function localSaves(storage = browserStorage(), events = globalThis) {

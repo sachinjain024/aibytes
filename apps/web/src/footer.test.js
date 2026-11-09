@@ -8,15 +8,16 @@ test("a mailto link encodes its subject", () => {
 
 test("the footer links, in order", () => {
   assert.deepEqual(FOOTER_LINKS.map((l) => l.label),
-    ["Chrome Extension (soon)", "GitHub", "X", "Suggest a link", "Advertise"]);
+    ["Chrome Extension (soon)", "GitHub", "X", "Suggest a link", "Advertise", "Privacy"]);
 });
 
 test("the extension has no link until it ships", () => {
   assert.equal(FOOTER_LINKS[0].href, undefined);
 });
 
-test("every other link is https or mailto", () => {
-  for (const link of FOOTER_LINKS.slice(1)) assert.match(link.href, /^(https:\/\/|mailto:)/, link.label);
+test("every other link is https, mailto, or a page of the site", () => {
+  for (const link of FOOTER_LINKS.slice(1)) assert.match(link.href, /^(https:\/\/|mailto:|\/[a-z])/, link.label);
+  assert.equal(FOOTER_LINKS.find((l) => l.label === "Privacy").href, "/privacy");
   assert.equal(GITHUB_URL, "https://github.com/sachinjain024/aibytes");
   assert.equal(FOOTER_LINKS.find((l) => l.label === "GitHub").href, GITHUB_URL);
   assert.equal(FOOTER_LINKS.find((l) => l.label === "X").href, "https://x.com/sachinjain024");

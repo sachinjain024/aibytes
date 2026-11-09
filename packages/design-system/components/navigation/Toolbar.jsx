@@ -24,7 +24,7 @@ export function Toolbar({ count, query = "", onQuery, date, mode = "ranked", onM
       {onQuery && (
         <label className="search">
           <span><Icon name="search" /></span>
-          <input ref={input} type="search" disabled={disabled} value={query} onChange={e => onQuery(e.target.value)} placeholder="Search this edition…" aria-label="Search this edition" />
+          <input ref={input} type="search" disabled={disabled} value={query} onChange={e => onQuery(e.target.value)} placeholder="Search…" aria-label="Search" />
           <kbd>/</kbd>
         </label>
       )}

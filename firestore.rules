@@ -1,0 +1,31 @@
+rules_version = '2';
+
+// aibytes.io saves (spec AIB-75v app-accounts). A signed-in reader reads and
+// writes only their own users/{uid}/saves, and every document written is exactly
+// a save, so the collection cannot be used as free storage. Everything else is
+// closed. Tested on the emulator by apps/web/rules.test.js; deployed by hand:
+//   firebase deploy --only firestore:rules --project <project-id>
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+
+    // item_id is the document id; created_at a timestamp; and exactly one of
+    // edition_date (YYYY-MM-DD) or issue_slug (issue-N), nothing else.
+    function isSave(d, itemId) {
+      return d.item_id == itemId && itemId.size() <= 200
+        && d.created_at is timestamp
+        && ((d.keys().hasOnly(['item_id', 'edition_date', 'created_at'])
+             && d.edition_date is string && d.edition_date.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$'))
+         || (d.keys().hasOnly(['item_id', 'issue_slug', 'created_at'])
+             && d.issue_slug is string && d.issue_slug.matches('^issue-[0-9]+$')));
+    }
+
+    match /users/{uid}/saves/{itemId} {
+      allow read, delete: if isOwner(uid);
+      allow create, update: if isOwner(uid) && isSave(request.resource.data, itemId);
+    }
+  }
+}
