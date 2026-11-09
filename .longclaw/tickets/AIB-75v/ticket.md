@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T06:08:19.592Z
-updated_at: 2026-11-09T07:26:02.139Z
+updated_at: 2026-11-09T21:54:07.961Z
 ---
 
 Saving items (the ☆ on every card and row) and signing in with Google, split out of AIB-8h on 2026-10-08. AIB-8h shipped the web app without them: no star, no Saved entry, no Sign in. This ticket brings them in.
@@ -66,15 +66,15 @@ Decisions on the map: the publisher creates a new Firebase project for aibytes.i
 - [x] app-saved-view: Saved entry and count in the sidebar, /saved page grouped by edition date and weekly issue, rank order inside each, hidden items left out with a note, empty state (PR merged) <!-- longclaw:item=ck_92ac9854 -->
 - [ ] Firebase project created for aibytes.io (publisher): Google sign-in on, aibytes.io authorised <!-- longclaw:item=ck_af2bb5f2 -->
 - [x] app-accounts: spec approved <!-- longclaw:item=ck_f3d1ec1d -->
-- [ ] T11: the privacy page <!-- longclaw:item=ck_071c6456 -->
-- [ ] T12: the pure parts <!-- longclaw:item=ck_5c71b7c7 -->
-- [ ] T13: the rules <!-- longclaw:item=ck_120354e4 -->
-- [ ] T14: signing in and the account store (needs the Firebase project) <!-- longclaw:item=ck_304c9fdc -->
+- [x] T11: the privacy page <!-- longclaw:item=ck_071c6456 -->
+- [x] T12: the pure parts <!-- longclaw:item=ck_5c71b7c7 -->
+- [x] T13: the rules <!-- longclaw:item=ck_120354e4 -->
+- [x] T14: signing in and the account store (needs the Firebase project) <!-- longclaw:item=ck_304c9fdc -->
 - [ ] T15: the banner and the signed-in lines <!-- longclaw:item=ck_ddb505c3 -->
 - [ ] app-accounts: Firebase Auth with the Google provider, client SDK only; Sign in, account menu and the sticky banner <!-- longclaw:item=ck_1f32b91e -->
-- [ ] app-accounts: Firestore users/{uid}/saves/{itemId}; firestore.rules reviewed and deployed by hand with the Firebase CLI <!-- longclaw:item=ck_4661cf94 -->
+- [x] app-accounts: Firestore users/{uid}/saves/{itemId}; firestore.rules reviewed and deployed by hand with the Firebase CLI <!-- longclaw:item=ck_4661cf94 -->
 - [ ] app-accounts: merge local saves into the account on first sign-in, then clear local storage (PR merged) <!-- longclaw:item=ck_75ad990d -->
-- [ ] After the PR: the publisher reviews firestore.rules and deploys it (firebase deploy --only firestore:rules) <!-- longclaw:item=ck_0a4eed5e -->
+- [x] After the PR: the publisher reviews firestore.rules and deploys it (firebase deploy --only firestore:rules) <!-- longclaw:item=ck_0a4eed5e -->
 - [ ] After the PR: one sign-in on aibytes.io after Pages deploys <!-- longclaw:item=ck_dc744d05 -->
 - [ ] Ledger: links in body text visible without hover (link colour + underline, WCAG 1.4.1) <!-- longclaw:item=ck_ec5f97c2 -->
 
@@ -1221,4 +1221,113 @@ Cause: Ledger's base rule in packages/design-system/styles.css (around line 34) 
 Proposed fix (a Ledger change, so ask-first): a scoped rule for links in running text, e.g. .app-main p a, .ldg-prose a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; } with :hover thickening the underline, leaving nav, card, row and button links as they are. Contrast of --link on --bg in both themes via the existing contrast tests; a TopOffset-style assertion in tests/test_design_system.py; note in readme.md and extending-ledger.md. Not changing the global a rule, which would restyle every card and nav link.
 
 Until then nothing is broken functionally; the links work and are keyboard-focusable with the visible focus ring.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_074260c7
+kind: update
+occurred_at: 2026-11-09T21:54:07.829Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_071c6456.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f325fd4e
+kind: update
+occurred_at: 2026-11-09T21:54:07.860Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_5c71b7c7.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_0243f4b7
+kind: update
+occurred_at: 2026-11-09T21:54:07.885Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_120354e4.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_b48f1c80
+kind: update
+occurred_at: 2026-11-09T21:54:07.911Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_304c9fdc.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_5663dcbf
+kind: update
+occurred_at: 2026-11-09T21:54:07.936Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_4661cf94.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_9cedff18
+kind: update
+occurred_at: 2026-11-09T21:54:07.961Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_0a4eed5e.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_362a8416
+kind: comment
+occurred_at: 2026-11-09T21:54:07.985Z
+actor:
+  type: human
+  id: local
+-->
+### You commented
+
+Progress, 10 Nov (PR #58, branch aib-75v-app-accounts):
+- T11-T14 done. T11 /privacy (815b6fd, 75b18b7); T12 pure parts (b860a0b); T13 firestore.rules with 8 emulator tests (acb978e); T14 Google sign-in and the account store (08bb4c4).
+- Saves live in their own Firestore database, aibytes (e350bcd); (default) is untouched.
+- Bundle: Firebase took the page JS from 63.3 to 236.3 kB gzipped. Per the publisher's choice (option c) it now loads just after the first paint in its own chunks: page JS 64.9 kB (8ab7642). Spec decision 1 marked revised.
+- Rules deployed by the publisher on 9 Nov (firebase deploy --only firestore:rules).
+- Signed-in checks on localhost passed with a real account (9168edd): sign in and out, the avatar and its menu, no Sign in flash on reload, two local saves merged into the account and local storage cleared, a save syncing to a second browser without a reload.
+- Open: the blocked-popup check (deferred by the publisher); dev-console AbortErrors from Firestore streams around reloads, harmless so far, to check on the production build; T15 the banner and signed-in lines on /saved (replaces 'Stored in this browser only.' when signed in); one sign-in on aibytes.io after merge; add https://aibytes.io/privacy to the OAuth consent screen.
 <!-- /longclaw:event -->
