@@ -6,7 +6,7 @@ name: edition
 # edition to main is worse than a gap.
 on:
   schedule:
-    - cron: "0 8 * * *"
+    - cron: "7 8 * * *"
   workflow_dispatch:
     inputs:
       date:
