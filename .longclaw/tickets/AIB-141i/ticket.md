@@ -9,7 +9,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-09T22:08:20.974Z
-updated_at: 2026-11-09T22:18:10.570Z
+updated_at: 2026-11-09T22:18:44.841Z
 ---
 
 In the List view, each item's description (summary) should wrap to at most two lines, then truncate with an ellipsis. Today it is cut to a single line.
@@ -34,7 +34,7 @@ Check that the counts column (≥560px) stays aligned to the summary's first lin
 - [ ] ListRow.prompt.md, .d.ts if affected, and readme.md describe the two-line summary <!-- longclaw:item=ck_a7f53ded -->
 - [ ] Checked in npm run dev:web at 1280 and 390px, both themes: long and short summaries, counts column aligned, no row jump on hover <!-- longclaw:item=ck_566379a2 -->
 - [ ] UI kit list screens checked through npm run preview:design-system <!-- longclaw:item=ck_30b1b215 -->
-- [ ] Design sync: push the Ledger changes to Claude Design (also catches up the drift since 28 Oct: #55's saves UI and the prose-link rule) <!-- longclaw:item=ck_625c13be -->
+- [ ] Design sync: push the two-line list summary to Claude Design <!-- longclaw:item=ck_625c13be -->
 
 ## Activity
 
@@ -74,6 +74,21 @@ actor:
 changes:
   - field: checklist.ck_625c13be.added
     to: "Design sync: push the Ledger changes to Claude Design (also catches up the drift since 28 Oct: #55's saves UI and the prose-link rule)"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_0cddbb70
+kind: update
+occurred_at: 2026-11-09T22:18:44.841Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_625c13be.text
+    from: "Design sync: push the Ledger changes to Claude Design (also catches up the drift since 28 Oct: #55's saves UI and the prose-link rule)"
+    to: "Design sync: push the two-line list summary to Claude Design"
 -->
 ### claude-code updated this ticket
 <!-- /longclaw:event -->
