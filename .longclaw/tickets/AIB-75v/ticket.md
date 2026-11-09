@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T06:08:19.592Z
-updated_at: 2026-11-09T21:55:30.703Z
+updated_at: 2026-11-09T22:02:32.382Z
 ---
 
 Saving items (the ☆ on every card and row) and signing in with Google, split out of AIB-8h on 2026-10-08. AIB-8h shipped the web app without them: no star, no Saved entry, no Sign in. This ticket brings them in.
@@ -76,7 +76,7 @@ Decisions on the map: the publisher creates a new Firebase project for aibytes.i
 - [ ] app-accounts: merge local saves into the account on first sign-in, then clear local storage (PR merged) <!-- longclaw:item=ck_75ad990d -->
 - [x] After the PR: the publisher reviews firestore.rules and deploys it (firebase deploy --only firestore:rules) <!-- longclaw:item=ck_0a4eed5e -->
 - [ ] After the PR: one sign-in on aibytes.io after Pages deploys <!-- longclaw:item=ck_dc744d05 -->
-- [ ] Ledger: links in body text visible without hover (link colour + underline, WCAG 1.4.1) <!-- longclaw:item=ck_ec5f97c2 -->
+- [x] Ledger: links in body text visible without hover (link colour + underline, WCAG 1.4.1) <!-- longclaw:item=ck_ec5f97c2 -->
 
 ## Ticket References
 
@@ -1345,4 +1345,21 @@ changes:
     to: "true"
 -->
 ### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_0735c85e
+kind: update
+occurred_at: 2026-11-09T22:02:32.382Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_ec5f97c2.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+Done in 78875c0: links in a paragraph of .app-main, or under the new opt-in .ldg-prose, take --link with a 1px underline (2px on hover); nav, card, row and button links keep the base rule. Covers /privacy now and the /saved 'Sign in with Google' line with no apps/web change. ProseLinkTests in tests/test_design_system.py; readme.md and extending-ledger.md updated. Checked on /privacy in both themes. Claude Design was not synced (the round-trip files are behind since 28 Oct regardless).
 <!-- /longclaw:event -->
