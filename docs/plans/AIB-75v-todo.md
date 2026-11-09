@@ -295,12 +295,14 @@ now)`. `merge.js`: `toAdd(local, account)` (local saves the account lacks,
 dismissed, page })`.
 
 **Acceptance criteria:**
-- [ ] New tests (RED first): both source kinds both ways, timestamps as ISO;
+- [x] New tests (RED first): both source kinds both ways, timestamps as ISO;
       `toAdd` with none, some and all already in the account; the line for
       0 (none), 1 and many; the banner rule over each input.
 
-**Files:** `apps/web/src/accountData.js`, `merge.js`, their tests, and the
-banner rule beside `useSaves` in `hooks.js` or its own module.
+**Files:** `apps/web/src/accountData.js`, `merge.js`, `banner.js` (the
+banner rule in its own module) and their tests; `saves.js` exports `sourceOf`
+and `asSave`, so local and account saves share one validation. `showBanner`
+takes `signedIn: null` while the session restores and shows nothing then.
 
 ### T13: the rules
 
