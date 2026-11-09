@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T06:08:19.592Z
-updated_at: 2026-11-09T22:18:44.812Z
+updated_at: 2026-11-09T22:22:14.029Z
 ---
 
 Saving items (the ☆ on every card and row) and signing in with Google, split out of AIB-8h on 2026-10-08. AIB-8h shipped the web app without them: no star, no Saved entry, no Sign in. This ticket brings them in.
@@ -71,7 +71,7 @@ Decisions on the map: the publisher creates a new Firebase project for aibytes.i
 - [x] T13: the rules <!-- longclaw:item=ck_120354e4 -->
 - [x] T14: signing in and the account store (needs the Firebase project) <!-- longclaw:item=ck_304c9fdc -->
 - [x] T15: the banner and the signed-in lines <!-- longclaw:item=ck_ddb505c3 -->
-- [ ] app-accounts: Firebase Auth with the Google provider, client SDK only; Sign in, account menu and the sticky banner <!-- longclaw:item=ck_1f32b91e -->
+- [x] app-accounts: Firebase Auth with the Google provider, client SDK only; Sign in, account menu and the sticky banner <!-- longclaw:item=ck_1f32b91e -->
 - [x] app-accounts: Firestore users/{uid}/saves/{itemId}; firestore.rules reviewed and deployed by hand with the Firebase CLI <!-- longclaw:item=ck_4661cf94 -->
 - [ ] app-accounts: merge local saves into the account on first sign-in, then clear local storage (PR merged) <!-- longclaw:item=ck_75ad990d -->
 - [x] After the PR: the publisher reviews firestore.rules and deploys it (firebase deploy --only firestore:rules) <!-- longclaw:item=ck_0a4eed5e -->
@@ -1435,4 +1435,19 @@ changes:
     to: "Design sync: push Ledger to Claude Design - #55's saves and sign-in UI (Sidebar Saved, AppHeader sign-in and avatar menu, SaveBanner, starPos, kit screens 12-14) and the prose-link rule (78875c0); the round-trip files are behind since 28 Oct"
 -->
 ### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ea97277e
+kind: update
+occurred_at: 2026-11-09T22:22:14.029Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_1f32b91e.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
 <!-- /longclaw:event -->
