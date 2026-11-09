@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T06:08:19.592Z
-updated_at: 2026-11-09T22:22:14.029Z
+updated_at: 2026-11-09T22:40:56.143Z
 ---
 
 Saving items (the ☆ on every card and row) and signing in with Google, split out of AIB-8h on 2026-10-08. AIB-8h shipped the web app without them: no star, no Saved entry, no Sign in. This ticket brings them in.
@@ -73,9 +73,9 @@ Decisions on the map: the publisher creates a new Firebase project for aibytes.i
 - [x] T15: the banner and the signed-in lines <!-- longclaw:item=ck_ddb505c3 -->
 - [x] app-accounts: Firebase Auth with the Google provider, client SDK only; Sign in, account menu and the sticky banner <!-- longclaw:item=ck_1f32b91e -->
 - [x] app-accounts: Firestore users/{uid}/saves/{itemId}; firestore.rules reviewed and deployed by hand with the Firebase CLI <!-- longclaw:item=ck_4661cf94 -->
-- [ ] app-accounts: merge local saves into the account on first sign-in, then clear local storage (PR merged) <!-- longclaw:item=ck_75ad990d -->
+- [x] app-accounts: merge local saves into the account on first sign-in, then clear local storage (PR merged) <!-- longclaw:item=ck_75ad990d -->
 - [x] After the PR: the publisher reviews firestore.rules and deploys it (firebase deploy --only firestore:rules) <!-- longclaw:item=ck_0a4eed5e -->
-- [ ] After the PR: one sign-in on aibytes.io after Pages deploys <!-- longclaw:item=ck_dc744d05 -->
+- [x] After the PR: one sign-in on aibytes.io after Pages deploys <!-- longclaw:item=ck_dc744d05 -->
 - [x] Ledger: links in body text visible without hover (link colour + underline, WCAG 1.4.1) <!-- longclaw:item=ck_ec5f97c2 -->
 - [x] Saved view: lay out /saved like a category view (AI News, HN Threads), with the app Toolbar present <!-- longclaw:item=ck_c38f9423 -->
 - [ ] Design sync: push Ledger to Claude Design - #55's saves and sign-in UI (Sidebar Saved, AppHeader sign-in and avatar menu, SaveBanner, starPos, kit screens 12-14) and the prose-link rule (78875c0); the round-trip files are behind since 28 Oct <!-- longclaw:item=ck_59ae0c8c -->
@@ -1450,4 +1450,47 @@ changes:
     to: "true"
 -->
 ### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_4b284ca0
+kind: update
+occurred_at: 2026-11-09T22:40:56.114Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_75ad990d.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_cfff7e9d
+kind: update
+occurred_at: 2026-11-09T22:40:56.143Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_dc744d05.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_32938448
+kind: comment
+occurred_at: 2026-11-09T22:40:56.169Z
+actor:
+  type: human
+  id: local
+-->
+### You commented
+
+Merged as #58 (0bf4f12) on 10 Nov. The publisher signed in on aibytes.io after the Pages deploy, and the merge of this browser's saves into the account worked there too. Still open: add https://aibytes.io/privacy to the OAuth consent screen; the blocked-popup check; the Firestore AbortErrors in the dev console; splitting App.jsx (review follow-up).
 <!-- /longclaw:event -->
