@@ -150,6 +150,12 @@ function useHeaderAccount(navigate) {
 // true, false, or null while the session restores.
 const signedInOf = (user) => (user === undefined ? null : Boolean(user));
 
+// The sticky save banner (C2), straight after the AppHeader on every page: signed out with a save.
+function StickyBanner({ saveCount }) {
+  const account = React.useContext(AccountContext);
+  return showBanner({ signedIn: signedInOf(account.user), saveCount }) ? <SaveBanner sticky onSignIn={account.signIn} /> : null;
+}
+
 // "Could not sign in. Try again." under the header, after a sign-in that failed for a reason other than the reader closing the popup.
 function SignInFailed() {
   const { signInFailed } = React.useContext(AccountContext);
@@ -202,7 +208,7 @@ export function App() {
   // edition (AIB-105j). Intro / Official Announcements / Viral on X are omitted
   // from the issue JSON for now.
   if (route.kind === "weekly_index") {
-    return <WeeklyArchive theme={theme} onToggleTheme={toggleTheme} navigate={navigate} />;
+    return <WeeklyArchive saves={saves} theme={theme} onToggleTheme={toggleTheme} navigate={navigate} />;
   }
   if (route.kind === "privacy") {
     return <PrivacyApp saves={saves} location={location} navigate={navigate} theme={theme} onToggleTheme={toggleTheme} />;
@@ -249,8 +255,6 @@ export function App() {
 function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location, navigate, skipLabel, heading, date, all, children }) {
   const { saves } = useSaves(store);
   const headerProps = useHeaderAccount(navigate);
-  const account = React.useContext(AccountContext);
-  const banner = showBanner({ signedIn: signedInOf(account.user), saveCount: saves.length });
   const feedPage = page === "feed";
   const savedPage = page === "saved";
   // The feed and /saved filter their items with the Toolbar; /privacy has none.
@@ -299,7 +303,7 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
     loadTags()
       .then((data) => setTags({ status: "ready", groups: data.groups }))
       .catch(() => setTags({ status: "failed", groups: [] }));
-  }, []);
+  }, [filtering]);
   const parsed = parseFilters(location.search, tagGroups);
   // /saved has no category filter, whatever its URL says.
   const filters = feedPage ? parsed : { ...parsed, category: NO_FILTERS.category };
@@ -324,7 +328,7 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
     <div className={"app-shell redesign" + (shown === "grid" ? " redesign-grid" : "") + (menuOpen ? " mobile-menu-open" : "")} ref={shell} data-theme={theme}>
       <a className="app-skip" href="#main">{skipLabel}</a>
       <AppHeader theme={theme} onToggleTheme={onToggleTheme} menuOpen={menuOpen} onMenu={() => setMenuOpen(o => !o)} githubUrl={GITHUB_URL} {...headerProps} />
-      {banner && <SaveBanner sticky onSignIn={account.signIn} />}
+      <StickyBanner saveCount={saves.length} />
       <Sidebar categories={categories} count={feedPage ? visible?.length : undefined} active={feedPage ? filters.category : null} open={menuOpen} onClose={() => setMenuOpen(false)}
         links={SIDEBAR_LINKS} subscribeUrl={SUBSCRIBE_URL}
         onCategory={key => {
@@ -547,12 +551,12 @@ function SavedApp({ saves: store, location, navigate, theme, onToggleTheme }) {
         if (failed) return message(`Could not load your saves: ${failed.error.message}`, "alert");
         if (!settled) return message("Loading your saves...");
         if (!saves.length) {
-          return message(<>
+          return message(<span className="ldg-prose">
             <b>No saved items yet.</b> Select the ☆ on any card or row to save it. Saved items from every edition
             collect here, newest edition first.
             {account.user !== undefined && (account.user ? " Your saves sync to your Google account." : " Saves stay in this browser until you sign in with Google.")}
             {" "}<a href="/">← Back to the latest edition</a>
-          </>, "status");
+          </span>, "status");
         }
         if (!items) return message("Loading your saves...");
         const note = leftOutNote(leftOut);
@@ -560,7 +564,7 @@ function SavedApp({ saves: store, location, navigate, theme, onToggleTheme }) {
         if (items.length) body = <ItemSections items={items} view={view} mode={mode} saves={store} from={(item) => feed.from.get(item.id)} />;
         else if (feed.items.length && filters.query.trim()) body = <EmptyState query={filters.query} onClearQuery={clearQuery} />;
         else if (feed.items.length) {
-          body = message(<>No saved {describeFilters(filters)}. <a href="#clear" onClick={(e) => { e.preventDefault(); clearFilters(); }}>Clear filters.</a></>);
+          body = message(<span className="ldg-prose">No saved {describeFilters(filters)}. <a href="#clear" onClick={(e) => { e.preventDefault(); clearFilters(); }}>Clear filters.</a></span>);
         }
         return (
           <>
@@ -655,8 +659,9 @@ function SubscribeBar() {
 
 // /weekly - every published issue, newest first. Issue links are plain hrefs:
 // each issue is its own built page, with its own title and canonical URL.
-function WeeklyArchive({ theme, onToggleTheme, navigate }) {
+function WeeklyArchive({ saves: store, theme, onToggleTheme, navigate }) {
   const headerProps = useHeaderAccount(navigate);
+  const { saves } = useSaves(store);
   const weekly = useLoaded(loadWeeklyIndex, ONCE, "weekly");
   React.useEffect(() => { document.title = "aiBytes_ · Weekly"; }, []);
   const issues = weekly.status === "ready" ? weekly.data.issues : [];
@@ -688,6 +693,7 @@ function WeeklyArchive({ theme, onToggleTheme, navigate }) {
     <div className="app-shell redesign" data-theme={theme}>
       <a className="app-skip" href="#main">Skip to the archive</a>
       <AppHeader theme={theme} onToggleTheme={onToggleTheme} githubUrl={GITHUB_URL} {...headerProps} />
+      <StickyBanner saveCount={saves.length} />
       <SignInFailed />
       <main id="main" className="redesign-main" tabIndex={-1}>
         <div className="workspace">
@@ -695,7 +701,7 @@ function WeeklyArchive({ theme, onToggleTheme, navigate }) {
             <header className="weekly-archive__head">
               <p className="weekly-archive__kicker">Weekly</p>
               <h1 className="weekly-archive__title">aiBytes_ archive</h1>
-              <p className="weekly-archive__lede">
+              <p className="weekly-archive__lede ldg-prose">
                 Every Monday issue on aibytes.io. <a href={SUBSCRIBE_URL}>Subscribe</a> · <a href="/">Daily edition</a>
               </p>
             </header>
