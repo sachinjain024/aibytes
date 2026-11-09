@@ -30,6 +30,10 @@ One page for future surfaces and sources. The rule underneath everything: **text
 
 The newsletter keeps its own Bitmark voice (hex sections `0x01`, TL;DR block, signal yellow). Ledger tokens do not apply there; only the wordmark and cobalt are shared. Don't port hex numbering into the app, and don't port Ledger's neutral restraint into the newsletter.
 
+## Prose pages (privacy, about, help)
+
+Write running text in `<p>` inside the app shell, and its links show at rest: `--link` plus an underline. Prose that isn't in a `<p>` (a list, a definition) or sits outside `.app-main` goes under `.ldg-prose` for the same rule. Don't restyle the global `a`: nav, card, row and button links stay text-coloured until hover.
+
 ## What never changes
 
 Palette and faces are fixed. No gradients, shadows at rest, glass, illustration, or infinite scroll on any surface; the only exceptions are popovers (a soft shadow) and the desktop Sidebar's selected category (its faint gradient and shadow). AA in both themes; focus ring on everything interactive.

@@ -37,6 +37,22 @@ a {
   text-decoration: none;
 }
 
+/* Links in running text show at rest, by colour and underline (WCAG 1.4.1):
+   a paragraph in the app's main column, or anything under .ldg-prose. Nav,
+   card, row and button links keep the base rule above. */
+.app-main p a,
+.ldg-prose a {
+  color: var(--link);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.app-main p a:hover,
+.ldg-prose a:hover {
+  text-decoration-thickness: 2px;
+}
+
 button,a,input,select {
   -webkit-tap-highlight-color: transparent;
 }

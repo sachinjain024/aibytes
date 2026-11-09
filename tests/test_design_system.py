@@ -148,6 +148,47 @@ class TopOffsetTests(unittest.TestCase):
         self.assertGreater(rail, toolbar)
 
 
+def rules_including(css, selector):
+    """Declarations of every innermost rule whose comma-separated selector list includes `selector`."""
+    css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+    return [declarations(body) for sels, body in re.findall(r"([^{}]+)\{([^{}]*)\}", css)
+            if selector in (s.strip() for s in sels.split(","))]
+
+
+class ProseLinkTests(unittest.TestCase):
+    """Links in running text show without hover (AIB-75v, WCAG 1.4.1).
+
+    The base `a` rule inherits the text colour with no underline, which suits
+    nav, card, row and button links but hides a link inside a sentence. Links in
+    a paragraph of the app's main column, or anywhere under `.ldg-prose`, take
+    `--link` and an underline; hover thickens it. The base rule is unchanged."""
+
+    def setUp(self):
+        self.css = STYLES.read_text()
+
+    def test_prose_links_are_coloured_and_underlined_at_rest(self):
+        for selector in (".app-main p a", ".ldg-prose a"):
+            with self.subTest(selector):
+                found = rules_including(self.css, selector)
+                self.assertTrue(found, selector)
+                rule = {k: v for r in found for k, v in r.items()}
+                self.assertEqual(rule["color"], "var(--link)")
+                self.assertEqual(rule["text-decoration-line"], "underline")
+
+    def test_hover_thickens_the_underline(self):
+        for selector in (".app-main p a:hover", ".ldg-prose a:hover"):
+            with self.subTest(selector):
+                found = rules_including(self.css, selector)
+                self.assertTrue(found, selector)
+                self.assertIn("text-decoration-thickness", found[0])
+
+    def test_the_base_link_rule_is_unchanged(self):
+        base = rules_including(self.css, "a")
+        self.assertTrue(base)
+        self.assertEqual(base[0]["color"], "inherit")
+        self.assertEqual(base[0]["text-decoration"], "none")
+
+
 class SavesKitTests(unittest.TestCase):
     """UI kit screens 12-14 show the saves and sign-in states (AIB-75v)."""
 
