@@ -1,0 +1,687 @@
+{
+  "date": "2026-11-09",
+  "generated_at": "2026-11-09T18:41:57Z",
+  "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
+  "tags": [
+    {
+      "name": "What it is",
+      "tags": [
+        {
+          "name": "Model Release",
+          "slug": "model-release"
+        },
+        {
+          "name": "Open Source",
+          "slug": "open-source"
+        },
+        {
+          "name": "Paper",
+          "slug": "paper"
+        },
+        {
+          "name": "Benchmark",
+          "slug": "benchmark"
+        },
+        {
+          "name": "Dataset",
+          "slug": "dataset"
+        },
+        {
+          "name": "Framework",
+          "slug": "framework"
+        },
+        {
+          "name": "Dev Tool",
+          "slug": "dev-tool"
+        },
+        {
+          "name": "API",
+          "slug": "api"
+        }
+      ]
+    },
+    {
+      "name": "Domain",
+      "tags": [
+        {
+          "name": "LLM",
+          "slug": "llm"
+        },
+        {
+          "name": "Agents",
+          "slug": "agents"
+        },
+        {
+          "name": "RAG",
+          "slug": "rag"
+        },
+        {
+          "name": "Fine-tuning",
+          "slug": "fine-tuning"
+        },
+        {
+          "name": "Inference",
+          "slug": "inference"
+        },
+        {
+          "name": "Local LLM",
+          "slug": "local-llm"
+        },
+        {
+          "name": "Vision",
+          "slug": "vision"
+        },
+        {
+          "name": "Voice / Speech",
+          "slug": "voice-speech"
+        },
+        {
+          "name": "Video",
+          "slug": "video"
+        },
+        {
+          "name": "Image Gen",
+          "slug": "image-gen"
+        },
+        {
+          "name": "Code Gen",
+          "slug": "code-gen"
+        },
+        {
+          "name": "Embeddings",
+          "slug": "embeddings"
+        },
+        {
+          "name": "Eval",
+          "slug": "eval"
+        },
+        {
+          "name": "Reasoning",
+          "slug": "reasoning"
+        },
+        {
+          "name": "Multimodal",
+          "slug": "multimodal"
+        },
+        {
+          "name": "Robotics",
+          "slug": "robotics"
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem",
+      "tags": [
+        {
+          "name": "OpenAI",
+          "slug": "openai"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic"
+        },
+        {
+          "name": "Google",
+          "slug": "google"
+        },
+        {
+          "name": "Meta",
+          "slug": "meta"
+        },
+        {
+          "name": "Nvidia",
+          "slug": "nvidia"
+        },
+        {
+          "name": "Hugging Face",
+          "slug": "hugging-face"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft"
+        },
+        {
+          "name": "Claude Code",
+          "slug": "claude-code"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor"
+        },
+        {
+          "name": "MCP",
+          "slug": "mcp"
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "tags": [
+        {
+          "name": "Funding",
+          "slug": "funding"
+        },
+        {
+          "name": "Acquisition",
+          "slug": "acquisition"
+        },
+        {
+          "name": "Launch",
+          "slug": "launch"
+        },
+        {
+          "name": "Pricing",
+          "slug": "pricing"
+        },
+        {
+          "name": "Policy",
+          "slug": "policy"
+        },
+        {
+          "name": "Legal",
+          "slug": "legal"
+        },
+        {
+          "name": "Security",
+          "slug": "security"
+        },
+        {
+          "name": "Privacy",
+          "slug": "privacy"
+        },
+        {
+          "name": "Safety",
+          "slug": "safety"
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "tags": [
+        {
+          "name": "Show HN",
+          "slug": "show-hn"
+        },
+        {
+          "name": "Tutorial",
+          "slug": "tutorial"
+        },
+        {
+          "name": "Deep Dive",
+          "slug": "deep-dive"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ph-dageno-ai-2-0-2026-11-09",
+      "title": "Dageno AI 2.0",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/agent-powered-geo-by-dageno",
+      "source_url": "https://www.producthunt.com/products/agent-powered-geo-by-dageno",
+      "source_text": "Dageno AI 2.0 See why AI recommends your competitors instead of you AI is now choosing brands for your customers. Dageno AI is an AEO/GEO platform that shows whether ChatGPT, Gemini, Perplexity and 7 more AI models recommend you or your competitors, and which sources drive those answers. Look up any market for free, forever: see top brands, buyer questions and cited sources across 12,000+ niche markets and 3M+ brands. Upgrade only when you need to track your own prompts. Built for brands and agencies. Marketing SEO Search",
+      "signals": {
+        "upvotes": 273,
+        "comments": 48
+      },
+      "published_at": "2026-11-09T08:01:00Z"
+    },
+    {
+      "id": "ph-axl-27e6ef30-42b0-46a6-a379-a3fcb659e6dd-2026-11-09",
+      "title": "AXL",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/axl-2",
+      "source_url": "https://www.producthunt.com/products/axl-2",
+      "source_text": "AXL GTM copilot for AI product founders: 1,200+ actions via MCP Capture leads, close sales & onboard customers in one system: pages, quizzes, webinars, courses, video hosting & streaming, email, chat, CRM, telephony & AI calls. No integrations to build & maintain. Every interaction enriches each lead's history. Our AI model, trained on 1M deals from AXL users, scores leads using 300+ signals to help your AI & sales team decide who to follow up with, when & how. Give ChatGPT, Claude or Cursor access to lead context & 1,200+ sales & marketing actions via MCP. Sales Marketing Artificial Intelligence",
+      "signals": {
+        "upvotes": 272,
+        "comments": 64
+      },
+      "published_at": "2026-11-08T08:01:00Z"
+    },
+    {
+      "id": "ph-product-hunt-mcp-2-2026-11-09",
+      "title": "Product Hunt MCP",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/producthunt",
+      "source_url": "https://www.producthunt.com/products/producthunt",
+      "source_text": "Product Hunt MCP The community you trust in the assistant you use Ask your AI assistant to find your next favorite product. Explore new launches, compare alternatives, and see what the Product Hunt community thinks. Building something yourself? Turn your README and website into a launch draft, add images, and check what's missing before you submit. Sign in with Product Hunt to connect. No API key needed. Productivity Developer Tools Artificial Intelligence",
+      "signals": {
+        "upvotes": 270,
+        "comments": 25
+      },
+      "published_at": "2026-11-09T08:00:00Z"
+    },
+    {
+      "id": "ph-databox-cli-2026-11-09",
+      "title": "Databox CLI",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/databox",
+      "source_url": "https://www.producthunt.com/products/databox",
+      "source_text": "Databox CLI Your agentic analytics platform in the terminal Create data sources, load data, build metrics, and automate workflows directly from your terminal. Use 90+ commands yourself, or let AI coding agents like Claude Code, Cursor, and Codex do the work with 10 ready-to-use agent skills. Productivity SaaS Developer Tools GitHub",
+      "signals": {
+        "upvotes": 251,
+        "comments": 43
+      },
+      "published_at": "2026-11-09T08:01:00Z"
+    },
+    {
+      "id": "ph-sage2-by-levanto-labs-2026-11-09",
+      "title": "Sage2 by Levanto Labs",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/sagecraft",
+      "source_url": "https://www.producthunt.com/products/sagecraft",
+      "source_text": "Sage2 by Levanto Labs Turn live talk into structured data and instant actions Sage2 gives developers APIs to extract structured data from natural language and make streaming decisions as conversations evolve. Extract values like dates, amounts, and durations, track changing user intent, and build applications that know what to do next. API Developer Tools Artificial Intelligence",
+      "signals": {
+        "upvotes": 210,
+        "comments": 3
+      },
+      "published_at": "2026-11-08T08:01:00Z"
+    },
+    {
+      "id": "gh-openmausbot-2026-11-09",
+      "title": "milind-soni/OpenMausBot",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/milind-soni/OpenMausBot",
+      "source_url": "https://github.com/milind-soni/OpenMausBot",
+      "source_text": "milind-soni/OpenMausBot Open-source Grok Bot alternative with a virtual machine that bots can use TypeScript",
+      "signals": {
+        "stars": 19497,
+        "stars_gained": 1589,
+        "forks": 2680
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-skills-2026-11-09",
+      "title": "anthropics/skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills",
+      "source_text": "anthropics/skills Public repository for Agent Skills Python",
+      "signals": {
+        "stars": 190655,
+        "stars_gained": 1052,
+        "forks": 22424
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-agent-browser-2026-11-09",
+      "title": "vercel-labs/agent-browser",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "source_url": "https://github.com/vercel-labs/agent-browser",
+      "source_text": "vercel-labs/agent-browser Browser automation CLI for AI agents Rust",
+      "signals": {
+        "stars": 48323,
+        "stars_gained": 914,
+        "forks": 3291
+      },
+      "meta": {
+        "language": "Rust"
+      }
+    },
+    {
+      "id": "gh-mujoco-2026-11-09",
+      "title": "google-deepmind/mujoco",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/google-deepmind/mujoco",
+      "source_url": "https://github.com/google-deepmind/mujoco",
+      "source_text": "google-deepmind/mujoco Multi-Joint dynamics with Contact. A general purpose physics simulator. C++",
+      "signals": {
+        "stars": 16827,
+        "stars_gained": 579,
+        "forks": 1985
+      },
+      "meta": {
+        "language": "C++"
+      }
+    },
+    {
+      "id": "gh-claude-quickstarts-2026-11-09",
+      "title": "anthropics/claude-quickstarts",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/anthropics/claude-quickstarts",
+      "source_url": "https://github.com/anthropics/claude-quickstarts",
+      "source_text": "anthropics/claude-quickstarts A collection of projects designed to help developers quickly get started with building deployable applications using the Claude API Python",
+      "signals": {
+        "stars": 19898,
+        "stars_gained": 560,
+        "forks": 3301
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-daily-stock-analysis-2026-11-09",
+      "title": "ZhuLinsen/daily_stock_analysis",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "source_url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "source_text": "ZhuLinsen/daily_stock_analysis LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。 LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs. Python",
+      "signals": {
+        "stars": 68687,
+        "stars_gained": 505,
+        "forks": 56362
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-ha-mcp-2026-11-09",
+      "title": "homeassistant-ai/ha-mcp",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/homeassistant-ai/ha-mcp",
+      "source_url": "https://github.com/homeassistant-ai/ha-mcp",
+      "source_text": "homeassistant-ai/ha-mcp Configure and automate Home Assistant with Claude, ChatGPT, and other AI assistants. Python",
+      "signals": {
+        "stars": 5771,
+        "stars_gained": 31,
+        "forks": 283
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "tc-automattic-debuts-a-platform-to-deploy-vibe-2026-11-09",
+      "title": "Automattic debuts a platform to deploy vibe-coding apps amid a changing internet",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/09/automattic-debuts-a-platform-to-deploy-vibe-coding-apps-amid-a-changing-internet/",
+      "source_url": "https://techcrunch.com/2026/11/09/automattic-debuts-a-platform-to-deploy-vibe-coding-apps-amid-a-changing-internet/",
+      "source_text": "Automattic debuts a platform to deploy vibe-coding apps amid a changing internet Automattic aims to compete with the likes of Lovable with Spacefast.",
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-09T14:00:00Z"
+    },
+    {
+      "id": "tc-meta-releases-muse-ember-a-new-lightweight-2026-11-09",
+      "title": "Meta releases Muse Ember, a new lightweight model for agent execution",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/",
+      "source_url": "https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/",
+      "source_text": "Meta releases Muse Ember, a new lightweight model for agent execution At 10 cents per million input tokens, Ember is significantly cheaper than frontier competitors like Haiku and Luna.",
+      "meta": {
+        "author": "Russell Brandom",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-09T18:00:00Z"
+    },
+    {
+      "id": "tc-jensen-huangs-affair-with-alleged-chinese-spy-2026-11-09",
+      "title": "Jensen Huang’s affair with alleged Chinese spy puts Nvidia’s China ambitions under scrutiny",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/09/jensen-huangs-affair-with-alleged-chinese-spy-puts-nvidias-china-ambitions-under-scrutiny/",
+      "source_url": "https://techcrunch.com/2026/11/09/jensen-huangs-affair-with-alleged-chinese-spy-puts-nvidias-china-ambitions-under-scrutiny/",
+      "source_text": "Jensen Huang’s affair with alleged Chinese spy puts Nvidia’s China ambitions under scrutiny Jensen Huang’s alleged affair with a suspected Chinese spy threatens to complicate Nvidia’s lobbying efforts to loosen U.S. chip export restrictions and maintain access to China’s lucrative AI market.",
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-09T18:09:52Z"
+    },
+    {
+      "id": "tc-anthropic-joins-ais-natural-gas-frenzy-buys-3-2026-11-09",
+      "title": "Anthropic joins AI’s natural gas frenzy, buys $3.4B worth of turbines",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/09/anthropic-joins-ais-natural-gas-frenzy-buys-3-4b-worth-of-turbines/",
+      "source_url": "https://techcrunch.com/2026/11/09/anthropic-joins-ais-natural-gas-frenzy-buys-3-4b-worth-of-turbines/",
+      "source_text": "Anthropic joins AI’s natural gas frenzy, buys $3.4B worth of turbines Anthropic bought billions of dollars worth of natural gas turbines in a deal that could give it buyer's remorse.",
+      "meta": {
+        "author": "Tim De Chant",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-09T16:56:54Z"
+    },
+    {
+      "id": "tc-mediums-new-tk-app-brings-ai-assistance-2026-11-09",
+      "title": "Medium’s new TK app brings AI assistance directly into the writing process",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/09/mediums-new-tk-app-brings-ai-assistance-directly-into-the-writing-process/",
+      "source_url": "https://techcrunch.com/2026/11/09/mediums-new-tk-app-brings-ai-assistance-directly-into-the-writing-process/",
+      "source_text": "Medium’s new TK app brings AI assistance directly into the writing process Medium's new writing app embraces AI-assisted writing, despite growing controversy over the technology's role in publishing.",
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-09T16:12:28Z"
+    },
+    {
+      "id": "tc-is-jensen-huangs-job-on-the-line-yales-jeffrey-2026-11-09",
+      "title": "Is Jensen Huang’s job on the line? Yale’s Jeffrey Sonnenfeld estimates it’s ‘about a 50-50’",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/08/is-jensen-huangs-job-on-the-line-yales-jeffrey-sonnenfeld-estimates-its-about-a-50-50/",
+      "source_url": "https://techcrunch.com/2026/11/08/is-jensen-huangs-job-on-the-line-yales-jeffrey-sonnenfeld-estimates-its-about-a-50-50/",
+      "source_text": "Is Jensen Huang’s job on the line? Yale’s Jeffrey Sonnenfeld estimates it’s ‘about a 50-50’ Nvidia’s board is investigating Jensen Huang over his relationship with a suspected Chinese spy, and Yale’s Jeffrey Sonnenfeld thinks it’s roughly a coin flip whether Huang stays on as CEO.",
+      "meta": {
+        "author": "Connie Loizos",
+        "reading_time": "6 minutes"
+      },
+      "published_at": "2026-11-09T05:26:29Z"
+    },
+    {
+      "id": "tc-nvidia-will-investigate-ceo-jensen-huangs-2026-11-09",
+      "title": "Nvidia will investigate CEO Jensen Huang’s relationship with possible Chinese spy",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/08/nvidia-says-its-investigating-ceo-jensen-huangs-relationship-with-possible-chinese-spy/",
+      "source_url": "https://techcrunch.com/2026/11/08/nvidia-says-its-investigating-ceo-jensen-huangs-relationship-with-possible-chinese-spy/",
+      "source_text": "Nvidia will investigate CEO Jensen Huang’s relationship with possible Chinese spy In a memo to the company, Huang admitted that he had an affair.",
+      "meta": {
+        "author": "Anthony Ha",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-08T21:00:11Z"
+    },
+    {
+      "id": "hn-goldman-sachs-is-pulling-claude-code-from-its-2026-11-09",
+      "title": "Goldman Sachs is pulling Claude Code from its bankers and traders",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
+      "source_url": "https://news.ycombinator.com/item?id=50415628",
+      "source_text": "Goldman Sachs is pulling Claude Code from its bankers and traders",
+      "signals": {
+        "points": 868,
+        "comments": 469
+      },
+      "meta": {
+        "author": "TheWiggles"
+      },
+      "published_at": "2026-11-08T18:16:07Z"
+    },
+    {
+      "id": "hn-goodbye-claude-hello-pi-2026-11-09",
+      "title": "Goodbye Claude, hello Pi",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://caleb.software/posts/claude-to-pi.html",
+      "source_url": "https://news.ycombinator.com/item?id=50410107",
+      "source_text": "Goodbye Claude, hello Pi",
+      "signals": {
+        "points": 798,
+        "comments": 483
+      },
+      "meta": {
+        "author": "karagenit"
+      },
+      "published_at": "2026-11-08T03:11:48Z"
+    },
+    {
+      "id": "hn-i-m-not-convinced-the-ai-bubble-exists-2026-11-09",
+      "title": "I'm not convinced the AI bubble exists",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://matteoraso.github.io/im-not-convinced-the-ai-bubble-exists.html#im-not-convinced-the-ai-bubble-exists",
+      "source_url": "https://news.ycombinator.com/item?id=50418975",
+      "source_text": "I'm not convinced the AI bubble exists",
+      "signals": {
+        "points": 521,
+        "comments": 889
+      },
+      "meta": {
+        "author": "matteoraso"
+      },
+      "published_at": "2026-11-08T23:44:36Z"
+    },
+    {
+      "id": "hn-llama-modchip-284b-deepseek-on-64gb-ram-no-gpu-2026-11-09",
+      "title": "Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://github.com/synchopate/llama-modchip",
+      "source_url": "https://news.ycombinator.com/item?id=50411961",
+      "source_text": "Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
+      "signals": {
+        "points": 470,
+        "comments": 204
+      },
+      "meta": {
+        "author": "joshcsimmons"
+      },
+      "published_at": "2026-11-08T10:22:04Z"
+    },
+    {
+      "id": "hn-how-i-m-fighting-the-ai-brain-fry-2026-11-09",
+      "title": "How I'm fighting the AI brain fry",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://sergeykuhne.com/blog/fighting-ai-brain-fry",
+      "source_url": "https://news.ycombinator.com/item?id=50416363",
+      "source_text": "How I'm fighting the AI brain fry",
+      "signals": {
+        "points": 294,
+        "comments": 205
+      },
+      "meta": {
+        "author": "kyunez"
+      },
+      "published_at": "2026-11-08T19:37:42Z"
+    },
+    {
+      "id": "hn-openai-raises-11b-at-a-1-25t-valuation-2026-11-09",
+      "title": "OpenAI raises $11B at a $1.25T valuation",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://247wallst.com/investing/2026/11/07/openai-just-raised-11-billion-at-a-1-25-trillion-valuation-below-the-1-4-trillion-it-first-sought/",
+      "source_url": "https://news.ycombinator.com/item?id=50413822",
+      "source_text": "OpenAI raises $11B at a $1.25T valuation",
+      "signals": {
+        "points": 189,
+        "comments": 213
+      },
+      "meta": {
+        "author": "armcat"
+      },
+      "published_at": "2026-11-08T14:49:23Z"
+    },
+    {
+      "id": "hn-chatgpt-desktop-forwards-your-ssh-agent-to-2026-11-09",
+      "title": "ChatGPT Desktop forwards your SSH agent to remote machines",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=50422628",
+      "source_url": "https://news.ycombinator.com/item?id=50422628",
+      "source_text": "ChatGPT Desktop forwards your SSH agent to remote machines",
+      "signals": {
+        "points": 187,
+        "comments": 61
+      },
+      "meta": {
+        "author": "DenGorbachev"
+      },
+      "published_at": "2026-11-09T08:17:49Z"
+    },
+    {
+      "id": "hn-wearable-device-makers-are-using-brain-data-to-2026-11-09",
+      "title": "Wearable device makers are using brain data to train AI without telling users",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.science.org/content/article/wearable-device-makers-are-harvesting-brain-data-train-ai-without-telling-users",
+      "source_url": "https://news.ycombinator.com/item?id=50409856",
+      "source_text": "Wearable device makers are using brain data to train AI without telling users",
+      "signals": {
+        "points": 118,
+        "comments": 96
+      },
+      "meta": {
+        "author": "maxall4"
+      },
+      "published_at": "2026-11-08T02:02:38Z"
+    },
+    {
+      "id": "hn-why-i-will-not-be-using-llms-in-my-coding-2026-11-09",
+      "title": "Why I will not be using LLMs in my coding",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.polso.info/why-i-will-not-be-using-llms-coding",
+      "source_url": "https://news.ycombinator.com/item?id=50412591",
+      "source_text": "Why I will not be using LLMs in my coding",
+      "signals": {
+        "points": 116,
+        "comments": 238
+      },
+      "meta": {
+        "author": "Risse"
+      },
+      "published_at": "2026-11-08T12:14:10Z"
+    },
+    {
+      "id": "hn-apple-capped-engineers-at-a-200-daily-ai-budget-2026-11-09",
+      "title": "Apple capped engineers at a $200 daily AI budget",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.stork.ai/newsletter/2026-11-08-apple-capped-engineers-at-a-200-daily-ai-budget",
+      "source_url": "https://news.ycombinator.com/item?id=50421426",
+      "source_text": "Apple capped engineers at a $200 daily AI budget",
+      "signals": {
+        "points": 107,
+        "comments": 112
+      },
+      "meta": {
+        "author": "GloVin"
+      },
+      "published_at": "2026-11-09T05:30:11Z"
+    }
+  ]
+}

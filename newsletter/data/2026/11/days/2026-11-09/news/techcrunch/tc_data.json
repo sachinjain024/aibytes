@@ -1,0 +1,95 @@
+{
+  "source": "techcrunch",
+  "section": "ai-news",
+  "fetched_at": "2026-11-09",
+  "window": {
+    "after": "2026-11-08",
+    "before": "2026-11-10"
+  },
+  "query_params": {
+    "category": "artificial-intelligence",
+    "count": 10,
+    "ranking": "hackernews_points,recency"
+  },
+  "totalCount": 7,
+  "articles": [
+    {
+      "title": "Automattic debuts a platform to deploy vibe-coding apps amid a changing internet",
+      "description": "Automattic aims to compete with the likes of Lovable with Spacefast.",
+      "url": "https://techcrunch.com/2026/11/09/automattic-debuts-a-platform-to-deploy-vibe-coding-apps-amid-a-changing-internet/",
+      "published_at": "2026-11-09T14:00:00Z",
+      "author": "Ivan Mehta",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/Spacefast-feat.jpg?resize=1200,675",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 9,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=50425905"
+      }
+    },
+    {
+      "title": "Meta releases Muse Ember, a new lightweight model for agent execution",
+      "description": "At 10 cents per million input tokens, Ember is significantly cheaper than frontier competitors like Haiku and Luna.",
+      "url": "https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/",
+      "published_at": "2026-11-09T18:00:00Z",
+      "author": "Russell Brandom",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/Blog-Header-Visual.png?resize=1200,675",
+      "reading_time": "2 minutes",
+      "hackernews": {
+        "points": 4,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=50429225"
+      }
+    },
+    {
+      "title": "Jensen Huang\u2019s affair with alleged Chinese spy puts Nvidia\u2019s China ambitions under scrutiny",
+      "description": "Jensen Huang\u2019s alleged affair with a suspected Chinese spy threatens to complicate Nvidia\u2019s lobbying efforts to loosen U.S. chip export restrictions and maintain access to China\u2019s lucrative AI market.",
+      "url": "https://techcrunch.com/2026/11/09/jensen-huangs-affair-with-alleged-chinese-spy-puts-nvidias-china-ambitions-under-scrutiny/",
+      "published_at": "2026-11-09T18:09:52Z",
+      "author": "Rebecca Bellan",
+      "image": "https://techcrunch.com/wp-content/uploads/2025/01/GettyImages-2192223928.jpg?resize=1200,801",
+      "reading_time": "3 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "Anthropic joins AI\u2019s natural gas frenzy, buys $3.4B worth of turbines",
+      "description": "Anthropic bought billions of dollars worth of natural gas turbines in a deal that could give it buyer's remorse.",
+      "url": "https://techcrunch.com/2026/11/09/anthropic-joins-ais-natural-gas-frenzy-buys-3-4b-worth-of-turbines/",
+      "published_at": "2026-11-09T16:56:54Z",
+      "author": "Tim De Chant",
+      "image": "https://techcrunch.com/wp-content/uploads/2024/12/GettyImages-155376474.jpeg?resize=1200,800",
+      "reading_time": "2 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "Medium\u2019s new TK app brings AI assistance directly into the writing process",
+      "description": "Medium's new writing app embraces AI-assisted writing, despite growing controversy over the technology's role in publishing.",
+      "url": "https://techcrunch.com/2026/11/09/mediums-new-tk-app-brings-ai-assistance-directly-into-the-writing-process/",
+      "published_at": "2026-11-09T16:12:28Z",
+      "author": "Sarah Perez",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/tk-logo.webp?resize=1200,675",
+      "reading_time": "4 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "Is Jensen Huang\u2019s job on the line? Yale\u2019s Jeffrey Sonnenfeld estimates it\u2019s \u2018about a 50-50\u2019",
+      "description": "Nvidia\u2019s board is investigating Jensen Huang over his relationship with a suspected Chinese spy, and Yale\u2019s Jeffrey Sonnenfeld thinks it\u2019s roughly a coin flip whether Huang stays on as CEO.",
+      "url": "https://techcrunch.com/2026/11/08/is-jensen-huangs-job-on-the-line-yales-jeffrey-sonnenfeld-estimates-its-about-a-50-50/",
+      "published_at": "2026-11-09T05:26:29Z",
+      "author": "Connie Loizos",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/09/Jensen-Huang.jpg?resize=1200,800",
+      "reading_time": "6 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "Nvidia will investigate CEO Jensen Huang\u2019s relationship with possible Chinese spy",
+      "description": "In a memo to the company, Huang admitted that he had an affair.",
+      "url": "https://techcrunch.com/2026/11/08/nvidia-says-its-investigating-ceo-jensen-huangs-relationship-with-possible-chinese-spy/",
+      "published_at": "2026-11-08T21:00:11Z",
+      "author": "Anthony Ha",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/09/GettyImages-2294936867.jpg?resize=1200,800",
+      "reading_time": "2 minutes",
+      "hackernews": null
+    }
+  ]
+}

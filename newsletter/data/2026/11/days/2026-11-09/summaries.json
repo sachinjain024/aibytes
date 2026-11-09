@@ -1,0 +1,121 @@
+{
+  "date": "2026-11-09",
+  "items": {
+    "ph-dageno-ai-2-0-2026-11-09": {
+      "summary": "Tracks whether ChatGPT, Gemini, Perplexity and 7 other models recommend a brand or its competitors, and which sources those answers cite, across 12,000+ markets.",
+      "tags": ["Launch", "LLM"]
+    },
+    "ph-axl-27e6ef30-42b0-46a6-a379-a3fcb659e6dd-2026-11-09": {
+      "summary": "One sales stack - pages, webinars, CRM, telephony, AI calls - with a lead-scoring model trained on 1M deals, exposed to ChatGPT, Claude or Cursor as 1,200+ MCP actions.",
+      "tags": ["Launch", "MCP", "Agents"]
+    },
+    "ph-product-hunt-mcp-2-2026-11-09": {
+      "summary": "Lets AI assistants search launches, compare alternatives and read community opinion, and turns a README and website into a launch draft; sign in with Product Hunt, no API key.",
+      "tags": ["Launch", "MCP"]
+    },
+    "ph-databox-cli-2026-11-09": {
+      "summary": "90+ terminal commands for creating data sources, loading data and building metrics, plus 10 agent skills so Claude Code, Cursor or Codex can run them.",
+      "tags": ["Launch", "Dev Tool", "Agents"]
+    },
+    "ph-sage2-by-levanto-labs-2026-11-09": {
+      "summary": "Streaming APIs that pull dates, amounts and durations out of live conversation and track shifting user intent so an app can decide its next step.",
+      "tags": ["Launch", "API"]
+    },
+    "gh-openmausbot-2026-11-09": {
+      "summary": "Open-source TypeScript alternative to Grok Bot that gives bots a virtual machine to operate in.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-skills-2026-11-09": {
+      "summary": "Anthropic's public collection of Agent Skills, the open format for packaging task instructions and scripts that agents load on demand.",
+      "tags": ["Open Source", "Agents", "Anthropic"]
+    },
+    "gh-agent-browser-2026-11-09": {
+      "summary": "A Rust command-line tool from Vercel Labs that lets AI agents drive a browser.",
+      "tags": ["Dev Tool", "Agents", "Open Source"]
+    },
+    "gh-mujoco-2026-11-09": {
+      "summary": "Google DeepMind's general-purpose C++ physics simulator for multi-joint dynamics with contact.",
+      "tags": ["Open Source", "Robotics", "Google"]
+    },
+    "gh-claude-quickstarts-2026-11-09": {
+      "summary": "Python starter projects for building deployable applications on the Claude API.",
+      "tags": ["Open Source", "API", "Anthropic"]
+    },
+    "gh-daily-stock-analysis-2026-11-09": {
+      "summary": "Python system that uses LLMs to analyze stocks across markets, pulling market data and live news into a decision dashboard with scheduled runs and push alerts.",
+      "tags": ["Open Source", "LLM"]
+    },
+    "gh-ha-mcp-2026-11-09": {
+      "summary": "Python MCP server for configuring and automating Home Assistant from Claude, ChatGPT and other assistants.",
+      "tags": ["Open Source", "MCP"]
+    },
+    "tc-automattic-debuts-a-platform-to-deploy-vibe-2026-11-09": {
+      "summary": "The platform is called Spacefast and puts the WordPress.com owner in direct competition with Lovable for hosting vibe-coded apps.",
+      "tags": ["Launch", "Code Gen"]
+    },
+    "tc-meta-releases-muse-ember-a-new-lightweight-2026-11-09": {
+      "summary": "Priced at 10 cents per million input tokens, well under small frontier models like Haiku and Luna.",
+      "tags": ["Model Release", "Agents", "Meta", "Pricing"]
+    },
+    "tc-jensen-huangs-affair-with-alleged-chinese-spy-2026-11-09": {
+      "summary": "The scandal could undercut Nvidia's lobbying to loosen U.S. chip export restrictions and keep access to China's AI market.",
+      "tags": ["Nvidia", "Policy"]
+    },
+    "tc-anthropic-joins-ais-natural-gas-frenzy-buys-3-2026-11-09": {
+      "summary": "TechCrunch's Tim De Chant argues the turbine purchase is a deal Anthropic could come to regret.",
+      "tags": ["Anthropic"]
+    },
+    "tc-mediums-new-tk-app-brings-ai-assistance-2026-11-09": {
+      "summary": "A standalone writing app from Medium that builds AI help into drafting, despite growing controversy over AI's role in publishing.",
+      "tags": ["Launch", "LLM"]
+    },
+    "tc-is-jensen-huangs-job-on-the-line-yales-jeffrey-2026-11-09": {
+      "summary": "The Yale governance expert weighs in as Nvidia's board investigates Huang's relationship with a suspected Chinese spy.",
+      "tags": ["Nvidia"]
+    },
+    "tc-nvidia-will-investigate-ceo-jensen-huangs-2026-11-09": {
+      "summary": "Huang admitted the affair in a memo to Nvidia staff; the board review follows.",
+      "tags": ["Nvidia"]
+    },
+    "hn-goldman-sachs-is-pulling-claude-code-from-its-2026-11-09": {
+      "summary": "Report on thestateofai.com that Goldman Sachs is withdrawing Claude Code access from its banking and trading staff.",
+      "tags": ["Claude Code", "Anthropic"]
+    },
+    "hn-goodbye-claude-hello-pi-2026-11-09": {
+      "summary": "Personal blog post on caleb.software about the author's move away from Claude to a tool called Pi.",
+      "tags": ["Anthropic", "Code Gen"]
+    },
+    "hn-i-m-not-convinced-the-ai-bubble-exists-2026-11-09": {
+      "summary": "Personal essay on matteoraso's blog questioning the common case that AI is in a bubble.",
+      "tags": ["Deep Dive"]
+    },
+    "hn-llama-modchip-284b-deepseek-on-64gb-ram-no-gpu-2026-11-09": {
+      "summary": "A GitHub project that runs a 284B-parameter DeepSeek model on a CPU-only machine with 64GB of RAM.",
+      "tags": ["Local LLM", "Inference", "Open Source"]
+    },
+    "hn-how-i-m-fighting-the-ai-brain-fry-2026-11-09": {
+      "summary": "Personal blog post by Sergey Kuhne on the mental fatigue of heavy AI tool use and how the author manages it.",
+      "tags": ["LLM"]
+    },
+    "hn-openai-raises-11b-at-a-1-25t-valuation-2026-11-09": {
+      "summary": "A 247 Wall St. report notes the round closed below the $1.4 trillion valuation OpenAI first sought.",
+      "tags": ["Funding", "OpenAI"]
+    },
+    "hn-chatgpt-desktop-forwards-your-ssh-agent-to-2026-11-09": {
+      "summary": "An HN text post reporting that OpenAI's desktop app passes the local SSH agent through when it connects to remote hosts.",
+      "tags": ["Security", "OpenAI"]
+    },
+    "hn-wearable-device-makers-are-using-brain-data-to-2026-11-09": {
+      "summary": "A Science news report on wearable makers harvesting users' neural data for AI training without disclosure.",
+      "tags": ["Privacy"]
+    },
+    "hn-why-i-will-not-be-using-llms-in-my-coding-2026-11-09": {
+      "summary": "Personal blog post on polso.info laying out the author's reasons for keeping LLMs out of their programming work.",
+      "tags": ["Code Gen"]
+    },
+    "hn-apple-capped-engineers-at-a-200-daily-ai-budget-2026-11-09": {
+      "summary": "A stork.ai newsletter report on an internal Apple spending limit for its engineers' AI tool use.",
+      "tags": ["Apple", "Pricing"]
+    }
+  }
+}

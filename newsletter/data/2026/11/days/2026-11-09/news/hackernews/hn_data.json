@@ -1,0 +1,120 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-09",
+  "window": {
+    "after": "2026-11-08",
+    "before": "2026-11-10"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 13,
+  "poolCount": 64,
+  "stories": [
+    {
+      "title": "Goldman Sachs is pulling Claude Code from its bankers and traders",
+      "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
+      "type": "story",
+      "points": 868,
+      "num_comments": 469,
+      "author": "TheWiggles",
+      "created_at": "2026-11-08T18:16:07Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50415628"
+    },
+    {
+      "title": "Goodbye Claude, hello Pi",
+      "url": "https://caleb.software/posts/claude-to-pi.html",
+      "type": "story",
+      "points": 798,
+      "num_comments": 483,
+      "author": "karagenit",
+      "created_at": "2026-11-08T03:11:48Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50410107"
+    },
+    {
+      "title": "I'm not convinced the AI bubble exists",
+      "url": "https://matteoraso.github.io/im-not-convinced-the-ai-bubble-exists.html#im-not-convinced-the-ai-bubble-exists",
+      "type": "story",
+      "points": 521,
+      "num_comments": 889,
+      "author": "matteoraso",
+      "created_at": "2026-11-08T23:44:36Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50418975"
+    },
+    {
+      "title": "Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
+      "url": "https://github.com/synchopate/llama-modchip",
+      "type": "story",
+      "points": 470,
+      "num_comments": 204,
+      "author": "joshcsimmons",
+      "created_at": "2026-11-08T10:22:04Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50411961"
+    },
+    {
+      "title": "How I'm fighting the AI brain fry",
+      "url": "https://sergeykuhne.com/blog/fighting-ai-brain-fry",
+      "type": "story",
+      "points": 294,
+      "num_comments": 205,
+      "author": "kyunez",
+      "created_at": "2026-11-08T19:37:42Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50416363"
+    },
+    {
+      "title": "OpenAI raises $11B at a $1.25T valuation",
+      "url": "https://247wallst.com/investing/2026/11/07/openai-just-raised-11-billion-at-a-1-25-trillion-valuation-below-the-1-4-trillion-it-first-sought/",
+      "type": "story",
+      "points": 189,
+      "num_comments": 213,
+      "author": "armcat",
+      "created_at": "2026-11-08T14:49:23Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50413822"
+    },
+    {
+      "title": "ChatGPT Desktop forwards your SSH agent to remote machines",
+      "url": "https://news.ycombinator.com/item?id=50422628",
+      "type": "ask_hn",
+      "points": 187,
+      "num_comments": 61,
+      "author": "DenGorbachev",
+      "created_at": "2026-11-09T08:17:49Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50422628"
+    },
+    {
+      "title": "Wearable device makers are using brain data to train AI without telling users",
+      "url": "https://www.science.org/content/article/wearable-device-makers-are-harvesting-brain-data-train-ai-without-telling-users",
+      "type": "story",
+      "points": 118,
+      "num_comments": 96,
+      "author": "maxall4",
+      "created_at": "2026-11-08T02:02:38Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50409856"
+    },
+    {
+      "title": "Why I will not be using LLMs in my coding",
+      "url": "https://www.polso.info/why-i-will-not-be-using-llms-coding",
+      "type": "story",
+      "points": 116,
+      "num_comments": 238,
+      "author": "Risse",
+      "created_at": "2026-11-08T12:14:10Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50412591"
+    },
+    {
+      "title": "Apple capped engineers at a $200 daily AI budget",
+      "url": "https://www.stork.ai/newsletter/2026-11-08-apple-capped-engineers-at-a-200-daily-ai-budget",
+      "type": "story",
+      "points": 107,
+      "num_comments": 112,
+      "author": "GloVin",
+      "created_at": "2026-11-09T05:30:11Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50421426"
+    }
+  ]
+}
