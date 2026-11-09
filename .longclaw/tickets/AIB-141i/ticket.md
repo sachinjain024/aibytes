@@ -4,12 +4,12 @@ id: 7ada940e-5fba-4d55-ae20-fc1b952eed16
 key: AIB-141i
 title: "List view: item descriptions wrap to at most two lines"
 status: todo
-priority: none
+priority: p2
 labels:
   - app
 type: feature
 created_at: 2026-11-09T22:08:20.974Z
-updated_at: 2026-11-09T22:08:20.974Z
+updated_at: 2026-11-09T22:10:06.338Z
 ---
 
 In the List view, each item's description (summary) should wrap to at most two lines, then truncate with an ellipsis. Today it is cut to a single line.
@@ -46,4 +46,19 @@ actor:
   id: claude-code
 -->
 ### claude-code created this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_fc822aea
+kind: update
+occurred_at: 2026-11-09T22:10:06.338Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: priority
+    from: none
+    to: p2
+-->
+### claude-code updated this ticket
 <!-- /longclaw:event -->
