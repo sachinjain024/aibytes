@@ -344,23 +344,27 @@ control while the session restores.
       publisher before T15, who chose to load it just after the first paint:
       the page's JS is 64.9 kB gzipped, Firebase 172.5 kB in its own chunks,
       fetched after the edition request (checked on `vite preview`).
-- [ ] On localhost with a real Google account: sign in and out; the photo
-      and the initial fallback; the menu's Saved and Sign out; a reload while
-      signed in shows no Sign in flash.
+- [x] On localhost with a real Google account: sign in and out; the photo
+      (the initial fallback is covered by `Avatar` in Ledger, not seen live:
+      the account has a photo); the menu's Saved and Sign out; a reload while
+      signed in shows neither control for ~0.4 s, then the avatar, no Sign in
+      flash. Two local saves merged on sign-in with their `created_at`, local
+      storage cleared, read back from the server (10 Nov).
 - [x] Merge: 3 local saves into an account holding 1 of them adds 2 and keeps
       the account's copy (`accountSaves.test.js` on the emulator, real rules);
       merging into another account rejects, and `App` clears local storage
       only in the success path.
-- [ ] A save in one browser appears in a second, signed in, without a reload.
-      (The listener is covered on the emulator: a save written by another
-      client arrives. The two-browser check waits on the deployed rules.)
+- [x] A save in one browser appears in a second, signed in, without a reload
+      (the publisher, 10 Nov; also covered on the emulator).
 - [ ] Closing the popup does nothing; a blocked popup shows "Could not sign
-      in. Try again."
+      in. Try again." Not run yet, by the publisher's choice; the result
+      mapping is in `account.js` and the line in `SignInFailed`.
 
-Signed out, checked on the dev server: Sign in shows at once, no avatar, no
-errors, and no request to Google's auth or Firestore hosts. The signed-in
-checks above that are still open need a real Google account and the rules
-deployed to the `aibytes` database: the publisher's step.
+Signed out, checked on the dev server: Sign in appears once Firebase has
+loaded after the first paint, no avatar, no errors. Signed in, the dev console
+shows uncaught `AbortError: signal is aborted without reason` from Firestore's
+streams around page reloads and sign-in; nothing fails. To check on the
+production build in T15.
 
 **Files:** `apps/web/package.json`, `package-lock.json`,
 `apps/web/src/firebase-config.js`, `account.js`, `accountSaves.js`,
@@ -387,7 +391,8 @@ merge line once.
 
 ### After the PR
 
-- [ ] The publisher reviews `firestore.rules` and deploys it to the
+- [x] The publisher reviews `firestore.rules` and deploys it to the
       `aibytes` database (the only one `firebase.json` names):
       `firebase deploy --only firestore:rules --project ai-bytes-b42d2`.
+      Deployed 9 Nov, before the merge, for the signed-in checks.
 - [ ] One sign-in on aibytes.io after Pages deploys.
