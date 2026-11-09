@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T06:08:19.592Z
-updated_at: 2026-11-09T22:02:32.382Z
+updated_at: 2026-11-09T22:06:57.738Z
 ---
 
 Saving items (the ☆ on every card and row) and signing in with Google, split out of AIB-8h on 2026-10-08. AIB-8h shipped the web app without them: no star, no Saved entry, no Sign in. This ticket brings them in.
@@ -70,7 +70,7 @@ Decisions on the map: the publisher creates a new Firebase project for aibytes.i
 - [x] T12: the pure parts <!-- longclaw:item=ck_5c71b7c7 -->
 - [x] T13: the rules <!-- longclaw:item=ck_120354e4 -->
 - [x] T14: signing in and the account store (needs the Firebase project) <!-- longclaw:item=ck_304c9fdc -->
-- [ ] T15: the banner and the signed-in lines <!-- longclaw:item=ck_ddb505c3 -->
+- [x] T15: the banner and the signed-in lines <!-- longclaw:item=ck_ddb505c3 -->
 - [ ] app-accounts: Firebase Auth with the Google provider, client SDK only; Sign in, account menu and the sticky banner <!-- longclaw:item=ck_1f32b91e -->
 - [x] app-accounts: Firestore users/{uid}/saves/{itemId}; firestore.rules reviewed and deployed by hand with the Firebase CLI <!-- longclaw:item=ck_4661cf94 -->
 - [ ] app-accounts: merge local saves into the account on first sign-in, then clear local storage (PR merged) <!-- longclaw:item=ck_75ad990d -->
@@ -1362,4 +1362,19 @@ changes:
 ### claude-code updated this ticket
 
 Done in 78875c0: links in a paragraph of .app-main, or under the new opt-in .ldg-prose, take --link with a 1px underline (2px on hover); nav, card, row and button links keep the base rule. Covers /privacy now and the /saved 'Sign in with Google' line with no apps/web change. ProseLinkTests in tests/test_design_system.py; readme.md and extending-ledger.md updated. Checked on /privacy in both themes. Claude Design was not synced (the round-trip files are behind since 28 Oct regardless).
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f9ddec11
+kind: update
+occurred_at: 2026-11-09T22:06:57.738Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_ddb505c3.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
 <!-- /longclaw:event -->
