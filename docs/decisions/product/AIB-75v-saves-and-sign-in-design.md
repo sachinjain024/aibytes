@@ -52,8 +52,10 @@ reader's Google profile photo (their initial when there is none, or it fails
 to load), opening a menu with their name, "Signed in with Google",
 `Saved` and `Sign out`.
 
-**C2 · The banner.** It shows while the reader is signed out, has at least
-one save, and has not dismissed it this session. It sits directly under the
+**C2 · The banner.** It shows while the reader is signed out and has at least
+one save. *(Amended 10 Nov: it cannot be dismissed; the dismiss button and the
+per-session dismissal below were dropped in `app-accounts`. Ledger's
+`SaveBanner` still offers `onDismiss`; the app does not pass it.)* It sits directly under the
 header and sticks with it, so it does not scroll with the items, and it runs
 the full width, over the sidebar. The sidebar, the phone drawer and the
 sticky toolbar start below the header plus the banner, and move back up when

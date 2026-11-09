@@ -167,9 +167,9 @@ All Ledger options already exist (`ledger-saves-ui`):
 - `AppHeader`: `onSignIn`; `user={{ name, photoUrl }}` and `onSignOut` when
   signed in; `onSaved` opens `/saved`.
 - `SaveBanner sticky`, straight after `AppHeader`, when signed out, with at
-  least one save, not dismissed this session (a `sessionStorage` flag,
-  through the same safe-storage helper), and **not on `/saved`** (C2).
-  Its Sign in link calls `signIn()`.
+  least one save, and **not on `/saved`** (C2). It has no dismiss button
+  (decided 10 Nov, amending C2): it goes when the reader signs in or has no
+  saves. Its Sign in link calls `signIn()`.
 - `/saved` lines (design record), restoring what module 3 left out:
   - signed out, not empty: "Stored in this browser only. **Sign in with
     Google** to keep them across devices." (a link that signs in);
@@ -229,7 +229,7 @@ no Firebase import in a component.
 - **Pure, `node --test`:** `toSave` / `toDoc` mapping (both source kinds,
   timestamps both ways); `merge.js` (local minus account, created_at kept,
   nothing to add, the line's singular and plural); the banner's show rule
-  (signed out × saves × dismissed × page).
+  (signed out × saves × page).
 - **Rules** (decision 2): `rules.test.js` with `@firebase/rules-unit-testing`
   against the Firestore emulator, run by `npm run test:rules`: the owner reads
   and writes, another user and a signed-out reader denied, a bad shape denied
@@ -240,7 +240,7 @@ no Firebase import in a component.
   and `pageMeta.test.js`; the copy reviewed by the publisher in the PR.
 - **Browser** (`npm run dev:web` on localhost, a real Google account):
   sign in and out; the avatar and its menu; the banner's rules including
-  dismissal and `/saved`; merge with 3 local saves into an account holding 1
+  `/saved`; merge with 3 local saves into an account holding 1
   of them (added: 2, local cleared, line shown once); a save on one browser
   appearing in another; a reload while signed in (no Sign in flash);
   `/privacy` from the footer and the Sidebar.

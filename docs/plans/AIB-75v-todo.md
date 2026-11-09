@@ -375,17 +375,29 @@ state), `accountSaves.test.js`, `header.test.js`, and `clearSaves` in
 
 ### T15: the banner and the signed-in lines
 
-**Description:** `SaveBanner sticky` by `showBanner`, its dismissal in
-`sessionStorage` through the safe-storage helper, its Sign in link; the
+**Description:** `SaveBanner sticky` by `showBanner`, with no dismiss button
+(the publisher, 10 Nov), its Sign in link; the
 `/saved` lines signed out and signed in, the empty state's last line, and the
 merge line once.
 
 **Acceptance criteria:**
-- [ ] At 1280 and 390px, both themes: the banner shows signed out with a
-      save, not on `/saved`, not after dismissal this session, and not signed
-      in; the rail, drawer and toolbar clear it.
-- [ ] `/saved` shows the right line for each state, and the merge line once.
-- [ ] The full check list and `test:rules` pass.
+- [x] At 1280 and 390px, both themes: the banner shows signed out with a
+      save, not on `/saved`, and not signed in; the rail, drawer and toolbar
+      clear it. Its Sign in link signs in (the publisher, 10 Nov).
+- [x] `/saved` shows the right line for each state, and the merge line once:
+      signed out, "Stored in this browser only. Sign in with Google..." and
+      the empty state's "Saves stay in this browser..."; signed in, "Synced to
+      your Google account."; after a sign-in that merged 1 save, "1 save from
+      this browser was added to your account.", gone after leaving `/saved`.
+      Neither line shows while the session restores.
+- [x] The full check list and `test:rules` pass: 94 web tests, 15 emulator
+      tests, 31 Ledger tests; page JS 65.6 kB gzipped.
+
+Also fixed here, from T14: the error line's `dismiss` and the new
+`clearMerged` are stable callbacks, so the effects that call them on
+navigation no longer fire on every account change (which cleared "Could not
+sign in" as soon as it was set); and the merge runs once per sign-in, its
+result shared, so StrictMode's second effect run cannot report 0.
 
 **Files:** `apps/web/src/App.jsx`, `hooks.js`.
 

@@ -4,6 +4,7 @@ import { EmptyState } from "@aibytes/design-system/components/content/EmptyState
 import { EndCard } from "@aibytes/design-system/components/content/EndCard.jsx";
 import { CardGrid, RowList, StatusMessage } from "@aibytes/design-system/components/content/Feed.jsx";
 import { ListRow } from "@aibytes/design-system/components/content/ListRow.jsx";
+import { SaveBanner } from "@aibytes/design-system/components/content/SaveBanner.jsx";
 import { SectionHeading } from "@aibytes/design-system/components/content/SectionHeading.jsx";
 import { ActiveFilters } from "@aibytes/design-system/components/navigation/ActiveFilters.jsx";
 import { AppHeader } from "@aibytes/design-system/components/navigation/AppHeader.jsx";
@@ -20,7 +21,9 @@ import { useChoice, useDismiss, useGridColumns, useMedia, useReturnFocus, useSav
 import { shownView } from "./layout.js";
 import { groupedItems, rankedItems } from "./order.js";
 import { ORDER, VIEW } from "./prefs.js";
+import { showBanner } from "./banner.js";
 import { headerAccount } from "./header.js";
+import { mergedLine } from "./merge.js";
 import { clearSaves, localSaves, readSaves } from "./saves.js";
 import { editionPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, savedPath, weeklyPath } from "./route.js";
 
@@ -51,8 +54,12 @@ function useLocation() {
 // The reader's account (AIB-75v app-accounts): `user` is undefined while
 // Firebase restores the session, null when signed out, and { uid, name,
 // photoUrl? } when signed in; `merged` is how many local saves the last
-// sign-in added; `signInFailed` shows the error line until the next try or page.
-const AccountContext = React.createContext({ user: null, merged: 0, signInFailed: false, signIn() {}, signOut() {}, dismiss() {} });
+// sign-in added, shown once on /saved; `signInFailed` shows the error line until
+// the next try or page.
+const AccountContext = React.createContext({
+  user: null, merged: 0, signInFailed: false,
+  signIn() {}, signOut() {}, dismiss() {}, clearMerged() {},
+});
 
 // Firebase loads just after the first paint (decision 1, revised 9 Nov): every
 // page draws as fast as without it, and Sign in, or a returning reader's
@@ -96,16 +103,26 @@ function useAccount() {
     () => (uid && fb ? fb.accountSaves(fb.db, uid, { onError: (e) => console.warn("Saves:", e.code || e) }) : localSaves()),
     [uid, fb],
   );
+  // One merge per sign-in, shared by every run of the effect: StrictMode runs it
+  // twice, and a second merge would find nothing left to add and report 0.
+  const merging = React.useRef(null);
   React.useEffect(() => {
-    const local = uid && fb ? readSaves() : [];
-    if (!local.length) return undefined;
+    if (!uid || !fb) { merging.current = null; return undefined; }
+    if (merging.current?.uid !== uid) {
+      const local = readSaves();
+      const done = !local.length ? Promise.resolve(0) : fb.mergeInto(fb.db, uid, local).then(
+        (count) => { clearSaves(); return count; },
+        (e) => { console.warn("Merging this browser's saves failed; they stay here for the next sign-in:", e.code || e); return 0; },
+      );
+      merging.current = { uid, done };
+    }
     let live = true;
-    fb.mergeInto(fb.db, uid, local).then(
-      (count) => { clearSaves(); if (live) setMerged(count); },
-      (e) => console.warn("Merging this browser's saves failed; they stay here for the next sign-in:", e.code || e),
-    );
+    merging.current.done.then((count) => { if (live && count) setMerged(count); });
     return () => { live = false; };
   }, [uid, fb]);
+  // Stable, so the effects that call them on navigation run on navigation only.
+  const dismiss = React.useCallback(() => setFailed(false), []);
+  const clearMerged = React.useCallback(() => setMerged(0), []);
   const account = React.useMemo(() => ({
     user,
     merged,
@@ -118,8 +135,9 @@ function useAccount() {
       result.then((r) => setFailed(r === "failed"));
     },
     signOut() { setMerged(0); fb?.signOut(); },
-    dismiss() { setFailed(false); },
-  }), [fb, user, merged, failed]);
+    dismiss,
+    clearMerged,
+  }), [fb, user, merged, failed, dismiss, clearMerged]);
   return [saves, account];
 }
 
@@ -128,6 +146,9 @@ function useHeaderAccount(navigate) {
   const account = React.useContext(AccountContext);
   return headerAccount(account.user, { signIn: account.signIn, signOut: account.signOut, openSaved: () => navigate(savedPath()) });
 }
+
+// true, false, or null while the session restores.
+const signedInOf = (user) => (user === undefined ? null : Boolean(user));
 
 // "Could not sign in. Try again." under the header, after a sign-in that failed for a reason other than the reader closing the popup.
 function SignInFailed() {
@@ -165,8 +186,15 @@ export function App() {
   React.useEffect(() => { document.documentElement.dataset.theme = theme; }, [theme]);
   // One saves store for the session, whichever page is open, swapped on sign-in and sign-out.
   const [saves, account] = useAccount();
-  const { dismiss } = account;
+  const { dismiss, clearMerged } = account;
   React.useEffect(() => { dismiss(); }, [location.pathname, dismiss]);
+  // The merge line shows on /saved until the reader leaves it, then not again.
+  const onSaved = route.kind === "saved";
+  const wasOnSaved = React.useRef(onSaved);
+  React.useEffect(() => {
+    if (wasOnSaved.current && !onSaved) clearMerged();
+    wasOnSaved.current = onSaved;
+  }, [onSaved, clearMerged]);
   return <AccountContext.Provider value={account}>{page()}</AccountContext.Provider>;
 
   function page() {
@@ -221,6 +249,8 @@ export function App() {
 function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location, navigate, skipLabel, heading, date, all, children }) {
   const { saves } = useSaves(store);
   const headerProps = useHeaderAccount(navigate);
+  const account = React.useContext(AccountContext);
+  const banner = showBanner({ signedIn: signedInOf(account.user), saveCount: saves.length, page });
   const feedPage = page === "feed";
   const savedPage = page === "saved";
   // Defaults: list + grouped (AIB-105j). A stored preference still wins.
@@ -287,6 +317,7 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
     <div className={"app-shell redesign" + (shown === "grid" ? " redesign-grid" : "") + (menuOpen ? " mobile-menu-open" : "")} ref={shell} data-theme={theme}>
       <a className="app-skip" href="#main">{skipLabel}</a>
       <AppHeader theme={theme} onToggleTheme={onToggleTheme} menuOpen={menuOpen} onMenu={() => setMenuOpen(o => !o)} githubUrl={GITHUB_URL} {...headerProps} />
+      {banner && <SaveBanner sticky onSignIn={account.signIn} />}
       <Sidebar categories={categories} count={visible?.length} active={feedPage ? filters.category : null} open={menuOpen} onClose={() => setMenuOpen(false)}
         links={SIDEBAR_LINKS} subscribeUrl={SUBSCRIBE_URL}
         onCategory={key => {
@@ -483,6 +514,9 @@ function SavedApp({ saves: store, location, navigate, theme, onToggleTheme }) {
   const index = useLoaded(loadIndex, ONCE, "index");
   const weekly = useLoaded(loadWeeklyIndex, ONCE, "weekly");
   const { saves } = useSaves(store);
+  const account = React.useContext(AccountContext);
+  const signedIn = signedInOf(account.user);
+  const merged = mergedLine(account.merged);
   React.useEffect(() => { document.title = "aiBytes_ · Saved"; }, []);
 
   const settled = index.status !== "loading" && weekly.status !== "loading";
@@ -502,7 +536,9 @@ function SavedApp({ saves: store, location, navigate, theme, onToggleTheme }) {
         if (!saves.length) {
           return message(<>
             <b>No saved items yet.</b> Select the ☆ on any card or row to save it. Saved items from every edition
-            collect here, newest edition first. <a href="/">← Back to the latest edition</a>
+            collect here, newest edition first.
+            {signedIn !== null && (signedIn ? " Your saves sync to your Google account." : " Saves stay in this browser until you sign in with Google.")}
+            {" "}<a href="/">← Back to the latest edition</a>
           </>, "status");
         }
         // The count waits for every file, so it never counts up while they land.
@@ -512,7 +548,9 @@ function SavedApp({ saves: store, location, navigate, theme, onToggleTheme }) {
         return (
           <>
             <h1 className="ldg-section-h">Saved {!loading && <span className="ldg-count">{shown}</span>}</h1>
-            {shown > 0 && <p>Stored in this browser only.</p>}
+            {shown > 0 && signedIn !== null && <p>{signedIn ? "Synced to your Google account."
+              : <>Stored in this browser only. <a href="#signin" onClick={(e) => { e.preventDefault(); account.signIn(); }}>Sign in with Google</a> to keep them across devices.</>}</p>}
+            {merged && <p role="status">{merged}</p>}
             {groups.map((group) => {
               const id = "saved-" + group.key.replace(":", "-");
               return (
