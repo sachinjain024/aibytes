@@ -411,16 +411,17 @@ with no date picker; Ranked and Grouped mean what they mean on the feed
 first and rank inside; the "Stored in this browser only" / "Synced to your
 Google account" line goes, so the banner now shows on `/saved` too (amends
 C2); the merge line still shows once. This amends module 3's "No toolbar" and
-fixed order. The Sidebar's categories filter the saves, as they filter an
-edition.
+fixed order. The Sidebar's categories do not filter the saves: Saved sits
+under Library, and the categories are sections of today's edition, so on
+`/saved` they open `/?c=<key>` as before (the publisher).
 
 **Acceptance criteria:**
 - [x] `saved.js` `savedFeed(groups)`: one list in the groups' order, each
       item's file, and which files are loading or failed (tests).
 - [x] `banner.js`: the banner shows on `/saved` (tests).
-- [x] `/saved` has the Toolbar without the date; search, Filters, the
-      Sidebar's categories and the two modes filter and order the saves; the
-      URL carries the filters as on the feed; unstarring still works per file.
+- [x] `/saved` has the Toolbar without the date; search, Filters and the two
+      modes filter and order the saves; the URL carries them as on the feed,
+      and a `c=` there is ignored; unstarring still works per file.
 - [x] Empty states: no saves; a filter or search that empties the list
       (clear it); a file that fails says so; the left-out note stays.
 - [x] At 1280 and 390px, both themes; the full check list passes.
@@ -428,12 +429,11 @@ edition.
 **Files:** `apps/web/src/saved.js`, `banner.js`, their tests, `App.jsx`.
 
 Checked signed out on the dev server with 7 saves from two editions and a
-weekly issue: Grouped and Ranked, a Sidebar category (`/saved?c=news`), search
-(`&q=`), a search with no match, unstarring, the banner, 1280 and 390px in both
-themes. Not done, needing a Ledger change (ask first): the search placeholder
-still says "Search this edition…", and `Sidebar` shows no category as current
-while `savedActive`, so a category picked on `/saved` shows only in the
-results and the URL. Rows do not show their edition (the publisher: not needed).
+weekly issue: Grouped and Ranked, search (`?q=`), a search with no match,
+unstarring, the banner, 1280 and 390px in both themes; `/saved?c=news` shows
+all saves, and a Sidebar category opens `/?c=news`. Ledger's Toolbar
+placeholder is now the generic "Search…" (was "Search this edition…"), as
+the publisher chose. Rows do not show their edition (the publisher: not needed).
 
 ### After the PR
 

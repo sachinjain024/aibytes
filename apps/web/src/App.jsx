@@ -253,7 +253,9 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
   const banner = showBanner({ signedIn: signedInOf(account.user), saveCount: saves.length });
   const feedPage = page === "feed";
   const savedPage = page === "saved";
-  // The feed and /saved filter their items with the Toolbar and the Sidebar's categories; /privacy has neither.
+  // The feed and /saved filter their items with the Toolbar; /privacy has none.
+  // The Sidebar's categories belong to the feed: elsewhere they open today's
+  // edition filtered to one, show no counts, and none is current.
   const filtering = feedPage || savedPage;
   // Defaults: list + grouped (AIB-105j). A stored preference still wins.
   const [view, setView] = useChoice(VIEW, "list");
@@ -298,11 +300,13 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
       .then((data) => setTags({ status: "ready", groups: data.groups }))
       .catch(() => setTags({ status: "failed", groups: [] }));
   }, []);
-  const filters = parseFilters(location.search, tagGroups);
+  const parsed = parseFilters(location.search, tagGroups);
+  // /saved has no category filter, whatever its URL says.
+  const filters = feedPage ? parsed : { ...parsed, category: NO_FILTERS.category };
   const setFilters = (next) => navigate(location.pathname + filtersToSearch(next, tagGroups), { replace: true });
 
   const visible = all && all.filter((item) => !item.hidden);
-  const categories = CATEGORIES.map((c) => ({ ...c, count: visible ? visible.filter((i) => i.category === c.key).length : undefined }));
+  const categories = CATEGORIES.map((c) => ({ ...c, count: visible && feedPage ? visible.filter((i) => i.category === c.key).length : undefined }));
   const onPanel = (name) => setPanel((open) => (open === name ? null : name));
   // No filter controls until tags.json has settled: rewriting the URL before
   // then would silently drop any t= tags it already carries.
@@ -321,10 +325,10 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
       <a className="app-skip" href="#main">{skipLabel}</a>
       <AppHeader theme={theme} onToggleTheme={onToggleTheme} menuOpen={menuOpen} onMenu={() => setMenuOpen(o => !o)} githubUrl={GITHUB_URL} {...headerProps} />
       {banner && <SaveBanner sticky onSignIn={account.signIn} />}
-      <Sidebar categories={categories} count={visible?.length} active={filtering ? filters.category : null} open={menuOpen} onClose={() => setMenuOpen(false)}
+      <Sidebar categories={categories} count={feedPage ? visible?.length : undefined} active={feedPage ? filters.category : null} open={menuOpen} onClose={() => setMenuOpen(false)}
         links={SIDEBAR_LINKS} subscribeUrl={SUBSCRIBE_URL}
         onCategory={key => {
-          if (!filtering) navigate("/" + filtersToSearch({ ...NO_FILTERS, category: key }, []));
+          if (!feedPage) navigate("/" + filtersToSearch({ ...NO_FILTERS, category: key }, []));
           else if (filterable) setCategory(key);
           setMenuOpen(false);
         }}
