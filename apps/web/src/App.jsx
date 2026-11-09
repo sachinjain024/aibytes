@@ -20,8 +20,6 @@ import { useChoice, useDismiss, useGridColumns, useMedia, useReturnFocus, useSav
 import { shownView } from "./layout.js";
 import { groupedItems, rankedItems } from "./order.js";
 import { ORDER, VIEW } from "./prefs.js";
-import { db, onUser, signIn, signOut } from "./account.js";
-import { accountSaves, mergeInto } from "./accountSaves.js";
 import { headerAccount } from "./header.js";
 import { clearSaves, localSaves, readSaves } from "./saves.js";
 import { editionPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, savedPath, weeklyPath } from "./route.js";
@@ -56,38 +54,72 @@ function useLocation() {
 // sign-in added; `signInFailed` shows the error line until the next try or page.
 const AccountContext = React.createContext({ user: null, merged: 0, signInFailed: false, signIn() {}, signOut() {}, dismiss() {} });
 
+// Firebase loads just after the first paint (decision 1, revised 9 Nov): every
+// page draws as fast as without it, and Sign in, or a returning reader's
+// avatar, appears a moment later. One load per session; a failed one (offline)
+// is retried by the next Sign in.
+let firebase = null;
+function loadFirebase() {
+  firebase ||= Promise.all([import("./account.js"), import("./accountSaves.js")]).then(
+    ([account, store]) => ({ ...account, ...store }),
+    (error) => { firebase = null; throw error; },
+  );
+  return firebase;
+}
+
+// After the browser has painted and gone idle, or at most a second later.
+function afterPaint(callback) {
+  if (typeof requestIdleCallback === "function") {
+    const id = requestIdleCallback(callback, { timeout: 1000 });
+    return () => cancelIdleCallback(id);
+  }
+  const id = setTimeout(callback, 1);
+  return () => clearTimeout(id);
+}
+
 // The saves store follows the user: this browser's while signed out, the
 // account's while signed in. Signing in with local saves merges them into the
 // account and clears them here only once the merge has committed; a failed
 // merge leaves them for the next sign-in.
 function useAccount() {
+  const [fb, setFb] = React.useState(null);
   const [user, setUser] = React.useState(undefined);
   const [merged, setMerged] = React.useState(0);
   const [failed, setFailed] = React.useState(false);
-  React.useEffect(() => onUser(setUser), []);
+  React.useEffect(() => afterPaint(() => loadFirebase().then(setFb, (e) => {
+    console.warn("Could not load sign-in:", e);
+    setUser(null);
+  })), []);
+  React.useEffect(() => (fb ? fb.onUser(setUser) : undefined), [fb]);
   const uid = user?.uid;
   const saves = React.useMemo(
-    () => (uid ? accountSaves(db, uid, { onError: (e) => console.warn("Saves:", e.code || e) }) : localSaves()),
-    [uid],
+    () => (uid && fb ? fb.accountSaves(fb.db, uid, { onError: (e) => console.warn("Saves:", e.code || e) }) : localSaves()),
+    [uid, fb],
   );
   React.useEffect(() => {
-    const local = uid ? readSaves() : [];
+    const local = uid && fb ? readSaves() : [];
     if (!local.length) return undefined;
     let live = true;
-    mergeInto(db, uid, local).then(
+    fb.mergeInto(fb.db, uid, local).then(
       (count) => { clearSaves(); if (live) setMerged(count); },
       (e) => console.warn("Merging this browser's saves failed; they stay here for the next sign-in:", e.code || e),
     );
     return () => { live = false; };
-  }, [uid]);
+  }, [uid, fb]);
   const account = React.useMemo(() => ({
     user,
     merged,
     signInFailed: failed,
-    signIn() { setFailed(false); signIn().then((result) => setFailed(result === "failed")); },
-    signOut() { setMerged(0); signOut(); },
+    signIn() {
+      setFailed(false);
+      // Loaded already, the popup opens within the click; a load that failed
+      // earlier is retried, and the popup may then be blocked, which shows the error.
+      const result = fb ? fb.signIn() : loadFirebase().then((loaded) => { setFb(loaded); return loaded.signIn(); }, () => "failed");
+      result.then((r) => setFailed(r === "failed"));
+    },
+    signOut() { setMerged(0); fb?.signOut(); },
     dismiss() { setFailed(false); },
-  }), [user, merged, failed]);
+  }), [fb, user, merged, failed]);
   return [saves, account];
 }
 

@@ -258,7 +258,7 @@ T13 rules ───────┘          ▲               │
   page are unchanged.
 - **Merge, then clear**: local storage is cleared only after the batch
   commits; a failure leaves it for the next sign-in.
-- **Firebase loads on every page** (decision 1); its size is recorded in T14.
+- **Firebase loads on every page** (decision 1), just after the first paint since T14 measured its size.
 - **Rules tested on the emulator** (decision 2) with a demo project id;
   deployed by hand, never from CI.
 - **No new Ledger work**: every control already exists from module 1.

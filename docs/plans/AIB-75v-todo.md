@@ -341,7 +341,9 @@ control while the session restores.
 - [x] The full check list and `test:rules` pass; the build check records the
       gzipped size Firebase adds: the app's JS goes from 63.3 kB to 236.3 kB
       gzipped (+173 kB, against the spec's ~100 kB estimate). Raised with the
-      publisher before T15, as the plan's risk table says.
+      publisher before T15, who chose to load it just after the first paint:
+      the page's JS is 64.9 kB gzipped, Firebase 172.5 kB in its own chunks,
+      fetched after the edition request (checked on `vite preview`).
 - [ ] On localhost with a real Google account: sign in and out; the photo
       and the initial fallback; the menu's Saved and Sign out; a reload while
       signed in shows no Sign in flash.

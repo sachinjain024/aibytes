@@ -133,8 +133,10 @@ export function accountSaves(firestore, uid) {
 
 `apps/web/src/account.js` owns Firebase: it initialises the app from
 `firebase-config.js`, exposes `signIn()`, `signOut()` and
-`onUser(listener)`. It is imported normally and loads on every page
-(decision 1), so a returning reader's session restores without a hint.
+`onUser(listener)`. `App.jsx` imports it, and `accountSaves.js`, dynamically
+just after the first paint (decision 1, revised): every reader still loads it,
+so a returning reader's session restores without a hint, but it never delays
+a page. Sign in, or the avatar, appears a moment after the page.
 
 - **Sign in:** `signInWithPopup` with the Google provider. The reader
   closing the popup does nothing; any other failure shows "Could not sign in.
@@ -180,7 +182,8 @@ All Ledger options already exist (`ledger-saves-ui`):
 
 - `firebase` (the modular SDK, current major 13) added to **`apps/web`**
   `dependencies`, the one new runtime dependency (map assumption 5). It loads
-  on every page (decision 1); the build check records its gzipped size.
+  on every page, in its own chunks after the first paint (decision 1); the
+  build check records its gzipped size.
 - `@firebase/rules-unit-testing` as an **`apps/web` dev dependency**, for the
   rules tests only (decision 2). Only
   `firebase/app`, `firebase/auth` and `firebase/firestore` are imported.
@@ -295,7 +298,10 @@ Google's consent screen points to.
 
 1. **Firebase loads on every page** (option b). Simpler, and a returning
    reader's session restores without a local hint. Its size is measured in
-   the build check.
+   the build check. **Revised 9 Nov:** it measured +173 kB gzipped (app JS
+   63.3 to 236.3 kB), so it now loads just after the first paint, as its own
+   chunks: the page's JS is back to 64.9 kB, and Sign in appears a moment later
+   (option c of the T14 review; lazy loading on a local hint was not chosen).
 2. **The rules get emulator tests** (option a), skipped when the emulator or
    Java is missing.
 3. **A short `/privacy` page** is part of this module, as above.

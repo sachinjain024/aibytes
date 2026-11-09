@@ -1,7 +1,7 @@
 // The app's one Firebase entry point (spec AIB-75v app-accounts): Google sign-in
-// with Firebase Auth, and the `aibytes` Firestore database for saves. It loads
-// on every page (decision 1), so a returning reader's session restores without
-// a hint. No Analytics.
+// with Firebase Auth, and the `aibytes` Firestore database for saves. App.jsx
+// imports it dynamically just after the first paint (decision 1), so it is its
+// own chunk and never delays a page. No Analytics.
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut as signOutOf } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
