@@ -372,6 +372,7 @@ merge line once.
 
 ### After the PR
 
-- [ ] The publisher reviews `firestore.rules` and deploys it:
-      `firebase deploy --only firestore:rules --project <id>`.
+- [ ] The publisher reviews `firestore.rules` and deploys it to the
+      `aibytes` database (the only one `firebase.json` names):
+      `firebase deploy --only firestore:rules --project ai-bytes-b42d2`.
 - [ ] One sign-in on aibytes.io after Pages deploys.

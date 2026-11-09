@@ -300,6 +300,14 @@ Google's consent screen points to.
    Java is missing.
 3. **A short `/privacy` page** is part of this module, as above.
 
+4. **Saves get their own named Firestore database, `aibytes`** (answered 9
+   Nov 2026). Project `ai-bytes-b42d2` already had a `(default)` database
+   from November 2025, and a database has one rules file, so deploying ours
+   there could break whatever uses it. `aibytes` was created in us-central1
+   (like the default) with delete protection, closed until the rules are
+   deployed. `firebase.json` targets only it; the client opens it with
+   `getFirestore(app, FIRESTORE_DATABASE)`.
+
 ## Open questions
 
 None. The "Subscribe to the weekly newsletter" prompt after sign-in is a fast
