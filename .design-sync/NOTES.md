@@ -91,6 +91,9 @@ and the screens report "Ledger bundle not compiled yet".
   `Footer`, `components/src/`, `docs/_ds_*`) and, on request, every sample
   screen (`Saved`, `HeadersAuth` and the 14 `ui_kits` screens with their
   shared scripts). The builder no longer writes screens.
+- 2026-11-10 (AIB-75v, #62 review): version 6 republished the AppHeader
+  preview (follows the frame's theme) and the ListRow, CardMenu and ItemImage
+  types (`../Card/Card` imports). Checked the AppHeader toggle in dark.
 
 ## Known issues
 
