@@ -1,6 +1,6 @@
 {
   "date": "2026-11-10",
-  "generated_at": "2026-11-10T10:26:34Z",
+  "generated_at": "2026-11-10T16:22:54Z",
   "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
   "tags": [
     {
@@ -235,8 +235,8 @@
       "source_url": "https://www.producthunt.com/products/producthunt",
       "source_text": "Product Hunt MCP The community you trust in the assistant you use Ask your AI assistant to find your next favorite product. Explore new launches, compare alternatives, and see what the Product Hunt community thinks. Building something yourself? Turn your README and website into a launch draft, add images, and check what's missing before you submit. Sign in with Product Hunt to connect. No API key needed. Productivity Developer Tools Artificial Intelligence",
       "signals": {
-        "upvotes": 423,
-        "comments": 37
+        "upvotes": 432,
+        "comments": 40
       },
       "published_at": "2026-11-09T08:00:00Z"
     },
@@ -249,8 +249,8 @@
       "source_url": "https://www.producthunt.com/products/agent-powered-geo-by-dageno",
       "source_text": "Dageno AI 2.0 See why AI recommends your competitors instead of you AI is now choosing brands for your customers. Dageno AI is an AEO/GEO platform that shows whether ChatGPT, Gemini, Perplexity and 7 more AI models recommend you or your competitors, and which sources drive those answers. Look up any market for free, forever: see top brands, buyer questions and cited sources across 12,000+ niche markets and 3M+ brands. Upgrade only when you need to track your own prompts. Built for brands and agencies. Marketing SEO Search",
       "signals": {
-        "upvotes": 363,
-        "comments": 63
+        "upvotes": 373,
+        "comments": 64
       },
       "published_at": "2026-11-09T08:01:00Z"
     },
@@ -263,7 +263,7 @@
       "source_url": "https://www.producthunt.com/products/databox",
       "source_text": "Databox CLI Your agentic analytics platform in the terminal Create data sources, load data, build metrics, and automate workflows directly from your terminal. Use 90+ commands yourself, or let AI coding agents like Claude Code, Cursor, and Codex do the work with 10 ready-to-use agent skills. Productivity SaaS Developer Tools GitHub",
       "signals": {
-        "upvotes": 295,
+        "upvotes": 296,
         "comments": 49
       },
       "published_at": "2026-11-09T08:01:00Z"
@@ -277,58 +277,24 @@
       "source_url": "https://www.producthunt.com/products/arcjet",
       "source_text": "Arcjet AI security models A family of custom-trained security models for coding agents Arcjet is launching a family of custom AI security models designed for analyzing AI agent activity: Arcjet Himalia 1, a general purpose prompt injection model, live today for every SDK call that uses prompt injection detection, and specialist versions designed for situations that general models handle badly, Arcjet Thebe 1 for coding agents, and Arcjet Carme 1, for autonomous security agents. Developer Tools Artificial Intelligence Security",
       "signals": {
-        "upvotes": 231,
+        "upvotes": 232,
         "comments": 38
       },
       "published_at": "2026-11-09T08:01:00Z"
     },
     {
-      "id": "ph-protomap-2026-11-10",
-      "title": "ProtoMap",
+      "id": "ph-alsona-2026-11-10",
+      "title": "Alsona",
       "category": "launches",
       "source": "producthunt",
-      "url": "https://www.producthunt.com/products/hounddog-ai-static-code-scanner-2",
-      "source_url": "https://www.producthunt.com/products/hounddog-ai-static-code-scanner-2",
-      "source_text": "ProtoMap Stop wasting AI tokens rediscovering dependencies ProtoMap helps engineers and AI coding agents understand how services, APIs, and data fields depend on each other across large codebases. It builds a deterministic dependency map for gRPC and Protobuf systems, updated on every commit and accessible through a web app or MCP. Instead of wasting time and tokens searching code across repositories, agents query ProtoMap directly to understand change impact. One enterprise team reduced change-planning time and tokens by 8×. Developer Tools Artificial Intelligence GitHub",
+      "url": "https://www.producthunt.com/products/alsona",
+      "source_url": "https://www.producthunt.com/products/alsona",
+      "source_text": "Alsona AI agents that turn buying signals into booked sales calls 95% of prospects aren't ready to buy when you reach out. Alsona finds the ones showing buying intent right now. It tracks 32+ signals across hiring, funding, tech changes, reviews, ad spend, and more, then scores companies against your ICP and explains why they're worth contacting. AI agents turn those signals into personalized LinkedIn and email outreach, helping you start conversations while the buying window is open. Alsona helps you book calls directly with the 5% who is ready to buy today. Sales SaaS Artificial Intelligence",
       "signals": {
-        "upvotes": 164,
-        "comments": 19
+        "upvotes": 227,
+        "comments": 32
       },
-      "published_at": "2026-11-09T08:01:00Z"
-    },
-    {
-      "id": "hn-show-hn-ste80-humanizer-de-ai-text-by-writing-2026-11-10",
-      "title": "Show HN: STE80 Humanizer – de-AI text by writing 80% of the way to ASD-STE100",
-      "category": "launches",
-      "source": "hackernews",
-      "url": "https://github.com/Dodaios/ste80-humanizer",
-      "source_url": "https://news.ycombinator.com/item?id=50429144",
-      "source_text": "Show HN: STE80 Humanizer – de-AI text by writing 80% of the way to ASD-STE100",
-      "signals": {
-        "points": 92,
-        "comments": 30
-      },
-      "meta": {
-        "author": "Dodaios"
-      },
-      "published_at": "2026-11-09T18:05:44Z"
-    },
-    {
-      "id": "gh-openmausbot-2026-11-10",
-      "title": "milind-soni/OpenMausBot",
-      "category": "repos",
-      "source": "github",
-      "url": "https://github.com/milind-soni/OpenMausBot",
-      "source_url": "https://github.com/milind-soni/OpenMausBot",
-      "source_text": "milind-soni/OpenMausBot Open-source Grok Bot alternative with a virtual machine that bots can use TypeScript",
-      "signals": {
-        "stars": 20280,
-        "stars_gained": 1587,
-        "forks": 2801
-      },
-      "meta": {
-        "language": "TypeScript"
-      }
+      "published_at": "2026-11-10T08:01:00Z"
     },
     {
       "id": "gh-skills-2026-11-10",
@@ -339,9 +305,43 @@
       "source_url": "https://github.com/anthropics/skills",
       "source_text": "anthropics/skills Public repository for Agent Skills Python",
       "signals": {
-        "stars": 191662,
-        "stars_gained": 1038,
-        "forks": 22521
+        "stars": 191964,
+        "stars_gained": 1676,
+        "forks": 22608
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-skills-2-2026-11-10",
+      "title": "mattpocock/skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/mattpocock/skills",
+      "source_url": "https://github.com/mattpocock/skills",
+      "source_text": "mattpocock/skills Skills for Real Engineers. Straight from my .agents directory. Shell",
+      "signals": {
+        "stars": 320558,
+        "stars_gained": 1223,
+        "forks": 26885
+      },
+      "meta": {
+        "language": "Shell"
+      }
+    },
+    {
+      "id": "gh-ha-mcp-2026-11-10",
+      "title": "homeassistant-ai/ha-mcp",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/homeassistant-ai/ha-mcp",
+      "source_url": "https://github.com/homeassistant-ai/ha-mcp",
+      "source_text": "homeassistant-ai/ha-mcp Configure and automate Home Assistant with Claude, ChatGPT, and other AI assistants. Python",
+      "signals": {
+        "stars": 6443,
+        "stars_gained": 792,
+        "forks": 417
       },
       "meta": {
         "language": "Python"
@@ -356,29 +356,12 @@
       "source_url": "https://github.com/vercel-labs/agent-browser",
       "source_text": "vercel-labs/agent-browser Browser automation CLI for AI agents Rust",
       "signals": {
-        "stars": 48840,
-        "stars_gained": 916,
-        "forks": 3383
+        "stars": 49016,
+        "stars_gained": 775,
+        "forks": 3436
       },
       "meta": {
         "language": "Rust"
-      }
-    },
-    {
-      "id": "gh-mujoco-2026-11-10",
-      "title": "google-deepmind/mujoco",
-      "category": "repos",
-      "source": "github",
-      "url": "https://github.com/google-deepmind/mujoco",
-      "source_url": "https://github.com/google-deepmind/mujoco",
-      "source_text": "google-deepmind/mujoco Multi-Joint dynamics with Contact. A general purpose physics simulator. C++",
-      "signals": {
-        "stars": 17136,
-        "stars_gained": 574,
-        "forks": 2064
-      },
-      "meta": {
-        "language": "C++"
       }
     },
     {
@@ -390,46 +373,63 @@
       "source_url": "https://github.com/anthropics/claude-quickstarts",
       "source_text": "anthropics/claude-quickstarts A collection of projects designed to help developers quickly get started with building deployable applications using the Claude API Python",
       "signals": {
-        "stars": 20219,
-        "stars_gained": 551,
-        "forks": 3377
+        "stars": 20338,
+        "stars_gained": 530,
+        "forks": 3451
       },
       "meta": {
         "language": "Python"
       }
     },
     {
-      "id": "gh-daily-stock-analysis-2026-11-10",
-      "title": "ZhuLinsen/daily_stock_analysis",
+      "id": "gh-agent-skills-2026-11-10",
+      "title": "addyosmani/agent-skills",
       "category": "repos",
       "source": "github",
-      "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
-      "source_url": "https://github.com/ZhuLinsen/daily_stock_analysis",
-      "source_text": "ZhuLinsen/daily_stock_analysis LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。 LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs. Python",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills",
+      "source_text": "addyosmani/agent-skills Production-grade engineering skills for AI coding agents. JavaScript",
       "signals": {
-        "stars": 69430,
-        "stars_gained": 506,
-        "forks": 56581
+        "stars": 114928,
+        "stars_gained": 465,
+        "forks": 12068
       },
       "meta": {
-        "language": "Python"
+        "language": "JavaScript"
       }
     },
     {
-      "id": "gh-ha-mcp-2026-11-10",
-      "title": "homeassistant-ai/ha-mcp",
+      "id": "gh-mujoco-2026-11-10",
+      "title": "google-deepmind/mujoco",
       "category": "repos",
       "source": "github",
-      "url": "https://github.com/homeassistant-ai/ha-mcp",
-      "source_url": "https://github.com/homeassistant-ai/ha-mcp",
-      "source_text": "homeassistant-ai/ha-mcp Configure and automate Home Assistant with Claude, ChatGPT, and other AI assistants. Python",
+      "url": "https://github.com/google-deepmind/mujoco",
+      "source_url": "https://github.com/google-deepmind/mujoco",
+      "source_text": "google-deepmind/mujoco Multi-Joint dynamics with Contact. A general purpose physics simulator. C++",
       "signals": {
-        "stars": 6291,
-        "stars_gained": 31,
-        "forks": 345
+        "stars": 17225,
+        "stars_gained": 453,
+        "forks": 2131
       },
       "meta": {
-        "language": "Python"
+        "language": "C++"
+      }
+    },
+    {
+      "id": "gh-billion-context-2026-11-10",
+      "title": "ranxianglei/billion-context",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/ranxianglei/billion-context",
+      "source_url": "https://github.com/ranxianglei/billion-context",
+      "source_text": "ranxianglei/billion-context A context-compression plugin for month-long single sessions (billions of tokens) ,small context windows (a 100K context is enough) and token savings (5x fewer tokens) .上下文压缩插件，月级长会话会话， 兼顾小窗口(100k上下文足矣)省token(省5倍token) . billion-context is all you need TypeScript",
+      "signals": {
+        "stars": 6098,
+        "stars_gained": 374,
+        "forks": 517
+      },
+      "meta": {
+        "language": "TypeScript"
       }
     },
     {
@@ -503,74 +503,74 @@
       "published_at": "2026-11-10T01:27:12Z"
     },
     {
-      "id": "tc-otter-ai-can-now-follow-conversations-across-30-2026-11-10",
-      "title": "Otter AI can now follow conversations across 30+ languages",
+      "id": "tc-google-broadens-its-ai-hardware-portfolio-with-2026-11-10",
+      "title": "Google broadens its AI hardware portfolio with two new specialized chips",
       "category": "news",
       "source": "techcrunch",
-      "url": "https://techcrunch.com/2026/11/09/otter-ai-can-now-follow-conversations-across-30-languages/",
-      "source_url": "https://techcrunch.com/2026/11/09/otter-ai-can-now-follow-conversations-across-30-languages/",
-      "source_text": "Otter AI can now follow conversations across 30+ languages Otter AI just added support for 27 languages and revealed an upcoming feature that can follow along if speakers switch between languages.",
+      "url": "https://techcrunch.com/2026/11/10/google-broadens-its-ai-hardware-portfolio-with-two-new-specialized-chips/",
+      "source_url": "https://techcrunch.com/2026/11/10/google-broadens-its-ai-hardware-portfolio-with-two-new-specialized-chips/",
+      "source_text": "Google broadens its AI hardware portfolio with two new specialized chips Google's new tensor processing units (TPUs) broaden its chip portfolio to more use cases: confidential model training and more memory capacity.",
       "meta": {
-        "author": "Lauren Forristal",
+        "author": "Ram Iyer",
         "reading_time": "2 minutes"
       },
-      "published_at": "2026-11-10T07:00:00Z"
+      "published_at": "2026-11-10T15:54:08Z"
     },
     {
-      "id": "tc-jensen-huang-reportedly-engaged-a-pr-firm-with-2026-11-10",
-      "title": "Jensen Huang reportedly engaged a PR firm with a history of handling  high-profile sex scandals a year ago",
+      "id": "tc-metas-ai-agent-muse-lands-on-apple-watch-and-2026-11-10",
+      "title": "Meta’s AI agent Muse lands on Apple Watch and Android Wear OS",
       "category": "news",
       "source": "techcrunch",
-      "url": "https://techcrunch.com/2026/11/09/jensen-huang-reportedly-engaged-a-pr-firm-with-a-history-of-handling-high-profile-sex-scandals-a-year-ago/",
-      "source_url": "https://techcrunch.com/2026/11/09/jensen-huang-reportedly-engaged-a-pr-firm-with-a-history-of-handling-high-profile-sex-scandals-a-year-ago/",
-      "source_text": "Jensen Huang reportedly engaged a PR firm with a history of handling  high-profile sex scandals a year ago The PR firm was enlisted shortly after an October 2025 New York Times report described Alice Huang's business dealings with Jensen Huang, Wired reported.",
+      "url": "https://techcrunch.com/2026/11/10/metas-ai-agent-muse-lands-on-apple-watch-and-wear-os/",
+      "source_url": "https://techcrunch.com/2026/11/10/metas-ai-agent-muse-lands-on-apple-watch-and-wear-os/",
+      "source_text": "Meta’s AI agent Muse lands on Apple Watch and Android Wear OS Users can now interact with Meta’s AI assistant through voice calls, text messages, or dictation on their Apple Watch.",
       "meta": {
-        "author": "Marina Temkin",
+        "author": "Aisha Malik",
         "reading_time": "2 minutes"
       },
-      "published_at": "2026-11-09T23:28:37Z"
+      "published_at": "2026-11-10T15:29:30Z"
     },
     {
-      "id": "tc-the-race-is-on-to-sue-nvidia-2026-11-10",
-      "title": "The race is on to sue Nvidia",
+      "id": "tc-adobe-brings-ai-agents-and-new-creative-tools-2026-11-10",
+      "title": "Adobe brings AI agents and new creative tools to Photoshop, Premiere, and Firefly",
       "category": "news",
       "source": "techcrunch",
-      "url": "https://techcrunch.com/2026/11/09/the-race-is-on-to-sue-nvidia/",
-      "source_url": "https://techcrunch.com/2026/11/09/the-race-is-on-to-sue-nvidia/",
-      "source_text": "The race is on to sue Nvidia Nvidia’s stock slid more than 4% after its board opened an investigation into Jensen Huang’s relationship with a suspected Chinese spy, and one securities law expert says the company’s earlier insistence that it was all “normal” could turn into a very expensive problem.",
-      "meta": {
-        "author": "Connie Loizos",
-        "reading_time": "5 minutes"
-      },
-      "published_at": "2026-11-09T22:23:42Z"
-    },
-    {
-      "id": "tc-jensen-huang-pulls-out-of-elevenlabs-summit-2026-11-10",
-      "title": "Jensen Huang pulls out of ElevenLabs Summit amid Nvidia controversy",
-      "category": "news",
-      "source": "techcrunch",
-      "url": "https://techcrunch.com/2026/11/09/jensen-huang-pulls-out-of-elevenlabs-summit-amid-nvidia-controversy/",
-      "source_url": "https://techcrunch.com/2026/11/09/jensen-huang-pulls-out-of-elevenlabs-summit-amid-nvidia-controversy/",
-      "source_text": "Jensen Huang pulls out of ElevenLabs Summit amid Nvidia controversy The Nvidia CEO also pulled out of an Anthropic event earlier.",
+      "url": "https://techcrunch.com/2026/11/10/adobe-adds-more-ai-to-its-products-and-launches-an-mcp/",
+      "source_url": "https://techcrunch.com/2026/11/10/adobe-adds-more-ai-to-its-products-and-launches-an-mcp/",
+      "source_text": "Adobe brings AI agents and new creative tools to Photoshop, Premiere, and Firefly Adobe is taking on Figma with a new prototype builder tool in Firefly.",
       "meta": {
         "author": "Ivan Mehta",
-        "reading_time": "1 minute"
-      },
-      "published_at": "2026-11-09T20:09:06Z"
-    },
-    {
-      "id": "tc-anthropic-releases-new-mythos-and-fable-models-2026-11-10",
-      "title": "Anthropic releases new Mythos and Fable models amid RSI concerns",
-      "category": "news",
-      "source": "techcrunch",
-      "url": "https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/",
-      "source_url": "https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/",
-      "source_text": "Anthropic releases new Mythos and Fable models amid RSI concerns Anthropic says the new models \"show improvements in areas like coding, reasoning, and vision,\" as well as in communicating more clearly with users.",
-      "meta": {
-        "author": "Russell Brandom",
         "reading_time": "3 minutes"
       },
-      "published_at": "2026-11-09T19:24:51Z"
+      "published_at": "2026-11-10T14:05:10Z"
+    },
+    {
+      "id": "tc-anthropic-sets-ipo-price-range-of-70-to-78-per-2026-11-10",
+      "title": "Anthropic sets IPO price range of $70 to $78 per share to reach an implied valuation of $1.404 trillion",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/10/anthropic-sets-ipo-price-range-of-70-to-78-per-share-to-reach-an-implied-valuation-of-1-404-trillion/",
+      "source_url": "https://techcrunch.com/2026/11/10/anthropic-sets-ipo-price-range-of-70-to-78-per-share-to-reach-an-implied-valuation-of-1-404-trillion/",
+      "source_text": "Anthropic sets IPO price range of $70 to $78 per share to reach an implied valuation of $1.404 trillion The company could end up being worth a hefty $1.404 trillion if its shares list at the top of the price range, on a fully diluted basis.",
+      "meta": {
+        "author": "Rebecca Bellan, Ram Iyer",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-10T14:01:39Z"
+    },
+    {
+      "id": "tc-spotifys-ai-dj-gets-new-voices-personalities-2026-11-10",
+      "title": "Spotify’s AI DJ gets new voices, personalities, and an option for less chatter",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/10/spotifys-ai-dj-gets-new-voices-personalities-and-an-option-for-less-chatter/",
+      "source_url": "https://techcrunch.com/2026/11/10/spotifys-ai-dj-gets-new-voices-personalities-and-an-option-for-less-chatter/",
+      "source_text": "Spotify’s AI DJ gets new voices, personalities, and an option for less chatter Spotify Premium users can now customize their AI DJ with new voices with different personalities, or turn off the commentary between songs.",
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-10T14:00:00Z"
     },
     {
       "id": "hn-claude-fable-5-2-and-mythos-5-2-2026-11-10",
@@ -581,7 +581,7 @@
       "source_url": "https://news.ycombinator.com/item?id=50429906",
       "source_text": "Claude Fable 5.2 and Mythos 5.2",
       "signals": {
-        "points": 977,
+        "points": 980,
         "comments": 6
       },
       "meta": {
@@ -598,13 +598,30 @@
       "source_url": "https://news.ycombinator.com/item?id=50429426",
       "source_text": "Google Gemini routes personal Drive files and emails to human annotators",
       "signals": {
-        "points": 611,
-        "comments": 130
+        "points": 688,
+        "comments": 143
       },
       "meta": {
         "author": "gf74918"
       },
       "published_at": "2026-11-09T18:24:38Z"
+    },
+    {
+      "id": "hn-alphaproof-code-2026-11-10",
+      "title": "AlphaProof Code",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+      "source_url": "https://news.ycombinator.com/item?id=50439193",
+      "source_text": "AlphaProof Code",
+      "signals": {
+        "points": 378,
+        "comments": 130
+      },
+      "meta": {
+        "author": "ilreb"
+      },
+      "published_at": "2026-11-10T12:11:12Z"
     },
     {
       "id": "hn-claude-fable-5-2-scores-65-on-artificial-2026-11-10",
@@ -615,8 +632,8 @@
       "source_url": "https://news.ycombinator.com/item?id=50431144",
       "source_text": "Claude Fable 5.2 scores 65 on Artificial Analysis, highest so far",
       "signals": {
-        "points": 347,
-        "comments": 247
+        "points": 360,
+        "comments": 261
       },
       "meta": {
         "author": "theanonymousone"
@@ -632,8 +649,8 @@
       "source_url": "https://news.ycombinator.com/item?id=50422628",
       "source_text": "ChatGPT Desktop forwards your SSH agent to remote machines",
       "signals": {
-        "points": 209,
-        "comments": 73
+        "points": 212,
+        "comments": 75
       },
       "meta": {
         "author": "DenGorbachev"
@@ -649,8 +666,8 @@
       "source_url": "https://news.ycombinator.com/item?id=50435660",
       "source_text": "CoreWeave bond yield tops 16% as AI credit stress rises",
       "signals": {
-        "points": 152,
-        "comments": 112
+        "points": 185,
+        "comments": 173
       },
       "meta": {
         "author": "lxm"
@@ -666,8 +683,8 @@
       "source_url": "https://news.ycombinator.com/item?id=50433079",
       "source_text": "A year after the 100% AI mandate nobody understands our code",
       "signals": {
-        "points": 126,
-        "comments": 161
+        "points": 142,
+        "comments": 179
       },
       "meta": {
         "author": "thelifeline"
@@ -675,38 +692,38 @@
       "published_at": "2026-11-09T22:19:12Z"
     },
     {
-      "id": "hn-apple-capped-engineers-at-a-200-daily-ai-budget-2026-11-10",
-      "title": "Apple capped engineers at a $200 daily AI budget",
+      "id": "hn-fireworks-ai-security-breach-impacts-notion-and-2026-11-10",
+      "title": "Fireworks AI security breach impacts Notion and their customers",
       "category": "hn",
       "source": "hackernews",
-      "url": "https://www.stork.ai/newsletter/2026-11-08-apple-capped-engineers-at-a-200-daily-ai-budget",
-      "source_url": "https://news.ycombinator.com/item?id=50421426",
-      "source_text": "Apple capped engineers at a $200 daily AI budget",
+      "url": "https://www.notion.com/help/security-incident-involving-a-third-party-ai-vendor",
+      "source_url": "https://news.ycombinator.com/item?id=50437106",
+      "source_text": "Fireworks AI security breach impacts Notion and their customers",
       "signals": {
-        "points": 113,
-        "comments": 124
+        "points": 131,
+        "comments": 44
       },
       "meta": {
-        "author": "GloVin"
+        "author": "werrett"
       },
-      "published_at": "2026-11-09T05:30:11Z"
+      "published_at": "2026-11-10T07:19:38Z"
     },
     {
-      "id": "hn-6-hours-of-youtube-and-85-handtyped-pages-of-2026-11-10",
-      "title": "6 Hours of YouTube and 85 handtyped pages of notes on LLM Inference – Start here",
+      "id": "hn-ai-usage-generates-a-fragile-codebase-2026-11-10",
+      "title": "AI usage generates a fragile codebase",
       "category": "hn",
       "source": "hackernews",
-      "url": "https://github.com/samir-sarwar/samir-vllm",
-      "source_url": "https://news.ycombinator.com/item?id=50424199",
-      "source_text": "6 Hours of YouTube and 85 handtyped pages of notes on LLM Inference – Start here",
+      "url": "https://evanxmerz.com/post/ai-usage-generates-a-fragile-codebase/",
+      "source_url": "https://news.ycombinator.com/item?id=50438318",
+      "source_text": "AI usage generates a fragile codebase",
       "signals": {
-        "points": 78,
-        "comments": 12
+        "points": 128,
+        "comments": 160
       },
       "meta": {
-        "author": "samirswr"
+        "author": "plun9"
       },
-      "published_at": "2026-11-09T11:36:55Z"
+      "published_at": "2026-11-10T10:25:58Z"
     }
   ]
 }

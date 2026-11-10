@@ -13,45 +13,55 @@
     "topic": "ai",
     "ranking": "points,recency"
   },
-  "totalCount": 11,
-  "poolCount": 63,
+  "totalCount": 15,
+  "poolCount": 79,
   "stories": [
     {
       "title": "Claude Fable 5.2 and Mythos 5.2",
       "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
       "type": "story",
-      "points": 977,
+      "points": 980,
       "num_comments": 6,
       "author": "meetpateltech",
       "created_at": "2026-11-09T18:56:29Z",
       "hn_url": "https://news.ycombinator.com/item?id=50429906"
     },
     {
-      "title": "Google Gemini routes personal Drive files and emails to human annotators",
-      "url": "https://github.com/thisisme6598/gemini_files/",
-      "type": "story",
-      "points": 611,
-      "num_comments": 130,
-      "author": "gf74918",
-      "created_at": "2026-11-09T18:24:38Z",
-      "hn_url": "https://news.ycombinator.com/item?id=50429426"
-    },
-    {
       "title": "Claude Fable 5.2 and Mythos 5.2",
       "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
       "type": "story",
-      "points": 610,
-      "num_comments": 809,
+      "points": 795,
+      "num_comments": 929,
       "author": "lairv",
       "created_at": "2026-11-09T18:01:10Z",
       "hn_url": "https://news.ycombinator.com/item?id=50429068"
     },
     {
+      "title": "Google Gemini routes personal Drive files and emails to human annotators",
+      "url": "https://github.com/thisisme6598/gemini_files/",
+      "type": "story",
+      "points": 688,
+      "num_comments": 143,
+      "author": "gf74918",
+      "created_at": "2026-11-09T18:24:38Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50429426"
+    },
+    {
+      "title": "AlphaProof Code",
+      "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+      "type": "story",
+      "points": 378,
+      "num_comments": 130,
+      "author": "ilreb",
+      "created_at": "2026-11-10T12:11:12Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50439193"
+    },
+    {
       "title": "Claude Fable 5.2 scores 65 on Artificial Analysis, highest so far",
       "url": "https://artificialanalysis.ai/models/claude-fable-5-2",
       "type": "story",
-      "points": 347,
-      "num_comments": 247,
+      "points": 360,
+      "num_comments": 261,
       "author": "theanonymousone",
       "created_at": "2026-11-09T20:04:55Z",
       "hn_url": "https://news.ycombinator.com/item?id=50431144"
@@ -60,8 +70,8 @@
       "title": "ChatGPT Desktop forwards your SSH agent to remote machines",
       "url": "https://news.ycombinator.com/item?id=50422628",
       "type": "ask_hn",
-      "points": 209,
-      "num_comments": 73,
+      "points": 212,
+      "num_comments": 75,
       "author": "DenGorbachev",
       "created_at": "2026-11-09T08:17:49Z",
       "hn_url": "https://news.ycombinator.com/item?id=50422628"
@@ -70,8 +80,8 @@
       "title": "CoreWeave bond yield tops 16% as AI credit stress rises",
       "url": "https://www.cnbc.com/2026/11/06/coreweave-bond-yield-tops-16percent-as-ai-credit-stress-rises.html",
       "type": "story",
-      "points": 152,
-      "num_comments": 112,
+      "points": 185,
+      "num_comments": 173,
       "author": "lxm",
       "created_at": "2026-11-10T03:20:06Z",
       "hn_url": "https://news.ycombinator.com/item?id=50435660"
@@ -80,41 +90,31 @@
       "title": "A year after the 100% AI mandate nobody understands our code",
       "url": "https://www.reddit.com/r/ClaudeCode/comments/1xq2n3t/a_year_after_the_100_ai_mandate_nobody/",
       "type": "story",
-      "points": 126,
-      "num_comments": 161,
+      "points": 142,
+      "num_comments": 179,
       "author": "thelifeline",
       "created_at": "2026-11-09T22:19:12Z",
       "hn_url": "https://news.ycombinator.com/item?id=50433079"
     },
     {
-      "title": "Apple capped engineers at a $200 daily AI budget",
-      "url": "https://www.stork.ai/newsletter/2026-11-08-apple-capped-engineers-at-a-200-daily-ai-budget",
+      "title": "Fireworks AI security breach impacts Notion and their customers",
+      "url": "https://www.notion.com/help/security-incident-involving-a-third-party-ai-vendor",
       "type": "story",
-      "points": 113,
-      "num_comments": 124,
-      "author": "GloVin",
-      "created_at": "2026-11-09T05:30:11Z",
-      "hn_url": "https://news.ycombinator.com/item?id=50421426"
+      "points": 131,
+      "num_comments": 44,
+      "author": "werrett",
+      "created_at": "2026-11-10T07:19:38Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50437106"
     },
     {
-      "title": "Show HN: STE80 Humanizer \u2013 de-AI text by writing 80% of the way to ASD-STE100",
-      "url": "https://github.com/Dodaios/ste80-humanizer",
-      "type": "show_hn",
-      "points": 92,
-      "num_comments": 30,
-      "author": "Dodaios",
-      "created_at": "2026-11-09T18:05:44Z",
-      "hn_url": "https://news.ycombinator.com/item?id=50429144"
-    },
-    {
-      "title": "6 Hours of YouTube and 85 handtyped pages of notes on LLM Inference \u2013 Start here",
-      "url": "https://github.com/samir-sarwar/samir-vllm",
+      "title": "AI usage generates a fragile codebase",
+      "url": "https://evanxmerz.com/post/ai-usage-generates-a-fragile-codebase/",
       "type": "story",
-      "points": 78,
-      "num_comments": 12,
-      "author": "samirswr",
-      "created_at": "2026-11-09T11:36:55Z",
-      "hn_url": "https://news.ycombinator.com/item?id=50424199"
+      "points": 128,
+      "num_comments": 160,
+      "author": "plun9",
+      "created_at": "2026-11-10T10:25:58Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50438318"
     }
   ]
 }

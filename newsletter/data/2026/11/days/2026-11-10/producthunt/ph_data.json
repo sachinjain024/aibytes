@@ -18,8 +18,8 @@
       "tagline": "The community you trust in the assistant you use",
       "description": "Ask your AI assistant to find your next favorite product. Explore new launches, compare alternatives, and see what the Product Hunt community thinks. Building something yourself? Turn your README and website into a launch draft, add images, and check what's missing before you submit. Sign in with Product Hunt to connect. No API key needed.",
       "slug": "product-hunt-mcp-2",
-      "votesCount": 423,
-      "commentsCount": 37,
+      "votesCount": 432,
+      "commentsCount": 40,
       "reviewsRating": 4.81,
       "reviewsCount": 128,
       "dailyRank": 1,
@@ -93,8 +93,8 @@
       "tagline": "See why AI recommends your competitors instead of you",
       "description": "AI is now choosing brands for your customers. Dageno AI is an AEO/GEO platform that shows whether ChatGPT, Gemini, Perplexity and 7 more AI models recommend you or your competitors, and which sources drive those answers. Look up any market for free, forever: see top brands, buyer questions and cited sources across 12,000+ niche markets and 3M+ brands. Upgrade only when you need to track your own prompts. Built for brands and agencies.",
       "slug": "dageno-ai-2-0",
-      "votesCount": 363,
-      "commentsCount": 63,
+      "votesCount": 373,
+      "commentsCount": 64,
       "reviewsRating": 0.0,
       "reviewsCount": 0,
       "dailyRank": 2,
@@ -196,7 +196,7 @@
       "tagline": "Your agentic analytics platform in the terminal",
       "description": "Create data sources, load data, build metrics, and automate workflows directly from your terminal. Use 90+ commands yourself, or let AI coding agents like Claude Code, Cursor, and Codex do the work with 10 ready-to-use agent skills.",
       "slug": "databox-cli",
-      "votesCount": 295,
+      "votesCount": 296,
       "commentsCount": 49,
       "reviewsRating": 4.75,
       "reviewsCount": 8,
@@ -330,7 +330,7 @@
       "tagline": "A family of custom-trained security models for coding agents",
       "description": "Arcjet is launching a family of custom AI security models designed for analyzing AI agent activity: Arcjet Himalia 1, a general purpose prompt injection model, live today for every SDK call that uses prompt injection detection, and specialist versions designed for situations that general models handle badly, Arcjet Thebe 1 for coding agents, and Arcjet Carme 1, for autonomous security agents.",
       "slug": "arcjet-ai-security-models",
-      "votesCount": 231,
+      "votesCount": 232,
       "commentsCount": 38,
       "reviewsRating": 5.0,
       "reviewsCount": 2,
@@ -432,84 +432,95 @@
       }
     },
     {
-      "id": "1296250",
-      "name": "ProtoMap",
-      "tagline": "Stop wasting AI tokens rediscovering dependencies",
-      "description": "ProtoMap helps engineers and AI coding agents understand how services, APIs, and data fields depend on each other across large codebases. It builds a deterministic dependency map for gRPC and Protobuf systems, updated on every commit and accessible through a web app or MCP. Instead of wasting time and tokens searching code across repositories, agents query ProtoMap directly to understand change impact. One enterprise team reduced change-planning time and tokens by 8\u00d7.",
-      "slug": "protomap",
-      "votesCount": 164,
-      "commentsCount": 19,
+      "id": "1288148",
+      "name": "Alsona",
+      "tagline": "AI agents that turn buying signals into booked sales calls",
+      "description": "95% of prospects aren't ready to buy when you reach out. Alsona finds the ones showing buying intent right now. It tracks 32+ signals across hiring, funding, tech changes, reviews, ad spend, and more, then scores companies against your ICP and explains why they're worth contacting. AI agents turn those signals into personalized LinkedIn and email outreach, helping you start conversations while the buying window is open. Alsona helps you book calls directly with the 5% who is ready to buy today.",
+      "slug": "alsona",
+      "votesCount": 227,
+      "commentsCount": 32,
       "reviewsRating": 0.0,
       "reviewsCount": 0,
-      "dailyRank": 5,
+      "dailyRank": 1,
       "weeklyRank": 5,
-      "url": "https://www.producthunt.com/products/hounddog-ai-static-code-scanner-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
-      "website": "https://www.producthunt.com/r/AK5JMQTTDBGMD4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
-      "featuredAt": "2026-11-09T08:01:00Z",
-      "createdAt": "2026-11-09T08:01:00Z",
+      "url": "https://www.producthunt.com/products/alsona?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/6777NBXG6GHZDS?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-10T08:01:00Z",
+      "createdAt": "2026-11-10T08:01:00Z",
       "thumbnail": {
         "type": "image",
-        "url": "https://ph-files.imgix.net/d6a0506c-94e2-45e9-b627-6958e105063c.png?auto=format"
+        "url": "https://ph-files.imgix.net/c50aa249-8163-486f-84a1-9aaa96b4ec95.png?auto=format"
       },
       "media": [
         {
-          "type": "image",
-          "url": "https://ph-files.imgix.net/add69d5b-9aeb-43bb-889d-14926ec882fb.gif?auto=format",
-          "videoUrl": null
-        },
-        {
-          "type": "image",
-          "url": "https://ph-files.imgix.net/7371d752-5111-4948-8759-1ebf6413ed8e.png?auto=format",
-          "videoUrl": null
-        },
-        {
-          "type": "image",
-          "url": "https://ph-files.imgix.net/d0f82551-0d0b-4365-a0ee-a514ab5acb8a.png?auto=format",
-          "videoUrl": null
-        },
-        {
-          "type": "image",
-          "url": "https://ph-files.imgix.net/ff8d7d3d-0fb5-4dfc-8ee9-9edaa6b4c17f.png?auto=format",
-          "videoUrl": null
-        },
-        {
-          "type": "image",
-          "url": "https://ph-files.imgix.net/c35e08d3-51ae-41f3-a131-c607afd0b192.png?auto=format",
-          "videoUrl": null
-        },
-        {
           "type": "video",
-          "url": "https://ph-files.imgix.net/92d4e8ca-5774-464c-a232-00f299a3cb95.jpeg?auto=format",
-          "videoUrl": "https://youtu.be/aaUgELAsdOM"
+          "url": "https://ph-files.imgix.net/fdfa2e91-beed-413d-8292-a9b9801f4c68.gif?auto=format",
+          "videoUrl": "https://www.loom.com/share/782d1c883e214d7c8d87bf1d0b57844a"
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/8ac4f287-b3cd-45b2-94f4-500d4fdccddb.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/1391244d-10f2-40ea-b223-454f80dcab08.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/1658d611-b1b5-4d6e-9c14-bd7c776b75d0.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/ea43c337-49dd-4a52-8f99-db326441d331.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/798236a1-2ac2-4ab9-9851-d0be572c5f32.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/0958c78b-3e0a-428f-b812-b6dedf072bb0.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/49c351ff-b607-4083-b43a-76542b9a31f0.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/2fcf79da-436f-477f-b0dc-38cc182425d9.png?auto=format",
+          "videoUrl": null
         }
       ],
       "productLinks": [
         {
-          "type": "Github",
-          "url": "https://www.producthunt.com/r/6LUPGDDPFO3RNM?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
-        },
-        {
-          "type": "LinkedIn",
-          "url": "https://www.producthunt.com/r/D5A7BSJ6OAYNDW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
-        },
-        {
           "type": "Website",
-          "url": "https://www.producthunt.com/r/AK5JMQTTDBGMD4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+          "url": "https://www.producthunt.com/r/6777NBXG6GHZDS?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/TKWGT4ZB2A5KJE?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
         }
       ],
       "topics": {
         "nodes": [
           {
-            "name": "Developer Tools",
-            "slug": "developer-tools"
+            "name": "Sales",
+            "slug": "sales"
+          },
+          {
+            "name": "SaaS",
+            "slug": "saas"
           },
           {
             "name": "Artificial Intelligence",
             "slug": "artificial-intelligence"
-          },
-          {
-            "name": "GitHub",
-            "slug": "github"
           }
         ]
       },
@@ -529,11 +540,25 @@
           "twitterUsername": null
         },
         {
-          "name": "Joohwan Oh",
-          "username": "joohwan_oh",
-          "headline": "Co-founder @ HoundDog.ai",
-          "url": "https://www.producthunt.com/@joohwan_oh?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
           "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Vali Tirb",
+          "username": "vali_tirb",
+          "headline": "Developer at Alsona",
+          "url": "https://www.producthunt.com/@vali_tirb?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": ""
         }
       ],
       "user": {
