@@ -1,0 +1,812 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-10",
+  "generated_at": "2026-11-10T10:27:26Z",
+  "counts": {
+    "launches": 6,
+    "repos": 7,
+    "news": 10,
+    "hn": 8
+  },
+  "items": [
+    {
+      "id": "ph-product-hunt-mcp-2-2026-11-10",
+      "title": "Product Hunt MCP",
+      "summary": "MCP server that lets an AI assistant search and compare Product Hunt launches and turn a README and website into a launch draft, with Product Hunt sign-in instead of an API key.",
+      "url": "https://www.producthunt.com/products/producthunt",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/producthunt",
+      "category": "launches",
+      "tags": [
+        "MCP",
+        "Dev Tool",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/launch-image-uploads/4c5f80d7-e0ac-4e64-8960-164b95981148/72d50bc68623fd59e0ad381b8b3ccea25c438c79e354767eb52eb8371473bc25.jpeg?auto=format"
+      },
+      "signals": {
+        "upvotes": 423,
+        "comments": 37
+      },
+      "published_at": "2026-11-09T08:00:00Z",
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "ph-dageno-ai-2-0-2026-11-10",
+      "title": "Dageno AI 2.0",
+      "summary": "Tracks whether ChatGPT, Gemini, Perplexity and 7 other models recommend a brand or its competitors, and which cited sources drive those answers, with free lookups across 12,000+ markets.",
+      "url": "https://www.producthunt.com/products/agent-powered-geo-by-dageno",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/agent-powered-geo-by-dageno",
+      "category": "launches",
+      "tags": [
+        "LLM",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/ad3802d6-94f8-4ddc-b7c7-e7377f816cf2.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 363,
+        "comments": 63
+      },
+      "published_at": "2026-11-09T08:01:00Z",
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "id": "ph-databox-cli-2026-11-10",
+      "title": "Databox CLI",
+      "summary": "Terminal client for Databox with 90+ commands to create data sources, load data and build metrics, plus 10 agent skills so Claude Code, Cursor or Codex can drive it.",
+      "url": "https://www.producthunt.com/products/databox",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/databox",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/c1874969-e8a2-4537-a44a-633e4f433722.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 295,
+        "comments": 49
+      },
+      "published_at": "2026-11-09T08:01:00Z",
+      "hidden": false,
+      "rank": 15
+    },
+    {
+      "id": "ph-arcjet-ai-security-models-2026-11-10",
+      "title": "Arcjet AI security models",
+      "summary": "Custom-trained prompt injection classifiers: Himalia 1 is general purpose and live in every Arcjet SDK detection call, Thebe 1 targets coding agents and Carme 1 autonomous security agents.",
+      "url": "https://www.producthunt.com/products/arcjet",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/arcjet",
+      "category": "launches",
+      "tags": [
+        "Security",
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/9f89ef3a-743d-4f6b-8ae7-146a3f0b637f.jpeg?auto=format"
+      },
+      "signals": {
+        "upvotes": 231,
+        "comments": 38
+      },
+      "published_at": "2026-11-09T08:01:00Z",
+      "hidden": false,
+      "rank": 22
+    },
+    {
+      "id": "ph-protomap-2026-11-10",
+      "title": "ProtoMap",
+      "summary": "Builds a deterministic dependency map of gRPC and Protobuf services, APIs and fields, refreshed on every commit and queryable over a web app or MCP so agents can check change impact.",
+      "url": "https://www.producthunt.com/products/hounddog-ai-static-code-scanner-2",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/hounddog-ai-static-code-scanner-2",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Code Gen",
+        "MCP",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/d6a0506c-94e2-45e9-b627-6958e105063c.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 164,
+        "comments": 19
+      },
+      "published_at": "2026-11-09T08:01:00Z",
+      "hidden": false,
+      "rank": 28
+    },
+    {
+      "id": "hn-show-hn-ste80-humanizer-de-ai-text-by-writing-2026-11-10",
+      "title": "Show HN: STE80 Humanizer – de-AI text by writing 80% of the way to ASD-STE100",
+      "summary": "Open-source GitHub project that rewrites LLM-sounding text by applying most of the rules of ASD-STE100, the Simplified Technical English standard.",
+      "url": "https://github.com/Dodaios/ste80-humanizer",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50429144",
+      "category": "launches",
+      "tags": [
+        "Show HN",
+        "Open Source",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 92,
+        "comments": 30
+      },
+      "meta": {
+        "author": "Dodaios"
+      },
+      "published_at": "2026-11-09T18:05:44Z",
+      "hidden": false,
+      "rank": 26
+    },
+    {
+      "id": "gh-openmausbot-2026-11-10",
+      "title": "milind-soni/OpenMausBot",
+      "summary": "TypeScript project offering an open-source alternative to Grok Bot, bundled with a virtual machine the bots can operate in.",
+      "url": "https://github.com/milind-soni/OpenMausBot",
+      "source": "github",
+      "source_url": "https://github.com/milind-soni/OpenMausBot",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/milind-soni.png?size=80"
+      },
+      "signals": {
+        "stars": 20280,
+        "stars_gained": 1587,
+        "forks": 2801
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "gh-skills-2026-11-10",
+      "title": "anthropics/skills",
+      "summary": "Anthropic's public Python repository of Agent Skills.",
+      "url": "https://github.com/anthropics/skills",
+      "source": "github",
+      "source_url": "https://github.com/anthropics/skills",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Anthropic"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/anthropics.png?size=80"
+      },
+      "signals": {
+        "stars": 191662,
+        "stars_gained": 1038,
+        "forks": 22521
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "gh-agent-browser-2026-11-10",
+      "title": "vercel-labs/agent-browser",
+      "summary": "Vercel Labs command-line tool, written in Rust, that gives AI agents browser automation they can call from a shell.",
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "source": "github",
+      "source_url": "https://github.com/vercel-labs/agent-browser",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/vercel-labs.png?size=80"
+      },
+      "signals": {
+        "stars": 48840,
+        "stars_gained": 916,
+        "forks": 3383
+      },
+      "meta": {
+        "language": "Rust"
+      },
+      "hidden": false,
+      "rank": 11
+    },
+    {
+      "id": "gh-mujoco-2026-11-10",
+      "title": "google-deepmind/mujoco",
+      "summary": "Google DeepMind's general purpose physics simulator in C++, modelling multi-joint dynamics with contact.",
+      "url": "https://github.com/google-deepmind/mujoco",
+      "source": "github",
+      "source_url": "https://github.com/google-deepmind/mujoco",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Robotics",
+        "Google"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/google-deepmind.png?size=80"
+      },
+      "signals": {
+        "stars": 17136,
+        "stars_gained": 574,
+        "forks": 2064
+      },
+      "meta": {
+        "language": "C++"
+      },
+      "hidden": false,
+      "rank": 16
+    },
+    {
+      "id": "gh-claude-quickstarts-2026-11-10",
+      "title": "anthropics/claude-quickstarts",
+      "summary": "Anthropic's Python starter projects for building deployable applications on the Claude API.",
+      "url": "https://github.com/anthropics/claude-quickstarts",
+      "source": "github",
+      "source_url": "https://github.com/anthropics/claude-quickstarts",
+      "category": "repos",
+      "tags": [
+        "Tutorial",
+        "API",
+        "Anthropic"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/anthropics.png?size=80"
+      },
+      "signals": {
+        "stars": 20219,
+        "stars_gained": 551,
+        "forks": 3377
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 20
+    },
+    {
+      "id": "gh-daily-stock-analysis-2026-11-10",
+      "title": "ZhuLinsen/daily_stock_analysis",
+      "summary": "Python system that feeds multi-market quotes and live news to an LLM, renders a decision dashboard and pushes alerts, designed to run on free scheduled jobs.",
+      "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "source": "github",
+      "source_url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "LLM",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/ZhuLinsen.png?size=80"
+      },
+      "signals": {
+        "stars": 69430,
+        "stars_gained": 506,
+        "forks": 56581
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 25
+    },
+    {
+      "id": "gh-ha-mcp-2026-11-10",
+      "title": "homeassistant-ai/ha-mcp",
+      "summary": "Python MCP server that lets Claude, ChatGPT and other assistants configure devices and write automations in Home Assistant.",
+      "url": "https://github.com/homeassistant-ai/ha-mcp",
+      "source": "github",
+      "source_url": "https://github.com/homeassistant-ai/ha-mcp",
+      "category": "repos",
+      "tags": [
+        "MCP",
+        "Open Source",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/homeassistant-ai.png?size=80"
+      },
+      "signals": {
+        "stars": 6291,
+        "stars_gained": 31,
+        "forks": 345
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 29
+    },
+    {
+      "id": "tc-meta-releases-muse-ember-a-new-lightweight-2026-11-10",
+      "title": "Meta releases Muse Ember, a new lightweight model for agent execution",
+      "summary": "Priced at 10 cents per million input tokens, Ember undercuts small frontier models such as Haiku and Luna for running agent steps.",
+      "url": "https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/",
+      "category": "news",
+      "tags": [
+        "Model Release",
+        "Agents",
+        "Pricing",
+        "Meta"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Blog-Header-Visual.png?resize=1200,675"
+      },
+      "meta": {
+        "author": "Russell Brandom",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-09T18:00:00Z",
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "tc-automattic-debuts-a-platform-to-deploy-vibe-2026-11-10",
+      "title": "Automattic debuts a platform to deploy vibe-coding apps amid a changing internet",
+      "summary": "The WordPress parent's new product, Spacefast, hosts and deploys AI-generated apps and is aimed squarely at Lovable.",
+      "url": "https://techcrunch.com/2026/11/09/automattic-debuts-a-platform-to-deploy-vibe-coding-apps-amid-a-changing-internet/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/09/automattic-debuts-a-platform-to-deploy-vibe-coding-apps-amid-a-changing-internet/",
+      "category": "news",
+      "tags": [
+        "Code Gen",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Spacefast-feat.jpg?resize=1200,675"
+      },
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-09T14:00:00Z",
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "tc-a-short-seller-flagged-nvidia-ceos-ties-to-a-2026-11-10",
+      "title": "A short seller flagged Nvidia CEO’s ties to a suspected Chinese spy six months before the scandal",
+      "summary": "Culper Research publicly questioned Jensen Huang's close relationship with a Chinese executive half a year before Nvidia's board opened its inquiry.",
+      "url": "https://techcrunch.com/2026/11/09/a-short-seller-flagged-nvidia-ceos-ties-to-a-suspected-chinese-spy-six-months-before-the-scandal/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/09/a-short-seller-flagged-nvidia-ceos-ties-to-a-suspected-chinese-spy-six-months-before-the-scandal/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Legal"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2025/08/GettyImages-2227140868.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-09T22:46:09Z",
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "id": "tc-anthropic-joins-ais-natural-gas-frenzy-buys-3-2026-11-10",
+      "title": "Anthropic joins AI’s natural gas frenzy, buys $3.4B worth of turbines",
+      "summary": "The turbine purchase follows a wider AI industry rush into natural gas power, and TechCrunch argues the deal could leave Anthropic with buyer's remorse.",
+      "url": "https://techcrunch.com/2026/11/09/anthropic-joins-ais-natural-gas-frenzy-buys-3-4b-worth-of-turbines/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/09/anthropic-joins-ais-natural-gas-frenzy-buys-3-4b-worth-of-turbines/",
+      "category": "news",
+      "tags": [
+        "Anthropic",
+        "Inference"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2024/12/GettyImages-155376474.jpeg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Tim De Chant",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-09T16:56:54Z",
+      "hidden": false,
+      "rank": 12
+    },
+    {
+      "id": "tc-anthropic-reportedly-plans-to-move-forward-with-2026-11-10",
+      "title": "Anthropic reportedly plans to move forward with IPO plans",
+      "summary": "Per the Wall Street Journal, Anthropic is expected to set the valuation range for its listing this week.",
+      "url": "https://techcrunch.com/2026/11/09/anthropic-reportedly-plans-to-move-forward-with-ipo-plans/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/09/anthropic-reportedly-plans-to-move-forward-with-ipo-plans/",
+      "category": "news",
+      "tags": [
+        "Anthropic",
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Dario-Amodei.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Marina Temkin",
+        "reading_time": "1 minute"
+      },
+      "published_at": "2026-11-10T01:27:12Z",
+      "hidden": false,
+      "rank": 14
+    },
+    {
+      "id": "tc-otter-ai-can-now-follow-conversations-across-30-2026-11-10",
+      "title": "Otter AI can now follow conversations across 30+ languages",
+      "summary": "The transcription service added 27 languages and previewed a mode that keeps transcribing when speakers switch languages mid-conversation.",
+      "url": "https://techcrunch.com/2026/11/09/otter-ai-can-now-follow-conversations-across-30-languages/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/09/otter-ai-can-now-follow-conversations-across-30-languages/",
+      "category": "news",
+      "tags": [
+        "Voice / Speech",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2021/01/GettyImages-521333620.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Lauren Forristal",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-10T07:00:00Z",
+      "hidden": false,
+      "rank": 18
+    },
+    {
+      "id": "tc-jensen-huang-reportedly-engaged-a-pr-firm-with-2026-11-10",
+      "title": "Jensen Huang reportedly engaged a PR firm with a history of handling  high-profile sex scandals a year ago",
+      "summary": "Wired reports the firm was hired soon after an October 2025 New York Times story on Alice Huang's business dealings with the Nvidia CEO.",
+      "url": "https://techcrunch.com/2026/11/09/jensen-huang-reportedly-engaged-a-pr-firm-with-a-history-of-handling-high-profile-sex-scandals-a-year-ago/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/09/jensen-huang-reportedly-engaged-a-pr-firm-with-a-history-of-handling-high-profile-sex-scandals-a-year-ago/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Legal"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Jensen-Huang.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Marina Temkin",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-09T23:28:37Z",
+      "hidden": false,
+      "rank": 21
+    },
+    {
+      "id": "tc-the-race-is-on-to-sue-nvidia-2026-11-10",
+      "title": "The race is on to sue Nvidia",
+      "summary": "Shares fell over 4% after the board opened an inquiry into Jensen Huang's ties to a suspected Chinese spy, and Nvidia's earlier claim that all was normal may now invite securities suits.",
+      "url": "https://techcrunch.com/2026/11/09/the-race-is-on-to-sue-nvidia/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/09/the-race-is-on-to-sue-nvidia/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Legal"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2205754389.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Connie Loizos",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-11-09T22:23:42Z",
+      "hidden": false,
+      "rank": 24
+    },
+    {
+      "id": "tc-jensen-huang-pulls-out-of-elevenlabs-summit-2026-11-10",
+      "title": "Jensen Huang pulls out of ElevenLabs Summit amid Nvidia controversy",
+      "summary": "The Nvidia CEO's withdrawal follows an earlier cancellation at an Anthropic event as the board investigation continues.",
+      "url": "https://techcrunch.com/2026/11/09/jensen-huang-pulls-out-of-elevenlabs-summit-amid-nvidia-controversy/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/09/jensen-huang-pulls-out-of-elevenlabs-summit-amid-nvidia-controversy/",
+      "category": "news",
+      "tags": [
+        "Nvidia"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Jensen-Huang.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "1 minute"
+      },
+      "published_at": "2026-11-09T20:09:06Z",
+      "hidden": false,
+      "rank": 27
+    },
+    {
+      "id": "tc-anthropic-releases-new-mythos-and-fable-models-2026-11-10",
+      "title": "Anthropic releases new Mythos and Fable models amid RSI concerns",
+      "summary": "Anthropic cites gains in coding, reasoning, vision and clearer communication, while the launch lands amid concern over recursive self-improvement.",
+      "url": "https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/",
+      "category": "news",
+      "tags": [
+        "Model Release",
+        "Anthropic",
+        "Safety"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2279025960.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Russell Brandom",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-09T19:24:51Z",
+      "hidden": false,
+      "rank": 31
+    },
+    {
+      "id": "hn-claude-fable-5-2-and-mythos-5-2-2026-11-10",
+      "title": "Claude Fable 5.2 and Mythos 5.2",
+      "summary": "Anthropic's release post for the 5.2 versions of both model lines, which the company says improve coding, reasoning and vision.",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50429906",
+      "category": "hn",
+      "tags": [
+        "Model Release",
+        "LLM",
+        "Anthropic"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 977,
+        "comments": 6
+      },
+      "meta": {
+        "author": "meetpateltech"
+      },
+      "published_at": "2026-11-09T18:56:29Z",
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "hn-google-gemini-routes-personal-drive-files-and-2026-11-10",
+      "title": "Google Gemini routes personal Drive files and emails to human annotators",
+      "summary": "A GitHub repository publishes material alleging that Gemini sends users' own Drive files and emails to human reviewers for annotation.",
+      "url": "https://github.com/thisisme6598/gemini_files/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50429426",
+      "category": "hn",
+      "tags": [
+        "Privacy",
+        "Google"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 611,
+        "comments": 130
+      },
+      "meta": {
+        "author": "gf74918"
+      },
+      "published_at": "2026-11-09T18:24:38Z",
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "hn-claude-fable-5-2-scores-65-on-artificial-2026-11-10",
+      "title": "Claude Fable 5.2 scores 65 on Artificial Analysis, highest so far",
+      "summary": "Artificial Analysis model page for Fable 5.2, released the same day as Mythos 5.2, placing it at the top of the index's composite intelligence score.",
+      "url": "https://artificialanalysis.ai/models/claude-fable-5-2",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50431144",
+      "category": "hn",
+      "tags": [
+        "Benchmark",
+        "Eval",
+        "Anthropic"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 347,
+        "comments": 247
+      },
+      "meta": {
+        "author": "theanonymousone"
+      },
+      "published_at": "2026-11-09T20:04:55Z",
+      "hidden": false,
+      "rank": 10
+    },
+    {
+      "id": "hn-chatgpt-desktop-forwards-your-ssh-agent-to-2026-11-10",
+      "title": "ChatGPT Desktop forwards your SSH agent to remote machines",
+      "summary": "Text post reporting that the ChatGPT desktop app exposes the local SSH agent to the remote machines it connects to.",
+      "url": "https://news.ycombinator.com/item?id=50422628",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50422628",
+      "category": "hn",
+      "tags": [
+        "Security",
+        "OpenAI"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 209,
+        "comments": 73
+      },
+      "meta": {
+        "author": "DenGorbachev"
+      },
+      "published_at": "2026-11-09T08:17:49Z",
+      "hidden": false,
+      "rank": 13
+    },
+    {
+      "id": "hn-coreweave-bond-yield-tops-16-as-ai-credit-2026-11-10",
+      "title": "CoreWeave bond yield tops 16% as AI credit stress rises",
+      "summary": "CNBC report on the GPU cloud's debt pricing, read as a sign of rising strain in the credit financing AI data centers.",
+      "url": "https://www.cnbc.com/2026/11/06/coreweave-bond-yield-tops-16percent-as-ai-credit-stress-rises.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50435660",
+      "category": "hn",
+      "tags": [
+        "Inference",
+        "Funding"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 152,
+        "comments": 112
+      },
+      "meta": {
+        "author": "lxm"
+      },
+      "published_at": "2026-11-10T03:20:06Z",
+      "hidden": false,
+      "rank": 17
+    },
+    {
+      "id": "hn-a-year-after-the-100-ai-mandate-nobody-2026-11-10",
+      "title": "A year after the 100% AI mandate nobody understands our code",
+      "summary": "Reddit post in r/ClaudeCode from a developer whose team was required to write all code with AI, describing a codebase no one on it can explain a year later.",
+      "url": "https://www.reddit.com/r/ClaudeCode/comments/1xq2n3t/a_year_after_the_100_ai_mandate_nobody/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50433079",
+      "category": "hn",
+      "tags": [
+        "Code Gen",
+        "Claude Code"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 126,
+        "comments": 161
+      },
+      "meta": {
+        "author": "thelifeline"
+      },
+      "published_at": "2026-11-09T22:19:12Z",
+      "hidden": false,
+      "rank": 19
+    },
+    {
+      "id": "hn-apple-capped-engineers-at-a-200-daily-ai-budget-2026-11-10",
+      "title": "Apple capped engineers at a $200 daily AI budget",
+      "summary": "Newsletter report on a per-engineer daily spending limit Apple set for AI tool usage.",
+      "url": "https://www.stork.ai/newsletter/2026-11-08-apple-capped-engineers-at-a-200-daily-ai-budget",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50421426",
+      "category": "hn",
+      "tags": [
+        "Apple",
+        "Pricing"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 113,
+        "comments": 124
+      },
+      "meta": {
+        "author": "GloVin"
+      },
+      "published_at": "2026-11-09T05:30:11Z",
+      "hidden": false,
+      "rank": 23
+    },
+    {
+      "id": "hn-6-hours-of-youtube-and-85-handtyped-pages-of-2026-11-10",
+      "title": "6 Hours of YouTube and 85 handtyped pages of notes on LLM Inference – Start here",
+      "summary": "GitHub repository of one engineer's study notes on LLM inference, compiled from video lectures and offered as a starting point for the topic.",
+      "url": "https://github.com/samir-sarwar/samir-vllm",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50424199",
+      "category": "hn",
+      "tags": [
+        "Tutorial",
+        "Inference"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 78,
+        "comments": 12
+      },
+      "meta": {
+        "author": "samirswr"
+      },
+      "published_at": "2026-11-09T11:36:55Z",
+      "hidden": false,
+      "rank": 30
+    }
+  ]
+}

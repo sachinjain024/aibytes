@@ -1,0 +1,712 @@
+{
+  "date": "2026-11-10",
+  "generated_at": "2026-11-10T10:26:34Z",
+  "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
+  "tags": [
+    {
+      "name": "What it is",
+      "tags": [
+        {
+          "name": "Model Release",
+          "slug": "model-release"
+        },
+        {
+          "name": "Open Source",
+          "slug": "open-source"
+        },
+        {
+          "name": "Paper",
+          "slug": "paper"
+        },
+        {
+          "name": "Benchmark",
+          "slug": "benchmark"
+        },
+        {
+          "name": "Dataset",
+          "slug": "dataset"
+        },
+        {
+          "name": "Framework",
+          "slug": "framework"
+        },
+        {
+          "name": "Dev Tool",
+          "slug": "dev-tool"
+        },
+        {
+          "name": "API",
+          "slug": "api"
+        }
+      ]
+    },
+    {
+      "name": "Domain",
+      "tags": [
+        {
+          "name": "LLM",
+          "slug": "llm"
+        },
+        {
+          "name": "Agents",
+          "slug": "agents"
+        },
+        {
+          "name": "RAG",
+          "slug": "rag"
+        },
+        {
+          "name": "Fine-tuning",
+          "slug": "fine-tuning"
+        },
+        {
+          "name": "Inference",
+          "slug": "inference"
+        },
+        {
+          "name": "Local LLM",
+          "slug": "local-llm"
+        },
+        {
+          "name": "Vision",
+          "slug": "vision"
+        },
+        {
+          "name": "Voice / Speech",
+          "slug": "voice-speech"
+        },
+        {
+          "name": "Video",
+          "slug": "video"
+        },
+        {
+          "name": "Image Gen",
+          "slug": "image-gen"
+        },
+        {
+          "name": "Code Gen",
+          "slug": "code-gen"
+        },
+        {
+          "name": "Embeddings",
+          "slug": "embeddings"
+        },
+        {
+          "name": "Eval",
+          "slug": "eval"
+        },
+        {
+          "name": "Reasoning",
+          "slug": "reasoning"
+        },
+        {
+          "name": "Multimodal",
+          "slug": "multimodal"
+        },
+        {
+          "name": "Robotics",
+          "slug": "robotics"
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem",
+      "tags": [
+        {
+          "name": "OpenAI",
+          "slug": "openai"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic"
+        },
+        {
+          "name": "Google",
+          "slug": "google"
+        },
+        {
+          "name": "Meta",
+          "slug": "meta"
+        },
+        {
+          "name": "Nvidia",
+          "slug": "nvidia"
+        },
+        {
+          "name": "Hugging Face",
+          "slug": "hugging-face"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft"
+        },
+        {
+          "name": "Claude Code",
+          "slug": "claude-code"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor"
+        },
+        {
+          "name": "MCP",
+          "slug": "mcp"
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "tags": [
+        {
+          "name": "Funding",
+          "slug": "funding"
+        },
+        {
+          "name": "Acquisition",
+          "slug": "acquisition"
+        },
+        {
+          "name": "Launch",
+          "slug": "launch"
+        },
+        {
+          "name": "Pricing",
+          "slug": "pricing"
+        },
+        {
+          "name": "Policy",
+          "slug": "policy"
+        },
+        {
+          "name": "Legal",
+          "slug": "legal"
+        },
+        {
+          "name": "Security",
+          "slug": "security"
+        },
+        {
+          "name": "Privacy",
+          "slug": "privacy"
+        },
+        {
+          "name": "Safety",
+          "slug": "safety"
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "tags": [
+        {
+          "name": "Show HN",
+          "slug": "show-hn"
+        },
+        {
+          "name": "Tutorial",
+          "slug": "tutorial"
+        },
+        {
+          "name": "Deep Dive",
+          "slug": "deep-dive"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ph-product-hunt-mcp-2-2026-11-10",
+      "title": "Product Hunt MCP",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/producthunt",
+      "source_url": "https://www.producthunt.com/products/producthunt",
+      "source_text": "Product Hunt MCP The community you trust in the assistant you use Ask your AI assistant to find your next favorite product. Explore new launches, compare alternatives, and see what the Product Hunt community thinks. Building something yourself? Turn your README and website into a launch draft, add images, and check what's missing before you submit. Sign in with Product Hunt to connect. No API key needed. Productivity Developer Tools Artificial Intelligence",
+      "signals": {
+        "upvotes": 423,
+        "comments": 37
+      },
+      "published_at": "2026-11-09T08:00:00Z"
+    },
+    {
+      "id": "ph-dageno-ai-2-0-2026-11-10",
+      "title": "Dageno AI 2.0",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/agent-powered-geo-by-dageno",
+      "source_url": "https://www.producthunt.com/products/agent-powered-geo-by-dageno",
+      "source_text": "Dageno AI 2.0 See why AI recommends your competitors instead of you AI is now choosing brands for your customers. Dageno AI is an AEO/GEO platform that shows whether ChatGPT, Gemini, Perplexity and 7 more AI models recommend you or your competitors, and which sources drive those answers. Look up any market for free, forever: see top brands, buyer questions and cited sources across 12,000+ niche markets and 3M+ brands. Upgrade only when you need to track your own prompts. Built for brands and agencies. Marketing SEO Search",
+      "signals": {
+        "upvotes": 363,
+        "comments": 63
+      },
+      "published_at": "2026-11-09T08:01:00Z"
+    },
+    {
+      "id": "ph-databox-cli-2026-11-10",
+      "title": "Databox CLI",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/databox",
+      "source_url": "https://www.producthunt.com/products/databox",
+      "source_text": "Databox CLI Your agentic analytics platform in the terminal Create data sources, load data, build metrics, and automate workflows directly from your terminal. Use 90+ commands yourself, or let AI coding agents like Claude Code, Cursor, and Codex do the work with 10 ready-to-use agent skills. Productivity SaaS Developer Tools GitHub",
+      "signals": {
+        "upvotes": 295,
+        "comments": 49
+      },
+      "published_at": "2026-11-09T08:01:00Z"
+    },
+    {
+      "id": "ph-arcjet-ai-security-models-2026-11-10",
+      "title": "Arcjet AI security models",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/arcjet",
+      "source_url": "https://www.producthunt.com/products/arcjet",
+      "source_text": "Arcjet AI security models A family of custom-trained security models for coding agents Arcjet is launching a family of custom AI security models designed for analyzing AI agent activity: Arcjet Himalia 1, a general purpose prompt injection model, live today for every SDK call that uses prompt injection detection, and specialist versions designed for situations that general models handle badly, Arcjet Thebe 1 for coding agents, and Arcjet Carme 1, for autonomous security agents. Developer Tools Artificial Intelligence Security",
+      "signals": {
+        "upvotes": 231,
+        "comments": 38
+      },
+      "published_at": "2026-11-09T08:01:00Z"
+    },
+    {
+      "id": "ph-protomap-2026-11-10",
+      "title": "ProtoMap",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/hounddog-ai-static-code-scanner-2",
+      "source_url": "https://www.producthunt.com/products/hounddog-ai-static-code-scanner-2",
+      "source_text": "ProtoMap Stop wasting AI tokens rediscovering dependencies ProtoMap helps engineers and AI coding agents understand how services, APIs, and data fields depend on each other across large codebases. It builds a deterministic dependency map for gRPC and Protobuf systems, updated on every commit and accessible through a web app or MCP. Instead of wasting time and tokens searching code across repositories, agents query ProtoMap directly to understand change impact. One enterprise team reduced change-planning time and tokens by 8×. Developer Tools Artificial Intelligence GitHub",
+      "signals": {
+        "upvotes": 164,
+        "comments": 19
+      },
+      "published_at": "2026-11-09T08:01:00Z"
+    },
+    {
+      "id": "hn-show-hn-ste80-humanizer-de-ai-text-by-writing-2026-11-10",
+      "title": "Show HN: STE80 Humanizer – de-AI text by writing 80% of the way to ASD-STE100",
+      "category": "launches",
+      "source": "hackernews",
+      "url": "https://github.com/Dodaios/ste80-humanizer",
+      "source_url": "https://news.ycombinator.com/item?id=50429144",
+      "source_text": "Show HN: STE80 Humanizer – de-AI text by writing 80% of the way to ASD-STE100",
+      "signals": {
+        "points": 92,
+        "comments": 30
+      },
+      "meta": {
+        "author": "Dodaios"
+      },
+      "published_at": "2026-11-09T18:05:44Z"
+    },
+    {
+      "id": "gh-openmausbot-2026-11-10",
+      "title": "milind-soni/OpenMausBot",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/milind-soni/OpenMausBot",
+      "source_url": "https://github.com/milind-soni/OpenMausBot",
+      "source_text": "milind-soni/OpenMausBot Open-source Grok Bot alternative with a virtual machine that bots can use TypeScript",
+      "signals": {
+        "stars": 20280,
+        "stars_gained": 1587,
+        "forks": 2801
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-skills-2026-11-10",
+      "title": "anthropics/skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/anthropics/skills",
+      "source_url": "https://github.com/anthropics/skills",
+      "source_text": "anthropics/skills Public repository for Agent Skills Python",
+      "signals": {
+        "stars": 191662,
+        "stars_gained": 1038,
+        "forks": 22521
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-agent-browser-2026-11-10",
+      "title": "vercel-labs/agent-browser",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "source_url": "https://github.com/vercel-labs/agent-browser",
+      "source_text": "vercel-labs/agent-browser Browser automation CLI for AI agents Rust",
+      "signals": {
+        "stars": 48840,
+        "stars_gained": 916,
+        "forks": 3383
+      },
+      "meta": {
+        "language": "Rust"
+      }
+    },
+    {
+      "id": "gh-mujoco-2026-11-10",
+      "title": "google-deepmind/mujoco",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/google-deepmind/mujoco",
+      "source_url": "https://github.com/google-deepmind/mujoco",
+      "source_text": "google-deepmind/mujoco Multi-Joint dynamics with Contact. A general purpose physics simulator. C++",
+      "signals": {
+        "stars": 17136,
+        "stars_gained": 574,
+        "forks": 2064
+      },
+      "meta": {
+        "language": "C++"
+      }
+    },
+    {
+      "id": "gh-claude-quickstarts-2026-11-10",
+      "title": "anthropics/claude-quickstarts",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/anthropics/claude-quickstarts",
+      "source_url": "https://github.com/anthropics/claude-quickstarts",
+      "source_text": "anthropics/claude-quickstarts A collection of projects designed to help developers quickly get started with building deployable applications using the Claude API Python",
+      "signals": {
+        "stars": 20219,
+        "stars_gained": 551,
+        "forks": 3377
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-daily-stock-analysis-2026-11-10",
+      "title": "ZhuLinsen/daily_stock_analysis",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "source_url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "source_text": "ZhuLinsen/daily_stock_analysis LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。 LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs. Python",
+      "signals": {
+        "stars": 69430,
+        "stars_gained": 506,
+        "forks": 56581
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-ha-mcp-2026-11-10",
+      "title": "homeassistant-ai/ha-mcp",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/homeassistant-ai/ha-mcp",
+      "source_url": "https://github.com/homeassistant-ai/ha-mcp",
+      "source_text": "homeassistant-ai/ha-mcp Configure and automate Home Assistant with Claude, ChatGPT, and other AI assistants. Python",
+      "signals": {
+        "stars": 6291,
+        "stars_gained": 31,
+        "forks": 345
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "tc-meta-releases-muse-ember-a-new-lightweight-2026-11-10",
+      "title": "Meta releases Muse Ember, a new lightweight model for agent execution",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/",
+      "source_url": "https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/",
+      "source_text": "Meta releases Muse Ember, a new lightweight model for agent execution At 10 cents per million input tokens, Ember is significantly cheaper than frontier competitors like Haiku and Luna.",
+      "meta": {
+        "author": "Russell Brandom",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-09T18:00:00Z"
+    },
+    {
+      "id": "tc-automattic-debuts-a-platform-to-deploy-vibe-2026-11-10",
+      "title": "Automattic debuts a platform to deploy vibe-coding apps amid a changing internet",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/09/automattic-debuts-a-platform-to-deploy-vibe-coding-apps-amid-a-changing-internet/",
+      "source_url": "https://techcrunch.com/2026/11/09/automattic-debuts-a-platform-to-deploy-vibe-coding-apps-amid-a-changing-internet/",
+      "source_text": "Automattic debuts a platform to deploy vibe-coding apps amid a changing internet Automattic aims to compete with the likes of Lovable with Spacefast.",
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-09T14:00:00Z"
+    },
+    {
+      "id": "tc-a-short-seller-flagged-nvidia-ceos-ties-to-a-2026-11-10",
+      "title": "A short seller flagged Nvidia CEO’s ties to a suspected Chinese spy six months before the scandal",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/09/a-short-seller-flagged-nvidia-ceos-ties-to-a-suspected-chinese-spy-six-months-before-the-scandal/",
+      "source_url": "https://techcrunch.com/2026/11/09/a-short-seller-flagged-nvidia-ceos-ties-to-a-suspected-chinese-spy-six-months-before-the-scandal/",
+      "source_text": "A short seller flagged Nvidia CEO’s ties to a suspected Chinese spy six months before the scandal Six months before Nvidia's spy scandal erupted, Culper Research was already questioning Jensen Huang's unusually close relationship with a Chinese executive.",
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-09T22:46:09Z"
+    },
+    {
+      "id": "tc-anthropic-joins-ais-natural-gas-frenzy-buys-3-2026-11-10",
+      "title": "Anthropic joins AI’s natural gas frenzy, buys $3.4B worth of turbines",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/09/anthropic-joins-ais-natural-gas-frenzy-buys-3-4b-worth-of-turbines/",
+      "source_url": "https://techcrunch.com/2026/11/09/anthropic-joins-ais-natural-gas-frenzy-buys-3-4b-worth-of-turbines/",
+      "source_text": "Anthropic joins AI’s natural gas frenzy, buys $3.4B worth of turbines Anthropic bought billions of dollars' worth of natural gas turbines in a deal that could give it buyer's remorse.",
+      "meta": {
+        "author": "Tim De Chant",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-09T16:56:54Z"
+    },
+    {
+      "id": "tc-anthropic-reportedly-plans-to-move-forward-with-2026-11-10",
+      "title": "Anthropic reportedly plans to move forward with IPO plans",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/09/anthropic-reportedly-plans-to-move-forward-with-ipo-plans/",
+      "source_url": "https://techcrunch.com/2026/11/09/anthropic-reportedly-plans-to-move-forward-with-ipo-plans/",
+      "source_text": "Anthropic reportedly plans to move forward with IPO plans The AI company is expected to set its valuation range this week, the Wall Street Journal reported.",
+      "meta": {
+        "author": "Marina Temkin",
+        "reading_time": "1 minute"
+      },
+      "published_at": "2026-11-10T01:27:12Z"
+    },
+    {
+      "id": "tc-otter-ai-can-now-follow-conversations-across-30-2026-11-10",
+      "title": "Otter AI can now follow conversations across 30+ languages",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/09/otter-ai-can-now-follow-conversations-across-30-languages/",
+      "source_url": "https://techcrunch.com/2026/11/09/otter-ai-can-now-follow-conversations-across-30-languages/",
+      "source_text": "Otter AI can now follow conversations across 30+ languages Otter AI just added support for 27 languages and revealed an upcoming feature that can follow along if speakers switch between languages.",
+      "meta": {
+        "author": "Lauren Forristal",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-10T07:00:00Z"
+    },
+    {
+      "id": "tc-jensen-huang-reportedly-engaged-a-pr-firm-with-2026-11-10",
+      "title": "Jensen Huang reportedly engaged a PR firm with a history of handling  high-profile sex scandals a year ago",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/09/jensen-huang-reportedly-engaged-a-pr-firm-with-a-history-of-handling-high-profile-sex-scandals-a-year-ago/",
+      "source_url": "https://techcrunch.com/2026/11/09/jensen-huang-reportedly-engaged-a-pr-firm-with-a-history-of-handling-high-profile-sex-scandals-a-year-ago/",
+      "source_text": "Jensen Huang reportedly engaged a PR firm with a history of handling  high-profile sex scandals a year ago The PR firm was enlisted shortly after an October 2025 New York Times report described Alice Huang's business dealings with Jensen Huang, Wired reported.",
+      "meta": {
+        "author": "Marina Temkin",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-09T23:28:37Z"
+    },
+    {
+      "id": "tc-the-race-is-on-to-sue-nvidia-2026-11-10",
+      "title": "The race is on to sue Nvidia",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/09/the-race-is-on-to-sue-nvidia/",
+      "source_url": "https://techcrunch.com/2026/11/09/the-race-is-on-to-sue-nvidia/",
+      "source_text": "The race is on to sue Nvidia Nvidia’s stock slid more than 4% after its board opened an investigation into Jensen Huang’s relationship with a suspected Chinese spy, and one securities law expert says the company’s earlier insistence that it was all “normal” could turn into a very expensive problem.",
+      "meta": {
+        "author": "Connie Loizos",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-11-09T22:23:42Z"
+    },
+    {
+      "id": "tc-jensen-huang-pulls-out-of-elevenlabs-summit-2026-11-10",
+      "title": "Jensen Huang pulls out of ElevenLabs Summit amid Nvidia controversy",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/09/jensen-huang-pulls-out-of-elevenlabs-summit-amid-nvidia-controversy/",
+      "source_url": "https://techcrunch.com/2026/11/09/jensen-huang-pulls-out-of-elevenlabs-summit-amid-nvidia-controversy/",
+      "source_text": "Jensen Huang pulls out of ElevenLabs Summit amid Nvidia controversy The Nvidia CEO also pulled out of an Anthropic event earlier.",
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "1 minute"
+      },
+      "published_at": "2026-11-09T20:09:06Z"
+    },
+    {
+      "id": "tc-anthropic-releases-new-mythos-and-fable-models-2026-11-10",
+      "title": "Anthropic releases new Mythos and Fable models amid RSI concerns",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/",
+      "source_url": "https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/",
+      "source_text": "Anthropic releases new Mythos and Fable models amid RSI concerns Anthropic says the new models \"show improvements in areas like coding, reasoning, and vision,\" as well as in communicating more clearly with users.",
+      "meta": {
+        "author": "Russell Brandom",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-09T19:24:51Z"
+    },
+    {
+      "id": "hn-claude-fable-5-2-and-mythos-5-2-2026-11-10",
+      "title": "Claude Fable 5.2 and Mythos 5.2",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "source_url": "https://news.ycombinator.com/item?id=50429906",
+      "source_text": "Claude Fable 5.2 and Mythos 5.2",
+      "signals": {
+        "points": 977,
+        "comments": 6
+      },
+      "meta": {
+        "author": "meetpateltech"
+      },
+      "published_at": "2026-11-09T18:56:29Z"
+    },
+    {
+      "id": "hn-google-gemini-routes-personal-drive-files-and-2026-11-10",
+      "title": "Google Gemini routes personal Drive files and emails to human annotators",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://github.com/thisisme6598/gemini_files/",
+      "source_url": "https://news.ycombinator.com/item?id=50429426",
+      "source_text": "Google Gemini routes personal Drive files and emails to human annotators",
+      "signals": {
+        "points": 611,
+        "comments": 130
+      },
+      "meta": {
+        "author": "gf74918"
+      },
+      "published_at": "2026-11-09T18:24:38Z"
+    },
+    {
+      "id": "hn-claude-fable-5-2-scores-65-on-artificial-2026-11-10",
+      "title": "Claude Fable 5.2 scores 65 on Artificial Analysis, highest so far",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://artificialanalysis.ai/models/claude-fable-5-2",
+      "source_url": "https://news.ycombinator.com/item?id=50431144",
+      "source_text": "Claude Fable 5.2 scores 65 on Artificial Analysis, highest so far",
+      "signals": {
+        "points": 347,
+        "comments": 247
+      },
+      "meta": {
+        "author": "theanonymousone"
+      },
+      "published_at": "2026-11-09T20:04:55Z"
+    },
+    {
+      "id": "hn-chatgpt-desktop-forwards-your-ssh-agent-to-2026-11-10",
+      "title": "ChatGPT Desktop forwards your SSH agent to remote machines",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=50422628",
+      "source_url": "https://news.ycombinator.com/item?id=50422628",
+      "source_text": "ChatGPT Desktop forwards your SSH agent to remote machines",
+      "signals": {
+        "points": 209,
+        "comments": 73
+      },
+      "meta": {
+        "author": "DenGorbachev"
+      },
+      "published_at": "2026-11-09T08:17:49Z"
+    },
+    {
+      "id": "hn-coreweave-bond-yield-tops-16-as-ai-credit-2026-11-10",
+      "title": "CoreWeave bond yield tops 16% as AI credit stress rises",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.cnbc.com/2026/11/06/coreweave-bond-yield-tops-16percent-as-ai-credit-stress-rises.html",
+      "source_url": "https://news.ycombinator.com/item?id=50435660",
+      "source_text": "CoreWeave bond yield tops 16% as AI credit stress rises",
+      "signals": {
+        "points": 152,
+        "comments": 112
+      },
+      "meta": {
+        "author": "lxm"
+      },
+      "published_at": "2026-11-10T03:20:06Z"
+    },
+    {
+      "id": "hn-a-year-after-the-100-ai-mandate-nobody-2026-11-10",
+      "title": "A year after the 100% AI mandate nobody understands our code",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.reddit.com/r/ClaudeCode/comments/1xq2n3t/a_year_after_the_100_ai_mandate_nobody/",
+      "source_url": "https://news.ycombinator.com/item?id=50433079",
+      "source_text": "A year after the 100% AI mandate nobody understands our code",
+      "signals": {
+        "points": 126,
+        "comments": 161
+      },
+      "meta": {
+        "author": "thelifeline"
+      },
+      "published_at": "2026-11-09T22:19:12Z"
+    },
+    {
+      "id": "hn-apple-capped-engineers-at-a-200-daily-ai-budget-2026-11-10",
+      "title": "Apple capped engineers at a $200 daily AI budget",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.stork.ai/newsletter/2026-11-08-apple-capped-engineers-at-a-200-daily-ai-budget",
+      "source_url": "https://news.ycombinator.com/item?id=50421426",
+      "source_text": "Apple capped engineers at a $200 daily AI budget",
+      "signals": {
+        "points": 113,
+        "comments": 124
+      },
+      "meta": {
+        "author": "GloVin"
+      },
+      "published_at": "2026-11-09T05:30:11Z"
+    },
+    {
+      "id": "hn-6-hours-of-youtube-and-85-handtyped-pages-of-2026-11-10",
+      "title": "6 Hours of YouTube and 85 handtyped pages of notes on LLM Inference – Start here",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://github.com/samir-sarwar/samir-vllm",
+      "source_url": "https://news.ycombinator.com/item?id=50424199",
+      "source_text": "6 Hours of YouTube and 85 handtyped pages of notes on LLM Inference – Start here",
+      "signals": {
+        "points": 78,
+        "comments": 12
+      },
+      "meta": {
+        "author": "samirswr"
+      },
+      "published_at": "2026-11-09T11:36:55Z"
+    }
+  ]
+}
