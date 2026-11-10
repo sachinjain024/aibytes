@@ -133,10 +133,11 @@ render(<>
 render(<div className="pv-row"><L.Input type="email" placeholder="you@example.dev" aria-label="Email" /><L.Button variant="secondary">Subscribe</L.Button></div>);` },
 
   AppHeader: { group: "Navigation", height: 200, width: 1100, jsx: `
+const theme = document.documentElement.dataset.theme || "light";
 render(<div className="pv-static">
-  <L.AppHeader theme="light" onToggleTheme={noop} onMenu={noop} githubUrl="#" onSignIn={noop} />
+  <L.AppHeader theme={theme} onToggleTheme={noop} onMenu={noop} githubUrl="#" onSignIn={noop} />
   <Label>Signed out: Sign in after the theme toggle. The menu button shows on phones only.</Label>
-  <L.AppHeader theme="light" onToggleTheme={noop} onMenu={noop} githubUrl="#" user={{ name: "Ada Lovelace" }} onSignOut={noop} onSaved={noop} />
+  <L.AppHeader theme={theme} onToggleTheme={noop} onMenu={noop} githubUrl="#" user={{ name: "Ada Lovelace" }} onSignOut={noop} onSaved={noop} />
   <Label>Signed in: the avatar, with the initial when there is no photo. Click it for the account menu.</Label>
 </div>);` },
 

@@ -288,7 +288,8 @@ export async function buildArtifact(out, { ref = "", now = new Date().toISOStrin
     const spec = PREVIEWS[name];
     if (!spec) throw new Error(`no preview for ${name}`);
     await put(out, `components/${name}/README.md`, readmeFor(name, files));
-    if (files.get(name)?.dts) await put(out, `components/${name}/${name}.d.ts`, files.get(name).dts);
+    // Each component gets its own folder here, so a sibling import climbs one level.
+    if (files.get(name)?.dts) await put(out, `components/${name}/${name}.d.ts`, files.get(name).dts.replace(/from "\.\/(\w+)"/g, 'from "../$1/$1"'));
     await put(out, `components/${name}/preview.html`, await previewHtml(name, spec));
   }
 

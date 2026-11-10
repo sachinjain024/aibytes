@@ -3,8 +3,10 @@
 // gets a preview.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
-import { bundleCss, componentNames, tokensCss, tokensFromCss } from "./build.mjs";
+import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import { buildArtifact, bundleCss, componentNames, tokensCss, tokensFromCss } from "./build.mjs";
 import { PREVIEWS } from "./previews.mjs";
 
 const css = await readFile(new URL("../tokens/token.css", import.meta.url), "utf8");
@@ -41,6 +43,8 @@ test("tokens.css declares the variables the components read", () => {
 });
 
 test("bundle.css keeps no token values but the two tokens.json cannot hold", async () => {
+  const json = JSON.stringify(tokens);
+  for (const name of ["mono-features", "redesign-top"]) assert.ok(!json.includes(`"${name}"`), `${name} is in tokens.json`);
   const out = await bundleCss();
   assert.doesNotMatch(out, /--paper:\s*#/);
   assert.match(out, /--redesign-top:calc\(/);
@@ -53,4 +57,16 @@ test("every exported component has a preview, and helpers have none", async () =
   for (const name of ["AppHeader", "Sidebar", "Card", "SaveBanner", "CardGrid"]) assert.ok(names.includes(name), name);
   for (const name of ["FeedItem", "SOURCE_NAMES", "Icon"]) assert.ok(!names.includes(name), name);
   assert.deepEqual(names.filter((name) => !PREVIEWS[name]), []);
+});
+
+test("a component's .d.ts imports resolve from its own folder", async () => {
+  const out = await mkdtemp(join(tmpdir(), "ledger-artifact-"));
+  try {
+    await buildArtifact(out);
+    const dts = await readFile(join(out, "project/components/ListRow/ListRow.d.ts"), "utf8");
+    assert.match(dts, /from "\.\.\/Card\/Card"/);
+    assert.doesNotMatch(dts, /from "\.\/Card"/);
+  } finally {
+    await rm(out, { recursive: true, force: true });
+  }
 });
