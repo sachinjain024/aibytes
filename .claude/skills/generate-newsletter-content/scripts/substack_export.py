@@ -85,11 +85,10 @@ def _announcements(s):
     for by, post, links in re.findall(
         r'<div class="oa-by">(.*?)</div><div class="oa-post">(.*?)</div><div class="oa-links">(.*?)</div>', oa, re.S
     ):
-        co = re.search(r"<b>(.*?)</b>", by).group(1)
         handle, day = re.search(r"<span>(.*?)</span>", by).group(1).rsplit(" · ", 1)
         paras = "".join(f"<p>{clean(p)}</p>" for p in re.findall(r"<p>(.*?)</p>", post, re.S))
         links = clean(re.sub(r'<span class="dot">·</span>', "·", links))
-        out.append(f"<h3>{co} {handle} · {day.title()}</h3><blockquote>{paras}</blockquote><p>{links}</p>")
+        out.append(f"<h3>{handle} · {day.title()}</h3><blockquote>{paras}</blockquote><p>{links}</p>")
     return out
 
 
@@ -101,10 +100,10 @@ def _row(label, ico, txt, stat):
             handle, post, words, tail = m.groups()
             txt = f'<a href="{post}"><b>{handle}</b></a> {words}{tail}'
     elif label == "HN deep stories":
-        # The title is plain bold; the thread link is the only orange in the row.
+        # The title is plain text; the thread link is the only orange in the row.
         m = re.match(r'\s*<b><a href="[^"]+">(.*?)</a></b>(.*)', txt, re.S)
         if m and "HackerNews<" in txt:
-            txt = f"<b>{m.group(1)}</b>{m.group(2)}"
+            txt = f"{m.group(1)}{m.group(2)}"
     stat = re.sub(r"\s+", " ", strip_tags(stat or "")).strip()
     return f"<li>{ico} {clean(txt)}{' ' + stat if stat else ''}</li>"
 

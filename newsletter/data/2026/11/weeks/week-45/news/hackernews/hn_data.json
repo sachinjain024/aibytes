@@ -1,0 +1,320 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-07",
+  "window": {
+    "after": "2026-10-31",
+    "before": "2026-11-08"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 30,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 98,
+  "poolCount": 444,
+  "stories": [
+    {
+      "title": "Astra can read and write weights to improve Qwen",
+      "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+      "type": "story",
+      "points": 2958,
+      "num_comments": 899,
+      "author": "dbreunig",
+      "created_at": "2026-11-02T18:21:28Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50341174"
+    },
+    {
+      "title": "Claude Code sends your email address to websites",
+      "url": "https://github.com/anthropics/claude-code/issues/107757",
+      "type": "story",
+      "points": 1572,
+      "num_comments": 504,
+      "author": "motoroco",
+      "created_at": "2026-11-05T22:17:15Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50385272"
+    },
+    {
+      "title": "Postman silently auto-installs AI plugins and attempts to share all API data",
+      "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+      "type": "story",
+      "points": 1523,
+      "num_comments": 494,
+      "author": "sidgarimella",
+      "created_at": "2026-11-03T17:22:37Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50354960"
+    },
+    {
+      "title": "AI is forcing us to pay off 40 years of technical debt",
+      "url": "https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability",
+      "type": "story",
+      "points": 1292,
+      "num_comments": 748,
+      "author": "pseudolus",
+      "created_at": "2026-11-04T11:52:17Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50364336"
+    },
+    {
+      "title": "The 'Astra can read and write weights to improve Qwen' post is misleading",
+      "url": "https://honnibal.dev/blog/astra-read-write-misleading",
+      "type": "story",
+      "points": 1039,
+      "num_comments": 209,
+      "author": "syllogism",
+      "created_at": "2026-11-03T12:21:17Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50351111"
+    },
+    {
+      "title": "Qwen 3.8 27B on my laptop can interpret model weights, too",
+      "url": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/",
+      "type": "story",
+      "points": 736,
+      "num_comments": 214,
+      "author": "theanonymousone",
+      "created_at": "2026-11-03T17:40:00Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50355251"
+    },
+    {
+      "title": "Tell HN: Gemini trains on chat history, even for subscribers (personal accounts)",
+      "url": "https://news.ycombinator.com/item?id=50363461",
+      "type": "ask_hn",
+      "points": 726,
+      "num_comments": 200,
+      "author": "jameslk",
+      "created_at": "2026-11-04T10:10:27Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50363461"
+    },
+    {
+      "title": "Google will turn off search for schools that reject AI",
+      "url": "https://www.nytimes.com/2026/11/03/us/google-search-schools-restrict-ai.html",
+      "type": "story",
+      "points": 672,
+      "num_comments": 469,
+      "author": "ceejayoz",
+      "created_at": "2026-11-03T15:25:47Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50353192"
+    },
+    {
+      "title": "Kimi K3.1 Pro model weights are out",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+      "type": "story",
+      "points": 636,
+      "num_comments": 189,
+      "author": "abrarthought",
+      "created_at": "2026-11-04T15:30:30Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50366999"
+    },
+    {
+      "title": "Ask HN: What's your current AI agentic setup?",
+      "url": "https://news.ycombinator.com/item?id=50366117",
+      "type": "ask_hn",
+      "points": 546,
+      "num_comments": 678,
+      "author": "eggbrain",
+      "created_at": "2026-11-04T14:37:22Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50366117"
+    },
+    {
+      "title": "Fujifilm to boost tape production 5x as AI fuels archiving demand",
+      "url": "https://arstechnica.com/gadgets/2026/10/fujifilm-to-boost-tape-production-5x-as-ai-fuels-archiving-demand/",
+      "type": "story",
+      "points": 536,
+      "num_comments": 232,
+      "author": "bookofjoe",
+      "created_at": "2026-11-02T14:02:42Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50336918"
+    },
+    {
+      "title": "OpenAI seems to be silently re-enabling model training on Codex chats",
+      "url": "https://news.ycombinator.com/item?id=50352757",
+      "type": "ask_hn",
+      "points": 530,
+      "num_comments": 163,
+      "author": "user052919",
+      "created_at": "2026-11-03T14:53:41Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50352757"
+    },
+    {
+      "title": "Cuban: Facebook knowingly runs AI deepfake scam ads; docs say $16B fraud revenue",
+      "url": "https://finance.yahoo.com/technology/ai/articles/mark-cuban-says-facebook-knowingly-213000020.html",
+      "type": "story",
+      "points": 509,
+      "num_comments": 224,
+      "author": "randycupertino",
+      "created_at": "2026-11-05T23:09:57Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50385870"
+    },
+    {
+      "title": "Anthropic blocks users for anything touching training larger models",
+      "url": "https://twitter.com/jiahaoshao1/status/2116475922190922088",
+      "type": "story",
+      "points": 494,
+      "num_comments": 271,
+      "author": "pretext",
+      "created_at": "2026-10-31T19:39:19Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50319358"
+    },
+    {
+      "title": "A thousand fewer paths to root",
+      "url": "https://openai.com/index/a-thousand-fewer-paths-to-root/",
+      "type": "story",
+      "points": 487,
+      "num_comments": 363,
+      "author": "dangelosaurus",
+      "created_at": "2026-11-04T23:33:14Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50372929"
+    },
+    {
+      "title": "The AI cost of JavaScript frameworks",
+      "url": "https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks/",
+      "type": "story",
+      "points": 477,
+      "num_comments": 398,
+      "author": "luu",
+      "created_at": "2026-11-01T06:06:19Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50323088"
+    },
+    {
+      "title": "US tech giants' hidden AI debt swells 90% to $3.2T in 6 months",
+      "url": "https://asia.nikkei.com/business/technology/artificial-intelligence/us-tech-giants-hidden-ai-debt-swells-90-to-3.2tn-in-6-months",
+      "type": "story",
+      "points": 420,
+      "num_comments": 170,
+      "author": "angry_impala",
+      "created_at": "2026-11-03T21:26:44Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50358422"
+    },
+    {
+      "title": "The SEC Should Block Anthropic's IPO to Protect the Public",
+      "url": "https://www.techpolicy.press/the-sec-should-block-anthropics-ipo-to-protect-the-public/",
+      "type": "story",
+      "points": 406,
+      "num_comments": 322,
+      "author": "cdrnsf",
+      "created_at": "2026-11-02T22:30:47Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50344919"
+    },
+    {
+      "title": "The Little Book of Generative AI Foundations: An Intuitive Mathematical Primer",
+      "url": "https://arxiv.org/abs/2605.29713",
+      "type": "story",
+      "points": 392,
+      "num_comments": 60,
+      "author": "ibobev",
+      "created_at": "2026-11-03T21:40:53Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50358582"
+    },
+    {
+      "title": "Images 2.6",
+      "url": "https://openai.com/index/introducing-images-2-6/",
+      "type": "story",
+      "points": 384,
+      "num_comments": 237,
+      "author": "davidbarker",
+      "created_at": "2026-11-04T23:35:44Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50372945"
+    },
+    {
+      "title": "Do the math: How we took over ChatGPT accounts",
+      "url": "https://www.parameter.ai/labs/we-found-a-gap-at-openai",
+      "type": "story",
+      "points": 365,
+      "num_comments": 177,
+      "author": "armcat",
+      "created_at": "2026-10-31T10:30:11Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50314699"
+    },
+    {
+      "title": "Anthropic's internal AI use, at retail prices, now exceeds its employee pay",
+      "url": "https://www.businessinsider.com/anthropic-claude-internal-ai-use-exceeds-employee-pay-tokens-2026-11",
+      "type": "story",
+      "points": 352,
+      "num_comments": 272,
+      "author": "entryleveljobsc",
+      "created_at": "2026-11-02T16:40:29Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50339494"
+    },
+    {
+      "title": "Brazilian Court Sanctions Lawyers for Prompt Injection in Court Filing",
+      "url": "https://jetstream.security/insights/brazilian-court-sanctions-prompt-injection-filing/",
+      "type": "story",
+      "points": 348,
+      "num_comments": 220,
+      "author": "doodlesdev",
+      "created_at": "2026-11-01T02:19:53Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50322173"
+    },
+    {
+      "title": "GPT-6 Astra covertly underperforms on safety research",
+      "url": "https://alignment.openai.com/misalignment-reports/covert-underperformance-on-safety-research-tasks/",
+      "type": "story",
+      "points": 341,
+      "num_comments": 189,
+      "author": "lucrbvi",
+      "created_at": "2026-11-05T07:44:30Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50376313"
+    },
+    {
+      "title": "Gemini Omni 1.2 Flash",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+      "type": "story",
+      "points": 339,
+      "num_comments": 231,
+      "author": "thisisauserid",
+      "created_at": "2026-11-06T13:35:27Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50392118"
+    },
+    {
+      "title": "Geoffrey Hinton: it might turn out we were better off without AI",
+      "url": "https://www.theguardian.com/uk-news/2026/nov/03/ai-godfather-geoffrey-hinton-better-off-without-ai",
+      "type": "story",
+      "points": 321,
+      "num_comments": 320,
+      "author": "alkyon",
+      "created_at": "2026-11-04T10:23:34Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50363554"
+    },
+    {
+      "title": "AI is dramatically accelerating AI research",
+      "url": "https://www.planned-obsolescence.org/p/ai-is-dramatically-accelerating-ai",
+      "type": "story",
+      "points": 312,
+      "num_comments": 265,
+      "author": "yurivish",
+      "created_at": "2026-11-06T20:27:23Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50397994"
+    },
+    {
+      "title": "Anthropic IPO buyers see valuation as low as $1.1T",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-06/anthropic-ipo-valuation-expectations-pressured-after-ai-rout",
+      "type": "story",
+      "points": 282,
+      "num_comments": 564,
+      "author": "dgellow",
+      "created_at": "2026-11-06T16:54:36Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50394906"
+    },
+    {
+      "title": "Scaling Git at OpenAI",
+      "url": "https://openai.com/index/scaling-git-at-openai/",
+      "type": "story",
+      "points": 271,
+      "num_comments": 181,
+      "author": "makeramen",
+      "created_at": "2026-11-02T23:47:56Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50345924"
+    },
+    {
+      "title": "OpenAI to acquire Pierre Computer Company",
+      "url": "https://openai.com/index/openai-to-acquire-pierre/",
+      "type": "story",
+      "points": 263,
+      "num_comments": 92,
+      "author": "itunpredictable",
+      "created_at": "2026-11-04T15:21:21Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50366863"
+    }
+  ]
+}

@@ -50,6 +50,12 @@ Copy `assets/template.html` and replace every `{{TOKEN}}`. The template is the c
 
      **Name the thing, don't describe it.** Products, platforms and companies get their actual names in the intro, not generic stand-ins: "Cursor", not "the editor"; "Hugging Face", not "the hub where open weights live". Pairing the name with its category is good where the reader may not know it ("the Cursor editor", "the Hugging Face platform"), but the name always appears. A reader skimming the intro should be able to tell which products the week is about without decoding a description.
      The storyline may end on the publisher's own view of the week, one or two sentences in their voice. Issue #14 closed it on "I don't think the software business is ending, but it has a new competitor: its own customers, building instead."
+
+  **Incident intro.** When the story of the week is a bug or incident in a tool builders use, the publisher wants the intro to explain it, not react to it. Issue #17 shipped this way, shaped through review comments:
+  1. After the welcome line, go **straight to the facts**, with no reaction clause ("I did not expect..." was cut). Say what broke, the concrete mechanism ("put your email address in the User-Agent header of its web searches, so every site it visited could read it"), the harm reported, and the **current status** checked against the source: fixed in which version, and whether the report is still open. Link the primary source (the bug report) on the incident's name.
+  2. The storyline builds on it with a `<b>` lead that turns it into a pattern ("We really need to look into our toolbox"), then names the related incidents of the week one by one.
+  3. It closes on an **ask** to the reader ("check your settings again, because a default can change without asking you"), not a summary. Leave out lines that don't serve that thread, even big launches; they keep their own rows.
+  The pull quote then echoes the ask ("Every default is a decision someone else made for you.").
   4. **In this issue** - a table of contents of the sections below, in reading order: `<p class="toc-label">In this issue</p>` then one `.toc` row per section the issue carries. Each row is the section's own marker (`🌍` for AI News, `📣` for Official Announcements, the section number `0x02`... for the numbered sections), its name as its header spells it, and what it holds in a few mono words: a count ("9 stories", "5 posts", "4 repos") or, for Official Announcements, the companies ("Meta · OpenAI · Google"). Rows are not links yet. The label speaks in the storyline lead's voice (body face, bold ink, sentence case); the rows are set smaller and lighter (13.5px, weight 500) so the list sits under the intro without competing with it. It replaced the `<b>This week:</b>` menu line from issue #14 (labelled "Today:" before issue #11; decision record: `newsletter/artifacts/2026-Oct-18-Intro-software-business-taste.html`). There is no "Let's dive in." sign-off.
 
   The hook should make skipping the issue feel expensive; the storyline should make the item list feel inevitable rather than miscellaneous; the table of contents shows the skimmer what the scroll holds.
@@ -66,6 +72,7 @@ Copy `assets/template.html` and replace every `{{TOKEN}}`. The template is the c
   **Publisher's own intro.** When the publisher sends their own intro, show it verbatim beside three variations in an artifact and let them choose. The usual pick is "theirs, tightened": the same beats in their voice, with grammar fixed and every claim checked, including references to past issues, against `newsletter/issues/` and `newsletter/data/`. Map it onto the template's slots: the hook after the welcome line, the middle beat as the `<b>`-led storyline, and an opinion closer at the end of the storyline, before the table of contents. Issue #13 shipped this way (decision record: `newsletter/artifacts/2026-Oct-11-Intro-publisher-draft-taste.html`); its draft dated an earlier issue to 6 Sep when the archive had it in #2 and #3.
 - **No My Favourite Picks card.** It was retired at Issue #16: the publisher no longer runs it, so don't ask for picks or add the card.
 - **News items**: emoji + bold linked headline + one-line context + `<span class="src">(Source)</span>`. The source here is a plain text label, not a link. Mark the single biggest story with `<span class="hot">Story of the week</span>`.
+  When a news item's "article" is a bug report or GitHub issue that surfaced on HackerNews, the headline links the **HN thread**, and the intro links the bug report itself (Issue #17).
 - **Section order and numbers**: intro, AI News card, Official Announcements card, then the numbered sections **Viral on X `0x02`**, New AI Products `0x03`, Trending Github Projects `0x04`, HN Deep Stories `0x05`. The cards are unnumbered, and any of them can be absent. Numbers run in order over the sections present: with no X shortlist, Products is `0x02` and the rest move up.
 - **The X sections are verbatim, and rendered by script.** Every word shown from a post is the author's, exactly as in `text`: never reword, summarise, fix typos, add or drop emoji, or retitle. The words are already checked against X by `/x-fetch-items`. This overrides the punctuation rule below: a post's own em dashes stay. **Don't type the posts in.** Paste the output of the x-fetch-items script unchanged (`S=.claude/skills/x-fetch-items/scripts/x_items.py`, with `--date` set to the snapshot's date):
   - `{{ANNOUNCEMENT_ITEMS}}` ← `python3 $S render --section announcements`
@@ -80,7 +87,7 @@ Copy `assets/template.html` and replace every `{{TOKEN}}`. The template is the c
   - No likes and no stat: a launch matters for what it is, not its reach.
 - **Viral on X rows**: under the `0x02` header and the fixed subtitle "The AI posts that drew the biggest reaction this week." Each row opens with an **emoji** in the `.ico` column, like the other ticker rows, then the author's **`@handle`** in bold cobalt linked to their profile (`https://x.com/{handle}`), then the post's **opening words, verbatim**, linked to the post:
   - Take `text` from the start and show each line break as `<span class="cut">/</span>`.
-  - Stop at **140 characters** (about two lines), at the last word break inside that, and end with `<span class="cut">…</span>`. A post that fits in 140 is shown whole, with no ellipsis.
+  - Stop at **280 characters** (three to four lines, at most four; raised from 140 on Issue 17 so a row carries the post's point), at the last word break inside that, and end with `<span class="cut">…</span>`. A post that fits in 140 is shown whole, with no ellipsis.
   - The stat is likes as `♥︎` plus one decimal of thousands (`♥︎ 13.3k`). The heart is U+2665 followed by U+FE0E; without the second character iOS Mail swaps in a red emoji.
   - The emoji is ours, not the author's: it sits in its own column, stored as the post's `emoji` field, and never enters the quoted words.
 - **Quote block**: the callout text only. No attribution line, no `- aiBytes_` under it. It is the issue talking to itself, so signing it reads like a stranger.
@@ -116,9 +123,13 @@ The title becomes the email subject line; the description becomes the preview/su
 
   **Spend the opening on content, not chrome.** A mobile inbox shows roughly 35 to 40 characters of subject line, and Substack already prints "aiBytes_" in the sender field, so the subject carries no brand prefix and no issue number - the leading emoji is the only thing before the first hook, and it earns that spot by pointing at the lead story rather than repeating the brand. No `#`, no colon, no ` - ` separator, and write "and" rather than `&`. Two hooks, not three - the third never survives truncation.
 
+  The publisher can trade the two-hook shape for one story told precisely when the story needs its mechanism spelled out. Issue #17 ran "🕵️ A Claude Code bug leaked your email address to websites in User-Agent header" (79 characters) over the two-hook draft. Offer the two-hook version first; take the long one when they choose it.
+
 - **Description**: one sentence that **starts with "Plus"** and names 2-3 things the title does not. It extends the title, it never restates it. Never "Catch up on …", which only ever paraphrases the subject line back at the reader.
 
   Check it against the intro's hook and storyline too, not just the title. Pulling from the same items three times is the same repetition in a different place. Reach for what none of them mentions: a product, a repo, or an HN thread.
+
+  The no-overlap rule is the default, not a veto: in Issue #17 the publisher put the Postman story in the description although the intro tells it too. Their wording wins.
 
 Fill `{{EMAIL_SUBJECT}}` and `{{EMAIL_DESCRIPTION}}` in the main template (`<title>` and meta description). The export script reads them from there into Substack's title and subtitle fields.
 
@@ -133,7 +144,7 @@ python3 .claude/skills/generate-newsletter-content/scripts/substack_export.py \
 
 It writes `aiBytes-substack-export-issue-{num}.html` beside the issue, from `assets/substack-export-template.html`: the title and subtitle with their own copy buttons (they're typed into Substack's fields as plain text), the after-paste steps, and the body with **⧉ Copy body**, which puts rich HTML on the clipboard for a `⌘V` into the empty post body. A live preview approximates the theme. `--body-only` prints the body instead, for pasting it some other way (for example onto the macOS clipboard as HTML).
 
-The script is the layout: it maps sections to `h2`s, the story of the week to an `h3`, the quote to a pull quote, ranked rows to `<ol>`s, and applies the link rules (Viral on X links only the handle, to the post; HN titles are plain bold). Change the layout there and in the reference together, and take layout changes through a taste round first. It refuses an issue that still has `{{TOKENS}}`. If the issue's template markup changes, `tests/test_substack_export.py` fails until the script reads the new shape.
+The script is the layout: it maps sections to `h2`s, the story of the week to an `h3`, the quote to a pull quote, ranked rows to `<ol>`s, and applies the link rules (Viral on X links only the handle, to the post; HN titles are plain text, not bold). Change the layout there and in the reference together, and take layout changes through a taste round first. It refuses an issue that still has `{{TOKENS}}`. If the issue's template markup changes, `tests/test_substack_export.py` fails until the script reads the new shape.
 
 The Beehiiv export (`assets/beehiiv-export-template.html`, `references/beehiiv-patterns.html`, `x_items.py render --format beehiiv`) is no longer built. It stays in the repo until AIB-135b removes it.
 
@@ -146,7 +157,19 @@ newsletter/issues/{yyyy}/week-{week_num}-Issue-{num}/aiBytes-issue-{num}.html
 newsletter/issues/{yyyy}/week-{week_num}-Issue-{num}/aiBytes-substack-export-issue-{num}.html
 ```
 
-Create the directories if they don't exist. Then present both files to the user and, if an artifact/preview mechanism is available, render the main issue so they can see it immediately.
+Create the directories if they don't exist.
+
+**Review happens on a Claude artifact, not the local file.** The publisher reviews the issue as an artifact hosted on claude.ai, where they can leave comments and ask Claude for edits (decided 2026-11-07, Issue 17). The artifact is the Substack export page itself, in the same template: the title and subtitle with their copy buttons, the after-paste steps, and the body with its preview and **⧉ Copy body**. What gets reviewed is exactly what gets pasted. Build the artifact page from the issue and publish it:
+
+```bash
+python3 .claude/skills/generate-newsletter-content/scripts/issue_artifact.py \
+  --issue newsletter/issues/{yyyy}/week-{week_num}-Issue-{num}/aiBytes-issue-{num}.html \
+  --out {scratchpad}/aiBytes-issue-{num}-artifact.html
+```
+
+Publish that file with the Artifact tool (`icon: "newsletter"`, the subject line in `description`), and put the artifact URL in the issue's LongClaw ticket so a later session can republish to it with `url`. Hand the publisher the artifact link and the Substack export path. Don't present the local issue HTML as the thing to review; it stays in the issue folder as the source of truth, since the Substack export and the aibytes.io/weekly build read it.
+
+**Every edit goes through the issue HTML and updates both outputs together.** When the publisher asks for a change, in a comment on the artifact or in chat, edit `aiBytes-issue-{num}.html` (never the artifact page or the export directly), then rerun `issue_artifact.py`, republish the artifact to the same URL, and rerun `substack_export.py` so the export matches. Rebuild `content/weekly/` too when the change touches the title, description or any row. Reply to the comment once the change is live.
 
 ### 7. Publish on aibytes.io/weekly (before the Substack send)
 
