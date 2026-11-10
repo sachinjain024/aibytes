@@ -37,7 +37,6 @@ The app is built from these components, so a design made with them is the shippe
 - **Feed:** `CardGrid` of `Card`s or `RowList` of `ListRow`s. Ranked order (the default) is one list with no headings; Grouped order puts a `SectionHeading` before each category's grid or list. End every feed with `EndCard`; use `EmptyState` when filters or a search leave nothing and `StatusMessage` for loading and errors.
 - **Saves and sign-in:** pass `onToggleSave` to show the star (`starPos="visual"` puts it under the source icon, as the app does). Signed out with a save, show `SaveBanner`; it cannot be dismissed in the app. `AppHeader` takes `onSignIn`, or `user` with `onSignOut` for the avatar and its account menu. `Sidebar` takes `onSaved` and `savedCount` for the LIBRARY section.
 - **Prose:** a link inside a sentence needs the `.ldg-prose` class on a container (or a `<p>` inside `.app-main`) to get `link` and its underline; the base `a` rule inherits the text colour for nav, card and button links.
-- The screens under "aiBytes_ App" are the app itself, seeded into one state each, and stay interactive.
 
 ## Iconography
 

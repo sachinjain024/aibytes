@@ -12,9 +12,11 @@ Claude". Sync it from `packages/design-system/artifact/` instead:
    writes `<dir>/project/...`: the bundle compiled from `components/`,
    `tokens.json` and `tokens.css` read from `tokens/token.css`, `bundle.css`
    (styles.css without the token values), a README and live preview per
-   component (`artifact/previews.mjs`), the 14 `ui_kits` screens as previews
-   with shared, precompiled `ui_kits/aibytes-app/*.js`, the brand-book
-   `README.md` (`artifact/README.md`) and the cover (`artifact/cover.html`).
+   component (`artifact/previews.mjs`), the brand-book `README.md`
+   (`artifact/README.md`) and the cover (`artifact/cover.html`). The
+   `ui_kits` sample screens are not synced: they lag the app (the save
+   banner there can still be dismissed), so the Artifact carries components
+   only.
    Nothing in the repo is generated: token.css stays the only token source.
 2. Check every preview renders, in both themes, in a frame that preloads
    tokens.css, bundle.css, React 18 and the bundle and sets `data-theme`.
@@ -26,13 +28,9 @@ Claude". Sync it from `packages/design-system/artifact/` instead:
 4. The source marks are uploads recorded in the index; re-upload one only
    when its sha256 there differs from `assets/marks/`.
 
-Left in the Artifact from the migration, not part of the repo any more
-(remove from the page's Files once checked): the old folders `Brand`,
-`Content`, `Forms`, `Navigation`, `Sidenav`, `Header`, `Chip`, `SideNav`,
-`Footer`, `Saved`, `HeadersAuth` under `components/`; the old per-screen
-`App.jsx`, `app.css`, `data.js` (and `Index/tweaks-panel.jsx`) copies next to
-the screen previews; `components/src/`; `docs/_ds_bundle.js` and
-`docs/_ds_manifest.json`.
+The type keeps its own `project/api/` pages, including a few for the
+removed migration components; those are the type's to regenerate, never
+written by the sync.
 
 ## How Ledger synced to Claude Design (until 2 Nov 2026)
 
@@ -87,8 +85,12 @@ and the screens report "Ledger bundle not compiled yet".
 - 2026-11-10 (AIB-75v): first sync to the Artifact, version 4. 101 files from
   `artifact/build.mjs` at main@c510082: 27 components with live previews,
   14 screens, the redesign palette in tokens.json, a new README and cover.
-  All 42 previews rendered in both themes in a simulated frame. The old
-  folders listed above were left for the publisher to remove.
+  All 42 previews rendered in both themes in a simulated frame.
+- 2026-11-10 (AIB-75v): version 5 removed the migration leftovers (`Brand`,
+  `Content`, `Forms`, `Navigation`, `Sidenav`, `Header`, `Chip`, `SideNav`,
+  `Footer`, `components/src/`, `docs/_ds_*`) and, on request, every sample
+  screen (`Saved`, `HeadersAuth` and the 14 `ui_kits` screens with their
+  shared scripts). The builder no longer writes screens.
 
 ## Known issues
 

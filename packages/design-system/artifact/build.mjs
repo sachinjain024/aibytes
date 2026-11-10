@@ -257,42 +257,6 @@ async function previewHtml(name, spec) {
 `;
 }
 
-// ---------------------------------------------------------------- screens
-
-const SCREENS = {
-  "index.html": "Index", "02-grid-dark.html": "GridDark", "03-list-view.html": "ListView", "04-mobile.html": "Mobile",
-  "05-filtered.html": "Filtered", "06-search-empty.html": "SearchEmpty", "07-empty-end.html": "EmptyEnd",
-  "08-calendar.html": "Calendar", "09-mobile-menu.html": "MobileMenu", "10-grouped-grid.html": "GroupedGrid",
-  "11-grouped-list.html": "GroupedList", "12-saves-signed-out.html": "SavesSignedOut", "13-signed-in-menu.html": "SignedInMenu",
-  "14-mobile-banner.html": "MobileBanner",
-};
-const KIT = join(ROOT, "ui_kits/aibytes-app");
-
-async function jsxToScript(source) {
-  return (await transform(source, { loader: "jsx", jsx: "transform" })).code.replace(/<\/script/gi, "<\\/script");
-}
-
-/** A screen page as a preview: the frame's preloads dropped, the shared kit files linked, the JSX compiled. */
-async function screenPreview(file) {
-  const html = await readFile(join(KIT, file), "utf8");
-  const marker = /^<!-- @dsCard ([^>]*?) -->/.exec(html)[1];
-  const attr = (k) => (new RegExp(`${k}="([^"]*)"`).exec(marker) ?? [])[1];
-  const [w, h] = attr("viewport").split("x");
-  const body = /<body([^>]*)>/.exec(html)[1];
-  const inline = [...html.matchAll(/<script type="text\/babel">([\s\S]*?)<\/script>/g)].map((m) => m[1]).join("\n");
-  const tweaks = /src="tweaks-panel\.jsx"/.test(html) ? `<script src="../../ui_kits/aibytes-app/tweaks-panel.js"></script>\n` : "";
-  return `<!-- @dsCard group="aiBytes_ App" height=${h} width=${w} subtitle="${attr("name")}: ${attr("subtitle")}" page -->
-<!DOCTYPE html>
-<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${attr("name")}</title>
-<script src="../../ui_kits/aibytes-app/data.js"></script>
-</head><body${body}>
-<div id="root"></div>
-${tweaks}<script src="../../ui_kits/aibytes-app/App.js"></script>
-<script>${await jsxToScript(inline)}</script>
-</body></html>
-`;
-}
-
 // ---------------------------------------------------------------- write
 
 async function put(out, path, text) {
@@ -328,22 +292,16 @@ export async function buildArtifact(out, { ref = "", now = new Date().toISOStrin
     await put(out, `components/${name}/preview.html`, await previewHtml(name, spec));
   }
 
-  await put(out, "ui_kits/aibytes-app/App.js", await jsxToScript(await readFile(join(KIT, "App.jsx"), "utf8")));
-  await put(out, "ui_kits/aibytes-app/tweaks-panel.js", await jsxToScript(await readFile(join(KIT, "tweaks-panel.jsx"), "utf8")));
-  await put(out, "ui_kits/aibytes-app/data.js", await readFile(join(KIT, "data.js"), "utf8"));
-  await put(out, "ui_kits/aibytes-app/README.md", await readFile(join(KIT, "README.md"), "utf8"));
-  for (const [file, name] of Object.entries(SCREENS)) await put(out, `components/${name}/preview.html`, await screenPreview(file));
-
   await put(out, "README.md", await readFile(join(HERE, "README.md"), "utf8"));
   await put(out, "guidelines/extending-ledger.md", await readFile(join(ROOT, "guidelines/extending-ledger.md"), "utf8"));
   await put(out, "components/Cover/preview.html", await readFile(join(HERE, "cover.html"), "utf8"));
-  return { names, screens: Object.values(SCREENS) };
+  return { names };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const arg = (k) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : undefined; };
   const out = arg("--out");
   if (!out) { console.error("usage: build.mjs --out <dir> [--ref <sha>]"); process.exit(2); }
-  const { names, screens } = await buildArtifact(resolve(out), { ref: arg("--ref") ?? "" });
-  console.log(`${names.length} components, ${screens.length} screens -> ${join(resolve(out), "project")}`);
+  const { names } = await buildArtifact(resolve(out), { ref: arg("--ref") ?? "" });
+  console.log(`${names.length} components -> ${join(resolve(out), "project")}`);
 }
