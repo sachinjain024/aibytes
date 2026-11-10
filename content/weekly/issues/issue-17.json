@@ -1,0 +1,452 @@
+{
+  "schema_version": 1,
+  "number": 17,
+  "slug": "issue-17",
+  "title": "🕵️ A Claude Code bug leaked your email address to websites in User-Agent header",
+  "description": "Plus Postman's desktop app auto-installing AI plugins, Cloudflare's open-source security audit skill, and an anti-AI-slop design skill.",
+  "published_on": "2026-11-09",
+  "generated_at": "2026-11-08T01:46:59Z",
+  "counts": {
+    "launches": 5,
+    "repos": 7,
+    "news": 8,
+    "hn": 5
+  },
+  "items": [
+    {
+      "id": "hn-claude-code-sends-your-email-address-to-websites-issue-17",
+      "title": "Claude Code sends your email address to websites",
+      "summary": "A bug report shows its web searches put the user's email in the User-Agent header, and the reporter blamed a wave of scam emails. Anthropic fixed it in v2.1.317 with a privacy plugin that is on by def",
+      "url": "https://news.ycombinator.com/item?id=50385272",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50385272",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "hn-postman-s-desktop-app-installed-ai-plugins-into-issue-17",
+      "title": "Postman's desktop app installed AI plugins into Codex and Claude Code without asking",
+      "summary": "It also added a CLI, a startup hook and a remote MCP connection. The reporter stops short of claiming any data left the machine.",
+      "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+      "source": "hackernews",
+      "source_url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "hn-openai-seems-to-be-silently-re-enabling-model-tr-issue-17",
+      "title": "OpenAI seems to be silently re-enabling model training on Codex chats",
+      "summary": "Several users say the data-sharing setting came back on after they turned it off. Others say theirs stayed off.",
+      "url": "https://news.ycombinator.com/item?id=50352757",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50352757",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "hn-gemini-trains-on-chat-history-even-for-paying-su-issue-17",
+      "title": "Gemini trains on chat history, even for paying subscribers",
+      "summary": "On personal accounts with Keep Activity on. The only opt-outs are turning it off, which deletes chats after 72 hours, or temporary chats.",
+      "url": "https://news.ycombinator.com/item?id=50363461",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50363461",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "hn-anthropic-s-internal-ai-use-at-retail-prices-now-issue-17",
+      "title": "Anthropic's internal AI use, at retail prices, now exceeds its employee pay",
+      "summary": "Priced at what customers pay, the tokens its own staff use cost more than their salaries.",
+      "url": "https://www.businessinsider.com/anthropic-claude-internal-ai-use-exceeds-employee-pay-tokens-2026-11",
+      "source": "hackernews",
+      "source_url": "https://www.businessinsider.com/anthropic-claude-internal-ai-use-exceeds-employee-pay-tokens-2026-11",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "tc-musk-throttles-grok-bot-limits-over-unsustainabl-issue-17",
+      "title": "Musk throttles Grok Bot limits over 'unsustainably high' costs",
+      "summary": "He had recently called it the fastest-growing product he has ever seen.",
+      "url": "https://techcrunch.com/2026/11/02/elon-musk-throttles-grok-bot-limits-due-to-unsustainably-high-costs/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/02/elon-musk-throttles-grok-bot-limits-due-to-unsustainably-high-costs/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "tc-anthropic-warns-it-is-very-close-to-rsi-issue-17",
+      "title": "Anthropic warns it is very close to RSI",
+      "summary": "Recursive self-improvement: the point where AI gets good enough at training itself to speed up its own progress.",
+      "url": "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "hn-kimi-k3-1-pro-model-weights-are-out-issue-17",
+      "title": "Kimi K3.1 Pro model weights are out",
+      "summary": "Moonshot AI's new model is downloadable on Hugging Face.",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+      "source": "hackernews",
+      "source_url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "id": "ph-wanaka-studio-issue-17",
+      "title": "Wanaka Studio",
+      "summary": "an AI agent builds a 3D game you can edit in a synced visual editor and publish in one click.",
+      "url": "https://wanaka.app/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/wanaka-studio",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 476
+      },
+      "rank": 9
+    },
+    {
+      "id": "ph-beacon-sh-issue-17",
+      "title": "beacon.sh",
+      "summary": "open-source memory that turns sessions across Claude Code, Cursor, Codex and 20+ other harnesses into one knowledge layer.",
+      "url": "https://github.com/asymptote-labs/agent-beacon",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/asymptotelabs",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 475
+      },
+      "rank": 10
+    },
+    {
+      "id": "ph-screen-studio-4-0-issue-17",
+      "title": "Screen Studio 4.0",
+      "summary": "the Mac screen recorder adds a Glass Loupe zoom, a camera cutout and editing by transcript.",
+      "url": "https://screen.studio/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/screen-studio",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 460
+      },
+      "rank": 11
+    },
+    {
+      "id": "ph-scalekit-issue-17",
+      "title": "Scalekit",
+      "summary": "one MCP gateway to 30,000+ tools across 600+ apps, with every action run as the user who asked.",
+      "url": "https://www.scalekit.com/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/scalekit",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 423
+      },
+      "rank": 12
+    },
+    {
+      "id": "ph-glasshand-issue-17",
+      "title": "Glasshand",
+      "summary": "rents real iPhones and Macs to Claude Code, Codex or any agent from a single prompt.",
+      "url": "https://glasshand.com/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/glasshand",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 380
+      },
+      "rank": 13
+    },
+    {
+      "id": "gh-cloudflare-security-audit-skill-issue-17",
+      "title": "cloudflare/security-audit-skill",
+      "summary": "A coding-agent skill for multi-phase security audits, with independently verified, machine-readable findings.",
+      "url": "https://github.com/cloudflare/security-audit-skill",
+      "source": "github",
+      "source_url": "https://github.com/cloudflare/security-audit-skill",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/cloudflare.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 9990
+      },
+      "rank": 14
+    },
+    {
+      "id": "gh-nvidia-auto-ontology-issue-17",
+      "title": "NVIDIA/auto-ontology",
+      "summary": "A Python framework for building graph-based reasoning layers over your data, for deterministic queries and more explainable LLM answers.",
+      "url": "https://github.com/NVIDIA/auto-ontology",
+      "source": "github",
+      "source_url": "https://github.com/NVIDIA/auto-ontology",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/NVIDIA.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 8035
+      },
+      "rank": 15
+    },
+    {
+      "id": "gh-stablyai-orca-issue-17",
+      "title": "stablyai/orca",
+      "summary": "Run a fleet of coding agents like Claude Code and Codex on your own subscription, on desktop, mobile or a remote runtime.",
+      "url": "https://github.com/stablyai/orca",
+      "source": "github",
+      "source_url": "https://github.com/stablyai/orca",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/stablyai.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 6921
+      },
+      "rank": 16
+    },
+    {
+      "id": "gh-nutlope-hallmark-issue-17",
+      "title": "Nutlope/hallmark",
+      "summary": "An anti-AI-slop design skill for Claude Code, Cursor and Codex.",
+      "url": "https://github.com/Nutlope/hallmark",
+      "source": "github",
+      "source_url": "https://github.com/Nutlope/hallmark",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Nutlope.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 6900
+      },
+      "rank": 17
+    },
+    {
+      "id": "gh-donchitos-claude-code-game-studios-issue-17",
+      "title": "Donchitos/Claude-Code-Game-Studios",
+      "summary": "Turns Claude Code into a game studio: 49 agents and 72 workflow skills, arranged like a real studio hierarchy.",
+      "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+      "source": "github",
+      "source_url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Donchitos.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 6018
+      },
+      "rank": 18
+    },
+    {
+      "id": "gh-affaan-m-ecc-issue-17",
+      "title": "affaan-m/ECC",
+      "summary": "A performance system for agent harnesses: skills, instincts, memory and security for Claude Code, Codex, OpenCode and Cursor.",
+      "url": "https://github.com/affaan-m/ECC",
+      "source": "github",
+      "source_url": "https://github.com/affaan-m/ECC",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/affaan-m.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 5498
+      },
+      "rank": 19
+    },
+    {
+      "id": "gh-obra-superpowers-issue-17",
+      "title": "obra/superpowers",
+      "summary": "An agentic skills framework and software development methodology.",
+      "url": "https://github.com/obra/superpowers",
+      "source": "github",
+      "source_url": "https://github.com/obra/superpowers",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/obra.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 4577
+      },
+      "rank": 20
+    },
+    {
+      "id": "hn-astra-can-read-and-write-weights-to-improve-qwen-issue-17",
+      "title": "Astra can read and write weights to improve Qwen",
+      "summary": "A post on rikiyat.github.io, discussed on Hacker News.",
+      "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50341174",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 2958,
+        "comments": 899
+      },
+      "rank": 21
+    },
+    {
+      "id": "hn-the-astra-can-read-and-write-weights-to-improve-issue-17",
+      "title": "The 'Astra can read and write weights to improve Qwen' post is misleading",
+      "summary": "A post on honnibal.dev, discussed on Hacker News.",
+      "url": "https://honnibal.dev/blog/astra-read-write-misleading",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50351111",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 1039
+      },
+      "rank": 22
+    },
+    {
+      "id": "hn-ai-is-forcing-us-to-pay-off-40-years-of-technica-issue-17",
+      "title": "AI is forcing us to pay off 40 years of technical debt",
+      "summary": "A post on spectrum.ieee.org, discussed on Hacker News.",
+      "url": "https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50364336",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 1292,
+        "comments": 748
+      },
+      "rank": 23
+    },
+    {
+      "id": "hn-the-ai-cost-of-javascript-frameworks-issue-17",
+      "title": "The AI cost of JavaScript frameworks",
+      "summary": "A post on nolanlawson.com, discussed on Hacker News.",
+      "url": "https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50323088",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 477
+      },
+      "rank": 24
+    },
+    {
+      "id": "hn-do-the-math-how-we-took-over-chatgpt-accounts-issue-17",
+      "title": "Do the math: How we took over ChatGPT accounts",
+      "summary": "A post on parameter.ai, discussed on Hacker News.",
+      "url": "https://www.parameter.ai/labs/we-found-a-gap-at-openai",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50314699",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 365
+      },
+      "rank": 25
+    }
+  ]
+}

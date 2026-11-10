@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🕵️ A Claude Code bug leaked your email address to websites in User-Agent header</title>
+<meta name="description" content="Plus Postman's desktop app auto-installing AI plugins, Cloudflare's open-source security audit skill, and an anti-AI-slop design skill.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
+    --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--cobalt);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px 56px}
+
+  header{padding:36px 0 0}
+  .issue-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--slate);display:flex;justify-content:space-between;margin-bottom:12px}
+  .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
+  .logo em{font-style:normal;color:var(--cobalt)}
+
+
+  section{margin-top:34px}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--paper);background:var(--ink);padding:2px 7px}
+  .sec-title{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+  .sec-rule{flex:1;height:2px;background:var(--ink)}
+
+  /* ── Intro block ── */
+  .intro{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 22px;margin-bottom:18px}
+  .intro p{font-size:15.5px;line-height:1.65;margin-bottom:14px;color:#3A3E4A}
+  .intro p:last-child{margin-bottom:0}
+  .intro .greet{color:var(--ink)}
+  .intro b{color:var(--ink);font-weight:700}
+  /* Table of contents: closes the intro. The label speaks in the storyline lead's
+       voice (body face, bold ink); the rows sit smaller and lighter beneath it. */
+  .intro .toc-label{color:var(--ink);font-weight:700;margin-bottom:4px}
+  .toc{border-top:1px solid var(--line)}
+  .toc .r{display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:baseline;padding:5px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+  .toc .r:last-child{border-bottom:none;padding-bottom:0}
+  .toc .m{font-family:var(--mono);font-size:10.5px;font-weight:500;color:var(--slate)}
+  .toc .n{color:#3A3E4A;font-weight:500}
+  .toc .d{font-family:var(--mono);font-size:11px;color:var(--slate);white-space:nowrap}
+
+  /* ── News card ── */
+  .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
+  .news-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;color:var(--cobalt);letter-spacing:.02em;margin-bottom:14px}
+  .news-item{font-size:15.5px;margin-bottom:14px;line-height:1.6}
+  .news-item:last-of-type{margin-bottom:0}
+  .news-item b a{font-weight:700}
+  .src{font-family:var(--mono);font-size:12px;color:var(--slate)}
+  /* Attribution links stay grey and quiet - the headline link is the loud one. */
+  .src a{color:var(--slate);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+  .src a:hover{color:var(--ink)}
+  .quote{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px 18px;margin-top:18px}
+  .quote p{font-size:15px;color:#3A3E4A}
+
+  /* ── Official Announcements: the companies' own posts on X, whole and verbatim ──
+       Ink card, sibling of the AI News card. Each entry is a byline, the post in a
+       paper inset (the same treatment as the AI News quote, so the words read as
+       theirs), and a mono footer with the post and the official page. ── */
+  .oa-card{border:1.5px solid var(--ink);border-radius:14px;padding:20px 22px;background:var(--card);margin-top:18px}
+  .oa-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.02em}
+  .oa-card .card-sub{font-size:13.5px;color:var(--slate);margin:2px 0 6px}
+  .oa-item{padding:14px 0;border-bottom:1px solid var(--line)}
+  .oa-item:last-child{border-bottom:none;padding-bottom:0}
+  .oa-by{font-size:14.5px;margin-bottom:8px}
+  .oa-by b{color:var(--ink)}
+  .oa-by span{font-family:var(--mono);font-size:11px;color:var(--slate)}
+  .oa-post{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px 4px;margin-bottom:8px}
+  .oa-post p{font-size:15px;line-height:1.55;color:#3A3E4A;margin-bottom:8px}
+  .oa-links{font-family:var(--mono);font-size:11.5px;color:var(--slate)}
+  .oa-links .dot{color:var(--line)}
+
+  /* ── Ticker rows ── */
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .ico{width:22px;text-align:center;flex-shrink:0}
+  .row .txt{flex:1}
+  .row .txt b{font-weight:600}
+  .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
+  .stat b{color:var(--cobalt);font-weight:700}
+  .hot{background:var(--signal);padding:0 4px;font-weight:600}
+  /* Viral on X rows: emoji, the author's @handle in cobalt (linked to the profile),
+       then the post's own words in body grey. */
+  .sec-sub{font-size:14px;color:var(--slate);margin:-4px 0 6px}
+  .row .txt a.post{color:#3A3E4A}
+  .row .txt a.post:hover{color:var(--cobalt)}
+  .cut{color:var(--slate)}
+
+  footer{margin-top:48px;border-top:3px solid var(--ink);padding-top:20px;text-align:center}
+  footer p{color:var(--slate);font-size:13.5px}
+  .foot-links{margin-top:10px;font-family:var(--mono);font-size:12.5px;display:flex;gap:20px;justify-content:center}
+  @media (max-width:480px){ .row{flex-wrap:wrap} .stat{margin-left:34px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="issue-tag"><span>ISSUE 0x11 · TL;DR</span><span>2026-11-09 · ~6 MIN</span></div>
+    <div class="logo">⚡ aiBytes<em>_</em> #17</div>
+  </header>
+
+  <section>
+    <div class="intro">
+      <p class="greet">Hello, builders 👋</p>
+      <p>Welcome back to your weekly dose of AI Bytes. <a href="https://github.com/anthropics/claude-code/issues/107757">A bug in Claude Code</a> put your email address in the User-Agent header of its web searches, so every site it visited could read it, and the developer who reported it tied it to a wave of scam emails. Anthropic later fixed it in v2.1.317 with a privacy plugin that is on by default, but the GitHub issue is still open 🕵️</p>
+      <p><b>We really need to look into our toolbox</b>: Postman's desktop app installed its own AI plugins into Claude Code and Codex without asking. Gemini trains on chat history, even for paying subscribers. And Codex users report that <a href="https://news.ycombinator.com/item?id=50352757">training switched back on</a> after they had opted out. So my ask this week is simple: check your settings again, because a default can change without asking you.</p>
+      <p class="toc-label">In this issue</p>
+      <div class="toc">
+<div class="r"><span class="m">🌍</span><span class="n">AI News</span><span class="d">8 stories</span></div>
+<div class="r"><span class="m">📣</span><span class="n">Official Announcements</span><span class="d">Anthropic · OpenAI · Mistral</span></div>
+<div class="r"><span class="m">0x02</span><span class="n">Viral on X</span><span class="d">5 posts</span></div>
+<div class="r"><span class="m">0x03</span><span class="n">New AI Products</span><span class="d">5 launches</span></div>
+<div class="r"><span class="m">0x04</span><span class="n">Trending Github Projects</span><span class="d">7 repos</span></div>
+<div class="r"><span class="m">0x05</span><span class="n">HN Deep Stories</span><span class="d">5 threads</span></div>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-title">🌍 AI NEWS</div>
+
+      <p class="news-item">🕵️ <b><a href="https://news.ycombinator.com/item?id=50385272">Claude Code sends your email address to websites</a></b> A bug report shows its web searches put the user's email in the User-Agent header, and the reporter blamed a wave of scam emails. Anthropic fixed it in v2.1.317 with a privacy plugin that is on by default, but the issue is still open. <span class="hot">Story of the week</span> <span class="src">(HackerNews)</span></p>
+<p class="news-item">🔌 <b><a href="https://github.com/postmanlabs/postman-app-support/issues/14370">Postman's desktop app installed AI plugins into Codex and Claude Code without asking</a></b> It also added a CLI, a startup hook and a remote MCP connection. The reporter stops short of claiming any data left the machine. <span class="src">(HackerNews)</span></p>
+<p class="news-item">🔁 <b><a href="https://news.ycombinator.com/item?id=50352757">OpenAI seems to be silently re-enabling model training on Codex chats</a></b> Several users say the data-sharing setting came back on after they turned it off. Others say theirs stayed off. <span class="src">(HackerNews)</span></p>
+<p class="news-item">♊ <b><a href="https://news.ycombinator.com/item?id=50363461">Gemini trains on chat history, even for paying subscribers</a></b> On personal accounts with Keep Activity on. The only opt-outs are turning it off, which deletes chats after 72 hours, or temporary chats. <span class="src">(HackerNews)</span></p>
+<p class="news-item">🧾 <b><a href="https://www.businessinsider.com/anthropic-claude-internal-ai-use-exceeds-employee-pay-tokens-2026-11">Anthropic's internal AI use, at retail prices, now exceeds its employee pay</a></b> Priced at what customers pay, the tokens its own staff use cost more than their salaries. <span class="src">(Business Insider)</span></p>
+<p class="news-item">🚦 <b><a href="https://techcrunch.com/2026/11/02/elon-musk-throttles-grok-bot-limits-due-to-unsustainably-high-costs/">Musk throttles Grok Bot limits over 'unsustainably high' costs</a></b> He had recently called it the fastest-growing product he has ever seen. <span class="src">(TechCrunch)</span></p>
+<p class="news-item">🔄 <b><a href="https://techcrunch.com/2026/11/02/anthropic-warns-that-its-very-close-to-rsi-capability-aka-self-building-ai/">Anthropic warns it is very close to RSI</a></b> Recursive self-improvement: the point where AI gets good enough at training itself to speed up its own progress. <span class="src">(TechCrunch)</span></p>
+<p class="news-item">🌙 <b><a href="https://huggingface.co/moonshotai/Kimi-K3.1-Pro">Kimi K3.1 Pro model weights are out</a></b> Moonshot AI's new model is downloadable on Hugging Face. <span class="src">(HackerNews)</span></p>
+
+      <div class="quote">
+        <p>"Every default is a decision someone else made for you."</p>
+      </div>
+    </div>
+
+    <div class="oa-card">
+      <div class="card-title">📣 OFFICIAL ANNOUNCEMENTS</div>
+      <p class="card-sub">This week's launches, in the companies' own words.</p>
+<div class="oa-item"><div class="oa-by"><b>Anthropic</b> <span>@AnthropicAI · MON 2</span></div><div class="oa-post"><p>Applications are now open for the Anthropic Residency, a paid, fixed-term research program for academics, technical founders, and staff-level engineers who want to make AI safe and beneficial for everyone. No ML background is required.</p><p>Apply by November 22:</p></div><div class="oa-links"><a href="https://x.com/AnthropicAI/status/2117343929960112486">Post on X ↗</a></div></div>
+<div class="oa-item"><div class="oa-by"><b>OpenAI</b> <span>@OpenAI · THU 5</span></div><div class="oa-post"><p>Introducing GPT‑6 Cyber: a major advance in security research that pairs stronger capabilities with better model alignment.</p><p>The model powered the Linux kernel research we announced yesterday, and security teams at companies like Mozilla, Palo Alto Networks, Calif, and Cisco—alongside our own at OpenAI—are already putting it to work.</p><p>GPT-6 Cyber is available to select Daybreak Red customers and we are expanding access over time.</p></div><div class="oa-links"><a href="https://x.com/OpenAI/status/2118390190246879554">Post on X ↗</a></div></div>
+<div class="oa-item"><div class="oa-by"><b>Mistral</b> <span>@MistralAI · MON 2</span></div><div class="oa-post"><p>We asked Mistral Large 4 to show what happens when you break a molecule. ⚛️</p><p>With a short prompt, it wrote a quantum chemistry SCF solver from scratch, validated its output, and built a 3D view around it. </p><p>Le Chonk also understand chemistry enough to independently choose how to break the molecule and what orbitals to show, without further input. 🧵</p></div><div class="oa-links"><a href="https://x.com/MistralAI/status/2117229259425038344">Post on X ↗</a></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Viral on X</h2><div class="sec-rule"></div></div>
+    <p class="sec-sub">The AI posts that drew the biggest reaction this week.</p>
+    <div class="row"><span class="ico">👋</span><span class="txt"><b><a href="https://x.com/_catwu">@_catwu</a></b> <a class="post" href="https://x.com/_catwu/status/2117731934340337676">Friday was my last day at Anthropic. <span class="cut">/</span> Two years ago, when Claude Code was a small internal tool, I asked it to build an RL env. I steered it for tens of hours but never manually wrote a line of code. It worked, I was hooked, and I joined the team. <span class="cut">/</span> When we first launched, most</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 16.6k</b></span></div>
+<div class="row"><span class="ico">🧠</span><span class="txt"><b><a href="https://x.com/AnthropicAI">@AnthropicAI</a></b> <a class="post" href="https://x.com/AnthropicAI/status/2118814753154064501">Memory is what allows Claude to learn from experience. In a new Engineering Blog post, we share how “dreaming” helps Claude organize what it’s learned, correct its mistakes, and find what it needs more easily the next time.</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 9.0k</b></span></div>
+<div class="row"><span class="ico">🏢</span><span class="txt"><b><a href="https://x.com/gregisenberg">@gregisenberg</a></b> <a class="post" href="https://x.com/gregisenberg/status/2117734977312047537">running a company nowadays feels kinda dystopian <span class="cut">/</span> my team is 50+ people in 12 countries, but i talk to my agents more than my human teammates <span class="cut">/</span> - voice note to grokbot <span class="cut">/</span> - mattpocock/skills /grill-me so the agent interrogates the idea before anything gets built <span class="cut">/</span> - spec drops into</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 5.8k</b></span></div>
+<div class="row"><span class="ico">🛡️</span><span class="txt"><b><a href="https://x.com/suraj_sharma14">@suraj_sharma14</a></b> <a class="post" href="https://x.com/suraj_sharma14/status/2117225221971415403">If you learn AI Security Engineering, you will never be unemployed again. <span class="cut">/</span> I’ll do this. <span class="cut">/</span> Stage 1: AI Attack Surfaces &amp; Threat Modeling <span class="cut">/</span> - Learn: OWASP Top 10 for LLMs, STRIDE for AI, the "Confused Deputy" problem in agentic workflows &amp; data flow mapping. <span class="cut">/</span> - Practice: Draw a complete</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 2.9k</b></span></div>
+<div class="row"><span class="ico">🎙️</span><span class="txt"><b><a href="https://x.com/elliotarledge">@elliotarledge</a></b> <a class="post" href="https://x.com/elliotarledge/status/2118386115170496855">i reverse engineered wispr flow, then used deepseek to fine-tune LFM3-1.7B. the result is on par with the wispr flow models you pay for, and it's free, open source and runs entirely on your mac. <span class="cut">/</span> key-up latency is 65 ms on my m4 max vs ~520 ms for wispr flow on the same clips. a 6</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 2.8k</b></span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">New AI Products</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🎮</span><span class="txt"><b><a href="https://wanaka.app/">Wanaka Studio</a></b> - an AI agent builds a 3D game you can edit in a synced visual editor and publish in one click. <span class="src">(<a href="https://www.producthunt.com/products/wanaka-studio">ProductHunt</a>)</span></span><span class="stat"><b>▲ 476</b></span></div>
+<div class="row"><span class="ico">🧠</span><span class="txt"><b><a href="https://github.com/asymptote-labs/agent-beacon">beacon.sh</a></b> - open-source memory that turns sessions across Claude Code, Cursor, Codex and 20+ other harnesses into one knowledge layer. <span class="src">(<a href="https://www.producthunt.com/products/asymptotelabs">ProductHunt</a>)</span></span><span class="stat"><b>▲ 475</b></span></div>
+<div class="row"><span class="ico">🎥</span><span class="txt"><b><a href="https://screen.studio/">Screen Studio 4.0</a></b> - the Mac screen recorder adds a Glass Loupe zoom, a camera cutout and editing by transcript. <span class="src">(<a href="https://www.producthunt.com/products/screen-studio">ProductHunt</a>)</span></span><span class="stat"><b>▲ 460</b></span></div>
+<div class="row"><span class="ico">🔑</span><span class="txt"><b><a href="https://www.scalekit.com/">Scalekit</a></b> - one MCP gateway to 30,000+ tools across 600+ apps, with every action run as the user who asked. <span class="src">(<a href="https://www.producthunt.com/products/scalekit">ProductHunt</a>)</span></span><span class="stat"><b>▲ 423</b></span></div>
+<div class="row"><span class="ico">📱</span><span class="txt"><b><a href="https://glasshand.com/">Glasshand</a></b> - rents real iPhones and Macs to Claude Code, Codex or any agent from a single prompt. <span class="src">(<a href="https://www.producthunt.com/products/glasshand">ProductHunt</a>)</span></span><span class="stat"><b>▲ 380</b></span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">Trending Github Projects</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🛡️</span><span class="txt"><b><a href="https://github.com/cloudflare/security-audit-skill">cloudflare/security-audit-skill</a></b> - A coding-agent skill for multi-phase security audits, with independently verified, machine-readable findings.</span><span class="stat"><b>+9,990</b> ★</span></div>
+<div class="row"><span class="ico">🕸️</span><span class="txt"><b><a href="https://github.com/NVIDIA/auto-ontology">NVIDIA/auto-ontology</a></b> - A Python framework for building graph-based reasoning layers over your data, for deterministic queries and more explainable LLM answers.</span><span class="stat"><b>+8,035</b> ★</span></div>
+<div class="row"><span class="ico">🐋</span><span class="txt"><b><a href="https://github.com/stablyai/orca">stablyai/orca</a></b> - Run a fleet of coding agents like Claude Code and Codex on your own subscription, on desktop, mobile or a remote runtime.</span><span class="stat"><b>+6,921</b> ★</span></div>
+<div class="row"><span class="ico">✒️</span><span class="txt"><b><a href="https://github.com/Nutlope/hallmark">Nutlope/hallmark</a></b> - An anti-AI-slop design skill for Claude Code, Cursor and Codex.</span><span class="stat"><b>+6,900</b> ★</span></div>
+<div class="row"><span class="ico">🎮</span><span class="txt"><b><a href="https://github.com/Donchitos/Claude-Code-Game-Studios">Donchitos/Claude-Code-Game-Studios</a></b> - Turns Claude Code into a game studio: 49 agents and 72 workflow skills, arranged like a real studio hierarchy.</span><span class="stat"><b>+6,018</b> ★</span></div>
+<div class="row"><span class="ico">⚙️</span><span class="txt"><b><a href="https://github.com/affaan-m/ECC">affaan-m/ECC</a></b> - A performance system for agent harnesses: skills, instincts, memory and security for Claude Code, Codex, OpenCode and Cursor.</span><span class="stat"><b>+5,498</b> ★</span></div>
+<div class="row"><span class="ico">🦸</span><span class="txt"><b><a href="https://github.com/obra/superpowers">obra/superpowers</a></b> - An agentic skills framework and software development methodology.</span><span class="stat"><b>+4,577</b> ★</span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x05</span><h2 class="sec-title">HN Deep Stories</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🧬</span><span class="txt"><b><a href="https://rikiyat.github.io/blog/weight-space-programming/">Astra can read and write weights to improve Qwen</a></b> <span class="src">(<a href="https://news.ycombinator.com/item?id=50341174">HackerNews</a>)</span></span><span class="stat"><b>2,958</b> pts · 899 💬</span></div>
+<div class="row"><span class="ico">🧐</span><span class="txt"><b><a href="https://honnibal.dev/blog/astra-read-write-misleading">The 'Astra can read and write weights to improve Qwen' post is misleading</a></b> <span class="src">(<a href="https://news.ycombinator.com/item?id=50351111">HackerNews</a>)</span></span><span class="stat"><b>1,039</b> pts</span></div>
+<div class="row"><span class="ico">🧱</span><span class="txt"><b><a href="https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability">AI is forcing us to pay off 40 years of technical debt</a></b> <span class="src">(<a href="https://news.ycombinator.com/item?id=50364336">HackerNews</a>)</span></span><span class="stat"><b>1,292</b> pts · 748 💬</span></div>
+<div class="row"><span class="ico">⚖️</span><span class="txt"><b><a href="https://nolanlawson.com/2026/10/28/the-ai-cost-of-javascript-frameworks/">The AI cost of JavaScript frameworks</a></b> <span class="src">(<a href="https://news.ycombinator.com/item?id=50323088">HackerNews</a>)</span></span><span class="stat"><b>477</b> pts</span></div>
+<div class="row"><span class="ico">🔓</span><span class="txt"><b><a href="https://www.parameter.ai/labs/we-found-a-gap-at-openai">Do the math: How we took over ChatGPT accounts</a></b> <span class="src">(<a href="https://news.ycombinator.com/item?id=50314699">HackerNews</a>)</span></span><span class="stat"><b>365</b> pts</span></div>
+  </section>
+
+  <footer>
+    <p>Made for builders who ship with AI. See you next week. ✌️</p>
+    <div class="foot-links"><a href="#">SUBSCRIBE</a><a href="#">ARCHIVE</a><a href="#">SUGGEST A LINK</a></div>
+  </footer>
+
+</div>
+</body>
+</html>
