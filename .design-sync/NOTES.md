@@ -1,6 +1,38 @@
 # Design sync notes
 
-## How Ledger syncs
+## Since 10 Nov 2026: a Design System Artifact in Claude
+
+Standalone Claude Design closes by 14 Dec 2026, and the project below moved
+into Claude as the Artifact https://claude.ai/artifact/Ti3vLaKSjGm8h9e42VaBWH
+("aiBytes_ App Design System", a Design System type). `/design-sync` can no
+longer write to it: every upload gets HTTP 403 "This design system moved to
+Claude". Sync it from `packages/design-system/artifact/` instead:
+
+1. `node packages/design-system/artifact/build.mjs --out <scratch dir> --ref main@<sha>`
+   writes `<dir>/project/...`: the bundle compiled from `components/`,
+   `tokens.json` and `tokens.css` read from `tokens/token.css`, `bundle.css`
+   (styles.css without the token values), a README and live preview per
+   component (`artifact/previews.mjs`), the brand-book `README.md`
+   (`artifact/README.md`) and the cover (`artifact/cover.html`). The
+   `ui_kits` sample screens are not synced: they lag the app (the save
+   banner there can still be dismissed), so the Artifact carries components
+   only.
+   Nothing in the repo is generated: token.css stays the only token source.
+2. Check every preview renders, in both themes, in a frame that preloads
+   tokens.css, bundle.css, React 18 and the bundle and sets `data-theme`.
+3. Read the Artifact's `project/design-system.json` right before publishing,
+   set only its `lastChange`, then publish everything to the Artifact's url
+   in one call with that index (`root` = the scratch dir). `.d.ts` files need
+   `contentType: "text/plain"`. If the publish is refused for a newer
+   version, read the whole Artifact (`read` with the url alone) and retry once.
+4. The source marks are uploads recorded in the index; re-upload one only
+   when its sha256 there differs from `assets/marks/`.
+
+The type keeps its own `project/api/` pages, including a few for the
+removed migration components; those are the type's to regenerate, never
+written by the sync.
+
+## How Ledger synced to Claude Design (until 2 Nov 2026)
 
 - Target: "aiBytes_ App Design System" (`projectId` in `config.json`). Ledger
   was exported from this project, and its bundle namespace
@@ -50,6 +82,18 @@ and the screens report "Ledger bundle not compiled yet".
   differences across 74 states. The screens then showed "Ledger bundle not
   compiled yet" from a cached `?v=14` bundle; bumped to `?v=15` and re-uploaded
   the 11 `ui_kits` pages.
+- 2026-11-10 (AIB-75v): first sync to the Artifact, version 4. 101 files from
+  `artifact/build.mjs` at main@c510082: 27 components with live previews,
+  14 screens, the redesign palette in tokens.json, a new README and cover.
+  All 42 previews rendered in both themes in a simulated frame.
+- 2026-11-10 (AIB-75v): version 5 removed the migration leftovers (`Brand`,
+  `Content`, `Forms`, `Navigation`, `Sidenav`, `Header`, `Chip`, `SideNav`,
+  `Footer`, `components/src/`, `docs/_ds_*`) and, on request, every sample
+  screen (`Saved`, `HeadersAuth` and the 14 `ui_kits` screens with their
+  shared scripts). The builder no longer writes screens.
+- 2026-11-10 (AIB-75v, #62 review): version 6 republished the AppHeader
+  preview (follows the frame's theme) and the ListRow, CardMenu and ItemImage
+  types (`../Card/Card` imports). Checked the AppHeader toggle in dark.
 
 ## Known issues
 
