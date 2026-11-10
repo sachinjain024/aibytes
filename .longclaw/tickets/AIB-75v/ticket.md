@@ -3,14 +3,14 @@ format: longclaw.ticket/v1
 id: 6ef6489e-6e94-477f-947d-f4964ff401e2
 key: AIB-75v
 title: Saves and Google sign-in for the web app
-status: in_progress
+status: done
 priority: p1
 rank: a0
 labels:
   - app
 type: feature
 created_at: 2026-10-08T06:08:19.592Z
-updated_at: 2026-11-10T11:04:04.609Z
+updated_at: 2026-11-10T11:13:53.988Z
 ---
 
 Saving items (the ☆ on every card and row) and signing in with Google, split out of AIB-8h on 2026-10-08. AIB-8h shipped the web app without them: no star, no Saved entry, no Sign in. This ticket brings them in.
@@ -78,7 +78,7 @@ Decisions on the map: the publisher creates a new Firebase project for aibytes.i
 - [x] After the PR: one sign-in on aibytes.io after Pages deploys <!-- longclaw:item=ck_dc744d05 -->
 - [x] Ledger: links in body text visible without hover (link colour + underline, WCAG 1.4.1) <!-- longclaw:item=ck_ec5f97c2 -->
 - [x] Saved view: lay out /saved like a category view (AI News, HN Threads), with the app Toolbar present <!-- longclaw:item=ck_c38f9423 -->
-- [ ] Design sync: push Ledger to its Design System Artifact in Claude (Claude Design closed) - #55's saves and sign-in UI as component previews (Sidebar Saved, AppHeader sign-in and avatar menu, AccountMenuPanel, SaveBanner, starPos) and the prose-link rule (78875c0) in bundle.css and the README; components only, the ui_kits sample screens are no longer synced (#62) <!-- longclaw:item=ck_59ae0c8c -->
+- [x] Design sync: push Ledger to its Design System Artifact in Claude (Claude Design closed) - #55's saves and sign-in UI as component previews (Sidebar Saved, AppHeader sign-in and avatar menu, AccountMenuPanel, SaveBanner, starPos) and the prose-link rule (78875c0) in bundle.css and the README; components only, the ui_kits sample screens are no longer synced (#62) <!-- longclaw:item=ck_59ae0c8c -->
 
 ## Ticket References
 
@@ -1508,4 +1508,24 @@ changes:
     to: "Design sync: push Ledger to its Design System Artifact in Claude (Claude Design closed) - #55's saves and sign-in UI as component previews (Sidebar Saved, AppHeader sign-in and avatar menu, AccountMenuPanel, SaveBanner, starPos) and the prose-link rule (78875c0) in bundle.css and the README; components only, the ui_kits sample screens are no longer synced (#62)"
 -->
 ### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_624a1dcf
+kind: update
+occurred_at: 2026-11-10T11:13:53.988Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: status
+    from: in_progress
+    to: done
+  - field: checklist.ck_59ae0c8c.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+Design sync done in #62 (squash 28ec0b3): Ledger now syncs to its Design System Artifact in Claude (https://claude.ai/artifact/Ti3vLaKSjGm8h9e42VaBWH, version 6) from packages/design-system/artifact/build.mjs. 27 components with live previews, including the saves and sign-in UI, plus the prose-link rule; the ui_kits sample screens are no longer synced. All items checked; closing.
 <!-- /longclaw:event -->
