@@ -1,8 +1,9 @@
 name: watchdog
 
 # Is today's edition published? Runs at 16:17 UTC (21:47 IST), after the
-# edition job (08:07 UTC, which GitHub has started up to ~6.5h late), and posts to Slack when it is missing - the one failure a
-# job that never ran cannot report itself. Replaces io.aibytes.watchdog.
+# edition job (08:07 UTC, which GitHub has started up to ~10h late), and posts
+# to Slack when it is missing - the one failure a job that never ran cannot
+# report itself. Replaces io.aibytes.watchdog.
 on:
   schedule:
     - cron: "17 16 * * *"
@@ -34,7 +35,13 @@ jobs:
           umask 077
           echo "AIBYTES_SLACK_WEBHOOK=$AIBYTES_SLACK_WEBHOOK" > .env
 
-      - name: Check today's edition is published
+      # GitHub can start a scheduled run hours late, even past midnight UTC,
+      # when "today" is no longer the edition this run was scheduled to check.
+      # Subtracting the 16:17 slot's distance from midnight (8h) keeps a late
+      # run on its own day, up to a 16h delay.
+      - name: Check the scheduled day's edition is published
+        env:
+          INPUT_DATE: ${{ inputs.date }}
         run: |
-          python3 packages/runner/check.py \
-            ${{ inputs.date && format('--date {0}', inputs.date) || '' }}
+          DATE="${INPUT_DATE:-$(date -u -d '8 hours ago' +%F)}"
+          python3 packages/runner/check.py --date "$DATE"
