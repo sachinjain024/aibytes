@@ -1,0 +1,36 @@
+<!-- @dsCard height=350 -->
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+body{margin:0;background:var(--paper)}
+.cover{position:relative;width:960px;height:350px;overflow:hidden;background:var(--paper)}
+.cover>svg{position:absolute;left:0;top:0;width:960px;height:350px;max-width:none}
+.ink{fill:var(--ink)}.soft{fill:var(--soft)}.hot{fill:var(--hot)}.save{fill:var(--save)}.link{fill:var(--blue)}
+.tile{rx:var(--radius-chip);ry:var(--radius-chip)}
+.rule{stroke:var(--control-border);stroke-width:1}
+.text{position:absolute;left:32px;top:168px;max-width:900px}
+.name{margin:0;font-family:var(--font-display);font-weight:800;font-size:64px;line-height:.95;letter-spacing:var(--tracking-heading);color:var(--ink)}
+.tagline{margin:8px 0 0;font-family:var(--font-body);font-size:14px;line-height:20px;letter-spacing:var(--tracking-body);color:var(--muted)}
+</style></head>
+<body><div class="cover">
+<!--
+  blocks: ink 304×112, soft 224×112, hot 96×112, save 48×64, blue 192×112 (heights space-16+space-12; widths multiples of space-4); corners radius-chip.
+  arrangement: top-band skeleton (the name is too wide for the 440px zone), one flush strip of unequal bands at space-2 gaps, read like the edition bar's row of days.
+  pattern: editorial, "borders not shadows", the edition as a ledger -> three hairline rules (control-border, border-w) crossing the strip like ledger lines.
+  scales: insets space-8 (32), gaps space-2 (8), rule pitch 28 (space-6 + space-1), radius radius-chip.
+-->
+<svg width="960" height="350" viewBox="0 0 960 350" aria-hidden="true">
+  <rect class="ink tile" x="32" y="32" width="304" height="112"/>
+  <rect class="soft tile" x="344" y="32" width="224" height="112"/>
+  <rect class="hot tile" x="576" y="32" width="96" height="112"/>
+  <rect class="save tile" x="680" y="80" width="48" height="64"/>
+  <rect class="link tile" x="736" y="32" width="192" height="112"/>
+  <line class="rule" x1="32" y1="60" x2="928" y2="60"/>
+  <line class="rule" x1="32" y1="88" x2="928" y2="88"/>
+  <line class="rule" x1="32" y1="116" x2="928" y2="116"/>
+</svg>
+<div class="text">
+  <h1 class="name">aiBytes_ App<br>Design System</h1>
+  <p class="tagline">The latest in AI for developers — launches, repos, threads, and news in one daily edition.</p>
+</div>
+</div></body></html>
