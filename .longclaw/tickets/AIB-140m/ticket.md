@@ -8,7 +8,7 @@ priority: urgent
 type: newsletter
 due: 2026-11-08
 created_at: 2026-11-07T09:36:07.794Z
-updated_at: 2026-11-10T10:30:32.157Z
+updated_at: 2026-11-10T10:54:59.955Z
 ---
 
 Weekly aiBytes_ Issue #17.
@@ -31,7 +31,7 @@ Checklist copied from Issue #16 (AIB-133m), without social media posts or Favour
 - [x] Update Intro Content <!-- longclaw:item=ck_1f1611ad -->
 - [x] Generate Thumbnail <!-- longclaw:item=ck_cb7ba0cc -->
 - [x] Send the newsletter <!-- longclaw:item=ck_5f8b0793 -->
-- [ ] Create the LC Tickets for AI Learning Backlog <!-- longclaw:item=ck_60f89da5 -->
+- [x] Create the LC Tickets for AI Learning Backlog <!-- longclaw:item=ck_60f89da5 -->
 - [x] Commit the issue output and open a PR against main <!-- longclaw:item=ck_0061aec2 -->
 
 ## Activity
@@ -242,4 +242,21 @@ changes:
 ### claude-code updated this ticket
 
 Committed on issue-17-8-nov-weekly-newsletter (ccad9ed content, 7ce74b0 tooling) and opened https://github.com/sachinjain024/aibytes/pull/63. Learning backlog LC tickets skipped for Issue #17 at the publisher's call. Closing.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_36decf9f
+kind: update
+occurred_at: 2026-11-10T10:54:59.955Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_60f89da5.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+All checklist items checked at the publisher's request; learning backlog tickets were skipped for this issue.
 <!-- /longclaw:event -->
