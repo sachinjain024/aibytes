@@ -59,11 +59,13 @@ Every command also takes `--output-root DIR` (default `newsletter/data`).
    accounts) and 3–5 announcements (top by likes, one launch per company).
    Show the publisher both lists with a one-line reason for each post, plus
    what was dropped and why. Wait for them to confirm or give their own picks.
-6. **Check the picks on X.** Open each shortlisted post in the publisher's
-   Chrome (Claude in Chrome) and compare the author, text, and date. A post
-   whose link doesn't open is dropped. Where Grok's `text` or `posted_at`
-   differs, correct the snapshot to what X shows. Don't change the counts.
-   They are Grok's, as of `fetched_at`.
+6. **Check the picks on X, only when the publisher asks.** By default, take
+   Grok's posts as correct and go straight from the publisher's OK to step 7
+   (the publisher's call on Issue 17: the links come straight from Grok). When
+   they do ask, open each shortlisted post in their Chrome (Claude in Chrome)
+   and compare the author, text, and date. A post whose link doesn't open is
+   dropped. Where Grok's `text` or `posted_at` differs, correct the snapshot to
+   what X shows. Don't change the counts. They are Grok's, as of `fetched_at`.
 7. **Record the picks** with `shortlist`. It warns when a pick breaks a rule
    (list size, one per account, the company cap, wrong bucket). The
    publisher's choice wins, so a warning doesn't block it.

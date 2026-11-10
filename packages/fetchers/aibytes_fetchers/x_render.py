@@ -18,7 +18,7 @@ import datetime as dt
 import html
 import re
 
-EXCERPT_LIMIT = 140        # Viral on X: about two lines at 640px
+EXCERPT_LIMIT = 280        # Viral on X: at most about four lines at 640px (Issue 17)
 LONG_POST = 600            # Official Announcements: trim only past this
 LONG_POST_CUT = 400        # ...at the last paragraph break before this
 HEART = "♥︎"     # the text-style heart, so iOS Mail doesn't swap in a red emoji
@@ -223,7 +223,7 @@ def _squash(markup):
 
 
 def announcement_substack(post):
-    name, _ = company(post)
+    # The handle names the company on its own, so the heading leaves the name out.
     paras, cut = trim_long(paragraphs(post["text"]))
     body = "".join("<p>" + _squash("<br>".join(_e(line) for line in para)) + "</p>" for para in paras)
     if cut:
@@ -231,7 +231,7 @@ def announcement_substack(post):
     links = f'<a href="{_a(post["url"])}">Post on X ↗</a>'
     if post["link_url"]:
         links += f' · <a href="{_a(post["link_url"])}">{_e(domain(post["link_url"]))} ↗</a>'
-    return (f'<h3>{_e(name)} {_e(post["author_handle"])} · {day(post["posted_at"]).title()}</h3>'
+    return (f'<h3>{_e(post["author_handle"])} · {day(post["posted_at"]).title()}</h3>'
             f'<blockquote>{body}</blockquote><p>{links}</p>')
 
 

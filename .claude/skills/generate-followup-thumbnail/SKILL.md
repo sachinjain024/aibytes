@@ -62,7 +62,22 @@ Always open the PNGs after generating - all three, since a background can misbeh
 
 Report the three paths and the dimensions, and show all three so the user can pick. Exactly one goes in as the Substack social image - in the post editor, **Continue → Social preview → Edit**, not into the body - and the other two stay in `thumbnails/` as the record of what the card could have been.
 
-The 16:9 illustrated banner tried on the Issue 16 backfill (`issue-16-banner.png`) is a separate image. Its provider is still being chosen in AIB-137j, and this skill doesn't make it until that ticket records the choice.
+The 16:9 illustrated banner tried on the Issue 16 backfill (`issue-16-banner.png`) is a separate image. Its provider is still being chosen in AIB-137j.
+
+### 5. Hero banner prompt for an image model
+
+From Issue 17 the publisher also makes an illustrated hero banner in an image model (Gemini for Issue 17) and uses it as the post's thumbnail. Claude writes the prompt; the publisher generates the image and hands it back, and Claude saves it as `thumbnails/issue-{num}-hero.png`.
+
+What worked on Issue 17 (`week-46-Issue-17/thumbnails/issue-17-hero.png`): an **editorial scene of the story's mechanism, with no character**, set on the background from the style guide in `docs/image-guide/AI Bytes Image Generation Style Guide.pdf`. The guide's playful 2D character version was tried and rejected. Build the prompt from these parts:
+
+- **Scene**: the story of the week drawn as its mechanism, in flat vector with thin navy outlines. Issue 17: a terminal window sends an HTTP request card whose `User-Agent: you@…` line is highlighted, under a magnifying glass, with lines fanning out to small browser windows that each receive an envelope.
+- **Background (from the style guide)**: soft cream/beige, sprinkled with colorful confetti dots, small plus signs and stars in orange #FF7A00, teal, purple #8B5CF6, blue #3B82F6 and yellow.
+- **Headline**: the subject line, shortened to fit three lines, in a bold navy sans-serif, top-left ("A Claude Code bug leaked your email to websites").
+- **Attribution**: top-right, small, thin light-gray, written exactly `aiBytes_` (spell out lowercase "ai", capital "B", trailing underscore). Never "AI Bytes Newsletter".
+- **Format**: 16:9 landscape, with nothing important near the top and bottom edges, since Substack's social preview crops to about 1.91:1.
+- **Avoid**: real company logos, readable real email addresses, hoodie hackers, skulls, red alarm colors, photorealism, 3D, neon, and any text besides the headline, the attribution and the scene's one label.
+
+Before saving the result, look at it for model artefacts (stray marks beside the attribution, a provider watermark in a corner) and tell the publisher what to crop or regenerate.
 
 ## Design
 

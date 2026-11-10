@@ -119,8 +119,8 @@ class TestConvert(unittest.TestCase):
         self.assertIn('<li>🎬 <a href="https://cut.example/"><b>Cut</b></a> - edits video. '
                       '(<a href="https://www.producthunt.com/products/cut">Product Hunt</a>) ▲ 776</li>', self.body)
         self.assertIn('<li>📎 <a href="https://github.com/o/r"><b>o/r</b></a> - a repo. +6.4k ★</li>', self.body)
-        # HN: the title is plain bold and the thread is the only link.
-        self.assertIn('<li>📊 <b>A deep story</b> with context. '
+        # HN: the title is plain text and the thread is the only link.
+        self.assertIn('<li>📊 A deep story with context. '
                       '(<a href="https://news.ycombinator.com/item?id=1">HN thread</a>) 699 pts</li>', self.body)
         self.assertNotIn("article.example", self.body)
         self.assertEqual(self.body.count("<ol>"), 4)

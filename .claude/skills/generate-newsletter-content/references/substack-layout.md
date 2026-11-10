@@ -68,7 +68,7 @@ body, sans headings, and orange links, blockquote bar and buttons.
 
 ### Official announcements
 
-Per post: `<h3>{Company} {@handle} · {Day DD}</h3>`, then the whole post in a
+Per post: `<h3>{@handle} · {Day DD}</h3>` (the handle alone, no company name; publisher call on Issue 17), then the whole post in a
 `<blockquote>`, with one `<p>` per paragraph, then
 `<p><a href="{post}">Post on X ↗</a> · <a href="{link_url}">{domain} ↗</a></p>`.
 Leave out the domain link when there's no `link_url`.
@@ -85,8 +85,9 @@ the row, as plain text:
   run of orange (picked 3 Nov 2026 on the Issue 16 backfill).
 - New AI products: `{emoji} <a href="{site}"><b>{name}</b></a> - {description} (<a href="{launch}">Product Hunt</a>) ▲ {votes}`
 - Trending GitHub projects: `{emoji} <a href="{repo}"><b>{owner/repo}</b></a> - {description} +{stars} ★`
-- HN deep stories: `{emoji} <b>{title}</b> (<a href="{thread}">HN thread</a>) {points} pts`.
-  The title is **not linked**, so it reads in body ink. The thread link is the
+- HN deep stories: `{emoji} {title} (<a href="{thread}">HN thread</a>) {points} pts`.
+  The title is **not linked and not bold**, so it reads as normal body text
+  (unbolded on the publisher's call, Issue 17). The thread link is the
   only orange in the row. This overrides the step 3 link table for Substack:
   the article isn't linked here (picked 3 Nov 2026 on the Issue 16 backfill).
   HN only. The other sections keep their linked bold names.

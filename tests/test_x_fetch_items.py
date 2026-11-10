@@ -255,12 +255,13 @@ class TestExcerpt(unittest.TestCase):
         self.assertEqual((lines, cut), (["First line", "Second line"], False))
 
     def test_cut_drops_trailing_punctuation_before_the_ellipsis(self):
-        lines, cut = x_render.excerpt("a" * 130 + " bb, " + "c" * 40)
+        n = x_render.EXCERPT_LIMIT - 10
+        lines, cut = x_render.excerpt("a" * n + " bb, " + "c" * 40)
         self.assertTrue(cut)
-        self.assertEqual(lines[-1], "a" * 130 + " bb")
+        self.assertEqual(lines[-1], "a" * n + " bb")
 
     def test_a_single_overlong_word_is_hard_cut(self):
-        lines, cut = x_render.excerpt("x" * 200)
+        lines, cut = x_render.excerpt("x" * (x_render.EXCERPT_LIMIT + 60))
         self.assertEqual((len(lines[0]), cut), (x_render.EXCERPT_LIMIT, True))
 
 
@@ -304,14 +305,15 @@ class TestRender(unittest.TestCase):
         inner = re.search(r'border-radius:10px;[^>]*>(.*?)</div>', x_render.announcement_beehiiv(post)).group(1)
         self.assertEqual(untag(inner), post["text"])
 
-    def test_x_row_is_the_start_of_the_post_with_an_ellipsis(self):
+    def test_x_row_is_the_start_of_the_post(self):
         post = self.by_url["https://x.com/alice/status/3"]
         row = x_render.x_row_html(post)
         words = untag(re.search(r'<a class="post"[^>]*>(.*?)</a>', row).group(1))
         flat = re.sub(r"\s+", " ", post["text"])
         self.assertTrue(flat.startswith(words.replace(" / ", " ")), words)
         self.assertIn('<span class="cut">/</span>', row)
-        self.assertIn("…", row)
+        # The post fits inside EXCERPT_LIMIT, so it is shown whole; TestExcerpt covers the cut.
+        self.assertNotIn("…", row)
         self.assertIn(x_render.HEART + " 3.0k", row)
 
     def test_x_row_opens_with_emoji_and_linked_handle(self):
@@ -358,7 +360,7 @@ class TestRender(unittest.TestCase):
         rendered = x_render.announcement_substack(post)
         inner = re.search(r"<blockquote>(.*?)</blockquote>", rendered).group(1)
         self.assertEqual(untag(inner), post["text"])
-        self.assertTrue(rendered.startswith("<h3>Lab @lab · Wed 23</h3>"), rendered)
+        self.assertTrue(rendered.startswith("<h3>@lab · Wed 23</h3>"), rendered)
         self.assertIn(' · <a href="https://www.lab.example/lab-2">lab.example ↗</a>', rendered)
 
     def test_substack_x_row_links_only_the_handle_to_the_post(self):
@@ -366,7 +368,7 @@ class TestRender(unittest.TestCase):
         self.assertTrue(row.startswith('<li>🔬 <a href="https://x.com/alice/status/3"><b>@alice</b></a> I asked Lab 2'), row)
         self.assertEqual(row.count("<a "), 1)
         self.assertIn(" / Here's", row)
-        self.assertTrue(row.endswith(f"keeps … {x_render.HEART} 3.0k</li>"), row)
+        self.assertTrue(row.endswith(f"keeps going for a while {x_render.HEART} 3.0k</li>"), row)
 
     def test_render_keeps_shortlist_order(self):
         blocks, warnings = x_render.render(self.snap)
