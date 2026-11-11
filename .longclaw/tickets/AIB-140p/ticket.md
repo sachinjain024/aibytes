@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-11T08:08:48.483Z
+updated_at: 2026-11-11T08:18:19.504Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -40,6 +40,7 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 - [ ] A way to get saved subscriber emails into Substack <!-- longclaw:item=ck_bf023510 -->
 - [ ] Privacy page updated: the app stores the subscription and passes the email to Substack <!-- longclaw:item=ck_051862d9 -->
 - [x] Spec approved (docs/specs/AIB-140p-newsletter-prompt.md) <!-- longclaw:item=ck_c92ab0af -->
+- [ ] Plan approved (docs/plans/AIB-140p-plan.md, docs/plans/AIB-140p-todo.md) <!-- longclaw:item=ck_2dce347a -->
 
 ## Ticket References
 
@@ -101,6 +102,30 @@ added_by:
   name: Claude Code
 -->
 [AIB-75v-saves-and-sign-in-design.md](docs/decisions/product/AIB-75v-saves-and-sign-in-design.md)
+<!-- /longclaw:reference -->
+
+<!-- longclaw:reference
+id: ref_8fdff098
+path: docs/plans/AIB-140p-plan.md
+added_at: 2026-11-11T09:10:00.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[AIB-140p-plan.md](docs/plans/AIB-140p-plan.md)
+<!-- /longclaw:reference -->
+
+<!-- longclaw:reference
+id: ref_802475df
+path: docs/plans/AIB-140p-todo.md
+added_at: 2026-11-11T09:10:00.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[AIB-140p-todo.md](docs/plans/AIB-140p-todo.md)
 <!-- /longclaw:reference -->
 
 ## Activity
@@ -216,4 +241,20 @@ changes:
 ### claude-code updated this ticket
 
 11 Nov 2026: spec approved (draft 2). Next: the implementation plan in docs/plans/.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_efa6720c
+kind: update
+occurred_at: 2026-11-11T08:18:19.504Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_2dce347a.added
+    to: Plan approved (docs/plans/AIB-140p-plan.md, docs/plans/AIB-140p-todo.md)
+-->
+### claude-code updated this ticket
+
+11 Nov 2026: plan and task list drafted, awaiting approval. 14 tasks in five modules on branch AIB-140p, PR #64. The spec's deploy command is amended to the documented codebase form.
 <!-- /longclaw:event -->
