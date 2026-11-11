@@ -67,11 +67,11 @@ with the dialog open on the final copy. The kit's `App.jsx` gains a
 `prompt0` prop that opens a sample prompt built from `Dialog`.
 
 **Acceptance criteria:**
-- [ ] The screen's first line is its `@dsCard` marker; it loads `App.jsx`
+- [x] The screen's first line is its `@dsCard` marker; it loads `App.jsx`
       with `signedIn0` and `prompt0`.
-- [ ] A Python test beside `SavesKitTests` pins the screen, the kit `App.jsx`
+- [x] A Python test beside `SavesKitTests` pins the screen, the kit `App.jsx`
       wiring and the two readmes listing it.
-- [ ] The kit `README.md` and Ledger's `readme.md` list the screen and
+- [x] The kit `README.md` and Ledger's `readme.md` list the screen and
       `Dialog`.
 
 **Verification:** the Python design-system tests; the screen in the preview
@@ -85,7 +85,7 @@ matches the decision record's layout in both themes.
 
 ### Checkpoint A: after T3
 
-- [ ] Ledger and Python suites pass; `npm run build:web` is unchanged in
+- [x] Ledger and Python suites pass; `npm run build:web` is unchanged in
       behaviour (the app does not use `Dialog` yet).
 - [ ] Review the kit screen with the publisher before the app work.
 

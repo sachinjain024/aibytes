@@ -3,7 +3,31 @@
    the sample editions in data.js instead of content/. */
 const NS = window.LedgerAiBytesDesignSystem_b1be4f || {};
 if (!NS.AppHeader) document.body.insertAdjacentHTML("afterbegin", '<p style="font-family:monospace;font-size:13px;padding:16px">Ledger bundle not compiled yet — reload in a moment (_ds_bundle.js missing).</p>');
-const { AppHeader, Sidebar, Toolbar, FilterPanel, ActiveFilters, EditionBar, CardGrid, RowList, Card, ListRow, SectionHeading, EmptyState, EndCard, SaveBanner, StatusMessage } = NS;
+const { AppHeader, Sidebar, Toolbar, FilterPanel, ActiveFilters, EditionBar, CardGrid, RowList, Card, ListRow, SectionHeading, EmptyState, EndCard, SaveBanner, StatusMessage, Dialog, Button } = NS;
+// The offer a new account sees once (AIB-140p, D2). Sample content for the kit;
+// the app's NewsletterPrompt owns this copy when it ships.
+const PROMPT_COVERS = ["New AI tools", "AI threads on HN", "Trending AI projects", "Latest AI news", "Official announcements", "Viral posts on X"];
+function NewsletterPromptSample({ onClose }) {
+  return (
+    <Dialog labelledBy="prompt-h" onClose={onClose}>
+      <h2 id="prompt-h" className="ldg-dialog__title prompt-signed">
+        <svg className="prompt-tick" viewBox="0 0 48 48" width="22" height="22" aria-hidden="true"><circle cx="24" cy="24" r="23" /><path d="M14.5 24.5 21 31l12.5-13.5" fill="none" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" /></svg>
+        <span>You're successfully signed in.</span>
+      </h2>
+      <p className="prompt-lead">Get the best of AI in your inbox every Monday</p>
+      <ul className="prompt-covers">{PROMPT_COVERS.map(item => <li key={item}>{item}</li>)}</ul>
+      <div className="ldg-dialog__actions ldg-dialog__actions--one">
+        <Button variant="primary" data-autofocus>Subscribe</Button>
+      </div>
+      <p className="prompt-proof">Read by 2,000+ developers at companies like Amazon, Google, OpenAI, Nvidia and Stripe.</p>
+      <p className="prompt-builtby">
+        <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M8 13.6 2.3 8.1a3.3 3.3 0 0 1 4.6-4.7L8 4.5l1.1-1.1a3.3 3.3 0 0 1 4.6 4.7Z" fill="currentColor" /></svg>
+        <span>Built by a former YC founder</span>
+        <svg className="prompt-yc" viewBox="0 0 16 16" width="16" height="16" role="img" aria-label="Y Combinator"><rect width="16" height="16" rx="3" /><path d="M4.6 4 8 9v3.4M11.4 4 8 9" fill="none" strokeWidth="1.5" /></svg>
+      </p>
+    </Dialog>
+  );
+}
 // The kit's signed-in reader. No photoUrl, so the avatar shows the initial.
 const SAMPLE_USER = { name: "Ada Lovelace" };
 const D = window.LEDGER_DATA;
@@ -37,6 +61,7 @@ function AiBytesApp(props) {
   const [signedIn, setSignedIn] = React.useState(!!props.signedIn0);
   const [savedPage, setSavedPage] = React.useState(!!props.savedPage0);
   const [bannerDismissed, setBannerDismissed] = React.useState(false);
+  const [promptOpen, setPromptOpen] = React.useState(!!props.prompt0);
   React.useEffect(() => setSignedIn(!!props.signedIn0), [props.signedIn0]);
   React.useEffect(() => { if (props.theme0) setTheme(props.theme0); }, [props.theme0]);
   React.useEffect(() => { if (props.view0) setView(props.view0); }, [props.view0]);
@@ -136,6 +161,7 @@ function AiBytesApp(props) {
           </div>
         </section></div>
       </main>
+      {promptOpen && <NewsletterPromptSample onClose={() => setPromptOpen(false)} />}
     </div>);
 }
 window.AiBytesApp = AiBytesApp;

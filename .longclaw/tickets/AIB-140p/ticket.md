@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-11T08:30:21.281Z
+updated_at: 2026-11-11T08:44:26.918Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -39,7 +39,7 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 - [ ] 4. ledger-dialog <!-- longclaw:item=ck_987e227c -->
 - [x] 4.1 T1: the success colour token <!-- longclaw:item=ck_a4fa1bf1 -->
 - [x] 4.2 T2: the Dialog component <!-- longclaw:item=ck_1b7db57f -->
-- [ ] 4.3 T3: the UI kit screen <!-- longclaw:item=ck_16bb5cb2 -->
+- [x] 4.3 T3: the UI kit screen <!-- longclaw:item=ck_16bb5cb2 -->
 - [ ] 4.4 Checkpoint A: kit screen reviewed <!-- longclaw:item=ck_5fbcd63a -->
 - [ ] 5. subscriber-store <!-- longclaw:item=ck_5182fbf9 -->
 - [ ] 5.1 T4: the subscriber document and its rules <!-- longclaw:item=ck_6da75777 -->
@@ -498,4 +498,32 @@ changes:
     to: "true"
 -->
 ### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_4f2338fc
+kind: update
+occurred_at: 2026-11-11T08:44:26.918Z
+actor:
+  type: agent
+  id: grok
+changes:
+  - field: checklist.ck_16bb5cb2.checked
+    from: "false"
+    to: "true"
+-->
+### grok updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_cbd8d12c
+kind: comment
+occurred_at: 2026-11-11T08:44:36.528Z
+actor:
+  type: agent
+  id: grok
+-->
+### grok commented
+
+11 Nov 2026: T3 landed. Screen 15-newsletter-prompt.html shows the signed-in app with Dialog open on the final copy. Checkpoint A is waiting on a review of that screen before the app work.
 <!-- /longclaw:event -->

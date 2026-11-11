@@ -43,7 +43,7 @@ it downstream:
 ## Non-negotiables
 
 Text is the interface (images are 40px accents). One accent (`--accent` cobalt)
-for interaction, `--hot` only for "top today" and the HN tile, `--save` only in
+for interaction, `--hot` only for "top today", the HN tile and the YC mark on the newsletter prompt, `--save` only in
 the filled star, `--success` (with `--success-fg` on it) only in a
 confirmation tick. Mono with tabular numerals on every number. 1px borders, no
 shadows at rest, no gradients or glass. The exception is popovers - the

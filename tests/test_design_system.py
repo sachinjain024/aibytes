@@ -222,6 +222,33 @@ class SavesKitTests(unittest.TestCase):
             self.assertIn(needle, ledger)
 
 
+class NewsletterPromptKitTests(unittest.TestCase):
+    """Screen 15 shows the post-signup newsletter prompt (AIB-140p)."""
+
+    KIT = DESIGN_SYSTEM / "ui_kits" / "aibytes-app"
+    SCREEN = "15-newsletter-prompt.html"
+
+    def test_the_screen_is_a_seeded_kit_page(self):
+        html = (self.KIT / self.SCREEN).read_text()
+        self.assertTrue(html.startswith("<!-- @dsCard "), "the card marker must be the first line")
+        self.assertIn('src="App.jsx"', html)
+        for prop in ("signedIn0", "prompt0"):
+            self.assertIn(prop, html)
+
+    def test_the_kit_app_opens_the_sample_from_dialog(self):
+        app = (self.KIT / "App.jsx").read_text()
+        for needle in ("prompt0", "NewsletterPromptSample", "<Dialog ", "You're successfully signed in.", "Subscribe"):
+            self.assertIn(needle, app)
+
+    def test_the_readmes_list_the_screen_and_dialog(self):
+        readme = (self.KIT / "README.md").read_text()
+        self.assertIn(self.SCREEN, readme)
+        self.assertIn("Dialog", readme)
+        ledger = (DESIGN_SYSTEM / "readme.md").read_text()
+        self.assertIn("15 shows the newsletter prompt", ledger)
+        self.assertIn("Dialog", ledger)
+
+
 class RemovedComponentTests(unittest.TestCase):
     """Header, SideNav, Chip and Footer were replaced by the app shell (AIB-133k)."""
 
