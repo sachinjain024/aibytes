@@ -223,11 +223,11 @@ and the archive intro's Subscribe link. Update `/privacy`'s newsletter
 paragraph to the spec's text.
 
 **Acceptance criteria:**
-- [ ] Which subscribe options show is one pure function of `subscribed`,
+- [x] Which subscribe options show is one pure function of `subscribed`,
       tested for `undefined`, `false` and `true`.
-- [ ] Signed out, and signed in without subscribing, all three show; after
+- [x] Signed out, and signed in without subscribing, all three show; after
       subscribing, none does, with no reload.
-- [ ] `/privacy` carries the new paragraph (pinned by a test on the page's
+- [x] `/privacy` carries the new paragraph (pinned by a test on the page's
       text).
 
 **Verification:** `npm test -w @aibytes/web`; by hand on `/`, a weekly issue

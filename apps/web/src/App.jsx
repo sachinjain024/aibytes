@@ -27,6 +27,7 @@ import { mergedLine } from "./merge.js";
 import { clearSaves, localSaves, readSaves } from "./saves.js";
 import { NewsletterPrompt } from "./NewsletterPrompt.jsx";
 import { initialPrompt, promptReducer, shouldOpenPrompt } from "./newsletterPrompt.js";
+import { NEWSLETTER_PRIVACY, showSubscribeOptions } from "./subscribeOptions.js";
 import { editionPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, savedPath, weeklyPath } from "./route.js";
 
 // The sidebar's links: live ones first, then those not live yet. GitHub is
@@ -303,6 +304,7 @@ export function App() {
 // `heading` is left out. On "saved", Saved is the current entry.
 function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location, navigate, skipLabel, heading, date, all, children }) {
   const { saves } = useSaves(store);
+  const { subscribed } = React.useContext(AccountContext);
   const headerProps = useHeaderAccount(navigate);
   const feedPage = page === "feed";
   const savedPage = page === "saved";
@@ -379,7 +381,7 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
       <AppHeader theme={theme} onToggleTheme={onToggleTheme} menuOpen={menuOpen} onMenu={() => setMenuOpen(o => !o)} githubUrl={GITHUB_URL} {...headerProps} />
       <StickyBanner saveCount={saves.length} />
       <Sidebar categories={categories} count={feedPage ? visible?.length : undefined} active={feedPage ? filters.category : null} open={menuOpen} onClose={() => setMenuOpen(false)}
-        links={SIDEBAR_LINKS} subscribeUrl={SUBSCRIBE_URL}
+        links={SIDEBAR_LINKS} subscribeUrl={showSubscribeOptions(subscribed) ? SUBSCRIBE_URL : undefined}
         onCategory={key => {
           if (!feedPage) navigate("/" + filtersToSearch({ ...NO_FILTERS, category: key }, []));
           else if (filterable) setCategory(key);
@@ -644,7 +646,7 @@ function PrivacyApp({ saves, location, navigate, theme, onToggleTheme }) {
       skipLabel="Skip to the privacy page" date={null} all={null}>
       {() => <article className="app-privacy">
         <h1 className="ldg-section-h">Privacy</h1>
-        <p>Last changed 8 November 2026.</p>
+        <p>Last changed 11 November 2026.</p>
 
         <h2 className="ldg-section-h">Reading</h2>
         <p>aiBytes_ sets no cookies and runs no analytics. The site is hosted on GitHub Pages; its fonts come from
@@ -667,8 +669,7 @@ function PrivacyApp({ saves, location, navigate, theme, onToggleTheme }) {
         <p>Unstar an item to delete its save. To delete your account and all its saves, email {contact}.</p>
 
         <h2 className="ldg-section-h">The newsletter</h2>
-        <p>The weekly newsletter is on Substack, under <a href="https://substack.com/privacy">Substack&apos;s privacy
-          policy</a>. Signing in here does not subscribe you.</p>
+        <p>{NEWSLETTER_PRIVACY}</p>
 
         <h2 className="ldg-section-h">Questions</h2>
         <p>Email {contact}.</p>
@@ -698,6 +699,8 @@ function useSavedFiles(toLoad) {
 // A compact Substack subscribe bar at the top of a weekly issue, so a reader
 // arriving cold from social can subscribe without finding the sidebar.
 function SubscribeBar() {
+  const { subscribed } = React.useContext(AccountContext);
+  if (!showSubscribeOptions(subscribed)) return null;
   return (
     <aside className="weekly-subscribe" aria-label="Subscribe">
       <p className="weekly-subscribe__text"><b>Get aiBytes_ every Monday.</b> The week in AI for developers, in your inbox.</p>
@@ -710,6 +713,7 @@ function SubscribeBar() {
 // each issue is its own built page, with its own title and canonical URL.
 function WeeklyArchive({ saves: store, theme, onToggleTheme, navigate }) {
   const headerProps = useHeaderAccount(navigate);
+  const { subscribed } = React.useContext(AccountContext);
   const { saves } = useSaves(store);
   const weekly = useLoaded(loadWeeklyIndex, ONCE, "weekly");
   React.useEffect(() => { document.title = "aiBytes_ · Weekly"; }, []);
@@ -751,7 +755,7 @@ function WeeklyArchive({ saves: store, theme, onToggleTheme, navigate }) {
               <p className="weekly-archive__kicker">Weekly</p>
               <h1 className="weekly-archive__title">aiBytes_ archive</h1>
               <p className="weekly-archive__lede ldg-prose">
-                Every Monday issue on aibytes.io. <a href={SUBSCRIBE_URL}>Subscribe</a> · <a href="/">Daily edition</a>
+                Every Monday issue on aibytes.io. {showSubscribeOptions(subscribed) && <><a href={SUBSCRIBE_URL}>Subscribe</a> · </>}<a href="/">Daily edition</a>
               </p>
             </header>
             {list}
