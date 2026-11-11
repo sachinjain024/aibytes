@@ -83,6 +83,8 @@
   --hot-tint: #FFEFE7;
   --hot-text: #C2410C;
   --save: #FFB800;
+  --success: #1a7f4b;
+  --success-fg: #ffffff;
   --disabled: #A9ACB5;
 }
 
@@ -106,6 +108,8 @@
   --hot-tint: #2A1D18;
   --hot-text: #FF7A45;
   --save: #FFC94D;
+  --success: #46c282;
+  --success-fg: #0c2417;
   --disabled: #5C6270;
 }
 
@@ -130,6 +134,8 @@
     --hot-tint: #2A1D18;
     --hot-text: #FF7A45;
     --save: #FFC94D;
+    --success: #46c282;
+    --success-fg: #0c2417;
     --disabled: #5C6270;
   }
 }
