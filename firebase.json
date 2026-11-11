@@ -2,6 +2,9 @@
   "firestore": [
     { "database": "aibytes", "rules": "firestore.rules" }
   ],
+  "functions": [
+    { "source": "functions", "codebase": "aibytes-web", "runtime": "nodejs22" }
+  ],
   "emulators": {
     "firestore": { "port": 8080 },
     "ui": { "enabled": false },

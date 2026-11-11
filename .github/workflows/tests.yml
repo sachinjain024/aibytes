@@ -48,3 +48,7 @@ jobs:
 
       - name: Build the web app
         run: npm run build:web
+
+      - name: Test the failure-alert function
+        working-directory: functions
+        run: npm ci && npm test

@@ -9,7 +9,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "node --test",
-    "test:rules": "if command -v firebase >/dev/null && command -v java >/dev/null; then firebase emulators:exec --only firestore --project demo-aibytes \"node --test --test-concurrency=1 rules.test.js src/accountSaves.test.js\"; else echo \"test:rules skipped: needs the Firebase CLI and Java\"; fi"
+    "test:rules": "if command -v firebase >/dev/null && command -v java >/dev/null; then firebase emulators:exec --only firestore --project demo-aibytes \"node --test --test-concurrency=1 rules.test.js src/accountSaves.test.js src/subscriberStore.test.js\"; else echo \"test:rules skipped: needs the Firebase CLI and Java\"; fi"
   },
   "dependencies": {
     "@aibytes/design-system": "*",

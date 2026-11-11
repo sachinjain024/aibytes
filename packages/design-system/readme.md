@@ -48,7 +48,7 @@ Design system for **aiBytes_** (`aibytes.io`): a curated daily feed of AI resour
 ## VISUAL FOUNDATIONS
 
 - **Text is the interface.** Images are 40px accents in a fixed slot, never heroes or banners. No illustration, no photography.
-- **Color:** neutral warm-grey field (`--bg` #F7F7F4 light / #0F1115 dark). One accent (cobalt `--accent`) for everything interactive; one hot (orange `--hot`) only for "top today" and the HN tile; yellow `--save` only in the filled star. Same layout in both themes — only the palette flips.
+- **Color:** neutral warm-grey field (`--bg` #F7F7F4 light / #0F1115 dark). One accent (cobalt `--accent`) for everything interactive; one hot (orange `--hot`) only for "top today" and the HN tile; yellow `--save` only in the filled star. Green `--success`, with `--success-fg` for the mark drawn on it, only in a confirmation tick (signed in, subscribed). Same layout in both themes — only the palette flips.
 - **Type:** Bricolage Grotesque (500/700/800) for logo/headings/section titles; Inter with Linear-style tight tracking (`--tracking-body:-0.01em`) for body/UI (incl. chips and header nav, weight 500); JetBrains Mono for meta, signals, tags, dates, the edition bar. Scale 13/14/16/20/28 (+12 mono meta). Headings tracked slightly tight (−0.02em), mono slightly loose (+0.02em), tabular numerals on all mono.
 - **Backgrounds:** flat fills only. No gradients, no glass, no textures, no patterns. One exception: the selected category in the desktop Sidebar keeps a faint horizontal gradient and soft shadow, so the current section reads as raised.
 - **Borders & shadows:** 1px borders everywhere; **no shadows at rest**. Popovers (calendar, filter panel, card menu) may carry a soft drop shadow, since they float over the feed, and so may the Sidebar's selected category (above). Hover = border swaps to `--accent` + 1px lift (`translateY(-1px)`).
@@ -83,9 +83,9 @@ Design system for **aiBytes_** (`aibytes.io`): a curated daily feed of AI resour
 - `assets/marks/` — per-source SVGs (standalone, theme-aware)
 - `components/brand/` — Wordmark, SourceMark
 - `components/navigation/` — the app shell: AppHeader, Sidebar, Toolbar, FilterPanel, ActiveFilters; and EditionBar (the toolbar's date picker), CalendarPopover. The app (`apps/web`) is built from these, so what ships and what Claude Design shows are the same components.
-- `components/content/` — Card, ListRow, CardGrid / RowList / StatusMessage (`Feed.jsx`), ItemImage, SectionHeading, Tag, SaveStar, CardMenu, SaveBanner, EmptyState, EndCard
+- `components/content/` — Card, ListRow, CardGrid / RowList / StatusMessage (`Feed.jsx`), ItemImage, SectionHeading, Tag, SaveStar, CardMenu, SaveBanner, EmptyState, EndCard, Dialog
 - `components/forms/` — Button, Input
-- `ui_kits/aibytes-app/` — the screens + interactive `index.html`, shared `data.js`; 12–14 show saves and sign-in
+- `ui_kits/aibytes-app/` — the screens + interactive `index.html`, shared `data.js`; 12–14 show saves and sign-in; 15 shows the newsletter prompt in `Dialog`
 
 ### Saves and sign-in (AIB-75v)
 

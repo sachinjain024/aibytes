@@ -1,0 +1,101 @@
+/* Prototype-only styles for AIB-140p. Every color is a Ledger token. */
+body { background: var(--bg); color: var(--text); }
+/* Ledger has no success colour yet; this is the one the thank-you tick needs. */
+:root { --proto-success: #1a7f4b; --proto-success-fg: #ffffff; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --proto-success: #46c282; --proto-success-fg: #0c2417; } }
+[data-theme="dark"] { --proto-success: #46c282; --proto-success-fg: #0c2417; }
+
+/* Dialog: what Ledger's Dialog component would look like */
+.proto-scrim { position: fixed; inset: 0; background: color-mix(in srgb, var(--ink) 35%, transparent); display: grid; place-items: center; z-index: 300; padding: 16px max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px)); }
+.proto-dialog, .proto-card { position: relative; background: var(--surface); color: var(--text); border: 1px solid var(--control-border); border-radius: 12px; padding: 22px; box-shadow: 0 16px 40px var(--shadow); display: flex; flex-direction: column; gap: 10px; font-family: var(--font-body); }
+.proto-dialog { width: min(420px, 100%); }
+.proto-dialog h2, .proto-card h2 { margin: 0; padding-right: 28px; font: 700 20px/1.25 var(--font-display); letter-spacing: -.4px; text-wrap: balance; }
+.proto-dialog p, .proto-card p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--text-2); }
+.proto-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.proto-actions .ldg-btn { height: 36px; }
+.proto-x { position: absolute; top: 14px; right: 14px; width: 28px; height: 28px; display: grid; place-items: center; border: 0; background: none; color: var(--text-2); border-radius: 5px; cursor: pointer; }
+.proto-x:hover { background: var(--surface-2); color: var(--text); }
+.proto-dialog .proto-merged, .proto-card .proto-merged { color: var(--text); background: var(--surface-2); padding: 7px 10px; border-radius: 6px; font-size: 13px; margin-right: 32px; }
+
+/* Stand-in for Google's popup: dashed, so it never reads as app UI */
+.proto-dialog--standin { border-style: dashed; }
+.proto-kicker { font-size: 11px !important; letter-spacing: .08em; text-transform: uppercase; font-weight: 600; }
+.proto-field { display: flex; flex-direction: column; gap: 2px; border: 1px solid var(--control-border); border-radius: 6px; padding: 7px 10px; }
+.proto-field span { font-size: 11px; }
+.proto-field b { color: var(--text); font-weight: 500; overflow-wrap: anywhere; }
+
+/* Pre-signup tick box */
+.proto-check { display: flex; gap: 10px; align-items: flex-start; border: 1px solid var(--control-border); border-radius: 8px; padding: 12px; margin-top: 4px; cursor: pointer; }
+.proto-check input { width: 16px; height: 16px; margin: 2px 0 0; accent-color: var(--link); flex: none; }
+.proto-check > span { display: flex; flex-direction: column; gap: 2px; min-width: 0; font-size: 13px; line-height: 1.45; color: var(--text-2); }
+.proto-check b { font-size: 14px; font-weight: 600; color: var(--text); }
+
+/* Prompt card: hangs under the avatar, not modal */
+.proto-card { position: fixed; top: calc(var(--redesign-top) + 8px); right: max(16px, env(safe-area-inset-right, 0px)); width: min(360px, calc(100vw - 32px)); padding: 18px; z-index: 250; }
+.proto-card h2 { font-size: 17px; }
+.proto-card::before { content: ""; position: absolute; top: -6px; right: 10px; width: 10px; height: 10px; background: var(--surface); border-left: 1px solid var(--control-border); border-top: 1px solid var(--control-border); transform: rotate(45deg); }
+
+@media (max-width: 480px) {
+  .proto-actions { flex-direction: column-reverse; }
+  .proto-actions .ldg-btn { width: 100%; height: 40px; }
+}
+
+/* Saved view */
+.proto-saved { display: flex; flex-direction: column; gap: 28px; padding-bottom: 40px; }
+.proto-saved .app-sec { display: flex; flex-direction: column; gap: 12px; }
+.proto-saved-head { display: flex; flex-direction: column; gap: 6px; }
+.proto-saved-h { display: flex; align-items: baseline; gap: 10px; margin: 6px 0 0; font: 500 32px/1.2 var(--font-display); letter-spacing: -1.2px; color: var(--text); }
+.proto-saved-h span { font: 400 16px var(--font-body); letter-spacing: 0; color: var(--text-2); font-variant-numeric: tabular-nums; }
+.proto-saved-sub { margin: 0; color: var(--text-2); font-size: 14px; }
+.proto-saved-head .proto-merged { margin: 4px 0 0; padding: 8px 12px; background: var(--surface-2); border-radius: 6px; font-size: 13px; color: var(--text); width: fit-content; }
+
+/* Review panel: the option switcher, outside the app's own chrome */
+.proto-review { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); width: min(340px, calc(100vw - 32px)); max-height: calc(100dvh - 90px); overflow: auto; background: var(--surface); border: 1px solid var(--control-border); border-radius: 10px; box-shadow: 0 10px 30px var(--shadow); z-index: 400; font-family: var(--font-body); }
+.proto-review--closed { width: auto; }
+.proto-review-toggle { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 12px; border: 0; background: none; color: var(--text); padding: 11px 14px; font: 600 13px var(--font-body); cursor: pointer; }
+.proto-review-body { padding: 0 14px 12px; display: flex; flex-direction: column; gap: 12px; }
+.proto-review fieldset { border: 0; margin: 0; padding: 0; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.proto-review fieldset:disabled { opacity: .45; }
+.proto-review legend { display: flex; align-items: center; gap: 7px; padding: 0 0 6px; font-size: 12px; font-weight: 600; color: var(--text-2); }
+.proto-q { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 4px; background: var(--surface-2); color: var(--text); font-size: 11px; }
+.proto-seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.proto-seg button { border: 1px solid var(--control-border); background: none; color: var(--text); border-radius: 6px; padding: 5px 9px; font: 500 12px var(--font-body); cursor: pointer; }
+.proto-seg button[aria-pressed="true"] { background: var(--text); border-color: var(--text); color: var(--bg); }
+.proto-review fieldset:disabled button { cursor: not-allowed; }
+.proto-note { margin: 0; font-size: 12px; line-height: 1.45; color: var(--text-2); }
+.proto-trace { border-top: 1px solid var(--control-border); padding-top: 10px; font-size: 12px; line-height: 1.45; color: var(--text-2); }
+.proto-trace b { color: var(--text); font-weight: 600; }
+.proto-trace ol { margin: 4px 0 0; padding-left: 18px; display: flex; flex-direction: column; gap: 2px; font-variant-numeric: tabular-nums; }
+.proto-review-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; border-top: 1px solid var(--control-border); padding-top: 10px; font-size: 12px; color: var(--text-2); }
+.proto-review-foot span { margin-right: auto; }
+.proto-review-foot .ldg-btn { height: 28px; padding: 0 8px; font-size: 12px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* The picked prompt (D2): proof line, one full-width action, built-by line */
+.proto-dialog .proto-proof, .proto-card .proto-proof { font-size: 12px; text-align: center; text-wrap: balance; }
+.proto-actions--one .ldg-btn { width: 100%; height: 40px; font-size: 14px; }
+.proto-dialog .proto-builtby, .proto-card .proto-builtby { display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; margin-top: 6px; padding-top: 12px; border-top: 1px solid var(--control-border); font-size: 12px; }
+.proto-yc rect { fill: var(--hot); }
+.proto-yc path { stroke: #fff; }
+
+/* Thank-you state after Subscribe */
+.proto-thanks { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; padding: 14px 0 4px; }
+.proto-thanks h2 { padding: 0; }
+.proto-thanks b { color: var(--text); font-weight: 500; overflow-wrap: anywhere; }
+.proto-tick circle { fill: var(--proto-success); }
+.proto-tick path { stroke: var(--proto-success-fg); }
+.proto-dialog .proto-closing { text-align: center; font-size: 12px; font-variant-numeric: tabular-nums; }
+.proto-closing b { color: var(--text); font-weight: 600; }
+.proto-thanks .proto-tick { width: 48px; height: 48px; flex: none; }
+
+/* The picked prompt, second pass: one heading with the tick, a lead line, a two-column list */
+.proto-signed { display: flex; align-items: flex-start; gap: 10px; }
+.proto-signed .proto-tick { width: 22px; height: 22px; flex: none; margin-top: 1px; }
+.proto-dialog .proto-lead, .proto-card .proto-lead { color: var(--text); font-weight: 500; margin-top: 6px; }
+.proto-covers { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; font-size: 13px; line-height: 1.4; color: var(--text-2); }
+.proto-covers li { display: flex; gap: 8px; min-width: 0; }
+.proto-covers li::before { content: ""; flex: none; width: 5px; height: 5px; margin-top: 7px; border-radius: 50%; background: var(--link); }
+
+/* Review, 11 Nov: everything above the button is left-aligned. The first list column starts at the
+   left edge and the second ends at the right edge, so the dialog has no empty right half. */
+.proto-covers { grid-template-columns: repeat(2, max-content); justify-content: space-between; gap: 8px 24px; max-width: 100%; }

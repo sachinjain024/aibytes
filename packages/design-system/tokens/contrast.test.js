@@ -42,6 +42,8 @@ const pairs = [
   ['accent-fg',['accent','accent-hover','accent-active'],4.5],
   ['focus-ring',['bg','surface','surface-2'],3],
   ['control-border',['bg','surface'],3],
+  // The confirmation tick: the mark on its fill, and the fill as a graphic on the page.
+  ['success-fg',['success'],4.5], ['success',['bg','surface','surface-2'],3],
 ];
 for (const name of ['light','dark']) test(`${name}: redesigned text, buttons, boundaries and focus indicators meet AA`, () => {
   const tokens = theme(name);

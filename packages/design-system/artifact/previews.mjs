@@ -103,6 +103,15 @@ render(<div className="pv-static">
   <Label>As the app shows it: signed out with a save, not dismissible. With sticky it sits under the AppHeader, over the Sidebar.</Label>
 </div>);` },
 
+  Dialog: { group: "Content", height: 420, width: 1000, jsx: `
+render(<L.Dialog labelledBy="pv-dialog-h" onClose={noop}>
+  <h2 id="pv-dialog-h" className="ldg-dialog__title">You're successfully signed in.</h2>
+  <p>Get the best of AI in your inbox every Monday</p>
+  <div className="ldg-dialog__actions ldg-dialog__actions--one">
+    <L.Button variant="primary" data-autofocus>Subscribe</L.Button>
+  </div>
+</L.Dialog>);` },
+
   CardMenu: { group: "Content", height: 210, jsx: `
 render(<>
   <div className="pv-row" style={{ justifyContent: "flex-start" }}><span style={{ position: "relative" }}><L.CardMenu item={chatcut} up={false} /></span><Label>The ⋮ on every card and row. Click it: "Open in" ChatGPT, Claude or Gemini.</Label></div>

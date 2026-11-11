@@ -131,6 +131,16 @@
 @media (max-width:760px){.ldg-banner__in{justify-content:flex-start;padding:9px 44px 9px 16px}}
 .ldg-banner__in b{color:var(--text);font-weight:500}
 .ldg-banner a{font-weight:600}
+/* — dialog: a modal panel over a scrim; floats, so it may carry a shadow like the popovers — */
+.ldg-dialog__scrim{position:fixed;inset:0;z-index:var(--z-dialog);display:grid;place-items:center;padding:16px max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px));background:color-mix(in srgb,var(--ink) 35%,transparent);overflow:auto}
+.ldg-dialog{position:relative;width:min(420px,100%);display:flex;flex-direction:column;gap:10px;padding:22px;background:var(--surface);color:var(--text);border:var(--border-w) solid var(--control-border);border-radius:12px;box-shadow:0 16px 40px var(--shadow);font-family:var(--font-body);outline:none}
+.ldg-dialog p{margin:0;font-size:var(--text-14);line-height:1.5;color:var(--text-2)}
+.ldg-dialog__title{margin:0;padding-right:28px;font-family:var(--font-display);font-weight:700;font-size:var(--text-20);line-height:1.25;letter-spacing:var(--tracking-heading);color:var(--text);text-wrap:balance}
+.ldg-dialog__close{position:absolute;top:14px;right:14px;width:28px;height:28px}
+.ldg-dialog__actions{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:8px;margin-top:10px}
+.ldg-dialog__actions .ldg-btn{height:36px}
+.ldg-dialog__actions--one .ldg-btn{width:100%;height:40px;font-size:var(--text-14)}
+@media (max-width:480px){.ldg-dialog__actions{flex-direction:column-reverse}.ldg-dialog__actions .ldg-btn{width:100%;height:40px}}
 /* — empty / end cards — */
 .ldg-endcard{border:var(--border-w) solid var(--border);border-radius:var(--radius-card);background:var(--surface);padding:32px 24px;text-align:left;font-family:var(--font-mono);font-size:var(--text-13);letter-spacing:var(--tracking-mono);color:var(--text-2)}
 .ldg-endcard b{color:var(--text);font-weight:500}
