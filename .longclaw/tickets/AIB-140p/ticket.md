@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-11T12:30:08.059Z
+updated_at: 2026-11-11T12:49:01.033Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -51,7 +51,7 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 - [x] 6.3 T8: the prompt in the app <!-- longclaw:item=ck_f2019c5e -->
 - [x] 6.4 T9: subscribed readers and the privacy page <!-- longclaw:item=ck_4646a5e5 -->
 - [x] 6.5 Checkpoint C: whole flow checked by hand with a new account (P4) <!-- longclaw:item=ck_e5f3a473 -->
-- [ ] 7. failure-alert <!-- longclaw:item=ck_73bfaa7a -->
+- [x] 7. failure-alert <!-- longclaw:item=ck_73bfaa7a -->
 - [x] 7.1 T10: the Cloud Function <!-- longclaw:item=ck_af74414b -->
 - [x] 7.2 T11: the app reports a failure <!-- longclaw:item=ck_4a1a70dc -->
 - [x] 7.3 P2 (publisher): Slack webhook secret set <!-- longclaw:item=ck_d690a95f -->
@@ -840,4 +840,19 @@ changes:
 ### claude-code updated this ticket
 
 11 Nov 2026: P2 done. AIBYTES_SLACK_WEBHOOK created in Secret Manager for ai-bytes-b42d2 (version 1), from the daily runner's webhook, so alerts go to the same channel.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_3fd22ab5
+kind: update
+occurred_at: 2026-11-11T12:49:01.033Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_73bfaa7a.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
 <!-- /longclaw:event -->

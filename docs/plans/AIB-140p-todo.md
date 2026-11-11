@@ -304,8 +304,9 @@ unchanged apart from the new function.
 ### Checkpoint D: after T11
 
 - [ ] All suites pass.
-- [ ] The publisher runs P2 and P3; the before and after function lists are
-      pasted into the PR.
+- [x] The publisher runs P2 and P3; the before and after function lists are
+      pasted into the PR. (Done 11 Nov 2026: 13 functions before, 14 after; the
+      only difference is `aibytesReportSubscribeFailure`.)
 
 ## Module 5: `subscriber-export`
 
