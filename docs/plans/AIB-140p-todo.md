@@ -394,11 +394,11 @@ the `--success` token in the colour foundations, and the README's component
 list. Components only; the UI kit screens are not synced.
 
 **Acceptance criteria:**
-- [ ] `artifact/previews.mjs` has a `Dialog` preview and `artifact/build.test.js`
+- [x] `artifact/previews.mjs` has a `Dialog` preview and `artifact/build.test.js`
       covers it.
-- [ ] The artifact is republished from `artifact/build.mjs` and shows
+- [x] The artifact is republished from `artifact/build.mjs` and shows
       `Dialog` and the success token in both themes.
-- [ ] `artifact/README.md` records the sync.
+- [x] `artifact/README.md` records the sync.
 
 **Verification:** `npm test -w @aibytes/design-system`; the published
 artifact opened and checked.

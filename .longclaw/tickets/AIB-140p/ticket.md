@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-11T12:25:48.224Z
+updated_at: 2026-11-11T12:28:34.512Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -60,9 +60,9 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 - [x] 8.1 T12: the export package <!-- longclaw:item=ck_b49ce702 -->
 - [x] 8.2 T13: the export skill <!-- longclaw:item=ck_34cf4929 -->
 - [ ] 8.3 P5 (publisher): gcloud login and a first status run <!-- longclaw:item=ck_154094be -->
-- [ ] 9. Wrap-up <!-- longclaw:item=ck_38720bda -->
+- [x] 9. Wrap-up <!-- longclaw:item=ck_38720bda -->
 - [x] 9.1 T14: repo docs, the ticket and the final checks <!-- longclaw:item=ck_81941b17 -->
-- [ ] 9.2 T15: Dialog synced to the Design System Artifact <!-- longclaw:item=ck_3ce9eecc -->
+- [x] 9.2 T15: Dialog synced to the Design System Artifact <!-- longclaw:item=ck_3ce9eecc -->
 - [ ] 10. PR #64 squash-merged <!-- longclaw:item=ck_c9cc0057 -->
 
 ## Ticket References
@@ -791,4 +791,36 @@ changes:
 ### claude-code updated this ticket
 
 11 Nov 2026: Checkpoint C done by the publisher in Chrome: new account, dialog, Subscribe, thank-you and the rest of the flow worked. In Arc the Google popup opens as a tab; that is the browser's behaviour, not the app's.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f470d73d
+kind: update
+occurred_at: 2026-11-11T12:28:28.951Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_3ce9eecc.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_d17da896
+kind: update
+occurred_at: 2026-11-11T12:28:34.512Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_38720bda.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+11 Nov 2026: T15 done. Dialog, its preview and the --success token are synced to the Design System Artifact (version 8); previews checked in light and dark.
 <!-- /longclaw:event -->
