@@ -21,6 +21,12 @@ export function shouldOpenPrompt(result, email) {
   return result?.status === "ok" && result.isNew === true && !!email;
 }
 
+/** What one failed subscribe reports. Success reports nothing, and never an email. */
+export function failureReport(result, page) {
+  if (!result || result === "ok" || result.failed == null) return null;
+  return { code: String(result.failed), page };
+}
+
 /** offer → saving → thanks | failed, then the countdown 3, 2, 1, closed. */
 export function promptReducer(state, action) {
   switch (action.type) {

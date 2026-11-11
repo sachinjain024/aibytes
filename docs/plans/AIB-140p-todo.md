@@ -285,10 +285,10 @@ webhook grep); `firebase emulators:exec` is not required.
 attempt, ignoring its result. `/privacy` gains the sentence about Slack.
 
 **Acceptance criteria:**
-- [ ] A failed attempt calls the reporter once with the error code and the
+- [x] A failed attempt calls the reporter once with the error code and the
       page path, and never with an email (tested with a fake reporter).
-- [ ] The reporter failing or hanging changes nothing the reader sees.
-- [ ] The Functions client is in its own chunk, absent from the first-paint
+- [x] The reporter failing or hanging changes nothing the reader sees.
+- [x] The Functions client is in its own chunk, absent from the first-paint
       and sign-in chunks (`npm run build:web` output).
 
 **Verification:** `npm test -w @aibytes/web`; `npm run build:web`; after P2

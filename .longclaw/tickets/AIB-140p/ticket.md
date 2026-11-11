@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-11T11:56:31.895Z
+updated_at: 2026-11-11T12:01:01.931Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -53,7 +53,7 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 - [ ] 6.5 Checkpoint C: whole flow checked by hand with a new account (P4) <!-- longclaw:item=ck_e5f3a473 -->
 - [ ] 7. failure-alert <!-- longclaw:item=ck_73bfaa7a -->
 - [x] 7.1 T10: the Cloud Function <!-- longclaw:item=ck_af74414b -->
-- [ ] 7.2 T11: the app reports a failure <!-- longclaw:item=ck_4a1a70dc -->
+- [x] 7.2 T11: the app reports a failure <!-- longclaw:item=ck_4a1a70dc -->
 - [ ] 7.3 P2 (publisher): Slack webhook secret set <!-- longclaw:item=ck_d690a95f -->
 - [ ] 7.4 P3 (publisher): function deployed, other functions unchanged <!-- longclaw:item=ck_9d071603 -->
 - [ ] 8. subscriber-export <!-- longclaw:item=ck_631102b3 -->
@@ -680,6 +680,21 @@ actor:
   id: grok
 changes:
   - field: checklist.ck_af74414b.checked
+    from: "false"
+    to: "true"
+-->
+### grok updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_81b34f7d
+kind: update
+occurred_at: 2026-11-11T12:01:01.931Z
+actor:
+  type: agent
+  id: grok
+changes:
+  - field: checklist.ck_4a1a70dc.checked
     from: "false"
     to: "true"
 -->

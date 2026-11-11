@@ -26,7 +26,7 @@ import { headerAccount } from "./header.js";
 import { mergedLine } from "./merge.js";
 import { clearSaves, localSaves, readSaves } from "./saves.js";
 import { NewsletterPrompt } from "./NewsletterPrompt.jsx";
-import { initialPrompt, promptReducer, shouldOpenPrompt } from "./newsletterPrompt.js";
+import { failureReport, initialPrompt, promptReducer, shouldOpenPrompt } from "./newsletterPrompt.js";
 import { NEWSLETTER_PRIVACY, showSubscribeOptions } from "./subscribeOptions.js";
 import { editionPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, savedPath, weeklyPath } from "./route.js";
 
@@ -157,6 +157,10 @@ function useAccount() {
     fb.subscribe(fb.db, user).then((result) => {
       if (result === "ok") setSubscribed(true);
       setPrompt((state) => promptReducer(state, { type: result === "ok" ? "saved" : "failed" }));
+      // The failure line is already showing. The report is fire-and-forget,
+      // and the Functions client loads only now.
+      const report = failureReport(result, window.location.pathname);
+      if (report) import("./reportFailure.js").then(({ reportFailure }) => reportFailure(report.code, report.page)).catch(() => {});
     });
   }, [fb, user]);
   const account = React.useMemo(() => ({
