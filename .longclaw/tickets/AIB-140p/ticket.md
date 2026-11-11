@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-11T07:58:32.813Z
+updated_at: 2026-11-11T08:08:48.483Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -39,7 +39,7 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 - [ ] Subscribe saves the reader's email to the database (storage, security rule, failure state) <!-- longclaw:item=ck_667f8257 -->
 - [ ] A way to get saved subscriber emails into Substack <!-- longclaw:item=ck_bf023510 -->
 - [ ] Privacy page updated: the app stores the subscription and passes the email to Substack <!-- longclaw:item=ck_051862d9 -->
-- [ ] Spec approved (docs/specs/AIB-140p-newsletter-prompt.md) <!-- longclaw:item=ck_c92ab0af -->
+- [x] Spec approved (docs/specs/AIB-140p-newsletter-prompt.md) <!-- longclaw:item=ck_c92ab0af -->
 
 ## Ticket References
 
@@ -199,4 +199,21 @@ changes:
     to: a0
 -->
 ### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_394d88f3
+kind: update
+occurred_at: 2026-11-11T08:08:48.483Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_c92ab0af.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+11 Nov 2026: spec approved (draft 2). Next: the implementation plan in docs/plans/.
 <!-- /longclaw:event -->
