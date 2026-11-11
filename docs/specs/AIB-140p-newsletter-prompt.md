@@ -1,6 +1,6 @@
 # Spec: AIB-140p, the newsletter prompt after a first Google sign-in
 
-Status: **draft 2, 11 Nov 2026, awaiting approval.** Draft 1's two open
+Status: **approved 11 Nov 2026** (draft 2). Draft 1's two open
 questions and four assumptions were answered the same day and are folded in
 (see "Decisions"). Design is final:
 `docs/decisions/product/AIB-140p-newsletter-prompt-design.md` (A2 post-signup,
