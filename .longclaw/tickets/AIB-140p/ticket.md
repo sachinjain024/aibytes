@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-11T12:49:01.033Z
+updated_at: 2026-11-11T12:49:11.038Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -55,7 +55,7 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 - [x] 7.1 T10: the Cloud Function <!-- longclaw:item=ck_af74414b -->
 - [x] 7.2 T11: the app reports a failure <!-- longclaw:item=ck_4a1a70dc -->
 - [x] 7.3 P2 (publisher): Slack webhook secret set <!-- longclaw:item=ck_d690a95f -->
-- [ ] 7.4 P3 (publisher): function deployed, other functions unchanged <!-- longclaw:item=ck_9d071603 -->
+- [x] 7.4 P3 (publisher): function deployed, other functions unchanged <!-- longclaw:item=ck_9d071603 -->
 - [ ] 8. subscriber-export <!-- longclaw:item=ck_631102b3 -->
 - [x] 8.1 T12: the export package <!-- longclaw:item=ck_b49ce702 -->
 - [x] 8.2 T13: the export skill <!-- longclaw:item=ck_34cf4929 -->
@@ -855,4 +855,21 @@ changes:
     to: "true"
 -->
 ### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_29a8779b
+kind: update
+occurred_at: 2026-11-11T12:49:11.038Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_9d071603.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+11 Nov 2026: P3 done. Scoped deploy of the aibytes-web codebase, no force, non-interactive. Functions before: 13, after: 14. The only difference is aibytesReportSubscribeFailure added; the other 13 are unchanged.
 <!-- /longclaw:event -->
