@@ -174,12 +174,12 @@ content for each state on Ledger's `Dialog`, with the final copy, the YC mark
 and the heart. Not yet mounted by the app.
 
 **Acceptance criteria:**
-- [ ] `newsletterPrompt.test.js`: Subscribe → saving; saved → thanks; error
+- [x] `newsletterPrompt.test.js`: Subscribe → saving; saved → thanks; error
       and timeout → failed; retry from failed; ticks 3, 2, 1 then closed;
       close from offer, failed and thanks.
-- [ ] The copy matches the decision record word for word (a test compares
+- [x] The copy matches the decision record word for word (a test compares
       the six list items, the lead line, the proof line and the built-by line).
-- [ ] In `saving`, Subscribe is disabled and reads "Subscribing…"; in
+- [x] In `saving`, Subscribe is disabled and reads "Subscribing…"; in
       `failed`, the failure line has `role="alert"`.
 
 **Verification:** `npm test -w @aibytes/web`; `npm run build:web`.

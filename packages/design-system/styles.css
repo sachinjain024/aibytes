@@ -2642,3 +2642,26 @@ html:not([data-input-modality="keyboard"]) .app-shell :focus,.app-shell :focus:n
     align-items: stretch;
   }
 }
+
+/* The newsletter prompt inside Ledger's Dialog (AIB-140p). */
+.prompt-signed { display: flex; align-items: flex-start; gap: 10px; }
+.prompt-tick { width: 22px; height: 22px; flex: none; margin-top: 1px; }
+.prompt-tick circle { fill: var(--success); }
+.prompt-tick path { stroke: var(--success-fg); }
+.ldg-dialog .prompt-lead { color: var(--text); font-weight: 500; margin-top: 6px; }
+.prompt-covers { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, max-content); justify-content: space-between; gap: 8px 24px; max-width: 100%; font-size: 13px; line-height: 1.4; color: var(--text-2); }
+.prompt-covers li { display: flex; gap: 8px; min-width: 0; }
+.prompt-covers li::before { content: ""; flex: none; width: 5px; height: 5px; margin-top: 7px; border-radius: 50%; background: var(--link); }
+.ldg-dialog .prompt-proof { font-size: 12px; text-align: center; text-wrap: balance; }
+.prompt-builtby { display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; margin: 6px 0 0; padding-top: 12px; border-top: 1px solid var(--control-border); font-size: 12px; color: var(--text-2); }
+.prompt-builtby span { color: var(--text); }
+.prompt-builtby svg { width: 13px; height: 13px; }
+.prompt-yc { width: 16px; height: 16px; }
+.prompt-yc rect { fill: var(--hot); }
+.prompt-yc path { stroke: #fff; }
+.prompt-thanks { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; padding: 14px 0 4px; }
+.prompt-thanks .ldg-dialog__title { padding: 0; }
+.prompt-thanks .prompt-tick { width: 48px; height: 48px; margin-top: 0; }
+.prompt-thanks b { color: var(--text); font-weight: 500; overflow-wrap: anywhere; }
+.prompt-closing { text-align: center; font-size: 12px; font-variant-numeric: tabular-nums; }
+.prompt-closing b { font-weight: 600; }

@@ -1,18 +1,2 @@
 /* aiBytes_ app UI kit. The screens use the app's own page classes, so all of
-   their layout comes from ../../styles.css; nothing here overrides it.
-   The newsletter prompt (screen 15) is sample content inside Ledger's Dialog,
-   so its copy layout lives here until the app's NewsletterPrompt (AIB-140p). */
-
-.prompt-signed { display: flex; align-items: flex-start; gap: 10px; }
-.prompt-signed .prompt-tick { width: 22px; height: 22px; flex: none; margin-top: 1px; }
-.prompt-tick circle { fill: var(--success); }
-.prompt-tick path { stroke: var(--success-fg); }
-.ldg-dialog .prompt-lead { color: var(--text); font-weight: 500; margin-top: 6px; }
-.prompt-covers { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, max-content); justify-content: space-between; gap: 8px 24px; max-width: 100%; font-size: 13px; line-height: 1.4; color: var(--text-2); }
-.prompt-covers li { display: flex; gap: 8px; min-width: 0; }
-.prompt-covers li::before { content: ""; flex: none; width: 5px; height: 5px; margin-top: 7px; border-radius: 50%; background: var(--link); }
-.ldg-dialog .prompt-proof { font-size: 12px; text-align: center; text-wrap: balance; }
-.prompt-builtby { display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; margin: 6px 0 0; padding-top: 12px; border-top: 1px solid var(--control-border); font-size: 12px; color: var(--text-2); }
-.prompt-builtby span { color: var(--text); }
-.prompt-yc rect { fill: var(--hot); }
-.prompt-yc path { stroke: #fff; }
+   their layout comes from ../../styles.css; nothing here overrides it. */
