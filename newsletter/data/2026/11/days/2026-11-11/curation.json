@@ -1,0 +1,695 @@
+{
+  "date": "2026-11-11",
+  "generated_at": "2026-11-11T16:04:43Z",
+  "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
+  "tags": [
+    {
+      "name": "What it is",
+      "tags": [
+        {
+          "name": "Model Release",
+          "slug": "model-release"
+        },
+        {
+          "name": "Open Source",
+          "slug": "open-source"
+        },
+        {
+          "name": "Paper",
+          "slug": "paper"
+        },
+        {
+          "name": "Benchmark",
+          "slug": "benchmark"
+        },
+        {
+          "name": "Dataset",
+          "slug": "dataset"
+        },
+        {
+          "name": "Framework",
+          "slug": "framework"
+        },
+        {
+          "name": "Dev Tool",
+          "slug": "dev-tool"
+        },
+        {
+          "name": "API",
+          "slug": "api"
+        }
+      ]
+    },
+    {
+      "name": "Domain",
+      "tags": [
+        {
+          "name": "LLM",
+          "slug": "llm"
+        },
+        {
+          "name": "Agents",
+          "slug": "agents"
+        },
+        {
+          "name": "RAG",
+          "slug": "rag"
+        },
+        {
+          "name": "Fine-tuning",
+          "slug": "fine-tuning"
+        },
+        {
+          "name": "Inference",
+          "slug": "inference"
+        },
+        {
+          "name": "Local LLM",
+          "slug": "local-llm"
+        },
+        {
+          "name": "Vision",
+          "slug": "vision"
+        },
+        {
+          "name": "Voice / Speech",
+          "slug": "voice-speech"
+        },
+        {
+          "name": "Video",
+          "slug": "video"
+        },
+        {
+          "name": "Image Gen",
+          "slug": "image-gen"
+        },
+        {
+          "name": "Code Gen",
+          "slug": "code-gen"
+        },
+        {
+          "name": "Embeddings",
+          "slug": "embeddings"
+        },
+        {
+          "name": "Eval",
+          "slug": "eval"
+        },
+        {
+          "name": "Reasoning",
+          "slug": "reasoning"
+        },
+        {
+          "name": "Multimodal",
+          "slug": "multimodal"
+        },
+        {
+          "name": "Robotics",
+          "slug": "robotics"
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem",
+      "tags": [
+        {
+          "name": "OpenAI",
+          "slug": "openai"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic"
+        },
+        {
+          "name": "Google",
+          "slug": "google"
+        },
+        {
+          "name": "Meta",
+          "slug": "meta"
+        },
+        {
+          "name": "Nvidia",
+          "slug": "nvidia"
+        },
+        {
+          "name": "Hugging Face",
+          "slug": "hugging-face"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft"
+        },
+        {
+          "name": "Claude Code",
+          "slug": "claude-code"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor"
+        },
+        {
+          "name": "MCP",
+          "slug": "mcp"
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "tags": [
+        {
+          "name": "Funding",
+          "slug": "funding"
+        },
+        {
+          "name": "Acquisition",
+          "slug": "acquisition"
+        },
+        {
+          "name": "Launch",
+          "slug": "launch"
+        },
+        {
+          "name": "Pricing",
+          "slug": "pricing"
+        },
+        {
+          "name": "Policy",
+          "slug": "policy"
+        },
+        {
+          "name": "Legal",
+          "slug": "legal"
+        },
+        {
+          "name": "Security",
+          "slug": "security"
+        },
+        {
+          "name": "Privacy",
+          "slug": "privacy"
+        },
+        {
+          "name": "Safety",
+          "slug": "safety"
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "tags": [
+        {
+          "name": "Show HN",
+          "slug": "show-hn"
+        },
+        {
+          "name": "Tutorial",
+          "slug": "tutorial"
+        },
+        {
+          "name": "Deep Dive",
+          "slug": "deep-dive"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ph-alsona-2026-11-11",
+      "title": "Alsona",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/alsona",
+      "source_url": "https://www.producthunt.com/products/alsona",
+      "source_text": "Alsona AI agents that turn buying signals into booked sales calls 95% of prospects aren't ready to buy when you reach out. Alsona finds the ones showing buying intent right now. It tracks 32+ signals across hiring, funding, tech changes, reviews, ad spend, and more, then scores companies against your ICP and explains why they're worth contacting. AI agents turn those signals into personalized LinkedIn and email outreach, helping you start conversations while the buying window is open. Alsona helps you book calls directly with the 5% who is ready to buy today. Sales SaaS Artificial Intelligence",
+      "signals": {
+        "upvotes": 477,
+        "comments": 106
+      },
+      "published_at": "2026-11-10T08:01:00Z"
+    },
+    {
+      "id": "ph-maxma-2-2026-11-11",
+      "title": "Maxma",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/maxma-2",
+      "source_url": "https://www.producthunt.com/products/maxma-2",
+      "source_text": "Maxma The 24/7 AI teammate that scales your paid ad performance Maxma is the AI platform that 10Xs your human marketers. It does the end-to-end work of paid advertising, from analyzing performance, creating ads and landing pages, and launching and optimizing campaigns across channels, to managing tracking and reporting. Working like a teammate in Slack, on demand or proactively 24/7, it proposes changes for approval and drives measurable, incremental growth across Google, Meta, TikTok, LinkedIn, ChatGPT Ads, and more. So lean teams can grow without limits. Marketing Advertising Artificial Intelligence",
+      "signals": {
+        "upvotes": 322,
+        "comments": 38
+      },
+      "published_at": "2026-11-10T08:01:00Z"
+    },
+    {
+      "id": "ph-tk-by-medium-2026-11-11",
+      "title": "TK by Medium",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/medium",
+      "source_url": "https://www.producthunt.com/products/medium",
+      "source_text": "TK by Medium An agentic notebook to build your best thinking What if every thought had the chance to become something extraordinary? Meet TK, the agentic notebook by Medium. Capture every spark, from shower thoughts to forgotten notes. With AI right where you write, connect the dots, surface new possibilities, and compound what you know without breaking your flow. Then turn your thinking into writing that’s unmistakably yours. With built-in community and an MCP server that connects to your favorite LLMs and AI tools. Productivity Notes Artificial Intelligence",
+      "signals": {
+        "upvotes": 244,
+        "comments": 42
+      },
+      "published_at": "2026-11-10T08:01:00Z"
+    },
+    {
+      "id": "ph-latch-ai-2-2026-11-11",
+      "title": "Latch.ai",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/latch-ai-2",
+      "source_url": "https://www.producthunt.com/products/latch-ai-2",
+      "source_text": "Latch.ai Automate complex accounting work without a single prompt Latch is built for accountants buried in click-heavy close work. Instead of writing prompts, you do a task on screen and talk it through, including the parts no SOP captures: the three-day matching window, the rate you always override. Latch asks about the exceptions, then builds a sidekick that runs the task the same way every time, right in the tools you already use. When something doesn't fit, it stops and asks you. Every step is logged for review. Productivity Artificial Intelligence Accounting",
+      "signals": {
+        "upvotes": 241,
+        "comments": 47
+      },
+      "published_at": "2026-11-10T08:01:00Z"
+    },
+    {
+      "id": "ph-seldon-2026-11-11",
+      "title": "Seldon",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/seldon",
+      "source_url": "https://www.producthunt.com/products/seldon",
+      "source_text": "Seldon Behavioral QA agents that use your product like customers do Find the tests you didn’t know to write. Tell Wren what should work in plain English. Its QA agents try the paths your customers take, like going back to change an address halfway through checkout or retrying a failed payment. When something breaks, you get a replay and the steps to reproduce the bug. First 10 runs free. API Developer Tools Artificial Intelligence",
+      "signals": {
+        "upvotes": 239,
+        "comments": 95
+      },
+      "published_at": "2026-11-10T08:01:00Z"
+    },
+    {
+      "id": "gh-agent-skills-2026-11-11",
+      "title": "addyosmani/agent-skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills",
+      "source_text": "addyosmani/agent-skills Production-grade engineering skills for AI coding agents. JavaScript",
+      "signals": {
+        "stars": 115682,
+        "stars_gained": 788,
+        "forks": 12137
+      },
+      "meta": {
+        "language": "JavaScript"
+      }
+    },
+    {
+      "id": "gh-agent-browser-2026-11-11",
+      "title": "vercel-labs/agent-browser",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "source_url": "https://github.com/vercel-labs/agent-browser",
+      "source_text": "vercel-labs/agent-browser Browser automation CLI for AI agents Rust",
+      "signals": {
+        "stars": 49691,
+        "stars_gained": 712,
+        "forks": 3477
+      },
+      "meta": {
+        "language": "Rust"
+      }
+    },
+    {
+      "id": "gh-ha-mcp-2026-11-11",
+      "title": "homeassistant-ai/ha-mcp",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/homeassistant-ai/ha-mcp",
+      "source_url": "https://github.com/homeassistant-ai/ha-mcp",
+      "source_text": "homeassistant-ai/ha-mcp Configure and automate Home Assistant with Claude, ChatGPT, and other AI assistants. Python",
+      "signals": {
+        "stars": 7083,
+        "stars_gained": 640,
+        "forks": 446
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-daily-stock-analysis-2026-11-11",
+      "title": "ZhuLinsen/daily_stock_analysis",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "source_url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "source_text": "ZhuLinsen/daily_stock_analysis LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。 LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs. Python",
+      "signals": {
+        "stars": 69958,
+        "stars_gained": 429,
+        "forks": 56792
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-codex-security-2026-11-11",
+      "title": "openai/codex-security",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/openai/codex-security",
+      "source_url": "https://github.com/openai/codex-security",
+      "source_text": "openai/codex-security OpenAI's Codex Security CLI and TypeScript SDK for finding, validating, and fixing security vulnerabilities. npm: https://www.npmjs.com/package/@openai/codex-security TypeScript",
+      "signals": {
+        "stars": 11507,
+        "stars_gained": 20,
+        "forks": 917
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "tc-anthropic-launches-claude-meetings-to-turn-2026-11-11",
+      "title": "Anthropic launches Claude Meetings to turn workplace discussions into plans and tasks",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/",
+      "source_url": "https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/",
+      "source_text": "Anthropic launches Claude Meetings to turn workplace discussions into plans and tasks As participants talk, Claude can draft the plan being discussed, map out a timeline on a whiteboard, answer questions in the meeting chat, and access connected work apps to retrieve information, such as last year's figures.",
+      "meta": {
+        "author": "Aisha Malik",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-10T17:30:00Z"
+    },
+    {
+      "id": "tc-openai-acquires-odessia-travel-startup-created-2026-11-11",
+      "title": "OpenAI acquires Odessia, travel startup created by Sonder founder",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/10/openai-acquires-odessia-travel-startup-created-by-sonder-founder/",
+      "source_url": "https://techcrunch.com/2026/11/10/openai-acquires-odessia-travel-startup-created-by-sonder-founder/",
+      "source_text": "OpenAI acquires Odessia, travel startup created by Sonder founder OpenAI has not yet said what its plans are for the future of travel. But Sonder founder Francis Davidson is a well-known figure in the travel industry.",
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-10T21:08:52Z"
+    },
+    {
+      "id": "tc-adobe-brings-ai-agents-and-new-creative-tools-2026-11-11",
+      "title": "Adobe brings AI agents and new creative tools to Photoshop, Premiere, and Firefly",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/10/adobe-adds-more-ai-to-its-products-and-launches-an-mcp/",
+      "source_url": "https://techcrunch.com/2026/11/10/adobe-adds-more-ai-to-its-products-and-launches-an-mcp/",
+      "source_text": "Adobe brings AI agents and new creative tools to Photoshop, Premiere, and Firefly Adobe is taking on Figma with a new prototype builder tool in Firefly.",
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-10T14:05:10Z"
+    },
+    {
+      "id": "tc-databricks-new-ai-agent-tells-ceo-ali-ghodsi-2026-11-11",
+      "title": "Databricks’ new AI agent tells CEO Ali Ghodsi the unvarnished truth",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/11/databricks-new-ai-agent-tells-ceo-ali-ghodsi-the-unvarnished-truth/",
+      "source_url": "https://techcrunch.com/2026/11/11/databricks-new-ai-agent-tells-ceo-ali-ghodsi-the-unvarnished-truth/",
+      "source_text": "Databricks’ new AI agent tells CEO Ali Ghodsi the unvarnished truth At 12,000 employees, AI Ghodsi is the first to admit that he can't know everyone and that they are unlikely to confess the things that go wrong to him. But he doesn't need them to. He uses Databricks' newly revised Genie agent for that.",
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-11T15:00:00Z"
+    },
+    {
+      "id": "tc-plurai-wants-to-help-ai-agents-work-better-2026-11-11",
+      "title": "Plurai wants to help AI agents work better using the same approach that helped get self-driving cars to roads",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/11/plurai-wants-to-help-ai-agents-work-better-using-the-same-approach-that-helped-get-self-driving-cars-to-roads/",
+      "source_url": "https://techcrunch.com/2026/11/11/plurai-wants-to-help-ai-agents-work-better-using-the-same-approach-that-helped-get-self-driving-cars-to-roads/",
+      "source_text": "Plurai wants to help AI agents work better using the same approach that helped get self-driving cars to roads Like the end-to-end models trained to drive cars, AI agents are probabilistic systems operating in unpredictable environments.",
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-11T14:00:00Z"
+    },
+    {
+      "id": "tc-nvidias-crisis-has-corporate-governance-experts-2026-11-11",
+      "title": "Nvidia’s crisis has corporate governance experts reaching for the popcorn",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/10/nvidias-crisis-has-corporate-governance-experts-reaching-for-the-popcorn/",
+      "source_url": "https://techcrunch.com/2026/11/10/nvidias-crisis-has-corporate-governance-experts-reaching-for-the-popcorn/",
+      "source_text": "Nvidia’s crisis has corporate governance experts reaching for the popcorn The governance experts we talked to say nobody has seen anything like what's unfolding right now.",
+      "meta": {
+        "author": "Connie Loizos",
+        "reading_time": "6 minutes"
+      },
+      "published_at": "2026-11-11T07:30:51Z"
+    },
+    {
+      "id": "tc-openai-anthropic-face-new-oversight-as-new-2026-11-11",
+      "title": "OpenAI, Anthropic face new oversight as New York’s AI safety law takes effect",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/",
+      "source_url": "https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/",
+      "source_text": "OpenAI, Anthropic face new oversight as New York’s AI safety law takes effect New York is preparing to enforce its sweeping AI safety law, requiring major developers like OpenAI and Anthropic to register, disclose safety practices, and report critical incidents or face fines.",
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-10T20:52:13Z"
+    },
+    {
+      "id": "tc-all-7-anthropic-founders-will-each-cash-out-2026-11-11",
+      "title": "All 7 Anthropic founders will each cash out about $250M in IPO",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/10/all-7-anthropic-founders-will-each-cash-out-about-250m-in-ipo/",
+      "source_url": "https://techcrunch.com/2026/11/10/all-7-anthropic-founders-will-each-cash-out-about-250m-in-ipo/",
+      "source_text": "All 7 Anthropic founders will each cash out about $250M in IPO Each of the seven co-founders plans to sell exactly the same number of shares in the IPO, which would bring each of them about $250 million in cash at the midpoint of the price range while leaving the group in control of the company.",
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-10T19:57:52Z"
+    },
+    {
+      "id": "tc-oura-to-acquire-ai-native-primary-care-startup-2026-11-11",
+      "title": "Oura to acquire AI-native primary care startup Counsel Health for $625M",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/10/oura-to-acquire-ai-native-primary-care-startup-counsel-health-for-625m/",
+      "source_url": "https://techcrunch.com/2026/11/10/oura-to-acquire-ai-native-primary-care-startup-counsel-health-for-625m/",
+      "source_text": "Oura to acquire AI-native primary care startup Counsel Health for $625M The deal comes a few weeks after Oura postponed its up to $2.2 billion IPO indefinitely, citing “uncertainty in the IPO market.”",
+      "meta": {
+        "author": "Aisha Malik",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-10T19:23:34Z"
+    },
+    {
+      "id": "tc-psi-is-trying-to-make-a-business-out-of-ai-2026-11-11",
+      "title": "PSI is trying to make a business out of AI-driven scientific discovery",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/10/psi-is-trying-to-make-a-business-out-of-ai-driven-scientific-discovery/",
+      "source_url": "https://techcrunch.com/2026/11/10/psi-is-trying-to-make-a-business-out-of-ai-driven-scientific-discovery/",
+      "source_text": "PSI is trying to make a business out of AI-driven scientific discovery PSI used an unreleased Anthropic model to answer a fundamental question about quantum computing that scientists have pursued for nearly two decades.",
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-10T19:03:52Z"
+    },
+    {
+      "id": "hn-alphaproof-code-2026-11-11",
+      "title": "AlphaProof Code",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+      "source_url": "https://news.ycombinator.com/item?id=50439193",
+      "source_text": "AlphaProof Code",
+      "signals": {
+        "points": 662,
+        "comments": 187
+      },
+      "meta": {
+        "author": "ilreb"
+      },
+      "published_at": "2026-11-10T12:11:12Z"
+    },
+    {
+      "id": "hn-ai-usage-generates-a-fragile-codebase-2026-11-11",
+      "title": "AI usage generates a fragile codebase",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://evanxmerz.com/post/ai-usage-generates-a-fragile-codebase/",
+      "source_url": "https://news.ycombinator.com/item?id=50438318",
+      "source_text": "AI usage generates a fragile codebase",
+      "signals": {
+        "points": 614,
+        "comments": 578
+      },
+      "meta": {
+        "author": "plun9"
+      },
+      "published_at": "2026-11-10T10:25:58Z"
+    },
+    {
+      "id": "hn-google-swe-points-48-ai-agents-at-nasa-lidar-2026-11-11",
+      "title": "Google SWE points 48 AI agents at NASA Lidar, finds unmapped Maya pyramid in 72h",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://pietromiotti.com/latest/maya-site/?maya",
+      "source_url": "https://news.ycombinator.com/item?id=50452455",
+      "source_text": "Google SWE points 48 AI agents at NASA Lidar, finds unmapped Maya pyramid in 72h",
+      "signals": {
+        "points": 570,
+        "comments": 220
+      },
+      "meta": {
+        "author": "eyvindn"
+      },
+      "published_at": "2026-11-11T12:05:22Z"
+    },
+    {
+      "id": "hn-tracking-anthropic-discovered-vulnerabilities-2026-11-11",
+      "title": "Tracking Anthropic-discovered vulnerabilities",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.vulncheck.com/blog/anthropic-glasswing-november-update",
+      "source_url": "https://news.ycombinator.com/item?id=50447074",
+      "source_text": "Tracking Anthropic-discovered vulnerabilities",
+      "signals": {
+        "points": 437,
+        "comments": 209
+      },
+      "meta": {
+        "author": "panic"
+      },
+      "published_at": "2026-11-10T22:17:56Z"
+    },
+    {
+      "id": "hn-apple-has-new-mac-app-coming-to-make-running-2026-11-11",
+      "title": "Apple has new Mac app coming to make running local AI models easy",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/",
+      "source_url": "https://news.ycombinator.com/item?id=50446520",
+      "source_text": "Apple has new Mac app coming to make running local AI models easy",
+      "signals": {
+        "points": 424,
+        "comments": 437
+      },
+      "meta": {
+        "author": "linolevan"
+      },
+      "published_at": "2026-11-10T21:25:03Z"
+    },
+    {
+      "id": "hn-gemini-4-carbon-is-now-available-2026-11-11",
+      "title": "Gemini 4 Carbon is now available",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+      "source_url": "https://news.ycombinator.com/item?id=50442303",
+      "source_text": "Gemini 4 Carbon is now available",
+      "signals": {
+        "points": 288,
+        "comments": 159
+      },
+      "meta": {
+        "author": "meetpateltech"
+      },
+      "published_at": "2026-11-10T16:07:15Z"
+    },
+    {
+      "id": "hn-claude-whiteboards-claude-sheets-and-claude-data-2026-11-11",
+      "title": "Claude Whiteboards, Claude Sheets, and Claude Data",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://claude.com/resources/articles/sheets-whiteboards-data",
+      "source_url": "https://news.ycombinator.com/item?id=50443716",
+      "source_text": "Claude Whiteboards, Claude Sheets, and Claude Data",
+      "signals": {
+        "points": 267,
+        "comments": 202
+      },
+      "meta": {
+        "author": "Yorothegoat"
+      },
+      "published_at": "2026-11-10T17:55:07Z"
+    },
+    {
+      "id": "hn-coreweave-bond-yield-tops-16-as-ai-credit-2026-11-11",
+      "title": "CoreWeave bond yield tops 16% as AI credit stress rises",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.cnbc.com/2026/11/06/coreweave-bond-yield-tops-16percent-as-ai-credit-stress-rises.html",
+      "source_url": "https://news.ycombinator.com/item?id=50435660",
+      "source_text": "CoreWeave bond yield tops 16% as AI credit stress rises",
+      "signals": {
+        "points": 194,
+        "comments": 193
+      },
+      "meta": {
+        "author": "lxm"
+      },
+      "published_at": "2026-11-10T03:20:06Z"
+    },
+    {
+      "id": "hn-fireworks-ai-security-breach-impacts-notion-and-2026-11-11",
+      "title": "Fireworks AI security breach impacts Notion and their customers",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.notion.com/help/security-incident-involving-a-third-party-ai-vendor",
+      "source_url": "https://news.ycombinator.com/item?id=50437106",
+      "source_text": "Fireworks AI security breach impacts Notion and their customers",
+      "signals": {
+        "points": 164,
+        "comments": 63
+      },
+      "meta": {
+        "author": "werrett"
+      },
+      "published_at": "2026-11-10T07:19:38Z"
+    },
+    {
+      "id": "hn-life-on-claude-nine-2026-11-11",
+      "title": "Life on Claude Nine",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://babuschk.in/posts/2026-01-25-life-on-claude-nine.html",
+      "source_url": "https://news.ycombinator.com/item?id=50443587",
+      "source_text": "Life on Claude Nine",
+      "signals": {
+        "points": 122,
+        "comments": 80
+      },
+      "meta": {
+        "author": "reasonableklout"
+      },
+      "published_at": "2026-11-10T17:44:44Z"
+    }
+  ]
+}

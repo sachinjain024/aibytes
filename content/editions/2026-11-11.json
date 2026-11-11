@@ -1,0 +1,775 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-11",
+  "generated_at": "2026-11-11T16:05:26Z",
+  "counts": {
+    "launches": 5,
+    "repos": 5,
+    "news": 10,
+    "hn": 10
+  },
+  "items": [
+    {
+      "id": "ph-alsona-2026-11-11",
+      "title": "Alsona",
+      "summary": "Scores companies against your ICP on 32+ buying signals like hiring, funding and ad spend, then has agents draft personalized LinkedIn and email outreach.",
+      "url": "https://www.producthunt.com/products/alsona",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/alsona",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/c50aa249-8163-486f-84a1-9aaa96b4ec95.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 477,
+        "comments": 106
+      },
+      "published_at": "2026-11-10T08:01:00Z",
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "ph-maxma-2-2026-11-11",
+      "title": "Maxma",
+      "summary": "Slack-based agent that analyzes paid ad performance, builds ads and landing pages, and proposes campaign changes for approval across Google, Meta, TikTok, LinkedIn and ChatGPT Ads.",
+      "url": "https://www.producthunt.com/products/maxma-2",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/maxma-2",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/c7cc6bff-c0ff-4ade-8cec-58570496b7df.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 322,
+        "comments": 38
+      },
+      "published_at": "2026-11-10T08:01:00Z",
+      "hidden": false,
+      "rank": 10
+    },
+    {
+      "id": "ph-tk-by-medium-2026-11-11",
+      "title": "TK by Medium",
+      "summary": "Medium's note-taking app with AI inline to link and expand notes into drafts, plus a community layer and an MCP server for connecting outside LLMs.",
+      "url": "https://www.producthunt.com/products/medium",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/medium",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "MCP",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/2f27c64b-8d3d-4215-be5c-83474f332268.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 244,
+        "comments": 42
+      },
+      "published_at": "2026-11-10T08:01:00Z",
+      "hidden": false,
+      "rank": 16
+    },
+    {
+      "id": "ph-latch-ai-2-2026-11-11",
+      "title": "Latch.ai",
+      "summary": "You perform an accounting close task on screen and narrate the exceptions; Latch builds an automation that repeats it in your existing tools, pauses when unsure, and logs each step.",
+      "url": "https://www.producthunt.com/products/latch-ai-2",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/latch-ai-2",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/a6c2e4d9-5e26-434c-98f8-e645c11a7986.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 241,
+        "comments": 47
+      },
+      "published_at": "2026-11-10T08:01:00Z",
+      "hidden": false,
+      "rank": 22
+    },
+    {
+      "id": "ph-seldon-2026-11-11",
+      "title": "Seldon",
+      "summary": "QA agents take plain-English expectations and walk customer paths like mid-checkout edits or payment retries, returning a replay and repro steps when something breaks.",
+      "url": "https://www.producthunt.com/products/seldon",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/seldon",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/e757155c-31ed-4901-848d-6070123172fe.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 239,
+        "comments": 95
+      },
+      "published_at": "2026-11-10T08:01:00Z",
+      "hidden": false,
+      "rank": 28
+    },
+    {
+      "id": "gh-agent-skills-2026-11-11",
+      "title": "addyosmani/agent-skills",
+      "summary": "Addy Osmani's collection of engineering skills packaged for AI coding agents to load, written in JavaScript.",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "source": "github",
+      "source_url": "https://github.com/addyosmani/agent-skills",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Code Gen"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/addyosmani.png?size=80"
+      },
+      "signals": {
+        "stars": 115682,
+        "stars_gained": 788,
+        "forks": 12137
+      },
+      "meta": {
+        "language": "JavaScript"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "gh-agent-browser-2026-11-11",
+      "title": "vercel-labs/agent-browser",
+      "summary": "Vercel Labs command-line tool, written in Rust, that lets AI agents drive a browser.",
+      "url": "https://github.com/vercel-labs/agent-browser",
+      "source": "github",
+      "source_url": "https://github.com/vercel-labs/agent-browser",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Dev Tool",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/vercel-labs.png?size=80"
+      },
+      "signals": {
+        "stars": 49691,
+        "stars_gained": 712,
+        "forks": 3477
+      },
+      "meta": {
+        "language": "Rust"
+      },
+      "hidden": false,
+      "rank": 7
+    },
+    {
+      "id": "gh-ha-mcp-2026-11-11",
+      "title": "homeassistant-ai/ha-mcp",
+      "summary": "Python MCP server that lets Claude, ChatGPT and other assistants configure and automate a Home Assistant install.",
+      "url": "https://github.com/homeassistant-ai/ha-mcp",
+      "source": "github",
+      "source_url": "https://github.com/homeassistant-ai/ha-mcp",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "MCP",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/homeassistant-ai.png?size=80"
+      },
+      "signals": {
+        "stars": 7083,
+        "stars_gained": 640,
+        "forks": 446
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 13
+    },
+    {
+      "id": "gh-daily-stock-analysis-2026-11-11",
+      "title": "ZhuLinsen/daily_stock_analysis",
+      "summary": "Python system that pulls multi-market quotes and live news into an LLM, renders a decision dashboard, pushes alerts, and runs on a free schedule.",
+      "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "source": "github",
+      "source_url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "LLM"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/ZhuLinsen.png?size=80"
+      },
+      "signals": {
+        "stars": 69958,
+        "stars_gained": 429,
+        "forks": 56792
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 19
+    },
+    {
+      "id": "gh-codex-security-2026-11-11",
+      "title": "openai/codex-security",
+      "summary": "OpenAI CLI and TypeScript SDK, published on npm, that finds, validates and patches security vulnerabilities in a codebase.",
+      "url": "https://github.com/openai/codex-security",
+      "source": "github",
+      "source_url": "https://github.com/openai/codex-security",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Security",
+        "OpenAI"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/openai.png?size=80"
+      },
+      "signals": {
+        "stars": 11507,
+        "stars_gained": 20,
+        "forks": 917
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 25
+    },
+    {
+      "id": "tc-anthropic-launches-claude-meetings-to-turn-2026-11-11",
+      "title": "Anthropic launches Claude Meetings to turn workplace discussions into plans and tasks",
+      "summary": "Claude joins the call to draft the plan in real time, map timelines on a whiteboard, answer in chat, and pull figures from connected work apps.",
+      "url": "https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/",
+      "category": "news",
+      "tags": [
+        "Agents",
+        "Anthropic",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Claude-Meetings.png?resize=1200,675"
+      },
+      "meta": {
+        "author": "Aisha Malik",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-10T17:30:00Z",
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "tc-openai-acquires-odessia-travel-startup-created-2026-11-11",
+      "title": "OpenAI acquires Odessia, travel startup created by Sonder founder",
+      "summary": "Odessia was founded by Sonder's Francis Davidson; OpenAI has not said what it plans to do in travel.",
+      "url": "https://techcrunch.com/2026/11/10/openai-acquires-odessia-travel-startup-created-by-sonder-founder/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/10/openai-acquires-odessia-travel-startup-created-by-sonder-founder/",
+      "category": "news",
+      "tags": [
+        "OpenAI",
+        "Acquisition"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2207801992.jpg?resize=1200,801"
+      },
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-10T21:08:52Z",
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "tc-adobe-brings-ai-agents-and-new-creative-tools-2026-11-11",
+      "title": "Adobe brings AI agents and new creative tools to Photoshop, Premiere, and Firefly",
+      "summary": "Adobe also ships an MCP and a Firefly prototype builder aimed squarely at Figma.",
+      "url": "https://techcrunch.com/2026/11/10/adobe-adds-more-ai-to-its-products-and-launches-an-mcp/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/10/adobe-adds-more-ai-to-its-products-and-launches-an-mcp/",
+      "category": "news",
+      "tags": [
+        "Agents",
+        "Image Gen",
+        "MCP",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/FF-AIA-PlanMode-No-Logo-4.jpg?resize=1200,675"
+      },
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-10T14:05:10Z",
+      "hidden": false,
+      "rank": 9
+    },
+    {
+      "id": "tc-databricks-new-ai-agent-tells-ceo-ali-ghodsi-2026-11-11",
+      "title": "Databricks’ new AI agent tells CEO Ali Ghodsi the unvarnished truth",
+      "summary": "With 12,000 employees, Ghodsi uses the revised Genie agent to surface problems staff would not report to him directly.",
+      "url": "https://techcrunch.com/2026/11/11/databricks-new-ai-agent-tells-ceo-ali-ghodsi-the-unvarnished-truth/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/11/databricks-new-ai-agent-tells-ceo-ali-ghodsi-the-unvarnished-truth/",
+      "category": "news",
+      "tags": [
+        "Agents"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2021/04/Ali_Ghodsi.jpg?resize=1200,1200"
+      },
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-11T15:00:00Z",
+      "hidden": false,
+      "rank": 12
+    },
+    {
+      "id": "tc-plurai-wants-to-help-ai-agents-work-better-2026-11-11",
+      "title": "Plurai wants to help AI agents work better using the same approach that helped get self-driving cars to roads",
+      "summary": "Plurai treats agents like end-to-end driving models: probabilistic systems in unpredictable environments that need the same style of testing to reach production.",
+      "url": "https://techcrunch.com/2026/11/11/plurai-wants-to-help-ai-agents-work-better-using-the-same-approach-that-helped-get-self-driving-cars-to-roads/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/11/plurai-wants-to-help-ai-agents-work-better-using-the-same-approach-that-helped-get-self-driving-cars-to-roads/",
+      "category": "news",
+      "tags": [
+        "Agents",
+        "Eval"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Plurai-team-photo.-Credit-Guy-Hamoy.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-11T14:00:00Z",
+      "hidden": false,
+      "rank": 15
+    },
+    {
+      "id": "tc-nvidias-crisis-has-corporate-governance-experts-2026-11-11",
+      "title": "Nvidia’s crisis has corporate governance experts reaching for the popcorn",
+      "summary": "Governance experts interviewed by TechCrunch say they have never seen anything like what is unfolding at the chipmaker.",
+      "url": "https://techcrunch.com/2026/11/10/nvidias-crisis-has-corporate-governance-experts-reaching-for-the-popcorn/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/10/nvidias-crisis-has-corporate-governance-experts-reaching-for-the-popcorn/",
+      "category": "news",
+      "tags": [
+        "Nvidia"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2019/05/GettyImages-503116193.jpeg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Connie Loizos",
+        "reading_time": "6 minutes"
+      },
+      "published_at": "2026-11-11T07:30:51Z",
+      "hidden": false,
+      "rank": 18
+    },
+    {
+      "id": "tc-openai-anthropic-face-new-oversight-as-new-2026-11-11",
+      "title": "OpenAI, Anthropic face new oversight as New York’s AI safety law takes effect",
+      "summary": "Major AI developers must register with the state, disclose safety practices and report critical incidents, or face fines.",
+      "url": "https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/",
+      "category": "news",
+      "tags": [
+        "Policy",
+        "Safety",
+        "OpenAI",
+        "Anthropic"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2302996653.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-10T20:52:13Z",
+      "hidden": false,
+      "rank": 21
+    },
+    {
+      "id": "tc-all-7-anthropic-founders-will-each-cash-out-2026-11-11",
+      "title": "All 7 Anthropic founders will each cash out about $250M in IPO",
+      "summary": "Each co-founder sells the same number of shares at the price-range midpoint, and the group keeps control of the company after the listing.",
+      "url": "https://techcrunch.com/2026/11/10/all-7-anthropic-founders-will-each-cash-out-about-250m-in-ipo/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/10/all-7-anthropic-founders-will-each-cash-out-about-250m-in-ipo/",
+      "category": "news",
+      "tags": [
+        "Anthropic",
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2025/04/Jared-Kaplan_headshot2.jpg?resize=900,1200"
+      },
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-10T19:57:52Z",
+      "hidden": false,
+      "rank": 24
+    },
+    {
+      "id": "tc-oura-to-acquire-ai-native-primary-care-startup-2026-11-11",
+      "title": "Oura to acquire AI-native primary care startup Counsel Health for $625M",
+      "summary": "The deal lands weeks after Oura shelved its up to $2.2B IPO indefinitely, citing IPO market uncertainty.",
+      "url": "https://techcrunch.com/2026/11/10/oura-to-acquire-ai-native-primary-care-startup-counsel-health-for-625m/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/10/oura-to-acquire-ai-native-primary-care-startup-counsel-health-for-625m/",
+      "category": "news",
+      "tags": [
+        "Acquisition"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2296609700.jpg?resize=1200,799"
+      },
+      "meta": {
+        "author": "Aisha Malik",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-10T19:23:34Z",
+      "hidden": false,
+      "rank": 27
+    },
+    {
+      "id": "tc-psi-is-trying-to-make-a-business-out-of-ai-2026-11-11",
+      "title": "PSI is trying to make a business out of AI-driven scientific discovery",
+      "summary": "PSI used an unreleased Anthropic model to answer a quantum computing question scientists had chased for nearly two decades.",
+      "url": "https://techcrunch.com/2026/11/10/psi-is-trying-to-make-a-business-out-of-ai-driven-scientific-discovery/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/10/psi-is-trying-to-make-a-business-out-of-ai-driven-scientific-discovery/",
+      "category": "news",
+      "tags": [
+        "Reasoning",
+        "Anthropic"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Screenshot-2026-11-10-at-10.00.33-AM.png?w=683"
+      },
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-10T19:03:52Z",
+      "hidden": false,
+      "rank": 30
+    },
+    {
+      "id": "hn-alphaproof-code-2026-11-11",
+      "title": "AlphaProof Code",
+      "summary": "Google DeepMind blog post introducing AlphaProof Code.",
+      "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50439193",
+      "category": "hn",
+      "tags": [
+        "Code Gen",
+        "Reasoning",
+        "Google"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 662,
+        "comments": 187
+      },
+      "meta": {
+        "author": "ilreb"
+      },
+      "published_at": "2026-11-10T12:11:12Z",
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "hn-ai-usage-generates-a-fragile-codebase-2026-11-11",
+      "title": "AI usage generates a fragile codebase",
+      "summary": "Personal essay on evanxmerz.com arguing that leaning on AI coding tools leaves a codebase fragile.",
+      "url": "https://evanxmerz.com/post/ai-usage-generates-a-fragile-codebase/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50438318",
+      "category": "hn",
+      "tags": [
+        "Code Gen"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 614,
+        "comments": 578
+      },
+      "meta": {
+        "author": "plun9"
+      },
+      "published_at": "2026-11-10T10:25:58Z",
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "hn-google-swe-points-48-ai-agents-at-nasa-lidar-2026-11-11",
+      "title": "Google SWE points 48 AI agents at NASA Lidar, finds unmapped Maya pyramid in 72h",
+      "summary": "Write-up on Pietro Miotti's site of a 48-agent run over NASA lidar data that turned up an unmapped Maya pyramid in three days.",
+      "url": "https://pietromiotti.com/latest/maya-site/?maya",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50452455",
+      "category": "hn",
+      "tags": [
+        "Agents",
+        "Vision"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 570,
+        "comments": 220
+      },
+      "meta": {
+        "author": "eyvindn"
+      },
+      "published_at": "2026-11-11T12:05:22Z",
+      "hidden": false,
+      "rank": 8
+    },
+    {
+      "id": "hn-tracking-anthropic-discovered-vulnerabilities-2026-11-11",
+      "title": "Tracking Anthropic-discovered vulnerabilities",
+      "summary": "VulnCheck blog's November update on the vulnerabilities Anthropic has found under its Glasswing effort.",
+      "url": "https://www.vulncheck.com/blog/anthropic-glasswing-november-update",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50447074",
+      "category": "hn",
+      "tags": [
+        "Security",
+        "Anthropic"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 437,
+        "comments": 209
+      },
+      "meta": {
+        "author": "panic"
+      },
+      "published_at": "2026-11-10T22:17:56Z",
+      "hidden": false,
+      "rank": 11
+    },
+    {
+      "id": "hn-apple-has-new-mac-app-coming-to-make-running-2026-11-11",
+      "title": "Apple has new Mac app coming to make running local AI models easy",
+      "summary": "9to5Mac report on an upcoming Apple app for running AI models locally on the Mac.",
+      "url": "https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50446520",
+      "category": "hn",
+      "tags": [
+        "Local LLM",
+        "Apple"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 424,
+        "comments": 437
+      },
+      "meta": {
+        "author": "linolevan"
+      },
+      "published_at": "2026-11-10T21:25:03Z",
+      "hidden": false,
+      "rank": 14
+    },
+    {
+      "id": "hn-gemini-4-carbon-is-now-available-2026-11-11",
+      "title": "Gemini 4 Carbon is now available",
+      "summary": "Google release post announcing general availability of the Gemini 4 Carbon model.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50442303",
+      "category": "hn",
+      "tags": [
+        "Model Release",
+        "LLM",
+        "Google"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 288,
+        "comments": 159
+      },
+      "meta": {
+        "author": "meetpateltech"
+      },
+      "published_at": "2026-11-10T16:07:15Z",
+      "hidden": false,
+      "rank": 17
+    },
+    {
+      "id": "hn-claude-whiteboards-claude-sheets-and-claude-data-2026-11-11",
+      "title": "Claude Whiteboards, Claude Sheets, and Claude Data",
+      "summary": "Anthropic article on three new Claude surfaces, out the same day as Claude Meetings, which also maps timelines on a whiteboard.",
+      "url": "https://claude.com/resources/articles/sheets-whiteboards-data",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50443716",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "Launch"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 267,
+        "comments": 202
+      },
+      "meta": {
+        "author": "Yorothegoat"
+      },
+      "published_at": "2026-11-10T17:55:07Z",
+      "hidden": false,
+      "rank": 20
+    },
+    {
+      "id": "hn-coreweave-bond-yield-tops-16-as-ai-credit-2026-11-11",
+      "title": "CoreWeave bond yield tops 16% as AI credit stress rises",
+      "summary": "CNBC report on the GPU cloud's debt pricing as credit markets grow wary of AI infrastructure borrowing.",
+      "url": "https://www.cnbc.com/2026/11/06/coreweave-bond-yield-tops-16percent-as-ai-credit-stress-rises.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50435660",
+      "category": "hn",
+      "tags": [
+        "Inference"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 194,
+        "comments": 193
+      },
+      "meta": {
+        "author": "lxm"
+      },
+      "published_at": "2026-11-10T03:20:06Z",
+      "hidden": false,
+      "rank": 23
+    },
+    {
+      "id": "hn-fireworks-ai-security-breach-impacts-notion-and-2026-11-11",
+      "title": "Fireworks AI security breach impacts Notion and their customers",
+      "summary": "Notion help-center notice on a security incident at a third-party AI vendor, Fireworks AI, and its effect on Notion customers.",
+      "url": "https://www.notion.com/help/security-incident-involving-a-third-party-ai-vendor",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50437106",
+      "category": "hn",
+      "tags": [
+        "Security",
+        "Privacy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 164,
+        "comments": 63
+      },
+      "meta": {
+        "author": "werrett"
+      },
+      "published_at": "2026-11-10T07:19:38Z",
+      "hidden": false,
+      "rank": 26
+    },
+    {
+      "id": "hn-life-on-claude-nine-2026-11-11",
+      "title": "Life on Claude Nine",
+      "summary": "Personal blog essay on babuschk.in, first posted in January 2026, with a title that puns on Claude.",
+      "url": "https://babuschk.in/posts/2026-01-25-life-on-claude-nine.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50443587",
+      "category": "hn",
+      "tags": [
+        "Anthropic"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 122,
+        "comments": 80
+      },
+      "meta": {
+        "author": "reasonableklout"
+      },
+      "published_at": "2026-11-10T17:44:44Z",
+      "hidden": false,
+      "rank": 29
+    }
+  ]
+}

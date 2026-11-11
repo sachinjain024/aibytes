@@ -1,0 +1,120 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-11",
+  "window": {
+    "after": "2026-11-10",
+    "before": "2026-11-12"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 16,
+  "poolCount": 72,
+  "stories": [
+    {
+      "title": "AlphaProof Code",
+      "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+      "type": "story",
+      "points": 662,
+      "num_comments": 187,
+      "author": "ilreb",
+      "created_at": "2026-11-10T12:11:12Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50439193"
+    },
+    {
+      "title": "AI usage generates a fragile codebase",
+      "url": "https://evanxmerz.com/post/ai-usage-generates-a-fragile-codebase/",
+      "type": "story",
+      "points": 614,
+      "num_comments": 578,
+      "author": "plun9",
+      "created_at": "2026-11-10T10:25:58Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50438318"
+    },
+    {
+      "title": "Google SWE points 48 AI agents at NASA Lidar, finds unmapped Maya pyramid in 72h",
+      "url": "https://pietromiotti.com/latest/maya-site/?maya",
+      "type": "story",
+      "points": 570,
+      "num_comments": 220,
+      "author": "eyvindn",
+      "created_at": "2026-11-11T12:05:22Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50452455"
+    },
+    {
+      "title": "Tracking Anthropic-discovered vulnerabilities",
+      "url": "https://www.vulncheck.com/blog/anthropic-glasswing-november-update",
+      "type": "story",
+      "points": 437,
+      "num_comments": 209,
+      "author": "panic",
+      "created_at": "2026-11-10T22:17:56Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50447074"
+    },
+    {
+      "title": "Apple has new Mac app coming to make running local AI models easy",
+      "url": "https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/",
+      "type": "story",
+      "points": 424,
+      "num_comments": 437,
+      "author": "linolevan",
+      "created_at": "2026-11-10T21:25:03Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50446520"
+    },
+    {
+      "title": "Gemini 4 Carbon is now available",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+      "type": "story",
+      "points": 288,
+      "num_comments": 159,
+      "author": "meetpateltech",
+      "created_at": "2026-11-10T16:07:15Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50442303"
+    },
+    {
+      "title": "Claude Whiteboards, Claude Sheets, and Claude Data",
+      "url": "https://claude.com/resources/articles/sheets-whiteboards-data",
+      "type": "story",
+      "points": 267,
+      "num_comments": 202,
+      "author": "Yorothegoat",
+      "created_at": "2026-11-10T17:55:07Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50443716"
+    },
+    {
+      "title": "CoreWeave bond yield tops 16% as AI credit stress rises",
+      "url": "https://www.cnbc.com/2026/11/06/coreweave-bond-yield-tops-16percent-as-ai-credit-stress-rises.html",
+      "type": "story",
+      "points": 194,
+      "num_comments": 193,
+      "author": "lxm",
+      "created_at": "2026-11-10T03:20:06Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50435660"
+    },
+    {
+      "title": "Fireworks AI security breach impacts Notion and their customers",
+      "url": "https://www.notion.com/help/security-incident-involving-a-third-party-ai-vendor",
+      "type": "story",
+      "points": 164,
+      "num_comments": 63,
+      "author": "werrett",
+      "created_at": "2026-11-10T07:19:38Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50437106"
+    },
+    {
+      "title": "Life on Claude Nine",
+      "url": "https://babuschk.in/posts/2026-01-25-life-on-claude-nine.html",
+      "type": "story",
+      "points": 122,
+      "num_comments": 80,
+      "author": "reasonableklout",
+      "created_at": "2026-11-10T17:44:44Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50443587"
+    }
+  ]
+}

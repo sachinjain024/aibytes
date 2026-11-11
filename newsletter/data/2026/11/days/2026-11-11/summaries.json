@@ -1,0 +1,125 @@
+{
+  "date": "2026-11-11",
+  "items": {
+    "ph-alsona-2026-11-11": {
+      "summary": "Scores companies against your ICP on 32+ buying signals like hiring, funding and ad spend, then has agents draft personalized LinkedIn and email outreach.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-maxma-2-2026-11-11": {
+      "summary": "Slack-based agent that analyzes paid ad performance, builds ads and landing pages, and proposes campaign changes for approval across Google, Meta, TikTok, LinkedIn and ChatGPT Ads.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-tk-by-medium-2026-11-11": {
+      "summary": "Medium's note-taking app with AI inline to link and expand notes into drafts, plus a community layer and an MCP server for connecting outside LLMs.",
+      "tags": ["Agents", "MCP", "Launch"]
+    },
+    "ph-latch-ai-2-2026-11-11": {
+      "summary": "You perform an accounting close task on screen and narrate the exceptions; Latch builds an automation that repeats it in your existing tools, pauses when unsure, and logs each step.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-seldon-2026-11-11": {
+      "summary": "QA agents take plain-English expectations and walk customer paths like mid-checkout edits or payment retries, returning a replay and repro steps when something breaks.",
+      "tags": ["Dev Tool", "Agents", "Launch"]
+    },
+    "gh-agent-skills-2026-11-11": {
+      "summary": "Addy Osmani's collection of engineering skills packaged for AI coding agents to load, written in JavaScript.",
+      "tags": ["Open Source", "Agents", "Code Gen"]
+    },
+    "gh-agent-browser-2026-11-11": {
+      "summary": "Vercel Labs command-line tool, written in Rust, that lets AI agents drive a browser.",
+      "tags": ["Open Source", "Dev Tool", "Agents"]
+    },
+    "gh-ha-mcp-2026-11-11": {
+      "summary": "Python MCP server that lets Claude, ChatGPT and other assistants configure and automate a Home Assistant install.",
+      "tags": ["Open Source", "MCP", "Agents"]
+    },
+    "gh-daily-stock-analysis-2026-11-11": {
+      "summary": "Python system that pulls multi-market quotes and live news into an LLM, renders a decision dashboard, pushes alerts, and runs on a free schedule.",
+      "tags": ["Open Source", "LLM"]
+    },
+    "gh-codex-security-2026-11-11": {
+      "summary": "OpenAI CLI and TypeScript SDK, published on npm, that finds, validates and patches security vulnerabilities in a codebase.",
+      "tags": ["Dev Tool", "Security", "OpenAI"]
+    },
+    "tc-anthropic-launches-claude-meetings-to-turn-2026-11-11": {
+      "summary": "Claude joins the call to draft the plan in real time, map timelines on a whiteboard, answer in chat, and pull figures from connected work apps.",
+      "tags": ["Agents", "Anthropic", "Launch"]
+    },
+    "tc-openai-acquires-odessia-travel-startup-created-2026-11-11": {
+      "summary": "Odessia was founded by Sonder's Francis Davidson; OpenAI has not said what it plans to do in travel.",
+      "tags": ["OpenAI", "Acquisition"]
+    },
+    "tc-adobe-brings-ai-agents-and-new-creative-tools-2026-11-11": {
+      "summary": "Adobe also ships an MCP and a Firefly prototype builder aimed squarely at Figma.",
+      "tags": ["Agents", "Image Gen", "MCP", "Launch"]
+    },
+    "tc-databricks-new-ai-agent-tells-ceo-ali-ghodsi-2026-11-11": {
+      "summary": "With 12,000 employees, Ghodsi uses the revised Genie agent to surface problems staff would not report to him directly.",
+      "tags": ["Agents"]
+    },
+    "tc-plurai-wants-to-help-ai-agents-work-better-2026-11-11": {
+      "summary": "Plurai treats agents like end-to-end driving models: probabilistic systems in unpredictable environments that need the same style of testing to reach production.",
+      "tags": ["Agents", "Eval"]
+    },
+    "tc-nvidias-crisis-has-corporate-governance-experts-2026-11-11": {
+      "summary": "Governance experts interviewed by TechCrunch say they have never seen anything like what is unfolding at the chipmaker.",
+      "tags": ["Nvidia"]
+    },
+    "tc-openai-anthropic-face-new-oversight-as-new-2026-11-11": {
+      "summary": "Major AI developers must register with the state, disclose safety practices and report critical incidents, or face fines.",
+      "tags": ["Policy", "Safety", "OpenAI", "Anthropic"]
+    },
+    "tc-all-7-anthropic-founders-will-each-cash-out-2026-11-11": {
+      "summary": "Each co-founder sells the same number of shares at the price-range midpoint, and the group keeps control of the company after the listing.",
+      "tags": ["Anthropic", "Funding"]
+    },
+    "tc-oura-to-acquire-ai-native-primary-care-startup-2026-11-11": {
+      "summary": "The deal lands weeks after Oura shelved its up to $2.2B IPO indefinitely, citing IPO market uncertainty.",
+      "tags": ["Acquisition"]
+    },
+    "tc-psi-is-trying-to-make-a-business-out-of-ai-2026-11-11": {
+      "summary": "PSI used an unreleased Anthropic model to answer a quantum computing question scientists had chased for nearly two decades.",
+      "tags": ["Reasoning", "Anthropic"]
+    },
+    "hn-alphaproof-code-2026-11-11": {
+      "summary": "Google DeepMind blog post introducing AlphaProof Code.",
+      "tags": ["Code Gen", "Reasoning", "Google"]
+    },
+    "hn-ai-usage-generates-a-fragile-codebase-2026-11-11": {
+      "summary": "Personal essay on evanxmerz.com arguing that leaning on AI coding tools leaves a codebase fragile.",
+      "tags": ["Code Gen"]
+    },
+    "hn-google-swe-points-48-ai-agents-at-nasa-lidar-2026-11-11": {
+      "summary": "Write-up on Pietro Miotti's site of a 48-agent run over NASA lidar data that turned up an unmapped Maya pyramid in three days.",
+      "tags": ["Agents", "Vision"]
+    },
+    "hn-tracking-anthropic-discovered-vulnerabilities-2026-11-11": {
+      "summary": "VulnCheck blog's November update on the vulnerabilities Anthropic has found under its Glasswing effort.",
+      "tags": ["Security", "Anthropic"]
+    },
+    "hn-apple-has-new-mac-app-coming-to-make-running-2026-11-11": {
+      "summary": "9to5Mac report on an upcoming Apple app for running AI models locally on the Mac.",
+      "tags": ["Local LLM", "Apple"]
+    },
+    "hn-gemini-4-carbon-is-now-available-2026-11-11": {
+      "summary": "Google release post announcing general availability of the Gemini 4 Carbon model.",
+      "tags": ["Model Release", "LLM", "Google"]
+    },
+    "hn-claude-whiteboards-claude-sheets-and-claude-data-2026-11-11": {
+      "summary": "Anthropic article on three new Claude surfaces, out the same day as Claude Meetings, which also maps timelines on a whiteboard.",
+      "tags": ["Anthropic", "Launch"]
+    },
+    "hn-coreweave-bond-yield-tops-16-as-ai-credit-2026-11-11": {
+      "summary": "CNBC report on the GPU cloud's debt pricing as credit markets grow wary of AI infrastructure borrowing.",
+      "tags": ["Inference"]
+    },
+    "hn-fireworks-ai-security-breach-impacts-notion-and-2026-11-11": {
+      "summary": "Notion help-center notice on a security incident at a third-party AI vendor, Fireworks AI, and its effect on Notion customers.",
+      "tags": ["Security", "Privacy"]
+    },
+    "hn-life-on-claude-nine-2026-11-11": {
+      "summary": "Personal blog essay on babuschk.in, first posted in January 2026, with a title that puns on Claude.",
+      "tags": ["Anthropic"]
+    }
+  }
+}
