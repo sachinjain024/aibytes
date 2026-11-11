@@ -316,13 +316,13 @@ the CSV writer, a Firestore REST client taking a token and a transport, and
 the `subscribers.py` CLI with `export`, `mark-imported` and `status`.
 
 **Acceptance criteria:**
-- [ ] `tests/test_subscribers.py`, offline with a fake transport: 23:59 IST
+- [x] `tests/test_subscribers.py`, offline with a fake transport: 23:59 IST
       on the date is in and 00:00 the next day is out; imported documents are
       skipped; `mark-imported` writes exactly the exported set and needs
       `--yes`; a second export for the same date is empty; `status` counts.
-- [ ] An `--output` inside the repository is refused; output prints counts
+- [x] An `--output` inside the repository is refused; output prints counts
       and the path, never an email.
-- [ ] A missing `gcloud`, or a refused token, gives a one-line message naming
+- [x] A missing `gcloud`, or a refused token, gives a one-line message naming
       the fix. The live test skips under `AIBYTES_SKIP_LIVE=1` and without
       `gcloud`.
 
