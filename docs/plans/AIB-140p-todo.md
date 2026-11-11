@@ -152,7 +152,7 @@ file is added to that script); `npm test -w @aibytes/web`.
 No visible change.
 
 **Acceptance criteria:**
-- [ ] The mapping from a popup result or error to `{ status, isNew }` is a
+- [x] The mapping from a popup result or error to `{ status, isNew }` is a
       pure exported function with tests: new, returning, cancelled (three
       codes), failed.
 - [ ] Sign in, cancel and the sign-in error line behave as before in the

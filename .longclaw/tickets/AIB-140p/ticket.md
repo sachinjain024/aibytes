@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-11T09:00:04.966Z
+updated_at: 2026-11-11T09:08:09.098Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -46,7 +46,7 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 - [x] 5.2 T5: the client's write and read <!-- longclaw:item=ck_67dd3c88 -->
 - [ ] 5.3 P1 (publisher): Firestore rules deployed <!-- longclaw:item=ck_58969123 -->
 - [ ] 6. signin-prompt <!-- longclaw:item=ck_0c3a870b -->
-- [ ] 6.1 T6: the new-account signal <!-- longclaw:item=ck_b8829929 -->
+- [x] 6.1 T6: the new-account signal <!-- longclaw:item=ck_b8829929 -->
 - [ ] 6.2 T7: the prompt and its states <!-- longclaw:item=ck_e4791fdc -->
 - [ ] 6.3 T8: the prompt in the app <!-- longclaw:item=ck_f2019c5e -->
 - [ ] 6.4 T9: subscribed readers and the privacy page <!-- longclaw:item=ck_4646a5e5 -->
@@ -573,4 +573,21 @@ changes:
     to: "true"
 -->
 ### grok updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_34281838
+kind: update
+occurred_at: 2026-11-11T09:08:09.098Z
+actor:
+  type: agent
+  id: grok
+changes:
+  - field: checklist.ck_b8829929.checked
+    from: "false"
+    to: "true"
+-->
+### grok updated this ticket
+
+11 Nov 2026: T6. signIn resolves to { status, isNew }. The failure line still shows when the popup is blocked. A real Google sign-in and cancel were not driven from here.
 <!-- /longclaw:event -->

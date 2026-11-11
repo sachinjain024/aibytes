@@ -131,8 +131,8 @@ function useAccount() {
       setFailed(false);
       // Loaded already, the popup opens within the click; a load that failed
       // earlier is retried, and the popup may then be blocked, which shows the error.
-      const result = fb ? fb.signIn() : loadFirebase().then((loaded) => { setFb(loaded); return loaded.signIn(); }, () => "failed");
-      result.then((r) => setFailed(r === "failed"));
+      const result = fb ? fb.signIn() : loadFirebase().then((loaded) => { setFb(loaded); return loaded.signIn(); }, () => ({ status: "failed", isNew: false }));
+      result.then((r) => setFailed(r.status === "failed"));
     },
     signOut() { setMerged(0); fb?.signOut(); },
     dismiss,
