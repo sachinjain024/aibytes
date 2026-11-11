@@ -22,11 +22,13 @@ matching files — this file stays a map.
 | `packages/fetchers/` | Shared, cadence-agnostic Python fetch machinery for every data source |
 | `packages/curate/` | The curate step: a day's raw snapshots become one published edition |
 | `packages/runner/` | The daily runner: the scheduled job that publishes an edition, the GitHub Actions workflows that schedule it (launchd agents as a fallback), and the watchdog |
+| `packages/subscribers/` | Export, mark and count app subscribers in the `aibytes` Firestore database. Prints counts and paths only |
 | `packages/feed-schema/` | The contract for everything in `content/`: schemas, `feed.d.ts`, `validate.py`, `hide.py` |
 | `content/` | The published data — `editions/YYYY-MM-DD.json`, `index.json`, `tags.json`, `hidden.json` |
 | `.claude/skills/` | Claude Code skills. Stays at the repo root — nested skill dirs are not in autocomplete until a file in them is touched |
 | `.claude/rules/` | Path-scoped conventions, loaded on demand |
 | `apps/web/` | The aibytes.io daily-edition app: Vite + React, a static build for GitHub Pages served from the root, with `content/` at `/content/` *(scaffold; AIB-8h phase 4)* |
+| `functions/` | The `aibytes-web` Cloud Functions codebase. One callable, `aibytesReportSubscribeFailure`. Its own `package.json`, outside the npm workspaces |
 | `apps/extension/` | *(planned, AIB-8h)* the Chrome new-tab extension, on the same edition JSON |
 | `tests/` | stdlib `unittest` suite for the Python side |
 
@@ -71,6 +73,17 @@ python3 packages/feed-schema/validate.py
 
 # Hide one item from a published edition (moves the edition, index, and log together)
 python3 packages/feed-schema/hide.py ph-chatcut-2026-08-27 --reason "duplicate launch"
+
+# App subscribers (AIB-140p). --output must be outside this repo. Prints counts, never emails.
+python3 packages/subscribers/subscribers.py export --until 2026-11-30 --output ~/Downloads/aibytes-subscribers-2026-11-30.csv
+python3 packages/subscribers/subscribers.py mark-imported --until 2026-11-30 --yes
+python3 packages/subscribers/subscribers.py status
+npm test --prefix functions
+
+# Functions deploy, by the publisher only. Scoped to this repo's codebase.
+# Never a bare `firebase deploy`, never `--only functions` alone, never `--force`.
+# If the CLI offers to delete a function, answer no and stop.
+# firebase deploy --only functions:aibytes-web --project ai-bytes-b42d2
 
 # Tests. AIBYTES_SKIP_LIVE=1 skips the ones that hit live APIs.
 python3 -m unittest discover -s tests -v
