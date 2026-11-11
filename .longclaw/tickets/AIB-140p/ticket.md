@@ -3,13 +3,14 @@ format: longclaw.ticket/v1
 id: 65689d76-3a4e-4e2c-805f-480520818265
 key: AIB-140p
 title: Offer the weekly newsletter after a reader's first Google sign-in
-status: todo
+status: in_progress
 priority: p2
+rank: a0
 labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-11T07:21:57.704Z
+updated_at: 2026-11-11T07:58:32.813Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -181,4 +182,21 @@ changes:
 ### claude-code updated this ticket
 
 11 Nov 2026: spec drafted at docs/specs/AIB-140p-newsletter-prompt.md, awaiting approval. Settled: subscribers stored in Firestore; the publisher transfers emails to Substack by hand weekly or monthly and marks them; a failed save alerts a Slack channel. Open in the spec: how the Slack alert is sent (the browser cannot hold the webhook) and which channel.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_001e602d
+kind: update
+occurred_at: 2026-11-11T07:58:32.813Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: status
+    from: todo
+    to: in_progress
+  - field: rank
+    to: a0
+-->
+### You updated this ticket
 <!-- /longclaw:event -->
