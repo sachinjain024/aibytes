@@ -25,6 +25,8 @@ import { showBanner } from "./banner.js";
 import { headerAccount } from "./header.js";
 import { mergedLine } from "./merge.js";
 import { clearSaves, localSaves, readSaves } from "./saves.js";
+import { NewsletterPrompt } from "./NewsletterPrompt.jsx";
+import { initialPrompt, promptReducer, shouldOpenPrompt } from "./newsletterPrompt.js";
 import { editionPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, savedPath, weeklyPath } from "./route.js";
 
 // The sidebar's links: live ones first, then those not live yet. GitHub is
@@ -57,8 +59,8 @@ function useLocation() {
 // sign-in added, shown once on /saved; `signInFailed` shows the error line until
 // the next try or page.
 const AccountContext = React.createContext({
-  user: null, merged: 0, signInFailed: false,
-  signIn() {}, signOut() {}, dismiss() {}, clearMerged() {},
+  user: null, merged: 0, signInFailed: false, subscribed: undefined, prompt: null,
+  signIn() {}, signOut() {}, dismiss() {}, clearMerged() {}, subscribe() {}, closePrompt() {},
 });
 
 // Firebase loads just after the first paint (decision 1, revised 9 Nov): every
@@ -67,8 +69,8 @@ const AccountContext = React.createContext({
 // is retried by the next Sign in.
 let firebase = null;
 function loadFirebase() {
-  firebase ||= Promise.all([import("./account.js"), import("./accountSaves.js")]).then(
-    ([account, store]) => ({ ...account, ...store }),
+  firebase ||= Promise.all([import("./account.js"), import("./accountSaves.js"), import("./subscriber.js")]).then(
+    ([account, store, subscribers]) => ({ ...account, ...store, ...subscribers }),
     (error) => { firebase = null; throw error; },
   );
   return firebase;
@@ -93,6 +95,11 @@ function useAccount() {
   const [user, setUser] = React.useState(undefined);
   const [merged, setMerged] = React.useState(0);
   const [failed, setFailed] = React.useState(false);
+  const [prompt, setPrompt] = React.useState(null);
+  const [subscribed, setSubscribed] = React.useState(undefined);
+  // Set when this click's sign-in is a new account. The prompt opens once that
+  // reader's email is known. A session restored on load never sets it.
+  const [pendingNew, setPendingNew] = React.useState(false);
   React.useEffect(() => afterPaint(() => loadFirebase().then(setFb, (e) => {
     console.warn("Could not load sign-in:", e);
     setUser(null);
@@ -120,24 +127,59 @@ function useAccount() {
     merging.current.done.then((count) => { if (live && count) setMerged(count); });
     return () => { live = false; };
   }, [uid, fb]);
+  // One read of subscribers/{uid} per signed-in session. Success sets it true
+  // without waiting for another read.
+  React.useEffect(() => {
+    if (!uid || !fb) { setSubscribed(undefined); return undefined; }
+    let live = true;
+    const apply = (yes) => { if (live) setSubscribed((current) => (current === true ? true : yes)); };
+    fb.isSubscribed(fb.db, uid).then(apply, () => apply(false));
+    return () => { live = false; };
+  }, [uid, fb]);
+  React.useEffect(() => {
+    if (!pendingNew || !shouldOpenPrompt({ status: "ok", isNew: true }, user?.email)) return;
+    setPendingNew(false);
+    setPrompt(initialPrompt);
+  }, [pendingNew, user]);
+  React.useEffect(() => {
+    if (prompt?.status !== "thanks") return undefined;
+    const id = setInterval(() => setPrompt((state) => promptReducer(state, { type: "tick" })), 1000);
+    return () => clearInterval(id);
+  }, [prompt?.status]);
   // Stable, so the effects that call them on navigation run on navigation only.
   const dismiss = React.useCallback(() => setFailed(false), []);
   const clearMerged = React.useCallback(() => setMerged(0), []);
+  const closePrompt = React.useCallback(() => setPrompt((state) => (state ? promptReducer(state, { type: "close" }) : state)), []);
+  const subscribe = React.useCallback(() => {
+    if (!fb || !user?.uid) return;
+    setPrompt((state) => promptReducer(state, { type: "subscribe" }));
+    fb.subscribe(fb.db, user).then((result) => {
+      if (result === "ok") setSubscribed(true);
+      setPrompt((state) => promptReducer(state, { type: result === "ok" ? "saved" : "failed" }));
+    });
+  }, [fb, user]);
   const account = React.useMemo(() => ({
     user,
     merged,
     signInFailed: failed,
+    subscribed,
+    prompt,
     signIn() {
       setFailed(false);
       // Loaded already, the popup opens within the click; a load that failed
       // earlier is retried, and the popup may then be blocked, which shows the error.
       const result = fb ? fb.signIn() : loadFirebase().then((loaded) => { setFb(loaded); return loaded.signIn(); }, () => ({ status: "failed", isNew: false }));
-      result.then((r) => setFailed(r.status === "failed"));
+      result.then((r) => {
+        setFailed(r.status === "failed");
+        if (r.status === "ok" && r.isNew) setPendingNew(true);
+      });
     },
-    signOut() { setMerged(0); fb?.signOut(); },
+    signOut() { setMerged(0); setPendingNew(false); setPrompt(null); fb?.signOut(); },
     dismiss,
     clearMerged,
-  }), [fb, user, merged, failed, dismiss, clearMerged]);
+    subscribe,
+    closePrompt,
+  }), [fb, user, merged, failed, subscribed, prompt, dismiss, clearMerged, subscribe, closePrompt]);
   return [saves, account];
 }
 
@@ -201,7 +243,14 @@ export function App() {
     if (wasOnSaved.current && !onSaved) clearMerged();
     wasOnSaved.current = onSaved;
   }, [onSaved, clearMerged]);
-  return <AccountContext.Provider value={account}>{page()}</AccountContext.Provider>;
+  return (
+    <AccountContext.Provider value={account}>
+      {page()}
+      {account.prompt && account.prompt.status !== "closed" && (
+        <NewsletterPrompt state={account.prompt} email={account.user?.email} onSubscribe={account.subscribe} onClose={account.closePrompt} />
+      )}
+    </AccountContext.Provider>
+  );
 
   function page() {
   // Weekly archive and issue pages share the Ledger shell with the daily

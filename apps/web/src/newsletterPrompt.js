@@ -16,6 +16,11 @@ export const PROMPT_COPY = {
 
 export const initialPrompt = { status: "offer" };
 
+/** True only for a new account that has an email. A restored session never asks. */
+export function shouldOpenPrompt(result, email) {
+  return result?.status === "ok" && result.isNew === true && !!email;
+}
+
 /** offer → saving → thanks | failed, then the countdown 3, 2, 1, closed. */
 export function promptReducer(state, action) {
   switch (action.type) {

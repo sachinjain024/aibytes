@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-11T09:43:47.421Z
+updated_at: 2026-11-11T11:12:42.758Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -48,7 +48,7 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 - [ ] 6. signin-prompt <!-- longclaw:item=ck_0c3a870b -->
 - [x] 6.1 T6: the new-account signal <!-- longclaw:item=ck_b8829929 -->
 - [x] 6.2 T7: the prompt and its states <!-- longclaw:item=ck_e4791fdc -->
-- [ ] 6.3 T8: the prompt in the app <!-- longclaw:item=ck_f2019c5e -->
+- [x] 6.3 T8: the prompt in the app <!-- longclaw:item=ck_f2019c5e -->
 - [ ] 6.4 T9: subscribed readers and the privacy page <!-- longclaw:item=ck_4646a5e5 -->
 - [ ] 6.5 Checkpoint C: whole flow checked by hand with a new account (P4) <!-- longclaw:item=ck_e5f3a473 -->
 - [ ] 7. failure-alert <!-- longclaw:item=ck_73bfaa7a -->
@@ -605,4 +605,21 @@ changes:
     to: "true"
 -->
 ### grok updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_4c23fbea
+kind: update
+occurred_at: 2026-11-11T11:12:42.758Z
+actor:
+  type: agent
+  id: grok
+changes:
+  - field: checklist.ck_f2019c5e.checked
+    from: "false"
+    to: "true"
+-->
+### grok updated this ticket
+
+11 Nov 2026: T8. The prompt opens only after a new sign-in that has an email. A signed-out load shows no dialog. The live new-account pass still needs the rules deploy and a fresh Google account.
 <!-- /longclaw:event -->

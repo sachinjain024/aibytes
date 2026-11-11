@@ -200,6 +200,7 @@ the account context.
 **Acceptance criteria:**
 - [ ] A new account sees the dialog on the page it signed in from; a
       returning account and a restored session do not.
+      A signed-out load shows no dialog. The new-account pass needs P1 and P4.
 - [ ] Subscribe writes the document, shows the thank-you with the reader's
       email, and closes after the countdown; ×, Escape and the scrim close it
       without writing.

@@ -5,7 +5,7 @@ import { test } from "node:test";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { build } from "esbuild";
-import { PROMPT_COPY, initialPrompt, promptReducer } from "./newsletterPrompt.js";
+import { PROMPT_COPY, initialPrompt, promptReducer, shouldOpenPrompt } from "./newsletterPrompt.js";
 
 const bundled = await build({
   entryPoints: [new URL("./NewsletterPrompt.jsx", import.meta.url).pathname],
@@ -23,6 +23,14 @@ const render = (state) => renderToStaticMarkup(React.createElement(NewsletterPro
 }));
 
 const step = (state, type, extra) => promptReducer(state, { type, ...extra });
+
+test("only a new account with an email is asked", () => {
+  assert.equal(shouldOpenPrompt({ status: "ok", isNew: true }, "ada@example.com"), true);
+  assert.equal(shouldOpenPrompt({ status: "ok", isNew: false }, "ada@example.com"), false);
+  assert.equal(shouldOpenPrompt({ status: "ok", isNew: true }, ""), false);
+  assert.equal(shouldOpenPrompt({ status: "cancelled", isNew: false }, "ada@example.com"), false);
+  assert.equal(shouldOpenPrompt({ status: "failed", isNew: false }, "ada@example.com"), false);
+});
 
 test("Subscribe goes to saving, a saved write to thanks, and a failure back to failed", () => {
   const saving = step(initialPrompt, "subscribe");
