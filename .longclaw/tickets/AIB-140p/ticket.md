@@ -9,7 +9,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-07T18:34:46.510Z
+updated_at: 2026-11-11T07:21:57.704Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -32,10 +32,75 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 
 ## Checklist
 
-- [ ] Design options for the prompt (aibytes-design) and a decision record <!-- longclaw:item=ck_69e2182d -->
+- [x] Design options for the prompt (aibytes-design) and a decision record <!-- longclaw:item=ck_69e2182d -->
 - [ ] Ledger Dialog component with tests and a UI kit screen <!-- longclaw:item=ck_2210eb45 -->
 - [ ] Prompt wired to the new-account signal in apps/web <!-- longclaw:item=ck_2cc310fa -->
-- [ ] Substack email prefill checked <!-- longclaw:item=ck_f0ba29e7 -->
+- [ ] Subscribe saves the reader's email to the database (storage, security rule, failure state) <!-- longclaw:item=ck_667f8257 -->
+- [ ] A way to get saved subscriber emails into Substack <!-- longclaw:item=ck_bf023510 -->
+- [ ] Privacy page updated: the app stores the subscription and passes the email to Substack <!-- longclaw:item=ck_051862d9 -->
+- [ ] Spec approved (docs/specs/AIB-140p-newsletter-prompt.md) <!-- longclaw:item=ck_c92ab0af -->
+
+## Ticket References
+
+<!-- longclaw:reference
+id: ref_ae2a5e4a
+path: docs/specs/AIB-140p-newsletter-prompt.md
+added_at: 2026-11-11T07:30:00.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[AIB-140p-newsletter-prompt.md](docs/specs/AIB-140p-newsletter-prompt.md)
+<!-- /longclaw:reference -->
+
+<!-- longclaw:reference
+id: ref_7580a6d2
+path: docs/decisions/product/AIB-140p-newsletter-prompt-design.md
+added_at: 2026-11-11T07:30:00.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[AIB-140p-newsletter-prompt-design.md](docs/decisions/product/AIB-140p-newsletter-prompt-design.md)
+<!-- /longclaw:reference -->
+
+<!-- longclaw:reference
+id: ref_7942becc
+path: docs/ux/prototypes/AIB-140p-newsletter-prompt/aib-140p-newsletter-prompt.html
+added_at: 2026-11-11T07:30:00.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[aib-140p-newsletter-prompt.html](docs/ux/prototypes/AIB-140p-newsletter-prompt/aib-140p-newsletter-prompt.html)
+<!-- /longclaw:reference -->
+
+<!-- longclaw:reference
+id: ref_afca68b3
+path: docs/specs/AIB-75v-app-accounts.md
+added_at: 2026-11-11T07:30:00.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[AIB-75v-app-accounts.md](docs/specs/AIB-75v-app-accounts.md)
+<!-- /longclaw:reference -->
+
+<!-- longclaw:reference
+id: ref_4f3c9b4d
+path: docs/decisions/product/AIB-75v-saves-and-sign-in-design.md
+added_at: 2026-11-11T07:30:00.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[AIB-75v-saves-and-sign-in-design.md](docs/decisions/product/AIB-75v-saves-and-sign-in-design.md)
+<!-- /longclaw:reference -->
 
 ## Activity
 
@@ -48,4 +113,72 @@ actor:
   id: local
 -->
 ### You created this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_fbca804c
+kind: update
+occurred_at: 2026-11-10T11:51:32.692Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_69e2182d.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+Design decided 10 Nov 2026: post-signup (A2), modal dialog (C1), full pitch with one Subscribe action (D2). Decision record: docs/decisions/product/AIB-140p-newsletter-prompt-design.md. Prototype: docs/ux/prototypes/AIB-140p-newsletter-prompt/.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_3740bee1
+kind: update
+occurred_at: 2026-11-10T11:54:05.346Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_f0ba29e7.removed
+    from: Substack email prefill checked
+  - field: checklist.ck_667f8257.added
+    to: Subscribe saves the reader's email to the database (storage, security rule, failure state)
+  - field: checklist.ck_bf023510.added
+    to: A way to get saved subscriber emails into Substack
+  - field: checklist.ck_051862d9.added
+    to: "Privacy page updated: the app stores the subscription and passes the email to Substack"
+-->
+### claude-code updated this ticket
+
+10 Nov 2026: Subscribe no longer opens Substack. It saves the email to our database, shows a thank-you with a green tick and closes after a 3-2-1 countdown. The Substack prefill item is dropped; storage, the Substack hand-off and the privacy page are added. See the decision record.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_fa14be86
+kind: comment
+occurred_at: 2026-11-11T07:12:28.688Z
+actor:
+  type: agent
+  id: claude-code
+-->
+### claude-code commented
+
+11 Nov 2026: dialog design finalised on the prototype after review (one heading with a green tick, lead line, six-point two-column list, Subscribe only, proof and built-by lines). The decision record is the source for the build.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e3a2b76b
+kind: update
+occurred_at: 2026-11-11T07:21:57.704Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_c92ab0af.added
+    to: Spec approved (docs/specs/AIB-140p-newsletter-prompt.md)
+-->
+### claude-code updated this ticket
+
+11 Nov 2026: spec drafted at docs/specs/AIB-140p-newsletter-prompt.md, awaiting approval. Settled: subscribers stored in Firestore; the publisher transfers emails to Substack by hand weekly or monthly and marks them; a failed save alerts a Slack channel. Open in the spec: how the Slack alert is sent (the browser cannot hold the webhook) and which channel.
 <!-- /longclaw:event -->
