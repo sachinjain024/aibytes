@@ -45,6 +45,22 @@ test("the fourth report in a day is dropped, and yesterday's count is not", () =
   assert.equal(nextDay.count, 0);
 });
 
+test("client text cannot ping or link in Slack", () => {
+  const report = prepareReport({
+    auth,
+    data: {
+      code: "<!channel> <https://evil.example|Fix your webhook>",
+      page: "<@U123> & co",
+    },
+    day,
+  });
+  assert.equal(report.text.includes("<!channel>"), false);
+  assert.equal(report.text.includes("<https://"), false);
+  assert.equal(report.text.includes("<@U123>"), false);
+  assert.match(report.text, /code: &lt;!channel&gt; &lt;https:\/\/evil\.example\|Fix your webhook&gt;/);
+  assert.match(report.text, /page: &lt;@U123&gt; &amp; co/);
+});
+
 test("the message names the failure for a person to add the reader by hand", () => {
   const now = new Date("2026-11-11T09:00:00.000Z");
   const report = prepareReport({ auth, data: { code: "permission-denied", page: "/weekly/issue-17" }, day, now });

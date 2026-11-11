@@ -7,6 +7,7 @@ import subprocess
 import urllib.error
 import urllib.parse
 import urllib.request
+from datetime import timezone
 
 PROJECT = "ai-bytes-b42d2"
 DATABASE = "aibytes"
@@ -98,18 +99,14 @@ class Firestore:
 
     def mark(self, doc, until, now):
         """Set imported_at and imported_until. Other fields stay as they are."""
-        stamp = now.astimezone(timezone_utc()).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
+        stamp = now.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
         body = {"fields": {
             "imported_at": {"timestampValue": stamp},
             "imported_until": {"stringValue": until},
         }}
         query = urllib.parse.urlencode([
+            ("currentDocument.exists", "true"),
             ("updateMask.fieldPaths", "imported_at"),
             ("updateMask.fieldPaths", "imported_until"),
         ])
         self._call("PATCH", "https://firestore.googleapis.com/v1/" + doc["name"] + "?" + query, body)
-
-
-def timezone_utc():
-    from datetime import timezone
-    return timezone.utc

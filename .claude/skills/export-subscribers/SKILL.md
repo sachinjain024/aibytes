@@ -9,7 +9,7 @@ The commands live in `packages/subscribers/subscribers.py`. This skill is the ro
 
 The CSV must stay outside the repository. `--output` under the repo is refused, because the file holds email addresses and the repo is public.
 
-1. Export through the cut-off day. Pick a path outside the repo, such as `~/Downloads/`.
+1. Export through a cut-off day that has already ended in Asia/Kolkata. A day that is still open is refused, so someone who subscribes after the export cannot be marked with that file. Pick a path outside the repo, such as `~/Downloads/`.
 
 ```bash
 python3 .claude/skills/export-subscribers/scripts/export_subscribers.py export --until YYYY-MM-DD --output ~/Downloads/aibytes-subscribers-YYYY-MM-DD.csv

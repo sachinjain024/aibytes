@@ -11,6 +11,11 @@ function clean(value, max) {
   return String(value ?? "").replace(/[\u0000-\u001f\u007f]/g, " ").replace(/\s+/g, " ").trim().slice(0, max);
 }
 
+/** Slack mrkdwn treats <...> as a link or a broadcast. Escape after clean(). */
+function slack(value) {
+  return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
 /** Today's count. A stored count from another day does not carry over. */
 function countToday(stored, day) {
   if (!stored || stored.day !== day) return 0;
@@ -32,10 +37,10 @@ function prepareReport({ auth, data = {}, stored, day, now = new Date() }) {
   const time = now.toISOString();
   const text = [
     "aibytes.io: a newsletter subscribe failed",
-    `email: ${email}`,
-    `uid: ${auth.uid}`,
-    `code: ${code}`,
-    `page: ${page}`,
+    `email: ${slack(email)}`,
+    `uid: ${slack(auth.uid)}`,
+    `code: ${slack(code)}`,
+    `page: ${slack(page)}`,
     `time: ${time}`,
   ].join("\n");
   return { ok: true, email, uid: auth.uid, code, page, count, text };

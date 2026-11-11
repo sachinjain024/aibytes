@@ -29,6 +29,7 @@ export function failureReport(result, page) {
 
 /** offer → saving → thanks | failed, then the countdown 3, 2, 1, closed. */
 export function promptReducer(state, action) {
+  if (!state) return state;
   switch (action.type) {
     case "subscribe":
       return state.status === "offer" || state.status === "failed" ? { status: "saving" } : state;

@@ -20,6 +20,12 @@ def cutoff(until):
     return start.astimezone(timezone.utc)
 
 
+def day_has_ended(until, now):
+    """True once `until` is a finished Asia/Kolkata day, so the set cannot grow."""
+    moment = now if now.tzinfo else now.replace(tzinfo=timezone.utc)
+    return moment >= cutoff(until)
+
+
 def _when(value):
     text = value.replace("Z", "+00:00")
     if text[-3] == ":":

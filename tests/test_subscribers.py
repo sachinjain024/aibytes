@@ -133,6 +133,7 @@ class CommandTests(unittest.TestCase):
         self.assertIn("marked: 2", self.out.getvalue())
         marked = {url.split("/subscribers/")[1].split("?")[0] for url, _body in self.store.patches}
         self.assertEqual(marked, {"early", "late"})
+        self.assertTrue(all("currentDocument.exists=true" in url for url, _body in self.store.patches))
         for _url, body in self.store.patches:
             self.assertEqual(body["fields"]["imported_until"]["stringValue"], "2026-11-30")
         self.out.seek(0)
@@ -140,6 +141,26 @@ class CommandTests(unittest.TestCase):
         self.assertEqual(self.run_cli(["export", "--until", "2026-11-30", "--output", self.output]), 0)
         self.assertIn("exported: 0", self.out.getvalue())
         self.assertEqual(pathlib.Path(self.output).read_text().splitlines(), ["email,subscribed_at"])
+
+    def test_an_open_day_is_refused_so_a_later_subscriber_is_not_marked(self):
+        late = doc("after", "after@example.com", "2026-11-12T04:00:00Z")
+        self.store.docs.append(late)
+        during = datetime(2026, 11, 12, 6, tzinfo=timezone.utc)
+        code = main(
+            ["mark-imported", "--until", "2026-11-30", "--yes"],
+            token="test-token", transport=self.store, now=during, repo=REPO, stdout=self.out,
+        )
+        self.assertEqual(code, 1)
+        self.assertEqual(self.store.patches, [])
+        self.assertIn("has not ended", self.out.getvalue())
+        self.assertNotIn("after@example.com", self.out.getvalue())
+        self.out.seek(0)
+        self.out.truncate()
+        finished = datetime(2026, 11, 12, tzinfo=timezone.utc)
+        self.assertEqual(self.run_cli(["export", "--until", "2026-11-11", "--output", self.output]), 0)
+        # run_cli uses 1 Dec, which is after 11 Nov. The 12 Nov subscriber is out.
+        rows = pathlib.Path(self.output).read_text()
+        self.assertNotIn("after@example.com", rows)
 
     def test_status_prints_counts_only(self):
         self.assertEqual(self.run_cli(["status"]), 0)

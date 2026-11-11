@@ -74,9 +74,10 @@ python3 packages/feed-schema/validate.py
 # Hide one item from a published edition (moves the edition, index, and log together)
 python3 packages/feed-schema/hide.py ph-chatcut-2026-08-27 --reason "duplicate launch"
 
-# App subscribers (AIB-140p). --output must be outside this repo. Prints counts, never emails.
-python3 packages/subscribers/subscribers.py export --until 2026-11-30 --output ~/Downloads/aibytes-subscribers-2026-11-30.csv
-python3 packages/subscribers/subscribers.py mark-imported --until 2026-11-30 --yes
+# App subscribers (AIB-140p). --until must be a finished Asia/Kolkata day.
+# --output must be outside this repo. Prints counts, never emails.
+python3 packages/subscribers/subscribers.py export --until 2026-11-10 --output ~/Downloads/aibytes-subscribers-2026-11-10.csv
+python3 packages/subscribers/subscribers.py mark-imported --until 2026-11-10 --yes
 python3 packages/subscribers/subscribers.py status
 npm test --prefix functions
 

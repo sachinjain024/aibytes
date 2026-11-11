@@ -52,6 +52,11 @@ test("the countdown ticks 3, 2, 1 and then closes", () => {
   assert.deepEqual(step(one, "tick"), { status: "closed" });
 });
 
+test("a cleared prompt is left cleared", () => {
+  assert.equal(step(null, "saved"), null);
+  assert.equal(step(null, "failed"), null);
+});
+
 test("close leaves offer, failed and thanks, and not saving", () => {
   for (const status of ["offer", "failed", "thanks"]) {
     assert.deepEqual(step({ status, seconds: 2 }, "close"), { status: "closed" });

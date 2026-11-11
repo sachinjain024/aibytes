@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from aibytes_subscribers.firestore import AuthError, Firestore, gcloud_token
-from aibytes_subscribers.select import outside_repo, select_pending, status_lines, write_csv
+from aibytes_subscribers.select import day_has_ended, outside_repo, select_pending, status_lines, write_csv
 
 REPO = Path(__file__).resolve().parents[2]
 
@@ -35,6 +35,10 @@ def main(argv=None, token=None, transport=None, now=None, repo=None, stdout=None
                 print(line, file=out)
             return 0
         _check_date(args.until)
+        moment = now or datetime.now(timezone.utc)
+        if not day_has_ended(args.until, moment):
+            print("Refusing --until %s: that day has not ended in Asia/Kolkata." % args.until, file=out)
+            return 1
         pending = select_pending(client.subscribers(), args.until)
         if args.command == "export":
             if not outside_repo(args.output, root):
@@ -47,7 +51,6 @@ def main(argv=None, token=None, transport=None, now=None, repo=None, stdout=None
         if not args.yes:
             print("Refusing to mark %d subscribers without --yes." % len(pending), file=out)
             return 1
-        moment = now or datetime.now(timezone.utc)
         for doc in pending:
             client.mark(doc, args.until, moment)
         print("marked: %d" % len(pending), file=out)
