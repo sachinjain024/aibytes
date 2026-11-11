@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-11T08:26:27.884Z
+updated_at: 2026-11-11T08:30:21.281Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -37,8 +37,8 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 - [x] 2. Spec approved (docs/specs/AIB-140p-newsletter-prompt.md) <!-- longclaw:item=ck_c92ab0af -->
 - [x] 3. Plan approved (docs/plans/AIB-140p-plan.md, docs/plans/AIB-140p-todo.md) <!-- longclaw:item=ck_2dce347a -->
 - [ ] 4. ledger-dialog <!-- longclaw:item=ck_987e227c -->
-- [ ] 4.1 T1: the success colour token <!-- longclaw:item=ck_a4fa1bf1 -->
-- [ ] 4.2 T2: the Dialog component <!-- longclaw:item=ck_1b7db57f -->
+- [x] 4.1 T1: the success colour token <!-- longclaw:item=ck_a4fa1bf1 -->
+- [x] 4.2 T2: the Dialog component <!-- longclaw:item=ck_1b7db57f -->
 - [ ] 4.3 T3: the UI kit screen <!-- longclaw:item=ck_16bb5cb2 -->
 - [ ] 4.4 Checkpoint A: kit screen reviewed <!-- longclaw:item=ck_5fbcd63a -->
 - [ ] 5. subscriber-store <!-- longclaw:item=ck_5182fbf9 -->
@@ -466,6 +466,36 @@ actor:
 changes:
   - field: checklist.ck_051862d9.removed
     from: "Privacy page updated: the app stores the subscription and passes the email to Substack"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f7fc5ae1
+kind: update
+occurred_at: 2026-11-11T08:29:55.497Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_a4fa1bf1.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_de6a6ed9
+kind: update
+occurred_at: 2026-11-11T08:30:21.281Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_1b7db57f.checked
+    from: "false"
+    to: "true"
 -->
 ### claude-code updated this ticket
 <!-- /longclaw:event -->

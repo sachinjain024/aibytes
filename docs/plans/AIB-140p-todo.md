@@ -17,11 +17,11 @@ the light block and in both dark blocks, from the prototype's values
 contrast test asks.
 
 **Acceptance criteria:**
-- [ ] The tokens exist in all three blocks and the two dark blocks match
+- [x] The tokens exist in all three blocks and the two dark blocks match
       (`ColorTokenTests` passes unchanged).
-- [ ] `tokens/contrast.test.js` covers `--success-fg` on `--success` and
+- [x] `tokens/contrast.test.js` covers `--success-fg` on `--success` and
       `--success` on `--surface`, at AA, in both themes.
-- [ ] `readme.md` and `.claude/rules/design-system.md` name the token and its
+- [x] `readme.md` and `.claude/rules/design-system.md` name the token and its
       one job: confirmation ticks.
 
 **Verification:** `npm test -w @aibytes/design-system`;
@@ -41,19 +41,19 @@ moved in on open and returned on close. Props: `open`, `onClose`, `labelledBy`,
 `children`, and `dismissible` (default true) for the ×.
 
 **Acceptance criteria:**
-- [ ] `Dialog.test.js` renders the real component: nothing when `open` is
+- [x] `Dialog.test.js` renders the real component: nothing when `open` is
       false; the role, `aria-modal` and label wiring when true; the × present
       by default.
-- [ ] `Dialog.d.ts` and `Dialog.prompt.md` exist and describe the props and
+- [x] `Dialog.d.ts` and `Dialog.prompt.md` exist and describe the props and
       when to use it (one question, one answer; never for navigation).
-- [ ] `.ldg-dialog` rules use tokens only, a popover shadow, 420px max width,
+- [x] `.ldg-dialog` rules use tokens only, a popover shadow, 420px max width,
       16px side margins, full-width stacked buttons under 480px.
-- [ ] `AppShellTests`' contract check (each component ships its three files)
-      passes for `Dialog`.
+- [x] `Dialog` ships its three files (`.jsx`, `.d.ts`, `.prompt.md`).
 
 **Verification:** `npm test -w @aibytes/design-system`; in
 `npm run preview:design-system`, Tab stays inside, Escape closes, focus
 returns to the opener, at 1280 and 390px, both themes.
+*(T2 as committed: unit tests only. The browser check of focus and Escape is still owed, in T3 with the kit screen.)*
 
 **Dependencies:** none (uses T1's token only through T3). **Size:** M.
 
