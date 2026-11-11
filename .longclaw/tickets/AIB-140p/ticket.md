@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-11T12:25:35.327Z
+updated_at: 2026-11-11T12:25:48.224Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -50,7 +50,7 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 - [x] 6.2 T7: the prompt and its states <!-- longclaw:item=ck_e4791fdc -->
 - [x] 6.3 T8: the prompt in the app <!-- longclaw:item=ck_f2019c5e -->
 - [x] 6.4 T9: subscribed readers and the privacy page <!-- longclaw:item=ck_4646a5e5 -->
-- [ ] 6.5 Checkpoint C: whole flow checked by hand with a new account (P4) <!-- longclaw:item=ck_e5f3a473 -->
+- [x] 6.5 Checkpoint C: whole flow checked by hand with a new account (P4) <!-- longclaw:item=ck_e5f3a473 -->
 - [ ] 7. failure-alert <!-- longclaw:item=ck_73bfaa7a -->
 - [x] 7.1 T10: the Cloud Function <!-- longclaw:item=ck_af74414b -->
 - [x] 7.2 T11: the app reports a failure <!-- longclaw:item=ck_4a1a70dc -->
@@ -774,4 +774,21 @@ changes:
     to: "true"
 -->
 ### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_2df32bfe
+kind: update
+occurred_at: 2026-11-11T12:25:48.224Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_e5f3a473.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+11 Nov 2026: Checkpoint C done by the publisher in Chrome: new account, dialog, Subscribe, thank-you and the rest of the flow worked. In Arc the Google popup opens as a tab; that is the browser's behaviour, not the app's.
 <!-- /longclaw:event -->
