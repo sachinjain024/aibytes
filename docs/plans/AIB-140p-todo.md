@@ -372,11 +372,11 @@ ticket's items are ticked with the CLI. The PR description is rewritten for
 the whole feature.
 
 **Acceptance criteria:**
-- [ ] The spec's thirteen success criteria are each checked off in the PR
+- [x] The spec's thirteen success criteria are each checked off in the PR
       description, with how each was checked.
-- [ ] No webhook and no real email anywhere in the repo or `apps/web/dist`
+- [x] No webhook and no real email anywhere in the repo or `apps/web/dist`
       (grep).
-- [ ] The publisher's steps P1-P5 are listed in the PR as done or pending.
+- [x] The publisher's steps P1-P5 are listed in the PR as done or pending.
 
 **Verification:** the full checkpoint; the by-hand matrix from the spec at
 1280 and 390px in both themes.

@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-11T12:18:10.323Z
+updated_at: 2026-11-11T12:21:38.322Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -36,7 +36,7 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 - [x] 1. Design options for the prompt (aibytes-design) and a decision record <!-- longclaw:item=ck_69e2182d -->
 - [x] 2. Spec approved (docs/specs/AIB-140p-newsletter-prompt.md) <!-- longclaw:item=ck_c92ab0af -->
 - [x] 3. Plan approved (docs/plans/AIB-140p-plan.md, docs/plans/AIB-140p-todo.md) <!-- longclaw:item=ck_2dce347a -->
-- [ ] 4. ledger-dialog <!-- longclaw:item=ck_987e227c -->
+- [x] 4. ledger-dialog <!-- longclaw:item=ck_987e227c -->
 - [x] 4.1 T1: the success colour token <!-- longclaw:item=ck_a4fa1bf1 -->
 - [x] 4.2 T2: the Dialog component <!-- longclaw:item=ck_1b7db57f -->
 - [x] 4.3 T3: the UI kit screen <!-- longclaw:item=ck_16bb5cb2 -->
@@ -61,7 +61,7 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 - [x] 8.2 T13: the export skill <!-- longclaw:item=ck_34cf4929 -->
 - [ ] 8.3 P5 (publisher): gcloud login and a first status run <!-- longclaw:item=ck_154094be -->
 - [ ] 9. Wrap-up <!-- longclaw:item=ck_38720bda -->
-- [ ] 9.1 T14: repo docs, the ticket and the final checks <!-- longclaw:item=ck_81941b17 -->
+- [x] 9.1 T14: repo docs, the ticket and the final checks <!-- longclaw:item=ck_81941b17 -->
 - [ ] 9.2 T15: Dialog synced to the Design System Artifact <!-- longclaw:item=ck_3ce9eecc -->
 - [ ] 10. PR #64 squash-merged <!-- longclaw:item=ck_c9cc0057 -->
 
@@ -725,6 +725,36 @@ actor:
   id: grok
 changes:
   - field: checklist.ck_34cf4929.checked
+    from: "false"
+    to: "true"
+-->
+### grok updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_5b167a4a
+kind: update
+occurred_at: 2026-11-11T12:21:38.295Z
+actor:
+  type: agent
+  id: grok
+changes:
+  - field: checklist.ck_987e227c.checked
+    from: "false"
+    to: "true"
+-->
+### grok updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_48dba009
+kind: update
+occurred_at: 2026-11-11T12:21:38.322Z
+actor:
+  type: agent
+  id: grok
+changes:
+  - field: checklist.ck_81941b17.checked
     from: "false"
     to: "true"
 -->
