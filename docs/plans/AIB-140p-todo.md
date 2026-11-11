@@ -122,12 +122,12 @@ or `{ failed: code }`, never rejects, with the 10 s limit and the
 read-back-on-refusal rule; `isSubscribed(db, uid)` resolves to a boolean.
 
 **Acceptance criteria:**
-- [ ] On the emulator: `subscribe` creates the document; a second call
+- [x] On the emulator: `subscribe` creates the document; a second call
       resolves `"ok"` without changing it; `isSubscribed` is false before and
       true after.
-- [ ] With a write that never settles, `subscribe` resolves
+- [x] With a write that never settles, `subscribe` resolves
       `{ failed: "timeout" }` after the limit (injected clock, no real wait).
-- [ ] A refused write on a missing document resolves
+- [x] A refused write on a missing document resolves
       `{ failed: "permission-denied" }`.
 
 **Verification:** `npm run test:rules -w @aibytes/web` (the emulator test
@@ -140,7 +140,7 @@ file is added to that script); `npm test -w @aibytes/web`.
 
 ### Checkpoint B: after T5
 
-- [ ] Rules and store tests pass on the emulator.
+- [x] Rules and store tests pass on the emulator.
 - [ ] The publisher deploys the rules (P1) so later by-hand checks can write.
 
 ## Module 3: `signin-prompt`

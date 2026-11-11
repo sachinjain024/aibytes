@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-11T08:53:18.893Z
+updated_at: 2026-11-11T09:00:04.966Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -43,7 +43,7 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 - [x] 4.4 Checkpoint A: kit screen reviewed <!-- longclaw:item=ck_5fbcd63a -->
 - [ ] 5. subscriber-store <!-- longclaw:item=ck_5182fbf9 -->
 - [x] 5.1 T4: the subscriber document and its rules <!-- longclaw:item=ck_6da75777 -->
-- [ ] 5.2 T5: the client's write and read <!-- longclaw:item=ck_67dd3c88 -->
+- [x] 5.2 T5: the client's write and read <!-- longclaw:item=ck_67dd3c88 -->
 - [ ] 5.3 P1 (publisher): Firestore rules deployed <!-- longclaw:item=ck_58969123 -->
 - [ ] 6. signin-prompt <!-- longclaw:item=ck_0c3a870b -->
 - [ ] 6.1 T6: the new-account signal <!-- longclaw:item=ck_b8829929 -->
@@ -554,6 +554,21 @@ actor:
   id: grok
 changes:
   - field: checklist.ck_6da75777.checked
+    from: "false"
+    to: "true"
+-->
+### grok updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_b6543bee
+kind: update
+occurred_at: 2026-11-11T09:00:04.966Z
+actor:
+  type: agent
+  id: grok
+changes:
+  - field: checklist.ck_67dd3c88.checked
     from: "false"
     to: "true"
 -->
