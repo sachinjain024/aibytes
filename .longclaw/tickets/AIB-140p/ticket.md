@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-11T13:57:17.523Z
+updated_at: 2026-11-11T16:37:58.356Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -63,7 +63,6 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 - [x] 9. Wrap-up <!-- longclaw:item=ck_38720bda -->
 - [x] 9.1 T14: repo docs, the ticket and the final checks <!-- longclaw:item=ck_81941b17 -->
 - [x] 9.2 T15: Dialog synced to the Design System Artifact <!-- longclaw:item=ck_3ce9eecc -->
-- [ ] 10. PR #64 squash-merged <!-- longclaw:item=ck_c9cc0057 -->
 
 ## Ticket References
 
@@ -934,4 +933,18 @@ changes:
     to: "true"
 -->
 ### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_43b78f67
+kind: update
+occurred_at: 2026-11-11T16:37:58.356Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_c9cc0057.removed
+    from: "10. PR #64 squash-merged"
+-->
+### You updated this ticket
 <!-- /longclaw:event -->
