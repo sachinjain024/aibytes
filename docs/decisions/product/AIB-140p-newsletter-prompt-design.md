@@ -117,12 +117,18 @@ Saving the subscription in the app, in place of sending the reader to
 Substack, raised these. The answers, with the detail in
 `docs/specs/AIB-140p-newsletter-prompt.md`:
 
-- **Where it is saved:** Firestore.
-- **How a saved address reaches Substack:** the publisher moves them by hand,
-  weekly or monthly, and marks them as moved. A thanked reader gets their
-  first issue after the next transfer.
-- **When a save fails:** an alert goes to a Slack channel. How it is sent is
-  open in the spec, because the browser cannot hold the webhook.
+- **Where it is saved:** Firestore, one document per reader at the top level,
+  so the app can tell whether the signed-in reader is subscribed and stop
+  offering the newsletter to them.
+- **How a saved address reaches the newsletter platform:** the publisher asks
+  an agent for the subscribers up to a date, uploads that list, and tells the
+  agent it is done, which marks them imported. A thanked reader gets their
+  first issue after the next import.
+- **When a save fails:** the dialog shows a failure line with retry, and a
+  Firebase Cloud Function posts an alert to the daily runner's Slack channel.
+  Only that function is deployed from this repo; the project's other
+  functions are not touched.
+- **After the dialog is closed:** it is never shown again.
 - **Consent:** the click is the only opt-in; there is no confirmation email.
 - **The privacy page** (`/privacy`) must say the app stores the subscription
   and passes the email to Substack.
