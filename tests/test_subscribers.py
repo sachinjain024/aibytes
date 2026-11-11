@@ -16,6 +16,10 @@ from aibytes_subscribers.firestore import AUTH_FIX, AuthError, gcloud_token
 from aibytes_subscribers.select import cutoff, select_pending
 from subscribers import main
 
+SKILL = REPO / ".claude" / "skills" / "export-subscribers" / "scripts"
+sys.path.insert(0, str(SKILL))
+import export_subscribers  # noqa: E402
+
 
 def doc(name, email, created_at, imported_at=None, imported_until=None):
     return {
@@ -164,6 +168,42 @@ class AuthTests(unittest.TestCase):
         self.assertEqual(code, 1)
         self.assertIn(AUTH_FIX, out.getvalue())
         self.assertEqual(out.getvalue().count("\n"), 1)
+
+
+class SkillTests(unittest.TestCase):
+    def test_the_script_exports_marks_and_reports_status(self):
+        store = Store([
+            doc("late", "late@example.com", IN_DAY),
+            doc("next", "next@example.com", NEXT_MIDNIGHT),
+            doc("done", "done@example.com", EARLIER, imported_at="2026-11-12T00:00:00Z", imported_until="2026-11-11"),
+            doc("early", "early@example.com", EARLIER),
+        ])
+        out = io.StringIO()
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        output = str(pathlib.Path(tmp.name) / "subscribers.csv")
+        common = dict(token="test-token", transport=store, now=datetime(2026, 12, 1, tzinfo=timezone.utc), repo=REPO, stdout=out)
+        self.assertEqual(export_subscribers.main(["export", "--until", "2026-11-30", "--output", output], **common), 0)
+        self.assertEqual(export_subscribers.main(["mark-imported", "--until", "2026-11-30", "--yes"], **common), 0)
+        self.assertEqual(export_subscribers.main(["status"], **common), 0)
+        text = out.getvalue()
+        self.assertIn("exported: 2", text)
+        self.assertIn("marked: 2", text)
+        self.assertIn("imported: 3", text)
+        self.assertIn("pending: 1", text)
+        self.assertNotIn("example.com", text)
+        self.assertTrue(pathlib.Path(output).is_file())
+
+    def test_the_skill_is_the_agents_symlink_and_keeps_emails_out_of_the_routine(self):
+        link = REPO / ".agents" / "skills"
+        self.assertTrue(link.is_symlink())
+        text = (link / "export-subscribers" / "SKILL.md").read_text()
+        self.assertIn("name: export-subscribers", text)
+        self.assertIn("description:", text)
+        self.assertIn("outside the repository", text)
+        self.assertIn("Never print", text)
+        self.assertFalse((REPO / ".agents" / "skills" / "export-subscribers").is_symlink())
+        self.assertEqual((link / "export-subscribers" / "SKILL.md").resolve(), (REPO / ".claude" / "skills" / "export-subscribers" / "SKILL.md").resolve())
 
 
 @unittest.skipIf(os.environ.get("AIBYTES_SKIP_LIVE") == "1" or shutil.which("gcloud") is None, "needs gcloud and a live project")

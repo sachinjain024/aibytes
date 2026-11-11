@@ -342,11 +342,11 @@ routine: export, hand over the path, wait for "imported", mark, show status)
 and a thin `scripts/export_subscribers.py` over the package.
 
 **Acceptance criteria:**
-- [ ] The skill script is covered in `tests/test_subscribers.py` end to end
+- [x] The skill script is covered in `tests/test_subscribers.py` end to end
       with the fake transport and a temp output dir.
-- [ ] `SKILL.md` has name and description frontmatter, says the file must
+- [x] `SKILL.md` has name and description frontmatter, says the file must
       stay outside the repo, and never asks the agent to print emails.
-- [ ] The skill appears through `.agents/skills` (the symlink), with no real
+- [x] The skill appears through `.agents/skills` (the symlink), with no real
       file under `.agents/`.
 
 **Verification:** the Python suite.
