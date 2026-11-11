@@ -408,3 +408,10 @@ artifact opened and checked.
 
 **Files:** `packages/design-system/artifact/previews.mjs`, `build.test.js`,
 `README.md`.
+
+## Closed 11 Nov 2026
+
+The live run of the subscriber export (P5: `gcloud auth login`, the first `status` and
+export) moved to AIB-144b. The export package and skill (T12, T13) stay in this
+PR, tested against a fake Firestore transport only. The `firebase-functions`
+upgrade is AIB-143m. The PR merge is the one step left.

@@ -3,14 +3,14 @@ format: longclaw.ticket/v1
 id: 65689d76-3a4e-4e2c-805f-480520818265
 key: AIB-140p
 title: Offer the weekly newsletter after a reader's first Google sign-in
-status: in_progress
+status: done
 priority: p2
 rank: a0
 labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-11T12:49:11.038Z
+updated_at: 2026-11-11T13:57:17.523Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -56,10 +56,10 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 - [x] 7.2 T11: the app reports a failure <!-- longclaw:item=ck_4a1a70dc -->
 - [x] 7.3 P2 (publisher): Slack webhook secret set <!-- longclaw:item=ck_d690a95f -->
 - [x] 7.4 P3 (publisher): function deployed, other functions unchanged <!-- longclaw:item=ck_9d071603 -->
-- [ ] 8. subscriber-export <!-- longclaw:item=ck_631102b3 -->
+- [x] 8. subscriber-export <!-- longclaw:item=ck_631102b3 -->
 - [x] 8.1 T12: the export package <!-- longclaw:item=ck_b49ce702 -->
 - [x] 8.2 T13: the export skill <!-- longclaw:item=ck_34cf4929 -->
-- [ ] 8.3 P5 (publisher): gcloud login and a first status run <!-- longclaw:item=ck_154094be -->
+- [x] 8.3 P5 (publisher): gcloud login and a first status run. Moved to AIB-144b; the export tool ships untested against the live database <!-- longclaw:item=ck_154094be -->
 - [x] 9. Wrap-up <!-- longclaw:item=ck_38720bda -->
 - [x] 9.1 T14: repo docs, the ticket and the final checks <!-- longclaw:item=ck_81941b17 -->
 - [x] 9.2 T15: Dialog synced to the Design System Artifact <!-- longclaw:item=ck_3ce9eecc -->
@@ -872,4 +872,66 @@ changes:
 ### claude-code updated this ticket
 
 11 Nov 2026: P3 done. Scoped deploy of the aibytes-web codebase, no force, non-interactive. Functions before: 13, after: 14. The only difference is aibytesReportSubscribeFailure added; the other 13 are unchanged.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_c4328510
+kind: update
+occurred_at: 2026-11-11T13:57:09.431Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: status
+    from: in_progress
+    to: done
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_a4b2c43c
+kind: update
+occurred_at: 2026-11-11T13:57:17.338Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_154094be.text
+    from: "8.3 P5 (publisher): gcloud login and a first status run"
+    to: "8.3 P5 (publisher): gcloud login and a first status run. Moved to AIB-144b; the export tool ships untested against the live database"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_402acbe6
+kind: update
+occurred_at: 2026-11-11T13:57:17.435Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_154094be.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+11 Nov 2026: the live export run is out of scope for this ticket and moved to AIB-144b. The tool is built and tested against a fake Firestore transport only. The firebase-functions upgrade is AIB-143m. Closing this ticket; the PR merge (item 10) is the publisher's.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_088a4e0c
+kind: update
+occurred_at: 2026-11-11T13:57:17.523Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_631102b3.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
 <!-- /longclaw:event -->
