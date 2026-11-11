@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-11T11:20:00.473Z
+updated_at: 2026-11-11T11:44:34.578Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -44,7 +44,7 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 - [ ] 5. subscriber-store <!-- longclaw:item=ck_5182fbf9 -->
 - [x] 5.1 T4: the subscriber document and its rules <!-- longclaw:item=ck_6da75777 -->
 - [x] 5.2 T5: the client's write and read <!-- longclaw:item=ck_67dd3c88 -->
-- [ ] 5.3 P1 (publisher): Firestore rules deployed <!-- longclaw:item=ck_58969123 -->
+- [x] 5.3 P1 (publisher): Firestore rules deployed <!-- longclaw:item=ck_58969123 -->
 - [ ] 6. signin-prompt <!-- longclaw:item=ck_0c3a870b -->
 - [x] 6.1 T6: the new-account signal <!-- longclaw:item=ck_b8829929 -->
 - [x] 6.2 T7: the prompt and its states <!-- longclaw:item=ck_e4791fdc -->
@@ -637,4 +637,21 @@ changes:
     to: "true"
 -->
 ### grok updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e58664e6
+kind: update
+occurred_at: 2026-11-11T11:44:34.578Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_58969123.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+11 Nov 2026: P1 done. The publisher deployed the Firestore rules (including subscribers/{uid}) to ai-bytes-b42d2 with firebase deploy --only firestore:rules. Compiled and released.
 <!-- /longclaw:event -->
