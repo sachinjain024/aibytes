@@ -1,9 +1,12 @@
 rules_version = '2';
 
-// aibytes.io saves (spec AIB-75v app-accounts). A signed-in reader reads and
-// writes only their own users/{uid}/saves, and every document written is exactly
-// a save, so the collection cannot be used as free storage. Everything else is
-// closed. Tested on the emulator by apps/web/rules.test.js; deployed by hand:
+// aibytes.io saves (spec AIB-75v app-accounts) and newsletter subscribers
+// (spec AIB-140p). A signed-in reader reads and writes only their own
+// users/{uid}/saves, and every document written is exactly a save. They
+// subscribe themselves once at subscribers/{uid}, with their verified email,
+// and can read that one document back. Everything else is closed, including
+// alert_limits, which only a function may touch. Tested on the emulator by
+// apps/web/rules.test.js; deployed by hand:
 //   firebase deploy --only firestore:rules --project <project-id>
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -26,6 +29,23 @@ service cloud.firestore {
     match /users/{uid}/saves/{itemId} {
       allow read, delete: if isOwner(uid);
       allow create, update: if isOwner(uid) && isSave(request.resource.data, itemId);
+    }
+
+    // A reader subscribes themselves, once, with their own verified Google email.
+    // They can read their own document, which is how the app knows they are
+    // subscribed; nobody can list, change or delete from a client. The export
+    // tool marks imports with the publisher's own Google credentials, which
+    // bypass these rules.
+    function isSubscriber(d) {
+      return d.keys().hasOnly(['email', 'source', 'created_at'])
+        && d.email == request.auth.token.email && request.auth.token.email_verified == true
+        && d.source == 'signin-prompt'
+        && d.created_at == request.time;
+    }
+
+    match /subscribers/{uid} {
+      allow get: if isOwner(uid);
+      allow create: if isOwner(uid) && isSubscriber(request.resource.data);
     }
   }
 }

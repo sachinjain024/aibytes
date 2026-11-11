@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-11T08:44:26.918Z
+updated_at: 2026-11-11T08:53:18.893Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -40,9 +40,9 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 - [x] 4.1 T1: the success colour token <!-- longclaw:item=ck_a4fa1bf1 -->
 - [x] 4.2 T2: the Dialog component <!-- longclaw:item=ck_1b7db57f -->
 - [x] 4.3 T3: the UI kit screen <!-- longclaw:item=ck_16bb5cb2 -->
-- [ ] 4.4 Checkpoint A: kit screen reviewed <!-- longclaw:item=ck_5fbcd63a -->
+- [x] 4.4 Checkpoint A: kit screen reviewed <!-- longclaw:item=ck_5fbcd63a -->
 - [ ] 5. subscriber-store <!-- longclaw:item=ck_5182fbf9 -->
-- [ ] 5.1 T4: the subscriber document and its rules <!-- longclaw:item=ck_6da75777 -->
+- [x] 5.1 T4: the subscriber document and its rules <!-- longclaw:item=ck_6da75777 -->
 - [ ] 5.2 T5: the client's write and read <!-- longclaw:item=ck_67dd3c88 -->
 - [ ] 5.3 P1 (publisher): Firestore rules deployed <!-- longclaw:item=ck_58969123 -->
 - [ ] 6. signin-prompt <!-- longclaw:item=ck_0c3a870b -->
@@ -526,4 +526,36 @@ actor:
 ### grok commented
 
 11 Nov 2026: T3 landed. Screen 15-newsletter-prompt.html shows the signed-in app with Dialog open on the final copy. Checkpoint A is waiting on a review of that screen before the app work.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8b4132d4
+kind: update
+occurred_at: 2026-11-11T08:53:18.872Z
+actor:
+  type: agent
+  id: grok
+changes:
+  - field: checklist.ck_5fbcd63a.checked
+    from: "false"
+    to: "true"
+-->
+### grok updated this ticket
+
+11 Nov 2026: Checkpoint A reviewed. The kit screen looks right in light and dark.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8d6cae5b
+kind: update
+occurred_at: 2026-11-11T08:53:18.893Z
+actor:
+  type: agent
+  id: grok
+changes:
+  - field: checklist.ck_6da75777.checked
+    from: "false"
+    to: "true"
+-->
+### grok updated this ticket
 <!-- /longclaw:event -->

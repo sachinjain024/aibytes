@@ -87,7 +87,7 @@ matches the decision record's layout in both themes.
 
 - [x] Ledger and Python suites pass; `npm run build:web` is unchanged in
       behaviour (the app does not use `Dialog` yet).
-- [ ] Review the kit screen with the publisher before the app work.
+- [x] Review the kit screen with the publisher before the app work.
 
 ## Module 2: `subscriber-store`
 
@@ -98,13 +98,13 @@ matches the decision record's layout in both themes.
 now)`.
 
 **Acceptance criteria:**
-- [ ] On the emulator: the owner creates their document with their token's
+- [x] On the emulator: the owner creates their document with their token's
       verified email and `serverTimestamp()`, and can `get` it.
-- [ ] Refused: another email, an unverified email, an extra field, a wrong
+- [x] Refused: another email, an unverified email, an extra field, a wrong
       `source`, a client-set `imported_at` or `imported_until`, another
       reader's uid, signed out, update, delete, list.
-- [ ] Refused: any client read or write of `alert_limits`.
-- [ ] `subscriber.test.js` covers the document's shape and that a user with
+- [x] Refused: any client read or write of `alert_limits`.
+- [x] `subscriber.test.js` covers the document's shape and that a user with
       no email throws.
 
 **Verification:** `npm run test:rules -w @aibytes/web`;
