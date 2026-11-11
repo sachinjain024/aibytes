@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-07T18:34:46.510Z
-updated_at: 2026-11-11T08:18:19.504Z
+updated_at: 2026-11-11T08:26:27.884Z
 ---
 
 Fast follow-up to AIB-75v (app-accounts): after a reader signs in with Google for the first time, offer the weekly newsletter.
@@ -33,14 +33,37 @@ Depends on AIB-75v module 4 (`app-accounts`) being merged.
 
 ## Checklist
 
-- [x] Design options for the prompt (aibytes-design) and a decision record <!-- longclaw:item=ck_69e2182d -->
-- [ ] Ledger Dialog component with tests and a UI kit screen <!-- longclaw:item=ck_2210eb45 -->
-- [ ] Prompt wired to the new-account signal in apps/web <!-- longclaw:item=ck_2cc310fa -->
-- [ ] Subscribe saves the reader's email to the database (storage, security rule, failure state) <!-- longclaw:item=ck_667f8257 -->
-- [ ] A way to get saved subscriber emails into Substack <!-- longclaw:item=ck_bf023510 -->
-- [ ] Privacy page updated: the app stores the subscription and passes the email to Substack <!-- longclaw:item=ck_051862d9 -->
-- [x] Spec approved (docs/specs/AIB-140p-newsletter-prompt.md) <!-- longclaw:item=ck_c92ab0af -->
-- [ ] Plan approved (docs/plans/AIB-140p-plan.md, docs/plans/AIB-140p-todo.md) <!-- longclaw:item=ck_2dce347a -->
+- [x] 1. Design options for the prompt (aibytes-design) and a decision record <!-- longclaw:item=ck_69e2182d -->
+- [x] 2. Spec approved (docs/specs/AIB-140p-newsletter-prompt.md) <!-- longclaw:item=ck_c92ab0af -->
+- [x] 3. Plan approved (docs/plans/AIB-140p-plan.md, docs/plans/AIB-140p-todo.md) <!-- longclaw:item=ck_2dce347a -->
+- [ ] 4. ledger-dialog <!-- longclaw:item=ck_987e227c -->
+- [ ] 4.1 T1: the success colour token <!-- longclaw:item=ck_a4fa1bf1 -->
+- [ ] 4.2 T2: the Dialog component <!-- longclaw:item=ck_1b7db57f -->
+- [ ] 4.3 T3: the UI kit screen <!-- longclaw:item=ck_16bb5cb2 -->
+- [ ] 4.4 Checkpoint A: kit screen reviewed <!-- longclaw:item=ck_5fbcd63a -->
+- [ ] 5. subscriber-store <!-- longclaw:item=ck_5182fbf9 -->
+- [ ] 5.1 T4: the subscriber document and its rules <!-- longclaw:item=ck_6da75777 -->
+- [ ] 5.2 T5: the client's write and read <!-- longclaw:item=ck_67dd3c88 -->
+- [ ] 5.3 P1 (publisher): Firestore rules deployed <!-- longclaw:item=ck_58969123 -->
+- [ ] 6. signin-prompt <!-- longclaw:item=ck_0c3a870b -->
+- [ ] 6.1 T6: the new-account signal <!-- longclaw:item=ck_b8829929 -->
+- [ ] 6.2 T7: the prompt and its states <!-- longclaw:item=ck_e4791fdc -->
+- [ ] 6.3 T8: the prompt in the app <!-- longclaw:item=ck_f2019c5e -->
+- [ ] 6.4 T9: subscribed readers and the privacy page <!-- longclaw:item=ck_4646a5e5 -->
+- [ ] 6.5 Checkpoint C: whole flow checked by hand with a new account (P4) <!-- longclaw:item=ck_e5f3a473 -->
+- [ ] 7. failure-alert <!-- longclaw:item=ck_73bfaa7a -->
+- [ ] 7.1 T10: the Cloud Function <!-- longclaw:item=ck_af74414b -->
+- [ ] 7.2 T11: the app reports a failure <!-- longclaw:item=ck_4a1a70dc -->
+- [ ] 7.3 P2 (publisher): Slack webhook secret set <!-- longclaw:item=ck_d690a95f -->
+- [ ] 7.4 P3 (publisher): function deployed, other functions unchanged <!-- longclaw:item=ck_9d071603 -->
+- [ ] 8. subscriber-export <!-- longclaw:item=ck_631102b3 -->
+- [ ] 8.1 T12: the export package <!-- longclaw:item=ck_b49ce702 -->
+- [ ] 8.2 T13: the export skill <!-- longclaw:item=ck_34cf4929 -->
+- [ ] 8.3 P5 (publisher): gcloud login and a first status run <!-- longclaw:item=ck_154094be -->
+- [ ] 9. Wrap-up <!-- longclaw:item=ck_38720bda -->
+- [ ] 9.1 T14: repo docs, the ticket and the final checks <!-- longclaw:item=ck_81941b17 -->
+- [ ] 9.2 T15: Dialog synced to the Design System Artifact <!-- longclaw:item=ck_3ce9eecc -->
+- [ ] 10. PR #64 squash-merged <!-- longclaw:item=ck_c9cc0057 -->
 
 ## Ticket References
 
@@ -257,4 +280,192 @@ changes:
 ### claude-code updated this ticket
 
 11 Nov 2026: plan and task list drafted, awaiting approval. 14 tasks in five modules on branch AIB-140p, PR #64. The spec's deploy command is amended to the documented codebase form.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8aaa9d14
+kind: update
+occurred_at: 2026-11-11T08:26:13.365Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_69e2182d.text
+    from: Design options for the prompt (aibytes-design) and a decision record
+    to: 1. Design options for the prompt (aibytes-design) and a decision record
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_bd457663
+kind: update
+occurred_at: 2026-11-11T08:26:13.447Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_c92ab0af.text
+    from: Spec approved (docs/specs/AIB-140p-newsletter-prompt.md)
+    to: 2. Spec approved (docs/specs/AIB-140p-newsletter-prompt.md)
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_a6346157
+kind: update
+occurred_at: 2026-11-11T08:26:13.522Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_2dce347a.text
+    from: Plan approved (docs/plans/AIB-140p-plan.md, docs/plans/AIB-140p-todo.md)
+    to: 3. Plan approved (docs/plans/AIB-140p-plan.md, docs/plans/AIB-140p-todo.md)
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8cc534c2
+kind: update
+occurred_at: 2026-11-11T08:26:13.602Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_2dce347a.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_987e227c.added
+    to: 4. ledger-dialog
+  - field: checklist.ck_a4fa1bf1.added
+    to: "4.1 T1: the success colour token"
+  - field: checklist.ck_1b7db57f.added
+    to: "4.2 T2: the Dialog component"
+  - field: checklist.ck_16bb5cb2.added
+    to: "4.3 T3: the UI kit screen"
+  - field: checklist.ck_5fbcd63a.added
+    to: "4.4 Checkpoint A: kit screen reviewed"
+  - field: checklist.ck_5182fbf9.added
+    to: 5. subscriber-store
+  - field: checklist.ck_6da75777.added
+    to: "5.1 T4: the subscriber document and its rules"
+  - field: checklist.ck_67dd3c88.added
+    to: "5.2 T5: the client's write and read"
+  - field: checklist.ck_58969123.added
+    to: "5.3 P1 (publisher): Firestore rules deployed"
+  - field: checklist.ck_0c3a870b.added
+    to: 6. signin-prompt
+  - field: checklist.ck_b8829929.added
+    to: "6.1 T6: the new-account signal"
+  - field: checklist.ck_e4791fdc.added
+    to: "6.2 T7: the prompt and its states"
+  - field: checklist.ck_f2019c5e.added
+    to: "6.3 T8: the prompt in the app"
+  - field: checklist.ck_4646a5e5.added
+    to: "6.4 T9: subscribed readers and the privacy page"
+  - field: checklist.ck_e5f3a473.added
+    to: "6.5 Checkpoint C: whole flow checked by hand with a new account (P4)"
+  - field: checklist.ck_73bfaa7a.added
+    to: 7. failure-alert
+  - field: checklist.ck_af74414b.added
+    to: "7.1 T10: the Cloud Function"
+  - field: checklist.ck_4a1a70dc.added
+    to: "7.2 T11: the app reports a failure"
+  - field: checklist.ck_d690a95f.added
+    to: "7.3 P2 (publisher): Slack webhook secret set"
+  - field: checklist.ck_9d071603.added
+    to: "7.4 P3 (publisher): function deployed, other functions unchanged"
+  - field: checklist.ck_631102b3.added
+    to: 8. subscriber-export
+  - field: checklist.ck_b49ce702.added
+    to: "8.1 T12: the export package"
+  - field: checklist.ck_34cf4929.added
+    to: "8.2 T13: the export skill"
+  - field: checklist.ck_154094be.added
+    to: "8.3 P5 (publisher): gcloud login and a first status run"
+  - field: checklist.ck_38720bda.added
+    to: 9. Wrap-up
+  - field: checklist.ck_81941b17.added
+    to: "9.1 T14: repo docs, the ticket and the final checks"
+  - field: checklist.ck_3ce9eecc.added
+    to: "9.2 T15: Dialog synced to the Design System Artifact"
+  - field: checklist.ck_c9cc0057.added
+    to: "10. PR #64 squash-merged"
+-->
+### claude-code updated this ticket
+
+11 Nov 2026: plan approved. T15 added: sync Dialog to the Design System Artifact. The CI step for the function's tests is agreed. Checklist rebuilt as numbered items, one per task, ticked as each lands; the five earlier unnumbered items are covered by 4-8.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_5ea8683b
+kind: update
+occurred_at: 2026-11-11T08:26:27.563Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_2210eb45.removed
+    from: Ledger Dialog component with tests and a UI kit screen
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_feadfa68
+kind: update
+occurred_at: 2026-11-11T08:26:27.641Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_2cc310fa.removed
+    from: Prompt wired to the new-account signal in apps/web
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_db9ac911
+kind: update
+occurred_at: 2026-11-11T08:26:27.721Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_667f8257.removed
+    from: Subscribe saves the reader's email to the database (storage, security rule, failure state)
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_fe4707a6
+kind: update
+occurred_at: 2026-11-11T08:26:27.800Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_bf023510.removed
+    from: A way to get saved subscriber emails into Substack
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ee5c0232
+kind: update
+occurred_at: 2026-11-11T08:26:27.884Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_051862d9.removed
+    from: "Privacy page updated: the app stores the subscription and passes the email to Substack"
+-->
+### claude-code updated this ticket
 <!-- /longclaw:event -->

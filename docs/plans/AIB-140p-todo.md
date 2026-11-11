@@ -383,3 +383,26 @@ the whole feature.
 **Dependencies:** all. **Size:** S.
 
 **Files:** `CLAUDE.md`, `.longclaw/tickets/AIB-140p/ticket.md`.
+
+### T15: `Dialog` in the Design System Artifact
+
+**Description:** Sync Ledger's Design System Artifact in Claude with this
+feature's additions, the way AIB-75v's last task did: a component preview for
+`Dialog` (closed-over-page and the newsletter prompt as its example content),
+the `--success` token in the colour foundations, and the README's component
+list. Components only; the UI kit screens are not synced.
+
+**Acceptance criteria:**
+- [ ] `artifact/previews.mjs` has a `Dialog` preview and `artifact/build.test.js`
+      covers it.
+- [ ] The artifact is republished from `artifact/build.mjs` and shows
+      `Dialog` and the success token in both themes.
+- [ ] `artifact/README.md` records the sync.
+
+**Verification:** `npm test -w @aibytes/design-system`; the published
+artifact opened and checked.
+
+**Dependencies:** T1, T2, T3; done last. **Size:** S.
+
+**Files:** `packages/design-system/artifact/previews.mjs`, `build.test.js`,
+`README.md`.

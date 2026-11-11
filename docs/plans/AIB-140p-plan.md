@@ -1,6 +1,6 @@
 # Implementation Plan: AIB-140p, the newsletter prompt after a first sign-in
 
-Status: **draft, 11 Nov 2026, awaiting approval.** Spec (approved 11 Nov):
+Status: **approved 11 Nov 2026**, with T15 added and the CI step agreed. Spec (approved 11 Nov):
 `docs/specs/AIB-140p-newsletter-prompt.md`. Design:
 `docs/decisions/product/AIB-140p-newsletter-prompt-design.md`. Ticket:
 `.longclaw/tickets/AIB-140p/ticket.md`. Task list:
@@ -8,7 +8,7 @@ Status: **draft, 11 Nov 2026, awaiting approval.** Spec (approved 11 Nov):
 
 ## Overview
 
-Fourteen tasks on the existing branch `AIB-140p`, one commit per task, each
+Fifteen tasks on the existing branch `AIB-140p`, one commit per task, each
 passing the full check list, all in PR #64, which is squash-merged to `main`
 when the feature is done. The PR already holds the prototype, the decision
 record and the spec; the plan and the build join it.
@@ -24,7 +24,8 @@ The five modules from the spec, in build order:
    copy.
 4. **`failure-alert`** (T10-T11): the Cloud Function, then the client call.
 5. **`subscriber-export`** (T12-T13): the package, then the skill.
-6. **Wrap-up** (T14): repo docs, the ticket, the by-hand checks.
+6. **Wrap-up** (T14-T15): repo docs, the ticket, the by-hand checks, and
+   `Dialog` synced to the Design System Artifact in Claude.
 
 Every task up to T7 adds something unused by the running app, so aibytes.io
 is unchanged until T8 wires the prompt in. Any commit is a clean point to
@@ -42,6 +43,7 @@ T6 new-account signal ───────────────────�
 T10 Cloud Function ────────────────────────────┴──────────────────────────────────┴─> T11 client reports a failure
 T4 ─> T12 export package ─> T13 export skill
 everything ─> T14 wrap-up
+T1, T2, T3 ─> T15 design sync (last, so the artifact gets the final component)
 ```
 
 T1, T2, T4, T6, T10 and T12 have no dependency on each other. They are
@@ -153,12 +155,15 @@ git diff --check
 Plus the task's own by-hand check where it has one. A reviewer checkpoint
 follows T3, T5, T9, T11 and T13 (see the task list).
 
-## Open questions
+## Decided at approval (11 Nov 2026)
 
-1. **The Design System Artifact in Claude.** AIB-75v ended with a sync of
-   Ledger's new components to that artifact. Should `Dialog` be synced the
-   same way as part of this feature, or as a follow-up? The plan leaves it
-   out; say if it should be T15.
-2. **CI.** T10 adds one step to `.github/workflows/tests.yml` to run the
-   function's unit tests. It is a workflow change, so it is called out here
-   for a yes.
+1. **The Design System Artifact in Claude** is synced as part of this ticket:
+   T15, as AIB-75v did for the saves and sign-in UI.
+2. **CI:** the one step in `.github/workflows/tests.yml` that runs the
+   function's unit tests (T10) is agreed.
+
+## Tracking
+
+Every task, checkpoint and publisher step is a numbered checklist item in the
+ticket (4.1 is T1, 4.2 is T2, and so on), ticked as it lands, together with
+the matching boxes in `docs/plans/AIB-140p-todo.md`.
