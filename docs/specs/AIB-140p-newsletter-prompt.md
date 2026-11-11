@@ -282,9 +282,9 @@ repo. This repo's deploy must never change or delete them:
   in any other codebase, including the unnamed default one, are left alone.
 - The function has a name unlikely to collide, `aibytesReportSubscribeFailure`.
 - The only deploy command is the fully scoped one:
-  `firebase deploy --only functions:aibytes-web:aibytesReportSubscribeFailure --project ai-bytes-b42d2`.
+  `firebase deploy --only functions:aibytes-web --project ai-bytes-b42d2`.
 - Never a bare `firebase deploy`, never `--only functions` without the
-  codebase and function name, never `--force` (which deletes without asking).
+  codebase, never `--force` (which deletes without asking).
   If the CLI ever offers to delete a function, the answer is no and the deploy
   is stopped.
 - Before the first deploy, `firebase functions:list --project ai-bytes-b42d2`
@@ -319,7 +319,7 @@ git diff --check
 firebase deploy --only firestore:rules --project ai-bytes-b42d2
 firebase functions:secrets:set AIBYTES_SLACK_WEBHOOK --project ai-bytes-b42d2
 firebase functions:list --project ai-bytes-b42d2
-firebase deploy --only functions:aibytes-web:aibytesReportSubscribeFailure --project ai-bytes-b42d2
+firebase deploy --only functions:aibytes-web --project ai-bytes-b42d2
 ```
 
 ## Project structure

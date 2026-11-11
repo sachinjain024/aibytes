@@ -259,14 +259,14 @@ codebase `aibytes-web`. `functions/README.md` is the deploy runbook. The spec's
 deploy command is amended as the plan describes.
 
 **Acceptance criteria:**
-- [ ] `alert.test.js`: no auth is refused; the email comes from the token and
+- [x] `alert.test.js`: no auth is refused; the email comes from the token and
       a body email is ignored; `code` and `page` are capped and stripped; the
       fourth report in a day is dropped; the message text.
-- [ ] `firebase.json` names the codebase `aibytes-web`; no file contains a
+- [x] `firebase.json` names the codebase `aibytes-web`; no file contains a
       webhook URL (a test greps the repo for `hooks.slack.com`).
-- [ ] The runbook gives P2 and P3 exactly, with the list comparison, and says
+- [x] The runbook gives P2 and P3 exactly, with the list comparison, and says
       what to do if the CLI offers to delete anything (answer no, stop).
-- [ ] CI runs the function's tests (one step in `tests.yml`).
+- [x] CI runs the function's tests (one step in `tests.yml`).
 
 **Verification:** `npm test --prefix functions`; the Python suite (the
 webhook grep); `firebase emulators:exec` is not required.
