@@ -31,10 +31,12 @@ GIST_OPTIONAL = ("source", "category", "lede", "stats", "stats_as_of", "front_pa
 
 KINDS = ("news", "hn", "repo", "launch", "x_post")
 DEPTHS = ("full", "brief", "preview")
-# The fetcher source and edition category each kind belongs to. x_post has
-# neither: X posts come from a pasted Grok snapshot, not a fetcher.
-KIND_SOURCE = {"news": ("techcrunch", "news"), "hn": ("hackernews", "hn"),
-               "repo": ("github", "repos"), "launch": ("producthunt", "launches")}
+# The fetcher source each kind belongs to, and the edition categories its
+# items can carry: curate files Show HN and Launch HN under launches, so an hn
+# gist may be either. x_post has neither: X posts come from a pasted Grok
+# snapshot, not a fetcher.
+KIND_SOURCE = {"news": ("techcrunch", ("news",)), "hn": ("hackernews", ("hn", "launches")),
+               "repo": ("github", ("repos",)), "launch": ("producthunt", ("launches",))}
 
 GIST_SLUG_RE = contract.SLUG_RE
 GIST_SLUG_MAX = contract.GIST_SLUG_MAX
@@ -176,12 +178,12 @@ def _kind_problems(gist, kind, depth):
         if "url" in gist and gist.get("source_url") != gist.get("url"):
             found.append("an x_post's source_url must equal its url (the post)")
     elif kind is not None:
-        source, category = KIND_SOURCE[kind]
-        for key, expected in (("source", source), ("category", category)):
+        source, categories = KIND_SOURCE[kind]
+        for key, allowed in (("source", (source,)), ("category", categories)):
             if key not in gist:
                 found.append(f"missing required key: {key} (required for kind {kind!r})")
-            elif gist[key] != expected:
-                found.append(f"{key} {gist[key]!r} does not match kind {kind!r}, which is {expected!r}")
+            elif gist[key] not in allowed:
+                found.append(f"{key} {gist[key]!r} does not match kind {kind!r}, which allows {allowed}")
         if depth == "preview":
             found.append("depth 'preview' is for x_post gists only")
         if "preview" in gist:

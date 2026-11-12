@@ -245,6 +245,11 @@ class TestKindAgreement(unittest.TestCase):
     def test_kind_must_match_source_and_category(self):
         self.assertTrue(problems(hn_gist(source="github")))
         self.assertTrue(problems(hn_gist(category="news")))
+        self.assertTrue(problems(launch_gist(category="hn")))
+
+    def test_show_hn_is_an_hn_gist_filed_under_launches(self):
+        # curate puts Show HN and Launch HN in launches (adapters.from_hackernews).
+        self.assertEqual(problems(hn_gist(category="launches")), [])
 
     def test_only_x_posts_drop_source_and_category(self):
         gist = hn_gist()

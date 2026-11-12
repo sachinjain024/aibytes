@@ -86,7 +86,7 @@ here, before T5 writes any of it in code.
 | `slug` | string | yes | Equals the file name without `.json`. See "Slugs". |
 | `kind` | `news` \| `hn` \| `repo` \| `launch` \| `x_post` | yes | D1. |
 | `source` | `Source` | no | One of the fetcher sources. Absent for `x_post` and only there. |
-| `category` | `Category` | no | As the item. Absent for `x_post` and only there. |
+| `category` | `Category` | no | As the item. Absent for `x_post` and only there. An `hn` gist may be `hn` or `launches`, because curate files Show HN and Launch HN under launches. *(Corrected 12 Nov 2026, in T8.)* |
 | `title` | string | yes | Non-empty, at most 200 chars. From the first appearance, never rewritten (a shared link keeps its title). |
 | `url` | http(s) URL | yes | Where the item points: the article, product, repo, or the post. |
 | `source_url` | http(s) URL | yes | The source page, as on the item. The source key is made from this. |
