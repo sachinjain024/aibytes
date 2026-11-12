@@ -586,6 +586,28 @@ def _items_agree(root, gists, known):
 
 
 # ---------------------------------------------------------------------------
+# Shown or withdrawn (T7, contract spec D4)
+
+
+def gist_is_shown(gist, items_by_id):
+    """True while at least one appearance is a loaded item whose `hidden` is false.
+
+    Hiding is derived, never stored: hide.py flips an item, and its gist is
+    withdrawn when no visible item is left. An x_post gist has no items to
+    hide (issue files do not carry X posts), so it is always shown. The
+    JavaScript copy is apps/web/src/gistShown.js; both are tested against
+    fixtures/gist-shown.json.
+    """
+    if gist.get("kind") == "x_post":
+        return True
+    for appearance in gist.get("appearances") or []:
+        item = items_by_id.get(appearance.get("item_id")) if isinstance(appearance, dict) else None
+        if isinstance(item, dict) and item.get("hidden") is False:
+            return True
+    return False
+
+
+# ---------------------------------------------------------------------------
 # The source key and slugs
 
 

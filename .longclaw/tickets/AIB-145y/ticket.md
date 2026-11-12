@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-12T14:34:26.864Z
+updated_at: 2026-11-12T14:35:17.877Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -78,7 +78,7 @@ added_by:
 - [x] 5.1 T4: contract spec <!-- longclaw:item=ck_dcf06745 -->
 - [x] 5.2 T5: the gist schema and validator <!-- longclaw:item=ck_8798d947 -->
 - [x] 5.3 T6: the index and the item's gist field <!-- longclaw:item=ck_7f614f86 -->
-- [ ] 5.4 T7: hidden items withdraw their gist <!-- longclaw:item=ck_286beccc -->
+- [x] 5.4 T7: hidden items withdraw their gist <!-- longclaw:item=ck_286beccc -->
 - [ ] 5.5 T8: HN front page on the item <!-- longclaw:item=ck_d6d37a06 -->
 - [ ] 5.6 Checkpoint B: contract reviewed <!-- longclaw:item=ck_d47601d3 -->
 - [ ] 6. gist-generate <!-- longclaw:item=ck_e24b8093 -->
@@ -622,6 +622,21 @@ actor:
   id: claude-code
 changes:
   - field: checklist.ck_7f614f86.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ccc5570b
+kind: update
+occurred_at: 2026-11-12T14:35:17.877Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_286beccc.checked
     from: "false"
     to: "true"
 -->

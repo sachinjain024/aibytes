@@ -136,12 +136,15 @@ item that points back.
 
 **Description:** Reshaped by the contract spec (D4): hiding is derived, not
 stored. `gist_is_shown(gist, items_by_id)` in Python and JavaScript, from one
-set of fixtures; the validator uses it. `hide.py` is not edited.
+set of fixtures. `hide.py` is not edited. *(As built: no contract rule needs
+it, so the validator does not call it; T25's build and the generator do.)*
 
 **Acceptance criteria:**
-- [ ] Hiding the only appearance withdraws the gist; hiding one of two does
-      not; unhiding brings it back (Python and JS, same fixtures).
-- [ ] `tests/test_hide.py` still passes unchanged.
+- [x] Hiding the only appearance withdraws the gist; hiding one of two does
+      not; unhiding brings it back (Python and JS, same fixtures:
+      `packages/feed-schema/fixtures/gist-shown.json`).
+- [x] `tests/test_hide.py` still passes unchanged; a test pins that `hide.py`
+      never mentions gists.
 
 **Verification:** `python3 -m unittest tests.test_feed_schema tests.test_hide -v`;
 `npm test -w @aibytes/web`. **Dependencies:** T6. **Size:** S.
