@@ -288,7 +288,7 @@ Cobalt survives from Bitmark as the accent because it already reads as aiBytes_ 
 - **Hosting:** Cloudflare Pages (DNS is already on Cloudflare; builds on push; free). Vercel or GitHub Pages also work.
 - **Content:** `content/editions/*.json` in the repo, written by the daily job on the iMac and pushed to git.
 - **Auth + saves:** Firebase Auth + Firestore (client SDK only).
-- **Analytics:** Plausible or PostHog. Track outbound clicks per source and per category, save rate, sign-in conversion, edition back-navigation depth.
+- **Analytics:** Umami Cloud, cookieless, chosen in AIB-145y: see `docs/specs/AIB-145y-gist-analytics.md` for what it records and which events are sent. Search traffic comes from Google Search Console. *(Was "Plausible or PostHog" before 12 Nov 2026.)*
 - **Images:** resolved and cached at build time into `public/img/` where licensing allows; otherwise hotlinked with fallback marks.
 
 ## 11. Metrics

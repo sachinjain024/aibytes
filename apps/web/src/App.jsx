@@ -637,9 +637,11 @@ function SavedApp({ saves: store, location, navigate, theme, onToggleTheme }) {
 }
 
 // /privacy: what saving and signing in keep, and where (AIB-75v T11). Its facts
-// were checked against the built site: no cookies or analytics of the site's own,
-// fonts from Google Fonts, item images from the sites they belong to. Change
-// them only with the site; Google's sign-in consent screen links here.
+// were checked against the built site: no cookies of the site's own, fonts from
+// Google Fonts, item images from the sites they belong to. Analytics is Umami
+// Cloud (AIB-145y T3); its fields were checked against Umami's "Metric
+// definitions" and privacy pages on 12 Nov 2026. Change them only with the
+// site; Google's sign-in consent screen links here.
 const PRIVACY_EMAIL = "contact@aibytes.io";
 
 function PrivacyApp({ saves, location, navigate, theme, onToggleTheme }) {
@@ -650,12 +652,21 @@ function PrivacyApp({ saves, location, navigate, theme, onToggleTheme }) {
       skipLabel="Skip to the privacy page" date={null} all={null}>
       {() => <article className="app-privacy">
         <h1 className="ldg-section-h">Privacy</h1>
-        <p>Last changed 11 November 2026.</p>
+        <p>Last changed 12 November 2026.</p>
 
         <h2 className="ldg-section-h">Reading</h2>
-        <p>aiBytes_ sets no cookies and runs no analytics. The site is hosted on GitHub Pages; its fonts come from
-          Google Fonts, and item images from the sites they belong to, such as GitHub, TechCrunch and Product Hunt.
-          Like any web request, those services see your IP address and browser.</p>
+        <p>aiBytes_ sets no cookies. The site is hosted on GitHub Pages; its fonts come from Google Fonts, and item
+          images from the sites they belong to, such as GitHub, TechCrunch and Product Hunt. Like any web request,
+          those services see your IP address and browser.</p>
+
+        <h2 className="ldg-section-h">Analytics</h2>
+        <p>To see which pages are read and where readers come from, aiBytes_ uses <a href="https://umami.is">Umami</a>,
+          an analytics service that sets no cookies and stores nothing in your browser. For each page view it records
+          the page address and title, the site that linked to it, your browser, operating system, device type, screen
+          size and language, and your approximate location (country, region and city). It uses your IP address and
+          browser to make an anonymous visitor code, which changes every month, and does not store your IP address
+          with the record. It is not told who you are, even when you are signed in, and it is not used for
+          advertising.</p>
 
         <h2 className="ldg-section-h">Saving</h2>
         <p>Items you save without signing in stay in this browser&apos;s local storage. Nothing about them leaves your
@@ -674,6 +685,20 @@ function PrivacyApp({ saves, location, navigate, theme, onToggleTheme }) {
 
         <h2 className="ldg-section-h">The newsletter</h2>
         <p>{NEWSLETTER_PRIVACY}</p>
+
+        <h2 className="ldg-section-h">Services that handle your data</h2>
+        <p>aiBytes_ relies on these services, each for the part described above. None of them is given more than
+          that part needs.</p>
+        <ul>
+          <li><strong>GitHub</strong> (GitHub Pages): hosts the site, so it sees each request.</li>
+          <li><strong>Google Cloud</strong> (Firebase Authentication, Cloud Firestore, Cloud Functions): signs you
+            in, stores your saves and newsletter choice, and reports a failed newsletter sign-up.</li>
+          <li><strong>Google Fonts</strong>: serves the site&apos;s fonts.</li>
+          <li><strong>Umami</strong>: analytics, as described above.</li>
+          <li><strong>Substack</strong>: sends the newsletter, if you subscribe.</li>
+          <li><strong>Slack</strong>: receives the alert when a newsletter sign-up fails, with your email, so you
+            can be added by hand.</li>
+        </ul>
 
         <h2 className="ldg-section-h">Questions</h2>
         <p>Email {contact}.</p>
