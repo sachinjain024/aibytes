@@ -4,13 +4,13 @@ id: 0a6fe125-a398-4acf-8ad3-9df499b0924a
 key: AIB-145y
 title: "Gists: a summary page for each item"
 status: in_progress
-priority: none
+priority: p1
 rank: a0
 labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-11T18:41:14.521Z
+updated_at: 2026-11-12T11:04:20.906Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -61,6 +61,71 @@ added_by:
 [AIB-145y-gists.md](docs/specs/AIB-145y-gists.md)
 <!-- /longclaw:reference -->
 
+
+## Checklist
+
+- [x] 1. Design: prototype and decision record (docs/decisions/product/AIB-145y-gists-design.md) <!-- longclaw:item=ck_cc2a35dc -->
+- [x] 2. Spec approved (docs/specs/AIB-145y-gists.md) <!-- longclaw:item=ck_06938354 -->
+- [x] 3. Plan approved (docs/plans/AIB-145y-plan.md, docs/plans/AIB-145y-todo.md) <!-- longclaw:item=ck_90955f2e -->
+- [ ] 4. gist-analytics <!-- longclaw:item=ck_7d988433 -->
+- [ ] 4.1 T1: analytics spec and tool shortlist <!-- longclaw:item=ck_14c18929 -->
+- [ ] 4.2 P1: publisher picks the analytics tool and creates the site <!-- longclaw:item=ck_ee37c311 -->
+- [ ] 4.3 T2: the script on every page, and the panel event helper <!-- longclaw:item=ck_a0e44d91 -->
+- [ ] 4.4 T3: the privacy page <!-- longclaw:item=ck_352c4191 -->
+- [ ] 4.5 P2: publisher approves the privacy wording <!-- longclaw:item=ck_b3c0615a -->
+- [ ] 4.6 Checkpoint A: analytics live <!-- longclaw:item=ck_1e04c4b9 -->
+- [ ] 5. gist-contract <!-- longclaw:item=ck_c5e68811 -->
+- [ ] 5.1 T4: contract spec <!-- longclaw:item=ck_dcf06745 -->
+- [ ] 5.2 T5: the gist schema and validator <!-- longclaw:item=ck_8798d947 -->
+- [ ] 5.3 T6: the index and the item's gist field <!-- longclaw:item=ck_7f614f86 -->
+- [ ] 5.4 T7: hiding an item moves its gist <!-- longclaw:item=ck_286beccc -->
+- [ ] 5.5 T8: HN front page on the item <!-- longclaw:item=ck_d6d37a06 -->
+- [ ] 5.6 Checkpoint B: contract reviewed <!-- longclaw:item=ck_d47601d3 -->
+- [ ] 6. gist-generate <!-- longclaw:item=ck_e24b8093 -->
+- [ ] 6.1 T9: generation spec <!-- longclaw:item=ck_0389ed70 -->
+- [ ] 6.2 T10: HN thread and article text fetchers <!-- longclaw:item=ck_112675a4 -->
+- [ ] 6.3 T11: GitHub repo fetchers <!-- longclaw:item=ck_49396094 -->
+- [ ] 6.4 T12: Product Hunt launch material <!-- longclaw:item=ck_427f19be -->
+- [ ] 6.5 T13: gists draft <!-- longclaw:item=ck_c31ad84c -->
+- [ ] 6.6 T14: the write-gists skill <!-- longclaw:item=ck_7c7c828a -->
+- [ ] 6.7 T15: gists build <!-- longclaw:item=ck_74279798 -->
+- [ ] 6.8 P3: publisher approves GITHUB_TOKEN in edition.yml <!-- longclaw:item=ck_0b27e6bd -->
+- [ ] 6.9 T16: the runner's gists step <!-- longclaw:item=ck_070cf04c -->
+- [ ] 6.10 T17: rehearsal on seven editions <!-- longclaw:item=ck_eb097e0a -->
+- [ ] 6.11 P4: publisher reads the rehearsed gists and would link to them unedited <!-- longclaw:item=ck_50869fec -->
+- [ ] 6.12 Checkpoint C: generation proven <!-- longclaw:item=ck_4db29f6f -->
+- [ ] 7. ledger-gist-ui <!-- longclaw:item=ck_329daaee -->
+- [ ] 7.1 T18: Ledger spec <!-- longclaw:item=ck_8fef693d -->
+- [ ] 7.2 T19: GistView <!-- longclaw:item=ck_45ced086 -->
+- [ ] 7.3 T20: GistPanel, resizable <!-- longclaw:item=ck_b573c191 -->
+- [ ] 7.4 T21: reactions bar, front-page badge, saved line, banner copy <!-- longclaw:item=ck_77f4b374 -->
+- [ ] 7.5 T22: UI kit screens and Design System Artifact sync <!-- longclaw:item=ck_f8e04426 -->
+- [ ] 7.6 Checkpoint D: kit screens reviewed <!-- longclaw:item=ck_87ea0fa7 -->
+- [ ] 8. app-gist-pages <!-- longclaw:item=ck_9da86e57 -->
+- [ ] 8.1 T23: pages spec <!-- longclaw:item=ck_2bd561ec -->
+- [ ] 8.2 T24: route and page head <!-- longclaw:item=ck_888ec84a -->
+- [ ] 8.3 T25: static gist pages, sitemap, robots <!-- longclaw:item=ck_6752a869 -->
+- [ ] 8.4 T26: the gist page in the app <!-- longclaw:item=ck_a4ea4223 -->
+- [ ] 9. app-gist-panel <!-- longclaw:item=ck_5670b0bb -->
+- [ ] 9.1 T27: panel spec <!-- longclaw:item=ck_68012185 -->
+- [ ] 9.2 T28: a card's title opens the panel <!-- longclaw:item=ck_7f55640b -->
+- [ ] 9.3 T29: weekly pages and the panel event <!-- longclaw:item=ck_5577bc09 -->
+- [ ] 9.4 Checkpoint E: launch-ready; squash-merge PR #65 (launch) <!-- longclaw:item=ck_fc76f81a -->
+- [ ] 10. app-reactions (second PR) <!-- longclaw:item=ck_6684cc60 -->
+- [ ] 10.1 T30: reactions spec <!-- longclaw:item=ck_30babd49 -->
+- [ ] 10.2 T31: rules and emulator tests <!-- longclaw:item=ck_6d757e54 -->
+- [ ] 10.3 P5: publisher deploys the Firestore rules <!-- longclaw:item=ck_7173a9bc -->
+- [ ] 10.4 T32: reactions in the app <!-- longclaw:item=ck_759600ee -->
+- [ ] 11. newsletter-gist-links (second PR) <!-- longclaw:item=ck_ca91f71f -->
+- [ ] 11.1 T33: newsletter spec <!-- longclaw:item=ck_ba3092dd -->
+- [ ] 11.2 T34: the weekly pull writes gists <!-- longclaw:item=ck_04b7fc12 -->
+- [ ] 11.3 T35: the template and the skill <!-- longclaw:item=ck_16780ddc -->
+- [ ] 11.4 P6: publisher approves the first issue linking to gists <!-- longclaw:item=ck_e757a406 -->
+- [ ] 11.5 T36: weekly issue pages read gist links <!-- longclaw:item=ck_be9e1656 -->
+- [ ] 11.6 Checkpoint F: newsletter <!-- longclaw:item=ck_8604cbbe -->
+- [ ] 12. Wrap-up <!-- longclaw:item=ck_ffffb380 -->
+- [ ] 12.1 T37: docs, ticket, by-hand checks <!-- longclaw:item=ck_946eab34 -->
+- [ ] 12.2 P7: publisher's browser checks on aibytes.io <!-- longclaw:item=ck_497e916a -->
 ## Activity
 
 <!-- longclaw:event
@@ -145,4 +210,203 @@ actor:
 ### Claude Code commented
 
 Spec approved by the publisher on 2026-11-12. Next: the plan and the module specs.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8f7b7cee
+kind: update
+occurred_at: 2026-11-12T10:55:25.071Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: priority
+    from: none
+    to: p1
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_7353cd46
+kind: update
+occurred_at: 2026-11-12T11:04:09.171Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_cc2a35dc.added
+    to: "1. Design: prototype and decision record (docs/decisions/product/AIB-145y-gists-design.md)"
+  - field: checklist.ck_06938354.added
+    to: 2. Spec approved (docs/specs/AIB-145y-gists.md)
+  - field: checklist.ck_90955f2e.added
+    to: 3. Plan approved (docs/plans/AIB-145y-plan.md, docs/plans/AIB-145y-todo.md)
+  - field: checklist.ck_7d988433.added
+    to: 4. gist-analytics
+  - field: checklist.ck_14c18929.added
+    to: "4.1 T1: analytics spec and tool shortlist"
+  - field: checklist.ck_ee37c311.added
+    to: "4.2 P1: publisher picks the analytics tool and creates the site"
+  - field: checklist.ck_a0e44d91.added
+    to: "4.3 T2: the script on every page, and the panel event helper"
+  - field: checklist.ck_352c4191.added
+    to: "4.4 T3: the privacy page"
+  - field: checklist.ck_b3c0615a.added
+    to: "4.5 P2: publisher approves the privacy wording"
+  - field: checklist.ck_1e04c4b9.added
+    to: "4.6 Checkpoint A: analytics live"
+  - field: checklist.ck_c5e68811.added
+    to: 5. gist-contract
+  - field: checklist.ck_dcf06745.added
+    to: "5.1 T4: contract spec"
+  - field: checklist.ck_8798d947.added
+    to: "5.2 T5: the gist schema and validator"
+  - field: checklist.ck_7f614f86.added
+    to: "5.3 T6: the index and the item's gist field"
+  - field: checklist.ck_286beccc.added
+    to: "5.4 T7: hiding an item moves its gist"
+  - field: checklist.ck_d6d37a06.added
+    to: "5.5 T8: HN front page on the item"
+  - field: checklist.ck_d47601d3.added
+    to: "5.6 Checkpoint B: contract reviewed"
+  - field: checklist.ck_e24b8093.added
+    to: 6. gist-generate
+  - field: checklist.ck_0389ed70.added
+    to: "6.1 T9: generation spec"
+  - field: checklist.ck_112675a4.added
+    to: "6.2 T10: HN thread and article text fetchers"
+  - field: checklist.ck_49396094.added
+    to: "6.3 T11: GitHub repo fetchers"
+  - field: checklist.ck_427f19be.added
+    to: "6.4 T12: Product Hunt launch material"
+  - field: checklist.ck_c31ad84c.added
+    to: "6.5 T13: gists draft"
+  - field: checklist.ck_7c7c828a.added
+    to: "6.6 T14: the write-gists skill"
+  - field: checklist.ck_74279798.added
+    to: "6.7 T15: gists build"
+  - field: checklist.ck_0b27e6bd.added
+    to: "6.8 P3: publisher approves GITHUB_TOKEN in edition.yml"
+  - field: checklist.ck_070cf04c.added
+    to: "6.9 T16: the runner's gists step"
+  - field: checklist.ck_eb097e0a.added
+    to: "6.10 T17: rehearsal on seven editions"
+  - field: checklist.ck_50869fec.added
+    to: "6.11 P4: publisher reads the rehearsed gists and would link to them unedited"
+  - field: checklist.ck_4db29f6f.added
+    to: "6.12 Checkpoint C: generation proven"
+  - field: checklist.ck_329daaee.added
+    to: 7. ledger-gist-ui
+  - field: checklist.ck_8fef693d.added
+    to: "7.1 T18: Ledger spec"
+  - field: checklist.ck_45ced086.added
+    to: "7.2 T19: GistView"
+  - field: checklist.ck_b573c191.added
+    to: "7.3 T20: GistPanel, resizable"
+  - field: checklist.ck_77f4b374.added
+    to: "7.4 T21: reactions bar, front-page badge, saved line, banner copy"
+  - field: checklist.ck_f8e04426.added
+    to: "7.5 T22: UI kit screens and Design System Artifact sync"
+  - field: checklist.ck_87ea0fa7.added
+    to: "7.6 Checkpoint D: kit screens reviewed"
+  - field: checklist.ck_9da86e57.added
+    to: 8. app-gist-pages
+  - field: checklist.ck_2bd561ec.added
+    to: "8.1 T23: pages spec"
+  - field: checklist.ck_888ec84a.added
+    to: "8.2 T24: route and page head"
+  - field: checklist.ck_6752a869.added
+    to: "8.3 T25: static gist pages, sitemap, robots"
+  - field: checklist.ck_a4ea4223.added
+    to: "8.4 T26: the gist page in the app"
+  - field: checklist.ck_5670b0bb.added
+    to: 9. app-gist-panel
+  - field: checklist.ck_68012185.added
+    to: "9.1 T27: panel spec"
+  - field: checklist.ck_7f55640b.added
+    to: "9.2 T28: a card's title opens the panel"
+  - field: checklist.ck_5577bc09.added
+    to: "9.3 T29: weekly pages and the panel event"
+  - field: checklist.ck_fc76f81a.added
+    to: "9.4 Checkpoint E: launch-ready; squash-merge PR #65 (launch)"
+  - field: checklist.ck_6684cc60.added
+    to: 10. app-reactions (second PR)
+  - field: checklist.ck_30babd49.added
+    to: "10.1 T30: reactions spec"
+  - field: checklist.ck_6d757e54.added
+    to: "10.2 T31: rules and emulator tests"
+  - field: checklist.ck_7173a9bc.added
+    to: "10.3 P5: publisher deploys the Firestore rules"
+  - field: checklist.ck_759600ee.added
+    to: "10.4 T32: reactions in the app"
+  - field: checklist.ck_ca91f71f.added
+    to: 11. newsletter-gist-links (second PR)
+  - field: checklist.ck_ba3092dd.added
+    to: "11.1 T33: newsletter spec"
+  - field: checklist.ck_04b7fc12.added
+    to: "11.2 T34: the weekly pull writes gists"
+  - field: checklist.ck_16780ddc.added
+    to: "11.3 T35: the template and the skill"
+  - field: checklist.ck_e757a406.added
+    to: "11.4 P6: publisher approves the first issue linking to gists"
+  - field: checklist.ck_be9e1656.added
+    to: "11.5 T36: weekly issue pages read gist links"
+  - field: checklist.ck_8604cbbe.added
+    to: "11.6 Checkpoint F: newsletter"
+  - field: checklist.ck_ffffb380.added
+    to: 12. Wrap-up
+  - field: checklist.ck_946eab34.added
+    to: "12.1 T37: docs, ticket, by-hand checks"
+  - field: checklist.ck_497e916a.added
+    to: "12.2 P7: publisher's browser checks on aibytes.io"
+-->
+### Claude Code updated this ticket
+
+12 Nov 2026: plan approved (docs/plans/AIB-145y-plan.md, docs/plans/AIB-145y-todo.md). Two PRs: PR #65 holds T1-T29 and is squash-merged at Checkpoint E for launch; T30-T37 follow in a second PR. The Design System Artifact is synced in T22. Checklist built as numbered items, one per task, publisher step and checkpoint, ticked as each lands.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_cf863d79
+kind: update
+occurred_at: 2026-11-12T11:04:20.861Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_cc2a35dc.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_2e0fca89
+kind: update
+occurred_at: 2026-11-12T11:04:20.883Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_06938354.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_13fc4fe6
+kind: update
+occurred_at: 2026-11-12T11:04:20.906Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_90955f2e.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
 <!-- /longclaw:event -->
