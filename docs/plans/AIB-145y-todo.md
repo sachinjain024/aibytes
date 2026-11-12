@@ -174,6 +174,35 @@ tests.test_curate_edition tests.test_feed_schema -v`. **Dependencies:** T4.
 - [ ] All checks green; the publisher reviews the contract before generation
       writes into it.
 
+## Module 3b: outbound links carry `ref=aiBytes_` (added 12 Nov 2026, moved up the same day)
+
+### T38: outbound links tagged
+
+**Description:** Every link from aibytes.io to a source item's own page (the
+product, the article, the repo, the HN thread, the gist's closing buttons)
+gets `ref=aiBytes_` appended when it is rendered, so the destination's own
+analytics can see aiBytes_ traffic. Today's links carry
+`rel="noopener noreferrer"`, which strips the Referer header, so without the
+parameter a destination sees nothing. One function, `withRef(url)` in Ledger,
+used by `FeedItem` (cards and list rows) and later the gist view. Content
+files keep clean URLs.
+
+**Acceptance criteria:**
+- [ ] `withRef` adds `ref=aiBytes_` with `?` or `&` as needed, keeps the
+      fragment after it, leaves an existing `ref` alone, and leaves non-http
+      links untouched (tests).
+- [ ] Card titles and source names link with the parameter; nothing under
+      `content/` changes.
+- [ ] Whether HN and GitHub links get it too is settled at the start (they
+      ignore it, but it is harmless).
+
+**Verification:** `npm test -w @aibytes/design-system`; `npm test -w
+@aibytes/web`; a card's links in the dev server. **Dependencies:** none.
+**Size:** S. Next after Checkpoint B, before T9. Ships to `main` on its own
+branch and PR, as analytics did, then lands back here when PR #65 syncs with main.
+**Files:** `packages/design-system/components/content/withRef.js`,
+`withRef.test.js`, `FeedItem.jsx`, its `.prompt.md`.
+
 ## Module 4: `gist-generate`
 
 ### T9: generation spec
@@ -576,34 +605,6 @@ source and gain the panel.
 ### Checkpoint F: newsletter
 
 - [ ] Success criterion 11 passes.
-
-## Added on 12 Nov 2026: outbound links carry `ref=aiBytes_`
-
-### T38: outbound links tagged
-
-**Description:** Every link from aibytes.io to a source item's own page (the
-product, the article, the repo, the HN thread, the gist's closing buttons)
-gets `ref=aiBytes_` appended when it is rendered, so the destination's own
-analytics can see aiBytes_ traffic. Today's links carry
-`rel="noopener noreferrer"`, which strips the Referer header, so without the
-parameter a destination sees nothing. One function, `withRef(url)` in Ledger,
-used by `FeedItem` (cards and list rows) and later the gist view. Content
-files keep clean URLs.
-
-**Acceptance criteria:**
-- [ ] `withRef` adds `ref=aiBytes_` with `?` or `&` as needed, keeps the
-      fragment after it, leaves an existing `ref` alone, and leaves non-http
-      links untouched (tests).
-- [ ] Card titles and source names link with the parameter; nothing under
-      `content/` changes.
-- [ ] Whether HN and GitHub links get it too is settled at the start (they
-      ignore it, but it is harmless).
-
-**Verification:** `npm test -w @aibytes/design-system`; `npm test -w
-@aibytes/web`; a card's links in the dev server. **Dependencies:** none.
-**Size:** S. Can ship to `main` on its own, as analytics did.
-**Files:** `packages/design-system/components/content/withRef.js`,
-`withRef.test.js`, `FeedItem.jsx`, its `.prompt.md`.
 
 ## Wrap-up
 

@@ -23,6 +23,7 @@ the same commit.
 | 1 | `gist-design` | done | The prototype and the design record |
 | 2 | `gist-analytics` | T1-T3 | Visits per path and referrer on aibytes.io, from before launch |
 | 3 | `gist-contract` | T4-T8 | `content/gists/`, its schema and validator, the `gist` and `front_page` item fields, `hide.py` |
+| 3b | Outbound `ref` | T38 | Links to a source item's own page carry `ref=aiBytes_`. Built next, after Checkpoint B and before T9; ships to `main` on its own |
 | 4 | `gist-generate` | T9-T17 | The daily run writes a gist for every item, unattended |
 | 5 | `ledger-gist-ui` | T18-T22 | The gist view, the resizable panel, reactions bar, front-page badge, new banner copy |
 | 6 | `app-gist-pages` | T23-T26 | `/gists/<slug>` as a real page built for search, plus `sitemap.xml` and `robots.txt` |
@@ -30,7 +31,6 @@ the same commit.
 | 8 | `app-reactions` | T30-T32 | The eight reactions, stored in Firestore |
 | 9 | `newsletter-gist-links` | T33-T36 | Issue items get gists; the newsletter links to them |
 | 10 | Wrap-up | T37 | Repo docs, ticket, by-hand checks |
-| 11 | Outbound `ref` | T38 | Links to a source item's own page carry `ref=aiBytes_`; can ship to `main` on its own |
 
 ## Dependency graph
 
