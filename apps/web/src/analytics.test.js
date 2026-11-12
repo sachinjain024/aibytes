@@ -46,3 +46,20 @@ test("the tag runs on aibytes.io only, so dev and local builds record nothing", 
 test("the tag keeps the query string, which carries the UTM tags", () => {
   assert.doesNotMatch(tag[0], /data-exclude-search/);
 });
+
+// /privacy has to say what the tag does (AIB-145y T3). The page lives in
+// App.jsx, so check its source rather than render the whole app.
+const app = readFileSync(new URL("./App.jsx", import.meta.url), "utf8");
+
+test("/privacy names Umami and no longer claims no analytics", () => {
+  assert.doesNotMatch(app, /runs no analytics/);
+  assert.match(app, /uses <a href="https:\/\/umami\.is">Umami<\/a>/);
+  assert.match(app, /changes every month/);
+});
+
+test("the app never identifies a reader to the analytics tool", () => {
+  for (const name of ["App.jsx", "analytics.js", "account.js", "saves.js"]) {
+    const src = readFileSync(new URL("./" + name, import.meta.url), "utf8");
+    assert.doesNotMatch(src, /umami\.identify|\.identify\(/, name);
+  }
+});

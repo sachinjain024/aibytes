@@ -62,8 +62,9 @@ is absent or blocked. Nothing calls `track` yet; T29 adds the panel event.
 tool collects, that it sets no cookies, and links to its policy.
 
 **Acceptance criteria:**
-- [ ] The copy matches T1's spec and is approved (P2).
-- [ ] The product spec's privacy line is updated to match.
+- [x] The copy matches T1's spec, its fields checked against Umami's own
+      pages. Publisher approval (P2) gates the merge to `main`.
+- [x] The product spec's analytics line is updated to match.
 
 **Verification:** the page in the dev server, both themes.
 **Dependencies:** T2. **Size:** S. **Files:** `apps/web/src/App.jsx` (the

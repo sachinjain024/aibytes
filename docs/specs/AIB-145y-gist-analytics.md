@@ -150,27 +150,32 @@ this table. Social links are tagged by hand until a skill writes them.
 
 ## What `/privacy` says (for P2)
 
-The current "Reading" paragraph says the site "sets no cookies and runs no
-analytics". The proposed replacement:
+The "Reading" paragraph drops "and runs no analytics", and a new
+"Analytics" section follows it. Its fields were checked on 12 Nov 2026
+against Umami's [Metric definitions](https://docs.umami.is/docs/metric-definitions)
+and [privacy page](https://umami.is/privacy):
 
-> aiBytes_ sets no cookies. To see which pages are read and where readers come
-> from, it uses Umami, a privacy-focused analytics service that also sets no
-> cookies and stores nothing in your browser. It records the page address,
-> the site that linked to it, and your browser, operating system, device type
-> and country; it does not record who you are, and it is not used for
-> advertising. The site is hosted on GitHub Pages; its fonts come from Google
-> Fonts, and item images from the sites they belong to, such as GitHub,
-> TechCrunch and Product Hunt. Like any web request, those services see your
-> IP address and browser.
+> To see which pages are read and where readers come from, aiBytes_ uses
+> Umami, an analytics service that sets no cookies and stores nothing in
+> your browser. For each page view it records the page address and title,
+> the site that linked to it, your browser, operating system, device type,
+> screen size and language, and your approximate location (country, region
+> and city). It uses your IP address and browser to make an anonymous
+> visitor code, which changes every month, and does not store your IP
+> address with the record. It is not told who you are, even when you are
+> signed in, and it is not used for advertising.
 
-The "Last changed" date moves to the day T3 ships. The comment above
-`PrivacyApp` ("no cookies or analytics of the site's own") changes to match.
-The product spec's analytics line, "Plausible or PostHog", is replaced by a
-pointer to this spec.
+What it rests on: Umami records URL (path and query), title, referrer,
+browser, OS, device, screen size, language and approximate location; the
+visitor id is a hash of the website id, IP and User-Agent with a salt that
+"rotates monthly by default"; the IP "is not stored as a field". "Not told
+who you are" holds because the app never calls `umami.identify()`, which
+this spec's boundaries forbid. The page address includes the query string,
+so UTM tags are recorded; the app puts nothing personal in a URL.
 
-**Before T3 ships, check:** that the fields listed above match what Umami's
-own privacy and data pages say it collects, worded no more broadly than they
-do. This spec has not verified that list yet.
+The "Last changed" date moves to 12 November 2026. The comment above
+`PrivacyApp` changes to match. The product spec's analytics line points to
+this spec.
 
 ## Tests
 
@@ -189,7 +194,7 @@ do. This spec has not verified that list yet.
   sending it; keep the tag limited to `aibytes.io`.
 - **Ask first:** adding an event, a second tool, or anything that identifies
   a signed-in reader to the analytics tool.
-- **Never:** send an email address, a Firebase uid, or a save list to the
+- **Never:** call `umami.identify()`; send an email address, a Firebase uid, or a save list to the
   analytics tool; set a cookie; add a consent banner instead of choosing a
   tool that needs none.
 
@@ -204,8 +209,8 @@ do. This spec has not verified that list yet.
 
 ## Open questions
 
-1. **P2:** the `/privacy` wording above, approved at T3 once the field list
-   is checked against Umami's own pages.
+1. **P2:** the `/privacy` wording above (fields now checked against Umami's
+   own pages).
 
 Answered 12 Nov 2026: **P1**, Umami Cloud; Search Console added as P8; no
 Google Analytics.
