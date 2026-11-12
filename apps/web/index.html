@@ -14,6 +14,10 @@
       } catch (e) {}
       document.documentElement.dataset.theme = theme;
     </script>
+    <!-- Umami Cloud analytics: no cookies, nothing stored in the browser (AIB-145y,
+         docs/specs/AIB-145y-gist-analytics.md). The website id is public by design.
+         data-domains keeps dev servers and local builds from recording anything. -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="3bafe9de-d5cd-44f1-8e47-92a2083d53b2" data-domains="aibytes.io"></script>
   </head>
   <body>
     <div id="root"></div>

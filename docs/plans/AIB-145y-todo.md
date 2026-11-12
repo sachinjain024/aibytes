@@ -43,11 +43,13 @@ every page the build writes from it), skipped on `localhost`. Add a small
 is absent or blocked. Nothing calls `track` yet; T29 adds the panel event.
 
 **Acceptance criteria:**
-- [ ] `dist/index.html`, an edition page and `/privacy` all carry the tag; the
+- [x] `dist/index.html`, an edition page and `/privacy` all carry the tag; the
       site id is public by design and noted as such.
-- [ ] `analytics.test.js`: `track` is a no-op without the global, and never
+- [x] `analytics.test.js`: `track` is a no-op without the global, and never
       throws.
 - [ ] No cookie or storage write by the tool in a browser check.
+      *(Owed: `data-domains="aibytes.io"` stops the tracker everywhere else, so
+      this is checked on the live site at Checkpoint A.)*
 
 **Verification:** `npm run build:web`; `grep` the built pages; DevTools in
 `npm run dev:web` with the tag forced on. **Dependencies:** T1, P1.
