@@ -63,3 +63,10 @@ test("the app never identifies a reader to the analytics tool", () => {
     assert.doesNotMatch(src, /umami\.identify|\.identify\(/, name);
   }
 });
+
+test("/privacy lists every service that handles reader data", () => {
+  const section = app.slice(app.indexOf("Services that handle your data"), app.indexOf(">Questions<"));
+  for (const name of ["GitHub", "Google Cloud", "Google Fonts", "Umami", "Substack", "Slack"]) {
+    assert.match(section, new RegExp(`<strong>${name}</strong>`), name);
+  }
+});

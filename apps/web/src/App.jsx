@@ -686,6 +686,20 @@ function PrivacyApp({ saves, location, navigate, theme, onToggleTheme }) {
         <h2 className="ldg-section-h">The newsletter</h2>
         <p>{NEWSLETTER_PRIVACY}</p>
 
+        <h2 className="ldg-section-h">Services that handle your data</h2>
+        <p>aiBytes_ relies on these services, each for the part described above. None of them is given more than
+          that part needs.</p>
+        <ul>
+          <li><strong>GitHub</strong> (GitHub Pages): hosts the site, so it sees each request.</li>
+          <li><strong>Google Cloud</strong> (Firebase Authentication, Cloud Firestore, Cloud Functions): signs you
+            in, stores your saves and newsletter choice, and reports a failed newsletter sign-up.</li>
+          <li><strong>Google Fonts</strong>: serves the site&apos;s fonts.</li>
+          <li><strong>Umami</strong>: analytics, as described above.</li>
+          <li><strong>Substack</strong>: sends the newsletter, if you subscribe.</li>
+          <li><strong>Slack</strong>: receives the alert when a newsletter sign-up fails, with your email, so you
+            can be added by hand.</li>
+        </ul>
+
         <h2 className="ldg-section-h">Questions</h2>
         <p>Email {contact}.</p>
       </article>}

@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-12T12:18:45.469Z
+updated_at: 2026-11-12T12:32:10.748Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -71,7 +71,7 @@ added_by:
 - [x] 4.1 T1: analytics spec and tool shortlist <!-- longclaw:item=ck_14c18929 -->
 - [x] 4.2 P1: publisher picks the analytics tool and creates the site <!-- longclaw:item=ck_ee37c311 -->
 - [x] 4.3 T2: the script on every page, and the panel event helper <!-- longclaw:item=ck_a0e44d91 -->
-- [ ] 4.4 T3: the privacy page <!-- longclaw:item=ck_352c4191 -->
+- [x] 4.4 T3: the privacy page <!-- longclaw:item=ck_352c4191 -->
 - [ ] 4.5 P2: publisher approves the privacy wording <!-- longclaw:item=ck_b3c0615a -->
 - [ ] 4.6 Checkpoint A: analytics live <!-- longclaw:item=ck_1e04c4b9 -->
 - [ ] 5. gist-contract <!-- longclaw:item=ck_c5e68811 -->
@@ -482,6 +482,21 @@ actor:
   id: claude-code
 changes:
   - field: checklist.ck_a0e44d91.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_96bfd8cc
+kind: update
+occurred_at: 2026-11-12T12:32:10.748Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_352c4191.checked
     from: "false"
     to: "true"
 -->

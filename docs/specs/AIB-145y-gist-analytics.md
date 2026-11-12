@@ -173,6 +173,12 @@ who you are" holds because the app never calls `umami.identify()`, which
 this spec's boundaries forbid. The page address includes the query string,
 so UTM tags are recorded; the app puts nothing personal in a URL.
 
+A "Services that handle your data" section, added at the publisher's
+request, lists every outside service and its part: GitHub (hosting), Google
+Cloud (Firebase Authentication, Cloud Firestore, Cloud Functions), Google
+Fonts, Umami, Substack and Slack. A new service is added to that list in the
+same change that starts using it.
+
 The "Last changed" date moves to 12 November 2026. The comment above
 `PrivacyApp` changes to match. The product spec's analytics line points to
 this spec.
