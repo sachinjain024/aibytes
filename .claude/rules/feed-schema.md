@@ -4,13 +4,15 @@ paths:
   - "content/**"
   - "tests/test_feed_schema.py"
   - "tests/test_hide.py"
+  - "tests/test_gist_*.py"
 ---
 
 # The content contract
 
 `content/` is what the app and the extension read. The weekly newsletter does
-not - it curates from raw `newsletter/data/` and always will. `packages/feed-schema` is its contract: four schemas,
-`feed.d.ts` for the JS consumers, `validate.py`, and `hide.py`.
+not - it curates from raw `newsletter/data/` and always will. `packages/feed-schema` is its contract: the schemas,
+`feed.d.ts` for the JS consumers, `validate.py`, `hide.py`, and `gist_contract.py`
+for gists (AIB-145y).
 
 ## Append-only
 
@@ -29,6 +31,8 @@ Changing one usually means changing another:
 - an item's `hidden` flag, the edition's `counts`, and the index's `total`
 - an edition file, and its entry in `index.json`
 - an item's `tags`, and the names in `tags.json`
+- an item's `gist`, the gist file it names, that gist's `appearances`, and
+  its entry in `gists/index.json` (keyed by the normalised source URL)
 
 `validate.py` checks all of it, including the cross-file invariants. Run it
 before committing anything under `content/`:
@@ -36,6 +40,11 @@ before committing anything under `content/`:
 ```bash
 python3 packages/feed-schema/validate.py
 ```
+
+Gists are never hand-written: the run's gists step writes the file, the index
+entry and the item's `gist` together. A gist's slug and index entry never
+change once published. Whether a gist is shown is worked out from its items'
+`hidden` flags; nothing about hiding is stored in the gist.
 
 Never hand-edit a `hidden` flag — `hide.py` exists so all three files move
 together, and it writes nothing unless the whole change validates.

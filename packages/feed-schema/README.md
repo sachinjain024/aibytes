@@ -16,6 +16,7 @@ schema, types, validator, and admin script.
 | `index.schema.json` | `content/index.json` — the editions that exist, newest first |
 | `tags.schema.json` | `content/tags.json` — the fixed tag vocabulary |
 | `hidden.schema.json` | `content/hidden.json` — the admin hide log |
+| `gist-index.schema.json` | `content/gists/index.json` — every gist, keyed by its source (AIB-145y) |
 | `gist.schema.json` | `content/gists/<slug>.json` — one gist (AIB-145y); rules in `gist_contract.py`, spec in `docs/specs/AIB-145y-gist-contract.md` |
 | `feed.d.ts` | The same shapes as TypeScript, for the app and extension |
 | `validate.py` | Stdlib validator, and the CLI that checks a whole tree |

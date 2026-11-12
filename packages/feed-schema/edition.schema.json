@@ -124,6 +124,16 @@
           "type": "integer",
           "minimum": 1,
           "description": "The item's place in the edition's one reading order across every source, 1 first. Optional, because editions written before it existed have none - but all or none: when any item has a rank, every item does, and the ranks are exactly 1..N over all items, hidden ones included, so hiding never renumbers. Consumers sort ascending and must not assume the visible ranks are contiguous. Independent of the items' order in the file, which stays grouped by category."
+        },
+        "gist": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "maxLength": 80,
+          "description": "AIB-145y: the slug of this item's gist, at aibytes.io/gists/<slug> and content/gists/<slug>.json. Absent before gists launched and when gist writing failed for this item; the card then opens the source as before."
+        },
+        "front_page": {
+          "const": true,
+          "description": "AIB-145y: Hacker News items only. A fetch saw the story on the front page. Absent means not seen there; never false."
         }
       }
     },

@@ -8,12 +8,13 @@ tests/test_gist_contract.py keeps the two in step.
 
 Stdlib only, Python 3.8, like the rest of the repo.
 
-The index (content/gists/index.json) and the checks across files - an item's
-`gist` naming a real gist, appearances pointing back - are added by T6.
+It also checks content/gists/index.json and how the gists, the index and the
+items agree (T6), and decides whether a gist is shown (T7).
 """
 
 import datetime as dt
 import json
+import pathlib
 import re
 import unicodedata
 import urllib.parse
@@ -35,8 +36,8 @@ DEPTHS = ("full", "brief", "preview")
 KIND_SOURCE = {"news": ("techcrunch", "news"), "hn": ("hackernews", "hn"),
                "repo": ("github", "repos"), "launch": ("producthunt", "launches")}
 
-GIST_SLUG_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
-GIST_SLUG_MAX = 80
+GIST_SLUG_RE = contract.SLUG_RE
+GIST_SLUG_MAX = contract.GIST_SLUG_MAX
 TITLE_MAX = 200
 LEDE_MIN = 40
 LEDE_MAX = 320
@@ -88,6 +89,11 @@ PREVIEW_TEXT_MAX = 4000
 PREVIEW_NAME_MAX = 100
 
 APPEARANCE_KEYS = ("item_id", "edition_date", "issue_slug")
+
+# content/gists/index.json
+GIST_INDEX_REQUIRED = ("schema_version", "generated_at", "gists")
+GIST_INDEX_ENTRY_REQUIRED = ("slug", "source_key", "path", "created_at")
+GIST_PATH_RE = re.compile(r"^gists/[a-z0-9]+(?:-[a-z0-9]+)*\.json$")
 
 # Query parameters that only say where a click came from, dropped from the
 # source key. Matched case-insensitively; every `utm_*` is dropped too.
@@ -427,6 +433,155 @@ def gist_file_problems(root, *, tag_names=None):
         found += [f"{where}: {line}" for line in gist_problems(gist, tag_names=tag_names)]
         if isinstance(gist, dict) and gist.get("slug") != path.stem:
             found.append(f"{where}: slug {gist.get('slug')!r} does not match the file name")
+    return found
+
+
+def gist_tree_problems(root, *, tag_names=None):
+    """Every gist file, the index, and rules 11 to 17 of the contract spec."""
+    root = pathlib.Path(root)
+    found = gist_file_problems(root, tag_names=tag_names)
+    gists = {}
+    for path in gist_files(root):
+        try:
+            gist = json.loads(path.read_text())
+        except ValueError:
+            continue  # already reported
+        if isinstance(gist, dict):
+            gists[path.stem] = gist
+
+    entries, index_found = _gist_index(root, gists)
+    found += index_found
+    known = set(gists) | {entry.get("slug") for entry in entries}
+    found += _items_agree(root, gists, known)
+    return found
+
+
+def _gist_index(root, gists):
+    """Rules 11 to 13: the index on its own, and against the gist files."""
+    path = root / "gists" / "index.json"
+    where = "gists/index.json"
+    if not path.exists():
+        return [], ([f"{where}: missing, but there are {len(gists)} gist files"] if gists else [])
+    try:
+        document = json.loads(path.read_text())
+    except ValueError as exc:
+        return [], [f"{where}: not valid JSON: {exc}"]
+    if not isinstance(document, dict):
+        return [], [f"{where}: must be an object"]
+    found = [f"{where}: {line}" for line in contract._missing(document, GIST_INDEX_REQUIRED)
+             + contract._version(document)]
+    found += [f"{where}: unknown key: {key}" for key in document if key not in GIST_INDEX_REQUIRED]
+    if "generated_at" in document and not contract._is_datetime(document["generated_at"]):
+        found.append(f"{where}: generated_at {document['generated_at']!r} is not an ISO 8601 timestamp")
+    entries = document.get("gists")
+    if not isinstance(entries, list):
+        return [], found + ([f"{where}: gists must be an array"] if entries is not None else [])
+
+    slugs, keys, good = [], [], []
+    for i, entry in enumerate(entries):
+        at = f"{where}: gists[{i}]"
+        if not isinstance(entry, dict):
+            found.append(f"{at}: must be an object")
+            continue
+        good.append(entry)
+        found += [f"{at}: {line}" for line in contract._missing(entry, GIST_INDEX_ENTRY_REQUIRED)]
+        found += [f"{at}: unknown key: {key}" for key in entry if key not in GIST_INDEX_ENTRY_REQUIRED]
+        slug = entry.get("slug")
+        if not is_gist_slug(slug):
+            found.append(f"{at}: slug {slug!r} is not a gist slug")
+        elif slug in slugs:
+            found.append(f"{at}: slug {slug!r} is listed twice")
+        slugs.append(slug)
+        key = entry.get("source_key")
+        if not (isinstance(key, str) and key):
+            found.append(f"{at}: source_key must be a non-empty string")
+        elif key in keys:
+            found.append(f"{at}: source_key {key!r} is listed twice")
+        keys.append(key)
+        entry_path = entry.get("path")
+        if not (isinstance(entry_path, str) and GIST_PATH_RE.match(entry_path)
+                and entry_path == f"gists/{slug}.json"):
+            found.append(f"{at}: path {entry_path!r} must be gists/{slug}.json")
+        if "created_at" in entry and not contract._is_datetime(entry["created_at"]):
+            found.append(f"{at}: created_at {entry['created_at']!r} is not an ISO 8601 timestamp")
+        if is_gist_slug(slug) and slug not in gists:
+            found.append(f"{where}: {slug}: file missing (gists/{slug}.json)")
+        elif slug in gists and isinstance(key, str):
+            try:
+                expected = source_key(gists[slug].get("source_url"))
+            except ValueError:
+                expected = None  # the gist file's own check reports the URL
+            if expected is not None and key != expected:
+                found.append(f"{at}: source_key {key!r} does not match the gist's source_url ({expected!r})")
+    plain = [s for s in slugs if isinstance(s, str)]
+    if plain != sorted(plain):
+        found.append(f"{where}: gists must be sorted by slug")
+    for slug in sorted(set(gists) - set(plain)):
+        found.append(f"gists/{slug}.json: not in gists/index.json")
+    return good, found
+
+
+def _items(root):
+    """Every item, by (where, item id): editions by date, weekly issues by slug."""
+    places = {}
+    for path in sorted((root / "editions").glob("*.json")):
+        places[("edition", path.stem)] = (f"editions/{path.name}", path)
+    for path in sorted((root / "weekly" / "issues").glob("*.json")):
+        places[("issue", path.stem)] = (f"weekly/issues/{path.name}", path)
+    items = {}
+    for place, (label, path) in places.items():
+        try:
+            document = json.loads(path.read_text())
+        except ValueError:
+            continue  # reported by the edition and weekly checks
+        for item in (document.get("items") or []) if isinstance(document, dict) else []:
+            if isinstance(item, dict) and isinstance(item.get("id"), str):
+                items[(place, item["id"])] = (label, item)
+    return items
+
+
+def _items_agree(root, gists, known):
+    """Rules 14 to 16: items name real gists, appearances point back."""
+    found = []
+    items = _items(root)
+    claimed = {}
+    for (place, item_id), (label, item) in items.items():
+        slug = item.get("gist")
+        if not isinstance(slug, str):
+            continue
+        claimed.setdefault(slug, []).append((place, item_id, label))
+        if slug not in known:
+            found.append(f"{label}: item {item_id}: gist {slug!r} is not in gists/index.json")
+
+    for slug, gist in sorted(gists.items()):
+        where = f"gists/{slug}.json"
+        listed = set()
+        front_page = False
+        for appearance in gist.get("appearances") or []:
+            if not isinstance(appearance, dict):
+                continue
+            item_id = appearance.get("item_id")
+            if "edition_date" in appearance:
+                place, label = ("edition", appearance["edition_date"]), f"editions/{appearance['edition_date']}.json"
+            elif "issue_slug" in appearance:
+                place, label = ("issue", appearance["issue_slug"]), f"weekly/issues/{appearance['issue_slug']}.json"
+            else:
+                continue
+            listed.add((place, item_id))
+            if gist.get("kind") == "x_post":
+                continue  # X posts are not carried in issue files; nothing to point back
+            if (place, item_id) not in items:
+                found.append(f"{where}: appearance {item_id} is not an item in {label}")
+                continue
+            item = items[(place, item_id)][1]
+            if item.get("gist") != slug:
+                found.append(f"{where}: appearance {item_id} does not point back (its gist is {item.get('gist')!r})")
+            front_page = front_page or item.get("front_page") is True
+        for place, item_id, label in claimed.get(slug, []):
+            if (place, item_id) not in listed:
+                found.append(f"{label}: item {item_id} names gist {slug!r} but is not one of its appearances")
+        if front_page and gist.get("front_page") is not True:
+            found.append(f"{where}: front_page missing, but an appearance was on the front page")
     return found
 
 

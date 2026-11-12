@@ -122,9 +122,10 @@ entry has a file, every item's `gist` names a file, every appearance names an
 item that points back.
 
 **Acceptance criteria:**
-- [ ] Fixtures for each broken link between the three are rejected.
-- [ ] Old editions with no `gist` field stay valid.
-- [ ] `content/README.md` and `.claude/rules/feed-schema.md` describe the
+- [x] Fixtures for each broken link between the three are rejected.
+- [x] Old editions with no `gist` field stay valid. The item's `front_page`
+      field landed here too, since rules 16 and 17 need it; T8 only fills it.
+- [x] `content/README.md` and `.claude/rules/feed-schema.md` describe the
       gist files.
 
 **Verification:** as T5. **Dependencies:** T5. **Size:** M.

@@ -114,6 +114,14 @@ export interface EditionItem {
    * order of `items`, which stays grouped by category.
    */
   rank?: number;
+  /**
+   * AIB-145y: the slug of this item's gist, at aibytes.io/gists/<slug>. Absent
+   * before gists launched and when gist writing failed for this item; the card
+   * then opens the source as before.
+   */
+  gist?: string;
+  /** AIB-145y: Hacker News only. Seen on the front page; absent otherwise, never false. */
+  front_page?: true;
 }
 
 /**
@@ -369,4 +377,25 @@ export interface Gist {
   appearances: GistAppearance[];
   created_at: string;
   updated_at: string;
+}
+
+/** One entry in `content/gists/index.json`. */
+export interface GistIndexEntry {
+  slug: string;
+  /** The gist's `source_url` normalised; see the contract spec. */
+  source_key: string;
+  /** Relative to `content/`: `gists/{slug}.json`. */
+  path: string;
+  created_at: string;
+}
+
+/**
+ * `content/gists/index.json` - every gist, sorted by slug. Read by the daily
+ * run and the build; the app never loads it, since an item carries its slug.
+ */
+export interface GistIndex {
+  schema_version: SchemaVersion;
+  /** The last run that added a gist. */
+  generated_at: string;
+  gists: GistIndexEntry[];
 }
