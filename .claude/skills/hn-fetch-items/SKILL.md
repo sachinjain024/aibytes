@@ -9,7 +9,9 @@ Fetches the top AI-related HackerNews stories of the last 7 days and stores
 them as a weekly JSON snapshot, ready for the newsletter's **AI News** section.
 Each story carries a title, external URL (or the HN thread for Ask/Show HN
 posts with no link), story type, points, comment count, author, submit time,
-and the HN thread link.
+the HN thread link, and `front_page`: whether the story was on HN's front page
+at fetch time (Algolia's `front_page` tag; AIB-145y). Snapshots saved before
+12 Nov 2026 do not carry it.
 
 ## How it works
 

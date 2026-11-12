@@ -205,3 +205,26 @@ class TestCli(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestHackerNewsFrontPage(unittest.TestCase):
+    """AIB-145y T8: Algolia tags a story front_page while it is on HN's front
+    page. The fetcher keeps that, so a gist and its card can show the badge."""
+
+    def hit(self, tags):
+        return {"objectID": "50443587", "title": "Show HN: TinyEval", "url": "https://example.com",
+                "points": 212, "num_comments": 87, "author": "mkrause",
+                "created_at": "2026-08-26T18:02:00Z", "_tags": tags}
+
+    def test_a_front_page_story_says_so(self):
+        story = hackernews.to_story(self.hit(["story", "author_mkrause", "show_hn", "front_page"]))
+        self.assertIs(story["front_page"], True)
+        self.assertEqual(story["type"], "show_hn")
+
+    def test_any_other_story_does_not(self):
+        for tags in (["story"], [], None):
+            with self.subTest(tags=tags):
+                hit = self.hit(tags)
+                if tags is None:
+                    del hit["_tags"]
+                self.assertIs(hackernews.to_story(hit)["front_page"], False)

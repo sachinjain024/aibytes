@@ -158,9 +158,9 @@ story; curate copies it to the edition item as `front_page: true`; the
 contract and `feed.d.ts` add the optional field.
 
 **Acceptance criteria:**
-- [ ] A fixture hit tagged `front_page` gives an item with `front_page:
-      true`; one without gives no field.
-- [ ] `validate.py` accepts `true` only.
+- [x] A fixture hit tagged `front_page` gives an item with `front_page:
+      true`; one without gives no field. Checked live against Algolia too.
+- [x] `validate.py` accepts `true` only (the field itself landed in T6).
 - [ ] The next daily run carries it (seen after merge).
 
 **Verification:** `python3 -m unittest tests.test_fetchers

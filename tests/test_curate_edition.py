@@ -168,6 +168,16 @@ class AdapterTests(unittest.TestCase):
         self.assertEqual(item["source_url"], "https://news.ycombinator.com/item?id=49458161")
         self.assertEqual(item["signals"], {"points": 1965, "comments": 905})
 
+    def test_front_page_reaches_the_item_and_its_absence_writes_nothing(self):
+        # AIB-145y T8: the fetcher's front_page flag becomes the item's.
+        item = drafts_from(hn=[hn_story(front_page=True)])[0].item
+        self.assertIs(item["front_page"], True)
+        # Drafts get summary and tags later, in build; only front_page is checked here.
+        self.assertEqual([p for p in contract._item_problems(item, DATE, None) if "front_page" in p], [])
+        for story in (hn_story(), hn_story(front_page=False)):
+            with self.subTest(story=story.get("front_page")):
+                self.assertNotIn("front_page", drafts_from(hn=[story])[0].item)
+
     def test_show_hn_is_a_launch_not_a_thread(self):
         for kind in ("show_hn", "launch_hn"):
             with self.subTest(kind=kind):
@@ -827,6 +837,17 @@ class CommandTests(CurateRunTestCase):
         document = self.edition()
         self.assertEqual(document["counts"], {"launches": 1, "repos": 1, "news": 1, "hn": 1})
         self.assertEqual(len(document["items"]), 4)
+        contract.validate_content_root(self.content_root)
+
+    def test_a_front_page_story_publishes_and_validates(self):
+        # AIB-145y T8: the field survives build and passes the contract.
+        self.write_snapshots(ph=[ph_post()], gh=[gh_repo()], tc=[tc_article()],
+                             hn=[hn_story(front_page=True)])
+        self.run_cli("draft", "--date", DATE)
+        ids = [i["id"] for i in self.curation()["items"]]
+        self.run_cli("build", "--date", DATE, "--summaries", self.summaries_for(ids))
+        hn = [i for i in self.edition()["items"] if i["source"] == "hackernews"]
+        self.assertEqual([i.get("front_page") for i in hn], [True])
         contract.validate_content_root(self.content_root)
 
     def test_build_does_not_need_draft_to_have_run(self):

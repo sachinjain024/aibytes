@@ -400,22 +400,27 @@ def from_hackernews(envelope, date, used=None):
             dropped.append(_dropped("hackernews", story, "unusable", "title does not slug"))
             continue
 
+        item = _build(
+            item_id,
+            title=title,
+            url=url,
+            source="hackernews",
+            source_url=thread,
+            category="launches" if story.get("type") in ("show_hn", "launch_hn") else "hn",
+            # No image by design: the card shows the HN mark in the same
+            # 40px slot, so rows still align.
+            image={"type": "none"},
+            signals=_signals(points=story.get("points"),
+                             comments=story.get("num_comments")),
+            meta=_meta(author=story.get("author")),
+            published_at=_timestamp(story.get("created_at")),
+        )
+        # Seen on HN's front page when fetched (AIB-145y). Only ever true;
+        # absent otherwise, as the contract says.
+        if story.get("front_page") is True:
+            item["front_page"] = True
         drafts.append(Draft(
-            _build(
-                item_id,
-                title=title,
-                url=url,
-                source="hackernews",
-                source_url=thread,
-                category="launches" if story.get("type") in ("show_hn", "launch_hn") else "hn",
-                # No image by design: the card shows the HN mark in the same
-                # 40px slot, so rows still align.
-                image={"type": "none"},
-                signals=_signals(points=story.get("points"),
-                                 comments=story.get("num_comments")),
-                meta=_meta(author=story.get("author")),
-                published_at=_timestamp(story.get("created_at")),
-            ),
+            item,
             text=title,
             rank=rank,
             raw=story,
