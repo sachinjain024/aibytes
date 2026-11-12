@@ -1,5 +1,6 @@
 """Validate the published content contract: editions, the index, tags, hidden,
-and the optional weekly archive under content/weekly/.
+the optional weekly archive under content/weekly/, and the optional gists
+under content/gists/ (AIB-145y; the gist rules live in gist_contract.py).
 
 Stdlib only, like the rest of the repo's Python. This checks the constraints
 the schema files actually declare rather than pulling in a JSON Schema engine,
@@ -604,11 +605,19 @@ def validate_content_root(root):
     problems += _index_agrees_with_editions(documents.get("index"), editions)
     problems += _hidden_agrees_with_editions(documents.get("hidden"), editions)
     problems += _weekly_index_problems(root, tags_doc)
+    problems += _gist_problems(root, tags_doc)
 
     problems = list(problems)
     if problems:
         raise FeedValidationError("\n".join(problems))
     return True
+
+
+def _gist_problems(root, tag_names):
+    """Every gist file on its own (AIB-145y T5). No gists/ folder is valid."""
+    # Imported here: gist_contract builds on this module's helpers.
+    import gist_contract
+    return gist_contract.gist_file_problems(root, tag_names=tag_names)
 
 
 def validate_weekly_issue(issue, *, tag_names=None):

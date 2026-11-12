@@ -1,0 +1,617 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aibytes.io/content/gist.schema.json",
+  "title": "aiBytes gist",
+  "description": "One gist: content/gists/<slug>.json, a short page about one source item, shown at aibytes.io/gists/<slug> and in the side panel (AIB-145y). Written by the daily run, never by hand. One gist per source page: an item that reappears on a later day adds an appearance here instead of a new gist. Append-only like the rest of content/: add fields, never rename or remove them. The rules JSON Schema cannot express (kind agreeing with source and depth, one destination link, appearances oldest first, the files agreeing with each other) are checked by validate.py and gist_contract.py, which are stricter than this file. See docs/specs/AIB-145y-gist-contract.md.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "slug",
+    "kind",
+    "title",
+    "url",
+    "source_url",
+    "tags",
+    "image",
+    "depth",
+    "sections",
+    "links",
+    "appearances",
+    "created_at",
+    "updated_at"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Bumped only for a breaking change. Refuse a version you do not know."
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "maxLength": 80,
+      "description": "The file name and the URL: aibytes.io/gists/<slug>. The item id without its date or issue ending; an X post's is x-<handle>-<first five words>. Never changes once published."
+    },
+    "kind": {
+      "enum": [
+        "news",
+        "hn",
+        "repo",
+        "launch",
+        "x_post"
+      ],
+      "description": "Picks the sections and stats a gist may carry. Separate from `source`, because X posts have no fetcher."
+    },
+    "source": {
+      "enum": [
+        "producthunt",
+        "hackernews",
+        "techcrunch",
+        "github"
+      ],
+      "description": "The fetcher source, as on the item. Absent on an x_post, and only there."
+    },
+    "category": {
+      "enum": [
+        "launches",
+        "repos",
+        "news",
+        "hn"
+      ],
+      "description": "As on the item. Absent on an x_post, and only there."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "From the first appearance. Never rewritten, so a shared link keeps its title."
+    },
+    "url": {
+      "$ref": "#/$defs/httpUrl",
+      "description": "Where the item points: the article, the product, the repo, the post."
+    },
+    "source_url": {
+      "$ref": "#/$defs/httpUrl",
+      "description": "The source page, as on the item. The index's source key is made from this."
+    },
+    "tags": {
+      "type": "array",
+      "maxItems": 4,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Display names from tags.json, as on items."
+    },
+    "image": {
+      "$ref": "#/$defs/image"
+    },
+    "depth": {
+      "enum": [
+        "full",
+        "brief",
+        "preview"
+      ],
+      "description": "full: written from the source and indexed by search engines. brief: the source could not be read, so built from what the run already knew; published with noindex. preview: an X post, copied from the saved snapshot; noindex."
+    },
+    "lede": {
+      "type": "string",
+      "minLength": 40,
+      "maxLength": 320,
+      "description": "One or two sentences that stand alone. The page's meta description and share text. Required except on a preview."
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/section"
+      },
+      "description": "In the order of the section keys, each key at most once. Which keys a kind may carry is in the contract spec. A section with nothing to support it is left out, not padded."
+    },
+    "stats": {
+      "$ref": "#/$defs/stats"
+    },
+    "stats_as_of": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the stats were read, UTC. Present exactly when `stats` is. Shown as 'As of ..., IST'."
+    },
+    "front_page": {
+      "const": true,
+      "description": "Hacker News only: a fetch saw the story on the front page. Absent means not seen there; never false."
+    },
+    "preview": {
+      "$ref": "#/$defs/preview"
+    },
+    "links": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "items": {
+        "$ref": "#/$defs/link"
+      },
+      "description": "Every page the gist drew on. The closing buttons are the destination link, then the discussion link. Stored clean; ref=aiBytes_ is added when a link is rendered."
+    },
+    "appearances": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/appearance"
+      },
+      "description": "Every edition and weekly issue item that carried this source, oldest first. Only ever added to. The gist is shown while any of these items is visible."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The last change of any kind. At or after created_at."
+    }
+  },
+  "$defs": {
+    "httpUrl": {
+      "type": "string",
+      "pattern": "^https?://[^\\s]+$"
+    },
+    "section": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/section_key_points"
+        },
+        {
+          "$ref": "#/$defs/section_why_it_matters"
+        },
+        {
+          "$ref": "#/$defs/section_who_its_for"
+        },
+        {
+          "$ref": "#/$defs/section_pricing"
+        },
+        {
+          "$ref": "#/$defs/section_try_it"
+        },
+        {
+          "$ref": "#/$defs/section_discussion"
+        },
+        {
+          "$ref": "#/$defs/section_whats_open"
+        }
+      ]
+    },
+    "section_key_points": {
+      "type": "object",
+      "required": [
+        "key",
+        "points"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "const": "key_points"
+        },
+        "points": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 5,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          }
+        }
+      },
+      "description": "What the item is and what is new. Every kind but x_post; required on a full gist."
+    },
+    "section_why_it_matters": {
+      "type": "object",
+      "required": [
+        "key",
+        "text"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "const": "why_it_matters"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 320
+        }
+      },
+      "description": "news only."
+    },
+    "section_who_its_for": {
+      "type": "object",
+      "required": [
+        "key",
+        "text"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "const": "who_its_for"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        }
+      },
+      "description": "launch only, and only if the source says."
+    },
+    "section_pricing": {
+      "type": "object",
+      "required": [
+        "key",
+        "text"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "const": "pricing"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        }
+      },
+      "description": "launch only, and only if the source says."
+    },
+    "section_try_it": {
+      "type": "object",
+      "required": [
+        "key",
+        "command"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "const": "try_it"
+        },
+        "command": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200,
+          "pattern": "^[^\\r\\n]*$"
+        }
+      },
+      "description": "repo only: the install or run line, only if the README gives one."
+    },
+    "section_discussion": {
+      "type": "object",
+      "required": [
+        "key",
+        "points"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "const": "discussion"
+        },
+        "points": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "stance",
+              "text",
+              "url"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "stance": {
+                "enum": [
+                  "agreed",
+                  "disputed",
+                  "counterpoint",
+                  "theme"
+                ]
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240
+              },
+              "url": {
+                "$ref": "#/$defs/httpUrl",
+                "description": "The comment it rests on."
+              }
+            }
+          }
+        }
+      },
+      "description": "hn only: the themes of the thread."
+    },
+    "section_whats_open": {
+      "type": "object",
+      "required": [
+        "key",
+        "points"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "const": "whats_open"
+        },
+        "points": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "text"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240
+              },
+              "url": {
+                "$ref": "#/$defs/httpUrl"
+              }
+            }
+          }
+        }
+      },
+      "description": "repo only: the themes of the most-discussed open issues."
+    },
+    "stats": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": false,
+      "description": "Keys are fixed per kind (hn: points, comments, submitted_by, posted_at; repo: stars, stars_gained, forks, language, license, created_on, contributors, open_issues, last_release; launch: upvotes, comments; x_post: likes, reposts, replies, views; news: none). Ages are worked out against stats_as_of when shown, never stored.",
+      "properties": {
+        "points": {
+          "$ref": "#/$defs/count"
+        },
+        "comments": {
+          "$ref": "#/$defs/count"
+        },
+        "submitted_by": {
+          "$ref": "#/$defs/statText"
+        },
+        "posted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "stars": {
+          "$ref": "#/$defs/count"
+        },
+        "stars_gained": {
+          "$ref": "#/$defs/count"
+        },
+        "forks": {
+          "$ref": "#/$defs/count"
+        },
+        "language": {
+          "$ref": "#/$defs/statText"
+        },
+        "license": {
+          "$ref": "#/$defs/statText",
+          "description": "An SPDX id, or 'Other'."
+        },
+        "created_on": {
+          "$ref": "#/$defs/date"
+        },
+        "contributors": {
+          "$ref": "#/$defs/count"
+        },
+        "open_issues": {
+          "$ref": "#/$defs/count"
+        },
+        "last_release": {
+          "type": "object",
+          "required": [
+            "tag",
+            "published_on"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "tag": {
+              "$ref": "#/$defs/statText"
+            },
+            "published_on": {
+              "$ref": "#/$defs/date"
+            }
+          }
+        },
+        "upvotes": {
+          "$ref": "#/$defs/count"
+        },
+        "likes": {
+          "$ref": "#/$defs/count"
+        },
+        "reposts": {
+          "$ref": "#/$defs/count"
+        },
+        "replies": {
+          "$ref": "#/$defs/count"
+        },
+        "views": {
+          "$ref": "#/$defs/count"
+        }
+      }
+    },
+    "count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "statText": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "link": {
+      "type": "object",
+      "required": [
+        "role",
+        "title",
+        "url"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "role": {
+          "enum": [
+            "destination",
+            "discussion",
+            "source"
+          ],
+          "description": "destination: the thing itself; discussion: the page about it (HN thread, Product Hunt launch); source: anything else the gist drew on."
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200,
+          "description": "The page's own title. Button labels are the UI's job."
+        },
+        "url": {
+          "$ref": "#/$defs/httpUrl"
+        }
+      }
+    },
+    "preview": {
+      "type": "object",
+      "required": [
+        "bucket",
+        "author_name",
+        "author_handle",
+        "posted_on",
+        "text",
+        "media"
+      ],
+      "additionalProperties": false,
+      "description": "An X post, copied from the saved Grok snapshot (x_data.json), never written by Claude. x_post only, and required there.",
+      "properties": {
+        "bucket": {
+          "enum": [
+            "announcement",
+            "insight"
+          ],
+          "description": "announcement: an Official Announcement in the newsletter; insight: Viral on X."
+        },
+        "author_name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "author_handle": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "posted_on": {
+          "$ref": "#/$defs/date"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        },
+        "media": {
+          "enum": [
+            "none",
+            "image",
+            "video",
+            "gif",
+            "link"
+          ]
+        }
+      }
+    },
+    "appearance": {
+      "type": "object",
+      "required": [
+        "item_id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "item_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*-(?:\\d{4}-\\d{2}-\\d{2}|issue-\\d+)$"
+        },
+        "edition_date": {
+          "$ref": "#/$defs/date"
+        },
+        "issue_slug": {
+          "type": "string",
+          "pattern": "^issue-(\\d+)$"
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "edition_date"
+          ]
+        },
+        {
+          "required": [
+            "issue_slug"
+          ]
+        }
+      ]
+    },
+    "image": {
+      "type": "object",
+      "description": "The 40px card image. `type` picks the treatment: logo is rounded (Product Hunt), avatar is a circle (GitHub owner), thumbnail is cropped square (TechCrunch og:image), none means the source mark fills the slot instead (Hacker News). Every type keeps the same footprint so cards align.",
+      "required": [
+        "type"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "logo",
+            "avatar",
+            "thumbnail",
+            "none"
+          ]
+        },
+        "url": {
+          "$ref": "#/$defs/httpUrl"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "none"
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "then": {
+            "not": {
+              "required": [
+                "url"
+              ]
+            }
+          },
+          "else": {
+            "required": [
+              "url"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

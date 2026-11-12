@@ -236,3 +236,137 @@ export interface WeeklyIssue {
   counts: EditionCounts;
   items: EditionItem[];
 }
+
+// ---------------------------------------------------------------------------
+// Gists (AIB-145y): content/gists/<slug>.json, shown at aibytes.io/gists/<slug>
+// and in the side panel. docs/specs/AIB-145y-gist-contract.md is the source;
+// gist.schema.json is the contract of record and gist_contract.py its checks.
+// Caps below are restated as comments only; their single definition is in
+// gist_contract.py.
+
+/** Picks the sections and stats a gist may carry. Separate from `Source`: X posts have no fetcher. */
+export type GistKind = "news" | "hn" | "repo" | "launch" | "x_post";
+
+/**
+ * `full` is written from the source and indexed by search engines. `brief`
+ * (the source could not be read) and `preview` (an X post) are published with
+ * `noindex` and left out of the sitemap.
+ */
+export type GistDepth = "full" | "brief" | "preview";
+
+/** 3 to 5 points, each at most 200 chars. Every kind but x_post; required on a full gist. */
+export interface KeyPointsSection { key: "key_points"; points: string[] }
+/** news only. At most 320 chars. */
+export interface WhyItMattersSection { key: "why_it_matters"; text: string }
+/** launch only, when the source says. At most 240 chars. */
+export interface WhoItsForSection { key: "who_its_for"; text: string }
+/** launch only, when the source says. At most 240 chars. */
+export interface PricingSection { key: "pricing"; text: string }
+/** repo only: one install or run line, at most 200 chars, from the README. */
+export interface TryItSection { key: "try_it"; command: string }
+
+export type DiscussionStance = "agreed" | "disputed" | "counterpoint" | "theme";
+/** hn only: 3 to 5 themes of the thread, each linked to the comment it rests on. */
+export interface DiscussionSection {
+  key: "discussion";
+  points: { stance: DiscussionStance; text: string; url: string }[];
+}
+/** repo only: 2 to 5 themes from the most-discussed open issues. */
+export interface WhatsOpenSection {
+  key: "whats_open";
+  points: { text: string; url?: string }[];
+}
+
+/** Rendered in this order, each key at most once. Sections with nothing behind them are left out. */
+export type GistSection =
+  | KeyPointsSection
+  | WhyItMattersSection
+  | WhoItsForSection
+  | PricingSection
+  | TryItSection
+  | DiscussionSection
+  | WhatsOpenSection;
+
+/**
+ * Typed per kind; every key optional within its kind; `news` has none. Ages
+ * ("19h", "3 years") are worked out against `stats_as_of` when shown.
+ */
+export interface HnStats { points?: number; comments?: number; submitted_by?: string; posted_at?: string }
+export interface RepoStats {
+  stars?: number;
+  stars_gained?: number;
+  forks?: number;
+  language?: string;
+  /** An SPDX id, or "Other". */
+  license?: string;
+  /** YYYY-MM-DD. */
+  created_on?: string;
+  contributors?: number;
+  open_issues?: number;
+  last_release?: { tag: string; published_on: string };
+}
+export interface LaunchStats { upvotes?: number; comments?: number }
+export interface XPostStats { likes?: number; reposts?: number; replies?: number; views?: number }
+export type GistStats = HnStats | RepoStats | LaunchStats | XPostStats;
+
+/**
+ * `destination`: the thing itself. `discussion`: the page about it (HN
+ * thread, Product Hunt launch). `source`: anything else the gist drew on.
+ * The closing buttons are the destination link, then the discussion link.
+ * Stored clean: `ref=aiBytes_` is appended when a link is rendered.
+ */
+export type GistLinkRole = "destination" | "discussion" | "source";
+export interface GistLink { role: GistLinkRole; title: string; url: string }
+
+/** A daily item or a weekly issue item that carried this source. Oldest first. */
+export type GistAppearance =
+  | { item_id: string; edition_date: string; issue_slug?: never }
+  | { item_id: string; issue_slug: string; edition_date?: never };
+
+/** An X post, copied from the saved Grok snapshot, never written by Claude. */
+export interface XPreview {
+  /** `announcement`: an Official Announcement in the newsletter; `insight`: Viral on X. */
+  bucket: "announcement" | "insight";
+  author_name: string;
+  author_handle: string;
+  /** YYYY-MM-DD. */
+  posted_on: string;
+  /** At most 4,000 chars. */
+  text: string;
+  media: "none" | "image" | "video" | "gif" | "link";
+}
+
+/** One gist: `content/gists/<slug>.json`. */
+export interface Gist {
+  schema_version: SchemaVersion;
+  /** The file name and the URL. Never changes once published. */
+  slug: string;
+  kind: GistKind;
+  /** Absent on an x_post, and only there. */
+  source?: Source;
+  /** Absent on an x_post, and only there. */
+  category?: Category;
+  /** At most 200 chars. Never rewritten. */
+  title: string;
+  url: string;
+  source_url: string;
+  tags: string[];
+  image: ItemImage;
+  depth: GistDepth;
+  /** 40 to 320 chars; the page's meta description. Required except on a preview. */
+  lede?: string;
+  sections: GistSection[];
+  stats?: GistStats;
+  /** When `stats` was read, UTC. Present exactly when `stats` is. */
+  stats_as_of?: string;
+  /** Hacker News only: seen on the front page. Never false. */
+  front_page?: true;
+  /** x_post only, and required there. */
+  preview?: XPreview;
+  /** 1 to 8. */
+  links: GistLink[];
+  /** At least one. The gist is shown while any of these items is visible. */
+  appearances: GistAppearance[];
+  created_at: string;
+  updated_at: string;
+}

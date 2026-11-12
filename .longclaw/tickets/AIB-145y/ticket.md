@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-12T13:47:09.558Z
+updated_at: 2026-11-12T14:28:46.755Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -76,7 +76,7 @@ added_by:
 - [x] 4.6 Checkpoint A: analytics live <!-- longclaw:item=ck_1e04c4b9 -->
 - [ ] 5. gist-contract <!-- longclaw:item=ck_c5e68811 -->
 - [x] 5.1 T4: contract spec <!-- longclaw:item=ck_dcf06745 -->
-- [ ] 5.2 T5: the gist schema and validator <!-- longclaw:item=ck_8798d947 -->
+- [x] 5.2 T5: the gist schema and validator <!-- longclaw:item=ck_8798d947 -->
 - [ ] 5.3 T6: the index and the item's gist field <!-- longclaw:item=ck_7f614f86 -->
 - [ ] 5.4 T7: hidden items withdraw their gist <!-- longclaw:item=ck_286beccc -->
 - [ ] 5.5 T8: HN front page on the item <!-- longclaw:item=ck_d6d37a06 -->
@@ -596,4 +596,19 @@ changes:
 ### claude-code updated this ticket
 
 12 Nov 2026: T4 done, contract spec approved (docs/specs/AIB-145y-gist-contract.md) with D2-D4: announcements are X posts, links keep every source, hiding is derived so hide.py is unchanged (T7 reshaped). Added T38: outbound links get ref=aiBytes_ at render time.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_00b7afe7
+kind: update
+occurred_at: 2026-11-12T14:28:46.755Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_8798d947.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
 <!-- /longclaw:event -->

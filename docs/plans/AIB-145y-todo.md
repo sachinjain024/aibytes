@@ -102,12 +102,12 @@ fields, section keys from the fixed list, caps, http links only, `depth`
 values, and `noindex`-relevant fields.
 
 **Acceptance criteria:**
-- [ ] `tests/test_feed_schema.py` keeps schema and validator in step, as it
-      does for editions.
-- [ ] Bad fixtures are rejected with a clear message: no lede, empty
-      references, an unknown section key, a non-http link, a section over its
-      cap.
-- [ ] `validate.py` passes on today's `content/` (no gists yet).
+- [x] Schema and validator kept in step, as for editions (in
+      `tests/test_gist_contract.py`, beside `test_feed_schema.py`).
+- [x] Bad fixtures are rejected with a clear message: no lede, empty
+      links, an unknown section key, a non-http link, a section over its
+      cap, and every other per-file rule in the contract spec.
+- [x] `validate.py` passes on today's `content/` (no gists yet).
 
 **Verification:** `python3 -m unittest tests.test_feed_schema -v`;
 `python3 packages/feed-schema/validate.py`. **Dependencies:** T4.
