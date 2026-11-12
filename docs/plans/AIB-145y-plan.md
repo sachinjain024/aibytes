@@ -8,7 +8,7 @@ added the same day): `docs/specs/AIB-145y-gists.md`. Design:
 
 ## Overview
 
-Thirty-seven tasks, one commit per task. T1-T29 are on `aib-145y-gists` in
+Thirty-eight tasks, one commit per task (T38 added 12 Nov 2026). T1-T29 are on `aib-145y-gists` in
 PR #65, which already holds the spec, the prototype and the design record;
 T30-T37 go in a second PR on the same ticket.
 
@@ -30,6 +30,7 @@ the same commit.
 | 8 | `app-reactions` | T30-T32 | The eight reactions, stored in Firestore |
 | 9 | `newsletter-gist-links` | T33-T36 | Issue items get gists; the newsletter links to them |
 | 10 | Wrap-up | T37 | Repo docs, ticket, by-hand checks |
+| 11 | Outbound `ref` | T38 | Links to a source item's own page carry `ref=aiBytes_`; can ship to `main` on its own |
 
 ## Dependency graph
 

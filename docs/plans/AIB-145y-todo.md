@@ -95,7 +95,8 @@ files. Starts from the spec's illustrative JSON.
 
 ### T5: the gist schema and validator
 
-**Description:** `gist.schema.json`, the types in `feed.d.ts`, and
+**Description:** Per `docs/specs/AIB-145y-gist-contract.md`.
+`gist.schema.json`, the types in `feed.d.ts`, the source-key function, and
 `validate.py` checking every `content/gists/<slug>.json` on its own: required
 fields, section keys from the fixed list, caps, http links only, `depth`
 values, and `noindex`-relevant fields.
@@ -130,20 +131,21 @@ item that points back.
 **Files:** `gists-index.schema.json`, `edition.schema.json`, `feed.d.ts`,
 `validate.py`, `tests/test_feed_schema.py`.
 
-### T7: hiding an item moves its gist
+### T7: hidden items withdraw their gist
 
-**Description:** `hide.py` marks the appearance hidden in the gist file; a
-gist whose every appearance is hidden is flagged so the build skips its page
-and the sitemap drops it. Unhide reverses it.
+**Description:** Reshaped by the contract spec (D4): hiding is derived, not
+stored. `gist_is_shown(gist, items_by_id)` in Python and JavaScript, from one
+set of fixtures; the validator uses it. `hide.py` is not edited.
 
 **Acceptance criteria:**
-- [ ] `tests/test_hide.py`: hiding the only appearance hides the gist;
-      hiding one of two does not; unhide restores.
-- [ ] The edition, index, log and gist change together or not at all.
+- [ ] Hiding the only appearance withdraws the gist; hiding one of two does
+      not; unhiding brings it back (Python and JS, same fixtures).
+- [ ] `tests/test_hide.py` still passes unchanged.
 
-**Verification:** `python3 -m unittest tests.test_hide -v`.
-**Dependencies:** T6. **Size:** S. **Files:** `packages/feed-schema/hide.py`,
-`tests/test_hide.py`.
+**Verification:** `python3 -m unittest tests.test_feed_schema tests.test_hide -v`;
+`npm test -w @aibytes/web`. **Dependencies:** T6. **Size:** S.
+**Files:** `packages/feed-schema/validate.py` (or a `gists.py` beside it),
+`apps/web/src/gistShown.js`, tests, shared fixtures.
 
 ### T8: HN front page on the item
 
@@ -570,6 +572,34 @@ source and gain the panel.
 ### Checkpoint F: newsletter
 
 - [ ] Success criterion 11 passes.
+
+## Added on 12 Nov 2026: outbound links carry `ref=aiBytes_`
+
+### T38: outbound links tagged
+
+**Description:** Every link from aibytes.io to a source item's own page (the
+product, the article, the repo, the HN thread, the gist's closing buttons)
+gets `ref=aiBytes_` appended when it is rendered, so the destination's own
+analytics can see aiBytes_ traffic. Today's links carry
+`rel="noopener noreferrer"`, which strips the Referer header, so without the
+parameter a destination sees nothing. One function, `withRef(url)` in Ledger,
+used by `FeedItem` (cards and list rows) and later the gist view. Content
+files keep clean URLs.
+
+**Acceptance criteria:**
+- [ ] `withRef` adds `ref=aiBytes_` with `?` or `&` as needed, keeps the
+      fragment after it, leaves an existing `ref` alone, and leaves non-http
+      links untouched (tests).
+- [ ] Card titles and source names link with the parameter; nothing under
+      `content/` changes.
+- [ ] Whether HN and GitHub links get it too is settled at the start (they
+      ignore it, but it is harmless).
+
+**Verification:** `npm test -w @aibytes/design-system`; `npm test -w
+@aibytes/web`; a card's links in the dev server. **Dependencies:** none.
+**Size:** S. Can ship to `main` on its own, as analytics did.
+**Files:** `packages/design-system/components/content/withRef.js`,
+`withRef.test.js`, `FeedItem.jsx`, its `.prompt.md`.
 
 ## Wrap-up
 

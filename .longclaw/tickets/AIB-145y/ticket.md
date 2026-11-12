@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-12T12:32:10.748Z
+updated_at: 2026-11-12T13:47:09.558Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -67,18 +67,18 @@ added_by:
 - [x] 1. Design: prototype and decision record (docs/decisions/product/AIB-145y-gists-design.md) <!-- longclaw:item=ck_cc2a35dc -->
 - [x] 2. Spec approved (docs/specs/AIB-145y-gists.md) <!-- longclaw:item=ck_06938354 -->
 - [x] 3. Plan approved (docs/plans/AIB-145y-plan.md, docs/plans/AIB-145y-todo.md) <!-- longclaw:item=ck_90955f2e -->
-- [ ] 4. gist-analytics <!-- longclaw:item=ck_7d988433 -->
+- [x] 4. gist-analytics <!-- longclaw:item=ck_7d988433 -->
 - [x] 4.1 T1: analytics spec and tool shortlist <!-- longclaw:item=ck_14c18929 -->
 - [x] 4.2 P1: publisher picks the analytics tool and creates the site <!-- longclaw:item=ck_ee37c311 -->
 - [x] 4.3 T2: the script on every page, and the panel event helper <!-- longclaw:item=ck_a0e44d91 -->
 - [x] 4.4 T3: the privacy page <!-- longclaw:item=ck_352c4191 -->
-- [ ] 4.5 P2: publisher approves the privacy wording <!-- longclaw:item=ck_b3c0615a -->
-- [ ] 4.6 Checkpoint A: analytics live <!-- longclaw:item=ck_1e04c4b9 -->
+- [x] 4.5 P2: publisher approves the privacy wording <!-- longclaw:item=ck_b3c0615a -->
+- [x] 4.6 Checkpoint A: analytics live <!-- longclaw:item=ck_1e04c4b9 -->
 - [ ] 5. gist-contract <!-- longclaw:item=ck_c5e68811 -->
-- [ ] 5.1 T4: contract spec <!-- longclaw:item=ck_dcf06745 -->
+- [x] 5.1 T4: contract spec <!-- longclaw:item=ck_dcf06745 -->
 - [ ] 5.2 T5: the gist schema and validator <!-- longclaw:item=ck_8798d947 -->
 - [ ] 5.3 T6: the index and the item's gist field <!-- longclaw:item=ck_7f614f86 -->
-- [ ] 5.4 T7: hiding an item moves its gist <!-- longclaw:item=ck_286beccc -->
+- [ ] 5.4 T7: hidden items withdraw their gist <!-- longclaw:item=ck_286beccc -->
 - [ ] 5.5 T8: HN front page on the item <!-- longclaw:item=ck_d6d37a06 -->
 - [ ] 5.6 Checkpoint B: contract reviewed <!-- longclaw:item=ck_d47601d3 -->
 - [ ] 6. gist-generate <!-- longclaw:item=ck_e24b8093 -->
@@ -127,6 +127,8 @@ added_by:
 - [ ] 12. Wrap-up <!-- longclaw:item=ck_ffffb380 -->
 - [ ] 12.1 T37: docs, ticket, by-hand checks <!-- longclaw:item=ck_946eab34 -->
 - [ ] 12.2 P7: publisher's browser checks on aibytes.io <!-- longclaw:item=ck_497e916a -->
+- [ ] 13. Outbound links tagged (added 12 Nov) <!-- longclaw:item=ck_645fc91b -->
+- [ ] 13.1 T38: links to a source item's own page carry ref=aiBytes_ <!-- longclaw:item=ck_68b5c65c -->
 ## Activity
 
 <!-- longclaw:event
@@ -501,4 +503,97 @@ changes:
     to: "true"
 -->
 ### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_108a26fb
+kind: update
+occurred_at: 2026-11-12T13:12:47.091Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_b3c0615a.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_06b7f70b
+kind: update
+occurred_at: 2026-11-12T13:19:07.799Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_1e04c4b9.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_cfc8979d
+kind: update
+occurred_at: 2026-11-12T13:19:07.841Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_7d988433.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_52c8c52d
+kind: update
+occurred_at: 2026-11-12T13:47:09.452Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_dcf06745.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f5dd5315
+kind: update
+occurred_at: 2026-11-12T13:47:09.504Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_286beccc.text
+    from: "5.4 T7: hiding an item moves its gist"
+    to: "5.4 T7: hidden items withdraw their gist"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_d2770c2d
+kind: update
+occurred_at: 2026-11-12T13:47:09.558Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_645fc91b.added
+    to: 13. Outbound links tagged (added 12 Nov)
+  - field: checklist.ck_68b5c65c.added
+    to: "13.1 T38: links to a source item's own page carry ref=aiBytes_"
+-->
+### claude-code updated this ticket
+
+12 Nov 2026: T4 done, contract spec approved (docs/specs/AIB-145y-gist-contract.md) with D2-D4: announcements are X posts, links keep every source, hiding is derived so hide.py is unchanged (T7 reshaped). Added T38: outbound links get ref=aiBytes_ at render time.
 <!-- /longclaw:event -->
