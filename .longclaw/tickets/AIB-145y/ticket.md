@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-12T11:04:20.906Z
+updated_at: 2026-11-12T12:09:24.162Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -68,7 +68,7 @@ added_by:
 - [x] 2. Spec approved (docs/specs/AIB-145y-gists.md) <!-- longclaw:item=ck_06938354 -->
 - [x] 3. Plan approved (docs/plans/AIB-145y-plan.md, docs/plans/AIB-145y-todo.md) <!-- longclaw:item=ck_90955f2e -->
 - [ ] 4. gist-analytics <!-- longclaw:item=ck_7d988433 -->
-- [ ] 4.1 T1: analytics spec and tool shortlist <!-- longclaw:item=ck_14c18929 -->
+- [x] 4.1 T1: analytics spec and tool shortlist <!-- longclaw:item=ck_14c18929 -->
 - [ ] 4.2 P1: publisher picks the analytics tool and creates the site <!-- longclaw:item=ck_ee37c311 -->
 - [ ] 4.3 T2: the script on every page, and the panel event helper <!-- longclaw:item=ck_a0e44d91 -->
 - [ ] 4.4 T3: the privacy page <!-- longclaw:item=ck_352c4191 -->
@@ -106,6 +106,7 @@ added_by:
 - [ ] 8.2 T24: route and page head <!-- longclaw:item=ck_888ec84a -->
 - [ ] 8.3 T25: static gist pages, sitemap, robots <!-- longclaw:item=ck_6752a869 -->
 - [ ] 8.4 T26: the gist page in the app <!-- longclaw:item=ck_a4ea4223 -->
+- [ ] 8.5 P8: publisher verifies aibytes.io in Google Search Console (DNS TXT) and submits sitemap.xml <!-- longclaw:item=ck_556cd1e6 -->
 - [ ] 9. app-gist-panel <!-- longclaw:item=ck_5670b0bb -->
 - [ ] 9.1 T27: panel spec <!-- longclaw:item=ck_68012185 -->
 - [ ] 9.2 T28: a card's title opens the panel <!-- longclaw:item=ck_7f55640b -->
@@ -407,6 +408,52 @@ changes:
   - field: checklist.ck_90955f2e.checked
     from: "false"
     to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_fd6cd228
+kind: update
+occurred_at: 2026-11-12T12:09:15.665Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_14c18929.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+12 Nov 2026: T1 done. Analytics tool picked: Umami Cloud (Hobby). Google Search Console added for search traffic as P8, after T25 publishes sitemap.xml; no Google Analytics (cookies would need a consent banner). Spec: docs/specs/AIB-145y-gist-analytics.md. P1 stays open until the Umami site exists and its website id is shared.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_59d205e6
+kind: update
+occurred_at: 2026-11-12T12:09:20.465Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_556cd1e6.added
+    to: "8.5 P8: publisher verifies aibytes.io in Google Search Console (DNS TXT) and submits sitemap.xml"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_643e5fb6
+kind: update
+occurred_at: 2026-11-12T12:09:24.162Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_556cd1e6.moved
+    from: "63"
+    to: "43"
 -->
 ### claude-code updated this ticket
 <!-- /longclaw:event -->
