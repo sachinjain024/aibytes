@@ -26,10 +26,11 @@ Name one, say what it collects, and fix the link convention for the
 newsletter and social posts (`utm_source`, `utm_medium`, `utm_campaign`).
 
 **Acceptance criteria:**
-- [ ] Each candidate is checked against its current docs for: price at our
+- [x] Each candidate is checked against its current docs for: price at our
       traffic, cookies, custom events, UTM reporting, and a public script URL.
-- [ ] One recommendation, plus what `/privacy` must now say.
-- [ ] The publisher picks (P1).
+- [x] One recommendation, plus what `/privacy` must now say.
+- [x] The publisher picks (P1): Umami Cloud, 12 Nov 2026. Search Console
+      for search (P8, after T25); no Google Analytics.
 
 **Verification:** the publisher approves the spec. **Dependencies:** none.
 **Size:** S. **Files:** `docs/specs/AIB-145y-gist-analytics.md`.
@@ -415,6 +416,10 @@ and `robots.txt` (allow all, sitemap line).
       `brief` gist's page has `noindex` and is absent from the sitemap; a
       hidden gist has no page.
 - [ ] Build time with 1,000 fixture gists is recorded.
+
+**Then P8 (publisher):** verify `aibytes.io` in Google Search Console as a
+domain property by DNS TXT record and submit `https://aibytes.io/sitemap.xml`
+once it is live. See the analytics spec.
 
 **Verification:** `npm run build:web`; the test. **Dependencies:** T24, T7.
 **Size:** M.

@@ -123,10 +123,11 @@ Order of work, with the riskiest parts first:
 
 | Step | When | What |
 |---|---|---|
-| P1 | T1 | Pick the analytics tool from the shortlist in its spec; create the site there |
+| P1 | T1 | Pick the analytics tool (done: Umami Cloud); create the site at umami.is and share the website id |
 | P2 | T3 | Approve the new `/privacy` wording |
 | P3 | T16 | Approve passing `GITHUB_TOKEN` to the run step in `edition.yml` |
 | P4 | T17 | Read seven rehearsed editions' gists and say whether you would link to them unedited |
+| P8 | after T25 | Verify `aibytes.io` in Google Search Console as a domain property (DNS TXT) and submit `sitemap.xml` |
 | P5 | T31 | `firebase deploy --only firestore:rules --project ai-bytes-b42d2` |
 | P6 | T35 | Approve the first issue that links to gists instead of sources |
 | P7 | T37 | The browser checks on aibytes.io after launch |
