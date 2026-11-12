@@ -86,12 +86,13 @@ Checked in the repo on 2026-11-12:
 | When the source cannot be read | The item still gets a gist, marked `brief`, built from what the run already knows (title, summary, counts). It never fills the gap with guesses. |
 | When gist writing fails | The edition publishes anyway; the affected items ship without a `gist` and their cards open the source. A gist failure never costs an edition. Slack reports it. |
 | Hidden items | A gist whose every appearance is hidden is not built as a page and drops out of the sitemap. `hide.py` moves it with the edition, index and log. |
-| Panel and page | One shared view component renders both, so they cannot drift apart. |
-| A card click | Opens the panel. The card is a real link to the gist page, so search engines follow it and a new-tab click opens the page. The source is one click away in the panel. |
+| Panel and page | One shared view component renders both, so they cannot drift apart. On a wide screen the panel sits **beside** the feed, which narrows and stays usable; the reader can resize the panel by dragging its left edge or with the arrow keys, and the width is kept in the browser like the other layout preferences. On a phone it is a full-screen sheet. *(Picked 12 Nov 2026, A1; see the design record.)* |
+| A card click | The title opens the panel. It is a real link to the gist page, so search engines follow it and a new-tab click opens the page. The small source name on the card (Hacker News, GitHub) still goes straight to the source. *(Picked 12 Nov 2026, B2.)* |
 | Stars | The existing save, behaving as it does everywhere else: it works with no account, kept in the browser, and syncs after Google sign-in. A star made on a gist shows on the card and on `/saved`. |
+| After a save | Saving from a gist shows a line under the control: "Added to your Saved items. View here", linking to `/saved`. While a reader is signed out and has any saved item, the existing sticky banner (saved in this browser only, with Sign in) shows on gist pages as it does on the feed. Its copy changes everywhere, not only on gists, to: "Saved items are stored in this browser's local storage. Sign in with Google to sync them to your account." That is a change to Ledger's `SaveBanner` and every place its line is quoted (its test, `.d.ts`, `.prompt.md`, the brand-tone card, the product spec), made in `ledger-gist-ui`. *(Added 12 Nov 2026, from review of the prototype.)* |
 | X posts | A gist with a preview of the post (author, handle, text, counts, a link to the post) and no written summary. It exists so the post has a page on aibytes.io that can be shared and starred. Drawn from the saved snapshot, not X's embed script, so the page loads nothing from X. Kept out of search indexes. |
 | Official Announcements | Treated like X posts for now: a preview gist (who announced it, the title, the issue's one line, a link to the announcement), no written summary, kept out of search indexes. |
-| Newsletter links | Every item in the issue links to its gist, and the issue template changes to match. Whether a small "source" link stays beside it is decided in `gist-design`. |
+| Newsletter links | Every item's title in the issue links to its gist, and a small source link stays beside it. *(Picked 12 Nov 2026, F2.)* How that sits in the email, which has its own inline design and Substack's link-colour limits, is worked out in `newsletter-gist-links`, not fixed by the prototype. |
 | `brief` gists | Published, and kept out of search indexes (`noindex`, not in the sitemap). |
 | Analytics | A free tool, part of this ticket. Cookieless, so no consent banner. The `gist-analytics` spec compares the candidates and names one. |
 | Reactions | GitHub's fixed set of eight: 👍 👎 😄 🎉 😕 ❤️ 🚀 👀. Counts are public; reacting needs Google sign-in. One toggle per person per emoji. |
@@ -151,26 +152,44 @@ source can support. A whole gist is 150 to 300 words.
    meta description and the share preview.
 3. **Key points:** three to five bullets on what the item is and what is new.
 4. **Type sections,** from the table below.
-5. **References:** every source the gist drew on, as real links. The source
-   itself is first and is also a button near the top.
+5. **Where to go next:** the gist closes with buttons to its sources, in
+   place of a "References" list. An item with an outbound link and a
+   discussion page gets two: the outbound one first and filled, the
+   discussion second. A Product Hunt launch gets the product's site and the
+   launch page; an HN link post, the linked page and the thread; a GitHub
+   repo, a TechCrunch story or an Ask HN post, one button. The edition item
+   already carries both links (`url` and `source_url`). The source button
+   under the title stays. *(Changed 12 Nov 2026, from review of the
+   prototype: it was a References list.)*
 6. **Appeared in:** links to each daily edition and weekly issue that carried
    it.
-7. **Actions:** star, reactions.
+7. **Actions:** star, reactions, at the end of the gist. *(Picked 12 Nov 2026, D2.)*
 
 | Type | Read by the run | Extra sections |
 |---|---|---|
 | **News** (TechCrunch) | The article text | **Why it matters:** one or two sentences for developers. |
-| **HN thread** | The linked article and the top comments | **Stats:** points, comments, submitter, age, and "on the front page" when seen. **The discussion:** three to five themes: where commenters agree, where they split, the strongest counterpoint, each linked to a comment. |
+| **HN thread** | The linked article and the top comments | **Stats,** as a grid (picked C2): points, comments, submitter, age. **The discussion:** three to five themes: where commenters agree, where they split, the strongest counterpoint, each linked to a comment. |
 | **GitHub repo** | The README, repo metadata, open issues | **Try it:** the install or run line, only if the README gives one. **Stats:** stars, stars gained, forks, language, licence, created, contributors, open issues, last release. **What's open:** the themes in the most-discussed open issues. |
 | **Launch** (Product Hunt) | The launch page and the product site | **Who it's for** and **Pricing,** each only if the source states it. **Stats:** upvotes, comments. |
-| **X post** (weekly only) | The saved post | No lede, key points or written sections: the post preview, its counts, references and actions. |
-| **Official announcement** (weekly only) | What the issue already holds | As an X post: a preview, references and actions. |
+| **X post** (weekly only) | The saved post | No lede, key points or written sections: the post preview, its counts, a button to the post, and actions. |
+| **Official announcement** (weekly only) | What the issue already holds | As an X post: a preview, a button to the announcement, and actions. |
 
-**HN front page.** The fetcher will keep the `front_page` tag it drops today.
-It reports where a story is at the moment of the fetch, not its history, so
-the gist says "on the front page" once any fetch has seen it there and keeps
-saying so. A story never seen there shows nothing: the run cannot tell "never
-on the front page" from "left it before we looked".
+**Stats carry their time.** Stats keep moving after the run reads them, so
+every stats block shows a small caption under it: "As of Nov 11, 2026, 1:34 PM
+IST", from the gist's `stats_as_of`, in the publisher's time zone. It moves
+when a later appearance refreshes the stats. *(Added 12 Nov 2026, from review
+of the prototype.)*
+
+**HN front page is a badge, not a stat.** The fetcher will keep the
+`front_page` tag it drops today. It reports where a story is at the moment of
+the fetch, not its history, so the badge appears once any fetch has seen the
+story there and stays. A story never seen there shows nothing: the run cannot
+tell "never on the front page" from "left it before we looked". The badge
+reads "Front page" on the card and "HN front page" in the gist header, in the
+same family as the card's existing TOP label, and it shows in the panel and
+on the page. Because the card shows it, the edition item carries it too, as a
+new optional field in the contract. *(Changed 12 Nov 2026, from review of the
+prototype: it was first listed among the stats.)*
 
 ### Rules for the writing
 
@@ -181,7 +200,7 @@ on the front page" from "left it before we looked".
 - **Same voice as the edition.** The hype-word and punctuation rules of the
   `curate-edition` skill apply; they live in a skill file, not in Python.
 - **Contract breaks are fatal, taste is a warning.** A missing lede, an empty
-  references list, a non-http link or a section over its cap means that gist
+  list of source links, a non-http link or a section over its cap means that gist
   is not written. A hype word is logged and published.
 
 ### Shape of the file (illustrative; the `gist-contract` spec fixes it)
@@ -353,7 +372,7 @@ in the UI. The JSON above shows the naming.
 1. From launch day, every visible item in every daily edition has a `gist`,
    and `https://aibytes.io/gists/<slug>` returns 200 for each.
 2. With JavaScript off, a gist page shows its title, lede, key points and
-   references, and carries a canonical URL, Open Graph tags and structured
+   source links, and carries a canonical URL, Open Graph tags and structured
    data.
 3. `sitemap.xml` lists every published gist and no hidden one.
 4. Clicking a card on a daily or weekly page opens the panel with the same
@@ -382,7 +401,7 @@ in the UI. The JSON above shows the naming.
 | A gist states something the source does not say, and nobody reads it before it is public. | "Only what was read", fatal contract checks, the rehearsal checkpoint, and `hide.py` as the fast way to pull one. |
 | The run gets slower and costlier: about 30 longer pieces a day on top of 30 summaries, plus four kinds of extra fetching. | Gists are a separate step with its own timeout, after the edition is safe; repeats are not rewritten. |
 | Sites block the fetch (paywalls, bot checks, rate limits on GitHub and HN). | `brief` gists; per-source limits in the fetchers; the share of `brief` gists is reported in Slack. |
-| Readers of the newsletter get an extra click before the source. | The source button sits at the top of the gist; the switch happens only after a week of live gists; click-through to sources is measured. |
+| Readers of the newsletter get an extra click before the source. | A source link stays beside each gist link in the email (F2); the source button sits at the top of the gist and again at its end; the switch happens only after a week of live gists; click-through to sources is measured. |
 | Reactions on a public page attract abuse. | Sign-in required, a fixed emoji set, one per person, rules tested on the emulator. |
 | `content/` and the build grow by about 900 files a month. | Fine for the first year; noted so the build time is watched. |
 
@@ -393,7 +412,7 @@ in the UI. The JSON above shows the naming.
 2. **Analytics** is a free tool and part of this ticket.
 3. **X posts** get a preview gist so they can be shared and starred.
 4. **Newsletter links** point to gists, and the template is updated. A
-   "source" link beside them is evaluated in the design step.
+   small source link stays beside each one (F2, picked in the design step).
 5. **`brief` gists** are published and kept out of search indexes.
 6. **One gist per source item** is confirmed.
 7. **X post previews** are kept out of search indexes.
@@ -401,6 +420,12 @@ in the UI. The JSON above shows the naming.
    gist, not indexed.
 9. **HN front-page status** is carried; the fetcher keeps the tag it drops
    today.
+
+## Design decided
+
+The gist page and panel were decided on 12 Nov 2026 from a clickable
+prototype, recorded in `docs/decisions/product/AIB-145y-gists-design.md`
+(prototype in `docs/ux/prototypes/AIB-145y-gists/`).
 
 ## Open questions
 
