@@ -47,6 +47,20 @@ Kept as first recorded on 2026-11-11.
 - On the daily and weekly pages on aibytes.io, the summary / gist view also opens on card click in the right panel. So the gist comes as an independent URL as well as in the side panel: same content, two different views.
 - A user can star an item from the gist page / view, apart from adding an emoji.
 
+## Ticket References
+
+<!-- longclaw:reference
+id: ref_e1a019f1
+path: docs/specs/AIB-145y-gists.md
+added_at: 2026-11-12T05:37:34.000Z
+added_by:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+[AIB-145y-gists.md](docs/specs/AIB-145y-gists.md)
+<!-- /longclaw:reference -->
+
 ## Activity
 
 <!-- longclaw:event
