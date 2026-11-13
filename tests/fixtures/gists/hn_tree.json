@@ -1,0 +1,55 @@
+{
+  "id": 9001,
+  "author": "fixture_user",
+  "title": "Fixture model is out",
+  "points": 300,
+  "created_at_i": 1762862400,
+  "url": "https://example.com/fixture-model",
+  "text": null,
+  "children": [
+    {
+      "id": 9002,
+      "author": "early",
+      "text": "<p>First by time, second by rank.</p>",
+      "children": [
+        {
+          "id": 9005,
+          "author": "replier",
+          "text": "A reply with &quot;quotes&quot;.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": 9003,
+      "author": null,
+      "text": null,
+      "children": []
+    },
+    {
+      "id": 9004,
+      "author": "ranked_top",
+      "text": "<p>Top ranked comment.<p>Second paragraph with <a href=\"https://x.test\">a link</a>.",
+      "children": [
+        {
+          "id": 9007,
+          "author": null,
+          "text": null,
+          "children": []
+        },
+        {
+          "id": 9008,
+          "author": "second_replier",
+          "text": "Live reply.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": 9006,
+      "author": "long",
+      "text": "word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word ",
+      "children": []
+    }
+  ]
+}

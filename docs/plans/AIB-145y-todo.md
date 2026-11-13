@@ -229,9 +229,9 @@ byline, paragraphs; a size cap; a clear "unreadable" result on paywalls or
 bot checks).
 
 **Acceptance criteria:**
-- [ ] Offline tests on saved fixtures, including a blocked page.
-- [ ] One live test each, skipped by `AIBYTES_SKIP_LIVE=1`.
-- [ ] Python 3.8 compatible, stdlib only.
+- [x] Offline tests on saved fixtures, including a blocked page.
+- [x] One live test each, skipped by `AIBYTES_SKIP_LIVE=1`.
+- [x] Python 3.8 compatible, stdlib only.
 
 **Verification:** `python3 -m unittest tests.test_fetchers -v`.
 **Dependencies:** T9. **Size:** M. **Files:** `aibytes_fetchers/hn_thread.py`,

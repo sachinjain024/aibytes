@@ -10,12 +10,14 @@ import json
 import pathlib
 import sys
 import tempfile
+import os
 import unittest
+from unittest import mock
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "packages" / "fetchers"))
 
-from aibytes_fetchers import cli, envelope, layout, registry, runner, window as window_mod
+from aibytes_fetchers import article, cli, envelope, hn_thread, http, layout, registry, runner, window as window_mod
 from aibytes_fetchers.sources import github, hackernews, producthunt, techcrunch
 
 
@@ -203,9 +205,6 @@ class TestCli(unittest.TestCase):
         self.assertIsNone(args.since)  # unset means "follow the cadence"
 
 
-if __name__ == "__main__":
-    unittest.main()
-
 
 class TestHackerNewsFrontPage(unittest.TestCase):
     """AIB-145y T8: Algolia tags a story front_page while it is on HN's front
@@ -228,3 +227,166 @@ class TestHackerNewsFrontPage(unittest.TestCase):
                 if tags is None:
                     del hit["_tags"]
                 self.assertIs(hackernews.to_story(hit)["front_page"], False)
+
+
+FIXTURES = REPO_ROOT / "tests" / "fixtures" / "gists"
+SKIP_LIVE = os.environ.get("AIBYTES_SKIP_LIVE") == "1"
+
+
+def fixture(name):
+    return (FIXTURES / name).read_text()
+
+
+def fake_fetch(pages):
+    """A stand-in for http.fetch: url -> Response, 404 for anything else."""
+    calls = []
+
+    def fetch(url, headers=None, data=None, **_):
+        calls.append(url)
+        return pages.get(url) or http.Response(404, error="HTTP 404")
+    fetch.calls = calls
+    return fetch
+
+
+def html_page(body, status=200, kind="text/html; charset=utf-8"):
+    return http.Response(status, {"Content-Type": kind}, body.encode("utf-8"))
+
+
+class TestArticleText(unittest.TestCase):
+    """AIB-145y T10: a gist is written only from text the run read, so a page
+    that is not an article must say so, never pass as one."""
+
+    def read(self, response):
+        with mock.patch.object(http, "fetch", fake_fetch({"https://example.com/a": response})):
+            return article.article_text("https://example.com/a")
+
+    def test_a_readable_page_gives_title_byline_and_paragraphs(self):
+        got = self.read(html_page(fixture("article_readable.html")))
+        self.assertTrue(got["readable"])
+        self.assertIsNone(got["reason"])
+        self.assertEqual(got["title"], "Fixture Labs ships a smaller model")
+        self.assertEqual(got["byline"], "Ada Example")
+        self.assertGreaterEqual(got["words"], article.MIN_WORDS)
+        self.assertIn("What it costs", got["text"])
+        self.assertIn("\u00a35 & up. Per month.", got["text"])
+
+    def test_page_furniture_is_left_out(self):
+        text = self.read(html_page(fixture("article_readable.html")))["text"]
+        for noise in ("Home Latest", "newsletter", "Copyright", "not text", "enable JavaScript"):
+            self.assertNotIn(noise, text)
+
+    def test_the_text_is_capped_at_a_word(self):
+        with mock.patch.object(http, "fetch", fake_fetch({"https://example.com/a":
+                                                          html_page(fixture("article_readable.html"))})):
+            got = article.article_text("https://example.com/a", max_chars=300)
+        self.assertLessEqual(len(got["text"]), 300)
+        self.assertTrue(got["text"].endswith("\u2026"))
+
+    def test_a_bot_check_is_named(self):
+        for status in (200, 403):
+            with self.subTest(status=status):
+                got = self.read(html_page(fixture("article_bot_check.html"), status=status))
+                self.assertFalse(got["readable"])
+                self.assertEqual(got["reason"], "bot_check")
+                self.assertEqual(got["text"], "")
+
+    def test_a_paywall_is_named(self):
+        got = self.read(html_page(fixture("article_paywall.html")))
+        self.assertEqual((got["readable"], got["reason"]), (False, "paywall"))
+
+    def test_a_short_page_is_too_short(self):
+        got = self.read(html_page("<html><body><p>Only a few words here.</p></body></html>"))
+        self.assertEqual(got["reason"], "too_short")
+
+    def test_a_noscript_line_does_not_sink_a_real_article(self):
+        # The readable fixture says "enable JavaScript" in <noscript>.
+        self.assertTrue(self.read(html_page(fixture("article_readable.html")))["readable"])
+
+    def test_http_errors_network_and_non_html_are_reported_not_raised(self):
+        cases = [(http.Response(403, error="HTTP 403"), "http_error"),
+                 (http.Response(0, error="timed out"), "network"),
+                 (html_page("%PDF-1.7", kind="application/pdf"), "not_html")]
+        for response, reason in cases:
+            with self.subTest(reason=reason):
+                self.assertEqual(self.read(response)["reason"], reason)
+
+    def test_every_reason_is_a_known_one(self):
+        for name in ("article_readable.html", "article_bot_check.html", "article_paywall.html"):
+            reason = self.read(html_page(fixture(name)))["reason"]
+            self.assertTrue(reason is None or reason in article.UNREADABLE)
+
+    @unittest.skipIf(SKIP_LIVE, "AIBYTES_SKIP_LIVE=1")
+    def test_live_a_real_page_is_read(self):
+        got = article.article_text("https://www.python.org/about/")
+        self.assertIn(got["reason"], (None,) + article.UNREADABLE)
+        self.assertIsInstance(got["text"], str)
+
+
+class TestHnThread(unittest.TestCase):
+    """AIB-145y T10: the ranking comes from HN, the text from Algolia."""
+
+    def pages(self, story=True, tree=True):
+        pages = {}
+        if story:
+            pages[hn_thread.FIREBASE_ITEM.format(id=9001)] = http.Response(200, {}, fixture("hn_story.json").encode())
+        if tree:
+            pages[hn_thread.ALGOLIA_ITEM.format(id=9001)] = http.Response(200, {}, fixture("hn_tree.json").encode())
+        return pages
+
+    def get(self, **kw):
+        with mock.patch.object(http, "fetch", fake_fetch(self.pages(**kw))):
+            return hn_thread.hn_thread(9001)
+
+    def test_comments_follow_hns_rank_not_algolias_time_order(self):
+        got = self.get()
+        self.assertEqual([c["by"] for c in got["comments"]], ["ranked_top", "early", "long"])
+        self.assertEqual([c["id"] for c in got["comments"]], ["c1", "c2", "c3"])
+        self.assertTrue(got["ranked"])
+
+    def test_deleted_comments_and_replies_are_skipped(self):
+        first = self.get()["comments"][0]
+        self.assertEqual(first["reply"], {"by": "second_replier", "text": "Live reply."})
+        self.assertEqual(first["url"], "https://news.ycombinator.com/item?id=9004")
+
+    def test_comment_html_becomes_plain_text(self):
+        got = self.get()["comments"]
+        self.assertEqual(got[0]["text"], "Top ranked comment.\nSecond paragraph with a link.")
+        self.assertEqual(got[1]["reply"]["text"], 'A reply with "quotes".')
+
+    def test_long_comments_are_trimmed(self):
+        long = self.get()["comments"][2]["text"]
+        self.assertLessEqual(len(long), hn_thread.COMMENT_CHARS)
+        self.assertTrue(long.endswith("\u2026"))
+
+    def test_story_facts_come_from_hn(self):
+        got = self.get()
+        self.assertEqual((got["points"], got["descendants"], got["by"]), (321, 5, "fixture_user"))
+        self.assertEqual(got["posted_at"], "2025-11-11T12:00:00Z")
+        self.assertEqual(got["discussion_url"], "https://news.ycombinator.com/item?id=9001")
+        self.assertIsNone(got["error"])
+
+    def test_top_caps_the_count(self):
+        with mock.patch.object(http, "fetch", fake_fetch(self.pages())):
+            self.assertEqual(len(hn_thread.hn_thread(9001, top=1)["comments"]), 1)
+
+    def test_without_hn_the_order_falls_back_to_time(self):
+        got = self.get(story=False)
+        self.assertEqual([c["by"] for c in got["comments"]], ["early", "ranked_top", "long"])
+        self.assertFalse(got["ranked"])
+        self.assertIn("firebase", got["error"])
+        self.assertEqual(got["points"], 300)
+
+    def test_without_algolia_there_are_no_comments_and_no_exception(self):
+        got = self.get(tree=False)
+        self.assertEqual(got["comments"], [])
+        self.assertIn("algolia", got["error"])
+
+    @unittest.skipIf(SKIP_LIVE, "AIBYTES_SKIP_LIVE=1")
+    def test_live_a_known_story(self):
+        got = hn_thread.hn_thread(1)  # HN's first story, stable forever
+        self.assertEqual(got["by"], "pg")
+        self.assertIsNone(got["error"])
+
+
+if __name__ == "__main__":
+    unittest.main()
