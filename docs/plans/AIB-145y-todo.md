@@ -384,6 +384,15 @@ which `build` already copies from the item, so no contract change. An image
 that fails to load falls back as the feed card does. Hacker News gists have
 none. Buttons carry the
 top-right arrow that marks an external link.
+Hacker News gists show the orange "Y" source mark in that slot, the same
+fallback the feed card draws when an item has no image (`SourceMark` through
+`ItemImage`).
+Stats block (publisher, 13 Nov 2026): the heading and the time are one line,
+"STATS (As of 6 Nov 2026, 16:08 GMT+5:30)", with the time in the viewer's own
+timezone, not fixed IST. Counts of 1,000 or more are short: 1.2k below 10k,
+140k up to a million, 1.2M above. A repo's stats read stars, forks,
+contributors, open issues, created, language, licence. "Stars gained" and
+"Last release" are not shown (the contract still carries them).
 
 **Verification:** the publisher approves. **Dependencies:** none (can run
 any time after the design). **Size:** S.
