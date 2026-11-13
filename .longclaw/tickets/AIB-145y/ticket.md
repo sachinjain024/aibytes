@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-13T06:20:10.769Z
+updated_at: 2026-11-13T06:55:16.570Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -91,8 +91,8 @@ added_by:
 - [x] 6.5 T13: gists draft <!-- longclaw:item=ck_c31ad84c -->
 - [x] 6.6 T14: the write-gists skill <!-- longclaw:item=ck_7c7c828a -->
 - [x] 6.7 T15: gists build <!-- longclaw:item=ck_74279798 -->
-- [ ] 6.8 P3: publisher approves GITHUB_TOKEN in edition.yml <!-- longclaw:item=ck_0b27e6bd -->
-- [ ] 6.9 T16: the runner's gists step <!-- longclaw:item=ck_070cf04c -->
+- [x] 6.8 P3: publisher approves GITHUB_TOKEN in edition.yml <!-- longclaw:item=ck_0b27e6bd -->
+- [x] 6.9 T16: the runner's gists step <!-- longclaw:item=ck_070cf04c -->
 - [ ] 6.10 T17: rehearsal on seven editions <!-- longclaw:item=ck_eb097e0a -->
 - [ ] 6.11 P4: publisher reads the rehearsed gists and would link to them unedited <!-- longclaw:item=ck_50869fec -->
 - [ ] 6.12 Checkpoint C: generation proven <!-- longclaw:item=ck_4db29f6f -->
@@ -857,4 +857,24 @@ changes:
 ### claude-code updated this ticket
 
 T10-T15 built (one commit each). Live checks on the 11 Nov edition: draft reads all 30 new items as full in 54 s; four hand-written gists (one per kind) pass build and validate.py on a copy of content/. Real content/ untouched. Next: T16 (runner step, GITHUB_TOKEN, timeout-minutes 30).
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_bb9298f9
+kind: update
+occurred_at: 2026-11-13T06:55:16.570Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_0b27e6bd.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_070cf04c.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+T16 built: step_gists runs draft, claude (/write-gists, Read/Write/Edit, 80 turns) and build within 5+15+2 min; any failure restores content/gists/ and the edition and becomes a Slack warning. --skip-gists added. edition.yml: timeout-minutes 30, GITHUB_TOKEN on the publish step (P3, approved with the spec on 13 Nov); Claude's env never gets GITHUB_TOKEN. Next: T17 rehearsal.
 <!-- /longclaw:event -->

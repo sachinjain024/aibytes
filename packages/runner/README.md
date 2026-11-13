@@ -6,8 +6,17 @@ either way. The launchd agents below are the fallback for when Actions is
 unavailable; run only one scheduler at a time.
 
 ```
-sync -> fetch -> draft -> Claude writes the summaries -> build -> validate -> commit and push
+sync -> fetch -> draft -> Claude writes the summaries -> build
+     -> gists (draft, Claude writes them, build) -> validate -> commit and push
 ```
+
+The gists step (AIB-145y) is the one step that cannot fail a run. Gists are
+extra pages and the edition is the product, so if any part of it fails or
+runs past its limits (5, 15 and 2 minutes, 22 in all, inside the workflow's
+30-minute job limit), `content/gists/` and the edition file are put back as
+`build` left them, and Slack carries a warning instead. Its fetched material
+goes to the git-ignored `.cache/gists/DATE/`. Spec:
+`docs/specs/AIB-145y-gist-generate.md`.
 
 ## It curates with what is on `main`
 
@@ -89,6 +98,7 @@ on mains power with `sleep 0`, so the session is always there.
 python3 packages/runner/run.py                        # today
 python3 packages/runner/run.py --date 2026-08-31      # backfill or re-run
 python3 packages/runner/run.py --skip-fetch --no-push # rehearse on today's snapshots
+python3 packages/runner/run.py --date 2026-08-31 --skip-gists  # re-run without touching gists
 python3 packages/runner/check.py --date 2026-08-31    # is that edition published?
 ```
 

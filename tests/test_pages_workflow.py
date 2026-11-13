@@ -73,5 +73,28 @@ class PagesWorkflowTest(unittest.TestCase):
         self.assertRegex(self.text, r"path:\s*apps/web/dist\b")
 
 
+class EditionWorkflowTest(unittest.TestCase):
+    """AIB-145y T16: the gists step's limits only hold inside a job limit, and
+    its GitHub calls need the run's token (spec Q3, P3)."""
+
+    def setUp(self):
+        self.text = (WORKFLOWS / "edition.yml").read_text()
+
+    def test_the_job_stops_at_thirty_minutes(self):
+        self.assertRegex(self.text, r"(?m)^    timeout-minutes: 30$")
+
+    def test_the_gists_step_gets_the_runs_github_token(self):
+        publish = self.text[self.text.index("- name: Publish the edition"):]
+        self.assertIn("GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}", publish)
+
+    def test_the_gists_limits_fit_inside_the_job(self):
+        import sys
+        sys.path.insert(0, str(REPO / "packages" / "runner"))
+        from aibytes_runner import cli
+        step = cli.GISTS_DRAFT_TIMEOUT + cli.GISTS_CLAUDE_TIMEOUT + cli.GISTS_BUILD_TIMEOUT
+        self.assertEqual(step, 22 * 60)
+        self.assertLess(step, 30 * 60)
+
+
 if __name__ == "__main__":
     unittest.main()

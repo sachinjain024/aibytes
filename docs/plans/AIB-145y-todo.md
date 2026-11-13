@@ -328,13 +328,17 @@ and failed. `edition.yml` passes `GITHUB_TOKEN` to the run (P3) and sets
 `timeout-minutes: 30` on the job (spec Q3).
 
 **Acceptance criteria:**
-- [ ] `tests/test_runner.py`: Claude writing nothing, a timeout and a build
+- [x] `tests/test_runner.py`: Claude writing nothing, a timeout and a build
       rejection each still publish the edition, with a warning.
-- [ ] `--skip-gists` exists for re-runs.
-- [ ] `tests/test_pages_workflow.py` (or a new check) covers the token and timeout lines.
+- [x] `--skip-gists` exists for re-runs.
+- [x] `tests/test_pages_workflow.py` (or a new check) covers the token and timeout lines.
 
 **Verification:** `python3 -m unittest tests.test_runner -v`;
-`python3 packages/runner/run.py --skip-fetch --no-push` on a past date.
+`python3 packages/runner/run.py --skip-fetch --no-push` on a past date. Done 13 Nov
+as `step_gists` on a copy of content/ for 11 Nov, with the real draft and
+build and four hand-written gists in place of the Claude session: 3 written,
+1 dropped (GitHub's anonymous limit was spent, so the repo was `brief`).
+The whole run with a real Claude session is T17.
 **Dependencies:** T15, P3. **Size:** M. **Files:**
 `packages/runner/aibytes_runner/cli.py`, `notify.py`,
 `.github/workflows/edition.yml`, `tests/test_runner.py`, `packages/runner/README.md`.

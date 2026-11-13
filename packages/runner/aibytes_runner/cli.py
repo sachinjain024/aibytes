@@ -1,6 +1,7 @@
 """The daily edition pipeline: fetch, curate, publish, and say so in Slack.
 
-    sync -> fetch -> draft -> Claude writes the summaries -> build -> validate -> push
+    sync -> fetch -> draft -> Claude writes the summaries -> build
+         -> gists (draft, Claude writes them, build) -> validate -> push
 
 Claude is one bounded step inside a deterministic script, not the orchestrator
 around it. That is the whole design, and the reason is exit codes: `claude -p`
@@ -12,6 +13,10 @@ plain Python that already refuses to publish anything the contract rejects.
 Claude gets Read and Write and nothing else here - no Bash, no network, no git.
 It reads `curation.json`, writes `summaries.json`, and stops. The script does
 every other step itself.
+
+Gists (AIB-145y) are the one step allowed to fail without failing the run: a
+gist is an extra page, the edition is the product. Any failure inside it puts
+content/ back the way `build` left it and becomes a warning in Slack.
 """
 
 import argparse
@@ -19,8 +24,10 @@ import datetime
 import json
 import os
 import pathlib
+import shutil
 import subprocess
 import sys
+import tempfile
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[3]
 
@@ -60,6 +67,26 @@ a scheduled run and the script does all of that itself once you are done.
 Write the file, then stop.
 """
 
+
+GISTS_PROMPT = """/write-gists {date}
+
+The gists draft step has already run. Do only this, and nothing else:
+
+1. Read {draft}
+2. Write {gists} - one entry per item in the draft's `new` list, following
+   the write-gists skill.
+
+Do NOT run the build step, do NOT touch content/, and do NOT run git. Write
+the file, then stop.
+"""
+
+# Spec (docs/specs/AIB-145y-gist-generate.md, "The runner step"): 22 minutes
+# at most, so the job's 30-minute limit always leaves room to publish.
+GISTS_CACHE_ROOT = ".cache/gists"
+GISTS_DRAFT_TIMEOUT = 5 * 60
+GISTS_CLAUDE_TIMEOUT = 15 * 60
+GISTS_BUILD_TIMEOUT = 2 * 60
+GISTS_MAX_TURNS = 80
 
 TOKEN_VAR = "CLAUDE_CODE_OAUTH_TOKEN"
 
@@ -128,6 +155,7 @@ class Context:
         self.model = args.model
         self.max_turns = args.max_turns
         self.skip_fetch = args.skip_fetch
+        self.skip_gists = args.skip_gists
         self.push = args.push
         self.env_file = args.env_file
         self.echo = args.echo
@@ -139,6 +167,8 @@ class Context:
             self.data_root, self.date, SUMMARIES_FILENAME)
         self.edition = self.repo / edition_mod.edition_path(
             self.content_root, self.date)
+        self.gists_dir = self.repo / GISTS_CACHE_ROOT / self.date
+        self.gists_line = ""
         self.counts = {}
         self.sha = ""
         self.warnings = []
@@ -272,6 +302,9 @@ def _claude_env(ctx):
     falls back to that login.
     """
     env = dict(os.environ)
+    # The workflow's GitHub token can push to this repo. Only the gists
+    # fetchers need it; a model session never does.
+    env.pop("GITHUB_TOKEN", None)
     if not env.get(TOKEN_VAR):
         path = ctx.env_file or ctx.repo / ".env"
         token = notify.read_env_file(path).get(TOKEN_VAR)
@@ -360,6 +393,90 @@ def step_build(ctx):
     ctx.counts = _counts(ctx.edition)
 
 
+def step_gists(ctx):
+    """Draft, Claude, build - and never the reason an edition does not ship.
+
+    content/gists/ and the edition file are saved before the step and put back
+    if any part of it fails, so `validate` and `publish` see exactly what the
+    edition's own build wrote.
+    """
+    if ctx.skip_gists:
+        ctx.log.line("skipping gists (--skip-gists)")
+        return
+    content = ctx.repo / ctx.content_root
+    saved = tempfile.mkdtemp(prefix="aibytes-gists-")
+    try:
+        _save(content, ctx.edition, pathlib.Path(saved))
+        try:
+            _gists(ctx)
+        except StepError as exc:
+            _restore(content, ctx.edition, pathlib.Path(saved))
+            ctx.warnings.append(f"gists: {exc.detail}; published without gists")
+            ctx.log.line(f"warning: {ctx.warnings[-1]}")
+        except Exception as exc:  # noqa: BLE001 - a gist must never cost the edition
+            _restore(content, ctx.edition, pathlib.Path(saved))
+            ctx.warnings.append(f"gists: {exc!r}; published without gists")
+            ctx.log.line(f"warning: {ctx.warnings[-1]}")
+    finally:
+        shutil.rmtree(saved, ignore_errors=True)
+
+
+def _gists(ctx):
+    common = ["--date", ctx.date, "--content-root", ctx.content_root,
+              "--cache-root", str(ctx.repo / GISTS_CACHE_ROOT)]
+    run_command(ctx, "gists draft", [
+        ctx.python, "packages/gists/gists.py", "draft", *common, "--data-root", ctx.data_root,
+    ], timeout=GISTS_DRAFT_TIMEOUT)
+
+    written = ctx.gists_dir / "gists.json"
+    if written.exists():
+        written.unlink()  # a stale file from an earlier run must not be built
+    prompt = GISTS_PROMPT.format(date=ctx.date, draft=ctx.shown(ctx.gists_dir / "draft.json"),
+                                 gists=ctx.shown(written))
+    done = run_command(ctx, "gists claude", [
+        ctx.claude, "--print", prompt,
+        "--model", ctx.model,
+        "--permission-mode", "acceptEdits",
+        # Spec: Read, Write and Edit only.
+        "--allowedTools", "Read,Write,Edit",
+        "--disallowedTools", "Bash,WebFetch,WebSearch,Glob,Grep",
+        "--max-turns", str(GISTS_MAX_TURNS),
+        "--output-format", "json",
+    ], timeout=GISTS_CLAUDE_TIMEOUT, env=_claude_env(ctx))
+    try:
+        _report_claude(ctx, done.stdout)
+    except StepError as exc:
+        raise StepError("gists claude", exc.detail) from exc
+    if not written.exists():
+        raise StepError("gists claude", "Claude finished without writing gists.json")
+
+    built = run_command(ctx, "gists build", [
+        ctx.python, "packages/gists/gists.py", "build", *common, "--gists", str(written),
+    ], timeout=GISTS_BUILD_TIMEOUT)
+    for line in reversed((built.stdout or "").splitlines()):
+        if line.startswith(f"gists build {ctx.date}: "):
+            ctx.gists_line = line.split(": ", 1)[1]
+            break
+
+
+def _save(content, edition, to):
+    gists = content / "gists"
+    if gists.exists():
+        shutil.copytree(gists, to / "gists")
+    if edition.exists():
+        shutil.copyfile(edition, to / "edition.json")
+
+
+def _restore(content, edition, saved):
+    gists = content / "gists"
+    if gists.exists():
+        shutil.rmtree(gists)
+    if (saved / "gists").exists():
+        shutil.copytree(saved / "gists", gists)
+    if (saved / "edition.json").exists():
+        shutil.copyfile(saved / "edition.json", edition)
+
+
 def _counts(path):
     try:
         return json.loads(pathlib.Path(path).read_text()).get("counts", {}) or {}
@@ -426,6 +543,7 @@ STEPS = (
     ("draft", step_draft),
     ("summaries", step_summaries),
     ("build", step_build),
+    ("gists", step_gists),
     ("validate", step_validate),
     ("publish", step_publish),
 )
@@ -455,7 +573,7 @@ def run(ctx):
     ctx.log.line(f"done in {took:.0f}s")
     notify.send(
         notify.published(ctx.date, ctx.counts, ctx.sha, ctx.shown(ctx.log_path),
-                         ctx.warnings),
+                         ctx.warnings, gists=ctx.gists_line),
         env_file=ctx.env_file)
     ctx.log.close()
     return 0
@@ -493,6 +611,8 @@ def build_parser(prog="run.py"):
                         help="the working tree to run in")
     parser.add_argument("--skip-fetch", action="store_true",
                         help="re-use the day's snapshots instead of fetching")
+    parser.add_argument("--skip-gists", action="store_true",
+                        help="publish the edition without writing or updating gists")
     parser.add_argument("--no-push", dest="push", action="store_false",
                         help="build and validate, but do not commit or push")
     parser.add_argument("--python", default=None,
