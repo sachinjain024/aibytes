@@ -6,6 +6,7 @@ docs/specs/AIB-145y-gist-generate.md.
 
 import json
 import pathlib
+import re
 import subprocess
 import sys
 import tempfile
@@ -249,6 +250,67 @@ class TestCacheIsIgnored(unittest.TestCase):
         done = subprocess.run(["git", "check-ignore", "-q", ".cache/gists/2026-11-11/draft.json"],
                               cwd=REPO_ROOT)
         self.assertEqual(done.returncode, 0, ".cache/ must be in .gitignore (spec G2)")
+
+
+
+SKILL = REPO_ROOT / ".claude" / "skills" / "write-gists" / "SKILL.md"
+
+
+def skill_examples():
+    """{kind or 'brief': gist entry} from the skill's worked examples."""
+    text = SKILL.read_text()
+    found = {}
+    for heading, block in re.findall(r"\*\*(\w+)(?:, full)?\*\*[^\n]*\n\n```json\n(.*?)```", text, re.S):
+        found[heading] = json.loads(block)
+    return found
+
+
+class TestWriteGistsSkill(unittest.TestCase):
+    """AIB-145y T14: the skill names the contract's keys and caps, and never
+    restates a number that could drift from it."""
+
+    def test_every_constant_it_names_exists_in_the_contract(self):
+        names = set(re.findall(r"`([A-Z][A-Z_]+[A-Z])(?:\[|`)", SKILL.read_text()))
+        self.assertTrue(names)
+        missing = sorted(name for name in names if not hasattr(gist_contract, name))
+        self.assertEqual(missing, [])
+
+    def test_every_section_key_and_written_kind_is_covered(self):
+        text = SKILL.read_text()
+        for key in gist_contract.SECTION_KEYS:
+            self.assertIn(f"`{key}`", text)
+        for kind in gist_contract.KINDS:
+            if kind != "x_post":  # previews are copied by build, never written
+                self.assertIn(f"`{kind}`", text)
+        for stance in gist_contract.STANCES:
+            self.assertIn(f"`{stance}`", text)
+
+    def test_no_cap_is_restated_as_a_number(self):
+        text = SKILL.read_text()
+        prose = re.sub(r"```.*?```", "", text, flags=re.S)
+        self.assertEqual(re.findall(r"\b\d+\s*(?:chars|characters)\b", prose), [])
+        caps = {gist_contract.POINT_MAX, gist_contract.LEDE_MAX, gist_contract.TRY_IT_MAX,
+                gist_contract.DISCUSSION_TEXT_MAX, *gist_contract.TEXT_CAPS.values()}
+        for cap in caps:
+            self.assertNotRegex(prose, rf"\b{cap}\b", f"{cap} is a contract cap; name it instead")
+
+    def test_there_is_a_worked_example_per_kind_and_for_brief(self):
+        self.assertEqual(sorted(skill_examples()), ["brief", "hn", "launch", "news", "repo"])
+
+    def test_the_worked_examples_pass_the_contracts_section_checks(self):
+        for name, entry in skill_examples().items():
+            kind = "news" if name == "brief" else name
+            with self.subTest(example=name):
+                sections = json.loads(json.dumps(entry["sections"]))
+                for section in sections:  # build swaps ids for links; do the same here
+                    for point in section.get("points") or []:
+                        if isinstance(point, dict):
+                            ref = point.pop("comment", None) or point.pop("issue", None)
+                            if ref:
+                                point["url"] = f"https://example.com/{ref}"
+                self.assertEqual(gist_contract._sections_problems(sections, kind, entry["depth"]), [])
+                self.assertTrue(gist_contract.LEDE_MIN <= len(entry["lede"]) <= gist_contract.LEDE_MAX)
+                self.assertNotRegex(json.dumps(entry, ensure_ascii=False), "[\u2013\u2014]")
 
 
 if __name__ == "__main__":

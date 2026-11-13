@@ -293,9 +293,9 @@ rules, the output file shape. It is what the runner's Claude step is told to
 follow.
 
 **Acceptance criteria:**
-- [ ] Every section key and cap comes from the contract, named, not
+- [x] Every section key and cap comes from the contract, named, not
       restated as numbers that could drift (tested).
-- [ ] A worked example per type.
+- [x] A worked example per type.
 
 **Verification:** a hand run on one edition's draft gives a file that T15's
 `build` accepts. **Dependencies:** T13. **Size:** S.
