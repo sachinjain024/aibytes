@@ -12,6 +12,7 @@ import sys
 import tempfile
 import os
 import unittest
+import urllib.request
 from unittest import mock
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -577,3 +578,29 @@ class TestLaunchMaterial(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class PublicOnlyFetchTests(unittest.TestCase):
+    """The gist material fetchers read URLs that Hacker News and Product Hunt
+    submitters chose, so fetch() refuses anything that is not a public address,
+    at the first request and at every redirect."""
+
+    def test_non_public_and_non_http_urls_are_refused(self):
+        for url in ("http://127.0.0.1/", "http://localhost/", "http://169.254.169.254/latest/meta-data/",
+                    "http://10.0.0.5/", "http://192.168.1.1/", "http://[::1]/", "http://[fd00::1]/",
+                    "http://100.64.0.1/", "file:///etc/passwd", "ftp://example.com/x", "http:///nohost"):
+            with self.subTest(url):
+                resp = http.fetch(url)
+                self.assertEqual(resp.status, 0)
+                self.assertTrue(resp.error, url)
+
+    def test_a_redirect_to_a_non_public_host_is_refused(self):
+        handler = http._PublicRedirect()
+        req = urllib.request.Request("https://93.184.216.34/start")
+        with self.assertRaises(http.UnsafeURL):
+            handler.redirect_request(req, None, 302, "Found", {}, "http://169.254.169.254/latest/meta-data/")
+        with self.assertRaises(http.UnsafeURL):
+            handler.redirect_request(req, None, 302, "Found", {}, "http://127.0.0.1:8080/admin")
+
+    def test_a_public_address_passes_the_check(self):
+        http.check_public("https://93.184.216.34/page")  # a literal public IP: no DNS needed

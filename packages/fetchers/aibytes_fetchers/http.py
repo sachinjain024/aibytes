@@ -1,6 +1,8 @@
 """Tiny stdlib HTTP helpers shared by the source modules."""
 
+import ipaddress
 import json
+import socket
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -73,6 +75,36 @@ class Response:
             return self.body.decode("utf-8", errors="replace")
 
 
+class UnsafeURL(ValueError):
+    """A URL the gist fetchers will not read: not http(s), or not a public host."""
+
+
+def check_public(url):
+    """Raise UnsafeURL unless `url` is http(s) and every address its host
+    resolves to is public (not loopback, private, link-local, CGNAT, reserved or
+    a metadata address). A host that does not resolve passes: the request then
+    fails on its own. The check and the connection resolve separately, so a host
+    that answers differently the second time (DNS rebinding) is not caught."""
+    parts = urllib.parse.urlsplit(url)
+    if parts.scheme not in ("http", "https") or not parts.hostname:
+        raise UnsafeURL(f"refusing a non-http(s) URL: {url[:80]}")
+    try:
+        infos = socket.getaddrinfo(parts.hostname, parts.port or (443 if parts.scheme == "https" else 80), type=socket.SOCK_STREAM)
+    except (socket.gaierror, UnicodeError):
+        return
+    for info in infos:
+        if not ipaddress.ip_address(info[4][0].split("%")[0]).is_global:
+            raise UnsafeURL(f"refusing {parts.hostname}: it resolves to a non-public address")
+
+
+class _PublicRedirect(urllib.request.HTTPRedirectHandler):
+    """Follow a redirect only to a public http(s) address."""
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        check_public(newurl)
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
 def fetch(url, headers=None, data=None, timeout=TIMEOUT, max_bytes=MAX_BYTES):
     """One request with a time limit and a size cap, for the gist material
     fetchers. Never raises for an HTTP error or a dead network: the caller
@@ -85,7 +117,8 @@ def fetch(url, headers=None, data=None, timeout=TIMEOUT, max_bytes=MAX_BYTES):
         sent.setdefault("Content-Type", "application/json")
     req = urllib.request.Request(url, data=body, headers=sent)
     try:
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
+        check_public(url)
+        with urllib.request.build_opener(_PublicRedirect).open(req, timeout=timeout) as resp:
             read = resp.read(max_bytes + 1)
             return Response(resp.status, dict(resp.headers.items()), read[:max_bytes],
                             truncated=len(read) > max_bytes)
