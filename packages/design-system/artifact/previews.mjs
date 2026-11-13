@@ -103,6 +103,25 @@ render(<div className="pv-static">
   <Label>As the app shows it: signed out with a save, not dismissible. With sticky it sits under the AppHeader, over the Sidebar.</Label>
 </div>);` },
 
+  GistView: { group: "Content", height: 760, width: 520, jsx: `
+const asOf = "2026-08-27T08:04:10Z";
+const gist = { schema_version: 1, slug: "gh-officecli", kind: "repo", source: "github", category: "repos", title: "OfficeCLI", url: "#", source_url: "#",
+  tags: [], image: { type: "none" }, depth: "full",
+  lede: "OfficeCLI creates and edits Word, Excel and PowerPoint files from the command line, aimed at scripts and agents that need to produce real documents.",
+  sections: [
+    { key: "key_points", points: ["One command per action: add a slide, fill a table, replace text by style.", "Reads and writes the standard file formats directly; Office does not need to be installed.", "Ships a JSON mode so an agent can inspect a document before changing it."] },
+    { key: "try_it", command: "pip install officecli && officecli docx new report.docx" },
+    { key: "whats_open", points: [{ text: "Chart support in PowerPoint is the most requested feature.", url: "#" }, { text: "Several reports of formulas being dropped when a sheet is rewritten." }] },
+  ],
+  stats: { stars: 18200, stars_gained: 6400, forks: 640, language: "Python", license: "MIT", created_on: "2026-06-12", contributors: 41, open_issues: 73 }, stats_as_of: asOf,
+  links: [{ role: "destination", title: "OfficeCLI repository", url: "https://github.com/example/officecli" }],
+  appearances: [{ item_id: "gh-officecli-2026-08-27", edition_date: "2026-08-27" }, { item_id: "gh-officecli-issue-9", issue_slug: "issue-9" }],
+  created_at: asOf, updated_at: asOf };
+render(<>
+  <L.GistView gist={gist} as="panel" actions={<div className="gist-sec"><L.SaveStar saved={false} onToggle={noop} /></div>} />
+  <Label>The one view the panel and the page both render. A repo gist: image or source mark before the title, the stats grid with its date, sections, then the source button. Hacker News, Product Hunt and news gists differ only in their sections and stats.</Label>
+</>);` },
+
   Dialog: { group: "Content", height: 420, width: 1000, jsx: `
 render(<L.Dialog labelledBy="pv-dialog-h" onClose={noop}>
   <h2 id="pv-dialog-h" className="ldg-dialog__title">You're successfully signed in.</h2>

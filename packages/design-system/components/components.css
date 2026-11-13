@@ -148,3 +148,40 @@
 /* — side nav (full-page layout rail) — */
 /* content-box, as everywhere in Ledger: the height excludes the 20px top and bottom padding, hence the 40px. */
 /* — footer — */
+
+/* The gist view (AIB-145y): one view for the panel and the page. Tokens only. */
+.gist{display:flex;flex-direction:column;gap:20px;min-width:0;font-family:var(--font-body);color:var(--text)}
+.gist-head{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.gist-kicker{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0;font-size:var(--text-12);color:var(--text-2)}
+.gist-kicker i{font-style:normal}
+.gist-badge{background:var(--hot-tint);color:var(--hot-text);border-radius:4px;padding:1px 6px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.gist-depth{border:var(--border-w) solid var(--control-border);border-radius:4px;padding:0 5px;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.gist-titlerow{display:flex;align-items:center;gap:10px;min-width:0;align-self:stretch}
+.gist-mark{flex:none;width:32px;height:32px;border-radius:8px;object-fit:cover}
+.gist-mark--circle{border-radius:50%}
+.gist-title{margin:0;min-width:0;font:700 22px/1.2 var(--font-display);letter-spacing:-.5px;text-wrap:balance;overflow-wrap:anywhere}
+.gist--page .gist-title{font-size:32px;letter-spacing:-1px}
+.gist-btn{height:28px;padding:0 10px;gap:5px;font-size:var(--text-12);text-decoration:none}
+.gist-out{flex:none;opacity:.75}
+.gist-cta{display:flex;flex-wrap:wrap;gap:8px}
+.gist-lede{margin:0;font-size:var(--text-16);line-height:1.55;text-wrap:pretty}
+.gist--page .gist-lede{font-size:18px}
+.gist-briefnote{margin:-8px 0 0;font-size:var(--text-13);color:var(--text-2)}
+.gist-sec{display:flex;flex-direction:column;gap:8px;min-width:0}
+.gist-sec h3{margin:0;font:600 var(--text-12) var(--font-body);letter-spacing:.07em;text-transform:uppercase;color:var(--text-2)}
+.gist-sec p{margin:0;font-size:var(--text-14);line-height:1.6}
+.gist-sec ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:var(--text-14);line-height:1.55}
+.gist-sec a{color:var(--link);text-decoration:underline;text-underline-offset:2px}
+.gist-tag{display:inline-block;margin-right:7px;padding:0 5px;border-radius:4px;background:var(--surface-2);color:var(--text-2);font-size:11px;font-weight:600;letter-spacing:.03em}
+.gist-code{margin:0;padding:10px 12px;border-radius:6px;background:var(--surface-2);overflow-x:auto;font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+.gist-statshead{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px}
+.gist-asof{font-size:var(--text-12);color:var(--text-2)}
+.gist-statgrid{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(104px,1fr));gap:8px}
+.gist-statgrid>div{min-width:0;padding:9px 12px;display:flex;flex-direction:column;gap:2px;border:var(--border-w) solid var(--border);border-radius:var(--radius-chip)}
+.gist-statgrid dt{font-size:11px;color:var(--text-2)}
+.gist-statgrid dd{margin:0;overflow-wrap:anywhere;font-family:var(--font-mono);font-size:15px;font-weight:600;letter-spacing:var(--tracking-mono);font-feature-settings:var(--mono-features)}
+.gist-post{margin:0;display:flex;flex-direction:column;gap:10px;padding:16px;border:var(--border-w) solid var(--control-border);border-radius:var(--radius-card)}
+.gist-post figcaption{display:flex;flex-direction:column;font-size:var(--text-14)}
+.gist-post figcaption span{font-size:var(--text-12);color:var(--text-2)}
+.gist-post blockquote{margin:0;font-size:var(--text-16);line-height:1.5;text-wrap:pretty}
+.gist-seen i{font-style:normal;color:var(--text-2)}

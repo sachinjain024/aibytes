@@ -40,7 +40,7 @@ grid `--line`, the code block `--soft`.
 interface GistViewProps {
   gist: Gist;                        // content/gists/<slug>.json, as is
   as: "panel" | "page";              // h2 or h1; page type sizes are larger
-  onEdition?: (edition_date: string) => void;   // "Appeared in" links
+  appearanceHref?: (appearance) => string;   // where an "Appeared in" link goes; default /<date> or /weekly/<issue>
   actions?: React.ReactNode;         // the save + reaction bar, rendered at the end (D2)
 }
 ```
@@ -51,8 +51,12 @@ edition. Top to bottom:
 1. **Kicker:** the source name, "First covered <date>", the `HN front page`
    badge when `front_page` is set, and a `brief` label when `depth` is
    `brief` (never `full`).
-2. **Image and title:** the item's image just before the title in one row.
-   It is the gist's own `image`, drawn by `ItemImage`, so a Product Hunt logo,
+2. **Image, title and a small Source button.** The Source button under the title
+   stays, as the design record says ("Decided in review"); it
+   is the `destination` link, or the `discussion` link when there is no
+   destination, and it is the same button as the closing one, outlined.
+   The image sits just before the title in one row. It is the gist's own
+   `image`, drawn by `ItemImage`, so a Product Hunt logo,
    a repo's owner avatar (a circle) and a TechCrunch thumbnail (square crop)
    match the feed card, and an item with no image, or one that fails to load,
    gets the source mark. That is the orange "Y" for Hacker News. *(review)*

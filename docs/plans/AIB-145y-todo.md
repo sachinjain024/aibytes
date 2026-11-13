@@ -405,10 +405,12 @@ caption (C2); sections; closing source buttons; "Appeared in"; an actions
 slot at the end (D2). Server-renderable: no `window` during render.
 
 **Acceptance criteria:**
-- [ ] `GistView.test.js` renders each type (news, HN, repo, launch, X
+- [x] `GistView.test.js` renders each type (news, HN, repo, launch, X
       preview, brief) from fixtures.
-- [ ] `renderToStaticMarkup` of it works under `node --test`.
-- [ ] `.d.ts`, `.prompt.md`; tokens only; both themes pass the contrast test.
+- [x] `renderToStaticMarkup` of it works under `node --test`.
+- [x] `.d.ts`, `.prompt.md`; tokens only; both themes pass the contrast test.
+      (Only existing tokens are used, all already in the contrast test.
+      Preview added for the Design System Artifact build. 15 tests.)
 
 **Verification:** `npm test -w @aibytes/design-system`.
 **Dependencies:** T18, T5 (types). **Size:** M.
