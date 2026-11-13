@@ -792,7 +792,7 @@ function GistApp({ saves: store, route, location, navigate, theme, onToggleTheme
   const from = first.edition_date ? { edition_date: first.edition_date } : { issue_slug: first.issue_slug };
   const toggle = (id) => store.toggle({ id }, from);
   return (
-    <GistPage gist={gist} more={more} theme={mounted ? theme : "light"} onToggleTheme={onToggleTheme} headerProps={mounted ? headerProps : {}}
+    <GistPage gist={gist} more={more} theme={mounted ? theme : "light"} shellTheme={mounted ? theme : undefined} onToggleTheme={onToggleTheme} headerProps={mounted ? headerProps : {}}
       banner={<><StickyBanner saveCount={mounted ? saves.length : 0} /><SignInFailed /></>}
       saved={saved} onToggleSave={toggle} showSubscribe={!mounted || showSubscribeOptions(subscribed)} />);
 }

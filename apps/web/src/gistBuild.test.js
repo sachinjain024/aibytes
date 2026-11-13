@@ -89,6 +89,12 @@ test("a More from row carries the Front page label when its item was on the HN f
   assert.match(read("gists", "full-one", "index.html"), /Front page[\s\S]*Item other|Item other[\s\S]*Front page/);
 });
 
+test("the shell sets no theme of its own until the browser has mounted, so a dark reader never sees it flash light", () => {
+  const page = read("gists", "full-one", "index.html");
+  assert.match(page, /<div class="app-shell redesign">/);
+  assert.doesNotMatch(page, /app-shell redesign" data-theme/);
+});
+
 test("the page carries its own data, escaped, for the browser to take over", () => {
   const page = read("gists", "full-one", "index.html");
   const block = page.match(/<script type="application\/json" id="gist-data">([\s\S]*?)<\/script>/)[1];
