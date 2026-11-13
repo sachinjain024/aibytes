@@ -193,8 +193,10 @@ files keep clean URLs.
       links untouched (tests).
 - [ ] Card titles and source names link with the parameter; nothing under
       `content/` changes.
-- [ ] Whether HN and GitHub links get it too is settled at the start (they
-      ignore it, but it is harmless).
+- [x] Whether HN and GitHub links get it too is settled: **no**. GitHub reads
+      `?ref=` as a branch name (its page title becomes "… at aiBytes_"), and
+      neither site shows owners query parameters. Found by comparing every
+      link with and without the tag, 13 Nov 2026. PR #67.
 
 **Verification:** `npm test -w @aibytes/design-system`; `npm test -w
 @aibytes/web`; a card's links in the dev server. **Dependencies:** none.
