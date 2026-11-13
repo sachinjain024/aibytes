@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "slug": "gh-veyra-nrvideo",
+  "kind": "repo",
+  "title": "Likely7/Veyra-NRVideo",
+  "url": "https://github.com/Likely7/Veyra-NRVideo",
+  "source_url": "https://github.com/Likely7/Veyra-NRVideo",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "Open Source",
+    "Video",
+    "Vision",
+    "Nvidia"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/Likely7.png?size=80"
+  },
+  "depth": "full",
+  "lede": "Veyra is a Windows app that runs video files, images, capture cards and game streams through a real-time GPU pipeline of super resolution, denoising, HDR and frame generation.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Sources include local files, capture cards, PS5 Remote Play, Sunshine-based PC streaming, experimental Xbox support and screen capture.",
+        "Offers RTX Video, DLSS, XeSS and FSR super resolution, up to four layered neural denoising passes, and frame generation.",
+        "A node editor builds custom processing chains; list mode handles export to MP4 or MKV.",
+        "Written in C++ on DirectX 12 for Windows 11, with separate NVIDIA and AMD portable packages.",
+        "Release 2.1.5 smooths frame pacing after capture deduplication."
+      ]
+    },
+    {
+      "key": "whats_open",
+      "points": [
+        {
+          "text": "GPU load: one report shows near-full use on an RTX 4090 with 4K super resolution, denoising and 2x frame generation together.",
+          "url": "https://github.com/Likely7/Veyra-NRVideo/issues/32"
+        },
+        {
+          "text": "Frame generation on RTX 3000 series cards is still an open thread.",
+          "url": "https://github.com/Likely7/Veyra-NRVideo/issues/89"
+        },
+        {
+          "text": "Users ask how to apply frame interpolation to video playing in a web browser.",
+          "url": "https://github.com/Likely7/Veyra-NRVideo/issues/73"
+        },
+        {
+          "text": "Subtitle bugs, such as SRT cues losing text after a comma.",
+          "url": "https://github.com/Likely7/Veyra-NRVideo/issues/18"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Likely7/Veyra-NRVideo",
+      "url": "https://github.com/Likely7/Veyra-NRVideo"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-veyra-nrvideo-2026-11-13",
+      "edition_date": "2026-11-13"
+    }
+  ],
+  "created_at": "2026-11-13T16:15:14Z",
+  "updated_at": "2026-11-13T16:15:14Z",
+  "stats": {
+    "stars": 1491,
+    "forks": 66,
+    "language": "C++",
+    "license": "GPL-3.0",
+    "created_on": "2026-09-09",
+    "contributors": 8,
+    "last_release": {
+      "tag": "v2.1.5",
+      "published_on": "2026-11-10"
+    },
+    "open_issues": 42,
+    "stars_gained": 245
+  },
+  "stats_as_of": "2026-11-13T16:10:04Z"
+}

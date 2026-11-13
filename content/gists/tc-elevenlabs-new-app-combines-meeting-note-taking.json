@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "tc-elevenlabs-new-app-combines-meeting-note-taking",
+  "kind": "news",
+  "title": "ElevenLabs’ new app combines meeting note-taking and dictation for teams",
+  "url": "https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/",
+  "source_url": "https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Voice / Speech",
+    "Launch"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/11/Screenshot-2026-11-13-at-7.19.18-PM.jpg?resize=1200,774"
+  },
+  "depth": "full",
+  "lede": "ElevenLabs released ElevenAI, an early-access app for teams that combines meeting notes, dictation and hooks into its own agent platform.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Takes meeting notes, tells participants they are being recorded, and answers questions across past meetings.",
+        "Gives live help during a call to recall details from earlier conversations.",
+        "Dictation turns speech into cleaned-up text in any app, in over 90 languages.",
+        "ElevenAgent can take follow-up actions, such as drafting an email from the notes.",
+        "It arrived alongside Scribe v3 speech-to-text models with live transcription and fine-tuning on company data."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "Scribe v3 lets companies fine-tune transcription on their own data, and ElevenAI shows the company packaging its models and agents as a team product rather than only an API."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "ElevenLabs’ new app combines meeting note-taking and dictation for teams",
+      "url": "https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-elevenlabs-new-app-combines-meeting-note-taking-2026-11-13",
+      "edition_date": "2026-11-13"
+    }
+  ],
+  "created_at": "2026-11-13T16:15:14Z",
+  "updated_at": "2026-11-13T16:15:14Z"
+}

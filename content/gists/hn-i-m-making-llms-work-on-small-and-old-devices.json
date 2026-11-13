@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "slug": "hn-i-m-making-llms-work-on-small-and-old-devices",
+  "kind": "hn",
+  "title": "I'm making LLMs work on small and old devices",
+  "url": "https://github.com/hyperionaidev/smolmaxxing/",
+  "source_url": "https://news.ycombinator.com/item?id=50468888",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Open Source",
+    "Local LLM",
+    "Inference"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "smolmaxxing patches llama.cpp to run the largest model each spare device can handle, getting 8B and 16B mixture-of-experts models onto a TV box and an old iPad with about 1 GB of RAM.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "A Xiaomi TV box and a first-generation iPad Air run 16B MoE models; an 8 GB Android phone runs 35B and 80B ones.",
+        "Frequently used experts stay in RAM while the rest are read from flash on demand, with the next layer prefetched.",
+        "Custom 1-bit, 2-bit and ternary kernels target Cortex-A55 and A7 chips, including ones without dot-product instructions.",
+        "Rarely used vocabulary rows are dropped to save memory, and every figure was measured on the device itself.",
+        "Released under MIT, with the modified models on Hugging Face."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "counterpoint",
+          "text": "One commenter says frontier coding agents can now port inference to old hardware from a single prompt; the author replies it took over 150 experiments to find what runs fastest.",
+          "url": "https://news.ycombinator.com/item?id=50470853"
+        },
+        {
+          "stance": "disputed",
+          "text": "Commenters question what models this small are good for, with one reply calling them too weak for tools or simple questions.",
+          "url": "https://news.ycombinator.com/item?id=50470722"
+        },
+        {
+          "stance": "agreed",
+          "text": "Others share how fast small models have improved, including a 6.5M-parameter model that reasons and calls tools.",
+          "url": "https://news.ycombinator.com/item?id=50471553"
+        },
+        {
+          "stance": "theme",
+          "text": "Readers point to similar stunts, such as a TinyStories model running on a Nintendo Wii.",
+          "url": "https://news.ycombinator.com/item?id=50470267"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "GitHub - hyperionaidev/smolmaxxing: maxxing the ability to run different LLMs on the smallest devices possible",
+      "url": "https://github.com/hyperionaidev/smolmaxxing/"
+    },
+    {
+      "role": "discussion",
+      "title": "I'm making LLMs work on small and old devices",
+      "url": "https://news.ycombinator.com/item?id=50468888"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-i-m-making-llms-work-on-small-and-old-devices-2026-11-13",
+      "edition_date": "2026-11-13"
+    }
+  ],
+  "created_at": "2026-11-13T16:15:14Z",
+  "updated_at": "2026-11-13T16:15:14Z",
+  "stats": {
+    "points": 434,
+    "comments": 167,
+    "submitted_by": "mrashad74",
+    "posted_at": "2026-11-12T15:23:10Z"
+  },
+  "stats_as_of": "2026-11-13T16:10:04Z",
+  "front_page": true
+}

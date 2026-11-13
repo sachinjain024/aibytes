@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "slug": "gh-daily-stock-analysis",
+  "kind": "repo",
+  "title": "ZhuLinsen/daily_stock_analysis",
+  "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+  "source_url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "Open Source",
+    "LLM",
+    "Agents"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/ZhuLinsen.png?size=80"
+  },
+  "depth": "full",
+  "lede": "daily_stock_analysis is a Python tool that runs a stock watchlist through an LLM each trading day, combining quotes and news into a decision report pushed to chat apps or email.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Covers A-shares and stocks in Hong Kong, the U.S., Japan, Korea and Taiwan, plus ETFs.",
+        "Each report gives a score, trend, buy and sell levels, risk alerts and catalysts per stock.",
+        "Runs free on a forked repo's GitHub Actions on weekdays, or locally, in Docker or as a FastAPI service.",
+        "Works with Gemini, Claude, DeepSeek, Ollama and other OpenAI-compatible models; bundled free data sources need no setup.",
+        "A web workbench adds backtesting, holdings and a chat page that answers using 15 built-in strategies."
+      ]
+    },
+    {
+      "key": "try_it",
+      "command": "git clone https://github.com/ZhuLinsen/daily_stock_analysis.git && cd daily_stock_analysis"
+    },
+    {
+      "key": "whats_open",
+      "points": [
+        {
+          "text": "Feeding after-the-fact reviews of past decision signals back into the agent's memory.",
+          "url": "https://github.com/ZhuLinsen/daily_stock_analysis/issues/1903"
+        },
+        {
+          "text": "A roadmap to use local coding agents such as Codex, Claude Code and OpenCode as the analysis backend.",
+          "url": "https://github.com/ZhuLinsen/daily_stock_analysis/issues/1743"
+        },
+        {
+          "text": "Raising prompt-cache hit rates to cut the cost of each LLM analysis.",
+          "url": "https://github.com/ZhuLinsen/daily_stock_analysis/issues/1595"
+        },
+        {
+          "text": "A post-close sentiment review for the A-share market.",
+          "url": "https://github.com/ZhuLinsen/daily_stock_analysis/issues/1939"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "ZhuLinsen/daily_stock_analysis",
+      "url": "https://github.com/ZhuLinsen/daily_stock_analysis"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-daily-stock-analysis-2026-11-13",
+      "edition_date": "2026-11-13"
+    }
+  ],
+  "created_at": "2026-11-13T16:15:14Z",
+  "updated_at": "2026-11-13T16:15:14Z",
+  "stats": {
+    "stars": 71385,
+    "forks": 57243,
+    "language": "Python",
+    "license": "MIT",
+    "created_on": "2026-01-10",
+    "contributors": 142,
+    "last_release": {
+      "tag": "v3.34.0",
+      "published_on": "2026-11-09"
+    },
+    "open_issues": 27,
+    "stars_gained": 272
+  },
+  "stats_as_of": "2026-11-13T16:10:04Z"
+}

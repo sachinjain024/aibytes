@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "slug": "hn-gemini-4-hydrogen-and-orchestrator",
+  "kind": "hn",
+  "title": "Gemini 4 Hydrogen and Orchestrator",
+  "url": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/",
+  "source_url": "https://news.ycombinator.com/item?id=50472260",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Agents",
+    "Code Gen",
+    "Google"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Google Antigravity adds Orchestrator, which passes work back and forth between Gemini 4 Carbon for planning and Gemini 4 Hydrogen for execution inside a single agent session.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Carbon can explore and plan read-only, Hydrogen then edits and runs tests, and work returns to Carbon when Hydrogen gets stuck.",
+        "Google contrasts this with static routers that choose one model from the first prompt and break down on long tasks.",
+        "On Terminal-Bench 4.1 it came close to Carbon's success rate while using 24% less quota and finishing 19% faster.",
+        "The Antigravity SDK lets developers assign models to roles explicitly, such as Hydrogen for triage and Carbon for refactors.",
+        "Orchestrator is rolling out to Google AI Ultra subscribers, while Pro subscribers get only the Argon variant."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "theme",
+          "text": "Commenters compare it to Anthropic's advisor mode and GitHub's HydraFusion pipeline, and ask how caching works across models.",
+          "url": "https://news.ycombinator.com/item?id=50473254"
+        },
+        {
+          "stance": "agreed",
+          "text": "Several are frustrated that subscriptions only work inside each lab's own harness, so they cannot bring their own tooling.",
+          "url": "https://news.ycombinator.com/item?id=50483261"
+        },
+        {
+          "stance": "disputed",
+          "text": "Some are wary of letting a model decide which model gets a task; a reply argues Antigravity's value is poor enough to use Opus or GPT Sol instead.",
+          "url": "https://news.ycombinator.com/item?id=50473078"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One commenter says pairing Opus with DeepSeek Flash saves 60%, well beyond the savings Google reports.",
+          "url": "https://news.ycombinator.com/item?id=50475941"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Gemini 4 Hydrogen and Orchestrator | Google Antigravity Blog",
+      "url": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/"
+    },
+    {
+      "role": "discussion",
+      "title": "Gemini 4 Hydrogen and Orchestrator",
+      "url": "https://news.ycombinator.com/item?id=50472260"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-gemini-4-hydrogen-and-orchestrator-2026-11-13",
+      "edition_date": "2026-11-13"
+    }
+  ],
+  "created_at": "2026-11-13T16:15:14Z",
+  "updated_at": "2026-11-13T16:15:14Z",
+  "stats": {
+    "points": 468,
+    "comments": 144,
+    "submitted_by": "jonbaer",
+    "posted_at": "2026-11-12T18:52:01Z"
+  },
+  "stats_as_of": "2026-11-13T16:10:04Z",
+  "front_page": true
+}

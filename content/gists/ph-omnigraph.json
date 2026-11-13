@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "ph-omnigraph",
+  "kind": "launch",
+  "title": "Omnigraph",
+  "url": "https://www.producthunt.com/products/omnigraph",
+  "source_url": "https://www.producthunt.com/products/omnigraph",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Open Source",
+    "Agents",
+    "RAG",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/7dc98c53-4374-466e-97f8-388ca136aad3.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "Omnigraph is an open-source graph database that lives in your own object storage and lets several AI agents write to one shared, typed graph without overwriting each other.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Each agent writes on its own branch, and changes are reviewed and merged into main, Git-style.",
+        "A typed ontology defines what can exist; writes that do not fit the schema are refused.",
+        "Semantic, keyword and hybrid search combine with graph traversal in a single query.",
+        "History is kept, so you can see who changed what and query the graph as it stood earlier.",
+        "Data sits as open files in any S3-compatible bucket, and permissions for agents and humans are defined in code."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Teams running several agents over the same company data, for uses the launch comment lists such as a company knowledge graph or research graphs of papers and claims."
+    },
+    {
+      "key": "pricing",
+      "text": "The code is open source under the MIT licence and runs on storage you supply, with no hosted memory API required."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Omnigraph on Product Hunt",
+      "url": "https://www.producthunt.com/products/omnigraph"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-omnigraph-2026-11-13",
+      "edition_date": "2026-11-13"
+    }
+  ],
+  "created_at": "2026-11-13T16:15:14Z",
+  "updated_at": "2026-11-13T16:15:14Z",
+  "stats": {
+    "upvotes": 288,
+    "comments": 35
+  },
+  "stats_as_of": "2026-11-13T16:10:04Z"
+}

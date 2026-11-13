@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "slug": "hn-chinese-frontier-ai-models-carry-the",
+  "kind": "hn",
+  "title": "Chinese frontier AI models carry the fingerprint of export-controlled GPUs",
+  "url": "https://unemploymentlabs.com/checkpoint-forensics",
+  "source_url": "https://news.ycombinator.com/item?id=50474883",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "LLM",
+    "Policy",
+    "Deep Dive"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Will DePue's forensic report says six recent models from DeepSeek, Moonshot AI, MiniMax and Ant Group were initialised on export-controlled Nvidia Blackwell GPUs, judging by traces in their published weights.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "PyTorch spreads random weight initialisation across GPU threads, and the thread count depends on how many streaming multiprocessors the chip has.",
+        "Recovering the seed and thread layout from untouched weights reveals the hardware class: Hopper at 132 SMs, Blackwell at 148 or 152.",
+        "Earlier models from the same labs read as Hopper, as do the newest from Alibaba, Zhipu, Tencent, Xiaomi and StepFun.",
+        "The method agreed with all 24 models whose builders disclosed their hardware, and the matches sit far above chance.",
+        "The report says it cannot show where the chips were located or whether export controls were broken."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "The most common reply: renting Nvidia GPUs in data centers outside China, such as Singapore or Malaysia, is legal under current rules.",
+          "url": "https://news.ycombinator.com/item?id=50476283"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One commenter doubts the author's neutrality and notes no code was published; a reply says they confused DePue with someone else.",
+          "url": "https://news.ycombinator.com/item?id=50475955"
+        },
+        {
+          "stance": "disputed",
+          "text": "Readers ask whether matching the initialisation proves the training itself ran on the same hardware.",
+          "url": "https://news.ycombinator.com/item?id=50478604"
+        },
+        {
+          "stance": "theme",
+          "text": "A technical aside: the Muon optimizer tends to erase initial weight patterns, though untouched rows remain strong evidence.",
+          "url": "https://news.ycombinator.com/item?id=50484525"
+        },
+        {
+          "stance": "theme",
+          "text": "Several argue export controls rarely hold, citing reseller chains and minimal identity checks at cloud GPU hosts.",
+          "url": "https://news.ycombinator.com/item?id=50475310"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Top Chinese Frontier AI Models Carry the Fingerprint of Export-Controlled NVIDIA Blackwell GPUs",
+      "url": "https://unemploymentlabs.com/checkpoint-forensics"
+    },
+    {
+      "role": "discussion",
+      "title": "Chinese frontier AI models carry the fingerprint of export-controlled GPUs",
+      "url": "https://news.ycombinator.com/item?id=50474883"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-chinese-frontier-ai-models-carry-the-2026-11-13",
+      "edition_date": "2026-11-13"
+    }
+  ],
+  "created_at": "2026-11-13T16:15:14Z",
+  "updated_at": "2026-11-13T16:15:14Z",
+  "stats": {
+    "points": 333,
+    "comments": 135,
+    "submitted_by": "firloop",
+    "posted_at": "2026-11-12T21:56:11Z"
+  },
+  "stats_as_of": "2026-11-13T16:10:04Z"
+}

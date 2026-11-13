@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "ph-plurai-simulation",
+  "kind": "launch",
+  "title": "Plurai Simulation",
+  "url": "https://www.producthunt.com/products/plurai",
+  "source_url": "https://www.producthunt.com/products/plurai",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Dev Tool",
+    "Agents",
+    "Eval",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/e87131be-1490-4ed2-a291-5f91da603996.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "Plurai Simulation runs from inside a coding agent and builds a sandboxed copy of an AI agent's environment, so test personas can exercise it and evals can check what it actually changed.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Pointed at a repo, it rebuilds the agent's tools, records and documents from the code into one consistent world state.",
+        "It mocks what should be mocked while keeping parts such as a RAG pipeline live, and never touches production.",
+        "Personas range from cooperative to hostile; evals grade the effect on that world, not what the transcript claims.",
+        "Production failures can be replayed from the step where they broke, and each bug comes with a proposed fix run three times.",
+        "It installs as a Claude Code plugin and also works from Codex and GitHub Copilot."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Teams shipping tool-using agents, such as support bots that issue refunds, who need to confirm an action really happened rather than trusting the chat log."
+    },
+    {
+      "key": "pricing",
+      "text": "The launch comment says teams can connect an agent and start for free; paid tiers are not described."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Plurai Simulation on Product Hunt",
+      "url": "https://www.producthunt.com/products/plurai"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-plurai-simulation-2026-11-13",
+      "edition_date": "2026-11-13"
+    }
+  ],
+  "created_at": "2026-11-13T16:15:14Z",
+  "updated_at": "2026-11-13T16:15:14Z",
+  "stats": {
+    "upvotes": 404,
+    "comments": 138
+  },
+  "stats_as_of": "2026-11-13T16:10:04Z"
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "slug": "gh-claude-trading-skills",
+  "kind": "repo",
+  "title": "tradermonty/claude-trading-skills",
+  "url": "https://github.com/tradermonty/claude-trading-skills",
+  "source_url": "https://github.com/tradermonty/claude-trading-skills",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "Open Source",
+    "Agents",
+    "Claude Code"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/tradermonty.png?size=80"
+  },
+  "depth": "full",
+  "lede": "Claude Trading Skills is a set of Claude skills for part-time investors that structures market review, risk checks, trade planning and journaling, rather than handing buy or sell calls to AI.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Built around a core of long-term ETF and dividend holdings, with swing trades added only when conditions allow.",
+        "Workflow manifests chain skills into routines such as a 15-minute daily market check or a monthly performance review.",
+        "A five-skill starter path works from public CSVs and local files with no paid data API.",
+        "Skills span breadth and regime analysis, screeners, position sizing, backtesting and a trade journal.",
+        "Runs in Claude Code by copying skill folders, or in the Claude web app as uploaded .skill packages."
+      ]
+    },
+    {
+      "key": "whats_open",
+      "points": [
+        {
+          "text": "A shared data contract recording where market data came from, plus a bias checklist for strategy research.",
+          "url": "https://github.com/tradermonty/claude-trading-skills/issues/297"
+        },
+        {
+          "text": "Free-tier claims are out of date: several skills hit 402 or 403 errors on a new FMP Basic key.",
+          "url": "https://github.com/tradermonty/claude-trading-skills/issues/707"
+        },
+        {
+          "text": "Manually recorded trades in signal-postmortem can save a zero entry price and the wrong verdict.",
+          "url": "https://github.com/tradermonty/claude-trading-skills/issues/700"
+        },
+        {
+          "text": "Contract tests and scheduled live checks for the market-data providers.",
+          "url": "https://github.com/tradermonty/claude-trading-skills/issues/332"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "tradermonty/claude-trading-skills",
+      "url": "https://github.com/tradermonty/claude-trading-skills"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-claude-trading-skills-2026-11-13",
+      "edition_date": "2026-11-13"
+    }
+  ],
+  "created_at": "2026-11-13T16:15:14Z",
+  "updated_at": "2026-11-13T16:15:14Z",
+  "stats": {
+    "stars": 3976,
+    "forks": 851,
+    "language": "Python",
+    "license": "MIT",
+    "created_on": "2025-10-19",
+    "contributors": 31,
+    "open_issues": 64,
+    "stars_gained": 60
+  },
+  "stats_as_of": "2026-11-13T16:10:04Z"
+}

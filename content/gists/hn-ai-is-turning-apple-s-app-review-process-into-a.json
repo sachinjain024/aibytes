@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "slug": "hn-ai-is-turning-apple-s-app-review-process-into-a",
+  "kind": "hn",
+  "title": "AI is turning Apple's app review process into a nightmare for synth developers",
+  "url": "https://synthanatomy.com/2026/11/ai-is-turning-apples-app-review-process-into-a-nightmare-for-developers.html",
+  "source_url": "https://news.ycombinator.com/item?id=50474311",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Apple",
+    "Policy"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Synth Anatomy reports that Apple's App Store review, swamped by AI-built apps, now holds iOS music apps for weeks and rejects some for reasons that look automated and wrong.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "An estimated 10 to 20 new iOS music apps appear daily as people vibe code apps and AUv3 plugins.",
+        "Apple says it usually reviews 90% of submissions within 48 hours; developers report weeks with no updates.",
+        "Unfiltered Audio's app was rejected four times, once over an invented licensing requirement, and shipped without its MIDI version.",
+        "CRUX Synth was rejected four times as design spam within seconds of entering review, and its appeals went unanswered.",
+        "Pittsburgh Modular's iOS synth arrived more than two weeks after its planned simultaneous VST release."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "Developers outside music report the same: one client app was asked for a full video walkthrough, then sat unreviewed for over a week.",
+          "url": "https://news.ycombinator.com/item?id=50483377"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "Some say review was poor long before AI, and the blame lies with Apple alone.",
+          "url": "https://news.ycombinator.com/item?id=50476901"
+        },
+        {
+          "stance": "disputed",
+          "text": "One developer finds Google Play worse, citing a rule requiring 12 testers for 14 days; a reply notes Apple's fee recurs every year.",
+          "url": "https://news.ycombinator.com/item?id=50479927"
+        },
+        {
+          "stance": "theme",
+          "text": "Another says Anthropic's MCP directory review is slower still, after eight months of resubmissions.",
+          "url": "https://news.ycombinator.com/item?id=50480256"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "AI is turning Apple’s app review process into a nightmare for developers",
+      "url": "https://synthanatomy.com/2026/11/ai-is-turning-apples-app-review-process-into-a-nightmare-for-developers.html"
+    },
+    {
+      "role": "discussion",
+      "title": "AI is turning Apple's app review process into a nightmare for synth developers",
+      "url": "https://news.ycombinator.com/item?id=50474311"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-ai-is-turning-apple-s-app-review-process-into-a-2026-11-13",
+      "edition_date": "2026-11-13"
+    }
+  ],
+  "created_at": "2026-11-13T16:15:14Z",
+  "updated_at": "2026-11-13T16:15:14Z",
+  "stats": {
+    "points": 190,
+    "comments": 218,
+    "submitted_by": "anigbrowl",
+    "posted_at": "2026-11-12T21:09:49Z"
+  },
+  "stats_as_of": "2026-11-13T16:10:04Z"
+}

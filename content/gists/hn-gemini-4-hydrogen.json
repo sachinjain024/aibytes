@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "hn-gemini-4-hydrogen",
+  "kind": "hn",
+  "title": "Gemini 4 Hydrogen",
+  "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+  "source_url": "https://news.ycombinator.com/item?id=50471431",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Model Release",
+    "LLM",
+    "Google"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Google's Gemini 4 Hydrogen is a fast model for everyday coding and agent work that replaces 3.8 Flash across the Gemini app, Search, the Gemini API and Antigravity.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Google says it scores 51 on the Artificial Analysis Intelligence Index at default settings, above Gemini 4 Argon's 50.",
+        "Pricing is flat across a 1 million-token context: $1.50 per million input and $7.50 per million output tokens.",
+        "Against 3.8 Flash it finishes tasks 2.5 times faster and scores 57% on Terminal-Bench 4.1, up from 18.2%.",
+        "Four thinking levels run from low up to a new xhigh tier.",
+        "It is meant to pair with Carbon and Argon, and Antigravity's new Orchestrator switches between them mid-session."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "theme",
+          "text": "The element names confuse people: commenters cannot tell how Hydrogen ranks against Argon or Carbon.",
+          "url": "https://news.ycombinator.com/item?id=50472082"
+        },
+        {
+          "stance": "agreed",
+          "text": "Price is the main complaint: Hydrogen costs as much as list-price 3.8 Flash, with no cheap lite tier, and one team says it may migrate away.",
+          "url": "https://news.ycombinator.com/item?id=50471754"
+        },
+        {
+          "stance": "disputed",
+          "text": "Some expect a near-frontier free default to lift public perception of AI; a reply says small models shine on benchmarks but disappoint in real use.",
+          "url": "https://news.ycombinator.com/item?id=50471613"
+        },
+        {
+          "stance": "theme",
+          "text": "One tester rates its image-to-HTML output between Sonnet and Opus, roughly level with GPT Sol.",
+          "url": "https://news.ycombinator.com/item?id=50474893"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Introducing Gemini 4 Hydrogen",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+    },
+    {
+      "role": "discussion",
+      "title": "Gemini 4 Hydrogen",
+      "url": "https://news.ycombinator.com/item?id=50471431"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-gemini-4-hydrogen-2026-11-13",
+      "edition_date": "2026-11-13"
+    }
+  ],
+  "created_at": "2026-11-13T16:15:14Z",
+  "updated_at": "2026-11-13T16:15:14Z",
+  "stats": {
+    "points": 553,
+    "comments": 343,
+    "submitted_by": "dvaplima",
+    "posted_at": "2026-11-12T18:01:48Z"
+  },
+  "stats_as_of": "2026-11-13T16:10:04Z"
+}

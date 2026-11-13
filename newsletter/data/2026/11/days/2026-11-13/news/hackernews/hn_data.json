@@ -1,0 +1,130 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-13",
+  "window": {
+    "after": "2026-11-12",
+    "before": "2026-11-14"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 13,
+  "poolCount": 77,
+  "stories": [
+    {
+      "title": "Anthropic IPO",
+      "url": "https://ipo.anthropic.com/us/",
+      "type": "story",
+      "points": 983,
+      "num_comments": 889,
+      "author": "josephljohnston",
+      "created_at": "2026-11-12T11:46:41Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50465829",
+      "front_page": false
+    },
+    {
+      "title": "Gemini 4 Hydrogen",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+      "type": "story",
+      "points": 553,
+      "num_comments": 343,
+      "author": "dvaplima",
+      "created_at": "2026-11-12T18:01:48Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50471431",
+      "front_page": false
+    },
+    {
+      "title": "Gemini 4 Hydrogen and Orchestrator",
+      "url": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/",
+      "type": "story",
+      "points": 468,
+      "num_comments": 144,
+      "author": "jonbaer",
+      "created_at": "2026-11-12T18:52:01Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50472260",
+      "front_page": true
+    },
+    {
+      "title": "I'm making LLMs work on small and old devices",
+      "url": "https://github.com/hyperionaidev/smolmaxxing/",
+      "type": "story",
+      "points": 434,
+      "num_comments": 167,
+      "author": "mrashad74",
+      "created_at": "2026-11-12T15:23:10Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50468888",
+      "front_page": true
+    },
+    {
+      "title": "Elevated errors on claude.ai, Claude Code, and platform.claude.com",
+      "url": "https://status.claude.com/incidents/nn11wk485zfn",
+      "type": "story",
+      "points": 403,
+      "num_comments": 337,
+      "author": "__vivek",
+      "created_at": "2026-11-13T10:18:13Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50481187",
+      "front_page": true
+    },
+    {
+      "title": "Chinese frontier AI models carry the fingerprint of export-controlled GPUs",
+      "url": "https://unemploymentlabs.com/checkpoint-forensics",
+      "type": "story",
+      "points": 333,
+      "num_comments": 135,
+      "author": "firloop",
+      "created_at": "2026-11-12T21:56:11Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50474883",
+      "front_page": false
+    },
+    {
+      "title": "Edge0-145B: Frontier AI Capabilities on Your Own Computer",
+      "url": "https://edge0.ai/blog/introducing-edge0-145b-frontier-ai-capabilities-on-your-own-computer",
+      "type": "story",
+      "points": 309,
+      "num_comments": 91,
+      "author": "sroussey",
+      "created_at": "2026-11-12T23:06:17Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50475713",
+      "front_page": true
+    },
+    {
+      "title": "Foundation Models framework",
+      "url": "https://developer.apple.com/foundation-models-framework/",
+      "type": "story",
+      "points": 247,
+      "num_comments": 33,
+      "author": "kermatt",
+      "created_at": "2026-11-12T21:13:26Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50474361",
+      "front_page": true
+    },
+    {
+      "title": "AI is turning Apple's app review process into a nightmare for synth developers",
+      "url": "https://synthanatomy.com/2026/11/ai-is-turning-apples-app-review-process-into-a-nightmare-for-developers.html",
+      "type": "story",
+      "points": 190,
+      "num_comments": 218,
+      "author": "anigbrowl",
+      "created_at": "2026-11-12T21:09:49Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50474311",
+      "front_page": false
+    },
+    {
+      "title": "Claude Is Down",
+      "url": "https://status.claude.com/history",
+      "type": "story",
+      "points": 178,
+      "num_comments": 151,
+      "author": "cornfieldlabs",
+      "created_at": "2026-11-13T10:20:09Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50481220",
+      "front_page": false
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "hn-edge0-145b-frontier-ai-capabilities-on-your-own",
+  "kind": "hn",
+  "title": "Edge0-145B: Frontier AI Capabilities on Your Own Computer",
+  "url": "https://edge0.ai/blog/introducing-edge0-145b-frontier-ai-capabilities-on-your-own-computer",
+  "source_url": "https://news.ycombinator.com/item?id=50475713",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Model Release",
+    "Local LLM"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Edge0 open-sourced Edge0-145B, a 145B-parameter mixture-of-experts model built to run on a laptop, with about 10B parameters active per step and a reported 29 GB peak memory.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Groups of 64 experts share two large matrices, with small per-expert parameters capturing their differences.",
+        "Hot experts stay in GPU memory, about 40 GB of experts sit in system RAM, and vocabulary data is read from SSD on demand.",
+        "CPU and GPU split the work, and speculative decoding helps reach a reported 80+ tokens per second.",
+        "Edge0's own evaluations put it at 64.6 on DeepSWE 1.1 and 90.4 on GPQA-Diamond.",
+        "The weights, a smaller Edge0-120B and the inference framework are released together."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "Several suspect a rebranded Qwen3.8-Flash-Next; a reply notes the Hugging Face page lists it as the base model.",
+          "url": "https://news.ycombinator.com/item?id=50476512"
+        },
+        {
+          "stance": "theme",
+          "text": "The shared-matrix design draws praise for fitting 145B parameters in about 29 GB, though a reply finds no guide to actually run it.",
+          "url": "https://news.ycombinator.com/item?id=50477029"
+        },
+        {
+          "stance": "disputed",
+          "text": "Hardware support is contested: one says the NVFP4 release is Blackwell-only, a reply points to a q3k build and Mac benchmarks.",
+          "url": "https://news.ycombinator.com/item?id=50476876"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One asks whether ordinary users own laptops able to run it at all.",
+          "url": "https://news.ycombinator.com/item?id=50479601"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Edge0-145B: Open-Source On-Device AI with 145B Parameters",
+      "url": "https://edge0.ai/blog/introducing-edge0-145b-frontier-ai-capabilities-on-your-own-computer"
+    },
+    {
+      "role": "discussion",
+      "title": "Edge0-145B: Frontier AI Capabilities on Your Own Computer",
+      "url": "https://news.ycombinator.com/item?id=50475713"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-edge0-145b-frontier-ai-capabilities-on-your-own-2026-11-13",
+      "edition_date": "2026-11-13"
+    }
+  ],
+  "created_at": "2026-11-13T16:15:14Z",
+  "updated_at": "2026-11-13T16:15:14Z",
+  "stats": {
+    "points": 309,
+    "comments": 91,
+    "submitted_by": "sroussey",
+    "posted_at": "2026-11-12T23:06:17Z"
+  },
+  "stats_as_of": "2026-11-13T16:10:04Z",
+  "front_page": true
+}

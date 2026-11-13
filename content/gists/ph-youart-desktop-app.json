@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "ph-youart-desktop-app",
+  "kind": "launch",
+  "title": "YouArt Desktop App",
+  "url": "https://www.producthunt.com/products/youart",
+  "source_url": "https://www.producthunt.com/products/youart",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Video",
+    "Agents",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/f47c5780-5a8a-4458-90ed-2700c2f4d548.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "YouArt Desktop is a video production agent that runs on your own machine, gathering context from local files and work apps and operating desktop editing tools directly through computer use.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Pulls local files plus context from Slack, Gmail and GitHub onto a single canvas of scripts, images, videos and comments.",
+        "Uses computer use to drive After Effects, CapCut and Blender rather than replacing them.",
+        "Targets jobs such as feature launch videos, remakes of viral formats and clips cut from long recordings.",
+        "Runs on your own API keys and routes each shot to the cheapest provider.",
+        "The team says the agent can switch between several LLMs and now handles much of their own daily video work."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Creative and marketing teams whose video work already lives in desktop project folders and team chat, and who want an agent to carry a job end to end."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "YouArt Desktop App on Product Hunt",
+      "url": "https://www.producthunt.com/products/youart"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-youart-desktop-app-2026-11-13",
+      "edition_date": "2026-11-13"
+    }
+  ],
+  "created_at": "2026-11-13T16:15:14Z",
+  "updated_at": "2026-11-13T16:15:14Z",
+  "stats": {
+    "upvotes": 345,
+    "comments": 60
+  },
+  "stats_as_of": "2026-11-13T16:10:04Z"
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "slug": "hn-foundation-models-framework",
+  "kind": "hn",
+  "title": "Foundation Models framework",
+  "url": "https://developer.apple.com/foundation-models-framework/",
+  "source_url": "https://news.ycombinator.com/item?id=50474361",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Framework",
+    "Local LLM",
+    "Apple"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Apple's Foundation Models framework is a Swift API for putting language models in apps, now covering its on-device model, Private Cloud Compute and third-party servers such as Claude and Gemini.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Any provider can ship a Swift package conforming to the Language Model protocol, keeping tool calling and guided generation.",
+        "Multimodal prompts accept images, and Vision tools such as OCR and barcode reading run on-device.",
+        "Dynamic Profiles swap model, temperature, reasoning level and tools within one session while sharing the transcript.",
+        "Small Business Program members under two million first-time downloads can use the Private Cloud Compute models at no API cost.",
+        "An Evaluations framework, an fm CLI in macOS 27 and a Python SDK round it out."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "theme",
+          "text": "Readers parse the Private Cloud Compute offer, with one calling it free samples of tokens.",
+          "url": "https://news.ycombinator.com/item?id=50476748"
+        },
+        {
+          "stance": "disputed",
+          "text": "One user finds the on-device model capable for fixing terminal commands on an 8 GB M1; a reply finds its safety limits aggressive.",
+          "url": "https://news.ycombinator.com/item?id=50474967"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "Coding is a weak spot: one tester says even the Private Cloud Compute model struggled to build a simple platformer.",
+          "url": "https://news.ycombinator.com/item?id=50475318"
+        },
+        {
+          "stance": "theme",
+          "text": "Others note Claude supports App Attest, letting iOS apps call models without shipping a key.",
+          "url": "https://news.ycombinator.com/item?id=50475592"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Foundation Models framework - Apple Developer",
+      "url": "https://developer.apple.com/foundation-models-framework/"
+    },
+    {
+      "role": "discussion",
+      "title": "Foundation Models framework",
+      "url": "https://news.ycombinator.com/item?id=50474361"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-foundation-models-framework-2026-11-13",
+      "edition_date": "2026-11-13"
+    }
+  ],
+  "created_at": "2026-11-13T16:15:14Z",
+  "updated_at": "2026-11-13T16:15:14Z",
+  "stats": {
+    "points": 247,
+    "comments": 33,
+    "submitted_by": "kermatt",
+    "posted_at": "2026-11-12T21:13:26Z"
+  },
+  "stats_as_of": "2026-11-13T16:10:04Z",
+  "front_page": true
+}

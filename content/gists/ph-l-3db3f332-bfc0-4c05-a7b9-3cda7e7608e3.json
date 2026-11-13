@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "slug": "ph-l-3db3f332-bfc0-4c05-a7b9-3cda7e7608e3",
+  "kind": "launch",
+  "title": "⌘+L",
+  "url": "https://www.producthunt.com/products/l",
+  "source_url": "https://www.producthunt.com/products/l",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Dev Tool",
+    "Code Gen",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/7afdfaf6-038f-411e-ae40-484f9355f96a.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "⌘+L is a script tag that lets you edit a live website visually, as if it were a design file, then hands each change to a coding agent that opens a pull request.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Visual edits are passed in the background to Claude Code, Codex or Letterpress-1, which make the same change in code.",
+        "The maker built it because copy tweaks are the most common site change and should not require a terminal.",
+        "Supports font size, family, bold and italic, plus margin and padding adjustments.",
+        "Adds built-in A/B testing and views of human versus agent traffic to the site."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Marketers and site reviewers who want to change copy and spacing without waiting on engineers, while the code change still arrives as a reviewable PR."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "⌘+L on Product Hunt",
+      "url": "https://www.producthunt.com/products/l"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-l-3db3f332-bfc0-4c05-a7b9-3cda7e7608e3-2026-11-13",
+      "edition_date": "2026-11-13"
+    }
+  ],
+  "created_at": "2026-11-13T16:15:14Z",
+  "updated_at": "2026-11-13T16:15:14Z",
+  "stats": {
+    "upvotes": 274,
+    "comments": 34
+  },
+  "stats_as_of": "2026-11-13T16:10:04Z"
+}

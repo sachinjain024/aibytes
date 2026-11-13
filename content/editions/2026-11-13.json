@@ -1,0 +1,886 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-13",
+  "generated_at": "2026-11-13T16:10:04Z",
+  "counts": {
+    "launches": 5,
+    "repos": 7,
+    "news": 10,
+    "hn": 10
+  },
+  "items": [
+    {
+      "id": "ph-plurai-simulation-2026-11-13",
+      "title": "Plurai Simulation",
+      "summary": "One command in Claude Code, Codex or Copilot builds a sandboxed twin of an agent's world - synthetic personas, documents, mocked tools, APIs and databases - to surface bugs before production.",
+      "url": "https://www.producthunt.com/products/plurai",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/plurai",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Eval",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/e87131be-1490-4ed2-a291-5f91da603996.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 404,
+        "comments": 138
+      },
+      "published_at": "2026-11-12T08:01:00Z",
+      "hidden": false,
+      "rank": 4,
+      "gist": "ph-plurai-simulation"
+    },
+    {
+      "id": "ph-youart-desktop-app-2026-11-13",
+      "title": "YouArt Desktop App",
+      "summary": "Desktop video agent that pulls files and context from Slack, Gmail and GitHub, drives After Effects, CapCut and Blender via computer use, and routes each shot to the cheapest BYO-key provider.",
+      "url": "https://www.producthunt.com/products/youart",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/youart",
+      "category": "launches",
+      "tags": [
+        "Video",
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/f47c5780-5a8a-4458-90ed-2700c2f4d548.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 345,
+        "comments": 60
+      },
+      "published_at": "2026-11-12T08:01:00Z",
+      "hidden": false,
+      "rank": 10,
+      "gist": "ph-youart-desktop-app"
+    },
+    {
+      "id": "ph-templify-ai-2-2026-11-13",
+      "title": "Templify AI",
+      "summary": "iPhone editor that fills 1,200+ templates with your clips and photos for Reels, TikToks and Shorts, with beat-synced transitions, auto captions and background removal; free with a Pro tier.",
+      "url": "https://www.producthunt.com/products/templify",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/templify",
+      "category": "launches",
+      "tags": [
+        "Video",
+        "Image Gen",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/f7f2b7ba-fb0c-470e-a340-ceb4a7cb593e.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 288,
+        "comments": 89
+      },
+      "published_at": "2026-11-13T08:01:00Z",
+      "hidden": false,
+      "rank": 16,
+      "gist": "ph-templify-ai-2"
+    },
+    {
+      "id": "ph-omnigraph-2026-11-13",
+      "title": "Omnigraph",
+      "summary": "Open-source graph database on S3-compatible storage where agents share a typed graph with Git-like branch, review and merge per write, plus hybrid search and traversal in one query.",
+      "url": "https://www.producthunt.com/products/omnigraph",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/omnigraph",
+      "category": "launches",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "RAG",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/7dc98c53-4374-466e-97f8-388ca136aad3.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 288,
+        "comments": 35
+      },
+      "published_at": "2026-11-12T08:01:00Z",
+      "hidden": false,
+      "rank": 23,
+      "gist": "ph-omnigraph"
+    },
+    {
+      "id": "ph-l-3db3f332-bfc0-4c05-a7b9-3cda7e7608e3-2026-11-13",
+      "title": "⌘+L",
+      "summary": "A script tag that makes a live website editable on-canvas like Figma, then has Claude Code, Codex or Letterpress-1 turn each visual change into a pull request.",
+      "url": "https://www.producthunt.com/products/l",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/l",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Code Gen",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/7afdfaf6-038f-411e-ae40-484f9355f96a.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 274,
+        "comments": 34
+      },
+      "published_at": "2026-11-12T08:01:00Z",
+      "hidden": false,
+      "rank": 29,
+      "gist": "ph-l-3db3f332-bfc0-4c05-a7b9-3cda7e7608e3"
+    },
+    {
+      "id": "gh-modern-web-guidance-src-2026-11-13",
+      "title": "GoogleChrome/modern-web-guidance-src",
+      "summary": "Google Chrome team's TypeScript source for feeding current web platform best practices to coding agents, so generated front-end code does not lean on outdated patterns.",
+      "url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+      "source": "github",
+      "source_url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Code Gen",
+        "Google"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/GoogleChrome.png?size=80"
+      },
+      "signals": {
+        "stars": 4429,
+        "stars_gained": 1875,
+        "forks": 250
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 1,
+      "gist": "gh-modern-web-guidance-src"
+    },
+    {
+      "id": "gh-codex-security-2026-11-13",
+      "title": "openai/codex-security",
+      "summary": "CLI and TypeScript SDK, published on npm as @openai/codex-security, that finds, validates and patches security vulnerabilities in a codebase.",
+      "url": "https://github.com/openai/codex-security",
+      "source": "github",
+      "source_url": "https://github.com/openai/codex-security",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Code Gen",
+        "Security",
+        "OpenAI"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/openai.png?size=80"
+      },
+      "signals": {
+        "stars": 12926,
+        "stars_gained": 754,
+        "forks": 1011
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 7,
+      "gist": "gh-codex-security"
+    },
+    {
+      "id": "gh-daily-stock-analysis-2026-11-13",
+      "title": "ZhuLinsen/daily_stock_analysis",
+      "summary": "Python system that pulls multi-market quotes and live news through an LLM into a decision dashboard with automated notifications, built to run on a free scheduler.",
+      "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "source": "github",
+      "source_url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "LLM",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/ZhuLinsen.png?size=80"
+      },
+      "signals": {
+        "stars": 71384,
+        "stars_gained": 272,
+        "forks": 57243
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 11,
+      "gist": "gh-daily-stock-analysis"
+    },
+    {
+      "id": "gh-veyra-nrvideo-2026-11-13",
+      "title": "Likely7/Veyra-NRVideo",
+      "summary": "C++ Windows player and capture-card viewer that applies AI super resolution, DLSS-based enhancement and frame generation to video, images and console capture in real time.",
+      "url": "https://github.com/Likely7/Veyra-NRVideo",
+      "source": "github",
+      "source_url": "https://github.com/Likely7/Veyra-NRVideo",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Video",
+        "Vision",
+        "Nvidia"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Likely7.png?size=80"
+      },
+      "signals": {
+        "stars": 1490,
+        "stars_gained": 245,
+        "forks": 66
+      },
+      "meta": {
+        "language": "C++"
+      },
+      "hidden": false,
+      "rank": 17,
+      "gist": "gh-veyra-nrvideo"
+    },
+    {
+      "id": "gh-open-code-review-2026-11-13",
+      "title": "alibaba/open-code-review",
+      "summary": "Go code reviewer pairing deterministic pipelines with an LLM agent for line-level comments, with rules for NPE, thread safety, XSS and SQL injection; OpenAI and Anthropic compatible.",
+      "url": "https://github.com/alibaba/open-code-review",
+      "source": "github",
+      "source_url": "https://github.com/alibaba/open-code-review",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Code Gen",
+        "Agents",
+        "Security"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/alibaba.png?size=80"
+      },
+      "signals": {
+        "stars": 50329,
+        "stars_gained": 206,
+        "forks": 3738
+      },
+      "meta": {
+        "language": "Go"
+      },
+      "hidden": false,
+      "rank": 20,
+      "gist": "gh-open-code-review"
+    },
+    {
+      "id": "gh-chrome-devtools-mcp-2026-11-13",
+      "title": "ChromeDevTools/chrome-devtools-mcp",
+      "summary": "Official MCP server that hands coding agents Chrome DevTools - inspecting, debugging and driving a live browser - written in TypeScript.",
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "source": "github",
+      "source_url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "MCP",
+        "Google"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/ChromeDevTools.png?size=80"
+      },
+      "signals": {
+        "stars": 55302,
+        "stars_gained": 145,
+        "forks": 4609
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 26,
+      "gist": "gh-chrome-devtools-mcp"
+    },
+    {
+      "id": "gh-claude-trading-skills-2026-11-13",
+      "title": "tradermonty/claude-trading-skills",
+      "summary": "Python Claude Code skills for equity traders covering market analysis, technical charting, economic calendars, stock screeners and strategy development.",
+      "url": "https://github.com/tradermonty/claude-trading-skills",
+      "source": "github",
+      "source_url": "https://github.com/tradermonty/claude-trading-skills",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Claude Code"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/tradermonty.png?size=80"
+      },
+      "signals": {
+        "stars": 3976,
+        "stars_gained": 60,
+        "forks": 851
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 30,
+      "gist": "gh-claude-trading-skills"
+    },
+    {
+      "id": "tc-hugging-face-ceo-vows-to-keep-fighting-for-open-2026-11-13",
+      "title": "Hugging Face CEO vows to keep fighting for open source AI after Jensen Huang’s exit",
+      "summary": "Huang's departure puts Nvidia's $12.9B purchase of Hugging Face in question, and the CEO says the platform's open source commitment holds either way.",
+      "url": "https://techcrunch.com/2026/11/12/hugging-face-ceo-vows-to-keep-fighting-for-open-source-ai-after-jensen-huangs-exit/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/12/hugging-face-ceo-vows-to-keep-fighting-for-open-source-ai-after-jensen-huangs-exit/",
+      "category": "news",
+      "tags": [
+        "Acquisition",
+        "Hugging Face",
+        "Nvidia",
+        "Open Source"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/07/Hugging-Face-CEO-Clem-Delangue.png?resize=1200,675"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-12T17:36:40Z",
+      "hidden": false,
+      "rank": 3,
+      "gist": "tc-hugging-face-ceo-vows-to-keep-fighting-for-open"
+    },
+    {
+      "id": "tc-jensen-huang-is-out-at-nvidia-who-is-colette-2026-11-13",
+      "title": "Jensen Huang is out at Nvidia — who is Colette Kress, his interim replacement?",
+      "summary": "Nvidia's CFO steps in as interim CEO while Huang exits amid a scandal; TechCrunch profiles her background.",
+      "url": "https://techcrunch.com/2026/11/12/jensen-huang-is-out-at-nvidia-who-is-colette-kress-his-interim-replacement/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/12/jensen-huang-is-out-at-nvidia-who-is-colette-kress-his-interim-replacement/",
+      "category": "news",
+      "tags": [
+        "Nvidia"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/colette-1920x1920_4d360fa4-e97d-4505-9857-284d03141162-prv.jpg?resize=1200,1200"
+      },
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-12T15:37:29Z",
+      "hidden": false,
+      "rank": 6,
+      "gist": "tc-jensen-huang-is-out-at-nvidia-who-is-colette"
+    },
+    {
+      "id": "tc-united-airlines-blocks-ai-agents-from-booking-2026-11-13",
+      "title": "United Airlines blocks AI agents from booking flights, citing cybersecurity risks",
+      "summary": "Customers may not use AI agents to book flights or manage reservations, a carrier-level ban landing the same day ChatGPT Wallet starts agentic checkout.",
+      "url": "https://techcrunch.com/2026/11/12/united-airlines-blocks-ai-agents-from-booking-flights-citing-cybersecurity-risks/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/12/united-airlines-blocks-ai-agents-from-booking-flights-citing-cybersecurity-risks/",
+      "category": "news",
+      "tags": [
+        "Agents",
+        "Policy",
+        "Security"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/united-airlines-2231866642.jpg?resize=1200,801"
+      },
+      "meta": {
+        "author": "Zack Whittaker",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-12T17:17:58Z",
+      "hidden": false,
+      "rank": 9,
+      "gist": "tc-united-airlines-blocks-ai-agents-from-booking"
+    },
+    {
+      "id": "tc-cyberattack-on-fireworks-ai-allowed-hackers-to-2026-11-13",
+      "title": "Cyberattack on Fireworks AI allowed hackers to access Notion customers’ chat transcripts",
+      "summary": "The inference provider's second breach in two months exposed chat transcripts belonging to Notion's customers, a third-party risk for anyone routing traffic through a hosted model API.",
+      "url": "https://techcrunch.com/2026/11/12/cyberattack-on-fireworks-ai-allowed-hackers-to-access-notion-customers-chat-transcripts/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/12/cyberattack-on-fireworks-ai-allowed-hackers-to-access-notion-customers-chat-transcripts/",
+      "category": "news",
+      "tags": [
+        "Inference",
+        "Security",
+        "Privacy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2021/02/notion-glitch-hero.jpg?resize=1200,827"
+      },
+      "meta": {
+        "author": "Zack Whittaker",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-12T15:02:28Z",
+      "hidden": false,
+      "rank": 13,
+      "gist": "tc-cyberattack-on-fireworks-ai-allowed-hackers-to"
+    },
+    {
+      "id": "tc-chatgpts-new-wallet-lets-ai-agents-shop-and-2026-11-13",
+      "title": "ChatGPT’s new Wallet lets AI agents shop and check out for you",
+      "summary": "Agents inside ChatGPT can complete purchases on a user's behalf, starting as a limited rollout to U.S. Pro subscribers.",
+      "url": "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/",
+      "category": "news",
+      "tags": [
+        "Agents",
+        "OpenAI",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/chatgpt-wallet.jpg?resize=1200,729"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-13T16:00:12Z",
+      "hidden": false,
+      "rank": 15,
+      "gist": "tc-chatgpts-new-wallet-lets-ai-agents-shop-and"
+    },
+    {
+      "id": "tc-the-unfolding-jensen-huang-scandal-a-timeline-2026-11-13",
+      "title": "The unfolding Jensen Huang scandal: a timeline",
+      "summary": "A 10-minute timeline of Huang's resignation over an affair with an alleged Chinese spy, and why it bears on U.S. national security in the AI infrastructure race with China.",
+      "url": "https://techcrunch.com/2026/11/13/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/13/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Policy",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2205754389.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "10 minutes"
+      },
+      "published_at": "2026-11-13T15:58:00Z",
+      "hidden": false,
+      "rank": 19,
+      "gist": "tc-the-unfolding-jensen-huang-scandal-a-timeline"
+    },
+    {
+      "id": "tc-elevenlabs-new-app-combines-meeting-note-taking-2026-11-13",
+      "title": "ElevenLabs’ new app combines meeting note-taking and dictation for teams",
+      "summary": "ElevenAI, from the voice model company, is a combined meeting notetaker and dictation app sold to teams and enterprises.",
+      "url": "https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/",
+      "category": "news",
+      "tags": [
+        "Voice / Speech",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Screenshot-2026-11-13-at-7.19.18-PM.jpg?resize=1200,774"
+      },
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-13T14:44:48Z",
+      "hidden": false,
+      "rank": 22,
+      "gist": "tc-elevenlabs-new-app-combines-meeting-note-taking"
+    },
+    {
+      "id": "tc-israels-vcs-see-opportunity-for-challengers-in-2026-11-13",
+      "title": "Israel’s VCs see opportunity for challengers in Nvidia’s turmoil",
+      "summary": "Israeli investors weigh the risk to a startup ecosystem tied closely to Nvidia against an opening for rival chip and infrastructure companies after Huang's exit.",
+      "url": "https://techcrunch.com/2026/11/13/israels-vcs-see-opportunity-for-challengers-in-nvidias-turmoil/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/13/israels-vcs-see-opportunity-for-challengers-in-nvidias-turmoil/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2303769281.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Anna Heim",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-13T12:52:19Z",
+      "hidden": false,
+      "rank": 25,
+      "gist": "tc-israels-vcs-see-opportunity-for-challengers-in"
+    },
+    {
+      "id": "tc-jensen-huang-didnt-show-confidence-in-his-2026-11-13",
+      "title": "Jensen Huang didn’t show confidence in his successor, report says",
+      "summary": "Huang reportedly called interim CEO Colette Kress a \"deer in the headlights\" during a meeting this summer.",
+      "url": "https://techcrunch.com/2026/11/13/jensen-huang-didnt-show-confidence-in-his-successor-report-says/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/13/jensen-huang-didnt-show-confidence-in-his-successor-report-says/",
+      "category": "news",
+      "tags": [
+        "Nvidia"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/colette-1920x1920_4d360fa4-e97d-4505-9857-284d03141162-prv-e1794568317250.jpg?resize=1200,676"
+      },
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-13T12:28:23Z",
+      "hidden": false,
+      "rank": 28,
+      "gist": "tc-jensen-huang-didnt-show-confidence-in-his"
+    },
+    {
+      "id": "tc-democrats-launch-nvidia-investigation-write-2026-11-13",
+      "title": "Democrats launch Nvidia investigation, write scathing letter on Huang’s ‘scheme’ with Trump",
+      "summary": "The second Congressional probe since the alleged spy affair broke targets Nvidia's China chip sales and Huang's dealings with Trump.",
+      "url": "https://techcrunch.com/2026/11/12/democrats-launch-nvidia-investigation-write-scathing-letter-on-huangs-scheme-with-trump/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/12/democrats-launch-nvidia-investigation-write-scathing-letter-on-huangs-scheme-with-trump/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Policy",
+        "Legal"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2025/03/GettyImages-2205211212-1.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-12T22:42:51Z",
+      "hidden": false,
+      "rank": 32,
+      "gist": "tc-democrats-launch-nvidia-investigation-write"
+    },
+    {
+      "id": "hn-anthropic-ipo-2026-11-13",
+      "title": "Anthropic IPO",
+      "summary": "Anthropic's own IPO page for U.S. investors, at ipo.anthropic.com.",
+      "url": "https://ipo.anthropic.com/us/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50465829",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "Funding"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 983,
+        "comments": 889
+      },
+      "meta": {
+        "author": "josephljohnston"
+      },
+      "published_at": "2026-11-12T11:46:41Z",
+      "hidden": false,
+      "rank": 2,
+      "gist": "hn-anthropic-ipo"
+    },
+    {
+      "id": "hn-gemini-4-hydrogen-2026-11-13",
+      "title": "Gemini 4 Hydrogen",
+      "summary": "Google's launch post for the Gemini 4 Hydrogen model on its official blog.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50471431",
+      "category": "hn",
+      "tags": [
+        "Model Release",
+        "LLM",
+        "Google"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 553,
+        "comments": 343
+      },
+      "meta": {
+        "author": "dvaplima"
+      },
+      "published_at": "2026-11-12T18:01:48Z",
+      "hidden": false,
+      "rank": 5,
+      "gist": "hn-gemini-4-hydrogen"
+    },
+    {
+      "id": "hn-gemini-4-hydrogen-and-orchestrator-2026-11-13",
+      "title": "Gemini 4 Hydrogen and Orchestrator",
+      "summary": "Google Antigravity's post on bringing Gemini 4 Hydrogen into its agentic IDE alongside a new Orchestrator.",
+      "url": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50472260",
+      "category": "hn",
+      "tags": [
+        "Agents",
+        "Code Gen",
+        "Google"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 468,
+        "comments": 144
+      },
+      "meta": {
+        "author": "jonbaer"
+      },
+      "published_at": "2026-11-12T18:52:01Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 8,
+      "gist": "hn-gemini-4-hydrogen-and-orchestrator"
+    },
+    {
+      "id": "hn-i-m-making-llms-work-on-small-and-old-devices-2026-11-13",
+      "title": "I'm making LLMs work on small and old devices",
+      "summary": "smolmaxxing, a GitHub project for running language models on low-end and aging hardware.",
+      "url": "https://github.com/hyperionaidev/smolmaxxing/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50468888",
+      "category": "hn",
+      "tags": [
+        "Open Source",
+        "Local LLM",
+        "Inference"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 434,
+        "comments": 167
+      },
+      "meta": {
+        "author": "mrashad74"
+      },
+      "published_at": "2026-11-12T15:23:10Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 12,
+      "gist": "hn-i-m-making-llms-work-on-small-and-old-devices"
+    },
+    {
+      "id": "hn-elevated-errors-on-claude-ai-claude-code-and-2026-11-13",
+      "title": "Elevated errors on claude.ai, Claude Code, and platform.claude.com",
+      "summary": "Anthropic status incident covering the Claude app, Claude Code and the developer platform at once.",
+      "url": "https://status.claude.com/incidents/nn11wk485zfn",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50481187",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "Claude Code"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 403,
+        "comments": 337
+      },
+      "meta": {
+        "author": "__vivek"
+      },
+      "published_at": "2026-11-13T10:18:13Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 14,
+      "gist": "hn-elevated-errors-on-claude-ai-claude-code-and"
+    },
+    {
+      "id": "hn-chinese-frontier-ai-models-carry-the-2026-11-13",
+      "title": "Chinese frontier AI models carry the fingerprint of export-controlled GPUs",
+      "summary": "A checkpoint forensics write-up arguing that traces in Chinese frontier model weights reveal training on export-controlled GPUs.",
+      "url": "https://unemploymentlabs.com/checkpoint-forensics",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50474883",
+      "category": "hn",
+      "tags": [
+        "LLM",
+        "Policy",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 333,
+        "comments": 135
+      },
+      "meta": {
+        "author": "firloop"
+      },
+      "published_at": "2026-11-12T21:56:11Z",
+      "hidden": false,
+      "rank": 18,
+      "gist": "hn-chinese-frontier-ai-models-carry-the"
+    },
+    {
+      "id": "hn-edge0-145b-frontier-ai-capabilities-on-your-own-2026-11-13",
+      "title": "Edge0-145B: Frontier AI Capabilities on Your Own Computer",
+      "summary": "Edge0's announcement post for a 145B-parameter model aimed at running on personal hardware.",
+      "url": "https://edge0.ai/blog/introducing-edge0-145b-frontier-ai-capabilities-on-your-own-computer",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50475713",
+      "category": "hn",
+      "tags": [
+        "Model Release",
+        "Local LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 309,
+        "comments": 91
+      },
+      "meta": {
+        "author": "sroussey"
+      },
+      "published_at": "2026-11-12T23:06:17Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 21,
+      "gist": "hn-edge0-145b-frontier-ai-capabilities-on-your-own"
+    },
+    {
+      "id": "hn-foundation-models-framework-2026-11-13",
+      "title": "Foundation Models framework",
+      "summary": "Apple's developer page for the framework that gives apps access to its on-device foundation models.",
+      "url": "https://developer.apple.com/foundation-models-framework/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50474361",
+      "category": "hn",
+      "tags": [
+        "Framework",
+        "Local LLM",
+        "Apple"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 247,
+        "comments": 33
+      },
+      "meta": {
+        "author": "kermatt"
+      },
+      "published_at": "2026-11-12T21:13:26Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 24,
+      "gist": "hn-foundation-models-framework"
+    },
+    {
+      "id": "hn-ai-is-turning-apple-s-app-review-process-into-a-2026-11-13",
+      "title": "AI is turning Apple's app review process into a nightmare for synth developers",
+      "summary": "Synth Anatomy reports on audio app developers struggling with Apple's App Store review, which the piece says is now driven by AI.",
+      "url": "https://synthanatomy.com/2026/11/ai-is-turning-apples-app-review-process-into-a-nightmare-for-developers.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50474311",
+      "category": "hn",
+      "tags": [
+        "Apple",
+        "Policy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 190,
+        "comments": 218
+      },
+      "meta": {
+        "author": "anigbrowl"
+      },
+      "published_at": "2026-11-12T21:09:49Z",
+      "hidden": false,
+      "rank": 27,
+      "gist": "hn-ai-is-turning-apple-s-app-review-process-into-a"
+    },
+    {
+      "id": "hn-claude-is-down-2026-11-13",
+      "title": "Claude Is Down",
+      "summary": "Anthropic's status history page, posted during the same outage that hit claude.ai, Claude Code and the developer platform.",
+      "url": "https://status.claude.com/history",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50481220",
+      "category": "hn",
+      "tags": [
+        "Anthropic"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 178,
+        "comments": 151
+      },
+      "meta": {
+        "author": "cornfieldlabs"
+      },
+      "published_at": "2026-11-13T10:20:09Z",
+      "hidden": false,
+      "rank": 31,
+      "gist": "hn-claude-is-down"
+    }
+  ]
+}

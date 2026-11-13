@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "slug": "hn-anthropic-ipo",
+  "kind": "hn",
+  "title": "Anthropic IPO",
+  "url": "https://ipo.anthropic.com/us/",
+  "source_url": "https://news.ycombinator.com/item?id=50465829",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Anthropic",
+    "Funding"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Anthropic's IPO page sets out a Nasdaq listing under the ticker ANT, reports Q3 2026 revenue of $17.0 billion, and expects the share price to be set on November 18.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Q3 revenue grew more than 12x year on year, with over 11,900 customers above $100K in trailing revenue.",
+        "Adjusted operating margin was 15%, but a $21.9 billion non-cash charge drove a $23.3 billion net loss.",
+        "The roadshow began November 10, and trading is expected to start November 19.",
+        "Individual investors request shares through participating brokerages, with no guarantee of any allocation."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "theme",
+          "text": "One commenter summarised the filings: a $70 to $78 range, an implied value near $968 billion, and $900.9 billion in compute commitments through 2045.",
+          "url": "https://news.ycombinator.com/item?id=50466486"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "A sceptic reads the IPO as a sign of need, arguing a lab close to self-improving models would stay private; a reply notes both Anthropic and OpenAI burn cash.",
+          "url": "https://news.ycombinator.com/item?id=50469962"
+        },
+        {
+          "stance": "disputed",
+          "text": "Commenters split on the moat: one says local models will soon be good enough for most users, another that few people ever run things locally.",
+          "url": "https://news.ycombinator.com/item?id=50469875"
+        },
+        {
+          "stance": "disputed",
+          "text": "A worry that Series H buyers were already underwater was corrected: the bottom of the range sits about 19% above their price.",
+          "url": "https://news.ycombinator.com/item?id=50468394"
+        },
+        {
+          "stance": "theme",
+          "text": "Several picked out the roadshow claim that Claude was ported from Nvidia to AMD GPUs in three days with little human help.",
+          "url": "https://news.ycombinator.com/item?id=50470051"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Anthropic’s Initial Public Offering",
+      "url": "https://ipo.anthropic.com/us/"
+    },
+    {
+      "role": "discussion",
+      "title": "Anthropic IPO",
+      "url": "https://news.ycombinator.com/item?id=50465829"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-anthropic-ipo-2026-11-13",
+      "edition_date": "2026-11-13"
+    }
+  ],
+  "created_at": "2026-11-13T16:15:14Z",
+  "updated_at": "2026-11-13T16:15:14Z",
+  "stats": {
+    "points": 983,
+    "comments": 889,
+    "submitted_by": "josephljohnston",
+    "posted_at": "2026-11-12T11:46:41Z"
+  },
+  "stats_as_of": "2026-11-13T16:10:04Z"
+}
