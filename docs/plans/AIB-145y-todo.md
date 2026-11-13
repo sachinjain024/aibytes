@@ -377,9 +377,12 @@ Closing buttons are small and carry generic labels worked out from the link's
 role and host, never the page's own title: "Source" for the destination, "HN
 Discussion" for a Hacker News thread, "Product Hunt" for a launch page,
 "Discussion" for any other host (publisher, 13 Nov 2026, from reviewing the
-rehearsal page). Product Hunt gists show the product's logo just before the
-title, the same image the feed card uses (the gist's `image`, which `build`
-already copies from the item; no contract change). Buttons carry the
+rehearsal page). Every gist with an image shows it just before the title, the
+same one the feed card uses: a Product Hunt logo, a repo's owner avatar (a
+circle), a TechCrunch thumbnail (cropped square). It is the gist's `image`,
+which `build` already copies from the item, so no contract change. An image
+that fails to load falls back as the feed card does. Hacker News gists have
+none. Buttons carry the
 top-right arrow that marks an external link.
 
 **Verification:** the publisher approves. **Dependencies:** none (can run
