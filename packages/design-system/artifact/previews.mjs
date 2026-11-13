@@ -122,6 +122,31 @@ render(<>
   <Label>The one view the panel and the page both render. A repo gist: image or source mark before the title, the stats grid with its date, sections, then the source button. Hacker News, Product Hunt and news gists differ only in their sections and stats.</Label>
 </>);` },
 
+  GistPanel: { group: "Content", height: 640, width: 900, jsx: `
+const asOf = "2026-08-27T08:04:10Z";
+const gist = { schema_version: 1, slug: "ph-chatcut", kind: "launch", source: "producthunt", category: "launches", title: "ChatCut", url: "#", source_url: "#",
+  tags: [], image: { type: "none" }, depth: "full",
+  lede: "ChatCut is a video editor that runs inside ChatGPT: you describe the cut, it edits on a real timeline, and the project exports as XML for a desktop editor.",
+  sections: [
+    { key: "key_points", points: ["Edits are made on a visible timeline, so each change can be checked and undone.", "Exports XML that opens in Premiere and Final Cut.", "Works on footage you upload; it does not generate video."] },
+    { key: "who_its_for", text: "People who cut interviews, demos and social clips and want a first assembly without learning an editor." },
+    { key: "pricing", text: "Free for exports up to 720p; a paid plan removes the limit." },
+  ],
+  stats: { upvotes: 776, comments: 42 }, stats_as_of: asOf,
+  links: [{ role: "destination", title: "chatcut.io", url: "https://chatcut.io" }, { role: "discussion", title: "ChatCut", url: "https://www.producthunt.com/products/chatcut" }],
+  appearances: [{ item_id: "ph-chatcut-2026-08-27", edition_date: "2026-08-27" }],
+  created_at: asOf, updated_at: asOf };
+function Demo() {
+  const [width, setWidth] = React.useState(460);
+  return <>
+    <L.GistPanel gist={gist} pageHref="#" width={width} onWidthChange={setWidth} onClose={noop}>
+      <L.GistView gist={gist} as="panel" />
+    </L.GistPanel>
+    <Label>Fixed to the right edge: drag its left edge, or focus it and use the arrow keys. Escape closes it. Width: {width}px.</Label>
+  </>;
+}
+render(<Demo />);` },
+
   Dialog: { group: "Content", height: 420, width: 1000, jsx: `
 render(<L.Dialog labelledBy="pv-dialog-h" onClose={noop}>
   <h2 id="pv-dialog-h" className="ldg-dialog__title">You're successfully signed in.</h2>

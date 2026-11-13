@@ -1,16 +1,12 @@
 import React from "react";
 import { ItemImage } from "./ItemImage.jsx";
 import { SOURCE_NAMES } from "./signals.jsx";
+import { Out } from "./gistIcons.jsx";
 import { appearanceLink, dayLabel, linkLabel, stanceLabel, statCells } from "./gistFormat.js";
 
 // The one view the gist panel and the gist page both render. It takes the gist
 // file and nothing else, so the page can show it without loading an edition.
 // Server-renderable: nothing here reads window or the clock while rendering.
-
-const Out = () => (
-  <svg className="gist-out" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true" focusable="false">
-    <path d="M3.5 2.5h6v6M9.5 2.5l-7 7" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>);
 
 function SourceButton({ link, primary, className = "" }) {
   return (

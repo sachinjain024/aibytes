@@ -423,8 +423,9 @@ close, scroll area, Escape, focus return, the drag and keyboard resize edge
 save). At 760px and under, a full-screen sheet with no resize edge.
 
 **Acceptance criteria:**
-- [ ] Tests: separator role and values, arrow keys change width within
-      bounds, Escape calls `onClose`.
+- [x] Tests: separator role and values, arrow keys change width within
+      bounds, Escape calls `onClose`. (8 tests; the rules are pure functions in
+      `gistPanel.js` because there is no DOM library to drive the effects.)
 - [ ] Browser check at 1440 and 390px, both themes.
 
 **Verification:** design-system tests; the preview server.
