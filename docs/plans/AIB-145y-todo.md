@@ -261,8 +261,9 @@ time because the API redacts authors, and the top 8 by votes); plus
 when description and launch comment reach 120 words (spec Q1).
 
 **Acceptance criteria:**
-- [ ] Offline test from a saved snapshot, API response and page.
-- [ ] Exactly one PH API call per new launch; none for a repeat.
+- [x] Offline test from a saved snapshot, API response and page.
+- [ ] Exactly one PH API call per new launch; none for a repeat. (One call
+      per launch: T12. None for a repeat: T13's draft.)
 
 **Verification:** as T10. **Dependencies:** T10. **Size:** S.
 

@@ -17,7 +17,7 @@ from unittest import mock
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "packages" / "fetchers"))
 
-from aibytes_fetchers import article, cli, envelope, github_repo, hn_thread, http, layout, registry, runner, window as window_mod
+from aibytes_fetchers import article, cli, envelope, github_repo, hn_thread, http, ph_launch, layout, registry, runner, window as window_mod
 from aibytes_fetchers.sources import github, hackernews, producthunt, techcrunch
 
 
@@ -483,6 +483,96 @@ class TestRepoDetails(unittest.TestCase):
             self.skipTest("GitHub's anonymous rate limit is spent on this address")
         self.assertTrue(got["ok"])
         self.assertGreater(got["stats"]["stars"], 1000)
+
+
+
+class TestLaunchMaterial(unittest.TestCase):
+    """AIB-145y T12: a launch's material comes from the PH API, because every
+    producthunt.com page refuses scripts. Authors are redacted, so the launch
+    comment is found by time."""
+
+    def setUp(self):
+        self.post = json.loads(fixture("ph_post.json"))
+        self.api = http.Response(200, {}, fixture("ph_comments.json").encode())
+
+    def material(self, pages=None, token="tok", site_url=None):
+        fetch = fake_fetch({ph_launch.GRAPHQL_URL: self.api} if pages is None else pages)
+        with mock.patch.object(http, "fetch", fetch):
+            return ph_launch.launch_material(self.post, token, site_url=site_url), fetch
+
+    def test_pre_launch_comments_are_the_launch_comment(self):
+        comments = self.material()[0]["comments"]
+        first = comments[0]
+        self.assertEqual((first["id"], first["launch"]), ("c1", True))
+        # Both pre-launch comments, oldest first, the duplicate node dropped.
+        self.assertTrue(first["text"].startswith("A hunter note before launch."))
+        self.assertIn("We built Fixture App", first["text"])
+        self.assertLessEqual(len(first["text"]), ph_launch.LAUNCH_CHARS)
+
+    def test_then_eight_top_level_comments_by_votes_and_no_replies(self):
+        comments = self.material()[0]["comments"]
+        self.assertEqual(len(comments), 1 + ph_launch.OTHER_COMMENTS)
+        self.assertEqual([c["id"] for c in comments], [f"c{i}" for i in range(1, 10)])
+        self.assertTrue(comments[1]["text"].startswith("Congrats on the launch"))
+        self.assertNotIn("Reply text", [c["text"] for c in comments])
+        votes = [c["votes"] for c in comments[1:]]
+        self.assertEqual(votes, sorted(votes, reverse=True))
+        self.assertLessEqual(max(len(c["text"]) for c in comments[1:]), ph_launch.COMMENT_CHARS)
+
+    def test_without_pre_launch_comments_the_top_voted_stands_in(self):
+        picked = ph_launch.pick_comments(
+            [{"id": "1", "body": "low", "createdAt": "2026-11-10T09:00:00Z", "votesCount": 1},
+             {"id": "2", "body": "high", "createdAt": "2026-11-10T10:00:00Z", "votesCount": 9}],
+            "2026-11-10T08:01:00Z")
+        self.assertEqual([(c["id"], c["text"], c["launch"]) for c in picked],
+                         [("c1", "high", True), ("c2", "low", False)])
+
+    def test_exactly_one_api_call_and_no_page_fetch_on_producthunt(self):
+        got, fetch = self.material(site_url="https://www.producthunt.com/products/fixture-app")
+        self.assertEqual(fetch.calls, [ph_launch.GRAPHQL_URL])
+        self.assertIsNone(got["site"])
+
+    def test_the_product_site_is_read_when_curate_resolved_it(self):
+        site = "https://fixture.example/"
+        got, fetch = self.material({ph_launch.GRAPHQL_URL: self.api,
+                                    site: html_page(fixture("article_readable.html"))}, site_url=site)
+        self.assertEqual(fetch.calls, [ph_launch.GRAPHQL_URL, site])
+        self.assertTrue(got["site"]["readable"])
+
+    def test_snapshot_fields_are_kept(self):
+        got = self.material()[0]
+        self.assertEqual(got["tagline"], "Agents for fixtures")
+        self.assertEqual(got["topics"], ["Developer Tools", "Artificial Intelligence"])
+
+    def test_full_at_120_words_of_description_and_launch_comment(self):
+        got = self.material()[0]
+        self.assertGreaterEqual(got["words"], ph_launch.FULL_WORDS)
+        self.assertTrue(ph_launch.is_full(got))
+        self.assertFalse(ph_launch.is_full({"words": ph_launch.FULL_WORDS - 1}))
+
+    def test_no_token_or_an_api_failure_gives_no_comments_and_no_exception(self):
+        for pages, token, error in (({}, None, "no PH_API_KEY"),
+                                    ({ph_launch.GRAPHQL_URL: http.Response(500, error="HTTP 500")}, "t", "HTTP 500"),
+                                    ({ph_launch.GRAPHQL_URL: http.Response(200, {}, b'{"errors": [{}]}')}, "t", "GraphQL error")):
+            with self.subTest(error=error):
+                got, _ = self.material(pages, token=token)
+                self.assertEqual((got["comments"], got["comments_error"]), ([], error))
+                self.assertFalse(ph_launch.is_full(got))  # description alone is 33 words
+
+    def test_the_token_never_appears_in_the_result(self):
+        got, _ = self.material(token="SECRET-token-value")
+        self.assertNotIn("SECRET-token-value", json.dumps(got))
+
+    @unittest.skipIf(SKIP_LIVE, "AIBYTES_SKIP_LIVE=1")
+    def test_live_a_recent_launch(self):
+        token = ph_launch.token_from_env()
+        if not token:
+            self.skipTest("no PH_API_KEY in .env")
+        snapshots = sorted((REPO_ROOT / "newsletter" / "data").glob("*/*/days/*/producthunt/ph_data.json"))
+        post = json.loads(snapshots[-1].read_text())["posts"][0]
+        got = ph_launch.launch_comments(post["id"], post["createdAt"], token)
+        self.assertTrue(got["ok"], got["error"])
+        self.assertTrue(got["comments"] and got["comments"][0]["launch"])
 
 
 if __name__ == "__main__":
