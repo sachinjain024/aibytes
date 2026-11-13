@@ -373,6 +373,11 @@ review artifact. No commit of `content/`.
 
 **Description:** `docs/specs/AIB-145y-ledger-gist-ui.md`, short: the
 components and props taken from the design record and prototype.
+Closing buttons are small and carry generic labels worked out from the link's
+role and host, never the page's own title: "Source" for the destination, "HN
+Discussion" for a Hacker News thread, "Product Hunt" for a launch page,
+"Discussion" for any other host (publisher, 13 Nov 2026, from reviewing the
+rehearsal page).
 
 **Verification:** the publisher approves. **Dependencies:** none (can run
 any time after the design). **Size:** S.
