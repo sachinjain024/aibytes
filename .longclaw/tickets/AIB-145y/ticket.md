@@ -732,3 +732,16 @@ changes:
 -->
 ### claude-code updated this ticket
 <!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_6cdddaaa
+kind: comment
+occurred_at: 2026-11-13T04:16:01.072Z
+actor:
+  type: agent
+  id: claude-code
+-->
+### claude-code commented
+
+T9: generation spec at docs/specs/AIB-145y-gist-generate.md, awaiting approval. T38 is PR #67 against main, awaiting merge.
+<!-- /longclaw:event -->
