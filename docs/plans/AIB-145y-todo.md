@@ -358,14 +358,14 @@ review artifact. No commit of `content/`.
       words, 3 full gists at 117 or 118 words, 1 "10x". Cost about $1.36 per
       day of 20 new items. The first 11 Nov run hit the 5-hour usage limit
       mid-session and was correctly discarded; it was run again.
-- [ ] The publisher reads them and says they would link to them unedited (P4),
+- [x] The publisher reads them and says they would link to them unedited (P4),
       or the skill and fetchers are fixed and the rehearsal repeats.
 
 **Verification:** P4. **Dependencies:** T16. **Size:** S.
 
 ### Checkpoint C: generation proven
 
-- [ ] P4 given. No UI work starts before it.
+- [x] P4 given. No UI work starts before it.
 
 ## Module 5: `ledger-gist-ui`
 
