@@ -463,6 +463,9 @@ Artifact in Claude (decided at approval).
 - [x] Screens listed in both readmes; a Python test pins them, as for
       earlier screens. (Screens 16 panel, 17 page in dark, 18 phone sheet;
       `GistKitTests`, 6 tests.)
+- [x] The Design System Artifact in Claude is synced: `GistView`, `GistPanel`,
+      `ReactionBar` and `SavedNote` with previews, the `front` flag and the
+      banner copy (artifact version 10, 13 Nov 2026).
 
 **Verification:** the preview server matches the design record.
 **Dependencies:** T19-T21. **Size:** M.

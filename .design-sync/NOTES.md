@@ -100,3 +100,7 @@ and the screens report "Ledger bundle not compiled yet".
 - Preview cards are 700-1200px wide but type sizes follow the viewport, so a
   card in a narrow frame shows phone type sizes. Compare cards with the app at
   the card's own viewport width.
+- 2026-11-13 (AIB-145y, T22): synced from the repo with `artifact/build.mjs`
+  (32 components). Added `GistView`, `GistPanel`, `ReactionBar` and `SavedNote`
+  with previews; `Card` and `ListRow` gained `front`; `SaveBanner` copy changed.
+  Artifact version 10. The kit screens 16-18 are not synced (components only).
