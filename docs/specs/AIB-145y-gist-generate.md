@@ -5,7 +5,7 @@ Module spec for plan tasks T10 to T17. Parent spec:
 `docs/specs/AIB-145y-gist-contract.md`; this spec never restates a cap or a
 key from there, it names them.
 
-Status: **draft for approval** (T9, 13 Nov 2026).
+Status: **approved** (T9, 13 Nov 2026).
 
 ## Objective
 
@@ -23,8 +23,10 @@ rewritten.
 | Items new to aiBytes_ per day, last 30 editions | median 24, max 31 | The real writing load: repeats only refresh |
 | TechCrunch articles readable with a plain stdlib fetch | 10 of 10, 570 to 1,300 words | News gists can be `full` |
 | Pages linked from HN stories, readable the same way | 10 of 10, 500 to 3,800 words | HN link posts can be `full` |
-| Product Hunt launch page, `/r/` redirect, product site | 403 on all three, every launch | Launch gists work from the PH API alone; see Q1 |
-| Product Hunt description in the snapshot | 58 to 82 words, plus 3 topics and the makers | That is the launch material |
+| Product Hunt launch page, `/r/` redirect, product site | 403 on all three, every launch | Launch gists work from the PH API alone |
+| Product Hunt description in the snapshot | 44 to 82 words, plus 3 topics and the makers | Part of the launch material |
+| PH API `Post.comments` (13 Nov, top 3 launches) | 30 to 34 comments each; full `body` and `url`; the author is `[REDACTED]` (id `0`) on every comment | The launch comment is found by time, not by author |
+| Launch comment (top-level, posted before the launch went live) | 2 of 3 launches, 68 to 111 words; the third's maker posted after launch, and it was the top-voted comment (83 words) | The material for a `full` launch gist |
 | HN thread from Algolia `items` | 196 comments, 126 KB, 1.7 s for a 187-comment story | One call gives the text |
 | Algolia's comment order | by time, not by HN's ranking | Rank comes from HN's own `kids` list |
 | `edition` workflow runs, last 8 | 1.3 to 1.9 minutes, no `timeout-minutes` (GitHub's 6-hour default) | The time budget below |
@@ -32,7 +34,7 @@ rewritten.
 Found on the way: on the runner, curate's Product Hunt link resolver gets a
 403 with no `Location`, so every launch in the edition links to
 producthunt.com rather than the product's site. That predates gists and is
-outside this ticket; Q4 asks whether to file it.
+outside this ticket; filed as AIB-146r (Q4).
 
 ## Decisions in this spec
 
@@ -56,7 +58,7 @@ outside this ticket; Q4 asks whether to file it.
 | `news` (TechCrunch) | `article_text(url)` | title, byline, paragraphs; 12,000 chars | at least 150 words read | none |
 | `hn` | HN `item/<id>.json` (ranked `kids`, `score`, `descendants`, `by`, `time`); Algolia `items/<id>` (comment text); `article_text(url)` for a link post | the article as for news; self-post text; the top 10 top-level comments by HN rank, 600 chars each, each with its first reply at 300 chars; ids `c1`… | the article or the self-post has at least 150 words | `points`, `comments`, `submitted_by`, `posted_at` (edition item, HN item) |
 | `repo` | GitHub REST: `repos/{o}/{r}`, `readme`, `contributors?per_page=1&anon=1` (count from `Link`), `releases/latest`, `issues?state=open&sort=comments&per_page=10` (pull requests dropped) | description, topics, README 15,000 chars; issues as title, labels, comment count, ids `i1`… | README has at least 100 words | all nine repo keys; `stars_gained` from the edition item |
-| `launch` (Product Hunt) | nothing new: the day's PH snapshot; `article_text` on the product site only if curate resolved one | tagline, description, topics, makers; the site's text, 12,000 chars | see Q1 | `upvotes`, `comments` |
+| `launch` (Product Hunt) | PH GraphQL `post(id)` with `comments(first: 20, order: VOTES_COUNT)` and `comments(last: 5, order: NEWEST)`, one call; `article_text` on the product site only if curate resolved one | tagline, description, topics; the launch comment (every top-level comment posted before `createdAt`, else the top-voted one), 2,000 chars, id `c1`; the next 8 top-level comments by votes, 600 chars each, ids `c2`…; the site's text, 12,000 chars | description and launch comment together have at least 120 words | `upvotes`, `comments` |
 | `launch` (Show HN, Launch HN) | as `hn` | as `hn` | as `hn` | as `hn` |
 
 A `brief` gist is built from the edition item alone: title, summary, counts.
@@ -169,8 +171,8 @@ sync → fetch → draft → summaries (Claude) → build → gists → validate
 
 | Part | Time limit | On failure |
 |---|---|---|
-| `gists draft` | 10 minutes; fetching stops at 8 and the rest become `brief` | Step skipped, warning |
-| `claude -p` with `/write-gists` | 20 minutes, 80 turns, same model as summaries | Step skipped, warning |
+| `gists draft` | 5 minutes; fetching stops at 4 and the rest become `brief` | Step skipped, warning |
+| `claude -p` with `/write-gists` | 15 minutes, 80 turns, same model as summaries | Step skipped, warning |
 | `gists build` | 2 minutes | Step skipped, warning |
 
 "Skipped" means `content/gists/` and the edition file are restored to what
@@ -180,8 +182,11 @@ no `gist` fields. `--skip-gists` skips the step for a re-run.
 Expected cost per day: about 100 requests and 2 to 3 minutes of fetching,
 and one Claude session reading about 120,000 tokens of material and writing
 about 25 gists. The run goes from under 2 minutes to about 15. The hard
-ceiling for the step is 32 minutes, inside GitHub's 6-hour job default; Q3
-asks whether to set `timeout-minutes` on the job.
+ceiling for the step is 22 minutes. The `edition` job gets `timeout-minutes:
+30` (Q3), so the rest of the run keeps about 8 minutes, against the 2 it
+takes today. A gists step that hits its own limit is skipped and the edition
+still publishes; only a hang outside the step can reach the job limit, and
+then that day's run fails rather than holding the queue for six hours.
 
 Slack gets one line under the edition's:
 
@@ -228,7 +233,7 @@ python3 -m unittest tests.test_gists tests.test_fetchers -v
 | Level | What |
 |---|---|
 | Fetchers | Saved fixtures for a readable article, a bot-check page, a paywall, an HN item and thread, each GitHub endpoint, a 403. One live test each, skipped by `AIBYTES_SKIP_LIVE=1`. |
-| `draft` | A repeat is not fetched; slugs and clashes; the `full`/`brief` rule per kind; the 8-minute cut-off with a fake clock. |
+| `draft` | A repeat is not fetched; slugs and clashes; the `full`/`brief` rule per kind; the 4-minute fetch cut-off with a fake clock. |
 | `build` | Every fatal rule and warning above; one bad gist of thirty leaves twenty-nine; a failing whole set writes nothing; the result passes `validate.py`. |
 | Runner | Claude writes nothing, a timeout, a rejected build: each still publishes the edition, with a warning. |
 | Skill | Every key and cap it names exists in `gist_contract.py`. |
@@ -238,22 +243,23 @@ python3 -m unittest tests.test_gists tests.test_fetchers -v
 - **Always:** keep fetched material out of the repo; keep Claude to Read,
   Write and Edit; let the edition publish whatever happens to gists.
 - **Ask first:** a new dependency; any change to `edition.yml` beyond passing
-  `GITHUB_TOKEN`; a model other than the summaries step's.
+  `GITHUB_TOKEN` and `timeout-minutes: 30`; a model other than the summaries step's.
 - **Never:** publish a fact the script did not read; fetch for an item that
   already has a gist; retry a blocked site with a browser-like disguise.
 
-## Open questions
+## Questions settled at approval
 
-1. **Product Hunt launches: `full` or `brief`?** Every PH page blocks the
-   fetch, so a launch gist has only the maker's 60 to 80 word description,
-   the topics and the counts. *Recommendation:* `brief`. Those words are the
-   maker's pitch, and a `full` gist built from them would mostly restate it.
-   That keeps launch gists out of search (the parent spec's rule for `brief`)
-   until a real source is readable. A Show HN launch is unaffected.
-2. **Copying thresholds.** 20 words fatal, 12 a warning. *Recommendation:*
-   as written; T17's rehearsal will show whether 12 is noisy.
-3. **A job time limit.** *Recommendation:* add `timeout-minutes: 60` to the
-   `edition` job in the same change that passes `GITHUB_TOKEN` (P3), so a
-   hung step can never hold the edition for six hours.
+1. **Product Hunt launches: `full` or `brief`?** The PH web pages block
+   scripts, but the GraphQL API returns every comment's text. With the
+   launch comment and the top comments added (table above), a launch is
+   `full` when the description and the launch comment together reach 120
+   words, and `brief` otherwise. The API redacts every comment's author, so
+   the gist says "the launch comment", never names a maker as its author.
+   *Settled* (13 Nov): the 120-word rule.
+2. **Copying thresholds.** *Settled:* 20 words fatal, 12 a warning; T17's
+   rehearsal will show whether 12 is noisy.
+3. **A job time limit.** *Settled:* `timeout-minutes: 30` on the `edition`
+   job, in the same change that passes `GITHUB_TOKEN` (P3). The gists step's
+   limits were cut to fit it (22 minutes, above).
 4. **The Product Hunt resolver on the runner** (found above) returns no
-   product site. *Recommendation:* a separate LongClaw ticket, not this one.
+   product site. *Settled:* out of scope here, filed as AIB-146r.

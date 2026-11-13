@@ -188,10 +188,10 @@ used by `FeedItem` (cards and list rows) and later the gist view. Content
 files keep clean URLs.
 
 **Acceptance criteria:**
-- [ ] `withRef` adds `ref=aiBytes_` with `?` or `&` as needed, keeps the
+- [x] `withRef` adds `ref=aiBytes_` with `?` or `&` as needed, keeps the
       fragment after it, leaves an existing `ref` alone, and leaves non-http
       links untouched (tests).
-- [ ] Card titles and source names link with the parameter; nothing under
+- [x] Card titles and source names link with the parameter; nothing under
       `content/` changes.
 - [x] Whether HN and GitHub links get it too is settled: **no**. GitHub reads
       `?ref=` as a branch name (its page title becomes "… at aiBytes_"), and
@@ -215,8 +215,8 @@ Claude writes, what `build` rejects as fatal versus warns, the runner step,
 its timeout and Slack lines, and the weekly entry point T34 will use.
 
 **Acceptance criteria:**
-- [ ] Per-type material and the `brief` fallback are explicit.
-- [ ] The timeout and run-time budget are stated against the workflow limit.
+- [x] Per-type material and the `brief` fallback are explicit.
+- [x] The timeout and run-time budget are stated against the workflow limit.
 
 **Verification:** the publisher approves. **Dependencies:** T4. **Size:** S.
 
@@ -255,12 +255,14 @@ comment counts). Uses `GITHUB_TOKEN` when set.
 ### T12: Product Hunt launch material
 
 **Description:** For a launch: the PH description and topics from the
-snapshot, plus `article_text` on the product's own site (the URL curate
-already resolves).
+snapshot; one PH GraphQL call for its comments (the launch comment, found by
+time because the API redacts authors, and the top 8 by votes); plus
+`article_text` on the product's own site when curate resolved one. `full`
+when description and launch comment reach 120 words (spec Q1).
 
 **Acceptance criteria:**
-- [ ] Offline test from a saved snapshot and page.
-- [ ] No new PH API call beyond what the fetcher already makes.
+- [ ] Offline test from a saved snapshot, API response and page.
+- [ ] Exactly one PH API call per new launch; none for a repeat.
 
 **Verification:** as T10. **Dependencies:** T10. **Size:** S.
 
@@ -319,13 +321,14 @@ item ships without `gist`.
 `claude -p` with the skill (Read, Write, Edit only), `build`. Any failure
 reverts `content/gists/` and the edition's `gist` fields and becomes a
 warning; the edition publishes. Slack reports gists written, reused, `brief`
-and failed. `edition.yml` passes `GITHUB_TOKEN` to the run (P3).
+and failed. `edition.yml` passes `GITHUB_TOKEN` to the run (P3) and sets
+`timeout-minutes: 30` on the job (spec Q3).
 
 **Acceptance criteria:**
 - [ ] `tests/test_runner.py`: Claude writing nothing, a timeout and a build
       rejection each still publish the edition, with a warning.
 - [ ] `--skip-gists` exists for re-runs.
-- [ ] `tests/test_pages_workflow.py` (or a new check) covers the token line.
+- [ ] `tests/test_pages_workflow.py` (or a new check) covers the token and timeout lines.
 
 **Verification:** `python3 -m unittest tests.test_runner -v`;
 `python3 packages/runner/run.py --skip-fetch --no-push` on a past date.

@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-12T14:45:05.344Z
+updated_at: 2026-11-13T06:02:23.207Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -82,9 +82,9 @@ added_by:
 - [x] 5.5 T8: HN front page on the item <!-- longclaw:item=ck_d6d37a06 -->
 - [x] 5.6 Checkpoint B: contract reviewed <!-- longclaw:item=ck_d47601d3 -->
 - [ ] 13. Outbound links tagged (added 12 Nov; next after Checkpoint B, before T9) <!-- longclaw:item=ck_645fc91b -->
-- [ ] 13.1 T38: links to a source item's own page carry ref=aiBytes_ <!-- longclaw:item=ck_68b5c65c -->
+- [x] 13.1 T38: links to a source item's own page carry ref=aiBytes_ <!-- longclaw:item=ck_68b5c65c -->
 - [ ] 6. gist-generate <!-- longclaw:item=ck_e24b8093 -->
-- [ ] 6.1 T9: generation spec <!-- longclaw:item=ck_0389ed70 -->
+- [x] 6.1 T9: generation spec <!-- longclaw:item=ck_0389ed70 -->
 - [ ] 6.2 T10: HN thread and article text fetchers <!-- longclaw:item=ck_112675a4 -->
 - [ ] 6.3 T11: GitHub repo fetchers <!-- longclaw:item=ck_49396094 -->
 - [ ] 6.4 T12: Product Hunt launch material <!-- longclaw:item=ck_427f19be -->
@@ -744,4 +744,37 @@ actor:
 ### claude-code commented
 
 T9: generation spec at docs/specs/AIB-145y-gist-generate.md, awaiting approval. T38 is PR #67 against main, awaiting merge.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_1b707d0b
+kind: comment
+occurred_at: 2026-11-13T05:54:26.196Z
+actor:
+  type: agent
+  id: claude-code
+-->
+### claude-code commented
+
+Spec Q4 (Product Hunt resolver gets a 403 on the runner, so launch cards link to producthunt.com) is out of scope here. Filed as AIB-146r.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_9313c4ee
+kind: update
+occurred_at: 2026-11-13T06:02:23.207Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_68b5c65c.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_0389ed70.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+Spec approved 13 Nov with: PH launches use the API's comments (launch comment found by time), full at 120 words; copying limits 20 fatal / 12 warning; edition job timeout-minutes 30, gist step capped at 22 min. T38 merged as PR #67. Building T10-T15.
 <!-- /longclaw:event -->
