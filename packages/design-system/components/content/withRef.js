@@ -9,8 +9,20 @@
 
 export const REF = "aiBytes_";
 
+// Hosts the tag is never added to, with their subdomains. GitHub reads ?ref=
+// as a branch or tag (the page falls back to the default branch, but its
+// title reads "at aiBytes_"), and neither GitHub nor Hacker News shows
+// owners query parameters, so the tag would cost something and tell no one
+// anything. Checked in a browser on 13 Nov 2026.
+const SKIP = ["github.com", "news.ycombinator.com"];
+
+function skipped(url) {
+  const host = url.replace(/^https?:\/\//i, "").split(/[/?#]/)[0].split("@").pop().split(":")[0].toLowerCase();
+  return SKIP.some((name) => host === name || host.endsWith("." + name));
+}
+
 export function withRef(url) {
-  if (typeof url !== "string" || !/^https?:\/\//i.test(url)) return url;
+  if (typeof url !== "string" || !/^https?:\/\//i.test(url) || skipped(url)) return url;
   const hash = url.indexOf("#");
   const base = hash === -1 ? url : url.slice(0, hash);
   const fragment = hash === -1 ? "" : url.slice(hash);
