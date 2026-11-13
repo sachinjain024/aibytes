@@ -21,7 +21,7 @@ const NAMESPACE = "LedgerAiBytesDesignSystem_b1be4f";
 const TITLE = "aiBytes_ App Design System";
 const GROUPS = ["brand", "content", "forms", "navigation"];
 // Exports that are helpers, not components: no card.
-const NOT_COMPONENTS = new Set(["SOURCE_NAMES", "fmtNum", "bubble", "sizedImageUrl", "FeedItem", "Icon"]);
+const NOT_COMPONENTS = new Set(["SOURCE_NAMES", "fmtNum", "bubble", "sizedImageUrl", "FeedItem", "Icon", "REACTIONS"]);
 
 // ---------------------------------------------------------------- bundle
 

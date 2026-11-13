@@ -8,7 +8,7 @@ Grid-view feed card — the core unit of an edition.
 <Card item={{ id: "ph-chatcut", title: "ChatCut", summary: "AI video editor inside ChatGPT with a real timeline and XML export.", url: "#", source: "producthunt", source_url: "#", tags: ["Video", "Dev Tool"], signals: { upvotes: 776, comments: 42 } }} topToday saved={false} onToggleSave={toggle} />
 ```
 
-Image rules: PH logo rounded 8px, GitHub avatar circle (+ language dot in meta), TC og:image square, HN always the HN tile. Signals order: upvotes/points → stars gained → comments; only rendered when present. `topToday` adds the `--hot` left edge + mono `TOP` label (open decision #1). The meta row ends with the `CardMenu` kebab (⋮ → "Open in" ChatGPT / Claude / Gemini) automatically.
+Image rules: PH logo rounded 8px, GitHub avatar circle (+ language dot in meta), TC og:image square, HN always the HN tile. Signals order: upvotes/points → stars gained → comments; only rendered when present. `topToday` adds the `--hot` left edge + mono `TOP` label (open decision #1). `front` adds a `Front page` label (same hot small caps) after `TOP` and before the source name, for a Hacker News story that was on the front page; `ListRow` takes it too. The meta row ends with the `CardMenu` kebab (⋮ → "Open in" ChatGPT / Claude / Gemini) automatically.
 
 Default card: title, summary, then the source and its counts (`GitHub +1.5K ★`) in a row pinned to the bottom edge, so every card in a row ends on the same line. No tags. This is how the app shows it; use the defaults.
 

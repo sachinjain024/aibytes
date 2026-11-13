@@ -3,6 +3,8 @@ import type { EditionItem } from "./Card";
 export interface ListRowProps {
   item: EditionItem;
   saved?: boolean;
+  /** the item was on the Hacker News front page: a "Front page" label before the source name. Default off. */
+  front?: boolean;
   /** the save star renders only when this is passed */
   onToggleSave?: (id: string) => void;
   /** Where the save star sits: "actions" = after the ⋮ menu (default); "visual" = under the source image, in its column. */

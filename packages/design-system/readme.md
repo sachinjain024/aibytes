@@ -38,7 +38,7 @@ Design system for **aiBytes_** (`aibytes.io`): a curated daily feed of AI resour
 
 - **Tone:** dense, calm, honest, technical, quietly opinionated. Never playful-startup, never marketing.
 - **Voice:** plain declarative sentences. Summaries are one line, factual, no adjectives-as-hype: "AI video editor inside ChatGPT with a real timeline and XML export."
-- **Person:** the product speaks in neutral third person; direct address ("you") only in functional copy ("Sign in with Google to keep them across devices").
+- **Person:** the product speaks in neutral third person; direct address ("you") only in functional copy ("Sign in with Google to sync them to your account").
 - **Casing:** sentence case everywhere. Category/tag labels are Title Case nouns ("Dev Tool", "Open Source"). No ALL CAPS except tiny mono labels (e.g. TOP).
 - **Numbers and dates are content**, set in mono with tabular numerals: `▲776`, `+6.4k ★`, `Wed, Aug 27, 2026 · 39 items · updated 4h ago`. Numbering must encode something true — editions are dated, sections are counted; nothing decorative.
 - **Emoji:** none in UI copy. The wordmark's ⚡ is the only pictogram; ▲ ★ ☆ 💬-style glyphs on cards are signal icons (we render ▲/★/comment as glyphs, not emoji).

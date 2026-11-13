@@ -259,7 +259,7 @@ Cobalt survives from Bitmark as the accent because it already reads as aiBytes_ 
 **Anonymous (default)**
 - Clicking ☆ saves immediately to local storage. No modal, no interruption.
 - A persistent banner appears once at least one item is saved, dismissible per session:
-  > Saved items are stored in this browser only. **Sign in with Google** to keep them across devices.
+  > Saved items are stored in this browser's local storage. **Sign in with Google** to sync them to your account.
 - "Saved" chip appears in the header once anything is saved; it shows saved items across all editions (from local storage).
 
 **Signed in**

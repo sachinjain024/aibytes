@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-13T11:03:27.480Z
+updated_at: 2026-11-13T11:05:07.675Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -970,6 +970,36 @@ changes:
   - field: checklist.ck_45ced086.checked
     from: "false"
     to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_04119e9d
+kind: update
+occurred_at: 2026-11-13T11:04:59.839Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_b573c191.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ac9593ce
+kind: update
+occurred_at: 2026-11-13T11:05:07.675Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_b573c191.checked
+    from: "true"
+    to: "false"
 -->
 ### claude-code updated this ticket
 <!-- /longclaw:event -->

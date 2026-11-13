@@ -48,7 +48,7 @@ function Demo() {
     <L.CardGrid>
       <L.Card item={chatcut} topToday saved={saved.includes(chatcut.id)} onToggleSave={toggle} starPos="visual" />
       <L.Card item={officecli} saved={saved.includes(officecli.id)} onToggleSave={toggle} starPos="visual" />
-      <L.Card item={hn} saved={saved.includes(hn.id)} onToggleSave={toggle} starPos="visual" />
+      <L.Card item={hn} front saved={saved.includes(hn.id)} onToggleSave={toggle} starPos="visual" />
       <L.Card item={tc} />
     </L.CardGrid>
     <Label>Top today (ChatCut), saved and unsaved stars under the source icon, and a card without onToggleSave (no star). Hover lifts the card; the ⋮ menu opens "Open in".</Label>
@@ -146,6 +146,23 @@ function Demo() {
   </>;
 }
 render(<Demo />);` },
+
+  ReactionBar: { group: "Content", height: 120, width: 520, jsx: `
+function Demo() {
+  const [mine, setMine] = React.useState(["🎉"]);
+  const toggle = (e) => setMine(m => m.includes(e) ? m.filter(x => x !== e) : [...m, e]);
+  return <>
+    <L.ReactionBar counts={{ "👍": 12, "🎉": 3, "🚀": 1200 }} mine={mine} onToggle={toggle} />
+    <Label>Counts show above zero and include your own press. Pressed ones are outlined. Click to toggle.</Label>
+  </>;
+}
+render(<Demo />);` },
+
+  SavedNote: { group: "Content", height: 90, jsx: `
+render(<>
+  <L.SavedNote />
+  <Label>Under the save control, right after a save.</Label>
+</>);` },
 
   Dialog: { group: "Content", height: 420, width: 1000, jsx: `
 render(<L.Dialog labelledBy="pv-dialog-h" onClose={noop}>

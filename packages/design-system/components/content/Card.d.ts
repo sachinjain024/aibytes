@@ -19,6 +19,8 @@ export interface CardProps {
   item: EditionItem;
   /** "top today" variant: 2px --hot left edge + mono TOP label */
   topToday?: boolean;
+  /** the item was on the Hacker News front page: a "Front page" label in the metadata row, after TOP and before the source name. Default off. */
+  front?: boolean;
   saved?: boolean;
   /** the save star renders only when this is passed */
   onToggleSave?: (id: string) => void;

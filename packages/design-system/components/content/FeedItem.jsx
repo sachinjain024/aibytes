@@ -6,7 +6,7 @@ import { SOURCE_NAMES, Signals, LangDot } from './signals.jsx';
 
 /** Shared reading-row/card anatomy; card controls retain their public API.
  * starPos puts the save star after the ⋮ menu ("actions") or under the source image ("visual"). */
-export function FeedItem({ item, grid = false, saved, onToggleSave, topToday = false,
+export function FeedItem({ item, grid = false, saved, onToggleSave, topToday = false, front = false,
   signalsPos = 'source', tagStyle = 'dots', maxTags = 3, starPos = 'actions' }) {
   const tags = (item.tags || []).slice(0, maxTags);
   const language = item.meta?.language;
@@ -33,6 +33,7 @@ export function FeedItem({ item, grid = false, saved, onToggleSave, topToday = f
         </div>}
         <div className="metadata">
           {topToday && <span className="ldg-top-label" title="Top today">TOP</span>}
+          {front && <span className="ldg-front-label" title="On the Hacker News front page">Front page</span>}
           <a className="discussion" href={item.source_url} target="_blank" rel="noopener noreferrer">{SOURCE_NAMES[item.source] || item.source}</a>
           {(!grid || signalsPos === 'source') && <Signals signals={item.signals} />}
           <span className="item-actions"><CardMenu item={item} up={false} />{starPos === 'actions' && star}</span>

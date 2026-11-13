@@ -439,9 +439,12 @@ label; the "Added to your Saved items. View here" line; `SaveBanner`'s new
 copy everywhere it is quoted.
 
 **Acceptance criteria:**
-- [ ] Tests for each; `SaveBanner.test.js` and its `.d.ts`, `.prompt.md`, the
-      brand-tone card and the product spec carry the new line.
-- [ ] Existing card tests unchanged except for the new flag.
+- [x] Tests for each; `SaveBanner.test.js` and its `.d.ts`, `.prompt.md`, the
+      brand-tone card and the product spec carry the new line. (Also the design
+      brief and both readmes. Historical specs and prototypes keep the old
+      line: they record what was decided then.)
+- [x] Existing card tests unchanged except for the new flag. (One test
+      added; none edited. 72 design-system tests.)
 
 **Verification:** design-system tests. **Dependencies:** T18. **Size:** M.
 
