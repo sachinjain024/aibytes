@@ -6,7 +6,7 @@
   C2, D2, E2, F2) and the prototype in `docs/ux/prototypes/AIB-145y-gists/`
 - **Contract:** `docs/specs/AIB-145y-gist-contract.md`; types in
   `packages/feed-schema/feed.d.ts` (`Gist`, `GistSection`, `GistStats`)
-- **Status:** draft, for the publisher's approval
+- **Status:** approved 13 Nov 2026, with the three answers under "Settled at approval"
 
 ## Objective
 
@@ -79,20 +79,22 @@ text, counts, a link) from `preview` and its stats, with no written summary.
 ### Stats
 
 A grid of labelled cells that wraps to fit the column (C2). Its heading and its
-time share one line: **STATS (As of 6 Nov 2026, 16:08 GMT+5:30)**. *(review)*
+date share one line: **STATS (As of 6 Nov 2026)**. The date only, no time of
+day. *(review)*
 
-- **Time zone:** the time is shown in the viewer's own time zone, named at the
-  end, not fixed to IST. A server cannot know it, so the server markup holds
-  the UTC time and the client replaces it after it mounts. This must not
-  cause a hydration warning.
+- **Date:** the day in the viewer's own time zone. A server cannot know it, so
+  the server markup holds the UTC day and the client replaces it after it
+  mounts. This must not cause a hydration warning.
 - **Short counts:** 1,000 or more is short: `1.2k` under 10,000, `140k` up to a
-  million, `1.2M` above. Below 1,000 the number is shown whole.
+  million, `1.2M` above. Below 1,000 the number is shown whole. This applies
+  to every count except Hacker News, whose points and comments are always
+  shown whole.
 - **Which cells, in order,** by kind. A cell is left out when its value is
   missing.
 
 | Kind | Cells |
 |---|---|
-| `hn` | points, comments, submitted by, posted (an age such as "19h", from `posted_at` against `stats_as_of`) |
+| `hn` | points, comments (both whole numbers), submitted by, posted (an age such as "19h", from `posted_at` against `stats_as_of`) |
 | `repo` | stars, forks, contributors, open issues, created, language, licence |
 | `launch` | upvotes, comments |
 | `x_post` | likes, reposts, replies, views |
@@ -104,7 +106,7 @@ requires, and are not shown. *(review)*
 ### Server rendering
 
 No `window`, `document` or time-zone call during render. The one client-only
-detail is the stats time above. A test renders every kind with
+detail is the stats date above. A test renders every kind with
 `renderToStaticMarkup` under `node --test`.
 
 ## `GistPanel`
@@ -182,17 +184,14 @@ Default is off, so no existing card changes.
   T22) pass, and `npm test -w @aibytes/design-system` is green.
 - A `GistView` of each kind renders from a gist file with no edition loaded.
 - The review choices marked above appear in the component tests: the button
-  labels per role and host, the short counts, the repo cell order, the hidden
+  labels per role and host, the short counts (and Hacker News counts whole), the repo cell order, the hidden
   `stars_gained` and `last_release`, the image or source mark before the title.
 
-## Open questions
+## Settled at approval
 
-1. **Time on the server.** The server writes UTC and the client swaps in local
-   time. Search engines read UTC. That seems fine for a "stats as of" caption;
-   say if you want the server to write a fixed zone instead.
-2. **Short counts on Hacker News points and comments.** The rule applies to every
-   count, as it did on the review page. Say if points and comments should stay
-   whole.
-3. **`SavedNote`.** One small extra component, rather than putting the line
-   inside `GistView`, so the feed card can reuse it later. Say if you would
-   rather it stayed inside `GistView`.
+1. **Date on the server.** The server writes the UTC day and the client swaps in
+   the local day. Search engines read the UTC day. Approved. The time of day is
+   dropped, so only the date shows.
+2. **Hacker News counts.** Points and comments stay whole, not `1.2k`.
+3. **`SavedNote`.** A separate small component, so the feed card can reuse it
+   later (the recommendation, approved).
