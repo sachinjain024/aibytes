@@ -23,3 +23,7 @@ tmp/
 
 # Firebase emulator logs (npm run test:rules)
 *-debug.log
+
+# Gist material fetched by `gists draft` (AIB-145y): other people's writing,
+# never committed to this public repo.
+.cache/

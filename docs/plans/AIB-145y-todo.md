@@ -262,7 +262,7 @@ when description and launch comment reach 120 words (spec Q1).
 
 **Acceptance criteria:**
 - [x] Offline test from a saved snapshot, API response and page.
-- [ ] Exactly one PH API call per new launch; none for a repeat. (One call
+- [x] Exactly one PH API call per new launch; none for a repeat. (One call
       per launch: T12. None for a repeat: T13's draft.)
 
 **Verification:** as T10. **Dependencies:** T10. **Size:** S.
@@ -277,9 +277,9 @@ per item the type, the material, the slug, and what is already known
 refresh only.
 
 **Acceptance criteria:**
-- [ ] A repeat item is not fetched or rewritten; it resolves to its slug.
-- [ ] Slug: the id without its date; a clash gets `-2`.
-- [ ] An unreadable source is marked so Claude writes `brief`.
+- [x] A repeat item is not fetched or rewritten; it resolves to its slug.
+- [x] Slug: the id without its date; a clash gets `-2`.
+- [x] An unreadable source is marked so Claude writes `brief`.
 
 **Verification:** `python3 -m unittest tests.test_gists -v`.
 **Dependencies:** T6, T10-T12. **Size:** M. **Files:** `packages/gists/gists.py`,
