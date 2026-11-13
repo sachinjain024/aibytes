@@ -878,3 +878,16 @@ changes:
 
 T16 built: step_gists runs draft, claude (/write-gists, Read/Write/Edit, 80 turns) and build within 5+15+2 min; any failure restores content/gists/ and the edition and becomes a Slack warning. --skip-gists added. edition.yml: timeout-minutes 30, GITHUB_TOKEN on the publish step (P3, approved with the spec on 13 Nov); Claude's env never gets GITHUB_TOKEN. Next: T17 rehearsal.
 <!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_a13dbe88
+kind: comment
+occurred_at: 2026-11-13T09:17:18.266Z
+actor:
+  type: agent
+  id: claude-code
+-->
+### claude-code commented
+
+T17 rehearsal done: 149 gists for the 5-11 Nov editions, 0 failed, 13 brief (9%), 13 warnings, about 4 min per run. Review page for P4: https://claude.ai/artifact/EuUXX4AvMW9dDAZicnyaMw (private). Nothing under content/ was changed.
+<!-- /longclaw:event -->

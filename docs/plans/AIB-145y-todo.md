@@ -350,7 +350,14 @@ editions' snapshots, and put the results in front of the publisher in one
 review artifact. No commit of `content/`.
 
 **Acceptance criteria:**
-- [ ] Time and the share of `brief` gists per run are recorded.
+- [x] Time and the share of `brief` gists per run are recorded.
+      Rehearsal 13 Nov 2026, editions 5 to 11 Nov, real Claude sessions, no
+      commit: 149 new gists, 0 failed. Per run 129 to 387 s (average 237 s,
+      about 4 minutes; the spec guessed 15). 13 of 149 brief (9%): 6 HTTP
+      errors, 4 too short, 2 network. 13 warnings: 9 copied runs of 12 to 15
+      words, 3 full gists at 117 or 118 words, 1 "10x". Cost about $1.36 per
+      day of 20 new items. The first 11 Nov run hit the 5-hour usage limit
+      mid-session and was correctly discarded; it was run again.
 - [ ] The publisher reads them and says they would link to them unedited (P4),
       or the skill and fetchers are fixed and the rehearsal repeats.
 
