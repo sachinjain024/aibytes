@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-13T06:55:16.570Z
+updated_at: 2026-11-13T10:43:32.016Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -94,8 +94,8 @@ added_by:
 - [x] 6.8 P3: publisher approves GITHUB_TOKEN in edition.yml <!-- longclaw:item=ck_0b27e6bd -->
 - [x] 6.9 T16: the runner's gists step <!-- longclaw:item=ck_070cf04c -->
 - [ ] 6.10 T17: rehearsal on seven editions <!-- longclaw:item=ck_eb097e0a -->
-- [ ] 6.11 P4: publisher reads the rehearsed gists and would link to them unedited <!-- longclaw:item=ck_50869fec -->
-- [ ] 6.12 Checkpoint C: generation proven <!-- longclaw:item=ck_4db29f6f -->
+- [x] 6.11 P4: publisher reads the rehearsed gists and would link to them unedited <!-- longclaw:item=ck_50869fec -->
+- [x] 6.12 Checkpoint C: generation proven <!-- longclaw:item=ck_4db29f6f -->
 - [ ] 7. ledger-gist-ui <!-- longclaw:item=ck_329daaee -->
 - [ ] 7.1 T18: Ledger spec <!-- longclaw:item=ck_8fef693d -->
 - [ ] 7.2 T19: GistView <!-- longclaw:item=ck_45ced086 -->
@@ -890,4 +890,47 @@ actor:
 ### claude-code commented
 
 T17 rehearsal done: 149 gists for the 5-11 Nov editions, 0 failed, 13 brief (9%), 13 warnings, about 4 min per run. Review page for P4: https://claude.ai/artifact/EuUXX4AvMW9dDAZicnyaMw (private). Nothing under content/ was changed.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_556acbc1
+kind: update
+occurred_at: 2026-11-13T10:43:22.047Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_4db29f6f.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_21e59d7c
+kind: update
+occurred_at: 2026-11-13T10:43:32.016Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_50869fec.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_d736f833
+kind: comment
+occurred_at: 2026-11-13T10:47:14.226Z
+actor:
+  type: agent
+  id: claude-code
+-->
+### claude-code commented
+
+T18 spec drafted for approval: docs/specs/AIB-145y-ledger-gist-ui.md (components, props, and the 13 Nov review choices). Three open questions at its end.
 <!-- /longclaw:event -->
