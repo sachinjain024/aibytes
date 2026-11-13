@@ -6,6 +6,9 @@ import path from "node:path";
 import { listKey, pageData, robotsTxt, shownGists, siteEntries, sitemapXml } from "./gistSite.js";
 import { gistHead, withHead } from "./pageMeta.js";
 
+// The slug becomes a directory name, so it is checked here too: the Pages build does not run validate.py.
+const SLUG = /^[a-z0-9][a-z0-9-]*$/;
+
 const readJson = async (file) => JSON.parse(await readFile(file, "utf8"));
 const readJsonIf = async (file, fallback) => { try { return await readJson(file); } catch (err) { if (err.code === "ENOENT") return fallback; throw err; } };
 
@@ -41,6 +44,7 @@ export async function writeGistSite({ outDir, contentDir, html, renderGistPage }
 
   const gists = shownGists(await loadGists(contentDir), itemsById);
   for (const gist of gists) {
+    if (!SLUG.test(gist.slug ?? "")) throw new Error(`gist slug ${JSON.stringify(gist.slug)} is not a plain slug; refusing to write a page for it`);
     const data = pageData(gist, listOf);
     const markup = renderGistPage(data);
     // The same data goes in the page, so the browser hydrates the markup without a fetch.

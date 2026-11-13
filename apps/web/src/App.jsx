@@ -28,8 +28,6 @@ import { clearSaves, localSaves, readSaves } from "./saves.js";
 import { NewsletterPrompt } from "./NewsletterPrompt.jsx";
 import { GistPage } from "./GistPage.jsx";
 import { gistHead } from "./pageMeta.js";
-import { SavedNote } from "@aibytes/design-system/components/content/SavedNote.jsx";
-import { SaveStar } from "@aibytes/design-system/components/content/SaveStar.jsx";
 import { failureReport, initialPrompt, promptReducer, shouldOpenPrompt } from "./newsletterPrompt.js";
 import { NEWSLETTER_PRIVACY, showSubscribeOptions } from "./subscribeOptions.js";
 import { editionPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, savedPath, weeklyPath } from "./route.js";
@@ -792,22 +790,11 @@ function GistApp({ saves: store, route, location, navigate, theme, onToggleTheme
   const { gist, more } = state;
   const first = gist.appearances[0];
   const from = first.edition_date ? { edition_date: first.edition_date } : { issue_slug: first.issue_slug };
-  const own = saved.has(first.item_id);
   const toggle = (id) => store.toggle({ id }, from);
-  const actions = (
-    <div className="gist-actions">
-      <div className="gist-actions-row">
-        <span className={"gist-save" + (own ? " gist-save--on" : "")}>
-          <SaveStar saved={own} onToggle={() => toggle(first.item_id)} />
-          <button type="button" className="gist-save-label" onClick={() => toggle(first.item_id)}>{own ? "Saved" : "Save"}</button>
-        </span>
-      </div>
-      {own && <SavedNote href={savedPath()} />}
-    </div>);
   return (
-    <GistPage gist={gist} more={more} theme={mounted ? theme : "light"} headerProps={mounted ? headerProps : {}}
+    <GistPage gist={gist} more={more} theme={mounted ? theme : "light"} onToggleTheme={onToggleTheme} headerProps={mounted ? headerProps : {}}
       banner={<><StickyBanner saveCount={mounted ? saves.length : 0} /><SignInFailed /></>}
-      actions={actions} saved={saved} onToggleSave={toggle} showSubscribe={!mounted || showSubscribeOptions(subscribed)} />);
+      saved={saved} onToggleSave={toggle} showSubscribe={!mounted || showSubscribeOptions(subscribed)} />);
 }
 
 // /weekly - every published issue, newest first. Issue links are plain hrefs:

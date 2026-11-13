@@ -2,9 +2,12 @@ import React from "react";
 import { GistView } from "@aibytes/design-system/components/content/GistView.jsx";
 import { ListRow } from "@aibytes/design-system/components/content/ListRow.jsx";
 import { RowList } from "@aibytes/design-system/components/content/Feed.jsx";
+import { SavedNote } from "@aibytes/design-system/components/content/SavedNote.jsx";
+import { SaveStar } from "@aibytes/design-system/components/content/SaveStar.jsx";
 import { AppHeader } from "@aibytes/design-system/components/navigation/AppHeader.jsx";
 import { backLink } from "./gistSite.js";
 import { GITHUB_URL, SUBSCRIBE_URL } from "./footer.js";
+import { savedPath } from "./route.js";
 
 // The page at /gists/<slug> (spec AIB-145y-app-gist-pages). One component for
 // the build, which renders it to a string, and the browser, which takes the
@@ -12,15 +15,31 @@ import { GITHUB_URL, SUBSCRIBE_URL } from "./footer.js";
 // reader owns (saves, theme, sign-in) arrives as props the client fills in
 // after mount, so the first client render matches the server's.
 //
+// The save row and the theme toggle are drawn on the server too: they are the
+// same in every render, and only pressing them needs JavaScript. `saved` is the
+// set of saved item ids, empty on the server and on the first client render.
+//
 // `headerProps` is what AppHeader gets for the account; an empty object, as on
 // the server, shows neither Sign in nor an avatar, the same as while Firebase
 // restores the session.
-export function GistPage({ gist, more = [], theme = "light", headerProps = {}, banner = null, actions = null, saved = new Set(), onToggleSave = () => {}, showSubscribe = true }) {
+export function GistPage({ gist, more = [], theme = "light", onToggleTheme = () => {}, headerProps = {}, banner = null, saved = new Set(), onToggleSave = () => {}, showSubscribe = true }) {
   const back = backLink(gist);
+  const own = saved.has(gist.appearances[0]?.item_id);
+  const toggleOwn = () => onToggleSave(gist.appearances[0].item_id);
+  const actions = (
+    <div className="gist-actions">
+      <div className="gist-actions-row">
+        <span className={"gist-save" + (own ? " gist-save--on" : "")}>
+          <SaveStar saved={own} onToggle={toggleOwn} />
+          <button type="button" className="gist-save-label" onClick={toggleOwn}>{own ? "Saved" : "Save"}</button>
+        </span>
+      </div>
+      {own && <SavedNote href={savedPath()} />}
+    </div>);
   return (
     <div className="app-shell redesign" data-theme={theme}>
       <a className="app-skip" href="#main">Skip to the gist</a>
-      <AppHeader theme={theme} githubUrl={GITHUB_URL} {...headerProps} />
+      <AppHeader theme={theme} onToggleTheme={onToggleTheme} githubUrl={GITHUB_URL} {...headerProps} />
       {banner}
       <main id="main" className="redesign-main" tabIndex={-1}>
         <div className="gist-page">
@@ -30,7 +49,7 @@ export function GistPage({ gist, more = [], theme = "light", headerProps = {}, b
             <section className="gist-more" aria-labelledby="gist-more-h">
               <h2 id="gist-more-h">{`More from ${back?.label}`}</h2>
               <RowList>{more.map((item) => (
-                <ListRow key={item.id} item={item} saved={saved.has(item.id)} onToggleSave={() => onToggleSave(item.id)} starPos="visual" />))}
+                <ListRow key={item.id} item={item} front={item.front_page === true} saved={saved.has(item.id)} onToggleSave={() => onToggleSave(item.id)} starPos="visual" />))}
               </RowList>
             </section>)}
           {showSubscribe && (

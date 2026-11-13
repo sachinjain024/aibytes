@@ -39,7 +39,7 @@ before(() => {
   for (const sub of ["editions", "gists", "weekly/issues"]) mkdirSync(path.join(content, sub), { recursive: true });
   const w = (file, data) => writeFileSync(path.join(content, file), JSON.stringify(data));
   w("index.json", { schema_version: 1, editions: [{ date: "2026-08-27", path: "editions/2026-08-27.json" }] });
-  w("editions/2026-08-27.json", { schema_version: 1, date: "2026-08-27", items: [item("full", 1), item("brief", 2), item("gone", 3, { hidden: true }), item("other", 4), item("more", 5)] });
+  w("editions/2026-08-27.json", { schema_version: 1, date: "2026-08-27", items: [item("full", 1), item("brief", 2), item("gone", 3, { hidden: true }), item("other", 4, { front_page: true }), item("more", 5)] });
   w("weekly/index.json", { schema_version: 1, issues: [] });
   w("tags.json", { schema_version: 1, groups: [] });
   w("gists/full-one.json", gist("full-one", "full", "full"));
@@ -75,6 +75,18 @@ test("the page links back and offers more from the same edition, not the gist's 
   assert.match(page, /Item more/);
   assert.doesNotMatch(page, /Item gone/);
   assert.doesNotMatch(page, />Item full</);
+});
+
+test("the server markup already holds what the browser will render first: the save row and the theme toggle", () => {
+  const page = read("gists", "full-one", "index.html");
+  assert.match(page, /class="gist-actions"/);
+  assert.match(page, /<button type="button" class="gist-save-label">Save<\/button>/);
+  assert.doesNotMatch(page, /Added to your Saved items/);
+  assert.match(page, /id="themeToggle"[^>]*aria-label="Switch to dark theme"/);
+});
+
+test("a More from row carries the Front page label when its item was on the HN front page", () => {
+  assert.match(read("gists", "full-one", "index.html"), /Front page[\s\S]*Item other|Item other[\s\S]*Front page/);
 });
 
 test("the page carries its own data, escaped, for the browser to take over", () => {
