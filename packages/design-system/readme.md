@@ -85,7 +85,7 @@ Design system for **aiBytes_** (`aibytes.io`): a curated daily feed of AI resour
 - `components/navigation/` — the app shell: AppHeader, Sidebar, Toolbar, FilterPanel, ActiveFilters; and EditionBar (the toolbar's date picker), CalendarPopover. The app (`apps/web`) is built from these, so what ships and what Claude Design shows are the same components.
 - `components/content/` — Card, ListRow, CardGrid / RowList / StatusMessage (`Feed.jsx`), ItemImage, SectionHeading, Tag, SaveStar, CardMenu, SaveBanner, EmptyState, EndCard, Dialog
 - `components/forms/` — Button, Input
-- `ui_kits/aibytes-app/` — the screens + interactive `index.html`, shared `data.js`; 12–14 show saves and sign-in; 15 shows the newsletter prompt in `Dialog`
+- `ui_kits/aibytes-app/` — the screens + interactive `index.html`, shared `data.js`; 12–14 show saves and sign-in; 15 shows the newsletter prompt in `Dialog`; 16–18 show the gists (`GistPanel` beside the feed, the gist page, the phone sheet), with sample gists in `gists.js`
 
 ### Saves and sign-in (AIB-75v)
 

@@ -3,7 +3,10 @@
    the sample editions in data.js instead of content/. */
 const NS = window.LedgerAiBytesDesignSystem_b1be4f || {};
 if (!NS.AppHeader) document.body.insertAdjacentHTML("afterbegin", '<p style="font-family:monospace;font-size:13px;padding:16px">Ledger bundle not compiled yet — reload in a moment (_ds_bundle.js missing).</p>');
-const { AppHeader, Sidebar, Toolbar, FilterPanel, ActiveFilters, EditionBar, CardGrid, RowList, Card, ListRow, SectionHeading, EmptyState, EndCard, SaveBanner, StatusMessage, Dialog, Button } = NS;
+const { AppHeader, Sidebar, Toolbar, FilterPanel, ActiveFilters, EditionBar, CardGrid, RowList, Card, ListRow, SectionHeading, EmptyState, EndCard, SaveBanner, StatusMessage, Dialog, Button, GistPanel, GistView, ReactionBar, SavedNote, SaveStar } = NS;
+// The gists (AIB-145y): sample files in the shape of content/gists/<slug>.json, by the id of the item they belong to.
+const GISTS = window.LEDGER_GISTS || {};
+const SAMPLE_REACTIONS = { "👍": 12, "🎉": 3, "🚀": 1200 };
 // The offer a new account sees once (AIB-140p, D2). Sample content for the kit;
 // the app's NewsletterPrompt owns this copy when it ships.
 const PROMPT_COVERS = ["New AI tools", "AI threads on HN", "Trending AI projects", "Latest AI news", "Official announcements", "Viral posts on X"];
@@ -62,6 +65,12 @@ function AiBytesApp(props) {
   const [savedPage, setSavedPage] = React.useState(!!props.savedPage0);
   const [bannerDismissed, setBannerDismissed] = React.useState(false);
   const [promptOpen, setPromptOpen] = React.useState(!!props.prompt0);
+  // The gist panel beside the feed (gist0 = the item it opens on), the gist page
+  // (gistPage0), the panel's width, and this reader's reactions.
+  const [gistId, setGistId] = React.useState(props.gist0 || null);
+  const [panelWidth, setPanelWidth] = React.useState(460);
+  const [mine, setMine] = React.useState(props.mine0 || []);
+  const [askSignIn, setAskSignIn] = React.useState(false);
   React.useEffect(() => setSignedIn(!!props.signedIn0), [props.signedIn0]);
   React.useEffect(() => { if (props.theme0) setTheme(props.theme0); }, [props.theme0]);
   React.useEffect(() => { if (props.view0) setView(props.view0); }, [props.view0]);
@@ -83,10 +92,32 @@ function AiBytesApp(props) {
   const toggleSave = id => setSaved(prev => { const next = new Set(prev); next.has(id) ? next.delete(id) : next.add(id); return next; });
   const openSaved = () => { setSavedPage(true); setMenuOpen(false); };
   const showBanner = !signedIn && saved.size > 0 && !bannerDismissed;
+  const allItems = D.order.flatMap(k => D.editions[k].items);
+  const hasFront = item => !!(GISTS[item.id] && GISTS[item.id].front_page);
+  // A card's title opens its gist in the panel on a plain click (the app's B2 pick).
+  const onFeedClick = e => {
+    const link = e.target.closest && e.target.closest(".story h3 a");
+    if (!link) return;
+    const item = allItems.find(i => i.title === link.textContent);
+    if (item && GISTS[item.id]) { e.preventDefault(); setGistId(item.id); }
+  };
+  const react = emoji => { if (!signedIn) return setAskSignIn(true); setMine(m => m.includes(emoji) ? m.filter(x => x !== emoji) : [...m, emoji]); };
+  const actionsFor = id => (
+    <div className="gist-actions">
+      <div className="gist-actions-row">
+        <span className={"gist-save" + (saved.has(id) ? " gist-save--on" : "")}>
+          <SaveStar saved={saved.has(id)} onToggle={() => toggleSave(id)} />
+          <button type="button" className="gist-save-label" onClick={() => toggleSave(id)}>{saved.has(id) ? "Saved" : "Save"}</button>
+        </span>
+        <ReactionBar counts={SAMPLE_REACTIONS} mine={mine} onToggle={react} />
+      </div>
+      {saved.has(id) && <SavedNote />}
+      {askSignIn && !signedIn && <p className="gist-saved" role="status">Sign in with Google to react. Saving works without an account.</p>}
+    </div>);
 
   const render = list => (shown === "list"
-    ? <RowList>{list.map(item => <ListRow key={item.id} item={item} saved={saved.has(item.id)} onToggleSave={() => toggleSave(item.id)} starPos="visual" />)}</RowList>
-    : <CardGrid>{list.map(item => <Card key={item.id} item={item} saved={saved.has(item.id)} onToggleSave={() => toggleSave(item.id)} starPos="visual" />)}</CardGrid>);
+    ? <RowList>{list.map(item => <ListRow key={item.id} item={item} front={hasFront(item)} saved={saved.has(item.id)} onToggleSave={() => toggleSave(item.id)} starPos="visual" />)}</RowList>
+    : <CardGrid>{list.map(item => <Card key={item.id} item={item} front={hasFront(item)} saved={saved.has(item.id)} onToggleSave={() => toggleSave(item.id)} starPos="visual" />)}</CardGrid>);
 
   let body;
   if (savedPage) {
@@ -137,6 +168,29 @@ function AiBytesApp(props) {
         currentDate={edition} onSelectEdition={goTo} />
     </div>);
 
+  // The gist page: the header only and one reading column, then more from the same edition.
+  const pageGist = props.gistPage0 && GISTS[props.gistPage0];
+  if (pageGist) {
+    const pageEd = D.editions[pageGist.appearances[0].edition_date];
+    const more = pageEd.items.filter(i => i.id !== props.gistPage0).sort((a, b) => rankOf(a) - rankOf(b)).slice(0, 4);
+    return (
+      <div className="app-shell redesign" data-theme={theme}>
+        <AppHeader theme={theme} onToggleTheme={() => setTheme(t => (t === "light" ? "dark" : "light"))} githubUrl={D.githubUrl}
+          onSignIn={() => setSignedIn(true)} user={signedIn ? SAMPLE_USER : undefined} onSignOut={() => setSignedIn(false)} onSaved={openSaved} />
+        {showBanner && <SaveBanner sticky onSignIn={() => setSignedIn(true)} onDismiss={() => setBannerDismissed(true)} />}
+        <main id="main" className="redesign-main" tabIndex={-1}>
+          <div className="gist-page">
+            <p className="gist-crumb"><a href="#edition">← Back to {pageEd.mid}</a></p>
+            <GistView gist={pageGist} as="page" actions={actionsFor(props.gistPage0)} />
+            <section className="gist-more" aria-labelledby="more-h">
+              <h2 id="more-h">More from {pageEd.short}</h2>
+              <RowList>{more.map(item => <ListRow key={item.id} item={item} front={hasFront(item)} saved={saved.has(item.id)} onToggleSave={() => toggleSave(item.id)} starPos="visual" />)}</RowList>
+            </section>
+          </div>
+        </main>
+      </div>);
+  }
+
   return (
     <div className={"app-shell redesign" + (shown === "grid" ? " redesign-grid" : "") + (menuOpen ? " mobile-menu-open" : "")} data-theme={theme}>
       <AppHeader theme={theme} onToggleTheme={() => setTheme(t => (t === "light" ? "dark" : "light"))} menuOpen={menuOpen} onMenu={() => setMenuOpen(o => !o)} githubUrl={D.githubUrl}
@@ -146,7 +200,7 @@ function AiBytesApp(props) {
         onCategory={key => { setFilters({ ...filters, category: key }); setSavedPage(false); setMenuOpen(false); }}
         links={D.links} subscribeUrl={D.subscribeUrl}
         onSaved={openSaved} savedCount={saved.size} savedActive={savedPage} />
-      <main id="main" className="redesign-main" tabIndex={-1}>
+      <main id="main" className="redesign-main" tabIndex={-1} onClick={onFeedClick}>
         <h1 className="app-sr">aiBytes_ edition, {ed.label}</h1>
         <div className="workspace"><section className="feed">
           <div className="toolbar-slot">
@@ -161,6 +215,10 @@ function AiBytesApp(props) {
           </div>
         </section></div>
       </main>
+      {gistId && GISTS[gistId] && (
+        <GistPanel gist={GISTS[gistId]} pageHref="#gist-page" width={panelWidth} onWidthChange={setPanelWidth} onClose={() => setGistId(null)}>
+          <GistView gist={GISTS[gistId]} as="panel" actions={actionsFor(gistId)} />
+        </GistPanel>)}
       {promptOpen && <NewsletterPromptSample onClose={() => setPromptOpen(false)} />}
     </div>);
 }

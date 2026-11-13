@@ -426,7 +426,12 @@ save). At 760px and under, a full-screen sheet with no resize edge.
 - [x] Tests: separator role and values, arrow keys change width within
       bounds, Escape calls `onClose`. (8 tests; the rules are pure functions in
       `gistPanel.js` because there is no DOM library to drive the effects.)
-- [ ] Browser check at 1440 and 390px, both themes.
+- [x] Browser check at 1440 and 390px, both themes. (Done on kit screens
+      16 to 18 in Chrome: the panel opens beside the feed at 1440px, Shift+Left
+      widens it 460 to 540 and the feed's padding follows, Escape closes it and
+      clears `--gist-panel-w`; at 390px it is a full-width `dialog` with
+      `aria-modal` and no resize edge, with no sideways scroll; the dark page
+      renders on the tokens. No console errors.)
 
 **Verification:** design-system tests; the preview server.
 **Dependencies:** T19. **Size:** M.
@@ -455,8 +460,9 @@ page, plus readme entries. Sync the new components to the Design System
 Artifact in Claude (decided at approval).
 
 **Acceptance criteria:**
-- [ ] Screens listed in both readmes; a Python test pins them, as for
-      earlier screens.
+- [x] Screens listed in both readmes; a Python test pins them, as for
+      earlier screens. (Screens 16 panel, 17 page in dark, 18 phone sheet;
+      `GistKitTests`, 6 tests.)
 
 **Verification:** the preview server matches the design record.
 **Dependencies:** T19-T21. **Size:** M.

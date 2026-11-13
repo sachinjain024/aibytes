@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-13T11:05:07.675Z
+updated_at: 2026-11-13T11:06:55.026Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -100,7 +100,7 @@ added_by:
 - [x] 7.1 T18: Ledger spec <!-- longclaw:item=ck_8fef693d -->
 - [x] 7.2 T19: GistView <!-- longclaw:item=ck_45ced086 -->
 - [ ] 7.3 T20: GistPanel, resizable <!-- longclaw:item=ck_b573c191 -->
-- [ ] 7.4 T21: reactions bar, front-page badge, saved line, banner copy <!-- longclaw:item=ck_77f4b374 -->
+- [x] 7.4 T21: reactions bar, front-page badge, saved line, banner copy <!-- longclaw:item=ck_77f4b374 -->
 - [ ] 7.5 T22: UI kit screens and Design System Artifact sync <!-- longclaw:item=ck_f8e04426 -->
 - [ ] 7.6 Checkpoint D: kit screens reviewed <!-- longclaw:item=ck_87ea0fa7 -->
 - [ ] 8. app-gist-pages <!-- longclaw:item=ck_9da86e57 -->
@@ -1000,6 +1000,21 @@ changes:
   - field: checklist.ck_b573c191.checked
     from: "true"
     to: "false"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_5fd7ad18
+kind: update
+occurred_at: 2026-11-13T11:06:55.026Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_77f4b374.checked
+    from: "false"
+    to: "true"
 -->
 ### claude-code updated this ticket
 <!-- /longclaw:event -->
