@@ -3,7 +3,7 @@
 // tested on its own. Node only. `renderGistPage` is the server build's export.
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { backLink, moreFrom, robotsTxt, shownGists, siteEntries, sitemapXml } from "./gistSite.js";
+import { listKey, pageData, robotsTxt, shownGists, siteEntries, sitemapXml } from "./gistSite.js";
 import { gistHead, withHead } from "./pageMeta.js";
 
 const readJson = async (file) => JSON.parse(await readFile(file, "utf8"));
@@ -30,21 +30,22 @@ export async function writeGistSite({ outDir, contentDir, html, renderGistPage }
   const listOf = new Map();
   for (const ref of index.editions) {
     const edition = await readJson(path.join(contentDir, "editions", ref.date + ".json"));
-    listOf.set("edition:" + ref.date, edition.items);
+    listOf.set(listKey({ edition_date: ref.date }), edition.items);
     for (const item of edition.items) itemsById[item.id] = item;
   }
   for (const ref of weekly.issues) {
     const issue = await readJson(path.join(contentDir, "weekly", "issues", ref.slug + ".json"));
-    listOf.set("issue:" + ref.slug, issue.items);
+    listOf.set(listKey({ issue_slug: ref.slug }), issue.items);
     for (const item of issue.items) itemsById[item.id] = item;
   }
 
   const gists = shownGists(await loadGists(contentDir), itemsById);
   for (const gist of gists) {
-    const first = gist.appearances[0];
-    const items = first ? listOf.get(first.edition_date ? "edition:" + first.edition_date : "issue:" + first.issue_slug) : undefined;
-    const markup = renderGistPage({ gist, more: moreFrom(gist, items) });
-    const page = withHead(html, gistHead(gist)).replace('<div id="root"></div>', () => `<div id="root">${markup}</div>`);
+    const data = pageData(gist, listOf);
+    const markup = renderGistPage(data);
+    // The same data goes in the page, so the browser hydrates the markup without a fetch.
+    const embedded = `<script type="application/json" id="gist-data">${JSON.stringify(data).replace(/</g, "\\u003c")}</script>`;
+    const page = withHead(html, gistHead(gist)).replace('<div id="root"></div>', () => `<div id="root">${markup}</div>${embedded}`);
     const dir = path.join(outDir, "gists", gist.slug);
     await mkdir(dir, { recursive: true });
     await writeFile(path.join(dir, "index.html"), page);

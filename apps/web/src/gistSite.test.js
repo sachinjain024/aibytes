@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { moreFrom, backLink, robotsTxt, shownGists, sitemapXml, siteEntries } from "./gistSite.js";
+import { backLink, listKey, moreFrom, pageData, robotsTxt, shownGists, sitemapXml, siteEntries } from "./gistSite.js";
 
 const item = (id, rank, extra = {}) => ({ id, rank, hidden: false, source: "hackernews", ...extra });
 const gist = (slug, depth, appearances, extra = {}) => ({ slug, depth, kind: "hn", appearances, updated_at: "2026-08-28T09:00:00Z", ...extra });
@@ -65,4 +65,18 @@ test("a sitemap past 45,000 addresses fails the build", () => {
 
 test("robots.txt allows everything and names the sitemap", () => {
   assert.equal(robotsTxt(), "User-agent: *\nAllow: /\n\nSitemap: https://aibytes.io/sitemap.xml\n");
+});
+
+test("page data is the gist and its more-from list, or null when the gist is not shown", () => {
+  const first = { item_id: "a", edition_date: "2026-08-27" };
+  const lists = new Map([["edition:2026-08-27", [item("a", 1), item("b", 2), item("c", 3, { hidden: true })]]]);
+  const shown = gist("one", "full", [first]);
+  assert.deepEqual(pageData(shown, lists), { gist: shown, more: [item("b", 2)] });
+  assert.equal(pageData(gist("two", "full", [{ item_id: "c", edition_date: "2026-08-27" }]), lists), null);
+  assert.equal(pageData(gist("three", "full", [first]), new Map()), null);
+});
+
+test("the keys of an appearance's list", () => {
+  assert.equal(listKey({ edition_date: "2026-08-27" }), "edition:2026-08-27");
+  assert.equal(listKey({ issue_slug: "issue-9" }), "issue:issue-9");
 });

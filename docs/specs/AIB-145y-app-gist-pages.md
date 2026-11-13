@@ -4,8 +4,8 @@
 - **Parent spec:** `docs/specs/AIB-145y-gists.md`, module `app-gist-pages`
 - **Builds on:** `AIB-145y-gist-contract.md` (the gist file), `AIB-145y-ledger-gist-ui.md`
   (`GistView`), `AIB-145y-gist-analytics.md` (Search Console, P8)
-- **Status:** proposed 13 Nov 2026, for the publisher's approval. Three choices
-  are marked **Decide** and each has a recommendation.
+- **Status:** approved 13 Nov 2026, with all three recommendations. The choices
+  marked **Decide** below are settled as recommended.
 
 ## Objective
 

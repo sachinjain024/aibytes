@@ -31,6 +31,25 @@ export function backLink(gist) {
   return { href: "/weekly/" + first.issue_slug, label: number ? "Issue " + number[1] : first.issue_slug };
 }
 
+/** The key of the edition or issue an appearance points into, for a map of item lists. */
+export const listKey = (appearance) => (appearance.edition_date ? "edition:" + appearance.edition_date : "issue:" + appearance.issue_slug);
+
+/**
+ * What a gist page needs: the gist and its "More from" rows, or null when the
+ * gist has no page (hidden, or its items could not be loaded). `lists` maps
+ * listKey to the items of each edition or issue the gist appears in. The build
+ * and the browser both call this, so they decide the same way.
+ */
+export function pageData(gist, lists) {
+  const itemsById = {};
+  for (const appearance of gist.appearances ?? []) {
+    for (const item of lists.get(listKey(appearance)) ?? []) itemsById[item.id] = item;
+  }
+  if (!gistIsShown(gist, itemsById)) return null;
+  const first = gist.appearances?.[0];
+  return { gist, more: moreFrom(gist, first ? lists.get(listKey(first)) : undefined) };
+}
+
 const entry = (path, lastmod) => ({ loc: SITE_ORIGIN + path, ...(lastmod ? { lastmod } : {}) });
 
 /**

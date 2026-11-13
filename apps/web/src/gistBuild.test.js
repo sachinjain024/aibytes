@@ -77,6 +77,15 @@ test("the page links back and offers more from the same edition, not the gist's 
   assert.doesNotMatch(page, />Item full</);
 });
 
+test("the page carries its own data, escaped, for the browser to take over", () => {
+  const page = read("gists", "full-one", "index.html");
+  const block = page.match(/<script type="application\/json" id="gist-data">([\s\S]*?)<\/script>/)[1];
+  assert.doesNotMatch(block, /</);
+  const data = JSON.parse(block);
+  assert.equal(data.gist.slug, "full-one");
+  assert.deepEqual(data.more.map((i) => i.id), ["brief", "other", "more"]);
+});
+
 test("a brief gist has a page that says noindex, with no structured data", () => {
   const page = read("gists", "brief-one", "index.html");
   assert.match(page, /<meta name="robots" content="noindex" \/>/);

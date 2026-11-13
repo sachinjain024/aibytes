@@ -4,7 +4,7 @@ import { ListRow } from "@aibytes/design-system/components/content/ListRow.jsx";
 import { RowList } from "@aibytes/design-system/components/content/Feed.jsx";
 import { AppHeader } from "@aibytes/design-system/components/navigation/AppHeader.jsx";
 import { backLink } from "./gistSite.js";
-import { GITHUB_URL } from "./footer.js";
+import { GITHUB_URL, SUBSCRIBE_URL } from "./footer.js";
 
 // The page at /gists/<slug> (spec AIB-145y-app-gist-pages). One component for
 // the build, which renders it to a string, and the browser, which takes the
@@ -15,7 +15,7 @@ import { GITHUB_URL } from "./footer.js";
 // `headerProps` is what AppHeader gets for the account; an empty object, as on
 // the server, shows neither Sign in nor an avatar, the same as while Firebase
 // restores the session.
-export function GistPage({ gist, more = [], theme = "light", headerProps = {}, banner = null, actions = null, saved = new Set(), onToggleSave = () => {} }) {
+export function GistPage({ gist, more = [], theme = "light", headerProps = {}, banner = null, actions = null, saved = new Set(), onToggleSave = () => {}, showSubscribe = true }) {
   const back = backLink(gist);
   return (
     <div className="app-shell redesign" data-theme={theme}>
@@ -33,6 +33,11 @@ export function GistPage({ gist, more = [], theme = "light", headerProps = {}, b
                 <ListRow key={item.id} item={item} saved={saved.has(item.id)} onToggleSave={() => onToggleSave(item.id)} starPos="visual" />))}
               </RowList>
             </section>)}
+          {showSubscribe && (
+            <aside className="weekly-subscribe" aria-label="Subscribe">
+              <p className="weekly-subscribe__text"><b>Get aiBytes_ every Monday.</b> The week in AI for developers, in your inbox.</p>
+              <a className="ldg-btn ldg-btn--primary weekly-subscribe__action" href={SUBSCRIBE_URL}>Subscribe</a>
+            </aside>)}
         </div>
       </main>
     </div>);

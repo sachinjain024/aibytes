@@ -533,9 +533,21 @@ as list rows, the subscribe bar, the sticky banner when signed out with
 saves. It takes over the server markup without a flash.
 
 **Acceptance criteria:**
-- [ ] With JavaScript off, the page reads in full (success criterion 2).
-- [ ] Saving from the page shows on `/saved` and the card.
-- [ ] Browser check at 1440 and 375px, both themes.
+- [x] With JavaScript off, the page reads in full (success criterion 2). (Checked
+      on a built site with the 149 rehearsal gists: the served markup holds the
+      lede, key points, back link, More from, Subscribe and Source.)
+- [x] Saving from the page shows on `/saved` and the card. (The star saves the
+      gist's first item, so `/saved` lists it and the card's star is pressed.)
+- [x] Browser check at 1440 and 375px, both themes. (Built site under
+      `vite preview`: no console errors or hydration warnings at 1440px in light
+      and in dark with a saved item and the banner; 375px dark has no sideways
+      scroll.)
+
+**Done in T26:** `GistApp` in `App.jsx`; `GistPage` takes the account, theme and
+saves as props the client fills in after mount; the built page embeds its data
+in `#gist-data` and `main.jsx` hydrates it. `loadGistPage` serves the dev
+server and client-side visits; a hidden or unknown gist is the not-found
+screen. Reactions are left out until T32, as the spec says.
 
 **Verification:** dev server and the built site served locally.
 **Dependencies:** T25, T19, T21. **Size:** M.

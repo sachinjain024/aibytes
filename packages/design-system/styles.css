@@ -2680,3 +2680,6 @@ html:not([data-input-modality="keyboard"]) .app-shell :focus,.app-shell :focus:n
 .gist-crumb a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
 .gist-more { display: flex; flex-direction: column; gap: 8px; }
 .gist-more h2 { margin: 0; font: 600 var(--text-12) var(--font-body); letter-spacing: .07em; text-transform: uppercase; color: var(--text-2); }
+
+/* The gist page uses the weekly pages' subscribe bar; give it the column's width and a gap above. */
+.gist-page .weekly-subscribe { margin: 0; }
