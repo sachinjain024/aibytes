@@ -245,9 +245,9 @@ the README text, capped; the most-commented open issues (titles, labels,
 comment counts). Uses `GITHUB_TOKEN` when set.
 
 **Acceptance criteria:**
-- [ ] Offline tests on saved API fixtures; a 403 rate-limit result is
+- [x] Offline tests on saved API fixtures; a 403 rate-limit result is
       reported, not raised.
-- [ ] One live test, skipped by `AIBYTES_SKIP_LIVE=1`.
+- [x] One live test, skipped by `AIBYTES_SKIP_LIVE=1`.
 
 **Verification:** as T10. **Dependencies:** T9. **Size:** M.
 **Files:** `aibytes_fetchers/github_repo.py`, tests, fixtures.

@@ -17,7 +17,7 @@ from unittest import mock
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "packages" / "fetchers"))
 
-from aibytes_fetchers import article, cli, envelope, hn_thread, http, layout, registry, runner, window as window_mod
+from aibytes_fetchers import article, cli, envelope, github_repo, hn_thread, http, layout, registry, runner, window as window_mod
 from aibytes_fetchers.sources import github, hackernews, producthunt, techcrunch
 
 
@@ -386,6 +386,103 @@ class TestHnThread(unittest.TestCase):
         got = hn_thread.hn_thread(1)  # HN's first story, stable forever
         self.assertEqual(got["by"], "pg")
         self.assertIsNone(got["error"])
+
+
+
+class TestRepoDetails(unittest.TestCase):
+    """AIB-145y T11: a repo's facts, README and most-discussed open issues."""
+
+    BASE = "https://api.github.com/repos/fixture/agent-kit"
+
+    def pages(self):
+        search = ("https://api.github.com/search/issues?q=repo%3Afixture/agent-kit%20type%3Aissue"
+                  "%20state%3Aopen&per_page=1")
+        return {
+            self.BASE: http.Response(200, {}, fixture("gh_repo.json").encode()),
+            self.BASE + "/readme": http.Response(200, {}, fixture("gh_readme.md").encode()),
+            self.BASE + "/contributors?per_page=1&anon=1": http.Response(200, {
+                "Link": '<https://api.github.com/x?per_page=1&anon=1&page=2>; rel="next", '
+                        '<https://api.github.com/x?per_page=1&anon=1&page=87>; rel="last"'}, b"[{}]"),
+            self.BASE + "/releases/latest": http.Response(200, {}, fixture("gh_release.json").encode()),
+            search: http.Response(200, {}, b'{"total_count": 42}'),
+            self.BASE + "/issues?state=open&sort=comments&direction=desc&per_page=10":
+                http.Response(200, {}, fixture("gh_issues.json").encode()),
+        }
+
+    def get(self, pages=None, token="t0ken"):
+        fetch = fake_fetch(self.pages() if pages is None else pages)
+        with mock.patch.object(http, "fetch", fetch):
+            return github_repo.repo_details("fixture", "agent-kit", token=token), fetch
+
+    def test_stats_use_the_contracts_repo_keys(self):
+        got, _ = self.get()
+        self.assertTrue(got["ok"])
+        self.assertEqual(got["stats"], {
+            "stars": 1234, "forks": 56, "language": "Python", "license": "MIT",
+            "created_on": "2025-03-04", "contributors": 87, "open_issues": 42,
+            "last_release": {"tag": "v1.4.0", "published_on": "2026-10-30"}})
+        sys.path.insert(0, str(REPO_ROOT / "packages" / "feed-schema"))
+        import gist_contract
+        self.assertLessEqual(set(got["stats"]), set(gist_contract.STATS_TYPES["repo"]) - {"stars_gained"})
+
+    def test_pull_requests_are_dropped_from_issues(self):
+        got, _ = self.get()
+        self.assertEqual([(i["id"], i["number"]) for i in got["issues"]], [("i1", 7), ("i2", 3)])
+        self.assertEqual(got["issues"][0]["labels"], ["bug", "windows"])
+        self.assertEqual(got["issues"][0]["comments"], 41)
+
+    def test_readme_keeps_words_and_drops_badges_images_and_tags(self):
+        readme, _ = self.get()
+        text = readme["readme"]
+        for gone in ("shields.io", "<img", "hidden note", "https://example.com/docs"):
+            self.assertNotIn(gone, text)
+        self.assertIn("See the docs for more.", text)
+        self.assertIn("pip install agent-kit", text)
+        self.assertEqual(readme["readme_words"], len(text.split()))
+
+    def test_one_contributor_page_without_a_link_header_counts_the_list(self):
+        pages = self.pages()
+        pages[self.BASE + "/contributors?per_page=1&anon=1"] = http.Response(200, {}, b"[{}]")
+        self.assertEqual(self.get(pages)[0]["stats"]["contributors"], 1)
+
+    def test_no_release_leaves_the_stat_out(self):
+        pages = self.pages()
+        del pages[self.BASE + "/releases/latest"]
+        self.assertNotIn("last_release", self.get(pages)[0]["stats"])
+
+    def test_a_rate_limit_is_reported_not_raised(self):
+        limited = http.Response(403, {"X-RateLimit-Remaining": "0"}, error="HTTP 403")
+        got, _ = self.get({self.BASE: limited})
+        self.assertFalse(got["ok"])
+        self.assertTrue(got["rate_limited"])
+        self.assertEqual(got["error"], "rate limited")
+
+    def test_a_rate_limit_part_way_keeps_what_was_read(self):
+        pages = self.pages()
+        pages[self.BASE + "/releases/latest"] = http.Response(429, {}, error="HTTP 429")
+        got, _ = self.get(pages)
+        self.assertTrue(got["ok"] and got["rate_limited"])
+        self.assertIn("stars", got["stats"])
+
+    def test_the_token_is_sent_only_when_there_is_one(self):
+        seen = []
+
+        def fetch(url, headers=None, **_):
+            seen.append(dict(headers or {}))
+            return http.Response(404, error="HTTP 404")
+        with mock.patch.object(http, "fetch", fetch), mock.patch.dict(os.environ, {}, clear=True):
+            github_repo.repo_details("a", "b")
+            github_repo.repo_details("a", "b", token="abc")
+        self.assertNotIn("Authorization", seen[0])
+        self.assertEqual(seen[1]["Authorization"], "Bearer abc")
+
+    @unittest.skipIf(SKIP_LIVE, "AIBYTES_SKIP_LIVE=1")
+    def test_live_a_known_repo(self):
+        got = github_repo.repo_details("python", "cpython")
+        if got["rate_limited"]:
+            self.skipTest("GitHub's anonymous rate limit is spent on this address")
+        self.assertTrue(got["ok"])
+        self.assertGreater(got["stats"]["stars"], 1000)
 
 
 if __name__ == "__main__":

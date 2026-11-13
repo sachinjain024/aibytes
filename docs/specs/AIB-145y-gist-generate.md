@@ -57,7 +57,7 @@ outside this ticket; filed as AIB-146r (Q4).
 |---|---|---|---|---|
 | `news` (TechCrunch) | `article_text(url)` | title, byline, paragraphs; 12,000 chars | at least 150 words read | none |
 | `hn` | HN `item/<id>.json` (ranked `kids`, `score`, `descendants`, `by`, `time`); Algolia `items/<id>` (comment text); `article_text(url)` for a link post | the article as for news; self-post text; the top 10 top-level comments by HN rank, 600 chars each, each with its first reply at 300 chars; ids `c1`… | the article or the self-post has at least 150 words | `points`, `comments`, `submitted_by`, `posted_at` (edition item, HN item) |
-| `repo` | GitHub REST: `repos/{o}/{r}`, `readme`, `contributors?per_page=1&anon=1` (count from `Link`), `releases/latest`, `issues?state=open&sort=comments&per_page=10` (pull requests dropped) | description, topics, README 15,000 chars; issues as title, labels, comment count, ids `i1`… | README has at least 100 words | all nine repo keys; `stars_gained` from the edition item |
+| `repo` | GitHub REST: `repos/{o}/{r}`, `readme`, `contributors?per_page=1&anon=1` (count from `Link`), `releases/latest`, `search/issues` for the open-issue count (the repo's own count includes pull requests), `issues?state=open&sort=comments&per_page=10` (pull requests dropped) | description, topics, README 15,000 chars; issues as title, labels, comment count, ids `i1`… | README has at least 100 words | all nine repo keys; `stars_gained` from the edition item |
 | `launch` (Product Hunt) | PH GraphQL `post(id)` with `comments(first: 20, order: VOTES_COUNT)` and `comments(last: 5, order: NEWEST)`, one call; `article_text` on the product site only if curate resolved one | tagline, description, topics; the launch comment (every top-level comment posted before `createdAt`, else the top-voted one), 2,000 chars, id `c1`; the next 8 top-level comments by votes, 600 chars each, ids `c2`…; the site's text, 12,000 chars | description and launch comment together have at least 120 words | `upvotes`, `comments` |
 | `launch` (Show HN, Launch HN) | as `hn` | as `hn` | as `hn` | as `hn` |
 
@@ -71,7 +71,7 @@ bot check or paywall (a `cf-chl` form, "enable JavaScript", "subscribe to
 continue"). The draft records which of these it was.
 
 GitHub calls use `GITHUB_TOKEN` when it is set (5,000 requests an hour;
-without it, 60). At five calls a repo and at most five new repos a day, both
+without it, 60). At six calls a repo and at most five new repos a day, both
 are enough, but GitHub's shared runner addresses often hit the anonymous
 limit, so the workflow passes the token (P3). A 403 or 429 makes that repo
 `brief`; it never stops the run.

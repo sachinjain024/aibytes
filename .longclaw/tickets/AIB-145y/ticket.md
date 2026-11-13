@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-13T06:05:47.754Z
+updated_at: 2026-11-13T06:09:14.496Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -86,7 +86,7 @@ added_by:
 - [ ] 6. gist-generate <!-- longclaw:item=ck_e24b8093 -->
 - [x] 6.1 T9: generation spec <!-- longclaw:item=ck_0389ed70 -->
 - [x] 6.2 T10: HN thread and article text fetchers <!-- longclaw:item=ck_112675a4 -->
-- [ ] 6.3 T11: GitHub repo fetchers <!-- longclaw:item=ck_49396094 -->
+- [x] 6.3 T11: GitHub repo fetchers <!-- longclaw:item=ck_49396094 -->
 - [ ] 6.4 T12: Product Hunt launch material <!-- longclaw:item=ck_427f19be -->
 - [ ] 6.5 T13: gists draft <!-- longclaw:item=ck_c31ad84c -->
 - [ ] 6.6 T14: the write-gists skill <!-- longclaw:item=ck_7c7c828a -->
@@ -788,6 +788,21 @@ actor:
   id: claude-code
 changes:
   - field: checklist.ck_112675a4.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_55ebbdbb
+kind: update
+occurred_at: 2026-11-13T06:09:14.496Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_49396094.checked
     from: "false"
     to: "true"
 -->
