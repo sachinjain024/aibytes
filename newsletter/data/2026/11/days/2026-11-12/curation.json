@@ -1,0 +1,729 @@
+{
+  "date": "2026-11-12",
+  "generated_at": "2026-11-12T16:45:28Z",
+  "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
+  "tags": [
+    {
+      "name": "What it is",
+      "tags": [
+        {
+          "name": "Model Release",
+          "slug": "model-release"
+        },
+        {
+          "name": "Open Source",
+          "slug": "open-source"
+        },
+        {
+          "name": "Paper",
+          "slug": "paper"
+        },
+        {
+          "name": "Benchmark",
+          "slug": "benchmark"
+        },
+        {
+          "name": "Dataset",
+          "slug": "dataset"
+        },
+        {
+          "name": "Framework",
+          "slug": "framework"
+        },
+        {
+          "name": "Dev Tool",
+          "slug": "dev-tool"
+        },
+        {
+          "name": "API",
+          "slug": "api"
+        }
+      ]
+    },
+    {
+      "name": "Domain",
+      "tags": [
+        {
+          "name": "LLM",
+          "slug": "llm"
+        },
+        {
+          "name": "Agents",
+          "slug": "agents"
+        },
+        {
+          "name": "RAG",
+          "slug": "rag"
+        },
+        {
+          "name": "Fine-tuning",
+          "slug": "fine-tuning"
+        },
+        {
+          "name": "Inference",
+          "slug": "inference"
+        },
+        {
+          "name": "Local LLM",
+          "slug": "local-llm"
+        },
+        {
+          "name": "Vision",
+          "slug": "vision"
+        },
+        {
+          "name": "Voice / Speech",
+          "slug": "voice-speech"
+        },
+        {
+          "name": "Video",
+          "slug": "video"
+        },
+        {
+          "name": "Image Gen",
+          "slug": "image-gen"
+        },
+        {
+          "name": "Code Gen",
+          "slug": "code-gen"
+        },
+        {
+          "name": "Embeddings",
+          "slug": "embeddings"
+        },
+        {
+          "name": "Eval",
+          "slug": "eval"
+        },
+        {
+          "name": "Reasoning",
+          "slug": "reasoning"
+        },
+        {
+          "name": "Multimodal",
+          "slug": "multimodal"
+        },
+        {
+          "name": "Robotics",
+          "slug": "robotics"
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem",
+      "tags": [
+        {
+          "name": "OpenAI",
+          "slug": "openai"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic"
+        },
+        {
+          "name": "Google",
+          "slug": "google"
+        },
+        {
+          "name": "Meta",
+          "slug": "meta"
+        },
+        {
+          "name": "Nvidia",
+          "slug": "nvidia"
+        },
+        {
+          "name": "Hugging Face",
+          "slug": "hugging-face"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft"
+        },
+        {
+          "name": "Claude Code",
+          "slug": "claude-code"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor"
+        },
+        {
+          "name": "MCP",
+          "slug": "mcp"
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "tags": [
+        {
+          "name": "Funding",
+          "slug": "funding"
+        },
+        {
+          "name": "Acquisition",
+          "slug": "acquisition"
+        },
+        {
+          "name": "Launch",
+          "slug": "launch"
+        },
+        {
+          "name": "Pricing",
+          "slug": "pricing"
+        },
+        {
+          "name": "Policy",
+          "slug": "policy"
+        },
+        {
+          "name": "Legal",
+          "slug": "legal"
+        },
+        {
+          "name": "Security",
+          "slug": "security"
+        },
+        {
+          "name": "Privacy",
+          "slug": "privacy"
+        },
+        {
+          "name": "Safety",
+          "slug": "safety"
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "tags": [
+        {
+          "name": "Show HN",
+          "slug": "show-hn"
+        },
+        {
+          "name": "Tutorial",
+          "slug": "tutorial"
+        },
+        {
+          "name": "Deep Dive",
+          "slug": "deep-dive"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ph-scroogefrog-ai-2026-11-12",
+      "title": "ScroogeFrog AI",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/scroogefrog-ai-antifraud",
+      "source_url": "https://www.producthunt.com/products/scroogefrog-ai-antifraud",
+      "source_text": "ScroogeFrog AI AI ad fraud detection that protects your marketing budget  ScroogeFrog AI helps advertisers find out where their ad budget is going to waste. It audits website traffic and Google Ads campaigns to uncover suspicious clicks, bot activity, and underperforming spend, then turns complex data into clear recommendations on what to fix. For agencies and larger advertisers, it also offers custom AI fraud detection models trained on their own traffic data. Less guesswork, more control over every advertising dollar. Marketing Advertising Artificial Intelligence",
+      "signals": {
+        "upvotes": 302,
+        "comments": 64
+      },
+      "published_at": "2026-11-11T08:01:00Z"
+    },
+    {
+      "id": "ph-nod-by-n8n-2026-11-12",
+      "title": "Nod by n8n",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/n8n-io",
+      "source_url": "https://www.producthunt.com/products/n8n-io",
+      "source_text": "Nod by n8n Open source personal agent with its own computer Nod does the work around your work, in your apps and on real websites, using a private computer of its own on your Mac or PC. It takes orders only from you, asks before anything you didn't ask for, and runs on the AI provider you choose. Free, Apache 2.0. Open Source Artificial Intelligence Virtual Assistants",
+      "signals": {
+        "upvotes": 292,
+        "comments": 39
+      },
+      "published_at": "2026-11-11T08:01:00Z"
+    },
+    {
+      "id": "ph-plurai-simulation-2026-11-12",
+      "title": "Plurai Simulation",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/plurai",
+      "source_url": "https://www.producthunt.com/products/plurai",
+      "source_text": "Plurai Simulation A simulated world that makes your agent improve on every run Find your agent’s worst bugs before your users do. One command in Claude Code, Codex or GitHub Copilot builds a digital twin of your agent’s world: synthetic personas and documents, plus mocked tools, APIs and databases, in sandboxes that never touch production. API Developer Tools Artificial Intelligence",
+      "signals": {
+        "upvotes": 275,
+        "comments": 103
+      },
+      "published_at": "2026-11-12T08:01:00Z"
+    },
+    {
+      "id": "ph-call-e-2026-11-12",
+      "title": "CALL-E",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/call-e",
+      "source_url": "https://www.producthunt.com/products/call-e",
+      "source_text": "CALL-E Make phone calls with your AI agent (Muse, ChatGPT, Claude) CALL-E lets your AI assistant make phone calls for you. Ask Muse, ChatGPT or Claude to book a table, get a quote, move an appointment or check stock. CALL-E asks for anything missing, shows you the plan, and dials a real US or Canadian number after you confirm. It gets through phone menus, hold and voicemail, then brings back a summary, the transcript and what happened. Builders can add it to Claude Code, Codex, Cursor or OpenClaw with one prompt. New users get 100 free credits. Productivity Artificial Intelligence Virtual Assistants",
+      "signals": {
+        "upvotes": 255,
+        "comments": 71
+      },
+      "published_at": "2026-11-11T08:01:00Z"
+    },
+    {
+      "id": "ph-youart-desktop-app-2026-11-12",
+      "title": "YouArt Desktop App",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/youart",
+      "source_url": "https://www.producthunt.com/products/youart",
+      "source_text": "YouArt Desktop App Codex for creative team Meet YouArt Desktop App: AI creative teammate that lives on your computer. Agent-first video production is here. Pull your local files and context from Slack, Gmail and GitHub onto one canvas, and with computer use it operates After Effects, CapCut and Blender directly. From feature launch videos to viral remakes and clips from your long videos, it takes the whole job end to end. Bring your own API keys, and smart routing sends every shot to the cheapest provider. Marketing Artificial Intelligence Video",
+      "signals": {
+        "upvotes": 239,
+        "comments": 37
+      },
+      "published_at": "2026-11-12T08:01:00Z"
+    },
+    {
+      "id": "gh-agent-skills-2026-11-12",
+      "title": "addyosmani/agent-skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "source_url": "https://github.com/addyosmani/agent-skills",
+      "source_text": "addyosmani/agent-skills Production-grade engineering skills for AI coding agents. JavaScript",
+      "signals": {
+        "stars": 116486,
+        "stars_gained": 812,
+        "forks": 12199
+      },
+      "meta": {
+        "language": "JavaScript"
+      }
+    },
+    {
+      "id": "gh-codex-security-2026-11-12",
+      "title": "openai/codex-security",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/openai/codex-security",
+      "source_url": "https://github.com/openai/codex-security",
+      "source_text": "openai/codex-security OpenAI's Codex Security CLI and TypeScript SDK for finding, validating, and fixing security vulnerabilities. npm: https://www.npmjs.com/package/@openai/codex-security TypeScript",
+      "signals": {
+        "stars": 12210,
+        "stars_gained": 663,
+        "forks": 968
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-free-claude-code-2026-11-12",
+      "title": "Alishahryar1/free-claude-code",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/Alishahryar1/free-claude-code",
+      "source_url": "https://github.com/Alishahryar1/free-claude-code",
+      "source_text": "Alishahryar1/free-claude-code Use Claude Code, Codex, Antigravity, VSCode, Pi, and OpenCode (and 6 other harnesses) for free (1.3B+ free tokens) from your terminal, app, IDE, or phone, and now from the browser with native browser sessions (multi-harness + multi-model) like OpenClaw (voice supported + ToS friendly) Python",
+      "signals": {
+        "stars": 69027,
+        "stars_gained": 461,
+        "forks": 10736
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-openbot-2026-11-12",
+      "title": "CopilotKit/OpenBot",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/CopilotKit/OpenBot",
+      "source_url": "https://github.com/CopilotKit/OpenBot",
+      "source_text": "CopilotKit/OpenBot Open-source AI coworkers that each get a computer of their own: a browser, files and tools, with every action decided before it happens and recorded after. Bring any AG-UI agent. TypeScript",
+      "signals": {
+        "stars": 11373,
+        "stars_gained": 291,
+        "forks": 1412
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-llama-cpp-2026-11-12",
+      "title": "ggml-org/llama.cpp",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/ggml-org/llama.cpp",
+      "source_url": "https://github.com/ggml-org/llama.cpp",
+      "source_text": "ggml-org/llama.cpp LLM inference in C/C++ C++",
+      "signals": {
+        "stars": 134383,
+        "stars_gained": 287,
+        "forks": 25486
+      },
+      "meta": {
+        "language": "C++"
+      }
+    },
+    {
+      "id": "gh-qwen-code-2026-11-12",
+      "title": "QwenLM/qwen-code",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/QwenLM/qwen-code",
+      "source_url": "https://github.com/QwenLM/qwen-code",
+      "source_text": "QwenLM/qwen-code An open-source AI coding agent that lives in your terminal. TypeScript",
+      "signals": {
+        "stars": 29659,
+        "stars_gained": 151,
+        "forks": 3389
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-tensorfold-2026-11-12",
+      "title": "ashhart/TensorFold",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/ashhart/TensorFold",
+      "source_url": "https://github.com/ashhart/TensorFold",
+      "source_text": "ashhart/TensorFold LLM Inference Engine for Metal, CUDA and Vulkan. Zig",
+      "signals": {
+        "stars": 1873,
+        "stars_gained": 58,
+        "forks": 390
+      },
+      "meta": {
+        "language": "Zig"
+      }
+    },
+    {
+      "id": "tc-is-jensen-huangs-bad-behavior-more-commonplace-2026-11-12",
+      "title": "Is Jensen Huang’s bad behavior more commonplace than it seems?",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/11/is-jensen-huangs-bad-behavior-more-commonplace-than-it-seems/",
+      "source_url": "https://techcrunch.com/2026/11/11/is-jensen-huangs-bad-behavior-more-commonplace-than-it-seems/",
+      "source_text": "Is Jensen Huang’s bad behavior more commonplace than it seems? “There are a lot of senior people in the industry that know this is happening, and are effectively condoning it,” an investment intel consultant said.",
+      "meta": {
+        "author": "Russell Brandom",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-11T16:16:07Z"
+    },
+    {
+      "id": "tc-jensen-huang-agrees-to-testify-before-congress-2026-11-12",
+      "title": "Jensen Huang agrees to testify before Congress",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/12/jensen-huang-agrees-to-testify-before-congress/",
+      "source_url": "https://techcrunch.com/2026/11/12/jensen-huang-agrees-to-testify-before-congress/",
+      "source_text": "Jensen Huang agrees to testify before Congress Huang, who was ousted as CEO following reports of an alleged affair with a woman suspected of spying for China, agreed to testify Wednesday after several senior lawmakers threatened to subpoena him.",
+      "meta": {
+        "author": "Aisha Malik",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-12T16:36:37Z"
+    },
+    {
+      "id": "tc-five-ways-jensen-huangs-ouster-from-nvidia-2026-11-12",
+      "title": "Five ways Jensen Huang’s ouster from Nvidia could damage the AI industry",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/12/five-ways-jensen-huangs-ouster-from-nvidia-could-damage-the-ai-industry/",
+      "source_url": "https://techcrunch.com/2026/11/12/five-ways-jensen-huangs-ouster-from-nvidia-could-damage-the-ai-industry/",
+      "source_text": "Five ways Jensen Huang’s ouster from Nvidia could damage the AI industry Nvidia's ousted CEO Jensen Huang's downfall isn’t just your run-of-the-mill salacious billionaire sex scandal. He was using his influence to push the AI industry in some very specific ways.",
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "6 minutes"
+      },
+      "published_at": "2026-11-12T16:32:33Z"
+    },
+    {
+      "id": "tc-trump-floats-apple-chairman-tim-cook-as-jensen-2026-11-12",
+      "title": "Trump floats Apple chairman Tim Cook as Jensen Huang’s successor",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/12/trump-floats-apple-chairman-tim-cook-as-jensen-huangs-successor/",
+      "source_url": "https://techcrunch.com/2026/11/12/trump-floats-apple-chairman-tim-cook-as-jensen-huangs-successor/",
+      "source_text": "Trump floats Apple chairman Tim Cook as Jensen Huang’s successor In a post on Truth Social, President Trump says only one man can take Jensen Huang's place as head of Nvidia: Tim Cook.",
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-12T16:12:44Z"
+    },
+    {
+      "id": "tc-jensen-huang-is-out-at-nvidia-who-is-colette-2026-11-12",
+      "title": "Jensen Huang is out at Nvidia — who is Colette Kress, his interim replacement?",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/12/jensen-huang-is-out-at-nvidia-who-is-colette-kress-his-interim-replacement/",
+      "source_url": "https://techcrunch.com/2026/11/12/jensen-huang-is-out-at-nvidia-who-is-colette-kress-his-interim-replacement/",
+      "source_text": "Jensen Huang is out at Nvidia — who is Colette Kress, his interim replacement? Nvidia CFO Colette Kress is taking over as an interim replacement for longtime CEO Jensen Huang, who is embroiled in scandal.",
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-12T15:37:29Z"
+    },
+    {
+      "id": "tc-norwest-pushes-deeper-into-ai-with-new-4b-fund-2026-11-12",
+      "title": "Norwest pushes deeper into AI with new $4B fund",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/12/norwest-pushes-deeper-into-ai-with-new-4b-fund/",
+      "source_url": "https://techcrunch.com/2026/11/12/norwest-pushes-deeper-into-ai-with-new-4b-fund/",
+      "source_text": "Norwest pushes deeper into AI with new $4B fund This is the investment firm's largest fund to date.",
+      "meta": {
+        "author": "Kirsten Korosec",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-12T15:18:14Z"
+    },
+    {
+      "id": "tc-cyberattack-on-fireworks-ai-allowed-hackers-to-2026-11-12",
+      "title": "Cyberattack on Fireworks AI allowed hackers to access Notion customers’ chat transcripts",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/12/cyberattack-on-fireworks-ai-allowed-hackers-to-access-notion-customers-chat-transcripts/",
+      "source_url": "https://techcrunch.com/2026/11/12/cyberattack-on-fireworks-ai-allowed-hackers-to-access-notion-customers-chat-transcripts/",
+      "source_text": "Cyberattack on Fireworks AI allowed hackers to access Notion customers’ chat transcripts This is Fireworks' second data breach in as many months.",
+      "meta": {
+        "author": "Zack Whittaker",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-12T15:02:28Z"
+    },
+    {
+      "id": "tc-the-unfolding-jensen-huang-scandal-a-timeline-2026-11-12",
+      "title": "The unfolding Jensen Huang scandal: a timeline",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/12/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+      "source_url": "https://techcrunch.com/2026/11/12/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+      "source_text": "The unfolding Jensen Huang scandal: a timeline Jensen Huang has resigned from Nvidia following an affair, which could have ramifications for national security as the U.S. and China race to develop the most advanced AI infrastructure.",
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "8 minutes"
+      },
+      "published_at": "2026-11-12T14:30:01Z"
+    },
+    {
+      "id": "tc-nine-korean-startups-vie-for-a-spot-in-disrupt-2026-11-12",
+      "title": "Nine Korean startups vie for a spot in Disrupt 2027’s Startup Battlefield 200 competition",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/12/nine-korean-startups-vie-for-a-spot-in-disrupt-2027s-startup-battlefield-200-competition/",
+      "source_url": "https://techcrunch.com/2026/11/12/nine-korean-startups-vie-for-a-spot-in-disrupt-2027s-startup-battlefield-200-competition/",
+      "source_text": "Nine Korean startups vie for a spot in Disrupt 2027’s Startup Battlefield 200 competition The startups work across the deep tech sector, including healthcare, fintech, energy, semiconductors, and AI. All nine are looking to enter the US.",
+      "meta": {
+        "author": "Kate Park",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-12T13:26:25Z"
+    },
+    {
+      "id": "tc-who-could-replace-jensen-huang-a-highly-2026-11-12",
+      "title": "Who could replace Jensen Huang? A highly unscientific list of possible successors",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/11/who-could-replace-jensen-huang-a-highly-unscientific-list-of-possible-successors/",
+      "source_url": "https://techcrunch.com/2026/11/11/who-could-replace-jensen-huang-a-highly-unscientific-list-of-possible-successors/",
+      "source_text": "Who could replace Jensen Huang? A highly unscientific list of possible successors Nvidia has no succession plan and a CEO in hot water, so we’ve drafted a shortlist.",
+      "meta": {
+        "author": "Connie Loizos",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-12T03:13:10Z"
+    },
+    {
+      "id": "hn-my-ai-agents-found-an-unmapped-maya-site-2026-11-12",
+      "title": "My AI agents found an unmapped Maya site?",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://pietromiotti.com/latest/maya-site",
+      "source_url": "https://news.ycombinator.com/item?id=50452455",
+      "source_text": "My AI agents found an unmapped Maya site?",
+      "signals": {
+        "points": 1022,
+        "comments": 382
+      },
+      "meta": {
+        "author": "eyvindn"
+      },
+      "published_at": "2026-11-11T12:05:22Z"
+    },
+    {
+      "id": "hn-united-airlines-bans-ai-agents-from-booking-2026-11-12",
+      "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+      "source_url": "https://news.ycombinator.com/item?id=50458900",
+      "source_text": "United Airlines bans AI agents from booking flights on behalf of travelers",
+      "signals": {
+        "points": 636,
+        "comments": 660
+      },
+      "meta": {
+        "author": "herpderperator"
+      },
+      "published_at": "2026-11-11T21:24:35Z"
+    },
+    {
+      "id": "hn-gemini-decisions-api-2026-11-12",
+      "title": "Gemini Decisions API",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+      "source_url": "https://news.ycombinator.com/item?id=50456791",
+      "source_text": "Gemini Decisions API",
+      "signals": {
+        "points": 529,
+        "comments": 151
+      },
+      "meta": {
+        "author": "iamdelirium"
+      },
+      "published_at": "2026-11-11T18:32:42Z"
+    },
+    {
+      "id": "hn-anthropic-ipo-2026-11-12",
+      "title": "Anthropic IPO",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://ipo.anthropic.com/us/",
+      "source_url": "https://news.ycombinator.com/item?id=50465829",
+      "source_text": "Anthropic IPO",
+      "signals": {
+        "points": 460,
+        "comments": 473
+      },
+      "meta": {
+        "author": "josephljohnston"
+      },
+      "published_at": "2026-11-12T11:46:41Z"
+    },
+    {
+      "id": "hn-faster-retrieval-for-better-more-efficient-rag-2026-11-12",
+      "title": "Faster Retrieval for Better, More Efficient RAG",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://machinelearning.apple.com/research/faster-retrieval",
+      "source_url": "https://news.ycombinator.com/item?id=50455633",
+      "source_text": "Faster Retrieval for Better, More Efficient RAG",
+      "signals": {
+        "points": 225,
+        "comments": 38
+      },
+      "meta": {
+        "author": "zerop"
+      },
+      "published_at": "2026-11-11T16:57:45Z"
+    },
+    {
+      "id": "hn-retirement-savings-are-fueling-the-ai-bubble-2026-11-12",
+      "title": "Retirement Savings Are Fueling the AI Bubble",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://lpeproject.org/blog/your-retirement-savings-are-fueling-the-ai-bubble/",
+      "source_url": "https://news.ycombinator.com/item?id=50457164",
+      "source_text": "Retirement Savings Are Fueling the AI Bubble",
+      "signals": {
+        "points": 164,
+        "comments": 182
+      },
+      "meta": {
+        "author": "speckx"
+      },
+      "published_at": "2026-11-11T19:06:43Z"
+    },
+    {
+      "id": "hn-ai-activity-and-outcomes-in-software-engineering-2026-11-12",
+      "title": "AI, activity, and outcomes in software engineering",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://cabird.com/talks/shipping-faster/",
+      "source_url": "https://news.ycombinator.com/item?id=50455332",
+      "source_text": "AI, activity, and outcomes in software engineering",
+      "signals": {
+        "points": 124,
+        "comments": 109
+      },
+      "meta": {
+        "author": "azhenley"
+      },
+      "published_at": "2026-11-11T16:33:28Z"
+    },
+    {
+      "id": "hn-llms-play-zachtronics-tis-100-2026-11-12",
+      "title": "LLMs Play Zachtronics' TIS-100",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://tis-100.wincon.dev/",
+      "source_url": "https://news.ycombinator.com/item?id=50448340",
+      "source_text": "LLMs Play Zachtronics' TIS-100",
+      "signals": {
+        "points": 91,
+        "comments": 22
+      },
+      "meta": {
+        "author": "fairestvalue"
+      },
+      "published_at": "2026-11-11T00:37:05Z"
+    },
+    {
+      "id": "hn-oss-projects-banning-ai-generated-contributions-2026-11-12",
+      "title": "OSS projects banning AI-generated contributions",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://osssaysno.com",
+      "source_url": "https://news.ycombinator.com/item?id=50451102",
+      "source_text": "OSS projects banning AI-generated contributions",
+      "signals": {
+        "points": 64,
+        "comments": 110
+      },
+      "meta": {
+        "author": "jlengrand"
+      },
+      "published_at": "2026-11-11T08:51:45Z"
+    },
+    {
+      "id": "hn-ai-is-becoming-an-information-gateway-audiences-2026-11-12",
+      "title": "AI is becoming an information gateway. Audiences still don’t want it making news",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.niemanlab.org/2026/11/ai-is-becoming-an-information-gateway-audiences-still-dont-want-it-making-their-news/",
+      "source_url": "https://news.ycombinator.com/item?id=50448174",
+      "source_text": "AI is becoming an information gateway. Audiences still don’t want it making news",
+      "signals": {
+        "points": 58,
+        "comments": 88
+      },
+      "meta": {
+        "author": "rdmuser"
+      },
+      "published_at": "2026-11-11T00:15:33Z"
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "date": "2026-11-12",
+  "items": {
+    "ph-scroogefrog-ai-2026-11-12": {
+      "summary": "Audits site traffic and Google Ads campaigns for bot clicks and wasted spend, with custom fraud models trained on an agency's own traffic data.",
+      "tags": ["Launch"]
+    },
+    "ph-nod-by-n8n-2026-11-12": {
+      "summary": "Apache 2.0 personal agent from n8n that works in your apps and on real websites from its own private computer on a Mac or PC, on whichever AI provider you pick.",
+      "tags": ["Open Source", "Agents", "Launch"]
+    },
+    "ph-plurai-simulation-2026-11-12": {
+      "summary": "One command in Claude Code, Codex or GitHub Copilot builds a sandboxed twin of an agent's world - synthetic personas, documents, mocked tools, APIs and databases - for testing off production.",
+      "tags": ["Dev Tool", "Agents", "Eval", "Launch"]
+    },
+    "ph-call-e-2026-11-12": {
+      "summary": "Lets ChatGPT, Claude or Muse dial real US and Canadian numbers after you confirm the plan, getting through phone menus, hold and voicemail, then returning a transcript and summary.",
+      "tags": ["Agents", "Voice / Speech", "Launch"]
+    },
+    "ph-youart-desktop-app-2026-11-12": {
+      "summary": "Desktop agent that pulls context from Slack, Gmail and GitHub onto one canvas and operates After Effects, CapCut and Blender by computer use, routing each shot to the cheapest provider.",
+      "tags": ["Video", "Agents", "Launch"]
+    },
+    "gh-agent-skills-2026-11-12": {
+      "summary": "Addy Osmani's collection of production engineering skills for AI coding agents, written in JavaScript.",
+      "tags": ["Open Source", "Code Gen", "Agents"]
+    },
+    "gh-codex-security-2026-11-12": {
+      "summary": "OpenAI's CLI and TypeScript SDK, published on npm as @openai/codex-security, for finding, validating and fixing security vulnerabilities with Codex.",
+      "tags": ["Dev Tool", "Security", "OpenAI"]
+    },
+    "gh-free-claude-code-2026-11-12": {
+      "summary": "Python project that runs Claude Code, Codex, OpenCode and nine other harnesses on free tokens from a terminal, IDE, phone or native browser session, across multiple models.",
+      "tags": ["Open Source", "Code Gen", "Claude Code"]
+    },
+    "gh-openbot-2026-11-12": {
+      "summary": "CopilotKit's open-source AI coworkers, each with its own browser, files and tools, where every action is decided before it runs and recorded after; works with any AG-UI agent.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-llama-cpp-2026-11-12": {
+      "summary": "ggml-org's LLM inference engine, written in plain C and C++.",
+      "tags": ["Open Source", "Inference", "Local LLM"]
+    },
+    "gh-qwen-code-2026-11-12": {
+      "summary": "The Qwen team's open-source coding agent for the terminal, written in TypeScript.",
+      "tags": ["Open Source", "Code Gen", "Agents"]
+    },
+    "gh-tensorfold-2026-11-12": {
+      "summary": "LLM inference engine written in Zig, with backends for Apple Metal, CUDA and Vulkan.",
+      "tags": ["Open Source", "Inference", "Local LLM"]
+    },
+    "tc-is-jensen-huangs-bad-behavior-more-commonplace-2026-11-12": {
+      "summary": "An investment intel consultant tells TechCrunch that senior people in the industry know this conduct happens and are effectively condoning it.",
+      "tags": ["Nvidia"]
+    },
+    "tc-jensen-huang-agrees-to-testify-before-congress-2026-11-12": {
+      "summary": "Ousted over reports of an affair with a woman suspected of spying for China, Huang agreed on Wednesday after several senior lawmakers threatened to subpoena him.",
+      "tags": ["Nvidia", "Policy"]
+    },
+    "tc-five-ways-jensen-huangs-ouster-from-nvidia-2026-11-12": {
+      "summary": "Analysis arguing the scandal matters beyond the headlines because Huang was using his influence to push the AI industry in specific directions.",
+      "tags": ["Nvidia", "Deep Dive"]
+    },
+    "tc-trump-floats-apple-chairman-tim-cook-as-jensen-2026-11-12": {
+      "summary": "In a Truth Social post, President Trump says Tim Cook is the only person who can take Huang's place at the head of Nvidia.",
+      "tags": ["Nvidia", "Apple"]
+    },
+    "tc-jensen-huang-is-out-at-nvidia-who-is-colette-2026-11-12": {
+      "summary": "Nvidia's CFO steps in as interim CEO while longtime chief Huang is embroiled in scandal; TechCrunch profiles her background.",
+      "tags": ["Nvidia"]
+    },
+    "tc-norwest-pushes-deeper-into-ai-with-new-4b-fund-2026-11-12": {
+      "summary": "The $4B vehicle is the investment firm's largest fund to date.",
+      "tags": ["Funding"]
+    },
+    "tc-cyberattack-on-fireworks-ai-allowed-hackers-to-2026-11-12": {
+      "summary": "Attackers reached Notion customers' chat transcripts through Fireworks AI, the company's second data breach in as many months.",
+      "tags": ["Security", "Privacy"]
+    },
+    "tc-the-unfolding-jensen-huang-scandal-a-timeline-2026-11-12": {
+      "summary": "A dated walk through Huang's resignation over an affair, and why it carries national security weight as the U.S. and China race to build advanced AI infrastructure.",
+      "tags": ["Nvidia", "Policy"]
+    },
+    "tc-nine-korean-startups-vie-for-a-spot-in-disrupt-2026-11-12": {
+      "summary": "The nine work across deep tech, including healthcare, fintech, energy, semiconductors and AI, and all are looking to enter the US.",
+      "tags": ["Funding"]
+    },
+    "tc-who-could-replace-jensen-huang-a-highly-2026-11-12": {
+      "summary": "With no succession plan at Nvidia and its CEO in trouble, TechCrunch drafts a tongue-in-cheek shortlist of candidates.",
+      "tags": ["Nvidia"]
+    },
+    "hn-my-ai-agents-found-an-unmapped-maya-site-2026-11-12": {
+      "summary": "Personal blog post on pietromiotti.com about AI agents flagging what may be a previously unmapped Maya site.",
+      "tags": ["Agents"]
+    },
+    "hn-united-airlines-bans-ai-agents-from-booking-2026-11-12": {
+      "summary": "CBS News report on United Airlines barring AI agents from booking flights for travelers.",
+      "tags": ["Agents", "Policy"]
+    },
+    "hn-gemini-decisions-api-2026-11-12": {
+      "summary": "Google's announcement post on its developer tools blog introducing the Gemini Decisions API.",
+      "tags": ["API", "Google", "Launch"]
+    },
+    "hn-anthropic-ipo-2026-11-12": {
+      "summary": "A page on Anthropic's own ipo.anthropic.com domain, under a US path, about the company's initial public offering.",
+      "tags": ["Anthropic", "Funding"]
+    },
+    "hn-faster-retrieval-for-better-more-efficient-rag-2026-11-12": {
+      "summary": "Apple Machine Learning Research post on speeding up the retrieval step of retrieval-augmented generation.",
+      "tags": ["Paper", "RAG", "Apple"]
+    },
+    "hn-retirement-savings-are-fueling-the-ai-bubble-2026-11-12": {
+      "summary": "Essay on the LPE Project blog arguing that retirement savings are flowing into AI investment and inflating a bubble.",
+      "tags": ["Funding"]
+    },
+    "hn-ai-activity-and-outcomes-in-software-engineering-2026-11-12": {
+      "summary": "A talk on cabird.com separating developer activity from delivered outcomes when measuring AI's effect on software engineering.",
+      "tags": ["Code Gen", "Deep Dive"]
+    },
+    "hn-llms-play-zachtronics-tis-100-2026-11-12": {
+      "summary": "Site pitting LLMs against puzzles from Zachtronics' TIS-100, the assembly programming game.",
+      "tags": ["Benchmark", "Code Gen"]
+    },
+    "hn-oss-projects-banning-ai-generated-contributions-2026-11-12": {
+      "summary": "osssaysno.com keeps a list of open-source projects that refuse contributions written by AI.",
+      "tags": ["Open Source", "Code Gen", "Policy"]
+    },
+    "hn-ai-is-becoming-an-information-gateway-audiences-2026-11-12": {
+      "summary": "Nieman Lab report on audiences turning to AI to find information while still not wanting it to produce their news.",
+      "tags": ["LLM"]
+    }
+  }
+}

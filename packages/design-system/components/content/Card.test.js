@@ -47,6 +47,8 @@ test('save control stays optional and destination links remain safe new-tab link
 
 // ListRow is FeedItem too, bundled the same way; the fixture is the markup on
 // main before starPos existed (AIB-75v), so the default can never drift.
+// Its title href gained ?ref=aiBytes_ on purpose in AIB-145y T38 (the GitHub
+// source link is skipped by design); nothing else changed.
 const rowBuild = await build({entryPoints:[new URL('./ListRow.jsx',import.meta.url).pathname],
   bundle:true,platform:'node',format:'cjs',external:['react'],write:false});
 const rowMod = new Module(import.meta.filename+'#row');
@@ -86,4 +88,15 @@ test('front adds a Front page label beside TOP on cards and rows, and nothing ch
   assert.ok(both.indexOf('>TOP<')<both.indexOf('>Front page<'),'TOP first, then Front page');
   assert.doesNotMatch(render({}),/Front page/);assert.doesNotMatch(renderRow({}),/Front page/);
   assert.doesNotMatch(render({front:false}),/ldg-front-label/);
+});
+
+test('the title and the source link carry ref=aiBytes_; the menu prompts and the item stay clean (AIB-145y T38)',()=>{
+  const linked={...item,url:'https://example.com/post?id=7#top',source_url:'https://news.ycombinator.com/item?id=9',source:'hackernews'};
+  const html=renderToStaticMarkup(React.createElement(Card,{item:linked}));
+  assert.match(html,/href="https:\/\/example.com\/post\?id=7&amp;ref=aiBytes_#top"/);
+  assert.match(html,/href="https:\/\/news.ycombinator.com\/item\?id=9"/);
+  assert.doesNotMatch(html,/chatgpt[^"]*aiBytes_/i);
+  assert.equal(linked.url,'https://example.com/post?id=7#top');
+  const placeholder=renderToStaticMarkup(React.createElement(Card,{item:{...item,url:'#',source_url:'#ph'}}));
+  assert.match(placeholder,/href="#"/);assert.match(placeholder,/href="#ph"/);
 });

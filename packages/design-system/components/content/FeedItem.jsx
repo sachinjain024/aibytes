@@ -2,6 +2,7 @@ import React from 'react';
 import { ItemImage } from './ItemImage.jsx';
 import { CardMenu } from './CardMenu.jsx';
 import { SaveStar } from './SaveStar.jsx';
+import { withRef } from './withRef.js';
 import { SOURCE_NAMES, Signals, LangDot } from './signals.jsx';
 
 /** Shared reading-row/card anatomy; card controls retain their public API.
@@ -21,7 +22,7 @@ export function FeedItem({ item, grid = false, saved, onToggleSave, topToday = f
         {atLogo && <Signals signals={item.signals} />}
       </div>
       <div className="story-content">
-        <div className="story-top"><h3><a href={item.url} target="_blank" rel="noopener noreferrer">{item.title}</a></h3></div>
+        <div className="story-top"><h3><a href={withRef(item.url)} target="_blank" rel="noopener noreferrer">{item.title}</a></h3></div>
         <p className="summary">{item.summary}</p>
         {grid && signalsPos === 'row' && <div className="story-signals"><Signals signals={item.signals} /></div>}
         {grid && maxTags > 0 && (language || tags.length > 0) && <div className={'story-tags ' + tagsClass}>
@@ -34,7 +35,7 @@ export function FeedItem({ item, grid = false, saved, onToggleSave, topToday = f
         <div className="metadata">
           {topToday && <span className="ldg-top-label" title="Top today">TOP</span>}
           {front && <span className="ldg-front-label" title="On the Hacker News front page">Front page</span>}
-          <a className="discussion" href={item.source_url} target="_blank" rel="noopener noreferrer">{SOURCE_NAMES[item.source] || item.source}</a>
+          <a className="discussion" href={withRef(item.source_url)} target="_blank" rel="noopener noreferrer">{SOURCE_NAMES[item.source] || item.source}</a>
           {(!grid || signalsPos === 'source') && <Signals signals={item.signals} />}
           <span className="item-actions"><CardMenu item={item} up={false} />{starPos === 'actions' && star}</span>
         </div>

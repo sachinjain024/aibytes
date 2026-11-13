@@ -1,0 +1,120 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-12",
+  "window": {
+    "after": "2026-11-11",
+    "before": "2026-11-13"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 11,
+  "poolCount": 81,
+  "stories": [
+    {
+      "title": "My AI agents found an unmapped Maya site?",
+      "url": "https://pietromiotti.com/latest/maya-site",
+      "type": "story",
+      "points": 1022,
+      "num_comments": 382,
+      "author": "eyvindn",
+      "created_at": "2026-11-11T12:05:22Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50452455"
+    },
+    {
+      "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+      "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+      "type": "story",
+      "points": 636,
+      "num_comments": 660,
+      "author": "herpderperator",
+      "created_at": "2026-11-11T21:24:35Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50458900"
+    },
+    {
+      "title": "Gemini Decisions API",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+      "type": "story",
+      "points": 529,
+      "num_comments": 151,
+      "author": "iamdelirium",
+      "created_at": "2026-11-11T18:32:42Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50456791"
+    },
+    {
+      "title": "Anthropic IPO",
+      "url": "https://ipo.anthropic.com/us/",
+      "type": "story",
+      "points": 460,
+      "num_comments": 473,
+      "author": "josephljohnston",
+      "created_at": "2026-11-12T11:46:41Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50465829"
+    },
+    {
+      "title": "Faster Retrieval for Better, More Efficient RAG",
+      "url": "https://machinelearning.apple.com/research/faster-retrieval",
+      "type": "story",
+      "points": 225,
+      "num_comments": 38,
+      "author": "zerop",
+      "created_at": "2026-11-11T16:57:45Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50455633"
+    },
+    {
+      "title": "Retirement Savings Are Fueling the AI Bubble",
+      "url": "https://lpeproject.org/blog/your-retirement-savings-are-fueling-the-ai-bubble/",
+      "type": "story",
+      "points": 164,
+      "num_comments": 182,
+      "author": "speckx",
+      "created_at": "2026-11-11T19:06:43Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50457164"
+    },
+    {
+      "title": "AI, activity, and outcomes in software engineering",
+      "url": "https://cabird.com/talks/shipping-faster/",
+      "type": "story",
+      "points": 124,
+      "num_comments": 109,
+      "author": "azhenley",
+      "created_at": "2026-11-11T16:33:28Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50455332"
+    },
+    {
+      "title": "LLMs Play Zachtronics' TIS-100",
+      "url": "https://tis-100.wincon.dev/",
+      "type": "story",
+      "points": 91,
+      "num_comments": 22,
+      "author": "fairestvalue",
+      "created_at": "2026-11-11T00:37:05Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50448340"
+    },
+    {
+      "title": "OSS projects banning AI-generated contributions",
+      "url": "https://osssaysno.com",
+      "type": "story",
+      "points": 64,
+      "num_comments": 110,
+      "author": "jlengrand",
+      "created_at": "2026-11-11T08:51:45Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50451102"
+    },
+    {
+      "title": "AI is becoming an information gateway. Audiences still don\u2019t want it making news",
+      "url": "https://www.niemanlab.org/2026/11/ai-is-becoming-an-information-gateway-audiences-still-dont-want-it-making-their-news/",
+      "type": "story",
+      "points": 58,
+      "num_comments": 88,
+      "author": "rdmuser",
+      "created_at": "2026-11-11T00:15:33Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50448174"
+    }
+  ]
+}
