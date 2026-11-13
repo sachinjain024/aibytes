@@ -6,6 +6,7 @@
 //   /weekly              the weekly issue archive
 //   /weekly/issue-16     a published weekly issue (static HTML at build time)
 //   /saved               the reader's saved items (a real page too, noindex)
+//   /gists/<slug>        a gist: the summary page for one item (a real page at build time)
 //   /privacy             what signing in and saving keep, and where (a real page)
 //   /p/<slug>            an old newsletter issue link from when aibytes.io was Beehiiv
 //   anything else        not found
@@ -19,12 +20,15 @@ const WEEKLY_ISSUE = /^\/weekly\/(issue-\d+)\/?$/;
 const ISSUE = /^\/p\/([^/]+)\/?$/;
 const SAVED = /^\/saved\/?$/;
 const PRIVACY = /^\/privacy\/?$/;
+const GIST = /^\/gists\/([a-z0-9][a-z0-9-]*)\/?$/;
 
 export function parseRoute(pathname) {
   if (pathname === "/" || pathname === "") return { kind: "latest" };
   if (WEEKLY_INDEX.test(pathname)) return { kind: "weekly_index" };
   if (SAVED.test(pathname)) return { kind: "saved" };
   if (PRIVACY.test(pathname)) return { kind: "privacy" };
+  const gist = GIST.exec(pathname);
+  if (gist) return { kind: "gist", slug: gist[1] };
   const weekly = WEEKLY_ISSUE.exec(pathname);
   if (weekly) return { kind: "weekly_issue", slug: weekly[1] };
   const edition = EDITION.exec(pathname);
@@ -44,6 +48,14 @@ export function privacyPath() {
 
 export function savedPath() {
   return "/saved";
+}
+
+export function gistPath(slug) {
+  return "/gists/" + slug;
+}
+
+export function gistUrl(slug) {
+  return SITE_ORIGIN + gistPath(slug);
 }
 
 export function weeklyPath(slug) {

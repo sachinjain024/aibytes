@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import {
   editionPath,
+  gistPath,
+  gistUrl,
   issueRedirect,
   olderEdition,
   olderWeeklyIssue,
@@ -110,4 +112,21 @@ test("the privacy page route, with or without a trailing slash", () => {
   }
   assert.equal(privacyPath(), "/privacy");
   assert.deepEqual(parseRoute("/privacy/policy"), { kind: "notfound" });
+});
+
+test("a gist route carries its slug", () => {
+  assert.deepEqual(parseRoute("/gists/hn-life-on-claude-nine"), { kind: "gist", slug: "hn-life-on-claude-nine" });
+  assert.deepEqual(parseRoute("/gists/gh-officecli/"), { kind: "gist", slug: "gh-officecli" });
+  assert.deepEqual(parseRoute("/gists/x-karpathy-new-post-about-evals"), { kind: "gist", slug: "x-karpathy-new-post-about-evals" });
+});
+
+test("only a plain slug is a gist route", () => {
+  for (const path of ["/gists", "/gists/", "/gists/Upper", "/gists/a_b", "/gists/a/b", "/gists/-x", "/gists/x%20y", "/gist/x"]) {
+    assert.equal(parseRoute(path).kind, "notfound", path);
+  }
+});
+
+test("gist paths and URLs", () => {
+  assert.equal(gistPath("gh-officecli"), "/gists/gh-officecli");
+  assert.equal(gistUrl("gh-officecli"), "https://aibytes.io/gists/gh-officecli");
 });

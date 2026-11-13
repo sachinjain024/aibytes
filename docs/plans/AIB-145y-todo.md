@@ -481,6 +481,9 @@ Artifact in Claude (decided at approval).
 **Description:** `docs/specs/AIB-145y-app-gist-pages.md`: the head per depth,
 JSON-LD type, the server-render approach, sitemap and robots contents.
 
+**Acceptance criteria:**
+- [x] The publisher approves (13 Nov 2026, all three recommendations).
+
 **Verification:** the publisher approves. **Dependencies:** T5, T19.
 **Size:** S.
 
@@ -491,7 +494,9 @@ JSON-LD type, the server-render approach, sitemap and robots contents.
 JSON-LD, `noindex` unless `depth` is `full`.
 
 **Acceptance criteria:**
-- [ ] `route.test.js` and `pageMeta.test.js` cover each depth and escaping.
+- [x] `route.test.js` and `pageMeta.test.js` cover each depth and escaping.
+      (`gistHead`, `gistPath`, `gistUrl`; `withHead` takes `image` and `jsonLd`.
+      12 tests.)
 
 **Verification:** `npm test -w @aibytes/web`. **Dependencies:** T23.
 **Size:** S.
