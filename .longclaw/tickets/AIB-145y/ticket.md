@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-13T11:14:01.496Z
+updated_at: 2026-11-13T11:59:26.093Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -102,12 +102,12 @@ added_by:
 - [x] 7.3 T20: GistPanel, resizable <!-- longclaw:item=ck_b573c191 -->
 - [x] 7.4 T21: reactions bar, front-page badge, saved line, banner copy <!-- longclaw:item=ck_77f4b374 -->
 - [x] 7.5 T22: UI kit screens and Design System Artifact sync <!-- longclaw:item=ck_f8e04426 -->
-- [ ] 7.6 Checkpoint D: kit screens reviewed <!-- longclaw:item=ck_87ea0fa7 -->
+- [x] 7.6 Checkpoint D: kit screens reviewed <!-- longclaw:item=ck_87ea0fa7 -->
 - [ ] 8. app-gist-pages <!-- longclaw:item=ck_9da86e57 -->
-- [ ] 8.1 T23: pages spec <!-- longclaw:item=ck_2bd561ec -->
-- [ ] 8.2 T24: route and page head <!-- longclaw:item=ck_888ec84a -->
-- [ ] 8.3 T25: static gist pages, sitemap, robots <!-- longclaw:item=ck_6752a869 -->
-- [ ] 8.4 T26: the gist page in the app <!-- longclaw:item=ck_a4ea4223 -->
+- [x] 8.1 T23: pages spec <!-- longclaw:item=ck_2bd561ec -->
+- [x] 8.2 T24: route and page head <!-- longclaw:item=ck_888ec84a -->
+- [x] 8.3 T25: static gist pages, sitemap, robots <!-- longclaw:item=ck_6752a869 -->
+- [x] 8.4 T26: the gist page in the app <!-- longclaw:item=ck_a4ea4223 -->
 - [ ] 8.5 P8: publisher verifies aibytes.io in Google Search Console (DNS TXT) and submits sitemap.xml <!-- longclaw:item=ck_556cd1e6 -->
 - [ ] 9. app-gist-panel <!-- longclaw:item=ck_5670b0bb -->
 - [ ] 9.1 T27: panel spec <!-- longclaw:item=ck_68012185 -->
@@ -1031,6 +1031,81 @@ changes:
     from: "false"
     to: "true"
   - field: checklist.ck_f8e04426.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_d6d9b9b6
+kind: update
+occurred_at: 2026-11-13T11:43:34.736Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_87ea0fa7.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_892233b6
+kind: update
+occurred_at: 2026-11-13T11:48:48.195Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_2bd561ec.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_a7a9a87c
+kind: update
+occurred_at: 2026-11-13T11:49:33.238Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_888ec84a.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_23bb055d
+kind: update
+occurred_at: 2026-11-13T11:53:17.525Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_6752a869.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_3a49a959
+kind: update
+occurred_at: 2026-11-13T11:59:26.093Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_a4ea4223.checked
     from: "false"
     to: "true"
 -->
