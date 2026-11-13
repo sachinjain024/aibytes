@@ -509,10 +509,14 @@ and the head from T24; plus `sitemap.xml` (editions, issues, `full` gists)
 and `robots.txt` (allow all, sitemap line).
 
 **Acceptance criteria:**
-- [ ] A build test on fixture content: the page contains the lede text; a
+- [x] A build test on fixture content: the page contains the lede text; a
       `brief` gist's page has `noindex` and is absent from the sitemap; a
-      hidden gist has no page.
-- [ ] Build time with 1,000 fixture gists is recorded.
+      hidden gist has no page. (`gistBuild.test.js` runs a real `vite build` on
+      a temp content tree, 7 tests; `gistSite.test.js`, 9 tests, covers the
+      sitemap, robots and "More from".)
+- [x] Build time with 1,000 fixture gists is recorded. (13 Nov 2026: the gist
+      step wrote 1,000 pages and a 1,003-address sitemap in 0.9 s; the whole
+      build took 9.7 s against 8.4 s with none. 12 MB of pages.)
 
 **Then P8 (publisher):** verify `aibytes.io` in Google Search Console as a
 domain property by DNS TXT record and submit `https://aibytes.io/sitemap.xml`

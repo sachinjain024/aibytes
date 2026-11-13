@@ -1,12 +1,14 @@
 import { cp, mkdir, readdir, readFile, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
-import { defineConfig } from "vite";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import { build as viteBuild, defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { writeGistSite } from "./src/buildGistSite.js";
 import { PRIVACY_HEAD, SAVED_HEAD, WEEKLY_ARCHIVE_HEAD, weeklyIssueHead, withHead } from "./src/pageMeta.js";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const CONTENT = path.resolve(here, "../../content");
+// AIBYTES_CONTENT points the build at another content tree (the build test uses a fixture).
+const CONTENT = process.env.AIBYTES_CONTENT ? path.resolve(process.env.AIBYTES_CONTENT) : path.resolve(here, "../../content");
 const SCHEMAS = path.resolve(here, "../../packages/feed-schema");
 const WEEKLY_INDEX = path.join(CONTENT, "weekly", "index.json");
 
@@ -98,7 +100,31 @@ function editionPages() {
   };
 }
 
+// One real page per shown gist, with GistPage's markup inside #root and its own
+// head, then sitemap.xml and robots.txt. The page is rendered by a small
+// server-mode build of src/gistPageServer.jsx, run first into the build cache
+// and imported; no extra dependency. Runs after editionPages has the shell.
+function gistPages() {
+  return {
+    name: "aibytes-gist-pages",
+    enforce: "post",
+    async writeBundle(options) {
+      const cache = path.join(here, "node_modules", ".cache", "aibytes-gist-ssr");
+      await viteBuild({
+        configFile: false, root: here, logLevel: "error", plugins: [react()],
+        ssr: { noExternal: ["@aibytes/design-system"] },
+        build: { ssr: path.join(here, "src/gistPageServer.jsx"), outDir: cache, emptyOutDir: true, minify: false },
+      });
+      const { renderGistPage } = await import(pathToFileURL(path.join(cache, "gistPageServer.js")).href + "?t=" + Date.now());
+      const html = await readFile(path.join(options.dir, "index.html"), "utf8");
+      const started = Date.now();
+      const done = await writeGistSite({ outDir: options.dir, contentDir: CONTENT, html, renderGistPage });
+      console.log(`gist pages: ${done.pages} pages, ${done.sitemap} sitemap addresses, ${Date.now() - started} ms`);
+    },
+  };
+}
+
 export default defineConfig({
   base: BASE,
-  plugins: [react(), content(), editionPages()],
+  plugins: [react(), content(), editionPages(), gistPages()],
 });
