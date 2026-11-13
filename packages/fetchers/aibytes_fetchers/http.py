@@ -2,6 +2,7 @@
 
 import ipaddress
 import json
+import re
 import socket
 import urllib.error
 import urllib.parse
@@ -79,22 +80,37 @@ class UnsafeURL(ValueError):
     """A URL the gist fetchers will not read: not http(s), or not a public host."""
 
 
+_HOST = re.compile(r"[A-Za-z0-9._:-]+")
+
+
 def check_public(url):
     """Raise UnsafeURL unless `url` is http(s) and every address its host
     resolves to is public (not loopback, private, link-local, CGNAT, reserved or
-    a metadata address). A host that does not resolve passes: the request then
-    fails on its own. The check and the connection resolve separately, so a host
-    that answers differently the second time (DNS rebinding) is not caught."""
+    a metadata address). It fails closed: a host that does not resolve, or whose
+    spelling is odd (a `%`, a space, a backslash, a NUL), is refused. The host
+    checked must also be the one urllib will connect to (`Request(url).host`),
+    since the two parsers disagree on some spellings. The check and the connection
+    resolve separately, so a host that answers differently the second time
+    (DNS rebinding) is not caught."""
     parts = urllib.parse.urlsplit(url)
     if parts.scheme not in ("http", "https") or not parts.hostname:
-        raise UnsafeURL(f"refusing a non-http(s) URL: {url[:80]}")
+        raise UnsafeURL(f"refusing a non-http(s) URL: {url[:80]!r}")
+    host = parts.hostname
     try:
-        infos = socket.getaddrinfo(parts.hostname, parts.port or (443 if parts.scheme == "https" else 80), type=socket.SOCK_STREAM)
+        port = parts.port
+        connects_to = urllib.request.Request(url).host
+    except ValueError:
+        raise UnsafeURL(f"refusing a URL that does not parse: {url[:80]!r}") from None
+    agreed = {host, f"[{host}]"} | ({f"{host}:{port}", f"[{host}]:{port}"} if port else set())
+    if not _HOST.fullmatch(host) or connects_to.lower() not in {a.lower() for a in agreed}:
+        raise UnsafeURL(f"refusing a host spelled oddly: {url[:80]!r}")
+    try:
+        infos = socket.getaddrinfo(host, port or (443 if parts.scheme == "https" else 80), type=socket.SOCK_STREAM)
     except (socket.gaierror, UnicodeError):
-        return
+        raise UnsafeURL(f"refusing {host}: it does not resolve") from None
     for info in infos:
         if not ipaddress.ip_address(info[4][0].split("%")[0]).is_global:
-            raise UnsafeURL(f"refusing {parts.hostname}: it resolves to a non-public address")
+            raise UnsafeURL(f"refusing {host}: it resolves to a non-public address")
 
 
 class _PublicRedirect(urllib.request.HTTPRedirectHandler):
