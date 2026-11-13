@@ -298,7 +298,9 @@ follow.
 - [x] A worked example per type.
 
 **Verification:** a hand run on one edition's draft gives a file that T15's
-`build` accepts. **Dependencies:** T13. **Size:** S.
+`build` accepts. Done 13 Nov: four gists written by hand from
+the live 11 Nov draft (one per kind), all accepted, tree valid; two warned
+for length (109 and 114 words). **Dependencies:** T13. **Size:** S.
 
 ### T15: `gists build`
 
@@ -309,9 +311,9 @@ on each edition item. A fatal problem in one gist drops that gist only; the
 item ships without `gist`.
 
 **Acceptance criteria:**
-- [ ] Nothing under `content/` changes if validation of the whole set fails.
-- [ ] One bad gist out of thirty leaves twenty-nine written and one warning.
-- [ ] `validate.py` passes on the result.
+- [x] Nothing under `content/` changes if validation of the whole set fails.
+- [x] One bad gist out of thirty leaves twenty-nine written and one warning.
+- [x] `validate.py` passes on the result.
 
 **Verification:** `tests/test_gists.py`. **Dependencies:** T13, T14.
 **Size:** M. **Files:** `aibytes_gists/build.py`, `tests/test_gists.py`.

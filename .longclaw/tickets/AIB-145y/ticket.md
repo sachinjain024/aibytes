@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-13T06:14:01.115Z
+updated_at: 2026-11-13T06:20:10.769Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -89,8 +89,8 @@ added_by:
 - [x] 6.3 T11: GitHub repo fetchers <!-- longclaw:item=ck_49396094 -->
 - [x] 6.4 T12: Product Hunt launch material <!-- longclaw:item=ck_427f19be -->
 - [x] 6.5 T13: gists draft <!-- longclaw:item=ck_c31ad84c -->
-- [ ] 6.6 T14: the write-gists skill <!-- longclaw:item=ck_7c7c828a -->
-- [ ] 6.7 T15: gists build <!-- longclaw:item=ck_74279798 -->
+- [x] 6.6 T14: the write-gists skill <!-- longclaw:item=ck_7c7c828a -->
+- [x] 6.7 T15: gists build <!-- longclaw:item=ck_74279798 -->
 - [ ] 6.8 P3: publisher approves GITHUB_TOKEN in edition.yml <!-- longclaw:item=ck_0b27e6bd -->
 - [ ] 6.9 T16: the runner's gists step <!-- longclaw:item=ck_070cf04c -->
 - [ ] 6.10 T17: rehearsal on seven editions <!-- longclaw:item=ck_eb097e0a -->
@@ -837,4 +837,24 @@ changes:
     to: "true"
 -->
 ### claude-code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_441a0ea6
+kind: update
+occurred_at: 2026-11-13T06:20:10.769Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_7c7c828a.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_74279798.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+T10-T15 built (one commit each). Live checks on the 11 Nov edition: draft reads all 30 new items as full in 54 s; four hand-written gists (one per kind) pass build and validate.py on a copy of content/. Real content/ untouched. Next: T16 (runner step, GITHUB_TOKEN, timeout-minutes 30).
 <!-- /longclaw:event -->

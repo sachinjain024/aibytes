@@ -16,7 +16,7 @@ import pathlib as _pathlib
 import sys as _sys
 
 REPO_ROOT = _pathlib.Path(__file__).resolve().parents[3]
-for _sibling in ("fetchers", "feed-schema"):
+for _sibling in ("fetchers", "feed-schema", "curate"):
     _path = str(REPO_ROOT / "packages" / _sibling)
     if _path not in _sys.path:
         _sys.path.insert(0, _path)

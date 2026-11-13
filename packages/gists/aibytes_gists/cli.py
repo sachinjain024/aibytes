@@ -4,6 +4,7 @@ import argparse
 import sys
 
 from . import DEFAULT_CACHE_ROOT, DEFAULT_CONTENT_ROOT, DEFAULT_DATA_ROOT
+from . import build as build_mod
 from . import draft as draft_mod
 
 
@@ -22,6 +23,10 @@ def parser():
     _common(draft)
     draft.add_argument("--data-root", default=DEFAULT_DATA_ROOT,
                        help=f"the raw snapshots (default {DEFAULT_DATA_ROOT})")
+    build = subs.add_parser("build", help="check gists.json; write content/gists/, the index and item gists")
+    _common(build)
+    build.add_argument("--gists", default=None,
+                       help="what Claude wrote (default <cache-root>/DATE/gists.json)")
     return top
 
 
@@ -31,7 +36,10 @@ def main(argv=None):
         if args.command == "draft":
             draft_mod.draft(args.date, content_root=args.content_root, data_root=args.data_root,
                             cache_root=args.cache_root)
-    except draft_mod.DraftError as exc:
+        elif args.command == "build":
+            build_mod.build(args.date, gists_path=args.gists, content_root=args.content_root,
+                            cache_root=args.cache_root)
+    except (draft_mod.DraftError, build_mod.BuildError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1
     return 0

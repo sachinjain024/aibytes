@@ -7,6 +7,7 @@ docs/specs/AIB-145y-gist-generate.md.
 import json
 import pathlib
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -16,8 +17,9 @@ from unittest import mock
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "packages" / "gists"))
 
-from aibytes_gists import draft as draft_mod  # noqa: E402  (sets up the sibling paths)
+from aibytes_gists import build as build_mod, draft as draft_mod  # noqa: E402  (sets up the sibling paths)
 import gist_contract  # noqa: E402
+import validate as contract  # noqa: E402
 
 DATE = "2026-11-11"
 
@@ -311,6 +313,272 @@ class TestWriteGistsSkill(unittest.TestCase):
                 self.assertEqual(gist_contract._sections_problems(sections, kind, entry["depth"]), [])
                 self.assertTrue(gist_contract.LEDE_MIN <= len(entry["lede"]) <= gist_contract.LEDE_MAX)
                 self.assertNotRegex(json.dumps(entry, ensure_ascii=False), "[\u2013\u2014]")
+
+
+
+NOW = "2026-11-11T08:30:00Z"
+REAL_EDITION = REPO_ROOT / "content" / "editions" / f"{DATE}.json"
+COMMENTS = [{"id": f"c{n}", "text": f"comment number {n}", "url": f"https://news.ycombinator.com/item?id={n}"}
+            for n in range(1, 5)]
+ISSUES = [{"id": f"i{n}", "title": f"issue {n}", "url": f"https://github.com/a/b/issues/{n}"} for n in range(1, 4)]
+SOURCE = ("The quick model release from the fixture lab includes open weights a hosted API "
+          "and a new evaluation harness that the team says will ship to every customer next month")
+
+
+def lede(kind):
+    return f"A {kind} item described in fresh words for the build tests, long enough for the contract."
+
+
+def points(n=3):
+    return [f"Point {i} about what is new, said plainly for the reader." for i in range(1, n + 1)]
+
+
+def good_sections(kind):
+    sections = [{"key": "key_points", "points": points()}]
+    if kind == "news":
+        sections.append({"key": "why_it_matters", "text": "Builders get a smaller model to run locally."})
+    if kind == "hn":
+        sections.append({"key": "discussion", "points": [
+            {"stance": "agreed", "text": "Most agree on the main claim.", "comment": "c1"},
+            {"stance": "disputed", "text": "They split on cost.", "comment": "c2"},
+            {"stance": "counterpoint", "text": "One argues the opposite.", "comment": "c3"}]})
+    if kind == "repo":
+        sections += [{"key": "try_it", "command": "pip install fixture"},
+                     {"key": "whats_open", "points": [{"text": "Windows support.", "issue": "i1"},
+                                                     {"text": "A v2 roadmap.", "issue": "i2"}]}]
+    if kind == "launch":
+        sections.append({"key": "who_its_for", "text": "Small sales teams."})
+    return sections
+
+
+class BuildTree:
+    """A copy of the real content tree with a draft for the 11 Nov edition:
+    every item new, with fake material."""
+
+    def __init__(self, test):
+        self.tmp = tempfile.TemporaryDirectory()
+        test.addCleanup(self.tmp.cleanup)
+        self.root = pathlib.Path(self.tmp.name)
+        self.content = self.root / "content"
+        shutil.copytree(REPO_ROOT / "content", self.content,
+                        ignore=shutil.ignore_patterns("gists"))
+        build_mod.copy_weekly_sources(REPO_ROOT / "content", self.root)
+        self.cache = self.root / "cache"
+        self.items = json.loads(REAL_EDITION.read_text())["items"]
+        self.new = []
+        for it in self.items:
+            kind = draft_mod.KIND_BY_SOURCE[it["source"]]
+            material = {"article": {"title": "t", "byline": None, "text": SOURCE}}
+            if kind == "hn":
+                material["comments"] = COMMENTS
+            if kind == "repo":
+                material = {"readme": SOURCE, "issues": ISSUES}
+            if kind == "launch":
+                material = {"description": SOURCE, "comments": COMMENTS[:1]}
+            self.new.append({"item_id": it["id"], "slug": gist_contract.slug_from_item_id(it["id"]),
+                             "kind": kind, "depth": "full", "title": it["title"], "summary": it["summary"],
+                             "tags": it["tags"], "material": material,
+                             "facts": {"stats": {"license": "MIT"}} if kind == "repo" else {},
+                             "unreadable": None})
+        self.written = {e["item_id"]: {"depth": "full", "lede": lede(e["kind"]),
+                                       "sections": good_sections(e["kind"])} for e in self.new}
+        self.repeats = []
+
+    def build(self, **kw):
+        folder = self.cache / DATE
+        folder.mkdir(parents=True, exist_ok=True)
+        (folder / "draft.json").write_text(json.dumps({"date": DATE, "new": self.new, "repeats": self.repeats,
+                                                       "skipped": []}))
+        (folder / "gists.json").write_text(json.dumps({"date": DATE, "gists": self.written}))
+        kw.setdefault("now", NOW)
+        kw.setdefault("log", lambda line: None)
+        return build_mod.build(DATE, content_root=self.content, cache_root=self.cache, **kw)
+
+    def snapshot(self):
+        return {str(p.relative_to(self.content)): p.read_bytes() for p in sorted(self.content.rglob("*"))
+                if p.is_file()}
+
+    def gist(self, slug):
+        return json.loads((self.content / "gists" / f"{slug}.json").read_text())
+
+    def edition(self):
+        return json.loads((self.content / "editions" / f"{DATE}.json").read_text())
+
+
+class TestBuild(unittest.TestCase):
+    def setUp(self):
+        self.tree = BuildTree(self)
+
+    def test_thirty_good_gists_are_all_written_and_the_tree_validates(self):
+        report = self.tree.build()
+        self.assertEqual(len(report["written"]), 30)
+        self.assertEqual(report["failed"], {})
+        self.assertTrue(contract.validate_content_root(self.tree.content))
+        items = self.tree.edition()["items"]
+        self.assertTrue(all(it["gist"] == gist_contract.slug_from_item_id(it["id"]) for it in items))
+
+    def test_one_bad_gist_of_thirty_leaves_twenty_nine_and_one_failure(self):
+        bad = self.tree.new[3]["item_id"]
+        self.tree.written[bad]["lede"] = "too short"
+        report = self.tree.build()
+        self.assertEqual(len(report["written"]), 29)
+        self.assertEqual(list(report["failed"]), [bad])
+        item = next(it for it in self.tree.edition()["items"] if it["id"] == bad)
+        self.assertNotIn("gist", item)
+        self.assertTrue(contract.validate_content_root(self.tree.content))
+
+    def test_nothing_changes_if_the_whole_tree_would_not_validate(self):
+        before = self.tree.snapshot()
+        broken = contract.FeedValidationError("index.json: total is wrong")
+        with mock.patch.object(build_mod.contract, "validate_content_root", side_effect=broken):
+            with self.assertRaises(build_mod.BuildError):
+                self.tree.build()
+        self.assertEqual(self.tree.snapshot(), before)
+
+    def test_every_gist_rejected_writes_nothing(self):
+        before = self.tree.snapshot()
+        for entry in self.tree.written.values():
+            entry["lede"] = ""
+        report = self.tree.build()
+        self.assertEqual((report["written"], len(report["failed"])), ([], 30))
+        self.assertEqual(self.tree.snapshot(), before)
+
+    def test_the_script_writes_every_fact(self):
+        self.tree.build()
+        hn_item = next(it for it in self.tree.items if it["source"] == "hackernews")
+        gist = self.tree.gist(gist_contract.slug_from_item_id(hn_item["id"]))
+        self.assertEqual((gist["title"], gist["url"], gist["source_url"], gist["tags"]),
+                         (hn_item["title"], hn_item["url"], hn_item["source_url"], hn_item["tags"]))
+        self.assertEqual(gist["stats"], {"points": hn_item["signals"]["points"],
+                                         "comments": hn_item["signals"]["comments"],
+                                         "submitted_by": hn_item["meta"]["author"],
+                                         "posted_at": hn_item["published_at"]})
+        self.assertEqual(gist["stats_as_of"], self.tree.edition()["generated_at"])
+        self.assertEqual([link["role"] for link in gist["links"]], ["destination", "discussion"])
+        self.assertEqual(gist["appearances"], [{"item_id": hn_item["id"], "edition_date": DATE}])
+        self.assertEqual(gist["sections"][1]["points"][0]["url"], "https://news.ycombinator.com/item?id=1")
+
+    def test_repo_stats_join_the_fetch_and_the_edition(self):
+        self.tree.build()
+        gh = next(it for it in self.tree.items if it["source"] == "github")
+        stats = self.tree.gist(gist_contract.slug_from_item_id(gh["id"]))["stats"]
+        self.assertEqual(stats["license"], "MIT")
+        self.assertEqual(stats["stars_gained"], gh["signals"]["stars_gained"])
+        whats_open = self.tree.gist(gist_contract.slug_from_item_id(gh["id"]))["sections"][2]
+        self.assertEqual(whats_open["points"][1]["url"], "https://github.com/a/b/issues/2")
+
+    def test_a_launch_links_to_the_product_hunt_page_as_its_discussion(self):
+        self.tree.build()
+        ph = next(it for it in self.tree.items if it["source"] == "producthunt")
+        gist = self.tree.gist(gist_contract.slug_from_item_id(ph["id"]))
+        self.assertEqual(gist["links"][-1], {"role": "discussion", "title": f"{ph['title']} on Product Hunt",
+                                             "url": ph["source_url"]})
+
+    def fails_with(self, change, expected):
+        entry = next(e for e in self.tree.new if e["kind"] == "hn")
+        item_id = entry["item_id"]
+        change(self.tree.written[item_id], entry)
+        report = self.tree.build()
+        self.assertIn(item_id, report["failed"])
+        self.assertTrue(any(expected in problem for problem in report["failed"][item_id]),
+                        report["failed"][item_id])
+
+    def test_fatal_depth_raised(self):
+        def change(written, entry):
+            entry["depth"] = "brief"
+        self.fails_with(change, "depth raised")
+
+    def test_fatal_an_id_not_in_the_material(self):
+        def change(written, entry):
+            written["sections"][1]["points"][0]["comment"] = "c9"
+        self.fails_with(change, "'c9' is not in this item's material")
+
+    def test_fatal_a_url_instead_of_an_id(self):
+        def change(written, entry):
+            point = written["sections"][1]["points"][0]
+            del point["comment"]
+            point["url"] = "https://example.com/made-up"
+        self.fails_with(change, "must name a comment or issue id")
+
+    def test_fatal_twenty_copied_words(self):
+        def change(written, entry):
+            written["lede"] = "Reportedly, " + " ".join(SOURCE.split()[:20]) + "."
+        self.fails_with(change, "copies 20 words")
+
+    def test_fatal_an_item_claude_invented(self):
+        self.tree.written["tc-not-in-the-draft-2026-11-11"] = self.tree.written[self.tree.new[0]["item_id"]]
+        report = self.tree.build()
+        self.assertIn("tc-not-in-the-draft-2026-11-11", report["failed"])
+        self.assertEqual(len(report["written"]), 30)
+
+    def test_warnings_are_published(self):
+        item_id = self.tree.new[0]["item_id"]
+        written = self.tree.written[item_id]
+        written["lede"] = ("Reportedly " + " ".join(SOURCE.split()[:13]) + " and a seamless upgrade \u2014 soon.")
+        report = self.tree.build()
+        self.assertIn(item_id, report["written"] and [e["item_id"] for e in self.tree.new
+                                                       if e["slug"] in report["written"]])
+        warnings = " | ".join(report["warnings"][item_id])
+        for expected in ("copies 13 words", "'seamless'", "em dash", "words; a full gist is"):
+            self.assertIn(expected, warnings)
+
+    def test_an_item_claude_skipped_ships_without_a_gist(self):
+        item_id = self.tree.new[0]["item_id"]
+        del self.tree.written[item_id]
+        report = self.tree.build()
+        self.assertEqual(report["missing"], [item_id])
+        self.assertIn("not written", build_mod.summary_line(report))
+
+    def test_a_brief_gist_has_a_lede_and_no_sections(self):
+        entry = self.tree.new[0]
+        entry["depth"], entry["material"] = "brief", {}
+        self.tree.written[entry["item_id"]] = {"depth": "brief", "lede": lede("news"), "sections": []}
+        report = self.tree.build()
+        self.assertEqual(report["brief"], [entry["slug"]])
+        self.assertTrue(build_mod.summary_line(report).startswith("30 new (1 brief), 0 updated, 0 failed"))
+
+    def test_a_rerun_updates_without_a_second_appearance(self):
+        self.tree.build()
+        slug = next(e["slug"] for e in self.tree.new if e["kind"] == "hn")
+        self.tree.repeats = [{"item_id": e["item_id"], "slug": e["slug"]} for e in self.tree.new]
+        self.tree.new, self.tree.written = [], {}
+        report = self.tree.build(now="2026-11-12T08:30:00Z")
+        self.assertEqual(len(report["updated"]), 30)
+        gist = self.tree.gist(slug)
+        self.assertEqual(len(gist["appearances"]), 1)
+        self.assertEqual((gist["created_at"], gist["updated_at"]), (NOW, "2026-11-12T08:30:00Z"))
+        self.assertTrue(contract.validate_content_root(self.tree.content))
+
+    def test_refresh_adds_a_later_appearance_and_new_stats(self):
+        gist = {"kind": "hn", "appearances": [{"item_id": "hn-x-2026-11-10", "edition_date": "2026-11-10"}],
+                "stats": {"points": 1}, "stats_as_of": "2026-11-10T08:00:00Z", "updated_at": NOW}
+        later = {"id": "hn-x-2026-11-11", "signals": {"points": 50, "comments": 9}, "front_page": True,
+                 "meta": {"author": "a"}, "published_at": "2026-11-10T07:00:00Z"}
+        got = build_mod.refresh(gist, later, "hn", DATE, "2026-11-11T09:00:00Z", "2026-11-11T08:30:00Z")
+        self.assertEqual([a["edition_date"] for a in got["appearances"]], ["2026-11-10", DATE])
+        self.assertEqual(got["stats"]["points"], 50)
+        self.assertTrue(got["front_page"])
+        self.assertEqual(gist["stats"], {"points": 1})  # the input is not mutated
+
+    def test_a_missing_draft_is_a_build_error(self):
+        with self.assertRaises(build_mod.BuildError):
+            build_mod.build(DATE, content_root=self.tree.content, cache_root=self.tree.root / "nowhere",
+                            log=lambda line: None)
+
+
+class TestCopying(unittest.TestCase):
+    def test_runs_ignore_case_and_punctuation(self):
+        from aibytes_gists import copying
+        source = {"article": {"text": "One, two; three four five six seven eight nine ten eleven twelve."}}
+        self.assertEqual(len(copying.copied("ONE two three four five six seven eight nine ten eleven twelve",
+                                            source).split()), 12)
+        self.assertEqual(copying.copied("one two three four five six seven eight nine ten eleven", source), "")
+
+    def test_a_run_does_not_span_two_sources(self):
+        from aibytes_gists import copying
+        source = {"a": "alpha beta gamma delta epsilon zeta", "b": "eta theta iota kappa lambda mu"}
+        text = "alpha beta gamma delta epsilon zeta eta theta iota kappa lambda mu"
+        self.assertEqual(copying.copied(text, source), "")
 
 
 if __name__ == "__main__":
