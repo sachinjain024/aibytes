@@ -155,7 +155,7 @@ Mono 12, `--text-2`, separated by `·` on cards. When used as filter chips they 
 
 ### Save banner
 Appears once anything is saved, dismissible per session:
-> Saved items are stored in this browser only. **Sign in with Google** to keep them across devices.
+> Saved items are stored in this browser's local storage. **Sign in with Google** to sync them to your account.
 
 Quiet, inline, not a toast. Should not push the edition bar.
 

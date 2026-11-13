@@ -12,7 +12,7 @@ import { EditionBar } from "@aibytes/design-system/components/navigation/Edition
 import { FilterPanel } from "@aibytes/design-system/components/navigation/FilterPanel.jsx";
 import { Sidebar } from "@aibytes/design-system/components/navigation/Sidebar.jsx";
 import { Toolbar } from "@aibytes/design-system/components/navigation/Toolbar.jsx";
-import { loadEdition, loadIndex, loadTags, loadWeeklyIndex, loadWeeklyIssue } from "./content.js";
+import { loadEdition, loadGistPage, loadIndex, loadTags, loadWeeklyIndex, loadWeeklyIssue } from "./content.js";
 import { filesToLoad, leftOutNote, savedFeed, savedGroups } from "./saved.js";
 import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, SOURCES } from "./filters.js";
 import { FOOTER_LINKS, GITHUB_URL, mailto, SUBSCRIBE_URL } from "./footer.js";
@@ -26,6 +26,8 @@ import { headerAccount } from "./header.js";
 import { mergedLine } from "./merge.js";
 import { clearSaves, localSaves, readSaves } from "./saves.js";
 import { NewsletterPrompt } from "./NewsletterPrompt.jsx";
+import { GistPage } from "./GistPage.jsx";
+import { gistHead } from "./pageMeta.js";
 import { failureReport, initialPrompt, promptReducer, shouldOpenPrompt } from "./newsletterPrompt.js";
 import { NEWSLETTER_PRIVACY, showSubscribeOptions } from "./subscribeOptions.js";
 import { editionPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, savedPath, weeklyPath } from "./route.js";
@@ -211,7 +213,7 @@ function SignInFailed() {
 
 // The approved presentation wraps the existing edition, URL filter and
 // preference logic, with saves and Google sign-in (AIB-75v).
-export function App() {
+export function App({ initialGist = null }) {
   // Text fields match :focus-visible even after pointer focus in browsers.
   // Track input modality so rings are reserved for keyboard navigation.
   React.useEffect(() => {
@@ -269,6 +271,9 @@ export function App() {
   }
   if (route.kind === "saved") {
     return <SavedApp saves={saves} location={location} navigate={navigate} theme={theme} onToggleTheme={toggleTheme} />;
+  }
+  if (route.kind === "gist") {
+    return <GistApp saves={saves} route={route} location={location} navigate={navigate} theme={theme} onToggleTheme={toggleTheme} initial={initialGist} />;
   }
   if (route.kind === "weekly_issue") {
     return (
@@ -736,6 +741,60 @@ function SubscribeBar() {
       <a className="ldg-btn ldg-btn--primary weekly-subscribe__action" href={SUBSCRIBE_URL}>Subscribe</a>
     </aside>
   );
+}
+
+// /gists/<slug> (AIB-145y app-gist-pages). A built page arrives with its data
+// in #gist-data, so the first client render is the server's markup exactly:
+// signed out, nothing saved, the light theme, the local day not yet swapped in.
+// Saves, theme and sign-in settle after mount. With no embedded data (the dev
+// server, or a client-side visit) the gist is read from content/. A gist with no
+// page, hidden or unknown, is the not-found screen.
+const NO_SAVES = [];
+
+function GistApp({ saves: store, route, location, navigate, theme, onToggleTheme, initial }) {
+  const [state, setState] = React.useState(() => (initial && initial.gist.slug === route.slug ? { status: "ready", ...initial } : { status: "loading" }));
+  React.useEffect(() => {
+    if (state.status === "ready" && state.gist.slug === route.slug) return undefined;
+    let live = true;
+    setState({ status: "loading" });
+    loadGistPage(route.slug).then(
+      (data) => { if (live) setState(data ? { status: "ready", ...data } : { status: "missing" }); },
+      () => { if (live) setState({ status: "failed" }); },
+    );
+    return () => { live = false; };
+  }, [route.slug]); // eslint-disable-line react-hooks/exhaustive-deps
+  const [mounted, setMounted] = React.useState(false);
+  React.useEffect(() => setMounted(true), []);
+  // The server snapshot is empty, so hydration sees no saves and the real ones arrive right after.
+  const saves = React.useSyncExternalStore(store.subscribe, store.list, () => NO_SAVES);
+  const saved = React.useMemo(() => new Set(saves.map((save) => save.item_id)), [saves]);
+  const { subscribed } = React.useContext(AccountContext);
+  const headerProps = useHeaderAccount(navigate);
+  const ready = state.status === "ready" && state.gist.slug === route.slug;
+  React.useEffect(() => { if (ready) document.title = gistHead(state.gist).title; }, [ready, state.gist]);
+
+  if (state.status === "missing") {
+    return <EditionApp saves={store} route={{ kind: "notfound" }} location={location} navigate={navigate} theme={theme} onToggleTheme={onToggleTheme} />;
+  }
+  if (!ready) {
+    return (
+      <div className="app-shell redesign" data-theme={theme}>
+        <AppHeader theme={theme} onToggleTheme={onToggleTheme} githubUrl={GITHUB_URL} {...headerProps} />
+        <main id="main" className="redesign-main" tabIndex={-1}>
+          <div className="gist-page"><StatusMessage role={state.status === "failed" ? "alert" : "status"}>
+            {state.status === "failed" ? "Could not load this gist. Try again." : "Loading the gist…"}</StatusMessage></div>
+        </main>
+      </div>);
+  }
+
+  const { gist, more } = state;
+  const first = gist.appearances[0];
+  const from = first.edition_date ? { edition_date: first.edition_date } : { issue_slug: first.issue_slug };
+  const toggle = (id) => store.toggle({ id }, from);
+  return (
+    <GistPage gist={gist} more={more} theme={mounted ? theme : "light"} shellTheme={mounted ? theme : undefined} onToggleTheme={onToggleTheme} headerProps={mounted ? headerProps : {}}
+      banner={<><StickyBanner saveCount={mounted ? saves.length : 0} /><SignInFailed /></>}
+      saved={saved} onToggleSave={toggle} showSubscribe={!mounted || showSubscribeOptions(subscribed)} />);
 }
 
 // /weekly - every published issue, newest first. Issue links are plain hrefs:

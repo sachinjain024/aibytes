@@ -15,14 +15,15 @@ mod.require=createRequire(import.meta.url);mod._compile(result.outputFiles[0].te
 const { SaveBanner } = mod.exports;
 const render=props=>renderToStaticMarkup(React.createElement(SaveBanner,{onSignIn:()=>{},...props}));
 
-test('the banner leads with a warning icon, then the unchanged copy and the sign-in link',()=>{
+test('the banner leads with a warning icon, then the copy and the sign-in link',()=>{
   const html=render({});
   assert.match(html,/role="status"/);
   const msg=html.slice(html.indexOf('class="ldg-banner__msg"'));
   assert.match(msg,/^class="ldg-banner__msg"><svg/);
   const icon=msg.match(/<svg[^>]*>/)[0];
   assert.match(icon,/class="ldg-banner__icon"/);assert.match(icon,/stroke-width="1.5"/);assert.match(icon,/aria-hidden="true"/);
-  assert.match(html,/Saved items are stored in this browser only\. <a href="#signin">Sign in with Google<\/a> to keep them across devices\./);
+  assert.match(html,/Saved items are stored in this browser&#x27;s local storage\. <a href="#signin">Sign in with Google<\/a> to sync them to your account\./);
+  assert.doesNotMatch(html,/this browser only|across devices/);
 });
 test('the dismiss button renders only with onDismiss, labelled Dismiss',()=>{
   assert.doesNotMatch(render({}),/Dismiss/);

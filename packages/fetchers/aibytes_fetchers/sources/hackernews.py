@@ -52,15 +52,19 @@ def story_type(tags):
 
 def to_story(hit):
     hn_url = f"https://news.ycombinator.com/item?id={hit['objectID']}"
+    tags = hit.get("_tags") or []
     return {
         "title": hit["title"],
         "url": hit.get("url") or hn_url,
-        "type": story_type(hit.get("_tags") or []),
+        "type": story_type(tags),
         "points": hit.get("points") or 0,
         "num_comments": hit.get("num_comments") or 0,
         "author": hit.get("author"),
         "created_at": hit["created_at"],
         "hn_url": hn_url,
+        # Algolia tags a story front_page only while it is on the front page,
+        # so this is where it is at fetch time, not its history (AIB-145y).
+        "front_page": "front_page" in tags,
     }
 
 

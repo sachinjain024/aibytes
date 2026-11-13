@@ -249,6 +249,57 @@ class NewsletterPromptKitTests(unittest.TestCase):
         self.assertIn("Dialog", ledger)
 
 
+class GistKitTests(unittest.TestCase):
+    """Screens 16-18 show the gist panel, the gist page and the phone sheet (AIB-145y)."""
+
+    KIT = DESIGN_SYSTEM / "ui_kits" / "aibytes-app"
+    SCREENS = {
+        "16-gist-panel.html": ("gist0", "signedIn0", "saved0"),
+        "17-gist-page.html": ("gistPage0", 'theme0="dark"'),
+        "18-gist-sheet-mobile.html": ("gist0",),
+    }
+
+    def test_each_screen_is_a_seeded_kit_page(self):
+        for name, props in self.SCREENS.items():
+            with self.subTest(name):
+                html = (self.KIT / name).read_text()
+                self.assertTrue(html.startswith("<!-- @dsCard "), "the card marker must be the first line")
+                self.assertIn('src="App.jsx"', html)
+                self.assertIn('src="gists.js"', html)
+                for prop in props:
+                    self.assertIn(prop, html)
+
+    def test_the_kit_app_wires_the_gist_components(self):
+        app = (self.KIT / "App.jsx").read_text()
+        for needle in ("GistPanel", "GistView", "ReactionBar", "SavedNote", "gist0", "gistPage0", "front={hasFront(item)}",
+                       "onWidthChange=", "gist-page"):
+            self.assertIn(needle, app)
+
+    def test_the_sample_gists_are_in_the_contract_shape(self):
+        js = (self.KIT / "gists.js").read_text()
+        for needle in ('schema_version: 1', 'kind: "hn"', 'kind: "repo"', 'kind: "launch"', "stats_as_of", "appearances", "links:", "front_page: true"):
+            self.assertIn(needle, js)
+
+    def test_the_readmes_list_them(self):
+        readme = (self.KIT / "README.md").read_text()
+        for name in self.SCREENS:
+            self.assertIn(name, readme)
+        ledger = (DESIGN_SYSTEM / "readme.md").read_text()
+        for needle in ("16–18", "GistPanel", "gists.js"):
+            self.assertIn(needle, ledger)
+
+    def test_the_gist_components_are_documented_alongside_their_code(self):
+        for name in ("GistView", "GistPanel", "ReactionBar", "SavedNote"):
+            for ext in ("jsx", "d.ts", "prompt.md", "test.js"):
+                self.assertTrue((DESIGN_SYSTEM / "components" / "content" / f"{name}.{ext}").exists(), f"{name}.{ext}")
+
+    def test_the_gist_styles_use_tokens_only(self):
+        css = (DESIGN_SYSTEM / "components" / "components.css").read_text()
+        gist = css[css.index("The gist view (AIB-145y)"):]
+        self.assertNotRegex(gist, r"#[0-9a-fA-F]{3,8}\b", "no literal colours in the gist styles")
+        self.assertNotRegex(gist, r"box-shadow", "no shadows at rest")
+
+
 class RemovedComponentTests(unittest.TestCase):
     """Header, SideNav, Chip and Footer were replaced by the app shell (AIB-133k)."""
 

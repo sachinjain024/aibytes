@@ -1,0 +1,154 @@
+/* Prototype-only styles for AIB-145y. Every color is a Ledger token, except the
+   newsletter stand-in, which is deliberately not Ledger. */
+body { background: var(--bg); color: var(--text); }
+:root { --gist-w: 460px; --mail-bg: #ffffff; --mail-ink: #14161a; --mail-dim: #5b6472; --mail-link: #d9480f; --mail-line: #e4e6ea; }
+
+.proto-out { font-size: .85em; }
+.proto-x { width: 28px; height: 28px; display: grid; place-items: center; border: 0; background: none; color: var(--text-2); border-radius: 5px; cursor: pointer; flex: none; }
+.proto-x:hover { background: var(--surface-2); color: var(--text); }
+
+/* The card is a link to its gist */
+.proto-cardwrap { display: contents; cursor: pointer; }
+.proto-cardwrap--open > .story { border-color: var(--link); box-shadow: inset 3px 0 0 var(--link); }
+
+/* A1: the feed makes room for the panel */
+@media (min-width: 761px) {
+  .redesign.proto-beside .workspace { width: calc(100% - 300px - var(--gist-w)); margin-left: 280px; margin-right: calc(var(--gist-w) + 20px); }
+}
+
+/* The panel */
+.gist-scrim { position: fixed; inset: 0; background: color-mix(in srgb, var(--ink) 35%, transparent); z-index: 240; }
+.gist-panel { position: fixed; top: var(--redesign-top); right: 0; bottom: 0; width: var(--gist-w); max-width: 100vw; background: var(--surface); border-left: 1px solid var(--control-border); display: flex; flex-direction: column; z-index: 60; font-family: var(--font-body); outline: none; padding-right: env(safe-area-inset-right, 0px); }
+.gist-panel--over { top: 0; width: min(560px, 100vw); z-index: 250; box-shadow: -16px 0 40px var(--shadow); }
+.gist-panel-bar { display: flex; align-items: center; gap: 10px; padding: 8px 10px 8px 20px; border-bottom: 1px solid var(--line); flex: none; }
+.gist-url { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; color: var(--text-2); font-variant-numeric: tabular-nums; }
+.gist-url:hover { color: var(--link); }
+.gist-scroll { flex: 1; overflow-y: auto; overscroll-behavior: contain; display: flex; flex-direction: column; }
+.gist--panel { padding: 20px 20px 28px; flex: 1; }
+@media (max-width: 760px) {
+  .gist-panel, .gist-panel--over { top: 0; width: 100vw; border-left: 0; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .gist--panel { padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+}
+
+/* The gist: one view for the panel and the page */
+.gist { display: flex; flex-direction: column; gap: 20px; min-width: 0; font-family: var(--font-body); color: var(--text); }
+.gist-head { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.gist-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0; font-size: 12px; color: var(--text-2); font-variant-numeric: tabular-nums; }
+.gist-kicker i { font-style: normal; }
+.gist-kicker .source-icon { width: 20px; height: 20px; border-radius: 5px; }
+/* Badges: Top today and HN front page, in the family of Ledger's TOP label */
+.gist-badge, .proto-cardwrap--front .metadata::before { color: var(--hot-text); font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.gist-badge { background: var(--hot-tint); border-radius: 4px; padding: 1px 6px; }
+.proto-cardwrap--front .metadata::before { content: "Front page"; }
+.gist-depth { border: 1px solid var(--control-border); border-radius: 4px; padding: 0 5px; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; font-weight: 600; }
+.gist-title { margin: 0; font: 700 22px/1.2 var(--font-display); letter-spacing: -.5px; text-wrap: balance; overflow-wrap: anywhere; }
+.gist--page .gist-title { font-size: 32px; letter-spacing: -1px; }
+.gist-source { height: 34px; gap: 6px; text-decoration: none; }
+.gist-lede { margin: 0; font-size: 16px; line-height: 1.55; color: var(--text); text-wrap: pretty; }
+.gist--page .gist-lede { font-size: 18px; }
+.gist-briefnote { margin: -8px 0 0; font-size: 13px; color: var(--text-2); }
+.gist-sec { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.gist-sec h3 { margin: 0; font: 600 12px var(--font-body); letter-spacing: .07em; text-transform: uppercase; color: var(--text-2); }
+.gist-sec p { margin: 0; font-size: 14px; line-height: 1.6; }
+.gist-sec ul, .gist-sec ol { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; line-height: 1.55; }
+.gist-tag { display: inline-block; margin-right: 7px; font-size: 11px; font-weight: 600; letter-spacing: .03em; color: var(--text-2); background: var(--surface-2); border-radius: 4px; padding: 0 5px; }
+.gist-code { margin: 0; padding: 10px 12px; background: var(--surface-2); border-radius: 6px; overflow-x: auto; font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+.gist-stats { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.gist-asof { margin: 0; font-size: 11px; line-height: 1.4; color: var(--text-2); font-variant-numeric: tabular-nums; }
+.gist-statline { margin: 0; font-size: 13px; line-height: 1.6; color: var(--text-2); font-variant-numeric: tabular-nums; }
+.gist-statline b { color: var(--text); font-weight: 600; }
+.gist-statline i { font-style: normal; }
+.gist-statgrid { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(104px, 1fr)); gap: 1px; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.gist-statgrid > div { box-shadow: 0 0 0 1px var(--line); padding: 9px 12px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.gist-statgrid dt { font-size: 11px; color: var(--text-2); }
+.gist-statgrid dd { margin: 0; font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+
+.gist-refs a, .gist-seen a, .proto-crumb a, .proto-sub a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
+.gist-refs li span { margin-left: 8px; font-size: 12px; color: var(--text-2); }
+.gist-seen i { font-style: normal; color: var(--text-2); }
+
+/* The X post preview */
+.gist-post { margin: 0; border: 1px solid var(--control-border); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.gist-post figcaption { display: flex; flex-direction: column; font-size: 14px; }
+.gist-post figcaption span { font-size: 12px; color: var(--text-2); }
+.gist-post blockquote { margin: 0; font-size: 16px; line-height: 1.5; text-wrap: pretty; }
+
+/* Star and reactions */
+.gist-actions { display: flex; flex-direction: column; gap: 8px; align-self: stretch; }
+.gist-actions-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.gist-save { display: inline-flex; align-items: center; border: 1px solid var(--control-border); border-radius: 999px; padding: 0 12px 0 4px; height: 32px; }
+.gist-save--on .ldg-star { color: var(--save); }
+.gist-save-label { border: 0; background: none; color: var(--text); font: 500 13px var(--font-body); cursor: pointer; padding: 0; }
+.gist-reacts { display: flex; flex-wrap: wrap; gap: 4px; }
+.gist-react { display: inline-flex; align-items: center; gap: 5px; height: 32px; min-width: 36px; justify-content: center; padding: 0 8px; border: 1px solid transparent; border-radius: 999px; background: none; color: var(--text-2); font: 500 12px var(--font-body); font-variant-numeric: tabular-nums; cursor: pointer; }
+.gist-react span { font-size: 15px; line-height: 1; }
+.gist-react:hover { background: var(--surface-2); }
+.gist-react:has(b) { border-color: var(--line); background: var(--surface-2); }
+.gist-react[aria-pressed="true"] { border-color: var(--link); color: var(--text); }
+.gist-saved { margin: 0; font-size: 13px; color: var(--text-2); }
+.gist-saved a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
+.gist-ask { margin: 0; font-size: 13px; color: var(--text-2); display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; }
+.gist-linkbtn { border: 0; background: none; padding: 0; color: var(--link); font: 600 13px var(--font-body); text-decoration: underline; cursor: pointer; }
+.gist-actions--pinned { position: sticky; bottom: 0; margin: auto -20px -28px; padding: 10px 20px; background: var(--surface); border-top: 1px solid var(--line); }
+.gist--page .gist-actions--pinned { margin: 8px 0 0; padding: 10px 0; background: var(--bg); }
+
+/* The gist page */
+/* One reading column, 720px of text at most, with the same gutter on both sides
+   at every width. In the app shell it starts where the feed starts; as a
+   reading page it is centred. */
+.proto-page, .mail-wrap { --page-gutter: 0px; box-sizing: border-box; width: 100%; max-width: calc(720px + 2 * var(--page-gutter)); padding-inline: max(var(--page-gutter), env(safe-area-inset-left, 0px)) max(var(--page-gutter), env(safe-area-inset-right, 0px)); }
+.proto-page { display: flex; flex-direction: column; gap: 24px; padding-block: 12px 96px; }
+.proto-page--reading { --page-gutter: 24px; margin-inline: auto; padding-block: 28px 96px; }
+@media (max-width: 760px) { .proto-page, .mail-wrap { --page-gutter: 20px; } .proto-page { padding-block: 20px 96px; } }
+.proto-crumb { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; margin: 0 0 4px; font-size: 13px; color: var(--text-2); }
+.proto-crumb span { overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.redesign.proto-reading .workspace { width: 100%; max-width: none; margin: 0; }
+.proto-more { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; padding-top: 24px; border-top: 1px solid var(--line); }
+.proto-more h2 { margin: 0; font: 600 16px var(--font-display); }
+.proto-more .app-grid { grid-template-columns: 1fr; }
+.proto-sub { margin: 4px 0 0; font-size: 14px; color: var(--text-2); }
+
+/* The newsletter stand-in */
+.mail-wrap { display: flex; flex-direction: column; gap: 10px; padding-block: 12px 96px; }
+.mail { max-width: 600px; }
+.proto-standin { margin: 0; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-weight: 600; color: var(--text-2); }
+.mail { background: var(--mail-bg); color: var(--mail-ink); border: 1px dashed var(--control-border); border-radius: 10px; padding: 24px; display: flex; flex-direction: column; gap: 12px; font-family: Georgia, 'Times New Roman', serif; }
+.mail-brand { margin: 0; font: 800 20px var(--font-display); }
+.mail-brand span { color: var(--mail-link); }
+.mail h2 { margin: 10px 0 0; padding-bottom: 6px; border-bottom: 1px solid var(--mail-line); font: 600 12px ui-monospace, Menlo, monospace; letter-spacing: .04em; color: var(--mail-dim); }
+.mail ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.mail-title { color: var(--mail-link); font-weight: 700; font-size: 16px; text-decoration: underline; text-underline-offset: 2px; }
+.mail-source { margin-left: 10px; color: var(--mail-dim); font: 12px ui-monospace, Menlo, monospace; text-decoration: underline; white-space: nowrap; }
+.mail li p { margin: 3px 0 0; font-size: 14px; line-height: 1.5; color: var(--mail-ink); }
+.mail-foot { margin: 8px 0 0; padding-top: 12px; border-top: 1px solid var(--mail-line); font: 12px/1.5 var(--font-body); color: var(--mail-dim); }
+
+/* Review panel: the option switcher, outside the app's own chrome. Bottom left,
+   so it never covers the gist panel. */
+.proto-review { position: fixed; left: max(16px, env(safe-area-inset-left, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); width: min(256px, calc(100vw - 32px)); max-height: calc(100dvh - 90px); overflow: auto; background: var(--surface); border: 1px solid var(--control-border); border-radius: 10px; box-shadow: 0 10px 30px var(--shadow); z-index: 400; font-family: var(--font-body); }
+.proto-review--closed { width: auto; }
+.proto-review-toggle { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 12px; border: 0; background: none; color: var(--text); padding: 11px 14px; font: 600 13px var(--font-body); cursor: pointer; }
+.proto-review-body { padding: 0 14px 12px; display: flex; flex-direction: column; gap: 12px; }
+.proto-review fieldset { border: 0; margin: 0; padding: 0; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.proto-review legend { display: flex; align-items: center; gap: 7px; padding: 0 0 6px; font-size: 12px; font-weight: 600; color: var(--text-2); }
+.proto-q { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 4px; background: var(--surface-2); color: var(--text); font-size: 11px; }
+.proto-seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.proto-seg button { border: 1px solid var(--control-border); background: none; color: var(--text); border-radius: 6px; padding: 5px 9px; font: 500 12px var(--font-body); cursor: pointer; }
+.proto-seg button[aria-pressed="true"] { background: var(--text); border-color: var(--text); color: var(--bg); }
+.proto-note { margin: 0; font-size: 12px; line-height: 1.45; color: var(--text-2); }
+.proto-review-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; border-top: 1px solid var(--control-border); padding-top: 10px; font-size: 12px; color: var(--text-2); }
+.proto-review-foot span { margin-right: auto; }
+.proto-review-foot .ldg-btn { height: 28px; padding: 0 8px; font-size: 12px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+.gist-cta { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 4px; }
+.gist-cta .gist-source { height: 38px; }
+
+/* Resizable beside panel: a 10px grab strip over the left border. */
+.gist-resize { position: absolute; top: 0; bottom: 0; left: -5px; width: 10px; cursor: col-resize; z-index: 2; touch-action: none; }
+.gist-resize::after { content: ""; position: absolute; top: 0; bottom: 0; left: 4px; width: 2px; background: transparent; transition: background .12s; }
+.gist-resize:hover::after, .gist-resize:focus-visible::after, .gist-resizing .gist-resize::after { background: var(--accent); }
+.gist-resize:focus-visible { outline: none; }
+.gist-resizing { cursor: col-resize; user-select: none; }
+.gist-resizing .gist-panel, .gist-resizing .workspace { transition: none !important; }
+@media (max-width: 760px) { .gist-resize { display: none; } }

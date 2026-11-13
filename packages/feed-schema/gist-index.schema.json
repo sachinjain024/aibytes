@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aibytes.io/content/gist-index.schema.json",
+  "title": "aiBytes gist index",
+  "description": "content/gists/index.json - every gist, keyed by its source (AIB-145y). The daily run reads it to answer 'does this source already have a gist?' before writing one, and the build reads it for the sitemap. The app never loads it: an item carries its gist's slug. Present once the first gist is written; validate.py checks that it lists exactly the gist files on disk.",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "gists"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "type": "integer", "minimum": 1, "description": "Bumped only for a breaking change." },
+    "generated_at": { "type": "string", "format": "date-time", "description": "The last run that added a gist." },
+    "gists": {
+      "type": "array",
+      "description": "Sorted by slug, so a new gist is a one-line diff. Slugs and source keys are each unique.",
+      "items": {
+        "type": "object",
+        "required": ["slug", "source_key", "path", "created_at"],
+        "additionalProperties": false,
+        "properties": {
+          "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$", "maxLength": 80 },
+          "source_key": { "type": "string", "minLength": 1, "description": "The gist's source_url normalised: no scheme, lower-case host without www., no fragment, no tracking parameters, no trailing slash. Stored, so a later change to the rules never changes what an old key meant. See docs/specs/AIB-145y-gist-contract.md." },
+          "path": { "type": "string", "pattern": "^gists/[a-z0-9]+(?:-[a-z0-9]+)*\\.json$", "description": "Relative to content/: gists/<slug>.json." },
+          "created_at": { "type": "string", "format": "date-time" }
+        }
+      }
+    }
+  }
+}

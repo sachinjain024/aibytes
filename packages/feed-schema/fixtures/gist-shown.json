@@ -1,0 +1,62 @@
+{
+  "description": "Shared cases for gist_is_shown (AIB-145y T7, contract spec D4): a gist is shown while at least one of its appearances is an item whose hidden is false. X posts are not carried in issue files, so an x_post gist is always shown. Read by tests/test_gist_shown.py and apps/web/src/gistShown.test.js; change both implementations together.",
+  "cases": [
+    {
+      "name": "one visible appearance",
+      "gist": { "kind": "hn", "appearances": [{ "item_id": "hn-a-2026-08-27", "edition_date": "2026-08-27" }] },
+      "items": { "hn-a-2026-08-27": { "hidden": false } },
+      "shown": true
+    },
+    {
+      "name": "its only appearance hidden",
+      "gist": { "kind": "hn", "appearances": [{ "item_id": "hn-a-2026-08-27", "edition_date": "2026-08-27" }] },
+      "items": { "hn-a-2026-08-27": { "hidden": true } },
+      "shown": false
+    },
+    {
+      "name": "one of two appearances hidden",
+      "gist": { "kind": "repo", "appearances": [
+        { "item_id": "gh-a-2026-08-27", "edition_date": "2026-08-27" },
+        { "item_id": "gh-a-2026-08-29", "edition_date": "2026-08-29" }
+      ] },
+      "items": { "gh-a-2026-08-27": { "hidden": true }, "gh-a-2026-08-29": { "hidden": false } },
+      "shown": true
+    },
+    {
+      "name": "both appearances hidden",
+      "gist": { "kind": "repo", "appearances": [
+        { "item_id": "gh-a-2026-08-27", "edition_date": "2026-08-27" },
+        { "item_id": "gh-a-2026-08-29", "edition_date": "2026-08-29" }
+      ] },
+      "items": { "gh-a-2026-08-27": { "hidden": true }, "gh-a-2026-08-29": { "hidden": true } },
+      "shown": false
+    },
+    {
+      "name": "unhidden again",
+      "gist": { "kind": "hn", "appearances": [{ "item_id": "hn-a-2026-08-27", "edition_date": "2026-08-27" }] },
+      "items": { "hn-a-2026-08-27": { "hidden": false } },
+      "shown": true
+    },
+    {
+      "name": "hidden daily, visible in the weekly issue",
+      "gist": { "kind": "news", "appearances": [
+        { "item_id": "tc-a-2026-08-27", "edition_date": "2026-08-27" },
+        { "item_id": "tc-a-issue-9", "issue_slug": "issue-9" }
+      ] },
+      "items": { "tc-a-2026-08-27": { "hidden": true }, "tc-a-issue-9": { "hidden": false } },
+      "shown": true
+    },
+    {
+      "name": "an appearance whose item is not loaded does not count",
+      "gist": { "kind": "hn", "appearances": [{ "item_id": "hn-a-2026-08-27", "edition_date": "2026-08-27" }] },
+      "items": {},
+      "shown": false
+    },
+    {
+      "name": "an x_post is always shown",
+      "gist": { "kind": "x_post", "appearances": [{ "item_id": "x-a-b-issue-19", "issue_slug": "issue-19" }] },
+      "items": {},
+      "shown": true
+    }
+  ]
+}

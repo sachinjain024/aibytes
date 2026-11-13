@@ -38,7 +38,7 @@ Design system for **aiBytes_** (`aibytes.io`): a curated daily feed of AI resour
 
 - **Tone:** dense, calm, honest, technical, quietly opinionated. Never playful-startup, never marketing.
 - **Voice:** plain declarative sentences. Summaries are one line, factual, no adjectives-as-hype: "AI video editor inside ChatGPT with a real timeline and XML export."
-- **Person:** the product speaks in neutral third person; direct address ("you") only in functional copy ("Sign in with Google to keep them across devices").
+- **Person:** the product speaks in neutral third person; direct address ("you") only in functional copy ("Sign in with Google to sync them to your account").
 - **Casing:** sentence case everywhere. Category/tag labels are Title Case nouns ("Dev Tool", "Open Source"). No ALL CAPS except tiny mono labels (e.g. TOP).
 - **Numbers and dates are content**, set in mono with tabular numerals: `▲776`, `+6.4k ★`, `Wed, Aug 27, 2026 · 39 items · updated 4h ago`. Numbering must encode something true — editions are dated, sections are counted; nothing decorative.
 - **Emoji:** none in UI copy. The wordmark's ⚡ is the only pictogram; ▲ ★ ☆ 💬-style glyphs on cards are signal icons (we render ▲/★/comment as glyphs, not emoji).
@@ -85,7 +85,7 @@ Design system for **aiBytes_** (`aibytes.io`): a curated daily feed of AI resour
 - `components/navigation/` — the app shell: AppHeader, Sidebar, Toolbar, FilterPanel, ActiveFilters; and EditionBar (the toolbar's date picker), CalendarPopover. The app (`apps/web`) is built from these, so what ships and what Claude Design shows are the same components.
 - `components/content/` — Card, ListRow, CardGrid / RowList / StatusMessage (`Feed.jsx`), ItemImage, SectionHeading, Tag, SaveStar, CardMenu, SaveBanner, EmptyState, EndCard, Dialog
 - `components/forms/` — Button, Input
-- `ui_kits/aibytes-app/` — the screens + interactive `index.html`, shared `data.js`; 12–14 show saves and sign-in; 15 shows the newsletter prompt in `Dialog`
+- `ui_kits/aibytes-app/` — the screens + interactive `index.html`, shared `data.js`; 12–14 show saves and sign-in; 15 shows the newsletter prompt in `Dialog`; 16–18 show the gists (`GistPanel` beside the feed, the gist page, the phone sheet), with sample gists in `gists.js`
 
 ### Saves and sign-in (AIB-75v)
 

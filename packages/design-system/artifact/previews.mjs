@@ -48,7 +48,7 @@ function Demo() {
     <L.CardGrid>
       <L.Card item={chatcut} topToday saved={saved.includes(chatcut.id)} onToggleSave={toggle} starPos="visual" />
       <L.Card item={officecli} saved={saved.includes(officecli.id)} onToggleSave={toggle} starPos="visual" />
-      <L.Card item={hn} saved={saved.includes(hn.id)} onToggleSave={toggle} starPos="visual" />
+      <L.Card item={hn} front saved={saved.includes(hn.id)} onToggleSave={toggle} starPos="visual" />
       <L.Card item={tc} />
     </L.CardGrid>
     <Label>Top today (ChatCut), saved and unsaved stars under the source icon, and a card without onToggleSave (no star). Hover lifts the card; the ⋮ menu opens "Open in".</Label>
@@ -102,6 +102,67 @@ render(<div className="pv-static">
   <L.SaveBanner onSignIn={noop} />
   <Label>As the app shows it: signed out with a save, not dismissible. With sticky it sits under the AppHeader, over the Sidebar.</Label>
 </div>);` },
+
+  GistView: { group: "Content", height: 760, width: 520, jsx: `
+const asOf = "2026-08-27T08:04:10Z";
+const gist = { schema_version: 1, slug: "gh-officecli", kind: "repo", source: "github", category: "repos", title: "OfficeCLI", url: "#", source_url: "#",
+  tags: [], image: { type: "none" }, depth: "full",
+  lede: "OfficeCLI creates and edits Word, Excel and PowerPoint files from the command line, aimed at scripts and agents that need to produce real documents.",
+  sections: [
+    { key: "key_points", points: ["One command per action: add a slide, fill a table, replace text by style.", "Reads and writes the standard file formats directly; Office does not need to be installed.", "Ships a JSON mode so an agent can inspect a document before changing it."] },
+    { key: "try_it", command: "pip install officecli && officecli docx new report.docx" },
+    { key: "whats_open", points: [{ text: "Chart support in PowerPoint is the most requested feature.", url: "#" }, { text: "Several reports of formulas being dropped when a sheet is rewritten." }] },
+  ],
+  stats: { stars: 18200, stars_gained: 6400, forks: 640, language: "Python", license: "MIT", created_on: "2026-06-12", contributors: 41, open_issues: 73 }, stats_as_of: asOf,
+  links: [{ role: "destination", title: "OfficeCLI repository", url: "https://github.com/example/officecli" }],
+  appearances: [{ item_id: "gh-officecli-2026-08-27", edition_date: "2026-08-27" }, { item_id: "gh-officecli-issue-9", issue_slug: "issue-9" }],
+  created_at: asOf, updated_at: asOf };
+render(<>
+  <L.GistView gist={gist} as="panel" actions={<div className="gist-sec"><L.SaveStar saved={false} onToggle={noop} /></div>} />
+  <Label>The one view the panel and the page both render. A repo gist: image or source mark before the title, the stats grid with its date, sections, then the source button. Hacker News, Product Hunt and news gists differ only in their sections and stats.</Label>
+</>);` },
+
+  GistPanel: { group: "Content", height: 640, width: 900, jsx: `
+const asOf = "2026-08-27T08:04:10Z";
+const gist = { schema_version: 1, slug: "ph-chatcut", kind: "launch", source: "producthunt", category: "launches", title: "ChatCut", url: "#", source_url: "#",
+  tags: [], image: { type: "none" }, depth: "full",
+  lede: "ChatCut is a video editor that runs inside ChatGPT: you describe the cut, it edits on a real timeline, and the project exports as XML for a desktop editor.",
+  sections: [
+    { key: "key_points", points: ["Edits are made on a visible timeline, so each change can be checked and undone.", "Exports XML that opens in Premiere and Final Cut.", "Works on footage you upload; it does not generate video."] },
+    { key: "who_its_for", text: "People who cut interviews, demos and social clips and want a first assembly without learning an editor." },
+    { key: "pricing", text: "Free for exports up to 720p; a paid plan removes the limit." },
+  ],
+  stats: { upvotes: 776, comments: 42 }, stats_as_of: asOf,
+  links: [{ role: "destination", title: "chatcut.io", url: "https://chatcut.io" }, { role: "discussion", title: "ChatCut", url: "https://www.producthunt.com/products/chatcut" }],
+  appearances: [{ item_id: "ph-chatcut-2026-08-27", edition_date: "2026-08-27" }],
+  created_at: asOf, updated_at: asOf };
+function Demo() {
+  const [width, setWidth] = React.useState(460);
+  return <>
+    <L.GistPanel gist={gist} pageHref="#" width={width} onWidthChange={setWidth} onClose={noop}>
+      <L.GistView gist={gist} as="panel" />
+    </L.GistPanel>
+    <Label>Fixed to the right edge: drag its left edge, or focus it and use the arrow keys. Escape closes it. Width: {width}px.</Label>
+  </>;
+}
+render(<Demo />);` },
+
+  ReactionBar: { group: "Content", height: 120, width: 520, jsx: `
+function Demo() {
+  const [mine, setMine] = React.useState(["🎉"]);
+  const toggle = (e) => setMine(m => m.includes(e) ? m.filter(x => x !== e) : [...m, e]);
+  return <>
+    <L.ReactionBar counts={{ "👍": 12, "🎉": 3, "🚀": 1200 }} mine={mine} onToggle={toggle} />
+    <Label>Counts show above zero and include your own press. Pressed ones are outlined. Click to toggle.</Label>
+  </>;
+}
+render(<Demo />);` },
+
+  SavedNote: { group: "Content", height: 90, jsx: `
+render(<>
+  <L.SavedNote />
+  <Label>Under the save control, right after a save.</Label>
+</>);` },
 
   Dialog: { group: "Content", height: 420, width: 1000, jsx: `
 render(<L.Dialog labelledBy="pv-dialog-h" onClose={noop}>

@@ -6,6 +6,6 @@
   "types": "feed.d.ts",
   "scripts": {
     "validate": "cd ../.. && python3 packages/feed-schema/validate.py",
-    "test": "cd ../.. && python3 -m unittest tests.test_feed_schema tests.test_hide -v"
+    "test": "cd ../.. && python3 -m unittest tests.test_feed_schema tests.test_gist_contract tests.test_gist_tree tests.test_gist_shown tests.test_hide -v"
   }
 }

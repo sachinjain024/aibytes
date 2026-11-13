@@ -224,6 +224,25 @@ class MessageTest(unittest.TestCase):
 # The watchdog
 # --------------------------------------------------------------------------
 
+class GistsMessageTest(unittest.TestCase):
+    def test_a_clean_gists_line_rides_on_the_success_message(self):
+        text = notify.published(DATE, {"HN": 1}, "abc", "logs/x.log",
+                                gists="19 new (4 brief), 9 updated, 0 failed")
+        self.assertIn("Gists: 19 new (4 brief), 9 updated, 0 failed", text)
+        self.assertNotIn("see run log", text)
+
+    def test_failures_point_at_the_log(self):
+        for line in ("19 new (4 brief), 9 updated, 2 failed",
+                     "19 new (4 brief), 9 updated, 10 failed",
+                     "19 new (0 brief), 0 updated, 0 failed, 3 not written"):
+            with self.subTest(line=line):
+                self.assertIn(f"Gists: {line} (see run log)",
+                              notify.published(DATE, {}, "", "l", gists=line))
+
+    def test_no_gists_no_line(self):
+        self.assertNotIn("Gists", notify.published(DATE, {"HN": 1}, "", "l"))
+
+
 class WatchdogTest(unittest.TestCase):
     def setUp(self):
         self.tmp = pathlib.Path(tempfile.mkdtemp())
@@ -666,8 +685,17 @@ exits 0 - the point being that the run must not trust that.
 """
 import json, os, pathlib, re, sys
 
-pathlib.Path(os.environ["STUB_CLAUDE_ARGV"]).write_text(json.dumps(sys.argv[1:]))
 prompt = "\n".join(sys.argv[1:])
+gists = re.search(r"(\S*gists\.json)", prompt)
+record = os.environ["STUB_CLAUDE_ARGV"] + (".gists" if gists else "")
+pathlib.Path(record).write_text(json.dumps(sys.argv[1:]))
+if gists:
+    if os.environ.get("STUB_CLAUDE_GISTS") != "0":
+        target = pathlib.Path(os.environ["STUB_CLAUDE_REPO"]) / gists.group(1)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(json.dumps({"date": "DATE", "gists": {}}))
+    print(json.dumps({"is_error": False, "num_turns": 9, "result": "wrote the gists"}))
+    raise SystemExit(0)
 match = re.search(r"(\S*summaries\.json)", prompt)
 if match and os.environ.get("STUB_CLAUDE_WRITE") != "0":
     target = pathlib.Path(os.environ["STUB_CLAUDE_REPO"]) / match.group(1)
@@ -676,6 +704,41 @@ if match and os.environ.get("STUB_CLAUDE_WRITE") != "0":
         {"date": "DATE", "items": {"hn-1": {"summary": "s", "tags": ["Model"]}}}))
 print(json.dumps({"is_error": False, "num_turns": 4, "total_cost_usd": 0.31,
                   "result": "wrote the summaries"}))
+'''
+
+
+STUB_GISTS = r'''#!/usr/bin/env python3
+"""Stands in for packages/gists/gists.py. STUB_GISTS_MODE picks a failure:
+draft-fails, build-fails (after writing half its output), slow."""
+import json, os, pathlib, sys, time
+
+args = sys.argv[1:]
+command = args[0]
+def value(flag):
+    return args[args.index(flag) + 1]
+date = value("--date")
+content = pathlib.Path(value("--content-root"))
+cache = pathlib.Path(value("--cache-root")) / date
+mode = os.environ.get("STUB_GISTS_MODE", "")
+if command == "draft":
+    if mode == "draft-fails":
+        raise SystemExit(1)
+    if mode == "slow":
+        time.sleep(5)
+    cache.mkdir(parents=True, exist_ok=True)
+    (cache / "draft.json").write_text(json.dumps({"date": date, "new": [], "repeats": []}))
+    print("gists draft: 1 new")
+else:
+    json.loads(pathlib.Path(value("--gists")).read_text())
+    (content / "gists").mkdir(parents=True, exist_ok=True)
+    (content / "gists" / "hn-1.json").write_text("{}")
+    edition = content / "editions" / (date + ".json")
+    doc = json.loads(edition.read_text())
+    doc["gist_touched"] = True
+    edition.write_text(json.dumps(doc))
+    if mode == "build-fails":
+        raise SystemExit(1)
+    print("gists build " + date + ": 1 new (0 brief), 0 updated, 0 failed")
 '''
 
 
@@ -689,6 +752,7 @@ class EndToEndTest(unittest.TestCase):
             ("packages/fetchers/fetch.py", STUB_FETCH),
             ("packages/curate/curate.py", STUB_CURATE),
             ("packages/feed-schema/validate.py", STUB_VALIDATE),
+            ("packages/gists/gists.py", STUB_GISTS),
         ):
             path = self.tmp / relative
             path.parent.mkdir(parents=True, exist_ok=True)
@@ -757,6 +821,74 @@ class EndToEndTest(unittest.TestCase):
         self.assertIn("at step `summaries`", self.recorder.only)
         self.assertIn("without writing", self.recorder.only)
         self.assertFalse((self.tmp / "content" / "editions").exists())
+
+    def edition(self):
+        return json.loads((self.tmp / "content" / "editions" / f"{DATE}.json").read_text())
+
+    def test_gists_are_written_and_reported(self):
+        self.assertEqual(self.run_it(), 0)
+        self.assertTrue((self.tmp / "content" / "gists" / "hn-1.json").exists())
+        self.assertTrue(self.edition().get("gist_touched"))
+        self.assertIn("Gists: 1 new (0 brief), 0 updated, 0 failed", self.recorder.only)
+        self.assertNotIn(":warning:", self.recorder.only)
+
+    def test_gists_claude_gets_read_write_edit_only(self):
+        self.run_it()
+        argv = json.loads(pathlib.Path(str(self.argv_file) + ".gists").read_text())
+        self.assertEqual(argv[argv.index("--allowedTools") + 1], "Read,Write,Edit")
+        self.assertIn("Bash", argv[argv.index("--disallowedTools") + 1])
+        self.assertIn("/write-gists " + DATE, argv[argv.index("--print") + 1])
+        self.assertEqual(argv[argv.index("--max-turns") + 1], str(cli.GISTS_MAX_TURNS))
+
+    def assert_published_without_gists(self, reason):
+        self.assertIn("published", self.recorder.only)
+        self.assertIn("published without gists", self.recorder.only)
+        self.assertIn(reason, self.recorder.only)
+        self.assertFalse((self.tmp / "content" / "gists").exists())
+        self.assertNotIn("gist_touched", self.edition())
+
+    def test_claude_writing_nothing_still_publishes_with_a_warning(self):
+        with mock.patch.dict(os.environ, {"STUB_CLAUDE_GISTS": "0"}):
+            self.assertEqual(self.run_it(), 0)
+        self.assert_published_without_gists("without writing gists.json")
+
+    def test_a_timeout_still_publishes_with_a_warning(self):
+        with mock.patch.dict(os.environ, {"STUB_GISTS_MODE": "slow"}), \
+                mock.patch.object(cli, "GISTS_DRAFT_TIMEOUT", 1):
+            self.assertEqual(self.run_it(), 0)
+        self.assert_published_without_gists("timed out")
+
+    def test_a_build_rejection_restores_content_and_still_publishes(self):
+        with mock.patch.dict(os.environ, {"STUB_GISTS_MODE": "build-fails"}):
+            self.assertEqual(self.run_it(), 0)
+        self.assert_published_without_gists("exited 1")
+
+    def test_existing_gists_survive_a_failed_step(self):
+        old = self.tmp / "content" / "gists" / "old.json"
+        old.parent.mkdir(parents=True)
+        old.write_text('{"kept": true}')
+        with mock.patch.dict(os.environ, {"STUB_GISTS_MODE": "build-fails"}):
+            self.assertEqual(self.run_it(), 0)
+        self.assertEqual(old.read_text(), '{"kept": true}')
+        self.assertFalse((old.parent / "hn-1.json").exists())
+
+    def test_skip_gists_runs_none_of_it(self):
+        with mock.patch.dict(os.environ, {"STUB_GISTS_MODE": "draft-fails"}):
+            self.assertEqual(self.run_it(["--skip-gists"]), 0)
+        self.assertNotIn(":warning:", self.recorder.only)
+        self.assertFalse(pathlib.Path(str(self.argv_file) + ".gists").exists())
+
+    def test_a_stale_gists_file_is_never_built(self):
+        stale = self.tmp / cli.GISTS_CACHE_ROOT / DATE / "gists.json"
+        stale.parent.mkdir(parents=True)
+        stale.write_text("{}")
+        with mock.patch.dict(os.environ, {"STUB_CLAUDE_GISTS": "0"}):
+            self.run_it()
+        self.assertIn("without writing gists.json", self.recorder.only)
+
+    def test_claude_never_sees_the_github_token(self):
+        with mock.patch.dict(os.environ, {"GITHUB_TOKEN": "ghs_secret"}):
+            self.assertNotIn("GITHUB_TOKEN", cli._claude_env(context(self.tmp)))
 
     def test_skip_fetch_reuses_the_days_snapshots(self):
         (self.tmp / "packages" / "fetchers" / "fetch.py").write_text(

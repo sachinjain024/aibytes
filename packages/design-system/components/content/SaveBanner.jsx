@@ -25,7 +25,7 @@ export function SaveBanner({ onSignIn, onDismiss, sticky = false }) {
       <div className="ldg-banner__in">
         <span className="ldg-banner__msg">
           <Icon name="warning" strokeWidth="1.5" className="ldg-banner__icon" />
-          <span>Saved items are stored in this browser only. <a href="#signin" onClick={e => { e.preventDefault(); onSignIn && onSignIn(); }}>Sign in with Google</a> to keep them across devices.</span>
+          <span>Saved items are stored in this browser's local storage. <a href="#signin" onClick={e => { e.preventDefault(); onSignIn && onSignIn(); }}>Sign in with Google</a> to sync them to your account.</span>
         </span>
         {onDismiss && <button type="button" className="ldg-iconbtn ldg-banner__dismiss" aria-label="Dismiss" onClick={onDismiss}>
           <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" strokeWidth="1.5"/></svg>

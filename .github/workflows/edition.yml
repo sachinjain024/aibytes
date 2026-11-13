@@ -26,6 +26,9 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    # A normal run takes 2 to 15 minutes; the gists step caps itself at 22.
+    # Without this a hung step holds the edition queue for GitHub's 6 hours.
+    timeout-minutes: 30
     permissions:
       contents: write
     steps:
@@ -80,6 +83,9 @@ jobs:
       - name: Publish the edition
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # The gists step's GitHub API calls (AIB-145y): 5,000 an hour with
+          # the run's own token, against 60 for a shared runner address.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "The Infin8y"
           git config user.email "the.infin8y@gmail.com"

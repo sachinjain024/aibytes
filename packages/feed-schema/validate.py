@@ -1,5 +1,6 @@
 """Validate the published content contract: editions, the index, tags, hidden,
-and the optional weekly archive under content/weekly/.
+the optional weekly archive under content/weekly/, and the optional gists
+under content/gists/ (AIB-145y; the gist rules live in gist_contract.py).
 
 Stdlib only, like the rest of the repo's Python. This checks the constraints
 the schema files actually declare rather than pulling in a JSON Schema engine,
@@ -33,7 +34,7 @@ SCHEMA_VERSION = 1
 EDITION_REQUIRED = ("schema_version", "date", "generated_at", "counts", "items")
 ITEM_REQUIRED = ("id", "title", "summary", "url", "source", "source_url",
                  "category", "tags", "image", "hidden")
-ITEM_OPTIONAL = ("signals", "meta", "published_at", "rank")
+ITEM_OPTIONAL = ("signals", "meta", "published_at", "rank", "gist", "front_page")
 INDEX_REQUIRED = ("schema_version", "generated_at", "editions")
 INDEX_ENTRY_REQUIRED = ("date", "path", "total", "generated_at")
 TAGS_REQUIRED = ("schema_version", "groups")
@@ -54,6 +55,8 @@ META_KEYS = ("language", "author", "reading_time")
 MAX_TAGS = 4
 SUMMARY_MAX = 200
 RANK_MIN = 1
+# A gist slug (AIB-145y): SLUG_RE, at most this long. gist_contract.py uses both.
+GIST_SLUG_MAX = 80
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]*-\d{4}-\d{2}-\d{2}$")
@@ -256,6 +259,17 @@ def _item_problems(item, edition_date, tag_names, *, issue_number=None):
 
     if "rank" in item and not _is_rank(item["rank"]):
         problems.append(f"rank {item['rank']!r} must be an integer of at least {RANK_MIN}")
+
+    # AIB-145y: the item's gist, and Hacker News front-page status.
+    if "gist" in item:
+        value = item["gist"]
+        if not (isinstance(value, str) and SLUG_RE.match(value) and len(value) <= GIST_SLUG_MAX):
+            problems.append(f"gist {value!r} must be a gist slug")
+    if "front_page" in item:
+        if item["front_page"] is not True:
+            problems.append("front_page must be true, or absent")
+        elif source is not None and source != "hackernews":
+            problems.append("front_page is for Hacker News items only")
     return problems
 
 
@@ -604,11 +618,20 @@ def validate_content_root(root):
     problems += _index_agrees_with_editions(documents.get("index"), editions)
     problems += _hidden_agrees_with_editions(documents.get("hidden"), editions)
     problems += _weekly_index_problems(root, tags_doc)
+    problems += _gist_problems(root, tags_doc)
 
     problems = list(problems)
     if problems:
         raise FeedValidationError("\n".join(problems))
     return True
+
+
+def _gist_problems(root, tag_names):
+    """Every gist file, the gist index, and how both agree with the items
+    (AIB-145y T5, T6). No gists/ folder, and no item naming a gist, is valid."""
+    # Imported here: gist_contract builds on this module's helpers.
+    import gist_contract
+    return gist_contract.gist_tree_problems(root, tag_names=tag_names)
 
 
 def validate_weekly_issue(issue, *, tag_names=None):

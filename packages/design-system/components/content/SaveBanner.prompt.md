@@ -1,4 +1,4 @@
-The save banner, for signed-out readers with at least one save: "Saved items are stored in this browser only. Sign in with Google to keep them across devices." A warning icon leads the centred message; the dismiss button sits at the right. Dismissible per session, never a toast.
+The save banner, for signed-out readers with at least one save: "Saved items are stored in this browser's local storage. Sign in with Google to sync them to your account." A warning icon leads the centred message; the dismiss button sits at the right. Dismissible per session, never a toast.
 
 ```jsx
 <AppHeader … onSignIn={signIn} />

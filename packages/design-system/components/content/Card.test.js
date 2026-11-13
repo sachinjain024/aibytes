@@ -78,6 +78,18 @@ test('no star renders in either position without onToggleSave',()=>{
     assert.doesNotMatch(renderToStaticMarkup(React.createElement(ListRow,{item,starPos})),/ldg-star/);
   }
 });
+
+test('front adds a Front page label beside TOP on cards and rows, and nothing changes without it',()=>{
+  for(const html of [render({front:true}),renderRow({front:true})]){
+    assert.match(html,/<span class="ldg-front-label"[^>]*>Front page<\/span>/);
+    assert.ok(html.indexOf('ldg-front-label')<html.indexOf('class="discussion"'),'before the source name');
+  }
+  const both=render({front:true,topToday:true});
+  assert.ok(both.indexOf('>TOP<')<both.indexOf('>Front page<'),'TOP first, then Front page');
+  assert.doesNotMatch(render({}),/Front page/);assert.doesNotMatch(renderRow({}),/Front page/);
+  assert.doesNotMatch(render({front:false}),/ldg-front-label/);
+});
+
 test('the title and the source link carry ref=aiBytes_; the menu prompts and the item stay clean (AIB-145y T38)',()=>{
   const linked={...item,url:'https://example.com/post?id=7#top',source_url:'https://news.ycombinator.com/item?id=9',source:'hackernews'};
   const html=renderToStaticMarkup(React.createElement(Card,{item:linked}));

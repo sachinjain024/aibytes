@@ -2665,3 +2665,21 @@ html:not([data-input-modality="keyboard"]) .app-shell :focus,.app-shell :focus:n
 .prompt-thanks b { color: var(--text); font-weight: 500; overflow-wrap: anywhere; }
 .prompt-closing { text-align: center; font-size: 12px; font-variant-numeric: tabular-nums; }
 .prompt-closing b { font-weight: 600; }
+
+/* The gist panel beside the feed (AIB-145y): the panel publishes its width as
+   --gist-panel-w, and the feed gives that room up. Not on a phone, where the
+   panel is a full-screen sheet. */
+@media (min-width: 761px) {
+  .redesign .redesign-main { padding-right: var(--gist-panel-w, 0px); }
+}
+
+/* The gist page: the header only and one centred reading column of 720px, with
+   the same gutter on both sides (20px on a phone). */
+.gist-page { box-sizing: border-box; width: 100%; max-width: calc(720px + 2 * var(--gutter-mobile)); margin: 0 auto; padding: 24px max(var(--gutter-mobile), env(safe-area-inset-right, 0px)) 48px max(var(--gutter-mobile), env(safe-area-inset-left, 0px)); display: flex; flex-direction: column; gap: 24px; }
+.gist-crumb { font-size: var(--text-13); }
+.gist-crumb a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
+.gist-more { display: flex; flex-direction: column; gap: 8px; }
+.gist-more h2 { margin: 0; font: 600 var(--text-12) var(--font-body); letter-spacing: .07em; text-transform: uppercase; color: var(--text-2); }
+
+/* The gist page uses the weekly pages' subscribe bar; give it the column's width and a gap above. */
+.gist-page .weekly-subscribe { margin: 0; }

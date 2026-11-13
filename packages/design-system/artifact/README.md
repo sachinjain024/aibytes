@@ -8,7 +8,7 @@ Ledger is the design system of **aiBytes_** (`aibytes.io`): a curated daily feed
 
 - **Tone:** dense, calm, honest, technical, quietly opinionated. Never playful-startup, never marketing.
 - **Voice:** plain declarative sentences. Summaries are one line, factual, no adjectives-as-hype: "AI video editor inside ChatGPT with a real timeline and XML export."
-- **Person:** the product speaks in neutral third person; direct address ("you") only in functional copy ("Sign in with Google to keep them across devices").
+- **Person:** the product speaks in neutral third person; direct address ("you") only in functional copy ("Sign in with Google to sync them to your account").
 - **Casing:** sentence case everywhere. Category and tag labels are Title Case nouns ("Dev Tool", "Open Source"). No ALL CAPS except tiny labels (TOP, LIBRARY).
 - **Numbers and dates are content**, with tabular numerals: `▲776`, `+6.4k ★`, `Wed, Aug 27`. Numbering must encode something true: editions are dated, sections are counted; nothing decorative.
 - **Emoji:** none in UI copy. ▲ ★ and the comment bubble are signal glyphs, not emoji.

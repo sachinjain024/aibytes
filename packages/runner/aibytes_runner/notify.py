@@ -95,7 +95,7 @@ def _clip(text):
 # The three messages. Each one is written to be read on a phone.
 # --------------------------------------------------------------------------
 
-def published(date, counts, sha, log_path, warnings=()):
+def published(date, counts, sha, log_path, warnings=(), gists=""):
     """One line, so that silence means something.
 
     Warnings ride along on the success message rather than getting their own:
@@ -107,6 +107,10 @@ def published(date, counts, sha, log_path, warnings=()):
     parts = [f":white_check_mark: *aiBytes_ {date}* published - {total} item(s)"]
     if split:
         parts.append(f"    {split}")
+    if gists:
+        clean = ", 0 failed" in gists and "not written" not in gists
+        failed = "" if clean else " (see run log)"
+        parts.append(f"    Gists: {gists}{failed}")
     for warning in warnings or ():
         parts.append(f"    :warning: {warning}")
     if sha:
