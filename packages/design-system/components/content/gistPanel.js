@@ -43,3 +43,13 @@ export function closeOnEscape(event, onClose) {
 
 /** True when the panel is a full-screen sheet with no resize edge. */
 export const isNarrow = (viewport) => viewport <= PANEL.narrow;
+
+/**
+ * The element focus goes back to when the panel closes. It is the card last
+ * clicked: `active` replaces `current` only when it is a real element outside the
+ * panel (focus lost to the page, or sitting inside the panel, keeps the old one).
+ */
+export function nextOpener(current, active, panelEl, body) {
+  if (!active || active === body || (panelEl && panelEl.contains(active))) return current;
+  return active;
+}
