@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "slug": "gh-univer",
+  "kind": "repo",
+  "title": "dream-num/univer",
+  "url": "https://github.com/dream-num/univer",
+  "source_url": "https://github.com/dream-num/univer",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "Open Source",
+    "Framework",
+    "Agents"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/dream-num.png?size=80"
+  },
+  "depth": "full",
+  "lede": "Univer is the Apache-2.0 core of a TypeScript Office SDK: embeddable spreadsheet and document editing, a formula engine and Facade APIs that both applications and agents can drive.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The repo holds the Web SDK: content models, snapshot format, plugin system, command and undo system, formula and rendering engines, and Sheets and Docs editing.",
+        "The Server SDK (collaboration, edit history, file import and export) and AI SDK extensions are commercial and licensed separately.",
+        "Facade APIs let code or an agent write ranges, change values and read recalculated formulas in the same workbook the user sees.",
+        "Content models and commands also run headless in Node.js for automated edits without an editor.",
+        "Features are split into logic plugins and UI plugins, composed through presets or registered by hand."
+      ]
+    },
+    {
+      "key": "try_it",
+      "command": "pnpm add @univerjs/presets @univerjs/preset-sheets-core"
+    },
+    {
+      "key": "whats_open",
+      "points": [
+        {
+          "text": "Clipboard fidelity with Excel: pasted numbers lose their formatting.",
+          "url": "https://github.com/dream-num/univer/issues/6087"
+        },
+        {
+          "text": "Docs users want bookmarks plus .docx import and export.",
+          "url": "https://github.com/dream-num/univer/issues/2722"
+        },
+        {
+          "text": "Right-to-left scripts such as Arabic are a high-priority rendering gap.",
+          "url": "https://github.com/dream-num/univer/issues/2094"
+        },
+        {
+          "text": "Lifecycle bugs: errors appear when an instance is destroyed and created again.",
+          "url": "https://github.com/dream-num/univer/issues/2767"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "dream-num/univer",
+      "url": "https://github.com/dream-num/univer"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-univer-2026-11-14",
+      "edition_date": "2026-11-14"
+    }
+  ],
+  "created_at": "2026-11-14T15:02:25Z",
+  "updated_at": "2026-11-14T15:02:25Z",
+  "stats": {
+    "stars": 24273,
+    "forks": 2103,
+    "language": "TypeScript",
+    "license": "Apache-2.0",
+    "created_on": "2022-09-29",
+    "contributors": 87,
+    "last_release": {
+      "tag": "v1.5.0",
+      "published_on": "2026-11-14"
+    },
+    "open_issues": 89,
+    "stars_gained": 495
+  },
+  "stats_as_of": "2026-11-14T14:58:59Z"
+}

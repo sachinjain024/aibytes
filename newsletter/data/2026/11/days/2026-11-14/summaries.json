@@ -1,0 +1,133 @@
+{
+  "date": "2026-11-14",
+  "items": {
+    "ph-templify-ai-2-2026-11-14": {
+      "summary": "iPhone editor that fits clips and photos into 1,200+ templates for Reels, TikToks and Shorts, with beat-synced transitions, auto captions and background removal instead of a timeline.",
+      "tags": ["Video", "Launch"]
+    },
+    "ph-claude-meetings-2026-11-14": {
+      "summary": "Claude joins a Google Meet call as a participant, answers spoken or chat questions, takes notes and action items, and builds docs teammates edit live; beta on Team and Enterprise.",
+      "tags": ["Agents", "Anthropic", "Launch"]
+    },
+    "ph-replicate-3-2026-11-14": {
+      "summary": "Free migration tool that converts a Webflow or Framer site into a Next.js app, handling image CDNs, CMS content and minified JS, then commits the result to a GitHub repo.",
+      "tags": ["Dev Tool", "Code Gen", "Launch"]
+    },
+    "ph-trainn-mcp-2026-11-14": {
+      "summary": "MCP server that lets Claude, ChatGPT or other agents turn recordings into product videos, help articles and courses, and update them from chat, publishing nothing without approval.",
+      "tags": ["Video", "MCP", "Launch"]
+    },
+    "gh-modern-web-guidance-src-2026-11-14": {
+      "summary": "Google Chrome team's TypeScript source for feeding current web platform best practices to coding agents so their generated frontend code does not lag the platform.",
+      "tags": ["Open Source", "Code Gen", "Google"]
+    },
+    "gh-open-code-review-2026-11-14": {
+      "summary": "Alibaba's Go code reviewer pairing deterministic pipelines with an LLM agent for line-level comments, with built-in rules for NPEs, thread safety, XSS and SQL injection.",
+      "tags": ["Open Source", "Dev Tool", "Code Gen", "Security"]
+    },
+    "gh-chrome-devtools-mcp-2026-11-14": {
+      "summary": "MCP server from the Chrome DevTools team that gives coding agents access to DevTools in a live Chrome browser, written in TypeScript.",
+      "tags": ["Open Source", "Dev Tool", "MCP", "Google"]
+    },
+    "gh-claude-trading-skills-2026-11-14": {
+      "summary": "Python collection of Claude Code skills for equity traders covering market analysis, technical charting, economic calendars, stock screeners and strategy development.",
+      "tags": ["Open Source", "Agents", "Claude Code"]
+    },
+    "gh-univer-2026-11-14": {
+      "summary": "TypeScript office SDK with an open-source core for embedding spreadsheet-style editing, calculation, collaboration and file processing into a product, usable by people and AI agents.",
+      "tags": ["Open Source", "Framework", "Agents"]
+    },
+    "gh-qwen-code-2026-11-14": {
+      "summary": "Open-source terminal coding agent from the Qwen team at Alibaba, written in TypeScript.",
+      "tags": ["Open Source", "Code Gen", "Agents"]
+    },
+    "gh-veyra-nrvideo-2026-11-14": {
+      "summary": "C++ Windows video player and capture-card enhancer that applies AI super resolution, DLSS 5 image enhancement and frame generation in real time to videos, images and console capture.",
+      "tags": ["Open Source", "Video", "Nvidia"]
+    },
+    "gh-caveman-2026-11-14": {
+      "summary": "Go skill and proxy for coding agents that makes the model answer in terse caveman-style English, claiming a 65% cut in tokens.",
+      "tags": ["Open Source", "Dev Tool", "Code Gen"]
+    },
+    "gh-tensorfold-2026-11-14": {
+      "summary": "LLM inference engine written in Zig with backends for Apple Metal, CUDA and Vulkan.",
+      "tags": ["Open Source", "Inference", "Local LLM"]
+    },
+    "gh-loopforge-2026-11-14": {
+      "summary": "Tencent's self-hosted Go workflow runner that orchestrates CodeBuddy, Codex and Claude Code through scripts with human approval gates between steps.",
+      "tags": ["Open Source", "Dev Tool", "Agents"]
+    },
+    "tc-israels-vcs-see-opportunity-for-challengers-in-2026-11-14": {
+      "summary": "Israeli investors worry about the fallout from Jensen Huang's exit given Nvidia's large presence in the country, while some see an opening for rival chip startups.",
+      "tags": ["Nvidia", "Funding"]
+    },
+    "tc-jensen-huangs-departure-blasts-big-hole-in-ai-2026-11-14": {
+      "summary": "Nvidia put tens of billions into AI startups under Huang; founders and VCs now expect smaller checks and lower valuations without him running the company.",
+      "tags": ["Nvidia", "Funding"]
+    },
+    "tc-ai-agent-startup-langchain-hits-3b-valuation-2026-11-14": {
+      "summary": "LangChain says its model- and platform-agnostic agent management product LangSmith now has 7,000 customers.",
+      "tags": ["Agents", "Funding"]
+    },
+    "tc-export-banned-nvidia-chips-are-behind-chinas-2026-11-14": {
+      "summary": "New research finds China's most advanced AI models were trained on Nvidia chips covered by US export bans.",
+      "tags": ["LLM", "Nvidia", "Policy"]
+    },
+    "tc-chatgpts-new-wallet-lets-ai-agents-shop-and-2026-11-14": {
+      "summary": "OpenAI's agentic checkout feature completes purchases on a user's behalf, rolling out first to a limited set of US Pro subscribers.",
+      "tags": ["Agents", "OpenAI", "Launch"]
+    },
+    "tc-the-unfolding-jensen-huang-scandal-a-timeline-2026-11-14": {
+      "summary": "Timeline of Huang's resignation from Nvidia over an affair with an alleged Chinese spy, and why it raises national security questions in the US-China AI infrastructure race.",
+      "tags": ["Nvidia", "Security"]
+    },
+    "tc-elevenlabs-new-app-combines-meeting-note-taking-2026-11-14": {
+      "summary": "ElevenAI pairs a meeting notetaker with a dictation tool in one app, aimed at teams and enterprises.",
+      "tags": ["Voice / Speech", "Launch"]
+    },
+    "tc-jensen-huang-didnt-show-confidence-in-his-2026-11-14": {
+      "summary": "Huang reportedly called Kress a \"deer in the headlights\" in a summer meeting, raising doubts about Nvidia's leadership handover.",
+      "tags": ["Nvidia"]
+    },
+    "hn-nvidia-allegedly-engineered-scarcity-by-funding-2026-11-14": {
+      "summary": "TechPowerUp report on allegations that Nvidia's startup investments were recycled into its own GPU orders, inflating demand; lands the same week Huang left Nvidia.",
+      "tags": ["Nvidia", "Funding"]
+    },
+    "hn-elevated-errors-on-claude-ai-claude-code-and-2026-11-14": {
+      "summary": "Anthropic status page incident covering errors across the claude.ai app, Claude Code and the developer platform at the same time.",
+      "tags": ["Anthropic", "Claude Code"]
+    },
+    "hn-ai-unlocks-godel-s-notebooks-said-to-contain-2026-11-14": {
+      "summary": "Guardian report on AI being used to decipher Kurt Godel's shorthand notebooks, which researchers say hold hundreds of proved theorems.",
+      "tags": ["Reasoning"]
+    },
+    "hn-jonathan-blow-if-ai-solved-coding-why-is-my-2026-11-14": {
+      "summary": "YouTube talk in which game developer Jonathan Blow questions claims that AI has solved coding, pointing to everyday software that has not visibly improved.",
+      "tags": ["Code Gen"]
+    },
+    "hn-ai-is-destroying-the-trust-between-writers-and-2026-11-14": {
+      "summary": "Atlantic essay on AI-generated literary scams on Amazon and how they erode readers' trust in authors.",
+      "tags": ["LLM"]
+    },
+    "hn-no-ai-slop-a-manifesto-2026-11-14": {
+      "summary": "Standalone manifesto site arguing against publishing low-effort AI-generated content.",
+      "tags": ["LLM"]
+    },
+    "hn-claude-is-down-2026-11-14": {
+      "summary": "Link to Anthropic's status history during the same outage that hit claude.ai, Claude Code and platform.claude.com.",
+      "tags": ["Anthropic"]
+    },
+    "hn-why-is-google-cutting-off-search-from-ai-free-2026-11-14": {
+      "summary": "NPR piece laying out possible explanations for Google ending Search access at schools that run without AI.",
+      "tags": ["Google", "Policy"]
+    },
+    "hn-openai-disbands-its-robotics-team-as-its-2026-11-14": {
+      "summary": "Fortune reports OpenAI has folded its dedicated robotics team now that its general-purpose models are driving robots directly.",
+      "tags": ["Robotics", "OpenAI"]
+    },
+    "hn-claude-meetings-2026-11-14": {
+      "summary": "Anthropic's announcement post for Claude joining Google Meet calls as a participant that takes notes and builds editable artifacts; beta on Team and Enterprise plans.",
+      "tags": ["Agents", "Anthropic", "Launch"]
+    }
+  }
+}

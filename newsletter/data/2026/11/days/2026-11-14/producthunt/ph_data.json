@@ -1,0 +1,652 @@
+{
+  "source": "producthunt",
+  "fetched_at": "2026-11-14",
+  "window": {
+    "postedAfter": "2026-11-13T00:00:00Z",
+    "postedBefore": "2026-11-15T00:00:00Z"
+  },
+  "query_params": {
+    "first": 5,
+    "order": "VOTES",
+    "featured": true
+  },
+  "totalCount": 49,
+  "posts": [
+    {
+      "id": "1293281",
+      "name": "Templify AI",
+      "tagline": "Powerful content editor for people who aren\u2019t editors",
+      "description": "Templify is an all-in-one video, photo, and carousel editor for iPhone. With 1,200+ designer templates, it turns clips and photos into Reels, TikToks, YouTube Shorts, and collages in minutes, no timeline needed. Features include AI video editing, beat-synced transitions, auto captions, background removal, filters, and an AI Studio. Free to use, with an optional Pro subscription.",
+      "slug": "templify-ai-2",
+      "votesCount": 376,
+      "commentsCount": 98,
+      "reviewsRating": 5.0,
+      "reviewsCount": 2,
+      "dailyRank": 1,
+      "weeklyRank": 5,
+      "url": "https://www.producthunt.com/products/templify?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/T53GXHFXDGAANJ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-13T08:01:00Z",
+      "createdAt": "2026-11-13T08:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/f7f2b7ba-fb0c-470e-a340-ceb4a7cb593e.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/979dcb91-d000-4fdd-9fbc-48f2b5cb35af.jpeg?auto=format",
+          "videoUrl": "https://www.youtube.com/watch?v=yvoWgUp-ccc"
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/f80293c1-6a81-4582-b9be-209f30c49399.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/990885d6-e992-47ea-a1e5-c7735599cfb9.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/e4194cb8-1c70-4aad-87af-0f7669f83927.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/52c4ddbb-d0c5-4ab4-9eaa-90bba47f787d.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/2bc52a5d-668e-4d0a-9190-c6e498721cd3.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/76bd69a6-c0ca-495c-967a-ceff3eb12bf9.png?auto=format",
+          "videoUrl": null
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "App Store",
+          "url": "https://www.producthunt.com/r/MR6L46VGATFRQG?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/T53GXHFXDGAANJ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Social Media",
+            "slug": "social-media"
+          },
+          {
+            "name": "Photography",
+            "slug": "photography"
+          },
+          {
+            "name": "Photo & Video",
+            "slug": "photo-video"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "Yana Abazher",
+          "username": "yana_abazher",
+          "headline": "Digital content maker, founder @Templify",
+          "url": "https://www.producthunt.com/@yana_abazher?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        },
+        {
+          "name": "Vlad Popov",
+          "username": "vlad_popov3",
+          "headline": "Marketing.",
+          "url": "https://www.producthunt.com/@vlad_popov3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        },
+        {
+          "name": "Kiril Abazher",
+          "username": "kiril_abazher1",
+          "headline": null,
+          "url": "https://www.producthunt.com/@kiril_abazher1?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Rohan Chaubey",
+        "username": "rohanrecommends",
+        "headline": "\ud83e\udd47 Top Hunter | Author | Startup Advisor",
+        "url": "https://www.producthunt.com/@rohanrecommends?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1282575",
+      "name": "Filament by Galaxy",
+      "tagline": "Move data using your terminal or agent. Fast & open source.",
+      "description": "Filament is a data replication engine written in Go. It supports full loads, incremental replication, and change data capture (CDC). As data moves through the engine, Filament verifies Arrow batches at the sink handoff and, where the sink supports it, checks the exact serialized payload. You can run Filament as a standalone binary or embed it in a Go application.",
+      "slug": "filament-by-galaxy",
+      "votesCount": 301,
+      "commentsCount": 67,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 2,
+      "weeklyRank": 11,
+      "url": "https://www.producthunt.com/products/galaxy?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/2VIY3N6BRL2YSZ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-13T08:01:00Z",
+      "createdAt": "2026-11-13T08:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/fa064ab0-4f4c-44cf-80c2-ff0612e20dd0.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/6da2e77d-d224-4021-ac72-2c7bbe251ae0.jpeg?auto=format",
+          "videoUrl": "https://www.youtube.com/watch?v=Wb8bEn1Y7N0"
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/2c0f370a-fa3b-4fae-a052-6b5bfe6504dd.gif?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/e4cd8cc6-5c83-488f-8af4-2bf0d8505f3a.gif?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/74d8f437-955c-411d-a1cc-097eb76abddf.gif?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/63b3df8d-2e4c-40f6-b50c-0e0a171b28f8.gif?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/d056ade1-cb5c-4047-860b-d24b7e6b8e21.gif?auto=format",
+          "videoUrl": null
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/Z2IXOO7ANYXC3Y?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Github",
+          "url": "https://www.producthunt.com/r/BWEINIOKLTFQQ2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "LinkedIn",
+          "url": "https://www.producthunt.com/r/KLEJOHUIGTELZE?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/2VIY3N6BRL2YSZ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Open Source",
+            "slug": "open-source"
+          },
+          {
+            "name": "Developer Tools",
+            "slug": "developer-tools"
+          },
+          {
+            "name": "Data",
+            "slug": "data"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Leon Kozlowski",
+          "username": "leonkozlowski",
+          "headline": "Co-Founder, CTO @ Galaxy",
+          "url": "https://www.producthunt.com/@leonkozlowski?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "fmerian",
+        "username": "fmerian",
+        "headline": "hunting devtools - kilo.ai, mastra.ai",
+        "url": "https://www.producthunt.com/@fmerian?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1314781",
+      "name": "Claude Meetings",
+      "tagline": "Add Claude to your call and get work started as you talk",
+      "description": "Claude Meetings lets you add Claude to a Google Meet call as a visible participant. The team can ask questions out loud or in chat, and Claude writes the notes and action items so no one on the call has to. It builds docs, whiteboards, and other artifacts during the call, and teammates on the invite can edit them as you talk. After the call, the notes, transcript, and anything Claude made are on the meeting page in Claude. It is in beta on Team and Enterprise plans, starting with Google Meet.",
+      "slug": "claude-meetings",
+      "votesCount": 287,
+      "commentsCount": 14,
+      "reviewsRating": 4.97,
+      "reviewsCount": 1101,
+      "dailyRank": 3,
+      "weeklyRank": 14,
+      "url": "https://www.producthunt.com/products/claude?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/BBCWQILYWRBAP6?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-13T08:00:00Z",
+      "createdAt": "2026-11-13T08:00:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/0a72e438-9a48-407c-a3a1-7e74832e7ea4.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/mcp-draft-media/acc3f375-c32e-43e0-a7a1-bdb355801bda.jpeg?auto=format",
+          "videoUrl": "https://www.youtube.com/watch?v=YUYeHMsqbmY"
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/77aaab11-a6a2-4522-a035-503cacbde4c0/b68231de4b983adb593591d7645560f354f0522bd861c76952f64ce7d7ffae4f.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/bd32e17a-b332-41fd-8369-92df208082b3/ca8754cba3bc346cee6af49c1049e9f7085d3c7eaea1fe29c4a95be05f51fcde.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/54f2a438-adb6-42a9-a3a7-e7fd837bb374/99d81d7ea50cbb71759b504e2256ec607c80cb1a0afa8c05d54df19b501b6ef8.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/982d5e66-4995-4970-a8f3-dd9f7a1390c4/f31f801c5f85744085ffea7d81bb25e969f1c4690cb0b6a36ba80f9b9451c470.png?auto=format",
+          "videoUrl": null
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/Q25SLMEEU37SC3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/BBCWQILYWRBAP6?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Productivity",
+            "slug": "productivity"
+          },
+          {
+            "name": "Meetings",
+            "slug": "meetings"
+          },
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Brooke DeWitt",
+          "username": "brooke_dewitt",
+          "headline": "  ",
+          "url": "https://www.producthunt.com/@brooke_dewitt?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "KP",
+        "username": "thisiskp_",
+        "headline": "GTM Specialist & Top Hunter \ud83c\udfc6",
+        "url": "https://www.producthunt.com/@thisiskp_?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1314761",
+      "name": "Replicate",
+      "tagline": "Turn Webflow/Framer app into a Claude/Codex project for free",
+      "description": "Replicate a Webflow, Framer, or any website-builder project into a NextJS app with 1:1 parity. Migrating off of website builders is difficult due to image CDNs, CMS parity, and minified JS code. Replicate handles all of these problems and commits your code to a GitHub repository. The best part? It's entirely free.",
+      "slug": "replicate-3",
+      "votesCount": 219,
+      "commentsCount": 13,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 4,
+      "weeklyRank": 21,
+      "url": "https://www.producthunt.com/products/replicate-10?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/RENYHO4NIPEVIS?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-13T08:01:00Z",
+      "createdAt": "2026-11-13T08:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/654cf3ce-3462-4b4b-a4ef-4a4e95434470.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/a584c2af-337f-410a-aa8d-8b227274ef65.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/b3aad702-145b-4079-837d-c36e71101c05.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/912d310c-1bdb-4426-bdd3-cef4b61e8e4b.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/5ba081c6-46a7-4ad2-be5a-31e8d3c7ce24.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/71c68c01-fc2b-4b8c-8594-905247eb038c.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/41bd595f-1c28-40f5-9481-06b472eb73c4.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/8b4a3a27-23e0-4cb4-99e0-f1bf85821830.jpeg?auto=format",
+          "videoUrl": "https://www.youtube.com/watch?v=1gL-3kT7wM0"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/RENYHO4NIPEVIS?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Website Builder",
+            "slug": "website-builder"
+          },
+          {
+            "name": "GitHub",
+            "slug": "github"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Deepak    \ud83c\udfc6",
+          "username": "deepaksingh09",
+          "headline": "Marketing & Growth",
+          "url": "https://www.producthunt.com/@deepaksingh09?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": "dpkpandey9"
+        }
+      ],
+      "user": {
+        "name": "Garry Tan",
+        "username": "garrytan",
+        "headline": "President & CEO, Y Combinator",
+        "url": "https://www.producthunt.com/@garrytan?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1313622",
+      "name": "Trainn MCP",
+      "tagline": "Create product videos and courses from any AI chat",
+      "description": "Give your AI tools the power to create training content, not just plan it. Connect Trainn MCP to Claude, ChatGPT, or any AI agent to turn recordings into product videos, write help articles and build courses through chat. When your product changes, update content through the same conversation. Nothing ships, without your permission.",
+      "slug": "trainn-mcp",
+      "votesCount": 174,
+      "commentsCount": 46,
+      "reviewsRating": 5.0,
+      "reviewsCount": 9,
+      "dailyRank": 5,
+      "weeklyRank": 25,
+      "url": "https://www.producthunt.com/products/trainn?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/BYPQ26JPIEII6M?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-13T08:01:00Z",
+      "createdAt": "2026-11-13T08:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/f2b17f47-f349-4bfd-b316-2ca50ecb5a12.jpeg?auto=format"
+      },
+      "media": [
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/1877a948-9e09-4a84-8fe2-d66cd305fe4c.jpeg?auto=format",
+          "videoUrl": "https://youtu.be/yOYw4vWWKBc"
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/d41db12c-4503-409e-ad38-03354b229160.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/53b6a49b-f132-4908-b26b-26a1bdd24f6d.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/032a4d24-b94b-45a2-b42d-6972a9c73196.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/b5b14f37-8d69-4b2f-b180-b3d3e21be0ce.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/333f6589-4551-403a-8daf-b9f44a5ab951.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/eef91913-c3c4-4d9d-aa5f-7ca4d4634fa4.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/1f010405-a4ef-4874-b9db-baab54b3df56.jpeg?auto=format",
+          "videoUrl": null
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "LinkedIn",
+          "url": "https://www.producthunt.com/r/2H7GYIY6C6G7V6?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/BYPQ26JPIEII6M?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "MCP server",
+          "url": "https://www.producthunt.com/r/NNAV3ITFIPHMBN?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Productivity",
+            "slug": "productivity"
+          },
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          },
+          {
+            "name": "Video",
+            "slug": "video"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Akash Anil",
+          "username": "akash_anil254",
+          "headline": "GTM at Trainn",
+          "url": "https://www.producthunt.com/@akash_anil254?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Kevin William David",
+        "username": "kevin",
+        "headline": "Top Hunter \ud83e\udd48",
+        "url": "https://www.producthunt.com/@kevin?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    }
+  ]
+}

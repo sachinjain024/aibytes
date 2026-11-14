@@ -1,0 +1,738 @@
+{
+  "date": "2026-11-14",
+  "generated_at": "2026-11-14T14:58:05Z",
+  "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
+  "tags": [
+    {
+      "name": "What it is",
+      "tags": [
+        {
+          "name": "Model Release",
+          "slug": "model-release"
+        },
+        {
+          "name": "Open Source",
+          "slug": "open-source"
+        },
+        {
+          "name": "Paper",
+          "slug": "paper"
+        },
+        {
+          "name": "Benchmark",
+          "slug": "benchmark"
+        },
+        {
+          "name": "Dataset",
+          "slug": "dataset"
+        },
+        {
+          "name": "Framework",
+          "slug": "framework"
+        },
+        {
+          "name": "Dev Tool",
+          "slug": "dev-tool"
+        },
+        {
+          "name": "API",
+          "slug": "api"
+        }
+      ]
+    },
+    {
+      "name": "Domain",
+      "tags": [
+        {
+          "name": "LLM",
+          "slug": "llm"
+        },
+        {
+          "name": "Agents",
+          "slug": "agents"
+        },
+        {
+          "name": "RAG",
+          "slug": "rag"
+        },
+        {
+          "name": "Fine-tuning",
+          "slug": "fine-tuning"
+        },
+        {
+          "name": "Inference",
+          "slug": "inference"
+        },
+        {
+          "name": "Local LLM",
+          "slug": "local-llm"
+        },
+        {
+          "name": "Vision",
+          "slug": "vision"
+        },
+        {
+          "name": "Voice / Speech",
+          "slug": "voice-speech"
+        },
+        {
+          "name": "Video",
+          "slug": "video"
+        },
+        {
+          "name": "Image Gen",
+          "slug": "image-gen"
+        },
+        {
+          "name": "Code Gen",
+          "slug": "code-gen"
+        },
+        {
+          "name": "Embeddings",
+          "slug": "embeddings"
+        },
+        {
+          "name": "Eval",
+          "slug": "eval"
+        },
+        {
+          "name": "Reasoning",
+          "slug": "reasoning"
+        },
+        {
+          "name": "Multimodal",
+          "slug": "multimodal"
+        },
+        {
+          "name": "Robotics",
+          "slug": "robotics"
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem",
+      "tags": [
+        {
+          "name": "OpenAI",
+          "slug": "openai"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic"
+        },
+        {
+          "name": "Google",
+          "slug": "google"
+        },
+        {
+          "name": "Meta",
+          "slug": "meta"
+        },
+        {
+          "name": "Nvidia",
+          "slug": "nvidia"
+        },
+        {
+          "name": "Hugging Face",
+          "slug": "hugging-face"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft"
+        },
+        {
+          "name": "Claude Code",
+          "slug": "claude-code"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor"
+        },
+        {
+          "name": "MCP",
+          "slug": "mcp"
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "tags": [
+        {
+          "name": "Funding",
+          "slug": "funding"
+        },
+        {
+          "name": "Acquisition",
+          "slug": "acquisition"
+        },
+        {
+          "name": "Launch",
+          "slug": "launch"
+        },
+        {
+          "name": "Pricing",
+          "slug": "pricing"
+        },
+        {
+          "name": "Policy",
+          "slug": "policy"
+        },
+        {
+          "name": "Legal",
+          "slug": "legal"
+        },
+        {
+          "name": "Security",
+          "slug": "security"
+        },
+        {
+          "name": "Privacy",
+          "slug": "privacy"
+        },
+        {
+          "name": "Safety",
+          "slug": "safety"
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "tags": [
+        {
+          "name": "Show HN",
+          "slug": "show-hn"
+        },
+        {
+          "name": "Tutorial",
+          "slug": "tutorial"
+        },
+        {
+          "name": "Deep Dive",
+          "slug": "deep-dive"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ph-templify-ai-2-2026-11-14",
+      "title": "Templify AI",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/templify",
+      "source_url": "https://www.producthunt.com/products/templify",
+      "source_text": "Templify AI Powerful content editor for people who aren’t editors Templify is an all-in-one video, photo, and carousel editor for iPhone. With 1,200+ designer templates, it turns clips and photos into Reels, TikToks, YouTube Shorts, and collages in minutes, no timeline needed. Features include AI video editing, beat-synced transitions, auto captions, background removal, filters, and an AI Studio. Free to use, with an optional Pro subscription. Social Media Photography Photo & Video",
+      "signals": {
+        "upvotes": 376,
+        "comments": 98
+      },
+      "published_at": "2026-11-13T08:01:00Z"
+    },
+    {
+      "id": "ph-claude-meetings-2026-11-14",
+      "title": "Claude Meetings",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/claude",
+      "source_url": "https://www.producthunt.com/products/claude",
+      "source_text": "Claude Meetings Add Claude to your call and get work started as you talk Claude Meetings lets you add Claude to a Google Meet call as a visible participant. The team can ask questions out loud or in chat, and Claude writes the notes and action items so no one on the call has to. It builds docs, whiteboards, and other artifacts during the call, and teammates on the invite can edit them as you talk. After the call, the notes, transcript, and anything Claude made are on the meeting page in Claude. It is in beta on Team and Enterprise plans, starting with Google Meet. Productivity Meetings Artificial Intelligence",
+      "signals": {
+        "upvotes": 287,
+        "comments": 14
+      },
+      "published_at": "2026-11-13T08:00:00Z"
+    },
+    {
+      "id": "ph-replicate-3-2026-11-14",
+      "title": "Replicate",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/replicate-10",
+      "source_url": "https://www.producthunt.com/products/replicate-10",
+      "source_text": "Replicate Turn Webflow/Framer app into a Claude/Codex project for free Replicate a Webflow, Framer, or any website-builder project into a NextJS app with 1:1 parity. Migrating off of website builders is difficult due to image CDNs, CMS parity, and minified JS code. Replicate handles all of these problems and commits your code to a GitHub repository. The best part? It's entirely free. Website Builder GitHub",
+      "signals": {
+        "upvotes": 219,
+        "comments": 13
+      },
+      "published_at": "2026-11-13T08:01:00Z"
+    },
+    {
+      "id": "ph-trainn-mcp-2026-11-14",
+      "title": "Trainn MCP",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/trainn",
+      "source_url": "https://www.producthunt.com/products/trainn",
+      "source_text": "Trainn MCP Create product videos and courses from any AI chat Give your AI tools the power to create training content, not just plan it. Connect Trainn MCP to Claude, ChatGPT, or any AI agent to turn recordings into product videos, write help articles and build courses through chat. When your product changes, update content through the same conversation. Nothing ships, without your permission. Productivity Artificial Intelligence Video",
+      "signals": {
+        "upvotes": 174,
+        "comments": 46
+      },
+      "published_at": "2026-11-13T08:01:00Z"
+    },
+    {
+      "id": "gh-modern-web-guidance-src-2026-11-14",
+      "title": "GoogleChrome/modern-web-guidance-src",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+      "source_url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+      "source_text": "GoogleChrome/modern-web-guidance-src Keep your coding agent up to date with the latest web best practices TypeScript",
+      "signals": {
+        "stars": 5500,
+        "stars_gained": 1225,
+        "forks": 298
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-open-code-review-2026-11-14",
+      "title": "alibaba/open-code-review",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/alibaba/open-code-review",
+      "source_url": "https://github.com/alibaba/open-code-review",
+      "source_text": "alibaba/open-code-review Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible. Go",
+      "signals": {
+        "stars": 51161,
+        "stars_gained": 897,
+        "forks": 3814
+      },
+      "meta": {
+        "language": "Go"
+      }
+    },
+    {
+      "id": "gh-chrome-devtools-mcp-2026-11-14",
+      "title": "ChromeDevTools/chrome-devtools-mcp",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "source_url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "source_text": "ChromeDevTools/chrome-devtools-mcp Chrome DevTools for coding agents TypeScript",
+      "signals": {
+        "stars": 56035,
+        "stars_gained": 673,
+        "forks": 4644
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-claude-trading-skills-2026-11-14",
+      "title": "tradermonty/claude-trading-skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/tradermonty/claude-trading-skills",
+      "source_url": "https://github.com/tradermonty/claude-trading-skills",
+      "source_text": "tradermonty/claude-trading-skills Claude Code skills for equity investors and traders — market analysis, technical charting, economic calendars, screeners, and trading strategy development. Python",
+      "signals": {
+        "stars": 4502,
+        "stars_gained": 556,
+        "forks": 893
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-univer-2026-11-14",
+      "title": "dream-num/univer",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/dream-num/univer",
+      "source_url": "https://github.com/dream-num/univer",
+      "source_text": "dream-num/univer Build your own AI office with Univer Office SDK. Bring editing, calculation, collaboration, and file processing into your product for people and AI agents. Built on an extensible open-source core. TypeScript",
+      "signals": {
+        "stars": 24272,
+        "stars_gained": 495,
+        "forks": 2103
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-qwen-code-2026-11-14",
+      "title": "QwenLM/qwen-code",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/QwenLM/qwen-code",
+      "source_url": "https://github.com/QwenLM/qwen-code",
+      "source_text": "QwenLM/qwen-code An open-source AI coding agent that lives in your terminal. TypeScript",
+      "signals": {
+        "stars": 30178,
+        "stars_gained": 462,
+        "forks": 3421
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-veyra-nrvideo-2026-11-14",
+      "title": "Likely7/Veyra-NRVideo",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/Likely7/Veyra-NRVideo",
+      "source_url": "https://github.com/Likely7/Veyra-NRVideo",
+      "source_text": "Likely7/Veyra-NRVideo Bring PS5 GTA6 to 120FPS with DLSS 5. An advanced Windows video player and capture enhancement tool featuring real-time preview for videos, images, and capture card sources. Combine AI-powered Super Resolution, DLSS5 image enhancement, and Frame Generation to deliver a next-generation visual experience. C++",
+      "signals": {
+        "stars": 1892,
+        "stars_gained": 423,
+        "forks": 84
+      },
+      "meta": {
+        "language": "C++"
+      }
+    },
+    {
+      "id": "gh-caveman-2026-11-14",
+      "title": "JuliusBrussee/caveman",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/JuliusBrussee/caveman",
+      "source_url": "https://github.com/JuliusBrussee/caveman",
+      "source_text": "JuliusBrussee/caveman 🪨 why use many token when few token do trick. Viral skill + proxy for coding agents that cuts 65% of tokens by talking like a caveman. Go",
+      "signals": {
+        "stars": 119850,
+        "stars_gained": 227,
+        "forks": 6987
+      },
+      "meta": {
+        "language": "Go"
+      }
+    },
+    {
+      "id": "gh-tensorfold-2026-11-14",
+      "title": "ashhart/TensorFold",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/ashhart/TensorFold",
+      "source_url": "https://github.com/ashhart/TensorFold",
+      "source_text": "ashhart/TensorFold LLM Inference Engine for Metal, CUDA and Vulkan. Zig",
+      "signals": {
+        "stars": 2098,
+        "stars_gained": 188,
+        "forks": 407
+      },
+      "meta": {
+        "language": "Zig"
+      }
+    },
+    {
+      "id": "gh-loopforge-2026-11-14",
+      "title": "Tencent/LoopForge",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/Tencent/LoopForge",
+      "source_url": "https://github.com/Tencent/LoopForge",
+      "source_text": "Tencent/LoopForge Self-hosted workflows for coding-agent delivery. Orchestrate CodeBuddy, Codex and Claude Code with scripts and human approval gates. Includes Local workflows for coding assistants. Go",
+      "signals": {
+        "stars": 730,
+        "stars_gained": 174,
+        "forks": 115
+      },
+      "meta": {
+        "language": "Go"
+      }
+    },
+    {
+      "id": "tc-israels-vcs-see-opportunity-for-challengers-in-2026-11-14",
+      "title": "Israel’s VCs see opportunity for challengers in Nvidia’s turmoil",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/13/israels-vcs-see-opportunity-for-challengers-in-nvidias-turmoil/",
+      "source_url": "https://techcrunch.com/2026/11/13/israels-vcs-see-opportunity-for-challengers-in-nvidias-turmoil/",
+      "source_text": "Israel’s VCs see opportunity for challengers in Nvidia’s turmoil Given Nvidia’s stronghold on AI and its importance in Israel, many in the country's startup ecosystem are worried about the impact of his departure.",
+      "meta": {
+        "author": "Anna Heim",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-13T12:52:19Z"
+    },
+    {
+      "id": "tc-jensen-huangs-departure-blasts-big-hole-in-ai-2026-11-14",
+      "title": "Jensen Huang’s departure blasts big hole in AI startup funding, VCs and founders say",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/",
+      "source_url": "https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/",
+      "source_text": "Jensen Huang’s departure blasts big hole in AI startup funding, VCs and founders say Nvidia poured tens of billions into AI startups under Huang. Without him at the helm, founders and VCs are bracing for smaller checks and lower valuations.",
+      "meta": {
+        "author": "Marina Temkin, Dominic-Madori Davis",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-13T22:43:00Z"
+    },
+    {
+      "id": "tc-ai-agent-startup-langchain-hits-3b-valuation-2026-11-14",
+      "title": "AI agent startup LangChain hits $3B valuation",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/",
+      "source_url": "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/",
+      "source_text": "AI agent startup LangChain hits $3B valuation LangChain now claims 7,000 customers of its model and platform agnostic agent management tool LangSmith.",
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-13T19:37:57Z"
+    },
+    {
+      "id": "tc-export-banned-nvidia-chips-are-behind-chinas-2026-11-14",
+      "title": "Export-banned Nvidia chips are behind China’s most powerful AI models — uh-oh, Jensen!",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen/",
+      "source_url": "https://techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen/",
+      "source_text": "Export-banned Nvidia chips are behind China’s most powerful AI models — uh-oh, Jensen! New research shows the most advanced AI models from China were trained on banned Nvidia chips.",
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-11-13T18:40:30Z"
+    },
+    {
+      "id": "tc-chatgpts-new-wallet-lets-ai-agents-shop-and-2026-11-14",
+      "title": "ChatGPT’s new Wallet lets AI agents shop and check out for you",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/",
+      "source_url": "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/",
+      "source_text": "ChatGPT’s new Wallet lets AI agents shop and check out for you ChatGPT Wallet lets AI agents shop and check out on users' behalf, starting with a limited rollout to U.S. Pro subscribers.",
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-13T16:00:12Z"
+    },
+    {
+      "id": "tc-the-unfolding-jensen-huang-scandal-a-timeline-2026-11-14",
+      "title": "The unfolding Jensen Huang scandal: a timeline",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/13/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+      "source_url": "https://techcrunch.com/2026/11/13/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+      "source_text": "The unfolding Jensen Huang scandal: a timeline Jensen Huang has resigned from Nvidia following an affair, which could have ramifications for national security as the U.S. and China race to develop the most advanced AI infrastructure.",
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "10 minutes"
+      },
+      "published_at": "2026-11-13T15:58:00Z"
+    },
+    {
+      "id": "tc-elevenlabs-new-app-combines-meeting-note-taking-2026-11-14",
+      "title": "ElevenLabs’ new app combines meeting note-taking and dictation for teams",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/",
+      "source_url": "https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/",
+      "source_text": "ElevenLabs’ new app combines meeting note-taking and dictation for teams ElevenAI is a new meeting notetaker and dictation app aimed at teams and enterprises.",
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-13T14:44:48Z"
+    },
+    {
+      "id": "tc-jensen-huang-didnt-show-confidence-in-his-2026-11-14",
+      "title": "Jensen Huang didn’t show confidence in his successor, report says",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/13/jensen-huang-didnt-show-confidence-in-his-successor-report-says/",
+      "source_url": "https://techcrunch.com/2026/11/13/jensen-huang-didnt-show-confidence-in-his-successor-report-says/",
+      "source_text": "Jensen Huang didn’t show confidence in his successor, report says Huang described Kress as a \"deer in the headlights\" during a meeting in summer.",
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-13T12:28:23Z"
+    },
+    {
+      "id": "hn-nvidia-allegedly-engineered-scarcity-by-funding-2026-11-14",
+      "title": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus",
+      "source_url": "https://news.ycombinator.com/item?id=50493251",
+      "source_text": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
+      "signals": {
+        "points": 823,
+        "comments": 494
+      },
+      "meta": {
+        "author": "speckx"
+      },
+      "published_at": "2026-11-14T02:52:59Z"
+    },
+    {
+      "id": "hn-elevated-errors-on-claude-ai-claude-code-and-2026-11-14",
+      "title": "Elevated errors on claude.ai, Claude Code, and platform.claude.com",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://status.claude.com/incidents/nn11wk485zfn",
+      "source_url": "https://news.ycombinator.com/item?id=50481187",
+      "source_text": "Elevated errors on claude.ai, Claude Code, and platform.claude.com",
+      "signals": {
+        "points": 489,
+        "comments": 388
+      },
+      "meta": {
+        "author": "__vivek"
+      },
+      "published_at": "2026-11-13T10:18:13Z"
+    },
+    {
+      "id": "hn-ai-unlocks-godel-s-notebooks-said-to-contain-2026-11-14",
+      "title": "AI unlocks Gödel's notebooks, said to contain hundreds of proved theorems",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.theguardian.com/science/2026/nov/13/kurt-godel-notebooks-ai-helps-unlock-hidden-discoveries-man-who-transformed-maths",
+      "source_url": "https://news.ycombinator.com/item?id=50486748",
+      "source_text": "AI unlocks Gödel's notebooks, said to contain hundreds of proved theorems",
+      "signals": {
+        "points": 405,
+        "comments": 102
+      },
+      "meta": {
+        "author": "bookofjoe"
+      },
+      "published_at": "2026-11-13T17:30:10Z"
+    },
+    {
+      "id": "hn-jonathan-blow-if-ai-solved-coding-why-is-my-2026-11-14",
+      "title": "Jonathan Blow – If AI solved coding, why is my software still the same? [video]",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.youtube.com/watch?v=IRK8h67ol7Q",
+      "source_url": "https://news.ycombinator.com/item?id=50484658",
+      "source_text": "Jonathan Blow – If AI solved coding, why is my software still the same? [video]",
+      "signals": {
+        "points": 385,
+        "comments": 541
+      },
+      "meta": {
+        "author": "helloplanets"
+      },
+      "published_at": "2026-11-13T15:08:44Z"
+    },
+    {
+      "id": "hn-ai-is-destroying-the-trust-between-writers-and-2026-11-14",
+      "title": "AI is destroying the trust between writers and readers",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.theatlantic.com/books/2026/11/ai-literary-scams-amazon/689391/",
+      "source_url": "https://news.ycombinator.com/item?id=50481870",
+      "source_text": "AI is destroying the trust between writers and readers",
+      "signals": {
+        "points": 352,
+        "comments": 215
+      },
+      "meta": {
+        "author": "FinnLobsien"
+      },
+      "published_at": "2026-11-13T11:13:46Z"
+    },
+    {
+      "id": "hn-no-ai-slop-a-manifesto-2026-11-14",
+      "title": "No AI Slop: A Manifesto",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.slopmanifesto.com/",
+      "source_url": "https://news.ycombinator.com/item?id=50488769",
+      "source_text": "No AI Slop: A Manifesto",
+      "signals": {
+        "points": 206,
+        "comments": 124
+      },
+      "meta": {
+        "author": "bankombinator"
+      },
+      "published_at": "2026-11-13T19:51:56Z"
+    },
+    {
+      "id": "hn-claude-is-down-2026-11-14",
+      "title": "Claude Is Down",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://status.claude.com/history",
+      "source_url": "https://news.ycombinator.com/item?id=50481220",
+      "source_text": "Claude Is Down",
+      "signals": {
+        "points": 199,
+        "comments": 179
+      },
+      "meta": {
+        "author": "cornfieldlabs"
+      },
+      "published_at": "2026-11-13T10:20:09Z"
+    },
+    {
+      "id": "hn-why-is-google-cutting-off-search-from-ai-free-2026-11-14",
+      "title": "Why is Google cutting off Search from AI-free schools? Here are some theories",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://text.npr.org/nx-s1-6029408",
+      "source_url": "https://news.ycombinator.com/item?id=50484960",
+      "source_text": "Why is Google cutting off Search from AI-free schools? Here are some theories",
+      "signals": {
+        "points": 188,
+        "comments": 180
+      },
+      "meta": {
+        "author": "kamaraju"
+      },
+      "published_at": "2026-11-13T15:29:10Z"
+    },
+    {
+      "id": "hn-openai-disbands-its-robotics-team-as-its-2026-11-14",
+      "title": "OpenAI disbands its robotics team as its general models start running robots",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://fortune.com/2026/11/13/openai-disbands-robotics-team-as-its-general-models-start-running-robots/",
+      "source_url": "https://news.ycombinator.com/item?id=50487184",
+      "source_text": "OpenAI disbands its robotics team as its general models start running robots",
+      "signals": {
+        "points": 173,
+        "comments": 72
+      },
+      "meta": {
+        "author": "sshah03"
+      },
+      "published_at": "2026-11-13T17:55:23Z"
+    },
+    {
+      "id": "hn-claude-meetings-2026-11-14",
+      "title": "Claude Meetings",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://claude.com/resources/articles/claude-meetings",
+      "source_url": "https://news.ycombinator.com/item?id=50491097",
+      "source_text": "Claude Meetings",
+      "signals": {
+        "points": 103,
+        "comments": 79
+      },
+      "meta": {
+        "author": "hmokiguess"
+      },
+      "published_at": "2026-11-13T22:39:15Z"
+    }
+  ]
+}

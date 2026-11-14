@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "slug": "hn-ai-unlocks-godel-s-notebooks-said-to-contain",
+  "kind": "hn",
+  "title": "AI unlocks Gödel's notebooks, said to contain hundreds of proved theorems",
+  "url": "https://www.theguardian.com/science/2026/nov/13/kurt-godel-notebooks-ai-helps-unlock-hidden-discoveries-man-who-transformed-maths",
+  "source_url": "https://news.ycombinator.com/item?id=50486748",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Reasoning"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Logician Jan von Plato used Claude to digest 1,009 pages of Kurt Gödel's 1940s workbooks, mostly in obsolete Gabelsberger shorthand, and reports hundreds of theorems nobody knew Gödel had proved.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Von Plato's Helsinki team had been working through the 16 notebooks at roughly a page a week since 2017.",
+        "Given his transcriptions and his own books on Gödel, Claude produced a 650-page explanation in a couple of days, which he checked page by page.",
+        "Claude reconstructed a Gödel proof of the independence of the axiom of choice, one definition short; the repaired version passed the Coq proof assistant.",
+        "Of 663 theorems extracted, about 400 checked out in Coq as stated, about 200 needed repair and about 50 were false.",
+        "Notre Dame logician Joel David Hamkins cautions that separating Gödel's work from Claude's is a job for historians."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "theme",
+          "text": "The six-readers claim draws pushback; one commenter's father wrote Gabelsberger until 2020, and others read it as six who also know the logic.",
+          "url": "https://news.ycombinator.com/item?id=50488053"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One argues Gödel was too harsh a critic of his own work to leave finished theorems unnoticed; a reply says intuitions short of proofs are still likely.",
+          "url": "https://news.ycombinator.com/item?id=50488546"
+        },
+        {
+          "stance": "agreed",
+          "text": "Logic-minded readers call it a big deal, given how little Gödel published and von Plato's standing on the manuscripts.",
+          "url": "https://news.ycombinator.com/item?id=50487393"
+        },
+        {
+          "stance": "theme",
+          "text": "People want the notes published and the method shared, to try the same on Linear A or the Voynich manuscript.",
+          "url": "https://news.ycombinator.com/item?id=50488583"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "‘Ahead of his time’: AI helps unlock discoveries hidden in notebooks of man who transformed maths",
+      "url": "https://www.theguardian.com/science/2026/nov/13/kurt-godel-notebooks-ai-helps-unlock-hidden-discoveries-man-who-transformed-maths"
+    },
+    {
+      "role": "discussion",
+      "title": "AI unlocks Gödel's notebooks, said to contain hundreds of proved theorems",
+      "url": "https://news.ycombinator.com/item?id=50486748"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-ai-unlocks-godel-s-notebooks-said-to-contain-2026-11-14",
+      "edition_date": "2026-11-14"
+    }
+  ],
+  "created_at": "2026-11-14T15:02:25Z",
+  "updated_at": "2026-11-14T15:02:25Z",
+  "stats": {
+    "points": 405,
+    "comments": 102,
+    "submitted_by": "bookofjoe",
+    "posted_at": "2026-11-13T17:30:10Z"
+  },
+  "stats_as_of": "2026-11-14T14:58:59Z"
+}

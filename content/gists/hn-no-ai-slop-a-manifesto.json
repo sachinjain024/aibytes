@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "slug": "hn-no-ai-slop-a-manifesto",
+  "kind": "hn",
+  "title": "No AI Slop: A Manifesto",
+  "url": "https://www.slopmanifesto.com/",
+  "source_url": "https://news.ycombinator.com/item?id=50488769",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "LLM"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Speakers and attendees of AIE Code Summit 2026 wrote a manifesto, modelled on the Agile Manifesto, that defines AI slop and sets out how teams should own the quality of AI-assisted work.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Five values put outcomes ahead of output, understanding ahead of speed, and fixing the system ahead of patching output.",
+        "Slop is defined as work that took less effort to make than it demands from the person reading it.",
+        "It calls slop asymmetric: generating a huge PR or long doc is nearly free, while reviewing it costs as much as ever.",
+        "Signers commit to flagging agent-written content, checking what matters before sending, and politely returning slop they receive.",
+        "Repeat mistakes should become guardrails, with linters, type checkers and automated checks catching whatever they can."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "Readers single out the line that what shipped and who it helps matters far more than lines of code, PRs or tokens spent.",
+          "url": "https://news.ycombinator.com/item?id=50490268"
+        },
+        {
+          "stance": "theme",
+          "text": "Reviewing huge AI-generated PRs is a recurring worry; one suggests attaching the prompt, and a reply notes real pipelines involve far more than one prompt.",
+          "url": "https://news.ycombinator.com/item?id=50488829"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One commenter argues slop is a human failing, the old shovelware problem; a reply counters that LLMs make it vastly cheaper to produce.",
+          "url": "https://news.ycombinator.com/item?id=50490837"
+        },
+        {
+          "stance": "disputed",
+          "text": "Some question the framing, asking whether matching everyone else's output is really bad and whether a negative name serves the cause.",
+          "url": "https://news.ycombinator.com/item?id=50491594"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "No AI Slop: A Manifesto",
+      "url": "https://www.slopmanifesto.com/"
+    },
+    {
+      "role": "discussion",
+      "title": "No AI Slop: A Manifesto",
+      "url": "https://news.ycombinator.com/item?id=50488769"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-no-ai-slop-a-manifesto-2026-11-14",
+      "edition_date": "2026-11-14"
+    }
+  ],
+  "created_at": "2026-11-14T15:02:25Z",
+  "updated_at": "2026-11-14T15:02:25Z",
+  "stats": {
+    "points": 206,
+    "comments": 124,
+    "submitted_by": "bankombinator",
+    "posted_at": "2026-11-13T19:51:56Z"
+  },
+  "stats_as_of": "2026-11-14T14:58:59Z"
+}

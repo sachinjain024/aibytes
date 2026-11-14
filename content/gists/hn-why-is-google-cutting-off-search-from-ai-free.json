@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "slug": "hn-why-is-google-cutting-off-search-from-ai-free",
+  "kind": "hn",
+  "title": "Why is Google cutting off Search from AI-free schools? Here are some theories",
+  "url": "https://text.npr.org/nx-s1-6029408",
+  "source_url": "https://news.ycombinator.com/item?id=50484960",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Google",
+    "Policy"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "NPR reports Google will withdraw Search entirely from schools that switch off AI Overviews, and weighs why, including a theory tied to Google's recent antitrust wins.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Schools that want AI Overviews off for students lose Google Search altogether, even as Los Angeles, Seattle and New York City districts ban classroom AI.",
+        "Former Googler Tracy Pizzo suggests a schools-only off switch would show Search and AI can be separated, undercutting a court finding that they are one product.",
+        "Antitrust experts NPR asked neither fully accepted nor dismissed that theory; Google pointed only to its announcement.",
+        "Common Sense Media rated AI Overviews an unacceptable risk, citing unsafe content and false information.",
+        "A long-time partner superintendent says the AI-or-nothing stance may have damaged Google's trust in education."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "counterpoint",
+          "text": "The top comment reframes it: Google is not cutting schools off but declining to build an AI-free version of Search.",
+          "url": "https://news.ycombinator.com/item?id=50486021"
+        },
+        {
+          "stance": "theme",
+          "text": "Commenters compare Google's one-product defence to Microsoft's failed argument for bundling Internet Explorer.",
+          "url": "https://news.ycombinator.com/item?id=50486601"
+        },
+        {
+          "stance": "agreed",
+          "text": "Many suggest workarounds, such as appending udm=14 to queries or moving districts to DuckDuckGo's no-AI search.",
+          "url": "https://news.ycombinator.com/item?id=50496458"
+        },
+        {
+          "stance": "theme",
+          "text": "Others see schools as a lock-in play, where early AI habits follow students into later digital use.",
+          "url": "https://news.ycombinator.com/item?id=50491213"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Why is Google cutting off Search from AI-free schools? Here are some theories",
+      "url": "https://text.npr.org/nx-s1-6029408"
+    },
+    {
+      "role": "discussion",
+      "title": "Why is Google cutting off Search from AI-free schools? Here are some theories",
+      "url": "https://news.ycombinator.com/item?id=50484960"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-why-is-google-cutting-off-search-from-ai-free-2026-11-14",
+      "edition_date": "2026-11-14"
+    }
+  ],
+  "created_at": "2026-11-14T15:02:25Z",
+  "updated_at": "2026-11-14T15:02:25Z",
+  "stats": {
+    "points": 188,
+    "comments": 180,
+    "submitted_by": "kamaraju",
+    "posted_at": "2026-11-13T15:29:10Z"
+  },
+  "stats_as_of": "2026-11-14T14:58:59Z"
+}

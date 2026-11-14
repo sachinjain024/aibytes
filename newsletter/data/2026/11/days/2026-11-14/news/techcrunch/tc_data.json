@@ -1,0 +1,101 @@
+{
+  "source": "techcrunch",
+  "section": "ai-news",
+  "fetched_at": "2026-11-14",
+  "window": {
+    "after": "2026-11-13",
+    "before": "2026-11-15"
+  },
+  "query_params": {
+    "category": "artificial-intelligence",
+    "count": 10,
+    "ranking": "hackernews_points,recency"
+  },
+  "totalCount": 8,
+  "articles": [
+    {
+      "title": "Israel\u2019s VCs see opportunity for challengers in Nvidia\u2019s turmoil",
+      "description": "Given Nvidia\u2019s stronghold on AI and its importance in Israel, many in the country's startup ecosystem are worried about the impact of his departure.",
+      "url": "https://techcrunch.com/2026/11/13/israels-vcs-see-opportunity-for-challengers-in-nvidias-turmoil/",
+      "published_at": "2026-11-13T12:52:19Z",
+      "author": "Anna Heim",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2303769281.jpg?resize=1200,800",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 5,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=50493661"
+      }
+    },
+    {
+      "title": "Jensen Huang\u2019s departure blasts big hole in AI startup funding, VCs and founders say",
+      "description": "Nvidia poured tens of billions into AI startups under Huang. Without him at the helm, founders and VCs are bracing for smaller checks and lower valuations.",
+      "url": "https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/",
+      "published_at": "2026-11-13T22:43:00Z",
+      "author": "Marina Temkin, Dominic-Madori Davis",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/Jensen-Huang-nvidia.jpg?w=1024",
+      "reading_time": "4 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "AI agent startup LangChain hits $3B valuation",
+      "description": "LangChain now claims 7,000 customers of its model and platform agnostic agent management tool LangSmith.",
+      "url": "https://techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation/",
+      "published_at": "2026-11-13T19:37:57Z",
+      "author": "Julie Bort",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/Raising-money.jpg?resize=1200,829",
+      "reading_time": "2 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "Export-banned Nvidia chips are behind China\u2019s most powerful AI models \u2014 uh-oh, Jensen!",
+      "description": "New research shows the most advanced AI models from China were trained on banned Nvidia chips.",
+      "url": "https://techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen/",
+      "published_at": "2026-11-13T18:40:30Z",
+      "author": "Tim Fernholz",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2301327883.jpg?resize=1200,795",
+      "reading_time": "5 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "ChatGPT\u2019s new Wallet lets AI agents shop and check out for you",
+      "description": "ChatGPT Wallet lets AI agents shop and check out on users' behalf, starting with a limited rollout to U.S. Pro subscribers.",
+      "url": "https://techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you/",
+      "published_at": "2026-11-13T16:00:12Z",
+      "author": "Sarah Perez",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/chatgpt-wallet.jpg?resize=1200,729",
+      "reading_time": "3 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "The unfolding Jensen Huang scandal: a timeline",
+      "description": "Jensen Huang has resigned from Nvidia following an affair, which could have ramifications for national security as the U.S. and China race to develop the most advanced AI infrastructure.",
+      "url": "https://techcrunch.com/2026/11/13/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+      "published_at": "2026-11-13T15:58:00Z",
+      "author": "Amanda Silberling",
+      "image": "https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2205754389.jpg?w=1024",
+      "reading_time": "10 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "ElevenLabs\u2019 new app combines meeting note-taking and dictation for teams",
+      "description": "ElevenAI is a new meeting notetaker and dictation app aimed at teams and enterprises.",
+      "url": "https://techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams/",
+      "published_at": "2026-11-13T14:44:48Z",
+      "author": "Ivan Mehta",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/Screenshot-2026-11-13-at-7.19.18-PM.jpg?resize=1200,774",
+      "reading_time": "2 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "Jensen Huang didn\u2019t show confidence in his successor, report says",
+      "description": "Huang described Kress as a \"deer in the headlights\" during a meeting in summer.",
+      "url": "https://techcrunch.com/2026/11/13/jensen-huang-didnt-show-confidence-in-his-successor-report-says/",
+      "published_at": "2026-11-13T12:28:23Z",
+      "author": "Ivan Mehta",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/colette-1920x1920_4d360fa4-e97d-4505-9857-284d03141162-prv-e1794568317250.jpg?resize=1200,676",
+      "reading_time": "2 minutes",
+      "hackernews": null
+    }
+  ]
+}

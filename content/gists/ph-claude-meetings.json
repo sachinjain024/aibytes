@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "ph-claude-meetings",
+  "kind": "launch",
+  "title": "Claude Meetings",
+  "url": "https://www.producthunt.com/products/claude",
+  "source_url": "https://www.producthunt.com/products/claude",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Agents",
+    "Anthropic",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/0a72e438-9a48-407c-a3a1-7e74832e7ea4.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "Anthropic's Claude Meetings puts Claude into a Google Meet call as a visible attendee that takes questions by voice or chat, writes the notes, and builds shared documents while the team talks.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Claude joins the call as a named participant, and anyone can ask it something aloud or in the meeting chat.",
+        "It records notes and action items itself, so nobody on the call has to keep minutes.",
+        "During the call it can create docs and whiteboards that invited teammates edit live.",
+        "With permission it queries connected tools, for example pulling last year's event cost and comparing it with the plan being drafted.",
+        "Afterwards the notes, transcript and any artifacts sit on a meeting page in Claude, where you can ask about past meetings you attended."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Teams on Claude's Team and Enterprise plans that meet on Google Meet and want notes, follow-ups and planning documents produced during the call rather than after it."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Claude Meetings on Product Hunt",
+      "url": "https://www.producthunt.com/products/claude"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-claude-meetings-2026-11-14",
+      "edition_date": "2026-11-14"
+    }
+  ],
+  "created_at": "2026-11-14T15:02:25Z",
+  "updated_at": "2026-11-14T15:02:25Z",
+  "stats": {
+    "upvotes": 287,
+    "comments": 14
+  },
+  "stats_as_of": "2026-11-14T14:58:59Z"
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "slug": "gh-loopforge",
+  "kind": "repo",
+  "title": "Tencent/LoopForge",
+  "url": "https://github.com/Tencent/LoopForge",
+  "source_url": "https://github.com/Tencent/LoopForge",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "Open Source",
+    "Dev Tool",
+    "Agents"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/Tencent.png?size=80"
+  },
+  "depth": "full",
+  "lede": "LoopForge is Tencent's self-hosted workspace for shipping software with coding-agent CLIs, running agents, scripts and human approval gates as repeatable workflows inside Docker sandboxes.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Two modes: chat with a Main Bot that opens a sandbox and delegates to project roles, or run an SOP with fixed stages and sign-off.",
+        "An SOP chains Agent, Script, Human gate, Sub-SOP and Preview nodes; a failed check can send work back to an earlier step.",
+        "Ten CLIs serve as executors, including CodeBuddy, Codex, Claude Code, OpenCode and Cursor CLI, and each role picks its own.",
+        "Runs keep node status, tool traces, logs and artifacts, and can be paused, retried or rerun from any node.",
+        "LoopForge Local installs the built-in workflows into Claude Code, Codex, Cursor and other assistants with no server."
+      ]
+    },
+    {
+      "key": "try_it",
+      "command": "npx -y loopforge-cli@latest install claude"
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Tencent/LoopForge",
+      "url": "https://github.com/Tencent/LoopForge"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-loopforge-2026-11-14",
+      "edition_date": "2026-11-14"
+    }
+  ],
+  "created_at": "2026-11-14T15:02:25Z",
+  "updated_at": "2026-11-14T15:02:25Z",
+  "stats": {
+    "stars": 730,
+    "forks": 115,
+    "language": "Go",
+    "license": "Other",
+    "created_on": "2026-07-28",
+    "contributors": 18,
+    "last_release": {
+      "tag": "v0.3.8",
+      "published_on": "2026-11-12"
+    },
+    "open_issues": 151,
+    "stars_gained": 174
+  },
+  "stats_as_of": "2026-11-14T14:58:59Z"
+}

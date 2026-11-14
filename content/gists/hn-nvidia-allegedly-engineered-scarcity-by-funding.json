@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "slug": "hn-nvidia-allegedly-engineered-scarcity-by-funding",
+  "kind": "hn",
+  "title": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
+  "url": "https://www.techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus",
+  "source_url": "https://news.ycombinator.com/item?id=50493251",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Nvidia",
+    "Funding"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "A TechPowerUp write-up, relaying Wall Street Journal reporting, alleges Nvidia funded AI startups so they would buy its GPUs, keeping demand looking strong and absorbing surplus TSMC supply.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "As quoted in the thread, the report says the aim was to keep demand looking high and move surplus chips from TSMC.",
+        "The WSJ account it draws on centres on an August meeting between Huang and his senior finance team.",
+        "Per that account, Huang said big cloud customers were moving to other chips and committed wafer and memory purchases were piling up.",
+        "Commenters relay that interim CEO Colette Kress had questioned the vendor-financed deals."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "theme",
+          "text": "Many note the circular financing was public long ago; what is new is the claim that it cleared excess TSMC supply.",
+          "url": "https://news.ycombinator.com/item?id=50494429"
+        },
+        {
+          "stance": "theme",
+          "text": "Several point out the story is third-hand, WSJ via Wccftech, and recommend the original, which centres on Kress questioning Huang's dealmaking.",
+          "url": "https://news.ycombinator.com/item?id=50495294"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One lays out the mundane case: with chips selling out anyway, funding smaller buyers keeps Nvidia from depending on hyperscalers that build rival silicon.",
+          "url": "https://news.ycombinator.com/item?id=50495956"
+        },
+        {
+          "stance": "disputed",
+          "text": "Commenters split on whether stakes in neoclouds like Nebius are sound strategy or a bet on customers that cannot outlast vertically integrated clouds.",
+          "url": "https://news.ycombinator.com/item?id=50494233"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "Another argues GPU demand may be real, and the rush to declare the boom over says more about the narrative than the facts.",
+          "url": "https://news.ycombinator.com/item?id=50495342"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "NVIDIA Allegedly Engineered Scarcity By Funding AI Startups To Buy Its GPUs",
+      "url": "https://www.techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus"
+    },
+    {
+      "role": "discussion",
+      "title": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
+      "url": "https://news.ycombinator.com/item?id=50493251"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-nvidia-allegedly-engineered-scarcity-by-funding-2026-11-14",
+      "edition_date": "2026-11-14"
+    }
+  ],
+  "created_at": "2026-11-14T15:02:25Z",
+  "updated_at": "2026-11-14T15:02:25Z",
+  "stats": {
+    "points": 823,
+    "comments": 494,
+    "submitted_by": "speckx",
+    "posted_at": "2026-11-14T02:52:59Z"
+  },
+  "stats_as_of": "2026-11-14T14:58:59Z",
+  "front_page": true
+}

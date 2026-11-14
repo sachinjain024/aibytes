@@ -1,0 +1,130 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-14",
+  "window": {
+    "after": "2026-11-13",
+    "before": "2026-11-15"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 17,
+  "poolCount": 85,
+  "stories": [
+    {
+      "title": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
+      "url": "https://www.techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus",
+      "type": "story",
+      "points": 823,
+      "num_comments": 494,
+      "author": "speckx",
+      "created_at": "2026-11-14T02:52:59Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50493251",
+      "front_page": true
+    },
+    {
+      "title": "Elevated errors on claude.ai, Claude Code, and platform.claude.com",
+      "url": "https://status.claude.com/incidents/nn11wk485zfn",
+      "type": "story",
+      "points": 489,
+      "num_comments": 388,
+      "author": "__vivek",
+      "created_at": "2026-11-13T10:18:13Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50481187",
+      "front_page": false
+    },
+    {
+      "title": "AI unlocks G\u00f6del's notebooks, said to contain hundreds of proved theorems",
+      "url": "https://www.theguardian.com/science/2026/nov/13/kurt-godel-notebooks-ai-helps-unlock-hidden-discoveries-man-who-transformed-maths",
+      "type": "story",
+      "points": 405,
+      "num_comments": 102,
+      "author": "bookofjoe",
+      "created_at": "2026-11-13T17:30:10Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50486748",
+      "front_page": false
+    },
+    {
+      "title": "Jonathan Blow \u2013 If AI solved coding, why is my software still the same? [video]",
+      "url": "https://www.youtube.com/watch?v=IRK8h67ol7Q",
+      "type": "story",
+      "points": 385,
+      "num_comments": 541,
+      "author": "helloplanets",
+      "created_at": "2026-11-13T15:08:44Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50484658",
+      "front_page": true
+    },
+    {
+      "title": "AI is destroying the trust between writers and readers",
+      "url": "https://www.theatlantic.com/books/2026/11/ai-literary-scams-amazon/689391/",
+      "type": "story",
+      "points": 352,
+      "num_comments": 215,
+      "author": "FinnLobsien",
+      "created_at": "2026-11-13T11:13:46Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50481870",
+      "front_page": false
+    },
+    {
+      "title": "No AI Slop: A Manifesto",
+      "url": "https://www.slopmanifesto.com/",
+      "type": "story",
+      "points": 206,
+      "num_comments": 124,
+      "author": "bankombinator",
+      "created_at": "2026-11-13T19:51:56Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50488769",
+      "front_page": false
+    },
+    {
+      "title": "Claude Is Down",
+      "url": "https://status.claude.com/history",
+      "type": "story",
+      "points": 199,
+      "num_comments": 179,
+      "author": "cornfieldlabs",
+      "created_at": "2026-11-13T10:20:09Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50481220",
+      "front_page": false
+    },
+    {
+      "title": "Why is Google cutting off Search from AI-free schools? Here are some theories",
+      "url": "https://text.npr.org/nx-s1-6029408",
+      "type": "story",
+      "points": 188,
+      "num_comments": 180,
+      "author": "kamaraju",
+      "created_at": "2026-11-13T15:29:10Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50484960",
+      "front_page": false
+    },
+    {
+      "title": "OpenAI disbands its robotics team as its general models start running robots",
+      "url": "https://fortune.com/2026/11/13/openai-disbands-robotics-team-as-its-general-models-start-running-robots/",
+      "type": "story",
+      "points": 173,
+      "num_comments": 72,
+      "author": "sshah03",
+      "created_at": "2026-11-13T17:55:23Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50487184",
+      "front_page": false
+    },
+    {
+      "title": "Claude Meetings",
+      "url": "https://claude.com/resources/articles/claude-meetings",
+      "type": "story",
+      "points": 103,
+      "num_comments": 79,
+      "author": "hmokiguess",
+      "created_at": "2026-11-13T22:39:15Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50491097",
+      "front_page": false
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "hn-claude-meetings",
+  "kind": "hn",
+  "title": "Claude Meetings",
+  "url": "https://claude.com/resources/articles/claude-meetings",
+  "source_url": "https://news.ycombinator.com/item?id=50491097",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Agents",
+    "Anthropic",
+    "Launch"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Anthropic's post introduces Claude Meetings, a beta that brings Claude onto Google Meet calls to answer questions, take notes and build shared docs and whiteboards as the team talks.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Claude answers in writing by default and can query connected tools, asking each person's permission the first time.",
+        "By default it stays out of calls with outside guests and leaves if one joins; an admin can change that.",
+        "It keeps a transcript, summary and screen descriptions, not audio, on a per-meeting page in claude.ai.",
+        "During the beta it is unavailable to organisations using zero data retention, HIPAA-ready setups or customer-managed keys.",
+        "Notes, transcripts and answers are free in beta, artifacts until February 10, 2027; connected-tool use counts toward plan usage."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "theme",
+          "text": "Consent comes up repeatedly, with a joke that objecting to AI recording would simply end up in the notes.",
+          "url": "https://news.ycombinator.com/item?id=50491244"
+        },
+        {
+          "stance": "disputed",
+          "text": "Commenters split on social acceptance; one says vendors already record and transcribe most calls.",
+          "url": "https://news.ycombinator.com/item?id=50493194"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "Several warn Anthropic keeps moving onto partners' turf, from meeting note takers to integrators building on its models.",
+          "url": "https://news.ycombinator.com/item?id=50491345"
+        },
+        {
+          "stance": "theme",
+          "text": "Giving meeting agents tool access is called useful but hard to secure, with risks everyday users will struggle to judge.",
+          "url": "https://news.ycombinator.com/item?id=50491669"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Introducing Claude Meetings, now in beta",
+      "url": "https://claude.com/resources/articles/claude-meetings"
+    },
+    {
+      "role": "discussion",
+      "title": "Claude Meetings",
+      "url": "https://news.ycombinator.com/item?id=50491097"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-claude-meetings-2026-11-14",
+      "edition_date": "2026-11-14"
+    }
+  ],
+  "created_at": "2026-11-14T15:02:25Z",
+  "updated_at": "2026-11-14T15:02:25Z",
+  "stats": {
+    "points": 103,
+    "comments": 79,
+    "submitted_by": "hmokiguess",
+    "posted_at": "2026-11-13T22:39:15Z"
+  },
+  "stats_as_of": "2026-11-14T14:58:59Z"
+}

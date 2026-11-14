@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "ph-trainn-mcp",
+  "kind": "launch",
+  "title": "Trainn MCP",
+  "url": "https://www.producthunt.com/products/trainn",
+  "source_url": "https://www.producthunt.com/products/trainn",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Video",
+    "MCP",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/f2b17f47-f349-4bfd-b316-2ca50ecb5a12.jpeg?auto=format"
+  },
+  "depth": "full",
+  "lede": "Trainn MCP connects Claude, ChatGPT or any MCP-compatible agent to Trainn so a chat can produce and revise product videos, help articles and customer courses, with every result held as a draft.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Turns plain screen recordings into narrated product videos with AI voiceover, zoom effects and highlights.",
+        "Writes step-by-step help articles from product notes, transcripts or existing videos.",
+        "Builds full courses with chapters, lessons and quizzes that customers enrol in, with progress tracking.",
+        "Given release notes, it finds content that has gone out of date, suggests fixes and applies them in the same chat.",
+        "Everything is saved as a draft in Trainn; nothing is published until someone presses publish."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Customer education and onboarding teams whose product ships faster than their training content can be updated, and who already draft with Claude or ChatGPT."
+    },
+    {
+      "key": "pricing",
+      "text": "The launch comment says you can connect a tool and start for free; paid tiers are not described."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Trainn MCP on Product Hunt",
+      "url": "https://www.producthunt.com/products/trainn"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-trainn-mcp-2026-11-14",
+      "edition_date": "2026-11-14"
+    }
+  ],
+  "created_at": "2026-11-14T15:02:25Z",
+  "updated_at": "2026-11-14T15:02:25Z",
+  "stats": {
+    "upvotes": 174,
+    "comments": 46
+  },
+  "stats_as_of": "2026-11-14T14:58:59Z"
+}

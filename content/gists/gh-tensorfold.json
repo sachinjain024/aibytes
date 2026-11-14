@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "gh-tensorfold",
+  "kind": "repo",
+  "title": "ashhart/TensorFold",
+  "url": "https://github.com/ashhart/TensorFold",
+  "source_url": "https://github.com/ashhart/TensorFold",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "Open Source",
+    "Inference",
+    "Local LLM"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/ashhart.png?size=80"
+  },
+  "depth": "full",
+  "lede": "TensorFold is a Zig inference server that loads checkpoints, tokenizes and runs Metal or CUDA kernels itself, so serving a model on Apple Silicon or NVIDIA GPUs needs no Python or MLX.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "One binary exposes OpenAI-style chat completions plus Responses and Anthropic Messages endpoints.",
+        "Ships through Homebrew on Macs and as checksummed Linux archives for x86_64 and aarch64, which need NVIDIA driver R580 or newer.",
+        "The --parallel flag caps concurrent requests and queues the rest; by default it asks for up to eight streams as memory allows.",
+        "The README lists per-model recipes, from Qwen3.5-2B on one Mac to GLM-5.3-Flash split across two or three GB10s.",
+        "Experimental Living Weights writes taught facts into a model's checkpoint files, with a rollback command, on Macs and the GB10."
+      ]
+    },
+    {
+      "key": "try_it",
+      "command": "brew install ashhart/tensorfold/tensorfold"
+    },
+    {
+      "key": "whats_open",
+      "points": [
+        {
+          "text": "Model coverage requests, such as native Metal support for the LFM3 checkpoints.",
+          "url": "https://github.com/ashhart/TensorFold/issues/1491"
+        },
+        {
+          "text": "Qwen performance work on CUDA, including opt-in NVFP4 prefill and folding in pending kernel improvements.",
+          "url": "https://github.com/ashhart/TensorFold/issues/2433"
+        },
+        {
+          "text": "A native Windows path, gated on a single-stream throughput target on an RTX 5090.",
+          "url": "https://github.com/ashhart/TensorFold/issues/2406"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "ashhart/TensorFold",
+      "url": "https://github.com/ashhart/TensorFold"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-tensorfold-2026-11-14",
+      "edition_date": "2026-11-14"
+    }
+  ],
+  "created_at": "2026-11-14T15:02:25Z",
+  "updated_at": "2026-11-14T15:02:25Z",
+  "stats": {
+    "stars": 2098,
+    "forks": 407,
+    "language": "Zig",
+    "license": "Apache-2.0",
+    "created_on": "2026-06-19",
+    "contributors": 138,
+    "last_release": {
+      "tag": "v1.2.8",
+      "published_on": "2026-11-13"
+    },
+    "open_issues": 214,
+    "stars_gained": 188
+  },
+  "stats_as_of": "2026-11-14T14:58:59Z"
+}

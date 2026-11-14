@@ -1,7 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-13T16:15:14Z",
+  "generated_at": "2026-11-14T15:02:25Z",
   "gists": [
+    {
+      "slug": "gh-caveman",
+      "source_key": "github.com/JuliusBrussee/caveman",
+      "path": "gists/gh-caveman.json",
+      "created_at": "2026-11-14T15:02:25Z"
+    },
     {
       "slug": "gh-chrome-devtools-mcp",
       "source_key": "github.com/ChromeDevTools/chrome-devtools-mcp",
@@ -27,6 +33,12 @@
       "created_at": "2026-11-13T16:15:14Z"
     },
     {
+      "slug": "gh-loopforge",
+      "source_key": "github.com/Tencent/LoopForge",
+      "path": "gists/gh-loopforge.json",
+      "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
       "slug": "gh-modern-web-guidance-src",
       "source_key": "github.com/GoogleChrome/modern-web-guidance-src",
       "path": "gists/gh-modern-web-guidance-src.json",
@@ -39,16 +51,46 @@
       "created_at": "2026-11-13T16:15:14Z"
     },
     {
+      "slug": "gh-qwen-code",
+      "source_key": "github.com/QwenLM/qwen-code",
+      "path": "gists/gh-qwen-code.json",
+      "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
+      "slug": "gh-tensorfold",
+      "source_key": "github.com/ashhart/TensorFold",
+      "path": "gists/gh-tensorfold.json",
+      "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
+      "slug": "gh-univer",
+      "source_key": "github.com/dream-num/univer",
+      "path": "gists/gh-univer.json",
+      "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
       "slug": "gh-veyra-nrvideo",
       "source_key": "github.com/Likely7/Veyra-NRVideo",
       "path": "gists/gh-veyra-nrvideo.json",
       "created_at": "2026-11-13T16:15:14Z"
     },
     {
+      "slug": "hn-ai-is-destroying-the-trust-between-writers-and",
+      "source_key": "news.ycombinator.com/item?id=50481870",
+      "path": "gists/hn-ai-is-destroying-the-trust-between-writers-and.json",
+      "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
       "slug": "hn-ai-is-turning-apple-s-app-review-process-into-a",
       "source_key": "news.ycombinator.com/item?id=50474311",
       "path": "gists/hn-ai-is-turning-apple-s-app-review-process-into-a.json",
       "created_at": "2026-11-13T16:15:14Z"
+    },
+    {
+      "slug": "hn-ai-unlocks-godel-s-notebooks-said-to-contain",
+      "source_key": "news.ycombinator.com/item?id=50486748",
+      "path": "gists/hn-ai-unlocks-godel-s-notebooks-said-to-contain.json",
+      "created_at": "2026-11-14T15:02:25Z"
     },
     {
       "slug": "hn-anthropic-ipo",
@@ -67,6 +109,12 @@
       "source_key": "news.ycombinator.com/item?id=50481220",
       "path": "gists/hn-claude-is-down.json",
       "created_at": "2026-11-13T16:15:14Z"
+    },
+    {
+      "slug": "hn-claude-meetings",
+      "source_key": "news.ycombinator.com/item?id=50491097",
+      "path": "gists/hn-claude-meetings.json",
+      "created_at": "2026-11-14T15:02:25Z"
     },
     {
       "slug": "hn-edge0-145b-frontier-ai-capabilities-on-your-own",
@@ -105,6 +153,42 @@
       "created_at": "2026-11-13T16:15:14Z"
     },
     {
+      "slug": "hn-jonathan-blow-if-ai-solved-coding-why-is-my",
+      "source_key": "news.ycombinator.com/item?id=50484658",
+      "path": "gists/hn-jonathan-blow-if-ai-solved-coding-why-is-my.json",
+      "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
+      "slug": "hn-no-ai-slop-a-manifesto",
+      "source_key": "news.ycombinator.com/item?id=50488769",
+      "path": "gists/hn-no-ai-slop-a-manifesto.json",
+      "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
+      "slug": "hn-nvidia-allegedly-engineered-scarcity-by-funding",
+      "source_key": "news.ycombinator.com/item?id=50493251",
+      "path": "gists/hn-nvidia-allegedly-engineered-scarcity-by-funding.json",
+      "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
+      "slug": "hn-openai-disbands-its-robotics-team-as-its",
+      "source_key": "news.ycombinator.com/item?id=50487184",
+      "path": "gists/hn-openai-disbands-its-robotics-team-as-its.json",
+      "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
+      "slug": "hn-why-is-google-cutting-off-search-from-ai-free",
+      "source_key": "news.ycombinator.com/item?id=50484960",
+      "path": "gists/hn-why-is-google-cutting-off-search-from-ai-free.json",
+      "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
+      "slug": "ph-claude-meetings",
+      "source_key": "producthunt.com/products/claude",
+      "path": "gists/ph-claude-meetings.json",
+      "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
       "slug": "ph-l-3db3f332-bfc0-4c05-a7b9-3cda7e7608e3",
       "source_key": "producthunt.com/products/l",
       "path": "gists/ph-l-3db3f332-bfc0-4c05-a7b9-3cda7e7608e3.json",
@@ -123,16 +207,34 @@
       "created_at": "2026-11-13T16:15:14Z"
     },
     {
+      "slug": "ph-replicate-3",
+      "source_key": "producthunt.com/products/replicate-10",
+      "path": "gists/ph-replicate-3.json",
+      "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
       "slug": "ph-templify-ai-2",
       "source_key": "producthunt.com/products/templify",
       "path": "gists/ph-templify-ai-2.json",
       "created_at": "2026-11-13T16:15:14Z"
     },
     {
+      "slug": "ph-trainn-mcp",
+      "source_key": "producthunt.com/products/trainn",
+      "path": "gists/ph-trainn-mcp.json",
+      "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
       "slug": "ph-youart-desktop-app",
       "source_key": "producthunt.com/products/youart",
       "path": "gists/ph-youart-desktop-app.json",
       "created_at": "2026-11-13T16:15:14Z"
+    },
+    {
+      "slug": "tc-ai-agent-startup-langchain-hits-3b-valuation",
+      "source_key": "techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation",
+      "path": "gists/tc-ai-agent-startup-langchain-hits-3b-valuation.json",
+      "created_at": "2026-11-14T15:02:25Z"
     },
     {
       "slug": "tc-chatgpts-new-wallet-lets-ai-agents-shop-and",
@@ -159,6 +261,12 @@
       "created_at": "2026-11-13T16:15:14Z"
     },
     {
+      "slug": "tc-export-banned-nvidia-chips-are-behind-chinas",
+      "source_key": "techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen",
+      "path": "gists/tc-export-banned-nvidia-chips-are-behind-chinas.json",
+      "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
       "slug": "tc-hugging-face-ceo-vows-to-keep-fighting-for-open",
       "source_key": "techcrunch.com/2026/11/12/hugging-face-ceo-vows-to-keep-fighting-for-open-source-ai-after-jensen-huangs-exit",
       "path": "gists/tc-hugging-face-ceo-vows-to-keep-fighting-for-open.json",
@@ -181,6 +289,12 @@
       "source_key": "techcrunch.com/2026/11/12/jensen-huang-is-out-at-nvidia-who-is-colette-kress-his-interim-replacement",
       "path": "gists/tc-jensen-huang-is-out-at-nvidia-who-is-colette.json",
       "created_at": "2026-11-13T16:15:14Z"
+    },
+    {
+      "slug": "tc-jensen-huangs-departure-blasts-big-hole-in-ai",
+      "source_key": "techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say",
+      "path": "gists/tc-jensen-huangs-departure-blasts-big-hole-in-ai.json",
+      "created_at": "2026-11-14T15:02:25Z"
     },
     {
       "slug": "tc-the-unfolding-jensen-huang-scandal-a-timeline",

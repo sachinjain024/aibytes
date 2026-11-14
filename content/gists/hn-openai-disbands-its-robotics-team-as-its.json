@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "slug": "hn-openai-disbands-its-robotics-team-as-its",
+  "kind": "hn",
+  "title": "OpenAI disbands its robotics team as its general models start running robots",
+  "url": "https://fortune.com/2026/11/13/openai-disbands-robotics-team-as-its-general-models-start-running-robots/",
+  "source_url": "https://news.ycombinator.com/item?id=50487184",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Robotics",
+    "OpenAI"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Fortune reports OpenAI has broken up its stand-alone robotics team, moving researchers into core research and hardware staff into Applied, because its general models now control robots directly.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Robotics research now reports to Chief Research Officer Mark Chen; applied robotics and hardware moved under President Greg Brockman.",
+        "OpenAI says GPT-6 Astra proved usable for robotics without a dedicated model, replacing an earlier plan to build on Sora.",
+        "In an Nvidia study, an Astra-driven agent scored 74.8% on a simulated manipulation benchmark against 51.0% for the best specialist models.",
+        "The move comes as OpenAI cuts side projects and losses ahead of a possible early-2027 IPO; it still targets a humanoid demo in 2027.",
+        "Robotics founders counter that deployment data from real sites and small on-board models still matter, since cloud LLMs are slow."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "counterpoint",
+          "text": "The top comment says general models run robots badly; millisecond control needs fast, smaller models, with a large model only planning.",
+          "url": "https://news.ycombinator.com/item?id=50489175"
+        },
+        {
+          "stance": "agreed",
+          "text": "Others read it as the Bitter Lesson again: general scale beats specialised systems.",
+          "url": "https://news.ycombinator.com/item?id=50487972"
+        },
+        {
+          "stance": "disputed",
+          "text": "Commenters split on whether it is pre-IPO cost cutting; a reply notes the researchers were moved, not laid off.",
+          "url": "https://news.ycombinator.com/item?id=50488344"
+        },
+        {
+          "stance": "theme",
+          "text": "Several ask about the latency and token cost of streaming commands, and whether robots without a cloud link are still in scope.",
+          "url": "https://news.ycombinator.com/item?id=50488019"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Exclusive: OpenAI disbands its stand-alone robotics team as its general-purpose AI models start running robots | Fortune",
+      "url": "https://fortune.com/2026/11/13/openai-disbands-robotics-team-as-its-general-models-start-running-robots/"
+    },
+    {
+      "role": "discussion",
+      "title": "OpenAI disbands its robotics team as its general models start running robots",
+      "url": "https://news.ycombinator.com/item?id=50487184"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-openai-disbands-its-robotics-team-as-its-2026-11-14",
+      "edition_date": "2026-11-14"
+    }
+  ],
+  "created_at": "2026-11-14T15:02:25Z",
+  "updated_at": "2026-11-14T15:02:25Z",
+  "stats": {
+    "points": 173,
+    "comments": 72,
+    "submitted_by": "sshah03",
+    "posted_at": "2026-11-13T17:55:23Z"
+  },
+  "stats_as_of": "2026-11-14T14:58:59Z"
+}
