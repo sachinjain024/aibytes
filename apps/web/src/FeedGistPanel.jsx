@@ -5,6 +5,7 @@ import { StatusMessage } from "@aibytes/design-system/components/content/Feed.js
 import { GistActions } from "./GistActions.jsx";
 import { loadGistPage } from "./content.js";
 import { useSaves } from "./hooks.js";
+import { targetFor } from "./gistPanel.js";
 import { gistPath } from "./route.js";
 
 // The gist panel on a daily, weekly or saved page (spec AIB-145y-app-gist-panel).
@@ -12,9 +13,8 @@ import { gistPath } from "./route.js";
 // opened it only when it closes. A gist with no file, or a hidden one, calls
 // `onMissing` and shows nothing: the feed is still there and the reader loses nothing.
 //
-// `target` is the item whose star the panel's save row presses: the card that was
-// clicked. A reload or a shared link has no card, so the gist's first appearance is used.
-export function FeedGistPanel({ slug, target, store, onClose, onMissing, width, onWidthChange }) {
+// `opened` is the card that was clicked: its item is the one the panel's save row presses. A reload or a shared link has no card, so the gist's first appearance is used.
+export function FeedGistPanel({ slug, opened, store, onClose, onMissing, width, onWidthChange }) {
   const [state, setState] = React.useState({ status: "loading", slug });
   const missing = React.useRef(onMissing);
   missing.current = onMissing;
@@ -31,9 +31,7 @@ export function FeedGistPanel({ slug, target, store, onClose, onMissing, width, 
   const ready = state.status === "ready" && state.slug === slug;
   let body;
   if (ready) {
-    const first = state.gist.appearances[0];
-    const own = target && target.slug === slug ? target
-      : { id: first.item_id, from: first.edition_date ? { edition_date: first.edition_date } : { issue_slug: first.issue_slug } };
+    const own = targetFor(opened, slug, state.gist);
     body = <GistView gist={state.gist} as="panel" actions={<GistActions saved={has(own.id)} onToggle={() => toggle({ id: own.id }, own.from)} />} />;
   } else {
     body = (

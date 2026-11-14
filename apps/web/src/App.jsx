@@ -29,7 +29,7 @@ import { NewsletterPrompt } from "./NewsletterPrompt.jsx";
 import { GistPage } from "./GistPage.jsx";
 import { FeedGistPanel } from "./FeedGistPanel.jsx";
 import { track } from "./analytics.js";
-import { keepGist, panelPage, withGist, withoutGist } from "./gistPanel.js";
+import { isOpenCard, keepGist, planClose, planOpen, withoutGist } from "./gistPanel.js";
 import { gistHead } from "./pageMeta.js";
 import { failureReport, initialPrompt, promptReducer, shouldOpenPrompt } from "./newsletterPrompt.js";
 import { NEWSLETTER_PRIVACY, showSubscribeOptions } from "./subscribeOptions.js";
@@ -340,26 +340,24 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
   // The gist panel (spec AIB-145y-app-gist-panel). The URL holds which gist is
   // open; `opened` remembers the card that opened it, for the save row.
   const gistSlug = filtering ? gistParam(location.search) : null;
-  const opened = React.useRef(null);
+  const [opened, setOpened] = React.useState(null);
   const [panelWidth, setPanelWidth] = React.useState(() => readWidth(PANEL_WIDTH) ?? undefined);
   const gistState = React.useMemo(() => ({
     slug: gistSlug,
+    opened,
     open(item, from) {
-      if (item.gist === gistSlug) return;
-      const already = gistParam(location.search) !== null;
-      opened.current = { slug: item.gist, id: item.id, from };
-      track("gist-panel-open", { slug: item.gist, page: panelPage(from) });
-      navigate(withGist(location, item.gist), already
-        ? { replace: true, scroll: false }
-        : { state: { gist: true, base: withoutGist(location) }, scroll: false });
+      const plan = planOpen({ slug: gistSlug, opened }, item, from, location);
+      if (!plan) return;
+      setOpened(plan.opened);
+      if (plan.event) track("gist-panel-open", plan.event);
+      if (plan.nav) navigate(plan.nav.to, { replace: plan.nav.replace, state: plan.nav.state, scroll: false });
     },
-  }), [gistSlug, location, navigate]);
+  }), [gistSlug, opened, location, navigate]);
   const closeGist = React.useCallback(() => {
     // Back, when this page view pushed the panel open on this same list, so no
     // history entry is left behind; otherwise (a reload, a shared link, a filter
     // changed meanwhile) replace the URL without ?gist=.
-    const pushed = window.history.state;
-    if (pushed && pushed.gist && pushed.base === withoutGist(here())) window.history.back();
+    if (planClose(window.history.state, here()) === "back") window.history.back();
     else navigate(withoutGist(here()), { replace: true });
   }, [navigate]);
   const dropGist = React.useCallback(() => navigate(withoutGist(here()), { replace: true }), [navigate]);
@@ -452,7 +450,7 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
         </section></div>
       </main>
       {gistSlug && (
-        <FeedGistPanel slug={gistSlug} target={opened.current} store={store} onClose={closeGist} onMissing={dropGist}
+        <FeedGistPanel slug={gistSlug} opened={opened} store={store} onClose={closeGist} onMissing={dropGist}
           width={panelWidth} onWidthChange={keepWidth} />)}
     </div>
   );
@@ -492,7 +490,7 @@ function ItemList({ items, view, saves: store, from }) {
   const props = (item) => ({
     saved: has(item.id), onToggleSave: () => toggle(item, fromOf(item)), starPos: "visual",
     front: item.front_page === true,
-    ...(item.gist && gist ? { gistHref: gistPath(item.gist), onOpenGist: () => gist.open(item, fromOf(item)), open: gist.slug === item.gist } : {}),
+    ...(item.gist && gist ? { gistHref: gistPath(item.gist), onOpenGist: () => gist.open(item, fromOf(item)), open: isOpenCard(gist.opened, gist.slug, item) } : {}),
   });
   return view === "list"
     ? <RowList>{items.map((item) => <ListRow key={item.id} item={item} {...props(item)} />)}</RowList>
