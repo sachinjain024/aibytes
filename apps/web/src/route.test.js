@@ -135,7 +135,8 @@ test("gist paths and URLs", () => {
 test("?gist= names the gist the panel shows, and only a well-formed slug counts", () => {
   assert.equal(gistParam("?gist=tinyeval"), "tinyeval");
   assert.equal(gistParam("?c=repos&gist=gh-agent-browser&q=x"), "gh-agent-browser");
-  for (const bad of ["", "?", "?gist=", "?gist=Tiny", "?gist=../x", "?gist=a/b", "?gist=-x", "?gist=a b", "?gist=a&gist=b", "?gist=" + "a".repeat(200) + "%00", "?other=x"]) {
+  assert.equal(gistParam("?gist=" + "a".repeat(80)), "a".repeat(80), "the contract allows 80");
+  for (const bad of ["", "?", "?gist=", "?gist=Tiny", "?gist=../x", "?gist=a/b", "?gist=-x", "?gist=a b", "?gist=a&gist=b", "?gist=" + "a".repeat(200) + "%00", "?gist=" + "a".repeat(81), "?gist=a-", "?gist=a--b", "?other=x"]) {
     assert.equal(gistParam(bad), null, bad);
   }
 });
