@@ -148,3 +148,15 @@ test('a card with a gist is marked clickable; one without is not',()=>{
   assert.doesNotMatch(render({}),/story--gist/);
   assert.match(renderRow({gistHref:'/gists/x',onOpenGist:()=>{}}),/story--gist/);
 });
+
+test('a click on the card body focuses the title link before opening, so closing returns focus to that card',async()=>{
+  const {openGistOnCardClick}=await import('./gistLink.js');
+  const order=[];
+  const title={focus:opts=>order.push(['focus',opts])};
+  const card={querySelector:sel=>sel==='h3 a'?title:null};
+  const plain={button:0,metaKey:false,ctrlKey:false,shiftKey:false,altKey:false,currentTarget:card,target:{closest:()=>null}};
+  openGistOnCardClick(item,i=>order.push(['open',i.id]),()=>'')(plain);
+  assert.deepEqual(order,[['focus',{preventScroll:true}],['open','card-fixture']],'focus first, without scrolling, then open');
+  const noTitle={...plain,currentTarget:{querySelector:()=>null}};
+  assert.doesNotThrow(()=>openGistOnCardClick(item,()=>{},()=>'')(noTitle));
+});

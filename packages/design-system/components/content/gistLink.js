@@ -31,6 +31,10 @@ export function openGistOnCardClick(item, onOpenGist, selection = () => (typeof 
     if (!isPlainClick(e)) return;
     if (e.target && e.target.closest && e.target.closest(OWN_CLICK)) return;
     if (selection()) return;
+    // A click on the summary or the image focuses nothing, so the title becomes the
+    // focused element here: the panel takes it as its opener and closing returns to it.
+    const title = e.currentTarget && e.currentTarget.querySelector && e.currentTarget.querySelector("h3 a");
+    if (title) title.focus({ preventScroll: true });
     onOpenGist(item);
   };
 }

@@ -42,7 +42,7 @@ Artifact is synced after the PR (`.design-sync/NOTES.md`).
 `/<edition>` or `/weekly/issue-N`, plus `?gist=<slug>`.
 
 - **Parsing.** `route.js` gets `gistParam(search)`: the slug when it matches
-  `^[a-z0-9][a-z0-9-]*$`, else `null`. `parseRoute` is unchanged: the panel is
+  the contract's slug rule, `^[a-z0-9]+(?:-[a-z0-9]+)*$` and at most 80 characters (`gist.schema.json`), else `null`. `parseRoute` is unchanged: the panel is
   state on a page, not a route. A new pure module `gistPanel.js` builds the
   next URL (`withGist(location, slug)`, `withoutGist(location)`), so filters,
   `?gist=` and the path never overwrite each other.
@@ -110,7 +110,7 @@ Reactions are not here until T32; the `actions` slot holds the save row only.
   the real editions in T28's browser check, and the spec is changed first if
   the grid looks wrong there.
 - **Focus.** Opening from a card returns focus to that card's title on close
-  (the component does it, and when a second card of the same gist is clicked, to that card). A reload or a shared link has no card to return to;
+  (the component does it, and when a second card of the same gist is clicked, to that card). A click on the card's body focuses its title link first, so the title is the opener whichever part of the card was clicked. A reload or a shared link has no card to return to;
   focus goes to the main region (the page heading is not focusable; `#main` is).
 
 ## The event

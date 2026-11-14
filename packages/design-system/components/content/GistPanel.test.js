@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import { createRequire } from 'node:module';
 import Module from 'node:module';
@@ -95,4 +96,9 @@ test('the opener is retaken when another card opens the same gist, not only when
   assert.deepEqual(openerKeys('gh-x', 'card-a'), openerKeys('gh-x', 'card-a'));
   assert.deepEqual(openerKeys('gh-x', undefined), ['gh-x', null], 'no card: a reload or shared link');
   assert.match(render({ openerKey: 'card-b' }), /gist-panel/, 'the prop is accepted');
+});
+
+test('the panel retakes its opener on the card as well as the gist (a guard: effects cannot run in these tests)', () => {
+  const source = readFileSync(new URL('./GistPanel.jsx', import.meta.url), 'utf8');
+  assert.match(source, /nextOpener\([^)]*\);\s*\}, openerKeys\(gist\.slug, openerKey\)\);/);
 });
