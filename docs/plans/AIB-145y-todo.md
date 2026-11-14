@@ -561,6 +561,11 @@ URL, history behaviour, feed width with the panel, items with no gist.
 
 **Verification:** the publisher approves. **Dependencies:** T26. **Size:** S.
 
+**Done 14 Nov 2026:** approved. The panel is on `/saved` too (no stored slug: the
+Saved page reads `item.gist` from the edition file). The event is
+`gist-panel-open` with `{ slug, page }`, as the analytics spec names it; T29
+below says `gist_panel_open`, and the spec wins.
+
 ### T28: a card's title opens the panel
 
 **Description:** On daily pages, a plain click on a card title with a `gist`

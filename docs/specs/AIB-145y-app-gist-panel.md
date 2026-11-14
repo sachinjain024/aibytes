@@ -5,8 +5,8 @@
 - **Builds on:** `AIB-145y-app-gist-pages.md` (the page, `GistPage`, `loadGistPage`),
   `AIB-145y-ledger-gist-ui.md` (`GistPanel`, `GistView`), `AIB-145y-gist-analytics.md`
   (the one event), the design record (A1 and B2)
-- **Status:** draft for approval. The choices marked **Decide** carry a
-  recommendation; nothing is settled until the publisher answers.
+- **Status:** approved 14 Nov 2026. Decide 1 and 2 as recommended; Decide 3 the
+  publisher's way (the panel is on `/saved` too), settled below.
 
 ## Objective
 
@@ -50,8 +50,8 @@ Artifact is synced after the PR (`.design-sync/NOTES.md`).
   keeps `?gist=`; today it rewrites the whole query, so `setFilters` must
   merge instead.
 - **Leaving the page.** Moving to another edition, issue or route drops
-  `?gist=` (the open gist is not carried across days). The `Saved` page and
-  `/gists/<slug>` never show the panel.
+  `?gist=` (the open gist is not carried across days). `/gists/<slug>` never
+  shows the panel; `/saved?gist=<slug>` does (see "The Saved page").
 - **Not a canonical.** The head of an edition page does not change when the
   panel opens: same title, same canonical (no `?gist=`), no `noindex` needed
   because `?gist=` is client-only state that the static HTML never contains.
@@ -124,6 +124,16 @@ those are page views of the URL (Umami counts the `?gist=` view on its own).
 The plan's T29 says `gist_panel_open` with `{ slug }`; the analytics spec
 (names are kebab-case, data includes `page`) wins.
 
+## The Saved page
+
+`/saved` opens the panel the same way. Nothing new is stored: the page already
+loads each saved item's edition or issue file, so the item, and with it
+`item.gist`, is in hand, and the save document (`item_id`, the file it came
+from, `created_at`) and `firestore.rules` stay as they are. The panel's save
+row there unsaves the item (the star is on), and a saved item whose gist has
+no file behaves like any card whose gist cannot be found. `Saved` is
+`noindex` already, so `?gist=` there changes nothing for search.
+
 ## Weekly pages
 
 The same behaviour on `/weekly/issue-N` for issue items that carry `gist`. Issue
@@ -138,8 +148,9 @@ page needs no second implementation.
 - **Always:** a plain click opens the panel; a modified click follows the real link;
   the panel state lives in the URL only; every gist string stays React text;
   `track()` is the only way to send the event.
-- **Ask first:** a second event or any more event data; putting the panel on
-  `/saved`; forcing list rows while the panel is open; a new dependency.
+- **Ask first:** a second event or any more event data; storing anything new
+  in a save (its fields are pinned by `firestore.rules`, a publisher deploy);
+  forcing list rows while the panel is open; a new dependency.
 - **Never:** change the edition's head when the panel opens; add `?gist=` to the
   sitemap or a canonical; send the event on a reload; take a panel's width from
   the server.
@@ -158,7 +169,7 @@ npm run build:web && npx vite preview --outDir apps/web/dist   # the built site
 | Task | Tests |
 |---|---|
 | T28 | `route.test.js`: `gistParam` accepts a slug and rejects empty, upper case, `../x`, a long junk value, and more than one `gist=`. `gistPanel.test.js`: `withGist` keeps `c`, `t`, `s`, `q` and the path; `withoutGist` removes only `gist`; a filter change keeps `gist`; an edition change drops it. `prefs.test.js`: the width reads 460 when absent, unparsable, below 360 or above 1200, and round-trips. Ledger: `Card` and `ListRow` with `gistHref`/`onOpenGist`/`open` and without them, a modified click not intercepted. |
-| T28 browser | A plain click opens the panel and pushes `?gist=`; Back closes it; Forward reopens; reload keeps it; a Cmd-click opens `/gists/<slug>`; a source-name click opens the source; a card with no gist opens its source; a bad slug drops the param; switching card to card with the panel open keeps one history step; Escape and the close button; saving from the panel shows on the card and on `/saved`. 1440px and 375px, both themes. |
+| T28 browser | On `/saved` too: a card's title opens its gist and `/saved?gist=<slug>` reloads it. A plain click opens the panel and pushes `?gist=`; Back closes it; Forward reopens; reload keeps it; a Cmd-click opens `/gists/<slug>`; a source-name click opens the source; a card with no gist opens its source; a bad slug drops the param; switching card to card with the panel open keeps one history step; Escape and the close button; saving from the panel shows on the card and on `/saved`. 1440px and 375px, both themes. |
 | T29 | A fixture weekly page: the same. The event appears in the analytics tool (or its `track` call, when the script is blocked locally), once per click, not on reload. |
 
 ## Success criteria
@@ -182,7 +193,7 @@ npm run build:web && npx vite preview --outDir apps/web/dist   # the built site
 2. **Grid while the panel is open.** Recommended: keep the reader's choice and
    look at it on real editions in T28. The alternative is to switch to list
    rows whenever the panel is open and restore the choice on close.
-3. **The saved page.** Recommended: no panel on `/saved` in this ticket; its
-   cards keep opening their sources. The alternative is the panel there too,
-   which needs the saved item's gist slug stored with the save (it is not
-   today).
+3. **The saved page.** Settled: the panel is on `/saved` too. The publisher's
+   instinct was to store the gist slug with the save; it is not needed, because
+   the Saved page reads each item from its edition or issue file, which already
+   carries `gist`. No schema, rules or account-data change.
