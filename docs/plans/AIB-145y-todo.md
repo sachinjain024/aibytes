@@ -616,6 +616,10 @@ aibytes.io (the script is off elsewhere); the `track` call itself was observed l
 - [ ] Success criteria 1-7 and 9-10 pass on a local build with rehearsed
       gists. PR #65 is squash-merged here and the next daily run is launch.
 
+**Status 15 Nov 2026:** PR #65 (T1-T26) squash-merged on 13 Nov and the daily run has
+written gists since. T27-T29 are in PR #68, open and under review; this checkpoint
+is ticked when it merges and criteria 1-7 and 9-10 are checked on the live site.
+
 ## Module 8: `app-reactions`
 
 ### T30: reactions spec

@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-14T06:02:45.442Z
+updated_at: 2026-11-14T23:03:15.360Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -96,7 +96,7 @@ added_by:
 - [x] 6.10 T17: rehearsal on seven editions <!-- longclaw:item=ck_eb097e0a -->
 - [x] 6.11 P4: publisher reads the rehearsed gists and would link to them unedited <!-- longclaw:item=ck_50869fec -->
 - [x] 6.12 Checkpoint C: generation proven <!-- longclaw:item=ck_4db29f6f -->
-- [ ] 7. ledger-gist-ui <!-- longclaw:item=ck_329daaee -->
+- [x] 7. ledger-gist-ui <!-- longclaw:item=ck_329daaee -->
 - [x] 7.1 T18: Ledger spec <!-- longclaw:item=ck_8fef693d -->
 - [x] 7.2 T19: GistView <!-- longclaw:item=ck_45ced086 -->
 - [x] 7.3 T20: GistPanel, resizable <!-- longclaw:item=ck_b573c191 -->
@@ -113,7 +113,7 @@ added_by:
 - [x] 9.1 T27: panel spec <!-- longclaw:item=ck_68012185 -->
 - [x] 9.2 T28: a card's title opens the panel <!-- longclaw:item=ck_7f55640b -->
 - [x] 9.3 T29: weekly pages and the panel event <!-- longclaw:item=ck_5577bc09 -->
-- [ ] 9.4 Checkpoint E: launch-ready; squash-merge PR #65 (launch) <!-- longclaw:item=ck_fc76f81a -->
+- [ ] Checkpoint E: launch-ready; PR #65 squash-merged 13 Nov (gists live in the daily run), PR #68 (panel, T27-T29) still to squash-merge <!-- longclaw:item=ck_fc76f81a -->
 - [ ] 10. app-reactions (second PR) <!-- longclaw:item=ck_6684cc60 -->
 - [ ] 10.1 T30: reactions spec <!-- longclaw:item=ck_30babd49 -->
 - [ ] 10.2 T31: rules and emulator tests <!-- longclaw:item=ck_6d757e54 -->
@@ -1153,6 +1153,36 @@ changes:
   - field: checklist.ck_5577bc09.checked
     from: "false"
     to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_7a0aa99b
+kind: update
+occurred_at: 2026-11-14T23:03:15.326Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_329daaee.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_6cd3bab3
+kind: update
+occurred_at: 2026-11-14T23:03:15.360Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_fc76f81a.text
+    from: "9.4 Checkpoint E: launch-ready; squash-merge PR #65 (launch)"
+    to: "Checkpoint E: launch-ready; PR #65 squash-merged 13 Nov (gists live in the daily run), PR #68 (panel, T27-T29) still to squash-merge"
 -->
 ### You updated this ticket
 <!-- /longclaw:event -->
