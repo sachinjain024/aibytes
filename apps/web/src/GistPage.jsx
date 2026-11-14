@@ -4,8 +4,7 @@ import { ListRow } from "@aibytes/design-system/components/content/ListRow.jsx";
 import { RowList } from "@aibytes/design-system/components/content/Feed.jsx";
 import { AppHeader } from "@aibytes/design-system/components/navigation/AppHeader.jsx";
 import { backLink } from "./gistSite.js";
-import { GITHUB_URL, SUBSCRIBE_URL } from "./footer.js";
-import { withRef } from "@aibytes/design-system/components/content/withRef.js";
+import { GITHUB_URL, SUBSCRIBE_HREF } from "./footer.js";
 import { GistActions } from "./GistActions.jsx";
 
 // The page at /gists/<slug> (spec AIB-145y-app-gist-pages). One component for
@@ -50,7 +49,7 @@ export function GistPage({ gist, more = [], theme = "light", shellTheme, onToggl
           {showSubscribe && (
             <aside className="weekly-subscribe" aria-label="Subscribe">
               <p className="weekly-subscribe__text"><b>Get aiBytes_ every Monday.</b> The week in AI for developers, in your inbox.</p>
-              <a className="ldg-btn ldg-btn--primary weekly-subscribe__action" href={withRef(SUBSCRIBE_URL)} target="_blank">Subscribe</a>
+              <a className="ldg-btn ldg-btn--primary weekly-subscribe__action" href={SUBSCRIBE_HREF} target="_blank">Subscribe</a>
             </aside>)}
         </div>
       </main>

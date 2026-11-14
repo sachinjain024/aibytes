@@ -15,7 +15,7 @@ import { Toolbar } from "@aibytes/design-system/components/navigation/Toolbar.js
 import { loadEdition, loadGistPage, loadIndex, loadTags, loadWeeklyIndex, loadWeeklyIssue } from "./content.js";
 import { filesToLoad, leftOutNote, savedFeed, savedGroups } from "./saved.js";
 import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, SOURCES } from "./filters.js";
-import { FOOTER_LINKS, GITHUB_URL, mailto, SUBSCRIBE_URL } from "./footer.js";
+import { FOOTER_LINKS, GITHUB_URL, mailto, SUBSCRIBE_HREF } from "./footer.js";
 import { longDate, midDate, shortDate } from "./format.js";
 import { useChoice, useDismiss, useGridColumns, useMedia, useReturnFocus, useSaves, useTheme } from "./hooks.js";
 import { shownView } from "./layout.js";
@@ -430,7 +430,7 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
       <AppHeader theme={theme} onToggleTheme={onToggleTheme} menuOpen={menuOpen} onMenu={() => setMenuOpen(o => !o)} githubUrl={GITHUB_URL} {...headerProps} />
       <StickyBanner saveCount={saves.length} />
       <Sidebar categories={categories} count={feedPage ? visible?.length : undefined} active={feedPage ? filters.category : null} open={menuOpen} onClose={() => setMenuOpen(false)}
-        links={SIDEBAR_LINKS} subscribeUrl={showSubscribeOptions(subscribed) ? SUBSCRIBE_URL : undefined}
+        links={SIDEBAR_LINKS} subscribeUrl={showSubscribeOptions(subscribed) ? SUBSCRIBE_HREF : undefined}
         onCategory={key => {
           if (!feedPage) navigate("/" + filtersToSearch({ ...NO_FILTERS, category: key }, []));
           else if (filterable) setCategory(key);
@@ -792,7 +792,7 @@ function SubscribeBar() {
   return (
     <aside className="weekly-subscribe" aria-label="Subscribe">
       <p className="weekly-subscribe__text"><b>Get aiBytes_ every Monday.</b> The week in AI for developers, in your inbox.</p>
-      <a className="ldg-btn ldg-btn--primary weekly-subscribe__action" href={SUBSCRIBE_URL} target="_blank">Subscribe</a>
+      <a className="ldg-btn ldg-btn--primary weekly-subscribe__action" href={SUBSCRIBE_HREF} target="_blank">Subscribe</a>
     </aside>
   );
 }
@@ -897,7 +897,7 @@ function WeeklyArchive({ saves: store, theme, onToggleTheme, navigate }) {
               <p className="weekly-archive__kicker">Weekly</p>
               <h1 className="weekly-archive__title">aiBytes_ archive</h1>
               <p className="weekly-archive__lede ldg-prose">
-                Every Monday issue on aibytes.io. {showSubscribeOptions(subscribed) && <><a href={SUBSCRIBE_URL} target="_blank">Subscribe</a> · </>}<a href="/">Daily edition</a>
+                Every Monday issue on aibytes.io. {showSubscribeOptions(subscribed) && <><a href={SUBSCRIBE_HREF} target="_blank">Subscribe</a> · </>}<a href="/">Daily edition</a>
               </p>
             </header>
             {list}
