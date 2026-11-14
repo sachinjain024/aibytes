@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-14T23:03:15.360Z
+updated_at: 2026-11-14T23:03:27.449Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -113,7 +113,7 @@ added_by:
 - [x] 9.1 T27: panel spec <!-- longclaw:item=ck_68012185 -->
 - [x] 9.2 T28: a card's title opens the panel <!-- longclaw:item=ck_7f55640b -->
 - [x] 9.3 T29: weekly pages and the panel event <!-- longclaw:item=ck_5577bc09 -->
-- [ ] Checkpoint E: launch-ready; PR #65 squash-merged 13 Nov (gists live in the daily run), PR #68 (panel, T27-T29) still to squash-merge <!-- longclaw:item=ck_fc76f81a -->
+- [ ] 9.4 Checkpoint E: launch-ready; PR #65 squash-merged 13 Nov (gists live in the daily run), PR #68 (panel, T27-T29) still to squash-merge <!-- longclaw:item=ck_fc76f81a -->
 - [ ] 10. app-reactions (second PR) <!-- longclaw:item=ck_6684cc60 -->
 - [ ] 10.1 T30: reactions spec <!-- longclaw:item=ck_30babd49 -->
 - [ ] 10.2 T31: rules and emulator tests <!-- longclaw:item=ck_6d757e54 -->
@@ -1183,6 +1183,21 @@ changes:
   - field: checklist.ck_fc76f81a.text
     from: "9.4 Checkpoint E: launch-ready; squash-merge PR #65 (launch)"
     to: "Checkpoint E: launch-ready; PR #65 squash-merged 13 Nov (gists live in the daily run), PR #68 (panel, T27-T29) still to squash-merge"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f0f41756
+kind: update
+occurred_at: 2026-11-14T23:03:27.449Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_fc76f81a.text
+    from: "Checkpoint E: launch-ready; PR #65 squash-merged 13 Nov (gists live in the daily run), PR #68 (panel, T27-T29) still to squash-merge"
+    to: "9.4 Checkpoint E: launch-ready; PR #65 squash-merged 13 Nov (gists live in the daily run), PR #68 (panel, T27-T29) still to squash-merge"
 -->
 ### You updated this ticket
 <!-- /longclaw:event -->
