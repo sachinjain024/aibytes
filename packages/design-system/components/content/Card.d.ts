@@ -23,7 +23,7 @@ export interface CardProps {
   front?: boolean;
   /** the gist's page, for an item that has a gist. The title becomes this link, in the same tab; the source name still opens the source. Without it the title opens the item's own URL in a new tab, as before. */
   gistHref?: string;
-  /** called on a plain click on the title (never a modified click, which follows `gistHref`). The app opens its panel here. */
+  /** called on a plain click on the title or anywhere else on the card except its own links, buttons and menu, and not while text is selected (never a modified click, which follows `gistHref`). The app opens its panel here. */
   onOpenGist?: (item: EditionItem) => void;
   /** this card's gist is the one open in the panel: an accent edge and `aria-current`. Needs `gistHref`. */
   open?: boolean;

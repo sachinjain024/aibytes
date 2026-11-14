@@ -15,3 +15,22 @@ export function openGistOnClick(item, onOpenGist) {
     onOpenGist(item);
   };
 }
+
+const OWN_CLICK = 'a, button, input, select, textarea, [role="menu"], [role="menuitem"]';
+
+/**
+ * The card's onClick: a plain click anywhere on a card with a gist opens it, except
+ * on something that has a click of its own (the title, the source name, the star,
+ * the menu) and while the reader is selecting text. The title stays the real link
+ * for the keyboard, a new tab and search engines; this is the mouse's wider target.
+ * `selection` is injectable for the tests.
+ */
+export function openGistOnCardClick(item, onOpenGist, selection = () => (typeof window !== "undefined" && window.getSelection ? String(window.getSelection()) : "")) {
+  if (!onOpenGist) return undefined;
+  return (e) => {
+    if (!isPlainClick(e)) return;
+    if (e.target && e.target.closest && e.target.closest(OWN_CLICK)) return;
+    if (selection()) return;
+    onOpenGist(item);
+  };
+}

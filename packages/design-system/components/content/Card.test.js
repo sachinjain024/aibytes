@@ -128,3 +128,23 @@ test('a plain click on the title is the one that opens the panel; a modified cli
   const b=make({...plain,metaKey:true});handler(b);assert.deepEqual(calls,['card-fixture']);assert.equal(b.prevented,false);
   assert.equal(openGistOnClick(item,undefined),undefined);
 });
+
+test('a click anywhere on a card with a gist opens it, except on a link, button or menu inside it, or while text is selected',async()=>{
+  const {openGistOnCardClick}=await import('./gistLink.js');
+  const calls=[];const handler=openGistOnCardClick(item,i=>calls.push(i.id),()=>'');
+  const plain={button:0,metaKey:false,ctrlKey:false,shiftKey:false,altKey:false};
+  const on=(inside)=>({...plain,target:{closest:sel=>inside&&sel.split(',').some(s=>s.trim()===inside)?{}:null}});
+  handler(on(null));assert.deepEqual(calls,['card-fixture'],'the summary or empty space');
+  for(const el of ['a','button','input','[role="menu"]','[role="menuitem"]']){handler(on(el));}
+  assert.deepEqual(calls,['card-fixture'],'links, buttons and menus keep their own click');
+  handler({...on(null),metaKey:true});assert.deepEqual(calls,['card-fixture'],'a modified click is the browser\'s');
+  const selecting=openGistOnCardClick(item,i=>calls.push(i.id),()=>'some words');
+  selecting(on(null));assert.deepEqual(calls,['card-fixture'],'dragging to select text is not a click');
+  assert.equal(openGistOnCardClick(item,undefined),undefined);
+});
+test('a card with a gist is marked clickable; one without is not',()=>{
+  assert.match(render({gistHref:'/gists/x',onOpenGist:()=>{}}),/class="story story--grid[^"]*story--gist/);
+  assert.doesNotMatch(render({gistHref:'/gists/x'}),/story--gist/,'no handler, nothing to click');
+  assert.doesNotMatch(render({}),/story--gist/);
+  assert.match(renderRow({gistHref:'/gists/x',onOpenGist:()=>{}}),/story--gist/);
+});

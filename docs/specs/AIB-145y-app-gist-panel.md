@@ -10,7 +10,7 @@
 
 ## Objective
 
-On a daily or weekly page, a plain click on the title of a card that has a
+On a daily or weekly page, a plain click anywhere on a card that has a
 gist opens that gist in the right-hand panel, beside the feed. The open gist is
 in the URL (`?gist=<slug>`), so Back closes the panel, a reload keeps it, and a
 shared link opens it. A card with no gist behaves exactly as today.
@@ -22,7 +22,7 @@ the event). The panel component and the page are done; this is the wiring.
 
 | Card | Title | Source name |
 |---|---|---|
-| Has `item.gist` | A real link to `/gists/<slug>`, same tab. A plain click opens the panel. A modified click (Cmd, Ctrl, Shift, Alt, middle button) follows the link to the page. | Unchanged: opens the source (`source_url`) in a new tab, as design choice B2 says. |
+| Has `item.gist` | A real link to `/gists/<slug>`, same tab. A plain click opens the panel. A modified click (Cmd, Ctrl, Shift, Alt, middle button) follows the link to the page. The rest of the card is a click target too (changed 14 Nov 2026, the publisher): a plain click on the summary, the image or empty space opens the panel; the title, the source name, the star and the menu keep their own click, and dragging to select text opens nothing. The title stays the real link for the keyboard and for search engines. | Unchanged: opens the source (`source_url`) in a new tab, as design choice B2 says. |
 | No `item.gist` (every pre-launch card, a gist that failed to write, a hidden gist) | Unchanged: the item's own URL in a new tab. | Unchanged. |
 
 The destination link the title used to carry is now the gist's Source button, in

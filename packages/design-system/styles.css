@@ -2068,6 +2068,15 @@ html[data-theme=light] .calendar-days button:disabled {
   border-left: 2px solid var(--hot) !important;
 }
 
+/* A card with a gist opens it on a click anywhere on it (AIB-145y). */
+.story--gist {
+  cursor: pointer;
+}
+.story--gist a,
+.story--gist button {
+  cursor: pointer;
+}
+
 /* The card whose gist is open in the panel (AIB-145y). An inset edge, so it
    sits with the TOP edge instead of replacing it. */
 .story--open {

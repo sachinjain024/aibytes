@@ -3,7 +3,7 @@ import { ItemImage } from './ItemImage.jsx';
 import { CardMenu } from './CardMenu.jsx';
 import { SaveStar } from './SaveStar.jsx';
 import { withRef } from './withRef.js';
-import { openGistOnClick } from './gistLink.js';
+import { openGistOnCardClick, openGistOnClick } from './gistLink.js';
 import { SOURCE_NAMES, Signals, LangDot } from './signals.jsx';
 
 /** Shared reading-row/card anatomy; card controls retain their public API.
@@ -17,7 +17,8 @@ export function FeedItem({ item, grid = false, saved, onToggleSave, topToday = f
   const tagsClass = tagStyle === 'pills' ? 'ldg-tagpills' : 'ldg-tags' + (tagStyle === 'hash' ? ' ldg-tags--hash' : '');
   const star = onToggleSave && <SaveStar saved={saved} onToggle={() => onToggleSave(item.id)} />;
   return (
-    <article className={'story' + (grid ? ` story--grid story--signals-${signalsPos}` : '') + (topToday ? ' story--top' : '') + (gistHref && open ? ' story--open' : '')}
+    <article className={'story' + (grid ? ` story--grid story--signals-${signalsPos}` : '') + (topToday ? ' story--top' : '') + (gistHref && onOpenGist ? ' story--gist' : '') + (gistHref && open ? ' story--open' : '')}
+      onClick={gistHref ? openGistOnCardClick(item, onOpenGist) : undefined}
       aria-current={gistHref && open ? 'true' : undefined}>
       <div className="story-visual">
         <ItemImage item={item} size={grid ? 28 : 34} className="source-icon" />
