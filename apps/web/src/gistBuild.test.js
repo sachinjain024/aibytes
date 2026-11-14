@@ -89,6 +89,14 @@ test("a More from row carries the Front page label when its item was on the HN f
   assert.match(read("gists", "full-one", "index.html"), /Front page[\s\S]*Item other|Item other[\s\S]*Front page/);
 });
 
+test("the Subscribe button opens the newsletter in a new tab", () => {
+  const page = read("gists", "full-one", "index.html");
+  const link = page.match(/<a [^>]*weekly-subscribe__action[^>]*>/)[0];
+  assert.match(link, /href="https:\/\/newsletter\.aibytes\.io\/subscribe"/);
+  assert.match(link, /target="_blank"/);
+  assert.match(link, /rel="noopener noreferrer"/);
+});
+
 test("the shell sets no theme of its own until the browser has mounted, so a dark reader never sees it flash light", () => {
   const page = read("gists", "full-one", "index.html");
   assert.match(page, /<div class="app-shell redesign">/);

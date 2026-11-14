@@ -49,7 +49,7 @@ export function GistPage({ gist, more = [], theme = "light", shellTheme, onToggl
           {showSubscribe && (
             <aside className="weekly-subscribe" aria-label="Subscribe">
               <p className="weekly-subscribe__text"><b>Get aiBytes_ every Monday.</b> The week in AI for developers, in your inbox.</p>
-              <a className="ldg-btn ldg-btn--primary weekly-subscribe__action" href={SUBSCRIBE_URL}>Subscribe</a>
+              <a className="ldg-btn ldg-btn--primary weekly-subscribe__action" href={SUBSCRIBE_URL} target="_blank" rel="noopener noreferrer">Subscribe</a>
             </aside>)}
         </div>
       </main>
