@@ -3,26 +3,31 @@ import { ItemImage } from './ItemImage.jsx';
 import { CardMenu } from './CardMenu.jsx';
 import { SaveStar } from './SaveStar.jsx';
 import { withRef } from './withRef.js';
+import { openGistOnClick } from './gistLink.js';
 import { SOURCE_NAMES, Signals, LangDot } from './signals.jsx';
 
 /** Shared reading-row/card anatomy; card controls retain their public API.
  * starPos puts the save star after the ⋮ menu ("actions") or under the source image ("visual"). */
 export function FeedItem({ item, grid = false, saved, onToggleSave, topToday = false, front = false,
-  signalsPos = 'source', tagStyle = 'dots', maxTags = 3, starPos = 'actions' }) {
+  signalsPos = 'source', tagStyle = 'dots', maxTags = 3, starPos = 'actions',
+  gistHref, onOpenGist, open = false }) {
   const tags = (item.tags || []).slice(0, maxTags);
   const language = item.meta?.language;
   const atLogo = grid && (signalsPos === 'logo' || signalsPos === 'bottom');
   const tagsClass = tagStyle === 'pills' ? 'ldg-tagpills' : 'ldg-tags' + (tagStyle === 'hash' ? ' ldg-tags--hash' : '');
   const star = onToggleSave && <SaveStar saved={saved} onToggle={() => onToggleSave(item.id)} />;
   return (
-    <article className={'story' + (grid ? ` story--grid story--signals-${signalsPos}` : '') + (topToday ? ' story--top' : '')}>
+    <article className={'story' + (grid ? ` story--grid story--signals-${signalsPos}` : '') + (topToday ? ' story--top' : '') + (gistHref && open ? ' story--open' : '')}
+      aria-current={gistHref && open ? 'true' : undefined}>
       <div className="story-visual">
         <ItemImage item={item} size={grid ? 28 : 34} className="source-icon" />
         {starPos === 'visual' && star}
         {atLogo && <Signals signals={item.signals} />}
       </div>
       <div className="story-content">
-        <div className="story-top"><h3><a href={withRef(item.url)} target="_blank" rel="noopener noreferrer">{item.title}</a></h3></div>
+        <div className="story-top"><h3>{gistHref
+          ? <a href={gistHref} onClick={openGistOnClick(item, onOpenGist)}>{item.title}</a>
+          : <a href={withRef(item.url)} target="_blank" rel="noopener noreferrer">{item.title}</a>}</h3></div>
         <p className="summary">{item.summary}</p>
         {grid && signalsPos === 'row' && <div className="story-signals"><Signals signals={item.signals} /></div>}
         {grid && maxTags > 0 && (language || tags.length > 0) && <div className={'story-tags ' + tagsClass}>

@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import {
   editionPath,
+  gistParam,
   gistPath,
   gistUrl,
   issueRedirect,
@@ -129,4 +130,12 @@ test("only a plain slug is a gist route", () => {
 test("gist paths and URLs", () => {
   assert.equal(gistPath("gh-officecli"), "/gists/gh-officecli");
   assert.equal(gistUrl("gh-officecli"), "https://aibytes.io/gists/gh-officecli");
+});
+
+test("?gist= names the gist the panel shows, and only a well-formed slug counts", () => {
+  assert.equal(gistParam("?gist=tinyeval"), "tinyeval");
+  assert.equal(gistParam("?c=repos&gist=gh-agent-browser&q=x"), "gh-agent-browser");
+  for (const bad of ["", "?", "?gist=", "?gist=Tiny", "?gist=../x", "?gist=a/b", "?gist=-x", "?gist=a b", "?gist=a&gist=b", "?gist=" + "a".repeat(200) + "%00", "?other=x"]) {
+    assert.equal(gistParam(bad), null, bad);
+  }
 });

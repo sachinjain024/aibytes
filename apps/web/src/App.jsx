@@ -20,17 +20,20 @@ import { longDate, midDate, shortDate } from "./format.js";
 import { useChoice, useDismiss, useGridColumns, useMedia, useReturnFocus, useSaves, useTheme } from "./hooks.js";
 import { shownView } from "./layout.js";
 import { groupedItems, rankedItems } from "./order.js";
-import { ORDER, VIEW } from "./prefs.js";
+import { ORDER, PANEL_WIDTH, readWidth, VIEW, writeWidth } from "./prefs.js";
 import { showBanner } from "./banner.js";
 import { headerAccount } from "./header.js";
 import { mergedLine } from "./merge.js";
 import { clearSaves, localSaves, readSaves } from "./saves.js";
 import { NewsletterPrompt } from "./NewsletterPrompt.jsx";
 import { GistPage } from "./GistPage.jsx";
+import { FeedGistPanel } from "./FeedGistPanel.jsx";
+import { track } from "./analytics.js";
+import { keepGist, panelPage, withGist, withoutGist } from "./gistPanel.js";
 import { gistHead } from "./pageMeta.js";
 import { failureReport, initialPrompt, promptReducer, shouldOpenPrompt } from "./newsletterPrompt.js";
 import { NEWSLETTER_PRIVACY, showSubscribeOptions } from "./subscribeOptions.js";
-import { editionPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, savedPath, weeklyPath } from "./route.js";
+import { editionPath, gistParam, gistPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, savedPath, weeklyPath } from "./route.js";
 
 // The sidebar's links: live ones first, then those not live yet. GitHub is
 // left out because the masthead already carries it.
@@ -40,7 +43,9 @@ const here = () => ({ pathname: window.location.pathname, search: window.locatio
 
 // The current path and query, kept in step with back and forward. A new
 // edition is a history entry; a filter change replaces the current one, so
-// Back leaves the edition rather than unpicking chips one by one.
+// Back leaves the edition rather than unpicking chips one by one. A replace
+// keeps the entry's state (it says whether this page view pushed the open gist),
+// and `scroll: false` leaves the scroll where it is (opening a panel).
 function useLocation() {
   const [location, setLocation] = React.useState(here);
   React.useEffect(() => {
@@ -48,10 +53,10 @@ function useLocation() {
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
   }, []);
-  const navigate = React.useCallback((to, { replace = false } = {}) => {
-    window.history[replace ? "replaceState" : "pushState"](null, "", to);
+  const navigate = React.useCallback((to, { replace = false, state, scroll = true } = {}) => {
+    window.history[replace ? "replaceState" : "pushState"](state === undefined ? (replace ? window.history.state : null) : state, "", to);
     setLocation(here());
-    if (!replace) window.scrollTo(0, 0);
+    if (!replace && scroll) window.scrollTo(0, 0);
   }, []);
   return [location, navigate];
 }
@@ -332,6 +337,33 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
   const menuOpen = mobile && menuRequested;
   React.useEffect(() => { if (!mobile) setMenuOpen(false); }, [mobile]);
   const closePanel = React.useCallback(() => setPanel(null), []);
+  // The gist panel (spec AIB-145y-app-gist-panel). The URL holds which gist is
+  // open; `opened` remembers the card that opened it, for the save row.
+  const gistSlug = filtering ? gistParam(location.search) : null;
+  const opened = React.useRef(null);
+  const [panelWidth, setPanelWidth] = React.useState(() => readWidth(PANEL_WIDTH) ?? undefined);
+  const gistState = React.useMemo(() => ({
+    slug: gistSlug,
+    open(item, from) {
+      if (item.gist === gistSlug) return;
+      const already = gistParam(location.search) !== null;
+      opened.current = { slug: item.gist, id: item.id, from };
+      track("gist-panel-open", { slug: item.gist, page: panelPage(from) });
+      navigate(withGist(location, item.gist), already
+        ? { replace: true, scroll: false }
+        : { state: { gist: true, base: withoutGist(location) }, scroll: false });
+    },
+  }), [gistSlug, location, navigate]);
+  const closeGist = React.useCallback(() => {
+    // Back, when this page view pushed the panel open on this same list, so no
+    // history entry is left behind; otherwise (a reload, a shared link, a filter
+    // changed meanwhile) replace the URL without ?gist=.
+    const pushed = window.history.state;
+    if (pushed && pushed.gist && pushed.base === withoutGist(here())) window.history.back();
+    else navigate(withoutGist(here()), { replace: true });
+  }, [navigate]);
+  const dropGist = React.useCallback(() => navigate(withoutGist(here()), { replace: true }), [navigate]);
+  const keepWidth = React.useCallback((px) => { setPanelWidth(px); writeWidth(PANEL_WIDTH, px); }, []);
   const sticky = React.useRef(null);
   const shell = React.useRef(null);
   // At one column grid and list look alike, so Cards show and the toggle hides;
@@ -367,7 +399,7 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
   const parsed = parseFilters(location.search, tagGroups);
   // /saved has no category filter, whatever its URL says.
   const filters = feedPage ? parsed : { ...parsed, category: NO_FILTERS.category };
-  const setFilters = (next) => navigate(location.pathname + filtersToSearch(next, tagGroups), { replace: true });
+  const setFilters = (next) => navigate(location.pathname + keepGist(location.search, filtersToSearch(next, tagGroups)), { replace: true });
 
   const visible = all && all.filter((item) => !item.hidden);
   const categories = CATEGORIES.map((c) => ({ ...c, count: visible && feedPage ? visible.filter((i) => i.category === c.key).length : undefined }));
@@ -413,13 +445,21 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
           </>}
           <div className="app-main" ref={setMainEl}>
             <SignInFailed />
-            {children({ items, filters, view: shown, mode, clearQuery: () => setQuery(""), clearFilters: () => setFilters(NO_FILTERS) })}
+            <GistContext.Provider value={gistState}>
+              {children({ items, filters, view: shown, mode, clearQuery: () => setQuery(""), clearFilters: () => setFilters(NO_FILTERS) })}
+            </GistContext.Provider>
           </div>
         </section></div>
       </main>
+      {gistSlug && (
+        <FeedGistPanel slug={gistSlug} target={opened.current} store={store} onClose={closeGist} onMissing={dropGist}
+          width={panelWidth} onWidthChange={keepWidth} />)}
     </div>
   );
 }
+
+// What a feed page tells its cards about the gist panel: the open slug, and how to open one.
+const GistContext = React.createContext(null);
 
 // A feed's items as sections. The date (edition bar or hidden h1) is the h1 and
 // card titles are h3, so each mode supplies the h2s: one hidden count in Ranked,
@@ -446,11 +486,17 @@ function ItemSections({ items, view, mode, saves, from }) {
 // in, or is a function of the item when they come from several (/saved).
 function ItemList({ items, view, saves: store, from }) {
   const { has, toggle } = useSaves(store);
+  const gist = React.useContext(GistContext);
   const fromOf = typeof from === "function" ? from : () => from;
-  const star = (item) => ({ saved: has(item.id), onToggleSave: () => toggle(item, fromOf(item)), starPos: "visual" });
+  // A card with a gist opens the panel; one without behaves as before.
+  const props = (item) => ({
+    saved: has(item.id), onToggleSave: () => toggle(item, fromOf(item)), starPos: "visual",
+    front: item.front_page === true,
+    ...(item.gist && gist ? { gistHref: gistPath(item.gist), onOpenGist: () => gist.open(item, fromOf(item)), open: gist.slug === item.gist } : {}),
+  });
   return view === "list"
-    ? <RowList>{items.map((item) => <ListRow key={item.id} item={item} {...star(item)} />)}</RowList>
-    : <CardGrid>{items.map((item) => <Card key={item.id} item={item} {...star(item)} />)}</CardGrid>;
+    ? <RowList>{items.map((item) => <ListRow key={item.id} item={item} {...props(item)} />)}</RowList>
+    : <CardGrid>{items.map((item) => <Card key={item.id} item={item} {...props(item)} />)}</CardGrid>;
 }
 
 // A JSON document's load state: loading, ready with data, or error. `ref` null
@@ -487,13 +533,13 @@ function EditionApp({ saves, route, location, navigate, theme, onToggleTheme }) 
 
   const older = ref && olderEdition(editions, ref.date);
   // Paging back or forward keeps the filters, as the edition bar does.
-  const goTo = (date) => navigate(editionPath(date) + location.search);
+  const goTo = (date) => navigate(editionPath(date) + withoutGist({ pathname: "", search: location.search }));
 
   return (
     <FeedShell saves={saves} theme={theme} onToggleTheme={onToggleTheme} location={location} navigate={navigate}
       skipLabel="Skip to the edition"
       heading={ref ? `aiBytes_ edition, ${new Date(ref.date + "T12:00:00").toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric" })}` : "aiBytes_"}
-      date={ref ? <Bar refAt={ref} editions={editions} search={location.search} navigate={navigate} /> : null}
+      date={ref ? <Bar refAt={ref} editions={editions} search={withoutGist({ pathname: "", search: location.search })} navigate={navigate} /> : null}
       all={edition.status === "ready" ? edition.data.items : null}>
       {(feed) => <EditionFeed saves={saves} route={route} index={index} editionRef={ref} edition={edition} older={older} goTo={goTo} {...feed} />}
     </FeedShell>
@@ -867,7 +913,7 @@ function WeeklyIssueApp({ saves, route, location, navigate, theme, onToggleTheme
   }, [ref && ref.slug]);
 
   const older = ref && olderWeeklyIssue(issues, ref.slug);
-  const goTo = (slug) => navigate(weeklyPath(slug) + location.search);
+  const goTo = (slug) => navigate(weeklyPath(slug) + withoutGist({ pathname: "", search: location.search }));
 
   return (
     <FeedShell saves={saves} theme={theme} onToggleTheme={onToggleTheme} location={location} navigate={navigate}

@@ -2068,6 +2068,13 @@ html[data-theme=light] .calendar-days button:disabled {
   border-left: 2px solid var(--hot) !important;
 }
 
+/* The card whose gist is open in the panel (AIB-145y). An inset edge, so it
+   sits with the TOP edge instead of replacing it. */
+.story--open {
+  box-shadow: inset 3px 0 0 var(--accent);
+  border-color: var(--accent);
+}
+
 .app-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(min(var(--app-card-min),100%),1fr));

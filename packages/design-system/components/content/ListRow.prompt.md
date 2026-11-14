@@ -11,3 +11,5 @@ List-view row, two text lines: title over a one-line summary, the source image a
 `starPos="visual"` puts the save star under the source image instead of after the ⋮ menu, as on `Card`; the default is `"actions"`.
 
 Both lines truncate with ellipsis. Wrap consecutive rows in a bordered, rounded container.
+
+Gist link: pass `gistHref` (the gist page) and `onOpenGist` for an item that has a gist. The title then links to the gist in the same tab and a plain click calls `onOpenGist`; a modified click follows the link. `open` marks the card whose gist is showing. Without `gistHref` the title opens the item in a new tab, as before.

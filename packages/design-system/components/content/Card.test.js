@@ -100,3 +100,31 @@ test('the title and the source link carry ref=aiBytes_; the menu prompts and the
   const placeholder=renderToStaticMarkup(React.createElement(Card,{item:{...item,url:'#',source_url:'#ph'}}));
   assert.match(placeholder,/href="#"/);assert.match(placeholder,/href="#ph"/);
 });
+
+test('a card with a gist links its title to the gist page in this tab, and marks the open one',()=>{
+  const html=render({gistHref:'/gists/tinyeval',open:true});
+  assert.match(html,/<h3><a href="\/gists\/tinyeval">Fixture<\/a><\/h3>/);
+  assert.doesNotMatch(html.match(/<h3>.*?<\/h3>/)[0],/target=|rel=/);
+  assert.match(html,/class="story story--grid[^"]*story--open[^"]*"[^>]*aria-current="true"/);
+  assert.match(html,/class="discussion" href="https:\/\/github.com\/example[^"]*" target="_blank"/);
+  const row=renderRow({gistHref:'/gists/tinyeval',open:true});
+  assert.match(row,/href="\/gists\/tinyeval"/);assert.match(row,/story--open/);
+});
+test('without a gist the title still opens the item in a new tab and nothing is marked',()=>{
+  for(const html of [render({}),renderRow({}),render({open:true})]){
+    assert.match(html.match(/<h3>.*?<\/h3>/)[0],/target="_blank"/);
+    assert.doesNotMatch(html,/story--open|aria-current/);
+  }
+});
+test('a plain click on the title is the one that opens the panel; a modified click is left to the browser',async()=>{
+  const {isPlainClick,openGistOnClick}=await import('./gistLink.js');
+  const plain={button:0,metaKey:false,ctrlKey:false,shiftKey:false,altKey:false};
+  assert.equal(isPlainClick(plain),true);
+  for(const change of [{metaKey:true},{ctrlKey:true},{shiftKey:true},{altKey:true},{button:1},{button:2}])
+    assert.equal(isPlainClick({...plain,...change}),false,JSON.stringify(change));
+  const calls=[];const make=e=>({...e,prevented:false,preventDefault(){this.prevented=true}});
+  const handler=openGistOnClick(item,i=>calls.push(i.id));
+  const a=make(plain);handler(a);assert.deepEqual(calls,['card-fixture']);assert.equal(a.prevented,true);
+  const b=make({...plain,metaKey:true});handler(b);assert.deepEqual(calls,['card-fixture']);assert.equal(b.prevented,false);
+  assert.equal(openGistOnClick(item,undefined),undefined);
+});
