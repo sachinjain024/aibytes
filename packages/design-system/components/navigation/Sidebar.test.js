@@ -49,3 +49,8 @@ test('the Saved row carries a filled star, drawn in the save colour by CSS',()=>
   const svg=saved(render({onSaved:()=>{}})).match(/<svg[^>]*>/)[0];
   assert.match(svg,/class="sidebar-saved__star"/);assert.match(svg,/fill="currentColor"/);
 });
+
+test('the Subscribe link opens the newsletter in a new tab',()=>{
+  const html=renderToStaticMarkup(React.createElement(Sidebar,{categories:[],links:[],subscribeUrl:'https://newsletter.aibytes.io/subscribe'}));
+  assert.match(html,/<a class="subscribe-link" href="https:\/\/newsletter.aibytes.io\/subscribe" target="_blank"/);
+});

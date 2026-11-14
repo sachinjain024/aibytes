@@ -792,7 +792,7 @@ function SubscribeBar() {
   return (
     <aside className="weekly-subscribe" aria-label="Subscribe">
       <p className="weekly-subscribe__text"><b>Get aiBytes_ every Monday.</b> The week in AI for developers, in your inbox.</p>
-      <a className="ldg-btn ldg-btn--primary weekly-subscribe__action" href={SUBSCRIBE_URL}>Subscribe</a>
+      <a className="ldg-btn ldg-btn--primary weekly-subscribe__action" href={SUBSCRIBE_URL} target="_blank">Subscribe</a>
     </aside>
   );
 }
@@ -897,7 +897,7 @@ function WeeklyArchive({ saves: store, theme, onToggleTheme, navigate }) {
               <p className="weekly-archive__kicker">Weekly</p>
               <h1 className="weekly-archive__title">aiBytes_ archive</h1>
               <p className="weekly-archive__lede ldg-prose">
-                Every Monday issue on aibytes.io. {showSubscribeOptions(subscribed) && <><a href={SUBSCRIBE_URL}>Subscribe</a> · </>}<a href="/">Daily edition</a>
+                Every Monday issue on aibytes.io. {showSubscribeOptions(subscribed) && <><a href={SUBSCRIBE_URL} target="_blank">Subscribe</a> · </>}<a href="/">Daily edition</a>
               </p>
             </header>
             {list}
