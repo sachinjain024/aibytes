@@ -29,7 +29,7 @@ import { NewsletterPrompt } from "./NewsletterPrompt.jsx";
 import { GistPage } from "./GistPage.jsx";
 import { FeedGistPanel } from "./FeedGistPanel.jsx";
 import { track } from "./analytics.js";
-import { isOpenCard, keepGist, planClose, planOpen, withoutGist } from "./gistPanel.js";
+import { focusMainAfterClose, isOpenCard, keepGist, planClose, planOpen, withoutGist } from "./gistPanel.js";
 import { gistHead } from "./pageMeta.js";
 import { failureReport, initialPrompt, promptReducer, shouldOpenPrompt } from "./newsletterPrompt.js";
 import { NEWSLETTER_PRIVACY, showSubscribeOptions } from "./subscribeOptions.js";
@@ -360,6 +360,16 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
     if (planClose(window.history.state, here()) === "back") window.history.back();
     else navigate(withoutGist(here()), { replace: true });
   }, [navigate]);
+  // A panel nobody clicked open (a reload, a shared link) has no card to give focus
+  // back to, so closing it leaves focus on the main region, not lost on the page.
+  const shownGist = React.useRef(null);
+  React.useEffect(() => {
+    if (focusMainAfterClose(shownGist.current, gistSlug, document.activeElement, document.body)) {
+      const main = document.getElementById("main");
+      if (main) main.focus({ preventScroll: true });
+    }
+    shownGist.current = gistSlug;
+  }, [gistSlug]);
   const dropGist = React.useCallback(() => navigate(withoutGist(here()), { replace: true }), [navigate]);
   const keepWidth = React.useCallback((px) => { setPanelWidth(px); writeWidth(PANEL_WIDTH, px); }, []);
   const sticky = React.useRef(null);

@@ -72,3 +72,12 @@ export function targetFor(opened, slug, gist) {
 export function planClose(historyState, location) {
   return historyState && historyState.gist && historyState.base === withoutGist(location) ? "back" : "replace";
 }
+
+/**
+ * After the panel closes, whether focus should go to the main region: it was open,
+ * is now closed, and focus was lost to the page (a reload or shared link has no card
+ * to return to; when a card opened the panel, the panel already focused it).
+ */
+export function focusMainAfterClose(before, now, active, body) {
+  return before !== null && now === null && (!active || active === body);
+}

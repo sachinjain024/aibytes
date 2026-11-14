@@ -110,8 +110,8 @@ Reactions are not here until T32; the `actions` slot holds the save row only.
   the real editions in T28's browser check, and the spec is changed first if
   the grid looks wrong there.
 - **Focus.** Opening from a card returns focus to that card's title on close
-  (the component does it). A reload or a shared link has no card to return to;
-  focus goes to the page heading.
+  (the component does it, and when a second card of the same gist is clicked, to that card). A reload or a shared link has no card to return to;
+  focus goes to the main region (the page heading is not focusable; `#main` is).
 
 ## The event
 

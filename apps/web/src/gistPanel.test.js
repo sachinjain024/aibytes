@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { isOpenCard, keepGist, panelPage, planClose, planOpen, targetFor, withGist, withoutGist } from "./gistPanel.js";
+import { focusMainAfterClose, isOpenCard, keepGist, panelPage, planClose, planOpen, targetFor, withGist, withoutGist } from "./gistPanel.js";
 
 const at = (pathname, search = "") => ({ pathname, search });
 
@@ -92,4 +92,13 @@ test("closing goes Back only when this page view pushed the panel on the same li
   assert.equal(planClose({ gist: true, base: "/2026-11-13" }, at("/2026-11-13", "?q=a&gist=x")), "replace", "a filter changed meanwhile");
   assert.equal(planClose(null, at("/2026-11-13", "?gist=x")), "replace", "a reload or shared link");
   assert.equal(planClose({}, at("/2026-11-13", "?gist=x")), "replace");
+});
+
+test("closing a panel that no card opened puts focus on the main region, once, and only if it was lost", () => {
+  const body = { tag: "body" }, card = { tag: "a" };
+  assert.equal(focusMainAfterClose("gh-x", null, body, body), true, "closed, focus on the page");
+  assert.equal(focusMainAfterClose("gh-x", null, null, body), true);
+  assert.equal(focusMainAfterClose("gh-x", null, card, body), false, "a card has focus: the panel already returned it");
+  assert.equal(focusMainAfterClose(null, null, body, body), false, "it was never open");
+  assert.equal(focusMainAfterClose("gh-x", "hn-y", body, body), false, "still open on another gist");
 });

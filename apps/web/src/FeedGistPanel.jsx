@@ -39,7 +39,7 @@ export function FeedGistPanel({ slug, opened, store, onClose, onMissing, width, 
         {state.status === "failed" ? "Could not load this gist. Try again." : "Loading the gist…"}</StatusMessage></div>);
   }
   return (
-    <GistPanel gist={ready ? state.gist : { slug }} pageHref={gistPath(slug)} onClose={onClose} width={width} onWidthChange={onWidthChange}>
+    <GistPanel gist={ready ? state.gist : { slug }} pageHref={gistPath(slug)} onClose={onClose} width={width} onWidthChange={onWidthChange} openerKey={opened && opened.slug === slug ? opened.id : undefined}>
       {body}
     </GistPanel>);
 }

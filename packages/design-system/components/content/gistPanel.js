@@ -53,3 +53,8 @@ export function nextOpener(current, active, panelEl, body) {
   if (!active || active === body || (panelEl && panelEl.contains(active))) return current;
   return active;
 }
+
+/** The effect dependencies for retaking the opener: the gist AND the card that opened it, so a second card of the same gist counts. */
+export function openerKeys(slug, openerKey) {
+  return [slug, openerKey ?? null];
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Out } from "./gistIcons.jsx";
-import { PANEL, clampWidth, closeOnEscape, isNarrow, nextOpener, panelMax, widthForKey } from "./gistPanel.js";
+import { PANEL, clampWidth, closeOnEscape, isNarrow, nextOpener, openerKeys, panelMax, widthForKey } from "./gistPanel.js";
 
 // The panel beside the feed (and, on a phone, a full-screen sheet). It holds
 // the width, the focus and the keys; what goes in it is the caller's, usually a
@@ -48,7 +48,7 @@ function ResizeEdge({ width, viewport, onResize }) {
       onDoubleClick={() => onResize(PANEL.def)} />);
 }
 
-export function GistPanel({ gist, pageHref, onClose, width = PANEL.def, onWidthChange, children }) {
+export function GistPanel({ gist, pageHref, onClose, width = PANEL.def, onWidthChange, openerKey, children }) {
   const viewport = useViewportWidth();
   const narrow = isNarrow(viewport);
   const [held, setHeld] = React.useState(width);
@@ -80,7 +80,7 @@ export function GistPanel({ gist, pageHref, onClose, width = PANEL.def, onWidthC
   }, []);
   React.useEffect(() => {
     opener.current = nextOpener(opener.current, document.activeElement, panel.current, document.body);
-  }, [gist.slug]);
+  }, openerKeys(gist.slug, openerKey));
 
   // Another gist opens at the top.
   React.useEffect(() => { if (scroll.current) scroll.current.scrollTop = 0; }, [gist.slug]);
