@@ -38,6 +38,19 @@ export function parseRoute(pathname) {
   return { kind: "notfound" };
 }
 
+// The contract's slug (gist.schema.json): lower case words joined by single hyphens, at most 80.
+const GIST_SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+/**
+ * The gist the panel should show: `?gist=<slug>` on a daily, weekly or saved
+ * page. null when it is absent, repeated or not a well-formed slug, so a hand-
+ * edited link opens the page with no panel instead of a failed load.
+ */
+export function gistParam(search) {
+  const all = new URLSearchParams(search).getAll("gist");
+  return all.length === 1 && all[0].length <= 80 && GIST_SLUG.test(all[0]) ? all[0] : null;
+}
+
 export function editionPath(date) {
   return "/" + date;
 }

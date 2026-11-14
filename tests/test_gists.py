@@ -362,6 +362,14 @@ class BuildTree:
         self.content = self.root / "content"
         shutil.copytree(REPO_ROOT / "content", self.content,
                         ignore=shutil.ignore_patterns("gists"))
+        # The copy has no gists, so editions that already carry a `gist` (the daily
+        # runs since launch) would not validate: the fixture starts gist-free.
+        for path in (self.content / "editions").glob("*.json"):
+            edition = json.loads(path.read_text())
+            if any("gist" in it for it in edition["items"]):
+                for it in edition["items"]:
+                    it.pop("gist", None)
+                path.write_text(json.dumps(edition, indent=2, ensure_ascii=False) + "\n")
         build_mod.copy_weekly_sources(REPO_ROOT / "content", self.root)
         self.cache = self.root / "cache"
         self.items = json.loads(REAL_EDITION.read_text())["items"]

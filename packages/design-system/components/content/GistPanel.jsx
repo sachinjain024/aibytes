@@ -1,6 +1,6 @@
 import React from "react";
 import { Out } from "./gistIcons.jsx";
-import { PANEL, clampWidth, closeOnEscape, isNarrow, panelMax, widthForKey } from "./gistPanel.js";
+import { PANEL, clampWidth, closeOnEscape, isNarrow, nextOpener, openerKeys, panelMax, widthForKey } from "./gistPanel.js";
 
 // The panel beside the feed (and, on a phone, a full-screen sheet). It holds
 // the width, the focus and the keys; what goes in it is the caller's, usually a
@@ -48,7 +48,7 @@ function ResizeEdge({ width, viewport, onResize }) {
       onDoubleClick={() => onResize(PANEL.def)} />);
 }
 
-export function GistPanel({ gist, pageHref, onClose, width = PANEL.def, onWidthChange, children }) {
+export function GistPanel({ gist, pageHref, onClose, width = PANEL.def, onWidthChange, openerKey, children }) {
   const viewport = useViewportWidth();
   const narrow = isNarrow(viewport);
   const [held, setHeld] = React.useState(width);
@@ -64,16 +64,23 @@ export function GistPanel({ gist, pageHref, onClose, width = PANEL.def, onWidthC
   const scroll = React.useRef(null);
 
   // Focus moves in on open and back to the card that opened it on close; Escape closes.
+  // The opener is the card last clicked, so switching from one card to another
+  // and closing returns to the second.
+  const opener = React.useRef(null);
   React.useEffect(() => {
-    const opener = document.activeElement;
+    opener.current = document.activeElement;
     panel.current.focus();
     const onKey = (event) => closeOnEscape(event, onClose);
     document.addEventListener("keydown", onKey);
     return () => {
       document.removeEventListener("keydown", onKey);
-      if (opener && opener.isConnected) opener.focus();
+      const el = opener.current;
+      if (el && el.isConnected) el.focus();
     };
   }, []);
+  React.useEffect(() => {
+    opener.current = nextOpener(opener.current, document.activeElement, panel.current, document.body);
+  }, openerKeys(gist.slug, openerKey));
 
   // Another gist opens at the top.
   React.useEffect(() => { if (scroll.current) scroll.current.scrollTop = 0; }, [gist.slug]);

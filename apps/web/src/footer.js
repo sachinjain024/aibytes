@@ -1,11 +1,16 @@
 // The footer's links (spec §6, Navigation links), as data so `node --test` can
 // check them. The X account is Sachin's own until aiBytes_ has one, and both
 // mail links go to the address Ledger's footer already shipped with.
+import { withRef } from "@aibytes/design-system/components/content/withRef.js";
 import { NEWSLETTER_ORIGIN, privacyPath } from "./route.js";
 
 const EMAIL = "sachinjain.hq@gmail.com";
 
 export const SUBSCRIBE_URL = NEWSLETTER_ORIGIN + "/subscribe";
+
+// Every Subscribe link on aibytes.io uses this one, tagged ref=aiBytes_, so the
+// newsletter site can tell a signup that came from here (they open in a new tab).
+export const SUBSCRIBE_HREF = withRef(SUBSCRIBE_URL);
 
 // The masthead links here too, so it is a constant rather than a lookup by label.
 export const GITHUB_URL = "https://github.com/sachinjain024/aibytes";

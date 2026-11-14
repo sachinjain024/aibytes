@@ -11,6 +11,8 @@ export interface GistPanelProps {
   width?: number;
   /** called with the new width after a drag, a key or a double-click, for the app to keep */
   onWidthChange?: (px: number) => void;
+  /** changes when another card opens the panel (an id is enough). Closing returns focus to the card last clicked, and a second card showing the same gist is a new opener even though `gist` has not changed. */
+  openerKey?: string | number;
   children?: React.ReactNode;
 }
 export declare function GistPanel(props: GistPanelProps): JSX.Element;

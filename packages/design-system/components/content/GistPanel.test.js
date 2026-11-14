@@ -1,11 +1,12 @@
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import { createRequire } from 'node:module';
 import Module from 'node:module';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { build } from 'esbuild';
-import { PANEL, clampWidth, closeOnEscape, isNarrow, panelMax, widthForKey } from './gistPanel.js';
+import { PANEL, clampWidth, closeOnEscape, isNarrow, nextOpener, openerKeys, panelMax, widthForKey } from './gistPanel.js';
 
 const result = await build({entryPoints:[new URL('./GistPanel.jsx',import.meta.url).pathname],
   bundle:true,platform:'node',format:'cjs',external:['react'],write:false});
@@ -76,4 +77,28 @@ test('at 760px and under the panel is a sheet with no resize edge', () => {
   assert.equal(isNarrow(761), false);
   assert.equal(isNarrow(390), true);
   assert.equal(PANEL.def, 460);
+});
+
+test('focus returns to the card last clicked: a new opener is taken from a card outside the panel only', () => {
+  const card = { id: 'b' }, first = { id: 'a' }, body = { id: 'body' };
+  const card2 = { id: 'in' };
+  const panelEl = { contains: (el) => el === card2 };
+  assert.equal(nextOpener(first, card, panelEl, body), card, 'switching to another card');
+  assert.equal(nextOpener(first, card2, panelEl, body), first, 'focus inside the panel is not an opener');
+  assert.equal(nextOpener(first, body, panelEl, body), first, 'focus lost to the page keeps the old opener');
+  assert.equal(nextOpener(first, null, panelEl, body), first);
+  assert.equal(nextOpener(null, card, panelEl, body), card);
+});
+
+test('the opener is retaken when another card opens the same gist, not only when the gist changes', () => {
+  assert.notDeepEqual(openerKeys('gh-x', 'card-a'), openerKeys('gh-x', 'card-b'), 'same gist, another card');
+  assert.notDeepEqual(openerKeys('gh-x', 'card-a'), openerKeys('hn-y', 'card-a'), 'another gist');
+  assert.deepEqual(openerKeys('gh-x', 'card-a'), openerKeys('gh-x', 'card-a'));
+  assert.deepEqual(openerKeys('gh-x', undefined), ['gh-x', null], 'no card: a reload or shared link');
+  assert.match(render({ openerKey: 'card-b' }), /gist-panel/, 'the prop is accepted');
+});
+
+test('the panel retakes its opener on the card as well as the gist (a guard: effects cannot run in these tests)', () => {
+  const source = readFileSync(new URL('./GistPanel.jsx', import.meta.url), 'utf8');
+  assert.match(source, /nextOpener\([^)]*\);\s*\}, openerKeys\(gist\.slug, openerKey\)\);/);
 });

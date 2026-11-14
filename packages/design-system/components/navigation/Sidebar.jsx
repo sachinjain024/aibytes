@@ -76,7 +76,7 @@ export function Sidebar({ categories = [], count, active = "all", onCategory, op
           {subscribeUrl && (
             <div className="newsletter">
               <p>Read aiBytes_ weekly</p>
-              <a className="subscribe-link" href={subscribeUrl}>Subscribe <Icon name="arrow" /></a>
+              <a className="subscribe-link" href={subscribeUrl} target="_blank">Subscribe <Icon name="arrow" /></a>
             </div>
           )}
         </div>

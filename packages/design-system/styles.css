@@ -2068,6 +2068,22 @@ html[data-theme=light] .calendar-days button:disabled {
   border-left: 2px solid var(--hot) !important;
 }
 
+/* A card with a gist opens it on a click anywhere on it (AIB-145y). */
+.story--gist {
+  cursor: pointer;
+}
+.story--gist a,
+.story--gist button {
+  cursor: pointer;
+}
+
+/* The card whose gist is open in the panel (AIB-145y). An inset edge, so it
+   sits with the TOP edge instead of replacing it. */
+.story--open {
+  box-shadow: inset 3px 0 0 var(--accent);
+  border-color: var(--accent);
+}
+
 .app-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(min(var(--app-card-min),100%),1fr));
@@ -2683,3 +2699,8 @@ html:not([data-input-modality="keyboard"]) .app-shell :focus,.app-shell :focus:n
 
 /* The gist page uses the weekly pages' subscribe bar; give it the column's width and a gap above. */
 .gist-page .weekly-subscribe { margin: 0; }
+
+/* The panel's loading and error line, spaced like the gist's own text. */
+.gist-panel-status {
+  padding: 20px;
+}
