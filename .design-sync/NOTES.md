@@ -100,6 +100,18 @@ and the screens report "Ledger bundle not compiled yet".
 - Preview cards are 700-1200px wide but type sizes follow the viewport, so a
   card in a narrow frame shows phone type sizes. Compare cards with the app at
   the card's own viewport width.
+- 2026-11-14 (AIB-145y, PR #68): synced from `aib-145y-gist-panel@585d748`
+  with `artifact/build.mjs` (32 components), before the PR merged. `Card` and
+  `ListRow` gained `gistHref`, `onOpenGist`, `open` (`.story--gist`,
+  `.story--open`); `GistPanel` gained `openerKey`; the Sidebar's Subscribe link
+  opens in a new tab; the gist CSS (`.gist-page`, `.gist-actions`, `.gist-panel-status`)
+  is in `bundle.css`. Artifact versions 12 (the files) and 13 (`lastChange`'s
+  `at` and `via` corrected; version 12's agent left them at 13 Nov and PR #65).
+  Not checked: the previews were not rendered in a browser (the extension
+  refuses `file://` and `python3 -m http.server` is denied); only the build
+  output was checked (`gistHref`, `openerKey`, `.story--open`, `.gist-page`
+  present; the server's `Card.d.ts` read back). A sync agent must set all of
+  `lastChange` (`by`, `at`, `via`, `note`), not just `note`.
 - 2026-11-13 (AIB-145y, T22): synced from the repo with `artifact/build.mjs`
   (32 components). Added `GistView`, `GistPanel`, `ReactionBar` and `SavedNote`
   with previews; `Card` and `ListRow` gained `front`; `SaveBanner` copy changed.
