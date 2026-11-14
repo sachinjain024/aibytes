@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { ORDER, readChoice, THEME, VIEW, writeChoice } from "./prefs.js";
+import { ORDER, PANEL_WIDTH, readChoice, readWidth, THEME, VIEW, writeChoice, writeWidth } from "./prefs.js";
 import { withBlockedStorage } from "./blocked-storage.js";
 
 const memory = (entries = {}) => ({
@@ -50,4 +50,17 @@ test("blocked site data, where reading localStorage itself throws, is no choice 
     assert.equal(readChoice(THEME), null);
     assert.equal(writeChoice(THEME, "dark"), false);
   });
+});
+
+test("the panel width reads back inside 360 to 1200 and as nothing otherwise", () => {
+  const storage = memory();
+  assert.equal(readWidth(PANEL_WIDTH, storage), null);
+  assert.equal(writeWidth(PANEL_WIDTH, 520, storage), true);
+  assert.equal(readWidth(PANEL_WIDTH, storage), 520);
+  for (const bad of ["", "abc", "359", "1201", "460.5", "-460", "1e3", "0x200", " 500"]) {
+    assert.equal(readWidth(PANEL_WIDTH, memory({ "aibytes-gist-panel-w": bad })), null, bad);
+  }
+  assert.equal(readWidth(PANEL_WIDTH, broken), null);
+  assert.equal(writeWidth(PANEL_WIDTH, 500, broken), false);
+  assert.throws(() => writeWidth(PANEL_WIDTH, 100, memory()), /out of range/);
 });

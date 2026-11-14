@@ -19,3 +19,5 @@ Star position: `starPos="visual"` takes the save star out of that cluster and pu
 ```jsx
 <Card item={item} saved={saved.has(item.id)} onToggleSave={toggle} starPos="visual" />
 ```
+
+Gist link: pass `gistHref` (the gist page) and `onOpenGist` for an item that has a gist. The title then links to the gist in the same tab and a plain click calls `onOpenGist`; a modified click follows the link. `open` marks the card whose gist is showing. Without `gistHref` the title opens the item in a new tab, as before. With `onOpenGist` the whole card is a click target for it, except the links, buttons and menu inside; the title stays the real link.

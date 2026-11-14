@@ -2,12 +2,10 @@ import React from "react";
 import { GistView } from "@aibytes/design-system/components/content/GistView.jsx";
 import { ListRow } from "@aibytes/design-system/components/content/ListRow.jsx";
 import { RowList } from "@aibytes/design-system/components/content/Feed.jsx";
-import { SavedNote } from "@aibytes/design-system/components/content/SavedNote.jsx";
-import { SaveStar } from "@aibytes/design-system/components/content/SaveStar.jsx";
 import { AppHeader } from "@aibytes/design-system/components/navigation/AppHeader.jsx";
 import { backLink } from "./gistSite.js";
 import { GITHUB_URL, SUBSCRIBE_URL } from "./footer.js";
-import { savedPath } from "./route.js";
+import { GistActions } from "./GistActions.jsx";
 
 // The page at /gists/<slug> (spec AIB-145y-app-gist-pages). One component for
 // the build, which renders it to a string, and the browser, which takes the
@@ -31,17 +29,7 @@ import { savedPath } from "./route.js";
 export function GistPage({ gist, more = [], theme = "light", shellTheme, onToggleTheme = () => {}, headerProps = {}, banner = null, saved = new Set(), onToggleSave = () => {}, showSubscribe = true }) {
   const back = backLink(gist);
   const own = saved.has(gist.appearances[0]?.item_id);
-  const toggleOwn = () => onToggleSave(gist.appearances[0].item_id);
-  const actions = (
-    <div className="gist-actions">
-      <div className="gist-actions-row">
-        <span className={"gist-save" + (own ? " gist-save--on" : "")}>
-          <SaveStar saved={own} onToggle={toggleOwn} />
-          <button type="button" className="gist-save-label" onClick={toggleOwn}>{own ? "Saved" : "Save"}</button>
-        </span>
-      </div>
-      {own && <SavedNote href={savedPath()} />}
-    </div>);
+  const actions = <GistActions saved={own} onToggle={() => onToggleSave(gist.appearances[0].item_id)} />;
   return (
     <div className="app-shell redesign" data-theme={shellTheme}>
       <a className="app-skip" href="#main">Skip to the gist</a>

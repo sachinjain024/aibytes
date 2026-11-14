@@ -40,3 +40,30 @@ export function writeChoice(pref, value, storage = browserStorage()) {
     return false;
   }
 }
+
+// The gist panel's width in px, kept in this browser like the feed's layout
+// (spec AIB-145y-app-gist-panel). A whole number from 360 to 1200; anything else
+// reads as "not set", and the panel uses its own default.
+export const PANEL_WIDTH = { key: "aibytes-gist-panel-w", min: 360, max: 1200 };
+
+export function readWidth(pref, storage = browserStorage()) {
+  try {
+    const text = storage.getItem(pref.key);
+    if (!/^[0-9]{3,4}$/.test(text)) return null;
+    const px = Number(text);
+    return px >= pref.min && px <= pref.max ? px : null;
+  } catch {
+    return null;
+  }
+}
+
+/** True if it was kept. Throws on a width outside the range: a bug, not a stored value. */
+export function writeWidth(pref, px, storage = browserStorage()) {
+  if (!Number.isInteger(px) || px < pref.min || px > pref.max) throw new Error(`${pref.key}: ${px} is out of range`);
+  try {
+    storage.setItem(pref.key, String(px));
+    return true;
+  } catch {
+    return false;
+  }
+}

@@ -561,6 +561,11 @@ URL, history behaviour, feed width with the panel, items with no gist.
 
 **Verification:** the publisher approves. **Dependencies:** T26. **Size:** S.
 
+**Done 14 Nov 2026:** approved. The panel is on `/saved` too (no stored slug: the
+Saved page reads `item.gist` from the edition file). The event is
+`gist-panel-open` with `{ slug, page }`, as the analytics spec names it; T29
+below says `gist_panel_open`, and the spec wins.
+
 ### T28: a card's title opens the panel
 
 **Description:** On daily pages, a plain click on a card title with a `gist`
@@ -576,6 +581,19 @@ the source (B2); items with no `gist` behave as today. Width saved in
 **Verification:** web tests; dev server. **Dependencies:** T27, T20.
 **Size:** M.
 
+**Done 14 Nov 2026** (`11cfcb1`): web 164 tests, design-system 83, Python 674. Browser
+check on real content (dev server, 2026-11-13): click opens the panel and pushes
+`?gist=`; switching cards keeps one history step; Back closes, Forward reopens;
+the close button and Escape close; a reload and `?c=launches&gist=` keep the
+panel; a filter change keeps `?gist=`; a meta-click is not intercepted; a missing
+or malformed slug leaves no panel and no param; width kept in `aibytes-gist-panel-w`;
+a 2026-11-11 card (no gist) still opens its source; `/saved` opens the panel with
+the save on; 390px is a dialog sheet with no resize edge, dark theme, no horizontal
+scroll. The grid stays as the reader chose (Decide 2): rows and cards narrow with
+the panel and read fine at 1440px. Also fixed: `tests/test_gists.py` copied editions
+that already carried `gist`, so 14 tests errored on `main` after the first launch run
+(`32980f6`). The Front page label now shows on feed cards and rows.
+
 ### T29: weekly pages and the panel event
 
 **Description:** The same on `/weekly/issue-N` for items with a `gist`;
@@ -585,6 +603,13 @@ the source (B2); items with no `gist` behave as today. Width saved in
 - [ ] Browser check on a weekly page; the event appears in the tool.
 
 **Verification:** as T28. **Dependencies:** T28, T2. **Size:** S.
+
+**Done 14 Nov 2026:** one code path serves the weekly page, so no new code. Checked on
+a fixture copy of issue 17 with two gists (no real issue carries one until
+`newsletter-gist-links`): those two open the panel, the other 23 open their sources,
+`gist-panel-open` goes out once with `page: "weekly"`, Back and Forward work, and
+Previous issue closes the panel and drops `?gist=`. The event reaches the tool only on
+aibytes.io (the script is off elsewhere); the `track` call itself was observed locally.
 
 ### Checkpoint E: launch-ready
 
