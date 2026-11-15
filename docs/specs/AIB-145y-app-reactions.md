@@ -44,11 +44,16 @@ Two collections, both keyed by the gist's slug (the contract's slug rule,
 ```
 gist_reactions/{slug}/by/{uid}   what one reader chose
   keys:        string[]          a set of the eight keys, each at most once, 1 to 8 long
-  updated_at:  timestamp         the server time of the last change
+  updated_at:  timestamp         the server time of the write (== request.time)
 
 gist_reaction_counts/{slug}      what everyone chose, as numbers
   plus1, minus1, laugh, hooray, confused, heart, rocket, eyes:  integer, 0 or more
 ```
+
+**Exact shapes.** A reader document has exactly `keys` and `updated_at`, nothing else.
+A counts document has exactly the eight integer fields, nothing else, so neither
+collection can be used as free storage, and the counts document is world-readable.
+(This is how `saves` and `subscribers` are already held: `hasOnly`.)
 
 A reader who clears their last emoji deletes their `by/{uid}` document. A counts
 document is created by the first reaction to a gist and is never deleted.
@@ -66,13 +71,16 @@ public without exposing anyone, and one read replaces eight queries.
 match /gist_reactions/{slug}/by/{uid} {
   allow read:   if isOwner(uid);
   allow create, update: if isOwner(uid) && isGoogle() && isSlug(slug)
-                        && isReaderDoc(request.resource.data)
+                        && isReaderDoc(request.resource.data)   // hasOnly keys, updated_at; updated_at == request.time
                         && countsAfterMatch(slug, uid);
-  allow delete: if isOwner(uid) && countsAfterMatch(slug, uid);
+  allow delete: if isOwner(uid) && isGoogle() && isSlug(slug) && countsAfterMatch(slug, uid);
 }
 match /gist_reaction_counts/{slug} {
   allow get: if true;            // no list: nobody can enumerate gists
-  allow write: if isSlug(slug) && isGoogle() && countsFollowReader(slug);
+  allow create, update: if isSlug(slug) && isGoogle()
+                        && isCountsDoc(request.resource.data)   // hasOnly the eight integer keys
+                        && countsFollowReader(slug);
+  allow delete: if false;        // never deleted from a client
 }
 ```
 
@@ -89,6 +97,9 @@ match /gist_reaction_counts/{slug} {
   `getAfter()` against `get()` of the same pair of documents. The app always writes
   the two together in one `writeBatch`; a reader document written alone, or counts
   written alone, is refused.
+- **Exact fields.** A reader document with any field beyond `keys` and `updated_at`,
+  or a counts document with any field beyond the eight, is refused; `updated_at` must
+  equal the server time of the write.
 - **Counts are public, reader documents are not.** `get` on a counts document is open;
   there is no `list` on either collection.
 - **A change is one emoji.** A single write changes the reader's set by exactly one
@@ -98,6 +109,8 @@ match /gist_reaction_counts/{slug} {
 Everything else stays closed, as today. The emulator tests (T31, `rules.test.js`)
 prove: a signed-out reader cannot write; a non-Google sign-in cannot; a reader
 cannot read or write another's document; a ninth key and a duplicate are refused;
+an extra field on a reader document or on a counts document is refused; a client
+cannot delete a counts document; a stale `updated_at` is refused;
 counts cannot be written alone, cannot move by two, cannot go below 0 and cannot
 change a key the reader did not touch; two readers' reactions add up; deleting a
 reaction subtracts; anyone can `get` a counts document and nobody can `list`.
@@ -121,7 +134,7 @@ clean up in the console, so it is accepted.
 |---|---|---|
 | Open a gist, signed out | 1 (counts) | 0 |
 | Open a gist, signed in | 2 (counts, your own reader document) | 0 |
-| Press an emoji | 0 | 2 (reader, counts), in one batch |
+| Press an emoji | 0 | 2 (reader, counts), in one batch, with no read first |
 
 Counts are read once when the gist opens, never with a live listener, so a gist left
 open does not bill. The reader's press updates the numbers on screen straight away
@@ -138,10 +151,25 @@ does so the emulator tests can drive it:
 
 ```ts
 reactions(db, uid?) → {
-  load(slug): Promise<{ counts: Record<key, number>, mine: key[] }>,
+  load(slug): Promise<{ totals: Record<key, number>, mine: key[] }>,   // Firestore keys; totals include the reader
   toggle(slug, key): Promise<void>,   // one writeBatch; rejects when the rules refuse
 }
 ```
+
+- **Two shapes of count, one adapter.** The store speaks Firestore: keys and
+  inclusive totals (everyone, the reader included). Ledger's `ReactionBar` takes
+  *everyone else's* counts keyed by emoji and adds `mine` on top
+  (`ReactionBar.d.ts`), so passing a total straight in would count a signed-in press
+  twice. `GistActions` is the one adapter: it maps key to emoji and subtracts `mine`
+  from each total before the bar. An optimistic press changes the inclusive total and
+  `mine` together, then goes through the same adapter.
+- **Writes carry no read.** `toggle` writes the reader document and a counts
+  document with `setDoc(ref, data, { merge: true })` where the counts data holds all
+  eight keys, the toggled one as `increment(+1)` or `increment(-1)` and the other
+  seven as `increment(0)`. It never computes an absolute count from memory, so two
+  people toggling one gist at once do not refuse each other, and the first reaction
+  to a gist creates a counts document with all eight fields. The rules see the
+  resulting integers.
 
 - **Display.** `ReactionBar` goes in the `actions` slot of `GistView`, after the save
   row (design D2), on the page and in the panel, as `GistActions` already does for

@@ -639,9 +639,14 @@ cannot, stop and ask before the fall-back.
 
 ### T31: rules and emulator tests
 
-**Description:** `firestore.rules` for reactions; emulator tests: signed out
-cannot write, one reader cannot write another's, only the eight emoji,
-counts readable by anyone.
+**Description:** `firestore.rules` for reactions, from the approved spec's rules
+section (`docs/specs/AIB-145y-app-reactions.md`); emulator tests for every case it
+lists: signed out and non-Google cannot write; a reader cannot read or write
+another's; only the eight keys, no duplicate; exact fields on both documents
+(`hasOnly`) and `updated_at == request.time`; counts move only by the reader's own
+one-key change, never alone, never by two, never below 0; counts cannot be deleted;
+two readers add up and a delete subtracts; anyone can `get` counts and nobody can
+`list`. The `getAfter()` rule is proved first.
 
 **Acceptance criteria:**
 - [ ] `npm run test:rules -w @aibytes/web` covers each rule.
