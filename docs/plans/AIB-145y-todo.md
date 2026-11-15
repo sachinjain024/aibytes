@@ -652,7 +652,7 @@ first reaction and the last removal pass); an empty `picked` is refused. The
 
 **Acceptance criteria:**
 - [ ] `npm run test:rules -w @aibytes/web` covers each rule.
-- [ ] Rules deployed by the publisher (P5).
+- [x] Rules deployed by the publisher (P5).
 
 **Verification:** the rules tests. **Dependencies:** T30. **Size:** S.
 
@@ -665,8 +665,8 @@ counts document) and the last removal (reader document deleted). One thing the s
 did not say: the rules are capped at 1000 expressions a request, so the counts check
 binds everything once with `let`; the first version, which recomputed the reader's set
 per key, hit the cap. Mutation-checked: weakening the counts check, the counts delete,
-the Google check, `updated_at` or the duplicate check each fails its own test. Not done:
-P5, the publisher's deploy.
+the Google check, `updated_at` or the duplicate check each fails its own test. Deployed by the
+publisher on 15 Nov 2026 (P5): `firebase deploy --only firestore:aibytes:rules`, released.
 
 ### T32: reactions in the app
 
