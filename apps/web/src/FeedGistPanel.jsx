@@ -14,7 +14,7 @@ import { gistPath } from "./route.js";
 // `onMissing` and shows nothing: the feed is still there and the reader loses nothing.
 //
 // `opened` is the card that was clicked: its item is the one the panel's save row presses. A reload or a shared link has no card, so the gist's first appearance is used.
-export function FeedGistPanel({ slug, opened, store, onClose, onMissing, width, onWidthChange }) {
+export function FeedGistPanel({ slug, opened, store, reactions, onClose, onMissing, width, onWidthChange }) {
   const [state, setState] = React.useState({ status: "loading", slug });
   const missing = React.useRef(onMissing);
   missing.current = onMissing;
@@ -32,7 +32,7 @@ export function FeedGistPanel({ slug, opened, store, onClose, onMissing, width, 
   let body;
   if (ready) {
     const own = targetFor(opened, slug, state.gist);
-    body = <GistView gist={state.gist} as="panel" actions={<GistActions saved={has(own.id)} onToggle={() => toggle({ id: own.id }, own.from)} />} />;
+    body = <GistView gist={state.gist} as="panel" actions={<GistActions saved={has(own.id)} onToggle={() => toggle({ id: own.id }, own.from)} reactions={reactions} />} />;
   } else {
     body = (
       <div className="gist-panel-status"><StatusMessage role={state.status === "failed" ? "alert" : "status"}>

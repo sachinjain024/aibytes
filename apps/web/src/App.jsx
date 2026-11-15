@@ -17,7 +17,7 @@ import { filesToLoad, leftOutNote, savedFeed, savedGroups } from "./saved.js";
 import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, SOURCES } from "./filters.js";
 import { FOOTER_LINKS, GITHUB_URL, mailto, SUBSCRIBE_HREF } from "./footer.js";
 import { longDate, midDate, shortDate } from "./format.js";
-import { useChoice, useDismiss, useGridColumns, useMedia, useReturnFocus, useSaves, useTheme } from "./hooks.js";
+import { useChoice, useDismiss, useGridColumns, useMedia, useReactions, useReturnFocus, useSaves, useTheme } from "./hooks.js";
 import { shownView } from "./layout.js";
 import { groupedItems, rankedItems } from "./order.js";
 import { ORDER, PANEL_WIDTH, readWidth, VIEW, writeWidth } from "./prefs.js";
@@ -67,7 +67,7 @@ function useLocation() {
 // sign-in added, shown once on /saved; `signInFailed` shows the error line until
 // the next try or page.
 const AccountContext = React.createContext({
-  user: null, merged: 0, signInFailed: false, subscribed: undefined, prompt: null,
+  user: null, merged: 0, signInFailed: false, subscribed: undefined, prompt: null, reactionStore: null,
   signIn() {}, signOut() {}, dismiss() {}, clearMerged() {}, subscribe() {}, closePrompt() {},
 });
 
@@ -77,8 +77,8 @@ const AccountContext = React.createContext({
 // is retried by the next Sign in.
 let firebase = null;
 function loadFirebase() {
-  firebase ||= Promise.all([import("./account.js"), import("./accountSaves.js"), import("./subscriber.js")]).then(
-    ([account, store, subscribers]) => ({ ...account, ...store, ...subscribers }),
+  firebase ||= Promise.all([import("./account.js"), import("./accountSaves.js"), import("./subscriber.js"), import("./reactions.js")]).then(
+    ([account, store, subscribers, gistReactions]) => ({ ...account, ...store, ...subscribers, reactions: gistReactions.reactions }),
     (error) => { firebase = null; throw error; },
   );
   return firebase;
@@ -114,6 +114,9 @@ function useAccount() {
   })), []);
   React.useEffect(() => (fb ? fb.onUser(setUser) : undefined), [fb]);
   const uid = user?.uid;
+  // The gist reactions store follows the user too: counts need no sign-in, so it exists
+  // once Firebase has loaded and the session is known (a restoring one holds presses).
+  const reactionStore = React.useMemo(() => (fb && user !== undefined ? fb.reactions(fb.db, uid) : null), [fb, uid, user === undefined]); // eslint-disable-line react-hooks/exhaustive-deps
   const saves = React.useMemo(
     () => (uid && fb ? fb.accountSaves(fb.db, uid, { onError: (e) => console.warn("Saves:", e.code || e) }) : localSaves()),
     [uid, fb],
@@ -176,6 +179,7 @@ function useAccount() {
     signInFailed: failed,
     subscribed,
     prompt,
+    reactionStore,
     signIn() {
       setFailed(false);
       // Loaded already, the popup opens within the click; a load that failed
@@ -191,8 +195,15 @@ function useAccount() {
     clearMerged,
     subscribe,
     closePrompt,
-  }), [fb, user, merged, failed, subscribed, prompt, dismiss, clearMerged, subscribe, closePrompt]);
+  }), [fb, user, merged, failed, subscribed, prompt, reactionStore, dismiss, clearMerged, subscribe, closePrompt]);
   return [saves, account];
+}
+
+// The reactions on one gist, for the page and the panel (hooks.js useReactions), with the
+// store and the sign-in the account gives. Null until a slug is given.
+function useGistReactions(slug) {
+  const { reactionStore, user, signIn } = React.useContext(AccountContext);
+  return useReactions(slug, { store: reactionStore, user, signIn });
 }
 
 // AppHeader's account props for this page: Sign in, the avatar, or neither while restoring.
@@ -340,6 +351,7 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
   // The gist panel (spec AIB-145y-app-gist-panel). The URL holds which gist is
   // open; `opened` remembers the card that opened it, for the save row.
   const gistSlug = filtering ? gistParam(location.search) : null;
+  const gistReactions = useGistReactions(gistSlug);
   const [opened, setOpened] = React.useState(null);
   const [panelWidth, setPanelWidth] = React.useState(() => readWidth(PANEL_WIDTH) ?? undefined);
   const gistState = React.useMemo(() => ({
@@ -460,7 +472,7 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
         </section></div>
       </main>
       {gistSlug && (
-        <FeedGistPanel slug={gistSlug} opened={opened} store={store} onClose={closeGist} onMissing={dropGist}
+        <FeedGistPanel slug={gistSlug} opened={opened} store={store} reactions={gistReactions} onClose={closeGist} onMissing={dropGist}
           width={panelWidth} onWidthChange={keepWidth} />)}
     </div>
   );
@@ -738,6 +750,8 @@ function PrivacyApp({ saves, location, navigate, theme, onToggleTheme }) {
         <p>Your saves are then stored in Google Cloud Firestore under your account, where only you can read them.
           Each save is the item&apos;s id, the edition or weekly issue it came from, and when you saved it. Firebase
           keeps you signed in using this browser&apos;s storage.</p>
+        <p>When you react to a gist with an emoji, Firestore holds your Google account id, the gist, the emoji and the
+          time, and no one but you can read it. The public counts beside each gist are only numbers.</p>
 
         <h2 className="ldg-section-h">Deleting</h2>
         <p>Unstar an item to delete its save. To delete your account and all its saves, email {contact}.</p>
@@ -824,6 +838,8 @@ function GistApp({ saves: store, route, location, navigate, theme, onToggleTheme
   const saved = React.useMemo(() => new Set(saves.map((save) => save.item_id)), [saves]);
   const { subscribed } = React.useContext(AccountContext);
   const headerProps = useHeaderAccount(navigate);
+  // The reaction row is drawn after mount only: the server's markup has none.
+  const gistReactions = useGistReactions(mounted ? route.slug : null);
   const ready = state.status === "ready" && state.gist.slug === route.slug;
   React.useEffect(() => { if (ready) document.title = gistHead(state.gist).title; }, [ready, state.gist]);
 
@@ -848,7 +864,7 @@ function GistApp({ saves: store, route, location, navigate, theme, onToggleTheme
   return (
     <GistPage gist={gist} more={more} theme={mounted ? theme : "light"} shellTheme={mounted ? theme : undefined} onToggleTheme={onToggleTheme} headerProps={mounted ? headerProps : {}}
       banner={<><StickyBanner saveCount={mounted ? saves.length : 0} /><SignInFailed /></>}
-      saved={saved} onToggleSave={toggle} showSubscribe={!mounted || showSubscribeOptions(subscribed)} />);
+      saved={saved} onToggleSave={toggle} reactions={gistReactions} showSubscribe={!mounted || showSubscribeOptions(subscribed)} />);
 }
 
 // /weekly - every published issue, newest first. Issue links are plain hrefs:

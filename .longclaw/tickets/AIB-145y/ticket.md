@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-15T14:54:07.856Z
+updated_at: 2026-11-15T16:07:31.735Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -117,7 +117,7 @@ added_by:
 - [ ] 10. app-reactions (second PR) <!-- longclaw:item=ck_6684cc60 -->
 - [x] 10.1 T30: reactions spec <!-- longclaw:item=ck_30babd49 -->
 - [x] 10.2 T31: rules and emulator tests <!-- longclaw:item=ck_6d757e54 -->
-- [ ] 10.3 P5: publisher deploys the Firestore rules <!-- longclaw:item=ck_7173a9bc -->
+- [x] 10.3 P5: publisher deploys the Firestore rules <!-- longclaw:item=ck_7173a9bc -->
 - [ ] 10.4 T32: reactions in the app <!-- longclaw:item=ck_759600ee -->
 - [ ] 11. newsletter-gist-links (second PR) <!-- longclaw:item=ck_ca91f71f -->
 - [ ] 11.1 T33: newsletter spec <!-- longclaw:item=ck_ba3092dd -->
@@ -1256,6 +1256,21 @@ actor:
   id: local
 changes:
   - field: checklist.ck_6d757e54.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_aa90e3ea
+kind: update
+occurred_at: 2026-11-15T16:07:31.735Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_7173a9bc.checked
     from: "false"
     to: "true"
 -->

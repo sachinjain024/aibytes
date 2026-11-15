@@ -681,6 +681,23 @@ update, sign-in ask when signed out) wired into the page and the panel.
 **Verification:** web tests; dev server against the real project.
 **Dependencies:** T31. **Size:** M.
 
+**Built 16 Nov 2026, not yet done** (browser check open). `reactionKeys.js` (the eight
+keys, `pressed`, and the `barProps` adapter, no Firebase so it stays out of the first
+paint), `reactions.js` (the store: `load` never rejects, `toggle` is one batch of
+`increment`s and does nothing until `mine` has loaded), `useReactions` in `hooks.js`
+(optimistic press, undo with the spec's line, signed-out press calls sign-in and applies
+nothing, one write at a time), `GistActions` takes `reactions`, the page draws it after
+mount only, the panel gets it from `App.jsx`, one sentence on `/privacy`, two CSS rules
+in `components.css`. `reactions.test.js`: the key table, `pressed`, `barProps` (a signed-in
+👍 with total 1 shows 1, not 2) and, on the emulator, the store under the real rules:
+63 pass in `test:rules`, 184 in `npm test`, the design-system 90 and the Python
+design-system suite pass, `build:web` builds and the built gist page has no reaction
+markup. Not covered by a test: the hook's undo-on-refusal and the signed-out press
+(there is no DOM test harness; the store's refusal is tested, the screen's undo is not).
+Checked in a browser, signed out, on the dev server against the real project: the bar
+draws with eight unpressed buttons and no error line. Not checked: a signed-in press,
+reload, a second browser, the panel, 375px, dark theme (the browser connection dropped).
+
 ## Module 9: `newsletter-gist-links`
 
 ### T33: newsletter spec
