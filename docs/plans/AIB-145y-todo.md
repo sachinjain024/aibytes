@@ -646,7 +646,9 @@ another's; only the eight keys, no duplicate; exact fields on both documents
 (`hasOnly`) and `updated_at == request.time`; counts move only by the reader's own
 one-key change, never alone, never by two, never below 0; counts cannot be deleted;
 two readers add up and a delete subtracts; anyone can `get` counts and nobody can
-`list`. The `getAfter()` rule is proved first.
+`list`. A missing counts or reader document counts as zeros or the empty set (the
+first reaction and the last removal pass); an empty `picked` is refused. The
+`getAfter()` rule is proved first.
 
 **Acceptance criteria:**
 - [ ] `npm run test:rules -w @aibytes/web` covers each rule.

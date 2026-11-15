@@ -33,8 +33,8 @@ emoji in one table:
 | 😄 | `laugh` | | 👀 | `eyes` |
 | 🎉 | `hooray` | | 😕 | `confused` |
 
-Adding a ninth later is a rules change and a publisher deploy; nothing else stores
-the list.
+Adding a ninth later is four changes together: the rules and a publisher deploy, the
+app's key table, Ledger's `REACTIONS` (and `ReactionBar`), and the counts shape.
 
 ## The data
 
@@ -43,14 +43,16 @@ Two collections, both keyed by the gist's slug (the contract's slug rule,
 
 ```
 gist_reactions/{slug}/by/{uid}   what one reader chose
-  keys:        string[]          a set of the eight keys, each at most once, 1 to 8 long
+  picked:      string[]          a set of the eight keys, each at most once, 1 to 8 long
   updated_at:  timestamp         the server time of the write (== request.time)
 
 gist_reaction_counts/{slug}      what everyone chose, as numbers
   plus1, minus1, laugh, hooray, confused, heart, rocket, eyes:  integer, 0 or more
 ```
 
-**Exact shapes.** A reader document has exactly `keys` and `updated_at`, nothing else.
+**Exact shapes.** A reader document has exactly `picked` and `updated_at`, nothing else. The field is
+not called `keys` because `d.keys()` is the rules language's method for a map's field
+names, and a field of that name invites mixing the two up in T31.
 A counts document has exactly the eight integer fields, nothing else, so neither
 collection can be used as free storage, and the counts document is world-readable.
 (This is how `saves` and `subscribers` are already held: `hasOnly`.)
@@ -69,9 +71,9 @@ public without exposing anyone, and one read replaces eight queries.
 
 ```
 match /gist_reactions/{slug}/by/{uid} {
-  allow read:   if isOwner(uid);
+  allow get:    if isOwner(uid);   // and no list, as for subscribers
   allow create, update: if isOwner(uid) && isGoogle() && isSlug(slug)
-                        && isReaderDoc(request.resource.data)   // hasOnly keys, updated_at; updated_at == request.time
+                        && isReaderDoc(request.resource.data)   // hasOnly picked, updated_at; updated_at == request.time
                         && countsAfterMatch(slug, uid);
   allow delete: if isOwner(uid) && isGoogle() && isSlug(slug) && countsAfterMatch(slug, uid);
 }
@@ -88,7 +90,7 @@ match /gist_reaction_counts/{slug} {
   (`request.auth.token.firebase.sign_in_provider == 'google.com'`).
 - **Your own document only.** `by/{uid}` is readable and writable by that uid and no
   one else, and the owner alone can read it.
-- **Only the eight.** `keys` has 1 to 8 entries, all from the table, no repeats
+- **Only the eight.** `picked` has 1 to 8 entries, all from the table, no repeats
   (checked as a set).
 - **Counts cannot be set by hand.** A counts write is allowed only in the same
   batched write as a reader-document change, and only when the new counts differ
@@ -97,9 +99,16 @@ match /gist_reaction_counts/{slug} {
   `getAfter()` against `get()` of the same pair of documents. The app always writes
   the two together in one `writeBatch`; a reader document written alone, or counts
   written alone, is refused.
-- **Exact fields.** A reader document with any field beyond `keys` and `updated_at`,
+- **Exact fields.** A reader document with any field beyond `picked` and `updated_at`,
   or a counts document with any field beyond the eight, is refused; `updated_at` must
   equal the server time of the write.
+- **A missing document is a value, not an error.** `get()` and `getAfter()` on a
+  document that does not exist make the rule fail, so every helper tests
+  `exists()` or `existsAfter()` first. A missing counts document means eight zeros; a
+  missing reader document means the empty set. `countsFollowReader(slug)` looks only
+  at `gist_reactions/{slug}/by/{request.auth.uid}`, before and after. This is what
+  lets the first reaction to a gist create the counts document and the last
+  reaction's removal delete the reader document, the two happy paths T31 must prove.
 - **Counts are public, reader documents are not.** `get` on a counts document is open;
   there is no `list` on either collection.
 - **A change is one emoji.** A single write changes the reader's set by exactly one
@@ -108,7 +117,9 @@ match /gist_reaction_counts/{slug} {
 
 Everything else stays closed, as today. The emulator tests (T31, `rules.test.js`)
 prove: a signed-out reader cannot write; a non-Google sign-in cannot; a reader
-cannot read or write another's document; a ninth key and a duplicate are refused;
+cannot read or write another's document; a ninth key and a duplicate are refused; the first reaction to a gist (no counts
+document yet) is allowed; clearing the last emoji deletes the reader document and
+decrements the counts; an empty `picked` is refused;
 an extra field on a reader document or on a counts document is refused; a client
 cannot delete a counts document; a stale `updated_at` is refused;
 counts cannot be written alone, cannot move by two, cannot go below 0 and cannot
@@ -169,7 +180,9 @@ reactions(db, uid?) → {
   seven as `increment(0)`. It never computes an absolute count from memory, so two
   people toggling one gist at once do not refuse each other, and the first reaction
   to a gist creates a counts document with all eight fields. The rules see the
-  resulting integers.
+  resulting integers. The reader document is written with `setDoc` when the set
+  after the press is not empty, and removed with `deleteDoc` when it would be empty
+  (`picked` may never be empty), in the same batch as the counts change.
 
 - **Display.** `ReactionBar` goes in the `actions` slot of `GistView`, after the save
   row (design D2), on the page and in the panel, as `GistActions` already does for
@@ -182,7 +195,12 @@ reactions(db, uid?) → {
 - **Pressing, signed out.** The existing Google sign-in opens. The press is not
   applied afterwards; the reader presses again **(Decide 2)**.
 - **When the counts will not load.** The bar still shows, with no numbers. A
-  signed-in press still tries to write. No error is shown for a read that fails.
+  signed-in press still tries to write: the counts write is `increment`, so a missing
+  total does not matter. No error is shown for a read that fails.
+- **When the reader's own set will not load.** `mine` is unknown, so a press is held:
+  `toggle` does nothing until `mine` has loaded, because a stale empty set would write
+  the wrong `picked` array and the wrong `increment` sign. The bar tells the reader
+  once, "Could not load your reactions. Try again.", and a retry reloads.
 - **Switching gists in the panel.** `load` runs for the new gist; the old gist's
   numbers are not shown on the new one for even a frame (the bar is keyed by slug).
 - **Sign-in and out.** Signing in loads the reader's own set; signing out clears the
@@ -223,7 +241,7 @@ npm run dev:web                         # http://localhost:5173/, against the re
 | Task | Tests |
 |---|---|
 | T31 | Emulator rules, as listed under "The rules". Added to `test:rules`'s file list in `apps/web/package.json`. |
-| T32 | `reactions.test.js`: `toggle` adds then removes one key and writes both documents in one batch; two presses in a row stay consistent; a refused write rejects and the store reports it; `load` returns zeros for a gist with no counts document; the key table has eight entries in the Ledger order. Wiring: the bar sits in `GistActions` and re-keys on a slug change; the signed-out press calls sign-in and writes nothing. |
+| T32 | `reactions.test.js`: `toggle` adds then removes one key and writes both documents in one batch; two presses in a row stay consistent; a refused write rejects and the store reports it; `load` returns zeros for a gist with no counts document; the key table has eight entries in the Ledger order; adding the only key creates the reader document and removing it deletes the document and decrements the counts; `toggle` does nothing while `mine` has not loaded. Wiring: the bar sits in `GistActions` and re-keys on a slug change; the signed-out press calls sign-in and writes nothing. One `GistActions` case pins the adapter: the bar's counts are `totals` minus `mine`, keyed by emoji, so a signed-in 👍 with `totals.plus1 === 1` renders 1, not 2. |
 | T32 browser | After P5, on the real project, in both themes at 1440px and 375px: a press shows at once and survives a reload; a second browser sees the count after a reload; signed out, a press opens sign-in and writes nothing; Back and the panel's close do not lose a press; the page's server markup is unchanged. |
 
 ## Success criteria
