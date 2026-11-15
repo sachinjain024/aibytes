@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-15T12:55:07.103Z
+updated_at: 2026-11-15T14:54:07.856Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -116,7 +116,7 @@ added_by:
 - [ ] 9.4 Checkpoint E: launch-ready; PR #65 squash-merged 13 Nov (gists live in the daily run), PR #68 (panel, T27-T29) still to squash-merge <!-- longclaw:item=ck_fc76f81a -->
 - [ ] 10. app-reactions (second PR) <!-- longclaw:item=ck_6684cc60 -->
 - [x] 10.1 T30: reactions spec <!-- longclaw:item=ck_30babd49 -->
-- [ ] 10.2 T31: rules and emulator tests <!-- longclaw:item=ck_6d757e54 -->
+- [x] 10.2 T31: rules and emulator tests <!-- longclaw:item=ck_6d757e54 -->
 - [ ] 10.3 P5: publisher deploys the Firestore rules <!-- longclaw:item=ck_7173a9bc -->
 - [ ] 10.4 T32: reactions in the app <!-- longclaw:item=ck_759600ee -->
 - [ ] 11. newsletter-gist-links (second PR) <!-- longclaw:item=ck_ca91f71f -->
@@ -1243,6 +1243,21 @@ changes:
   - field: checklist.ck_6684cc60.checked
     from: "true"
     to: "false"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_09c29867
+kind: update
+occurred_at: 2026-11-15T14:54:07.856Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_6d757e54.checked
+    from: "false"
+    to: "true"
 -->
 ### You updated this ticket
 <!-- /longclaw:event -->

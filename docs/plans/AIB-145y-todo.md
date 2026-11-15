@@ -656,6 +656,18 @@ first reaction and the last removal pass); an empty `picked` is refused. The
 
 **Verification:** the rules tests. **Dependencies:** T30. **Size:** S.
 
+**Done 15 Nov 2026:** rules at the foot of `firestore.rules`; 25 emulator cases in
+`apps/web/reactions.rules.test.js`, added to `test:rules` (47 pass in all). The tests
+send the exact batch the spec gives for T32 (`set` or `delete` of the reader document,
+the counts document `merge`d with `increment`), so they prove the rules accept what the
+app will write. The `getAfter()` rule is expressible, including the first reaction (no
+counts document) and the last removal (reader document deleted). One thing the spec
+did not say: the rules are capped at 1000 expressions a request, so the counts check
+binds everything once with `let`; the first version, which recomputed the reader's set
+per key, hit the cap. Mutation-checked: weakening the counts check, the counts delete,
+the Google check, `updated_at` or the duplicate check each fails its own test. Not done:
+P5, the publisher's deploy.
+
 ### T32: reactions in the app
 
 **Description:** A `reactions.js` store (read counts, toggle, optimistic
