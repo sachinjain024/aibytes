@@ -66,7 +66,7 @@ The 16:9 illustrated banner tried on the Issue 16 backfill (`issue-16-banner.png
 
 ### 5. Hero banner prompt for an image model
 
-From Issue 17 the publisher also makes an illustrated hero banner in an image model (Gemini for Issue 17) and uses it as the post's thumbnail. Claude writes the prompt; the publisher generates the image and hands it back, and Claude saves it as `thumbnails/issue-{num}-hero.png`.
+From Issue 17 the publisher also makes an illustrated hero banner in an image model (Gemini for Issue 17) and uses it as the post's thumbnail. Claude writes the prompt; the publisher generates the image and hands it back, and Claude saves a compressed copy as `thumbnails/issue-{num}-hero.jpg` (see "Saving the hero" below).
 
 What worked on Issue 17 (`week-46-Issue-17/thumbnails/issue-17-hero.png`): an **editorial scene of the story's mechanism, with no character**, set on the background from the style guide in `docs/image-guide/AI Bytes Image Generation Style Guide.pdf`. The guide's playful 2D character version was tried and rejected. Build the prompt from these parts:
 
@@ -78,6 +78,16 @@ What worked on Issue 17 (`week-46-Issue-17/thumbnails/issue-17-hero.png`): an **
 - **Avoid**: real company logos, readable real email addresses, hoodie hackers, skulls, red alarm colors, photorealism, 3D, neon, and any text besides the headline, the attribution and the scene's one label.
 
 Before saving the result, look at it for model artefacts (stray marks beside the attribution, a provider watermark in a corner) and tell the publisher what to crop or regenerate.
+
+**Name no real person in the prompt.** Gemini refuses any prompt that names a public figure ("I can't depict some public figures"), even with no person in the scene. Issue 18's first prompt named Jensen Huang in the headline and was refused; the one that worked said "The chipmaker loses its CEO and Anthropic files for IPO". Companies are fine.
+
+#### Saving the hero
+
+Never commit the model's original. Gemini returns a PNG of about 5MB at 2752x1536; git keeps every binary forever, and Issue 17's 4.4MB hero is already the largest file in the repo. Substack shows the banner at most 1456px wide and recompresses uploads, so the extra pixels are never seen.
+
+1. **Remove the provider watermark.** Gemini puts a faint four-point sparkle in the bottom-right corner, about 100px across at full size. Crop the corner, look at it, then fill the sparkle's box by blending from its four edges (each pixel the average of the horizontal and vertical interpolations between the box's edge pixels), not with one flat colour, which leaves a visible seam. Keep the box clear of nearby shapes and their shadows, or they smear into it. Look at the corner again afterwards.
+2. **Resize and compress** with Pillow: Lanczos down to 1456px wide, then save as a progressive JPEG, quality 85, `optimize=True`. Issue 18 went from 4.7MB to 122KB with no visible loss on the flat vector art. Keep it under 200KB.
+3. Save it as `thumbnails/issue-{num}-hero.jpg`. Leave the original where the publisher downloaded it, since they upload either one to Substack (Settings → Social preview, or as the post's cover).
 
 ## Design
 

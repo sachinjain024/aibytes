@@ -1,0 +1,406 @@
+{
+  "schema_version": 1,
+  "number": 18,
+  "slug": "issue-18",
+  "title": "👔 Jensen Huang leaves Nvidia and Anthropic files to go public",
+  "description": "Plus Apple's Harbor app for running local models on a Mac, t3code for driving Claude Code from your phone, and AI agents that rediscovered a Maya site.",
+  "published_on": "2026-11-16",
+  "generated_at": "2026-11-15T10:28:34Z",
+  "counts": {
+    "launches": 5,
+    "repos": 6,
+    "news": 6,
+    "hn": 5
+  },
+  "items": [
+    {
+      "id": "tc-jensen-huang-is-out-at-nvidia-issue-18",
+      "title": "Jensen Huang is out at Nvidia",
+      "summary": "He resigned as CEO and from the board after reports of affairs, including one with an alleged Chinese spy. CFO Colette Kress is interim CEO while the board searches for a successor.",
+      "url": "https://techcrunch.com/2026/11/12/jensen-huang-is-out-at-nvidia-who-is-colette-kress-his-interim-replacement/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/12/jensen-huang-is-out-at-nvidia-who-is-colette-kress-his-interim-replacement/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 1
+    },
+    {
+      "id": "hn-nvidia-allegedly-engineered-scarcity-by-funding-issue-18",
+      "title": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
+      "summary": "Relaying Wall Street Journal reporting, it says the deals kept demand looking strong and soaked up surplus TSMC supply.",
+      "url": "https://www.techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus",
+      "source": "hackernews",
+      "source_url": "https://www.techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 2
+    },
+    {
+      "id": "tc-huang-s-exit-leaves-a-hole-in-ai-startup-funding-issue-18",
+      "title": "Huang's exit leaves a hole in AI startup funding",
+      "summary": "Nvidia backed neoclouds, inference providers and open-weight labs. Founders and VCs expect smaller checks and lower valuations under a more cautious interim CEO.",
+      "url": "https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 3
+    },
+    {
+      "id": "hn-goldman-sachs-is-pulling-claude-code-from-its-ba-issue-18",
+      "title": "Goldman Sachs is pulling Claude Code from its bankers and traders",
+      "summary": "Claude Code and GitHub are now limited to engineers and strats, after a review of \"productivity and risk concerns\", Bloomberg reported.",
+      "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
+      "source": "hackernews",
+      "source_url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 4
+    },
+    {
+      "id": "hn-united-airlines-bans-ai-agents-from-booking-flig-issue-18",
+      "title": "United Airlines bans AI agents from booking flights for travelers",
+      "summary": "It cites the risk of handing account logins to AI assistants, and federal rules that need a human for steps like check-in.",
+      "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+      "source": "hackernews",
+      "source_url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 5
+    },
+    {
+      "id": "hn-apple-has-a-mac-app-coming-to-make-running-local-issue-18",
+      "title": "Apple has a Mac app coming to make running local AI models easy",
+      "summary": "Harbor turns a Mac into a private AI server for open-weight models, and can pool several Macs over Thunderbolt 5.",
+      "url": "https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/",
+      "source": "hackernews",
+      "source_url": "https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "rank": 6
+    },
+    {
+      "id": "ph-alsona-issue-18",
+      "title": "Alsona",
+      "summary": "AI agents that track 32+ buying signals, score companies against your ICP and write the LinkedIn and email outreach.",
+      "url": "https://alsona.com/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/alsona",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 510
+      },
+      "rank": 7
+    },
+    {
+      "id": "ph-product-hunt-mcp-issue-18",
+      "title": "Product Hunt MCP",
+      "summary": "ask your AI assistant about new launches and alternatives, or turn your README into a launch draft.",
+      "url": "https://www.producthunt.com/mcp/install",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/mcp/install",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 443
+      },
+      "rank": 8
+    },
+    {
+      "id": "ph-plurai-simulation-issue-18",
+      "title": "Plurai Simulation",
+      "summary": "one command in Claude Code, Codex or Copilot builds a digital twin of your agent's world, with synthetic personas and mocked tools, to find its worst bugs first.",
+      "url": "https://simulation.plurai.ai/connect",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/plurai",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 411
+      },
+      "rank": 9
+    },
+    {
+      "id": "ph-templify-ai-issue-18",
+      "title": "Templify AI",
+      "summary": "an iPhone editor that turns clips into Reels, TikToks and Shorts from 1,200+ templates, with AI editing and auto captions.",
+      "url": "https://templify.video/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/templify",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 391
+      },
+      "rank": 10
+    },
+    {
+      "id": "ph-dageno-ai-2-0-issue-18",
+      "title": "Dageno AI 2.0",
+      "summary": "shows whether ChatGPT, Gemini, Perplexity and 7 more models recommend you or your competitors, and which sources drive it.",
+      "url": "https://dageno.ai/",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/agent-powered-geo-by-dageno",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 381
+      },
+      "rank": 11
+    },
+    {
+      "id": "gh-pingdotgg-t3code-issue-18",
+      "title": "pingdotgg/t3code",
+      "summary": "Control Claude Code, Codex and more from any computer or phone.",
+      "url": "https://github.com/pingdotgg/t3code",
+      "source": "github",
+      "source_url": "https://github.com/pingdotgg/t3code",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/pingdotgg.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 10130
+      },
+      "rank": 12
+    },
+    {
+      "id": "gh-google-elephant-goldfish-model-issue-18",
+      "title": "google/elephant-goldfish-model",
+      "summary": "An open-source plugin for designing and reviewing software with agents.",
+      "url": "https://github.com/google/elephant-goldfish-model",
+      "source": "github",
+      "source_url": "https://github.com/google/elephant-goldfish-model",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/google.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 5560
+      },
+      "rank": 13
+    },
+    {
+      "id": "gh-vercel-labs-agent-desktop-issue-18",
+      "title": "vercel-labs/agent-desktop",
+      "summary": "A computer-use CLI for AI agents.",
+      "url": "https://github.com/vercel-labs/agent-desktop",
+      "source": "github",
+      "source_url": "https://github.com/vercel-labs/agent-desktop",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/vercel-labs.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 5408
+      },
+      "rank": 14
+    },
+    {
+      "id": "gh-zhulinsen-daily-stock-analysis-issue-18",
+      "title": "ZhuLinsen/daily_stock_analysis",
+      "summary": "An LLM-powered stock analysis system across markets, with real-time news, a decision dashboard and free scheduled runs.",
+      "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "source": "github",
+      "source_url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/ZhuLinsen.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 3778
+      },
+      "rank": 15
+    },
+    {
+      "id": "gh-googlechrome-modern-web-guidance-src-issue-18",
+      "title": "GoogleChrome/modern-web-guidance-src",
+      "summary": "Keeps your coding agent up to date with the latest web best practices.",
+      "url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+      "source": "github",
+      "source_url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/GoogleChrome.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 3377
+      },
+      "rank": 16
+    },
+    {
+      "id": "gh-herdrdev-herdr-issue-18",
+      "title": "herdrdev/herdr",
+      "summary": "The runtime your coding agents live on.",
+      "url": "https://github.com/herdrdev/herdr",
+      "source": "github",
+      "source_url": "https://github.com/herdrdev/herdr",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/herdrdev.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 2423
+      },
+      "rank": 17
+    },
+    {
+      "id": "hn-my-ai-agents-found-an-unmapped-maya-site-issue-18",
+      "title": "My AI agents found an unmapped Maya site?",
+      "summary": "A post on pietromiotti.com, discussed on Hacker News.",
+      "url": "https://pietromiotti.com/latest/maya-site",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50452455",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 1035,
+        "comments": 392
+      },
+      "rank": 18
+    },
+    {
+      "id": "hn-ai-usage-generates-a-fragile-codebase-issue-18",
+      "title": "AI usage generates a fragile codebase",
+      "summary": "A post on evanxmerz.com, discussed on Hacker News.",
+      "url": "https://evanxmerz.com/post/ai-usage-generates-a-fragile-codebase/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50438318",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 643,
+        "comments": 626
+      },
+      "rank": 19
+    },
+    {
+      "id": "hn-i-m-not-convinced-the-ai-bubble-exists-issue-18",
+      "title": "I'm not convinced the AI bubble exists",
+      "summary": "A post on matteoraso.github.io, discussed on Hacker News.",
+      "url": "https://matteoraso.github.io/im-not-convinced-the-ai-bubble-exists.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50418975",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 578,
+        "comments": 974
+      },
+      "rank": 20
+    },
+    {
+      "id": "hn-jonathan-blow-if-ai-solved-coding-why-is-my-soft-issue-18",
+      "title": "Jonathan Blow - If AI solved coding, why is my software still the same?",
+      "summary": "A post on youtube.com, discussed on Hacker News.",
+      "url": "https://www.youtube.com/watch?v=IRK8h67ol7Q",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50484658",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 466,
+        "comments": 678
+      },
+      "rank": 21
+    },
+    {
+      "id": "hn-ai-unlocks-g-del-s-notebooks-said-to-contain-hun-issue-18",
+      "title": "AI unlocks Gödel's notebooks, said to contain hundreds of proved theorems",
+      "summary": "A post on theguardian.com, discussed on Hacker News.",
+      "url": "https://www.theguardian.com/science/2026/nov/13/kurt-godel-notebooks-ai-helps-unlock-hidden-discoveries-man-who-transformed-maths",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50486748",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 426,
+        "comments": 108
+      },
+      "rank": 22
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "source": "github-trending",
+  "section": "trending-repos",
+  "fetched_at": "2026-11-15",
+  "query_params": {
+    "since": "weekly",
+    "languages": [
+      "all",
+      "python",
+      "typescript",
+      "jupyter-notebook",
+      "rust",
+      "go",
+      "javascript"
+    ],
+    "count": 6,
+    "topic": "ai",
+    "ranking": "period_stars,total_stars"
+  },
+  "totalCount": 59,
+  "poolCount": 96,
+  "repos": [
+    {
+      "name": "pingdotgg/t3code",
+      "url": "https://github.com/pingdotgg/t3code",
+      "description": "The best way to control Claude Code, Codex and more from any computer or phone",
+      "language": "TypeScript",
+      "stars": 60556,
+      "forks": 10905,
+      "period_stars": 10130
+    },
+    {
+      "name": "google/elephant-goldfish-model",
+      "url": "https://github.com/google/elephant-goldfish-model",
+      "description": "Open-source plugin for designing and reviewing software with agents",
+      "language": "Python",
+      "stars": 19162,
+      "forks": 1420,
+      "period_stars": 5560
+    },
+    {
+      "name": "vercel-labs/agent-desktop",
+      "url": "https://github.com/vercel-labs/agent-desktop",
+      "description": "Computer use CLI for AI agents",
+      "language": "Rust",
+      "stars": 23733,
+      "forks": 1767,
+      "period_stars": 5408
+    },
+    {
+      "name": "ZhuLinsen/daily_stock_analysis",
+      "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+      "description": "LLM 驱动的多市场股票智能分析系统：多源行情、实时新闻、决策看板与自动推送，支持零成本定时运行。 LLM-powered multi-market stock analysis system with multi-source market data, real-time news, decision dashboard, automated notifications, and cost-free scheduled runs.",
+      "language": "Python",
+      "stars": 72247,
+      "forks": 57475,
+      "period_stars": 3778
+    },
+    {
+      "name": "GoogleChrome/modern-web-guidance-src",
+      "url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+      "description": "Keep your coding agent up to date with the latest web best practices",
+      "language": "TypeScript",
+      "stars": 5965,
+      "forks": 398,
+      "period_stars": 3377
+    },
+    {
+      "name": "herdrdev/herdr",
+      "url": "https://github.com/herdrdev/herdr",
+      "description": "the runtime your coding agents live on",
+      "language": "Rust",
+      "stars": 50985,
+      "forks": 4128,
+      "period_stars": 2423
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>👔 Jensen Huang leaves Nvidia and Anthropic files to go public</title>
+<meta name="description" content="Plus Apple's Harbor app for running local models on a Mac, t3code for driving Claude Code from your phone, and AI agents that rediscovered a Maya site.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
+    --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--cobalt);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px 56px}
+
+  header{padding:36px 0 0}
+  .issue-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--slate);display:flex;justify-content:space-between;margin-bottom:12px}
+  .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
+  .logo em{font-style:normal;color:var(--cobalt)}
+
+
+  section{margin-top:34px}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--paper);background:var(--ink);padding:2px 7px}
+  .sec-title{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+  .sec-rule{flex:1;height:2px;background:var(--ink)}
+
+  /* ── Intro block ── */
+  .intro{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 22px;margin-bottom:18px}
+  .intro p{font-size:15.5px;line-height:1.65;margin-bottom:14px;color:#3A3E4A}
+  .intro p:last-child{margin-bottom:0}
+  .intro .greet{color:var(--ink)}
+  .intro b{color:var(--ink);font-weight:700}
+  /* Table of contents: closes the intro. The label speaks in the storyline lead's
+       voice (body face, bold ink); the rows sit smaller and lighter beneath it. */
+  .intro .toc-label{color:var(--ink);font-weight:700;margin-bottom:4px}
+  .toc{border-top:1px solid var(--line)}
+  .toc .r{display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:baseline;padding:5px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+  .toc .r:last-child{border-bottom:none;padding-bottom:0}
+  .toc .m{font-family:var(--mono);font-size:10.5px;font-weight:500;color:var(--slate)}
+  .toc .n{color:#3A3E4A;font-weight:500}
+  .toc .d{font-family:var(--mono);font-size:11px;color:var(--slate);white-space:nowrap}
+
+  /* ── News card ── */
+  .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
+  .news-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;color:var(--cobalt);letter-spacing:.02em;margin-bottom:14px}
+  .news-item{font-size:15.5px;margin-bottom:14px;line-height:1.6}
+  .news-item:last-of-type{margin-bottom:0}
+  .news-item b a{font-weight:700}
+  .src{font-family:var(--mono);font-size:12px;color:var(--slate)}
+  /* Attribution links stay grey and quiet - the headline link is the loud one. */
+  .src a{color:var(--slate);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+  .src a:hover{color:var(--ink)}
+  .quote{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px 18px;margin-top:18px}
+  .quote p{font-size:15px;color:#3A3E4A}
+
+  /* ── Official Announcements: the companies' own posts on X, whole and verbatim ──
+       Ink card, sibling of the AI News card. Each entry is a byline, the post in a
+       paper inset (the same treatment as the AI News quote, so the words read as
+       theirs), and a mono footer with the post and the official page. ── */
+  .oa-card{border:1.5px solid var(--ink);border-radius:14px;padding:20px 22px;background:var(--card);margin-top:18px}
+  .oa-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.02em}
+  .oa-card .card-sub{font-size:13.5px;color:var(--slate);margin:2px 0 6px}
+  .oa-item{padding:14px 0;border-bottom:1px solid var(--line)}
+  .oa-item:last-child{border-bottom:none;padding-bottom:0}
+  .oa-by{font-size:14.5px;margin-bottom:8px}
+  .oa-by b{color:var(--ink)}
+  .oa-by span{font-family:var(--mono);font-size:11px;color:var(--slate)}
+  .oa-post{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px 4px;margin-bottom:8px}
+  .oa-post p{font-size:15px;line-height:1.55;color:#3A3E4A;margin-bottom:8px}
+  .oa-links{font-family:var(--mono);font-size:11.5px;color:var(--slate)}
+  .oa-links .dot{color:var(--line)}
+
+  /* ── Ticker rows ── */
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .ico{width:22px;text-align:center;flex-shrink:0}
+  .row .txt{flex:1}
+  .row .txt b{font-weight:600}
+  .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
+  .stat b{color:var(--cobalt);font-weight:700}
+  .hot{background:var(--signal);padding:0 4px;font-weight:600}
+  /* Viral on X rows: emoji, the author's @handle in cobalt (linked to the profile),
+       then the post's own words in body grey. */
+  .sec-sub{font-size:14px;color:var(--slate);margin:-4px 0 6px}
+  .row .txt a.post{color:#3A3E4A}
+  .row .txt a.post:hover{color:var(--cobalt)}
+  .cut{color:var(--slate)}
+
+  footer{margin-top:48px;border-top:3px solid var(--ink);padding-top:20px;text-align:center}
+  footer p{color:var(--slate);font-size:13.5px}
+  .foot-links{margin-top:10px;font-family:var(--mono);font-size:12.5px;display:flex;gap:20px;justify-content:center}
+  @media (max-width:480px){ .row{flex-wrap:wrap} .stat{margin-left:34px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+
+  <header>
+    <div class="issue-tag"><span>ISSUE 0x12 · TL;DR</span><span>2026-11-16 · ~6 MIN</span></div>
+    <div class="logo">⚡ aiBytes<em>_</em> #18</div>
+  </header>
+
+  <section>
+    <div class="intro">
+      <p class="greet">Hello, AI enthusiasts 👋</p>
+      <p>Welcome back to your weekly dose of aiBytes_. I guess by now you already know this: the biggest news of last week was Jensen Huang resigning as Nvidia's CEO after 33 years, weeks after <a href="https://techcrunch.com/2026/11/13/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/">reports tied him to an alleged Chinese spy</a>. It cost Nvidia dearly. The stock fell 14% at Thursday's open, wiping out about $546 billion in market value, and by Friday's close Nvidia was worth less than $4 trillion for the first time since July 2025.</p>
+      <p><b>The other big money story was Anthropic</b>: it filed to list on Nasdaq, and its seven co-founders <a href="https://www.bloomberg.com/news/articles/2026-11-10/anthropic-founders-to-cash-out-1-75-billion-in-blockbuster-ipo">will sell $1.75 billion of stock</a> in the offering, about $250 million each. Elsewhere, Goldman Sachs took Claude Code away from its bankers and traders, and United Airlines blocked AI agents from booking its flights.</p>
+      <p class="toc-label">In this issue</p>
+      <div class="toc">
+<div class="r"><span class="m">🌍</span><span class="n">AI News</span><span class="d">6 stories</span></div>
+<div class="r"><span class="m">📣</span><span class="n">Official Announcements</span><span class="d">Anthropic · OpenAI · Meta · Google</span></div>
+<div class="r"><span class="m">0x02</span><span class="n">Viral on X</span><span class="d">4 posts</span></div>
+<div class="r"><span class="m">0x03</span><span class="n">New AI Products</span><span class="d">5 launches</span></div>
+<div class="r"><span class="m">0x04</span><span class="n">Trending Github Projects</span><span class="d">6 repos</span></div>
+<div class="r"><span class="m">0x05</span><span class="n">HN Deep Stories</span><span class="d">5 threads</span></div>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-title">🌍 AI NEWS</div>
+
+      <p class="news-item">👔 <b><a href="https://techcrunch.com/2026/11/12/jensen-huang-is-out-at-nvidia-who-is-colette-kress-his-interim-replacement/">Jensen Huang is out at Nvidia</a></b> He resigned as CEO and from the board after reports of affairs, including one with an alleged Chinese spy. CFO Colette Kress is interim CEO while the board searches for a successor. <span class="hot">Story of the week</span> <span class="src">(TechCrunch)</span></p>
+<p class="news-item">🎯 <b><a href="https://www.techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus">Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs</a></b> Relaying Wall Street Journal reporting, it says the deals kept demand looking strong and soaked up surplus TSMC supply. <span class="src">(HackerNews)</span></p>
+<p class="news-item">💸 <b><a href="https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/">Huang's exit leaves a hole in AI startup funding</a></b> Nvidia backed neoclouds, inference providers and open-weight labs. Founders and VCs expect smaller checks and lower valuations under a more cautious interim CEO. <span class="src">(TechCrunch)</span></p>
+<p class="news-item">🏦 <b><a href="https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers">Goldman Sachs is pulling Claude Code from its bankers and traders</a></b> Claude Code and GitHub are now limited to engineers and strats, after a review of "productivity and risk concerns", Bloomberg reported. <span class="src">(HackerNews)</span></p>
+<p class="news-item">✈️ <b><a href="https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/">United Airlines bans AI agents from booking flights for travelers</a></b> It cites the risk of handing account logins to AI assistants, and federal rules that need a human for steps like check-in. <span class="src">(HackerNews)</span></p>
+<p class="news-item">🍎 <b><a href="https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/">Apple has a Mac app coming to make running local AI models easy</a></b> Harbor turns a Mac into a private AI server for open-weight models, and can pool several Macs over Thunderbolt 5. <span class="src">(HackerNews)</span></p>
+
+      <div class="quote">
+        <p>"Nvidia didn't just sell the shovels. It handed out the money to buy them."</p>
+      </div>
+    </div>
+
+    <div class="oa-card">
+      <div class="card-title">📣 OFFICIAL ANNOUNCEMENTS</div>
+      <p class="card-sub">This week's launches, in the companies' own words.</p>
+<div class="oa-item"><div class="oa-by"><b>Anthropic</b> <span>@claudeai · MON 9</span></div><div class="oa-post"><p>Introducing Claude Fable 5.2 and Claude Mythos 5.2, designed to tackle the most daunting technical challenges.</p><p>They’re capable collaborators on ambitious projects in many fields, and show improvements in areas like coding, reasoning, and vision.</p></div><div class="oa-links"><a href="https://x.com/claudeai/status/2119867114450268322">Post on X ↗</a></div></div>
+<div class="oa-item"><div class="oa-by"><b>OpenAI</b> <span>@OpenAI · TUE 10</span></div><div class="oa-post"><p>Now in beta: Businesses in ChatGPT.</p><p>Claim your business, manage your information, and get insights on how people engage with you.</p><p>Eligible businesses can also build a Business Agent to answer customers’ questions and help them explore what you offer.</p><p>https://openai.com/index/introducing-businesses-chatgpt/</p></div><div class="oa-links"><a href="https://x.com/OpenAI/status/2120216592395174382">Post on X ↗</a> <span class="dot">·</span> <a href="https://openai.com/index/introducing-businesses-chatgpt/">openai.com ↗</a></div></div>
+<div class="oa-item"><div class="oa-by"><b>Meta</b> <span>@finkd · MON 9</span></div><div class="oa-post"><p>Releasing Muse Ember today -- our smallest model that delivers higher intelligence per dollar than others in its class. Built for token-heavy work that agents repeat all day: tool calls, coding subtasks, routing, extraction, and long document parsing. Available today on the Meta Model API and in Muse Code.</p></div><div class="oa-links"><a href="https://x.com/finkd/status/2119851180948152590">Post on X ↗</a></div></div>
+<div class="oa-item"><div class="oa-by"><b>Google</b> <span>@Google · THU 12</span></div><div class="oa-post"><p>Meet Gemini 4 Hydrogen.</p><p>It brings cutting-edge intelligence to everyone, with speed and efficiency for everyday coding and agentic work.</p><p>Across 4 thinking levels, it stands on its own or teams up with Carbon and Argon — 2.5X faster than 3.8 Flash, outpacing competing models in its class.</p></div><div class="oa-links"><a href="https://x.com/Google/status/2120941982004523367">Post on X ↗</a></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Viral on X</h2><div class="sec-rule"></div></div>
+    <p class="sec-sub">The AI posts that drew the biggest reaction this week.</p>
+<div class="row"><span class="ico">🔑</span><span class="txt"><b><a href="https://x.com/simonw">@simonw</a></b> <a class="post" href="https://x.com/simonw/status/2120029347948220500">When Anthropic release a new model it's always worth taking a look at their updated prompting guide - here's an entertaining tip to make Fable 5.2 less likely to be cautious in how it improves existing code: tell it "This codebase is yours"</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 4.7k</b></span></div>
+<div class="row"><span class="ico">🧪</span><span class="txt"><b><a href="https://x.com/AnthropicAI">@AnthropicAI</a></b> <a class="post" href="https://x.com/AnthropicAI/status/2121317227618340990">Safety evaluations are critical for understanding whether a model is ready to deploy, which safeguards to build for it, and where to focus training and research. <span class="cut">/</span> On our Engineering Blog, we offer 10 recommendations for how to design, run and report them.</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 2.1k</b></span></div>
+<div class="row"><span class="ico">🎬</span><span class="txt"><b><a href="https://x.com/HyperFrames_">@HyperFrames_</a></b> <a class="post" href="https://x.com/HyperFrames_/status/2121298342701662395">We built a harness that beats Claude Code for video: <span class="cut">/</span> 30% cheaper and 35% fewer model turns with the same quality in blind tests. <span class="cut">/</span> now available in HyperFrames Studio <span class="cut">/</span> Here's how ↓</a></span><span class="stat"><b>♥︎ 2.1k</b></span></div>
+<div class="row"><span class="ico">🛡️</span><span class="txt"><b><a href="https://x.com/Peak__Twilight">@Peak__Twilight</a></b> <a class="post" href="https://x.com/Peak__Twilight/status/2119475616030630059">Introducing: 0 - the open-source AI security harness by @0securitylabs (YC F26). <span class="cut">/</span> It found 30+ Linux kernel 0-days. Then we got backed by @YCombinator <span class="cut">/</span> &gt; Found vulnerabilities in software running on 3+ billion devices &amp; government code from 🇨🇭🇮🇹🇪🇺 + Wireshark, node-forge &amp; jsonata</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 1.3k</b></span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">New AI Products</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🎯</span><span class="txt"><b><a href="https://alsona.com/">Alsona</a></b> - AI agents that track 32+ buying signals, score companies against your ICP and write the LinkedIn and email outreach. <span class="src">(<a href="https://www.producthunt.com/products/alsona">ProductHunt</a>)</span></span><span class="stat"><b>▲ 510</b></span></div>
+<div class="row"><span class="ico">🐱</span><span class="txt"><b><a href="https://www.producthunt.com/mcp/install">Product Hunt MCP</a></b> - ask your AI assistant about new launches and alternatives, or turn your README into a launch draft. <span class="src">(<a href="https://www.producthunt.com/products/producthunt">ProductHunt</a>)</span></span><span class="stat"><b>▲ 443</b></span></div>
+<div class="row"><span class="ico">🧪</span><span class="txt"><b><a href="https://simulation.plurai.ai/connect">Plurai Simulation</a></b> - one command in Claude Code, Codex or Copilot builds a digital twin of your agent's world, with synthetic personas and mocked tools, to find its worst bugs first. <span class="src">(<a href="https://www.producthunt.com/products/plurai">ProductHunt</a>)</span></span><span class="stat"><b>▲ 411</b></span></div>
+<div class="row"><span class="ico">🎞️</span><span class="txt"><b><a href="https://templify.video/">Templify AI</a></b> - an iPhone editor that turns clips into Reels, TikToks and Shorts from 1,200+ templates, with AI editing and auto captions. <span class="src">(<a href="https://www.producthunt.com/products/templify">ProductHunt</a>)</span></span><span class="stat"><b>▲ 391</b></span></div>
+<div class="row"><span class="ico">🔍</span><span class="txt"><b><a href="https://dageno.ai/">Dageno AI 2.0</a></b> - shows whether ChatGPT, Gemini, Perplexity and 7 more models recommend you or your competitors, and which sources drive it. <span class="src">(<a href="https://www.producthunt.com/products/agent-powered-geo-by-dageno">ProductHunt</a>)</span></span><span class="stat"><b>▲ 381</b></span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">Trending Github Projects</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">📱</span><span class="txt"><b><a href="https://github.com/pingdotgg/t3code">pingdotgg/t3code</a></b> - Control Claude Code, Codex and more from any computer or phone.</span><span class="stat"><b>+10,130</b> ★</span></div>
+<div class="row"><span class="ico">🐘</span><span class="txt"><b><a href="https://github.com/google/elephant-goldfish-model">google/elephant-goldfish-model</a></b> - An open-source plugin for designing and reviewing software with agents.</span><span class="stat"><b>+5,560</b> ★</span></div>
+<div class="row"><span class="ico">🖱️</span><span class="txt"><b><a href="https://github.com/vercel-labs/agent-desktop">vercel-labs/agent-desktop</a></b> - A computer-use CLI for AI agents.</span><span class="stat"><b>+5,408</b> ★</span></div>
+<div class="row"><span class="ico">📊</span><span class="txt"><b><a href="https://github.com/ZhuLinsen/daily_stock_analysis">ZhuLinsen/daily_stock_analysis</a></b> - An LLM-powered stock analysis system across markets, with real-time news, a decision dashboard and free scheduled runs.</span><span class="stat"><b>+3,778</b> ★</span></div>
+<div class="row"><span class="ico">🌐</span><span class="txt"><b><a href="https://github.com/GoogleChrome/modern-web-guidance-src">GoogleChrome/modern-web-guidance-src</a></b> - Keeps your coding agent up to date with the latest web best practices.</span><span class="stat"><b>+3,377</b> ★</span></div>
+<div class="row"><span class="ico">🐑</span><span class="txt"><b><a href="https://github.com/herdrdev/herdr">herdrdev/herdr</a></b> - The runtime your coding agents live on.</span><span class="stat"><b>+2,423</b> ★</span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x05</span><h2 class="sec-title">HN Deep Stories</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🏛️</span><span class="txt"><b><a href="https://pietromiotti.com/latest/maya-site">My AI agents found an unmapped Maya site?</a></b> <span class="src">(<a href="https://news.ycombinator.com/item?id=50452455">HackerNews</a>)</span></span><span class="stat"><b>1,035</b> pts · 392 💬</span></div>
+<div class="row"><span class="ico">🧱</span><span class="txt"><b><a href="https://evanxmerz.com/post/ai-usage-generates-a-fragile-codebase/">AI usage generates a fragile codebase</a></b> <span class="src">(<a href="https://news.ycombinator.com/item?id=50438318">HackerNews</a>)</span></span><span class="stat"><b>643</b> pts · 626 💬</span></div>
+<div class="row"><span class="ico">🫧</span><span class="txt"><b><a href="https://matteoraso.github.io/im-not-convinced-the-ai-bubble-exists.html">I'm not convinced the AI bubble exists</a></b> <span class="src">(<a href="https://news.ycombinator.com/item?id=50418975">HackerNews</a>)</span></span><span class="stat"><b>578</b> pts · 974 💬</span></div>
+<div class="row"><span class="ico">🎮</span><span class="txt"><b><a href="https://www.youtube.com/watch?v=IRK8h67ol7Q">Jonathan Blow - If AI solved coding, why is my software still the same?</a></b> <span class="src">(<a href="https://news.ycombinator.com/item?id=50484658">HackerNews</a>)</span></span><span class="stat"><b>466</b> pts · 678 💬</span></div>
+<div class="row"><span class="ico">📓</span><span class="txt"><b><a href="https://www.theguardian.com/science/2026/nov/13/kurt-godel-notebooks-ai-helps-unlock-hidden-discoveries-man-who-transformed-maths">AI unlocks Gödel's notebooks, said to contain hundreds of proved theorems</a></b> <span class="src">(<a href="https://news.ycombinator.com/item?id=50486748">HackerNews</a>)</span></span><span class="stat"><b>426</b> pts · 108 💬</span></div>
+  </section>
+
+  <footer>
+    <p>Curated &amp; Written with ❤️ for Engineers and Startup Founders.</p>
+    <div class="foot-links"><a href="#">SUBSCRIBE</a><a href="#">ARCHIVE</a><a href="#">SUGGEST A LINK</a></div>
+  </footer>
+
+</div>
+</body>
+</html>

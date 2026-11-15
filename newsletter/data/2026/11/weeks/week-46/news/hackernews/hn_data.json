@@ -1,0 +1,350 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-15",
+  "window": {
+    "after": "2026-11-08",
+    "before": "2026-11-16"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 30,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 73,
+  "poolCount": 423,
+  "stories": [
+    {
+      "title": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
+      "url": "https://www.techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus",
+      "type": "story",
+      "points": 1054,
+      "num_comments": 624,
+      "author": "speckx",
+      "created_at": "2026-11-14T02:52:59Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50493251",
+      "front_page": false
+    },
+    {
+      "title": "My AI agents found an unmapped Maya site?",
+      "url": "https://pietromiotti.com/latest/maya-site",
+      "type": "story",
+      "points": 1035,
+      "num_comments": 392,
+      "author": "eyvindn",
+      "created_at": "2026-11-11T12:05:22Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50452455",
+      "front_page": false
+    },
+    {
+      "title": "Anthropic IPO",
+      "url": "https://ipo.anthropic.com/us/",
+      "type": "story",
+      "points": 1002,
+      "num_comments": 916,
+      "author": "josephljohnston",
+      "created_at": "2026-11-12T11:46:41Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50465829",
+      "front_page": false
+    },
+    {
+      "title": "Claude Fable 5.2 and Mythos 5.2",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "type": "story",
+      "points": 1000,
+      "num_comments": 8,
+      "author": "meetpateltech",
+      "created_at": "2026-11-09T18:56:29Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50429906",
+      "front_page": false
+    },
+    {
+      "title": "Claude Fable 5.2 and Mythos 5.2",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "type": "story",
+      "points": 923,
+      "num_comments": 1054,
+      "author": "lairv",
+      "created_at": "2026-11-09T18:01:10Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50429068",
+      "front_page": false
+    },
+    {
+      "title": "Goldman Sachs is pulling Claude Code from its bankers and traders",
+      "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
+      "type": "story",
+      "points": 905,
+      "num_comments": 497,
+      "author": "TheWiggles",
+      "created_at": "2026-11-08T18:16:07Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50415628",
+      "front_page": false
+    },
+    {
+      "title": "Goodbye Claude, hello Pi",
+      "url": "https://caleb.software/posts/claude-to-pi.html",
+      "type": "story",
+      "points": 831,
+      "num_comments": 493,
+      "author": "karagenit",
+      "created_at": "2026-11-08T03:11:48Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50410107",
+      "front_page": false
+    },
+    {
+      "title": "Google Gemini routes personal Drive files and emails to human annotators",
+      "url": "https://github.com/thisisme6598/gemini_files/",
+      "type": "story",
+      "points": 737,
+      "num_comments": 148,
+      "author": "gf74918",
+      "created_at": "2026-11-09T18:24:38Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50429426",
+      "front_page": false
+    },
+    {
+      "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+      "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+      "type": "story",
+      "points": 680,
+      "num_comments": 707,
+      "author": "herpderperator",
+      "created_at": "2026-11-11T21:24:35Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50458900",
+      "front_page": false
+    },
+    {
+      "title": "AlphaProof Code",
+      "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+      "type": "story",
+      "points": 678,
+      "num_comments": 197,
+      "author": "ilreb",
+      "created_at": "2026-11-10T12:11:12Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50439193",
+      "front_page": false
+    },
+    {
+      "title": "AI usage generates a fragile codebase",
+      "url": "https://evanxmerz.com/post/ai-usage-generates-a-fragile-codebase/",
+      "type": "story",
+      "points": 643,
+      "num_comments": 626,
+      "author": "plun9",
+      "created_at": "2026-11-10T10:25:58Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50438318",
+      "front_page": false
+    },
+    {
+      "title": "I'm not convinced the AI bubble exists",
+      "url": "https://matteoraso.github.io/im-not-convinced-the-ai-bubble-exists.html#im-not-convinced-the-ai-bubble-exists",
+      "type": "story",
+      "points": 578,
+      "num_comments": 974,
+      "author": "matteoraso",
+      "created_at": "2026-11-08T23:44:36Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50418975",
+      "front_page": false
+    },
+    {
+      "title": "Gemini 4 Hydrogen",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+      "type": "story",
+      "points": 569,
+      "num_comments": 350,
+      "author": "dvaplima",
+      "created_at": "2026-11-12T18:01:48Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50471431",
+      "front_page": false
+    },
+    {
+      "title": "Apple has new Mac app coming to make running local AI models easy",
+      "url": "https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/",
+      "type": "story",
+      "points": 569,
+      "num_comments": 560,
+      "author": "linolevan",
+      "created_at": "2026-11-10T21:25:03Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50446520",
+      "front_page": false
+    },
+    {
+      "title": "Gemini Decisions API",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+      "type": "story",
+      "points": 568,
+      "num_comments": 161,
+      "author": "iamdelirium",
+      "created_at": "2026-11-11T18:32:42Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50456791",
+      "front_page": false
+    },
+    {
+      "title": "Gemini 4 Hydrogen and Orchestrator",
+      "url": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/",
+      "type": "story",
+      "points": 501,
+      "num_comments": 163,
+      "author": "jonbaer",
+      "created_at": "2026-11-12T18:52:01Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50472260",
+      "front_page": false
+    },
+    {
+      "title": "Elevated errors on claude.ai, Claude Code, and platform.claude.com",
+      "url": "https://status.claude.com/incidents/nn11wk485zfn",
+      "type": "story",
+      "points": 493,
+      "num_comments": 390,
+      "author": "__vivek",
+      "created_at": "2026-11-13T10:18:13Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50481187",
+      "front_page": false
+    },
+    {
+      "title": "Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
+      "url": "https://github.com/synchopate/llama-modchip",
+      "type": "story",
+      "points": 485,
+      "num_comments": 210,
+      "author": "joshcsimmons",
+      "created_at": "2026-11-08T10:22:04Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50411961",
+      "front_page": false
+    },
+    {
+      "title": "I'm making LLMs work on small and old devices",
+      "url": "https://github.com/hyperionaidev/smolmaxxing/",
+      "type": "story",
+      "points": 478,
+      "num_comments": 180,
+      "author": "mrashad74",
+      "created_at": "2026-11-12T15:23:10Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50468888",
+      "front_page": false
+    },
+    {
+      "title": "Jonathan Blow \u2013 If AI solved coding, why is my software still the same? [video]",
+      "url": "https://www.youtube.com/watch?v=IRK8h67ol7Q",
+      "type": "story",
+      "points": 466,
+      "num_comments": 678,
+      "author": "helloplanets",
+      "created_at": "2026-11-13T15:08:44Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50484658",
+      "front_page": false
+    },
+    {
+      "title": "Tracking Anthropic-discovered vulnerabilities",
+      "url": "https://www.vulncheck.com/blog/anthropic-glasswing-november-update",
+      "type": "story",
+      "points": 460,
+      "num_comments": 221,
+      "author": "panic",
+      "created_at": "2026-11-10T22:17:56Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50447074",
+      "front_page": false
+    },
+    {
+      "title": "AI unlocks G\u00f6del's notebooks, said to contain hundreds of proved theorems",
+      "url": "https://www.theguardian.com/science/2026/nov/13/kurt-godel-notebooks-ai-helps-unlock-hidden-discoveries-man-who-transformed-maths",
+      "type": "story",
+      "points": 426,
+      "num_comments": 108,
+      "author": "bookofjoe",
+      "created_at": "2026-11-13T17:30:10Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50486748",
+      "front_page": false
+    },
+    {
+      "title": "Chinese frontier AI models carry the fingerprint of export-controlled GPUs",
+      "url": "https://unemploymentlabs.com/checkpoint-forensics",
+      "type": "story",
+      "points": 394,
+      "num_comments": 166,
+      "author": "firloop",
+      "created_at": "2026-11-12T21:56:11Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50474883",
+      "front_page": false
+    },
+    {
+      "title": "Claude Fable 5.2 scores 65 on Artificial Analysis, highest so far",
+      "url": "https://artificialanalysis.ai/models/claude-fable-5-2",
+      "type": "story",
+      "points": 379,
+      "num_comments": 280,
+      "author": "theanonymousone",
+      "created_at": "2026-11-09T20:04:55Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50431144",
+      "front_page": false
+    },
+    {
+      "title": "AI is destroying the trust between writers and readers",
+      "url": "https://www.theatlantic.com/books/2026/11/ai-literary-scams-amazon/689391/",
+      "type": "story",
+      "points": 365,
+      "num_comments": 228,
+      "author": "FinnLobsien",
+      "created_at": "2026-11-13T11:13:46Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50481870",
+      "front_page": false
+    },
+    {
+      "title": "Edge0-145B: Frontier AI Capabilities on Your Own Computer",
+      "url": "https://edge0.ai/blog/introducing-edge0-145b-frontier-ai-capabilities-on-your-own-computer",
+      "type": "story",
+      "points": 352,
+      "num_comments": 105,
+      "author": "sroussey",
+      "created_at": "2026-11-12T23:06:17Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50475713",
+      "front_page": false
+    },
+    {
+      "title": "How I'm fighting the AI brain fry",
+      "url": "https://sergeykuhne.com/blog/fighting-ai-brain-fry",
+      "type": "story",
+      "points": 316,
+      "num_comments": 216,
+      "author": "kyunez",
+      "created_at": "2026-11-08T19:37:42Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50416363",
+      "front_page": false
+    },
+    {
+      "title": "Claude Whiteboards, Claude Sheets, and Claude Data",
+      "url": "https://claude.com/resources/articles/sheets-whiteboards-data",
+      "type": "story",
+      "points": 297,
+      "num_comments": 218,
+      "author": "Yorothegoat",
+      "created_at": "2026-11-10T17:55:07Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50443716",
+      "front_page": false
+    },
+    {
+      "title": "Gemini 4 Carbon is now available",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+      "type": "story",
+      "points": 295,
+      "num_comments": 165,
+      "author": "meetpateltech",
+      "created_at": "2026-11-10T16:07:15Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50442303",
+      "front_page": false
+    },
+    {
+      "title": "Foundation Models framework",
+      "url": "https://developer.apple.com/foundation-models-framework/",
+      "type": "story",
+      "points": 267,
+      "num_comments": 35,
+      "author": "kermatt",
+      "created_at": "2026-11-12T21:13:26Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50474361",
+      "front_page": false
+    }
+  ]
+}
