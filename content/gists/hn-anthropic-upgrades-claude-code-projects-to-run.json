@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "hn-anthropic-upgrades-claude-code-projects-to-run",
+  "kind": "hn",
+  "title": "Anthropic upgrades Claude Code Projects to run parallel AI workers",
+  "url": "https://claude.com/resources/articles/projects-redesigned",
+  "source_url": "https://news.ycombinator.com/item?id=50492141",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Claude Code",
+    "Agents",
+    "Anthropic"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Anthropic has rebuilt Projects in Claude Code so a coordinator splits a goal into parallel threads, each a cloud session on its own branch, then reviews and assembles the results.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Each thread is a full Claude Code cloud session with its own branch and repo copy; overlapping edits surface as ordinary merge conflicts.",
+        "Threads share a project memory and a library of files and artifacts, so context builds up as work continues.",
+        "Users steer from the main project chat or inside a single thread, including from a phone, and work carries on while they are away.",
+        "The beta starts with some Pro and Max subscribers on cloud sessions; Team and Enterprise plans come later.",
+        "Anthropic warns projects can hit usage limits faster and lets users set model and effort for the coordinator and workers; local threads are coming."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "theme",
+          "text": "A team member says the coordinator formalises the habit of running many agents in parallel; a reply says sub-agents burned a whole usage allowance in ten minutes.",
+          "url": "https://news.ycombinator.com/item?id=50492893"
+        },
+        {
+          "stance": "agreed",
+          "text": "Cost is the recurring worry, with commenters expecting parallel threads to multiply API spend.",
+          "url": "https://news.ycombinator.com/item?id=50492764"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "Others object that it runs only in Anthropic's cloud, pulling the execution environment under one vendor's control.",
+          "url": "https://news.ycombinator.com/item?id=50493084"
+        },
+        {
+          "stance": "disputed",
+          "text": "Some say homegrown setups already do this, from CalDAV to-do queues picked up by an LLM to GitHub issues plus worktrees.",
+          "url": "https://news.ycombinator.com/item?id=50494868"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Projects redesigned: from folder to conversation",
+      "url": "https://claude.com/resources/articles/projects-redesigned"
+    },
+    {
+      "role": "discussion",
+      "title": "Anthropic upgrades Claude Code Projects to run parallel AI workers",
+      "url": "https://news.ycombinator.com/item?id=50492141"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-anthropic-upgrades-claude-code-projects-to-run-2026-11-15",
+      "edition_date": "2026-11-15"
+    }
+  ],
+  "created_at": "2026-11-15T15:41:02Z",
+  "updated_at": "2026-11-15T15:41:02Z",
+  "stats": {
+    "points": 99,
+    "comments": 95,
+    "submitted_by": "toppa33",
+    "posted_at": "2026-11-14T00:28:11Z"
+  },
+  "stats_as_of": "2026-11-15T15:37:29Z"
+}

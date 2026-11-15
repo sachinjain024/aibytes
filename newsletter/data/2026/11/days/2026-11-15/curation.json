@@ -1,0 +1,678 @@
+{
+  "date": "2026-11-15",
+  "generated_at": "2026-11-15T15:36:32Z",
+  "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
+  "tags": [
+    {
+      "name": "What it is",
+      "tags": [
+        {
+          "name": "Model Release",
+          "slug": "model-release"
+        },
+        {
+          "name": "Open Source",
+          "slug": "open-source"
+        },
+        {
+          "name": "Paper",
+          "slug": "paper"
+        },
+        {
+          "name": "Benchmark",
+          "slug": "benchmark"
+        },
+        {
+          "name": "Dataset",
+          "slug": "dataset"
+        },
+        {
+          "name": "Framework",
+          "slug": "framework"
+        },
+        {
+          "name": "Dev Tool",
+          "slug": "dev-tool"
+        },
+        {
+          "name": "API",
+          "slug": "api"
+        }
+      ]
+    },
+    {
+      "name": "Domain",
+      "tags": [
+        {
+          "name": "LLM",
+          "slug": "llm"
+        },
+        {
+          "name": "Agents",
+          "slug": "agents"
+        },
+        {
+          "name": "RAG",
+          "slug": "rag"
+        },
+        {
+          "name": "Fine-tuning",
+          "slug": "fine-tuning"
+        },
+        {
+          "name": "Inference",
+          "slug": "inference"
+        },
+        {
+          "name": "Local LLM",
+          "slug": "local-llm"
+        },
+        {
+          "name": "Vision",
+          "slug": "vision"
+        },
+        {
+          "name": "Voice / Speech",
+          "slug": "voice-speech"
+        },
+        {
+          "name": "Video",
+          "slug": "video"
+        },
+        {
+          "name": "Image Gen",
+          "slug": "image-gen"
+        },
+        {
+          "name": "Code Gen",
+          "slug": "code-gen"
+        },
+        {
+          "name": "Embeddings",
+          "slug": "embeddings"
+        },
+        {
+          "name": "Eval",
+          "slug": "eval"
+        },
+        {
+          "name": "Reasoning",
+          "slug": "reasoning"
+        },
+        {
+          "name": "Multimodal",
+          "slug": "multimodal"
+        },
+        {
+          "name": "Robotics",
+          "slug": "robotics"
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem",
+      "tags": [
+        {
+          "name": "OpenAI",
+          "slug": "openai"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic"
+        },
+        {
+          "name": "Google",
+          "slug": "google"
+        },
+        {
+          "name": "Meta",
+          "slug": "meta"
+        },
+        {
+          "name": "Nvidia",
+          "slug": "nvidia"
+        },
+        {
+          "name": "Hugging Face",
+          "slug": "hugging-face"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft"
+        },
+        {
+          "name": "Claude Code",
+          "slug": "claude-code"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor"
+        },
+        {
+          "name": "MCP",
+          "slug": "mcp"
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "tags": [
+        {
+          "name": "Funding",
+          "slug": "funding"
+        },
+        {
+          "name": "Acquisition",
+          "slug": "acquisition"
+        },
+        {
+          "name": "Launch",
+          "slug": "launch"
+        },
+        {
+          "name": "Pricing",
+          "slug": "pricing"
+        },
+        {
+          "name": "Policy",
+          "slug": "policy"
+        },
+        {
+          "name": "Legal",
+          "slug": "legal"
+        },
+        {
+          "name": "Security",
+          "slug": "security"
+        },
+        {
+          "name": "Privacy",
+          "slug": "privacy"
+        },
+        {
+          "name": "Safety",
+          "slug": "safety"
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "tags": [
+        {
+          "name": "Show HN",
+          "slug": "show-hn"
+        },
+        {
+          "name": "Tutorial",
+          "slug": "tutorial"
+        },
+        {
+          "name": "Deep Dive",
+          "slug": "deep-dive"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ph-hiringnow-3-2026-11-15",
+      "title": "HiringNow",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/hiringnow",
+      "source_url": "https://www.producthunt.com/products/hiringnow",
+      "source_text": "HiringNow AI job agent that finds & apply for jobs before anyone else. HiringNow checks 247,000+ company career sites every 5 minutes, so you see new jobs before they hit the big boards. It matches each job to your profile, tailors your resume and cover letter, and applies on the employer's own site, only with your approval. Every application gets a receipt in your job tracker. Also: resume builder and mock interviews. Free plan with 10 auto-applies. Productivity Artificial Intelligence Career",
+      "signals": {
+        "upvotes": 286,
+        "comments": 27
+      },
+      "published_at": "2026-11-14T08:01:00Z"
+    },
+    {
+      "id": "ph-businesses-in-chatgpt-2026-11-15",
+      "title": "Businesses in ChatGPT",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/openai",
+      "source_url": "https://www.producthunt.com/products/openai",
+      "source_text": "Businesses in ChatGPT Help customers discover your business through ChatGPT Discover how customers find your business in ChatGPT. Claim your business profile, manage information, explore insights, and create a Business Agent if eligible Analytics Marketing Artificial Intelligence",
+      "signals": {
+        "upvotes": 214,
+        "comments": 7
+      },
+      "published_at": "2026-11-14T08:01:00Z"
+    },
+    {
+      "id": "ph-dex-semantics-2026-11-15",
+      "title": "Dex Semantics",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/dex-by-exmergo",
+      "source_url": "https://www.producthunt.com/products/dex-by-exmergo",
+      "source_text": "Dex Semantics Let your agent build analytics with 25% fewer errors Dex Semantics adds declarations to your analytical models, which capture row meaning, join nature, how numbers add up, and decisional assumptions. Thanks to this, Dex scores 80% on ADE-bench with Claude Sonnet 5.5, compared to 73.3% without Dex (25% fewer tasks failed). Declarations live in your models as code, not a third-party tool. Dex then helps your agent convert declarations into your Semantic Layer of choice. Analytics Developer Tools GitHub Data & Analytics",
+      "signals": {
+        "upvotes": 204,
+        "comments": 33
+      },
+      "published_at": "2026-11-14T08:01:00Z"
+    },
+    {
+      "id": "ph-rakazo-2-2026-11-15",
+      "title": "Rakazo",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/rakazo",
+      "source_url": "https://www.producthunt.com/products/rakazo",
+      "source_text": "Rakazo The open source Grok Bot alternative you actually own Rakazo gives you AI teammates that keep working after you close the chat. Each bot has its own memory, routines and computer, with a browser you can watch and take over. Open source and self-hosted: any model, your keys, your machine. Web, desktop and mobile. Android Productivity Open Source Artificial Intelligence GitHub",
+      "signals": {
+        "upvotes": 197,
+        "comments": 18
+      },
+      "published_at": "2026-11-15T08:01:00Z"
+    },
+    {
+      "id": "ph-gemini-robotics-2-5-7-2026-11-15",
+      "title": "Gemini Robotics 2.5",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/gemini-robotics-2-5",
+      "source_url": "https://www.producthunt.com/products/gemini-robotics-2-5",
+      "source_text": "Gemini Robotics 2.5 Gemini Robotics 2.5: Google’s most capable robot model Gemini Robotics 2.5 is Google DeepMind’s most capable vision-language-action model, turning what a robot sees and is told into hand and arm movements. Per DeepMind, it has a 30% to 100% higher success rate than the previous baseline, finishes tasks 20% to 30% faster, and reached 96% success in a Mercedes-Benz parts-kitting pilot with Apptronik’s Apollo 2 humanoid. Works across robot types. Rolling out to robotics partners. Artificial Intelligence GitHub YouTube",
+      "signals": {
+        "upvotes": 163,
+        "comments": 3
+      },
+      "published_at": "2026-11-14T08:01:00Z"
+    },
+    {
+      "id": "hn-show-hn-deepseek-v3-in-200-lines-of-pure-jax-2026-11-15",
+      "title": "Show HN: DeepSeek V3 in ~200 lines of pure Jax",
+      "category": "launches",
+      "source": "hackernews",
+      "url": "https://github.com/Vaibhaav-Tiwari/deepseek-v3-jax",
+      "source_url": "https://news.ycombinator.com/item?id=50497589",
+      "source_text": "Show HN: DeepSeek V3 in ~200 lines of pure Jax",
+      "signals": {
+        "points": 257,
+        "comments": 23
+      },
+      "meta": {
+        "author": "VaibhaavTiwari"
+      },
+      "published_at": "2026-11-14T15:04:15Z"
+    },
+    {
+      "id": "gh-modern-web-guidance-src-2026-11-15",
+      "title": "GoogleChrome/modern-web-guidance-src",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+      "source_url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+      "source_text": "GoogleChrome/modern-web-guidance-src Keep your coding agent up to date with the latest web best practices TypeScript",
+      "signals": {
+        "stars": 6816,
+        "stars_gained": 1220,
+        "forks": 542
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-univer-2026-11-15",
+      "title": "dream-num/univer",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/dream-num/univer",
+      "source_url": "https://github.com/dream-num/univer",
+      "source_text": "dream-num/univer Build your own AI office with Univer Office SDK. Bring editing, calculation, collaboration, and file processing into your product for people and AI agents. Built on an extensible open-source core. TypeScript",
+      "signals": {
+        "stars": 25331,
+        "stars_gained": 1041,
+        "forks": 2315
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-chrome-devtools-mcp-2026-11-15",
+      "title": "ChromeDevTools/chrome-devtools-mcp",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "source_url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "source_text": "ChromeDevTools/chrome-devtools-mcp Chrome DevTools for coding agents TypeScript",
+      "signals": {
+        "stars": 56704,
+        "stars_gained": 718,
+        "forks": 4794
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-claude-trading-skills-2026-11-15",
+      "title": "tradermonty/claude-trading-skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/tradermonty/claude-trading-skills",
+      "source_url": "https://github.com/tradermonty/claude-trading-skills",
+      "source_text": "tradermonty/claude-trading-skills Claude Code skills for equity investors and traders — market analysis, technical charting, economic calendars, screeners, and trading strategy development. Python",
+      "signals": {
+        "stars": 5262,
+        "stars_gained": 707,
+        "forks": 1113
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-open-code-review-2026-11-15",
+      "title": "alibaba/open-code-review",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/alibaba/open-code-review",
+      "source_url": "https://github.com/alibaba/open-code-review",
+      "source_text": "alibaba/open-code-review Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible. Go",
+      "signals": {
+        "stars": 51797,
+        "stars_gained": 688,
+        "forks": 4037
+      },
+      "meta": {
+        "language": "Go"
+      }
+    },
+    {
+      "id": "gh-loopforge-2026-11-15",
+      "title": "Tencent/LoopForge",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/Tencent/LoopForge",
+      "source_url": "https://github.com/Tencent/LoopForge",
+      "source_text": "Tencent/LoopForge Self-hosted workflows for coding-agent delivery. Orchestrate CodeBuddy, Codex and Claude Code with scripts and human approval gates. Includes Local workflows for coding assistants. Go",
+      "signals": {
+        "stars": 1267,
+        "stars_gained": 484,
+        "forks": 254
+      },
+      "meta": {
+        "language": "Go"
+      }
+    },
+    {
+      "id": "gh-stitch-skills-2026-11-15",
+      "title": "google-labs-code/stitch-skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "source_url": "https://github.com/google-labs-code/stitch-skills",
+      "source_text": "google-labs-code/stitch-skills A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor. TypeScript",
+      "signals": {
+        "stars": 9106,
+        "stars_gained": 248,
+        "forks": 1088
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-ggml-2026-11-15",
+      "title": "ggml-org/ggml",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/ggml-org/ggml",
+      "source_url": "https://github.com/ggml-org/ggml",
+      "source_text": "ggml-org/ggml Tensor library for machine learning C++",
+      "signals": {
+        "stars": 15818,
+        "stars_gained": 154,
+        "forks": 1957
+      },
+      "meta": {
+        "language": "C++"
+      }
+    },
+    {
+      "id": "gh-skillevaluator-2026-11-15",
+      "title": "NVIDIA/SkillEvaluator",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/NVIDIA/SkillEvaluator",
+      "source_url": "https://github.com/NVIDIA/SkillEvaluator",
+      "source_text": "NVIDIA/SkillEvaluator Multi-tier framework for evaluating AI agent skills with quality gates, semantic overlap detection, synthetic evaluation dataset generation, and live agent evaluation that measures how skills affect agent behavior. Python",
+      "signals": {
+        "stars": 1390,
+        "stars_gained": 133,
+        "forks": 167
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-claude-bughunter-2026-11-15",
+      "title": "elementalsouls/Claude-BugHunter",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_text": "elementalsouls/Claude-BugHunter A Claude Code skill bundle for bug hunting and external red-team work - 82 skills, 15 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices. Python",
+      "signals": {
+        "stars": 6011,
+        "stars_gained": 124,
+        "forks": 914
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "tc-the-ai-graveyard-a-running-list-of-projects-and-2026-11-15",
+      "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+      "source_url": "https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+      "source_text": "The AI graveyard: a running list of projects and startups that didn’t make it From Apple's repeatedly delayed Siri AI to OpenAI's messy \"super app\" launch, here's a look at the AI projects that shut down or missed expectations.",
+      "meta": {
+        "author": "Lauren Forristal",
+        "reading_time": "9 minutes"
+      },
+      "published_at": "2026-11-14T17:30:00Z"
+    },
+    {
+      "id": "tc-where-was-nvidias-security-team-2026-11-15",
+      "title": "Where was Nvidia’s security team?",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/",
+      "source_url": "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/",
+      "source_text": "Where was Nvidia’s security team? Nvidia’s security chief quietly left in August, and now that CEO Jensen Huang has stepped down over his relationships, including one with an executive at a company suspected of funneling chips to China, a former intelligence officer says it’s the kind of leak that runs everyday conversations, which most corporate security teams are poorly equipped to catch.",
+      "meta": {
+        "author": "Connie Loizos",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-11-15T00:08:07Z"
+    },
+    {
+      "id": "tc-elon-musk-other-tech-execs-sign-petition-2026-11-15",
+      "title": "Elon Musk, other tech execs sign petition calling on Nvidia to reinstate Jensen Huang",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/",
+      "source_url": "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/",
+      "source_text": "Elon Musk, other tech execs sign petition calling on Nvidia to reinstate Jensen Huang The petition had attracted more than 115,000 signatures as of Saturday afternoon.",
+      "meta": {
+        "author": "Anthony Ha",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-14T21:41:22Z"
+    },
+    {
+      "id": "tc-asian-governments-react-to-nvidia-ceo-jensen-2026-11-15",
+      "title": "Asian governments react to Nvidia CEO Jensen Huang’s exit",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/14/asian-governments-react-to-nvidia-ceo-jensen-huangs-exit/",
+      "source_url": "https://techcrunch.com/2026/11/14/asian-governments-react-to-nvidia-ceo-jensen-huangs-exit/",
+      "source_text": "Asian governments react to Nvidia CEO Jensen Huang’s exit Some governments moved to confirm chip supply commitments, while others are monitoring the impact on local projects or addressing ongoing investigations.",
+      "meta": {
+        "author": "Kate Park",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-14T16:34:15Z"
+    },
+    {
+      "id": "hn-nvidia-allegedly-engineered-scarcity-by-funding-2026-11-15",
+      "title": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus",
+      "source_url": "https://news.ycombinator.com/item?id=50493251",
+      "source_text": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
+      "signals": {
+        "points": 1085,
+        "comments": 643
+      },
+      "meta": {
+        "author": "speckx"
+      },
+      "published_at": "2026-11-14T02:52:59Z"
+    },
+    {
+      "id": "hn-the-claude-delusion-2026-11-15",
+      "title": "The Claude Delusion",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.netmeister.org/blog/claude-delusion.html",
+      "source_url": "https://news.ycombinator.com/item?id=50496921",
+      "source_text": "The Claude Delusion",
+      "signals": {
+        "points": 149,
+        "comments": 195
+      },
+      "meta": {
+        "author": "janvdberg"
+      },
+      "published_at": "2026-11-14T13:36:17Z"
+    },
+    {
+      "id": "hn-serving-glm-5-3-at-607-8-tok-s-across-two-2026-11-15",
+      "title": "Serving GLM-5.3 at 607.8 tok/s across two Nvidia DGX stations with vLLM",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://developer.nvidia.com/blog/when-one-gpu-isnt-enough-serving-glm-5-3-across-two-nvidia-dgx-stations-with-vllm/",
+      "source_url": "https://news.ycombinator.com/item?id=50497155",
+      "source_text": "Serving GLM-5.3 at 607.8 tok/s across two Nvidia DGX stations with vLLM",
+      "signals": {
+        "points": 140,
+        "comments": 68
+      },
+      "meta": {
+        "author": "wondersky"
+      },
+      "published_at": "2026-11-14T14:09:25Z"
+    },
+    {
+      "id": "hn-anthropic-upgrades-claude-code-projects-to-run-2026-11-15",
+      "title": "Anthropic upgrades Claude Code Projects to run parallel AI workers",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://claude.com/resources/articles/projects-redesigned",
+      "source_url": "https://news.ycombinator.com/item?id=50492141",
+      "source_text": "Anthropic upgrades Claude Code Projects to run parallel AI workers",
+      "signals": {
+        "points": 99,
+        "comments": 95
+      },
+      "meta": {
+        "author": "toppa33"
+      },
+      "published_at": "2026-11-14T00:28:11Z"
+    },
+    {
+      "id": "hn-ask-hn-what-are-the-most-useful-concrete-ai-2026-11-15",
+      "title": "Ask HN: What are the most useful, concrete AI skills to independently learn?",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=50494696",
+      "source_url": "https://news.ycombinator.com/item?id=50494696",
+      "source_text": "Ask HN: What are the most useful, concrete AI skills to independently learn?",
+      "signals": {
+        "points": 86,
+        "comments": 51
+      },
+      "meta": {
+        "author": "shnock"
+      },
+      "published_at": "2026-11-14T06:56:42Z"
+    },
+    {
+      "id": "hn-understanding-positional-embeddings-in-modern-2026-11-15",
+      "title": "Understanding Positional Embeddings in Modern LLMs",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://magazine.sebastianraschka.com/p/understanding-positional-embeddings",
+      "source_url": "https://news.ycombinator.com/item?id=50506376",
+      "source_text": "Understanding Positional Embeddings in Modern LLMs",
+      "signals": {
+        "points": 73
+      },
+      "meta": {
+        "author": "vismit2000"
+      },
+      "published_at": "2026-11-15T12:14:06Z"
+    },
+    {
+      "id": "hn-all-ai-generated-code-should-be-open-source-2026-11-15",
+      "title": "All AI-generated code should be Open Source",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://jakub.jankiewicz.org/blog/ai-code-open-source/",
+      "source_url": "https://news.ycombinator.com/item?id=50507303",
+      "source_text": "All AI-generated code should be Open Source",
+      "signals": {
+        "points": 70,
+        "comments": 35
+      },
+      "meta": {
+        "author": "jcubic"
+      },
+      "published_at": "2026-11-15T14:46:58Z"
+    },
+    {
+      "id": "hn-smuggling-of-1-5m-ai-gpus-could-be-the-cause-of-2026-11-15",
+      "title": "Smuggling of 1.5M AI GPUs could be the cause of Huang's departure",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/mass-smuggling-of-nvidia-ai-gpus-could-be-the-underlying-cause-of-jensen-huangs-departure-analysts-claim-more-than-1-5-gigawatts-of-banned-chips-tracked-to-china-despite-export-controls",
+      "source_url": "https://news.ycombinator.com/item?id=50498051",
+      "source_text": "Smuggling of 1.5M AI GPUs could be the cause of Huang's departure",
+      "signals": {
+        "points": 59,
+        "comments": 41
+      },
+      "meta": {
+        "author": "marginalia_nu"
+      },
+      "published_at": "2026-11-14T15:58:57Z"
+    }
+  ]
+}

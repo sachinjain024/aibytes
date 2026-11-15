@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "slug": "hn-serving-glm-5-3-at-607-8-tok-s-across-two",
+  "kind": "hn",
+  "title": "Serving GLM-5.3 at 607.8 tok/s across two Nvidia DGX stations with vLLM",
+  "url": "https://developer.nvidia.com/blog/when-one-gpu-isnt-enough-serving-glm-5-3-across-two-nvidia-dgx-stations-with-vllm/",
+  "source_url": "https://news.ycombinator.com/item?id=50497155",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Inference",
+    "Nvidia",
+    "Tutorial"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "An NVIDIA tutorial serves the 753-billion-parameter GLM-5.3 NVFP4 model from two linked DGX Stations with vLLM, because its weights no longer fit in a single GB300's memory.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The quantized MoE checkpoint is about 464 GB, against 252 GB of HBM3e on one GB300, and activates 40 billion parameters per token.",
+        "The two machines link over ConnectX-8 RDMA and split the weights with tensor parallelism (TP=2) behind one OpenAI-compatible endpoint.",
+        "The vLLM launch turns on multi-token prediction drafting four tokens per step, an FP8 KV cache and prefix caching.",
+        "Throughput peaks at 607.8 tokens per second at concurrency 16, then falls to 385.0 at 32, where mean request latency reaches 453.5 seconds."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "Commenters run the cost maths: at about $100k per Station, one estimate puts payback near seven years against API prices, so the case rests on privacy or compliance.",
+          "url": "https://news.ycombinator.com/item?id=50497485"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One commenter says eight Blackwell workstation cards serve the model for about half the price with more throughput; a reply notes the Station's point is that it is a desktop.",
+          "url": "https://news.ycombinator.com/item?id=50497443"
+        },
+        {
+          "stance": "theme",
+          "text": "Readers clarify the headline figure is aggregate across 16 users, a bit over 35 tok/s each, while a single user sees about 107.",
+          "url": "https://news.ycombinator.com/item?id=50498596"
+        },
+        {
+          "stance": "theme",
+          "text": "Others warn that roughly 1.6 kW per machine, with matching fan noise, makes this a poor fit for homes or small businesses.",
+          "url": "https://news.ycombinator.com/item?id=50497941"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "When One GPU Isn’t Enough: Serving GLM-5.3 Across Two NVIDIA DGX Stations with vLLM | NVIDIA Technical Blog",
+      "url": "https://developer.nvidia.com/blog/when-one-gpu-isnt-enough-serving-glm-5-3-across-two-nvidia-dgx-stations-with-vllm/"
+    },
+    {
+      "role": "discussion",
+      "title": "Serving GLM-5.3 at 607.8 tok/s across two Nvidia DGX stations with vLLM",
+      "url": "https://news.ycombinator.com/item?id=50497155"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-serving-glm-5-3-at-607-8-tok-s-across-two-2026-11-15",
+      "edition_date": "2026-11-15"
+    }
+  ],
+  "created_at": "2026-11-15T15:41:02Z",
+  "updated_at": "2026-11-15T15:41:02Z",
+  "stats": {
+    "points": 140,
+    "comments": 68,
+    "submitted_by": "wondersky",
+    "posted_at": "2026-11-14T14:09:25Z"
+  },
+  "stats_as_of": "2026-11-15T15:37:29Z"
+}

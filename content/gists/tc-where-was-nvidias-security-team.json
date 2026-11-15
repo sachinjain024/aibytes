@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "tc-where-was-nvidias-security-team",
+  "kind": "news",
+  "title": "Where was Nvidia’s security team?",
+  "url": "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/",
+  "source_url": "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Nvidia",
+    "Security"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/11/Jensen-Huang-1.jpg?w=1024"
+  },
+  "depth": "full",
+  "lede": "TechCrunch asks what Nvidia's security function knew before Jensen Huang's exit, noting its chief security officer left months earlier and that relationship-based intelligence risks rarely reach security teams.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "David Reber stepped down as CSO in August, citing a Parkinson's diagnosis, and Saša Zdjelar replaced him.",
+        "Nothing public links either change to the Megaspeed matter, and Nvidia, Reber and Zdjelar did not answer questions.",
+        "Huang's relationship with a Megaspeed executive, at a firm suspected of moving chips to China, was a leverage risk rather than an office matter.",
+        "Retired intelligence officer Nicholas Eftimiades says spy services gather most information through ordinary conversation, which security teams struggle to detect.",
+        "He adds that security budgets are often held to the compliance minimum because the function earns no revenue."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "For AI companies whose products sit under export controls, the piece argues insider and relationship risk belongs in the security remit, not only network and facility defence."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Where was Nvidia’s security team?",
+      "url": "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-where-was-nvidias-security-team-2026-11-15",
+      "edition_date": "2026-11-15"
+    }
+  ],
+  "created_at": "2026-11-15T15:41:02Z",
+  "updated_at": "2026-11-15T15:41:02Z"
+}

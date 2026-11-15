@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "ph-gemini-robotics-2-5-7",
+  "kind": "launch",
+  "title": "Gemini Robotics 2.5",
+  "url": "https://www.producthunt.com/products/gemini-robotics-2-5",
+  "source_url": "https://www.producthunt.com/products/gemini-robotics-2-5",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Model Release",
+    "Robotics",
+    "Google"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/ae509a62-bee3-4ed5-85cd-ee309c8f1e3b.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "Google DeepMind's new vision-language-action model maps what a robot sees and hears into arm and hand motion, with large gains on dexterous tasks and a factory pilot on humanoid robots.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "DeepMind reports success rates 30% to 100% above the previous baseline, with tasks finished 20% to 30% faster.",
+        "It was tested on more than 200 tasks involving tools, cloth, ribbon and delicate items.",
+        "Some skills went from near zero to usable, such as closing a toolbox lid, up from 0% to 93%.",
+        "Apptronik's Apollo 2 humanoids reached 96% success sorting parts into trays on Mercedes-Benz lines in Hungary and Germany, framed as a pilot.",
+        "Run-time safety reasoning raised safe completions near obstacles and people, and DeepMind open-sourced ASIMOV-Jailbreak, a benchmark of disguised unsafe prompts."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Robotics and embodied-AI teams. It is rolling out to DeepMind's robotics partners and runs across robot types, including the Franka Duo two-arm platform."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Gemini Robotics 2.5 on Product Hunt",
+      "url": "https://www.producthunt.com/products/gemini-robotics-2-5"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-gemini-robotics-2-5-7-2026-11-15",
+      "edition_date": "2026-11-15"
+    }
+  ],
+  "created_at": "2026-11-15T15:41:02Z",
+  "updated_at": "2026-11-15T15:41:02Z",
+  "stats": {
+    "upvotes": 163,
+    "comments": 3
+  },
+  "stats_as_of": "2026-11-15T15:37:29Z"
+}

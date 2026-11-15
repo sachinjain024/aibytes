@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "hn-understanding-positional-embeddings-in-modern",
+  "kind": "hn",
+  "title": "Understanding Positional Embeddings in Modern LLMs",
+  "url": "https://magazine.sebastianraschka.com/p/understanding-positional-embeddings",
+  "source_url": "https://news.ycombinator.com/item?id=50506376",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "LLM",
+    "Deep Dive"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Sebastian Raschka walks through how LLMs encode token order, from GPT-2's learned position vectors to RoPE, with PyTorch code and a survey of what 2026 open-weight models use.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Attention with no position signal treats reordered words the same; a causal mask adds some implicit order but says nothing about distance.",
+        "GPT-2 adds a learned position vector to each token embedding, which caps its context at the 1,024 positions in that table.",
+        "Growing that table to around 100k positions would make it over 22% of GPT-2 Medium's weights, one reason newer models drop the approach.",
+        "The original 2017 transformer used fixed sine and cosine encodings, an idea that returns as the basis for RoPE.",
+        "Recent models such as MiniMax-M3 apply RoPE inside every attention layer rather than once at the input; the piece also covers NoPE."
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Understanding Positional Embeddings in Modern LLMs",
+      "url": "https://magazine.sebastianraschka.com/p/understanding-positional-embeddings"
+    },
+    {
+      "role": "discussion",
+      "title": "Understanding Positional Embeddings in Modern LLMs",
+      "url": "https://news.ycombinator.com/item?id=50506376"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-understanding-positional-embeddings-in-modern-2026-11-15",
+      "edition_date": "2026-11-15"
+    }
+  ],
+  "created_at": "2026-11-15T15:41:02Z",
+  "updated_at": "2026-11-15T15:41:02Z",
+  "stats": {
+    "points": 73,
+    "submitted_by": "vismit2000",
+    "posted_at": "2026-11-15T12:14:06Z"
+  },
+  "stats_as_of": "2026-11-15T15:37:29Z",
+  "front_page": true
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "ph-dex-semantics",
+  "kind": "launch",
+  "title": "Dex Semantics",
+  "url": "https://www.producthunt.com/products/dex-by-exmergo",
+  "source_url": "https://www.producthunt.com/products/dex-by-exmergo",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Dev Tool",
+    "Agents",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/55ff92fa-d689-4108-9767-0590e91892b0.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "Dex Semantics lets data teams annotate analytical models with what each row means, how tables join and how metrics add up, so coding agents produce fewer wrong numbers.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Declarations capture row meaning, the nature of each join, how figures roll up, and the business assumptions behind them.",
+        "They live in the model files as code, not in a separate third-party tool.",
+        "With Claude Sonnet 5.5, Dex reports 80% on ADE-bench against 73.3% without it, about a quarter fewer failed tasks.",
+        "Dex then helps the agent translate the declarations into whichever semantic layer the team already runs.",
+        "The launch comment gives the install as an agent skill: npx skills add exmergo/dex."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Analytics engineers handing model and dashboard work to agents, where a plausible but wrong number is the costly failure."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Dex Semantics on Product Hunt",
+      "url": "https://www.producthunt.com/products/dex-by-exmergo"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-dex-semantics-2026-11-15",
+      "edition_date": "2026-11-15"
+    }
+  ],
+  "created_at": "2026-11-15T15:41:02Z",
+  "updated_at": "2026-11-15T15:41:02Z",
+  "stats": {
+    "upvotes": 204,
+    "comments": 33
+  },
+  "stats_as_of": "2026-11-15T15:37:29Z"
+}

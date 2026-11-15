@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "hn-show-hn-deepseek-v3-in-200-lines-of-pure-jax",
+  "kind": "hn",
+  "title": "Show HN: DeepSeek V3 in ~200 lines of pure Jax",
+  "url": "https://github.com/Vaibhaav-Tiwari/deepseek-v3-jax",
+  "source_url": "https://news.ycombinator.com/item?id=50497589",
+  "source": "hackernews",
+  "category": "launches",
+  "tags": [
+    "Show HN",
+    "Open Source",
+    "LLM"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "A from-scratch rebuild of the DeepSeek-V3 architecture in about 190 lines of plain JAX, trained on a MacBook Air using public-domain detective novels.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Implements MLA attention, DeepSeekMoE, auxiliary-loss-free load balancing and multi-token prediction, with parameters as plain dicts and no Flax or PyTorch.",
+        "The model is 36.2M parameters with six layers and a 256-token context, against 671B parameters and 61 layers in the original.",
+        "Switching the balancing bias on or off left validation loss almost identical at step 2000, matching the paper's claim.",
+        "Simplifications include dense expert compute and no MLA weight absorption; FP8, DualPipe and post-training are left out.",
+        "Runs on Apple Silicon through jax-metal, on CPU with a smaller config, and on AMD GPUs through ROCm."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "Commenters welcome it as a learning project, and several say they plan to rebuild it themselves to understand the architecture.",
+          "url": "https://news.ycombinator.com/item?id=50499902"
+        },
+        {
+          "stance": "theme",
+          "text": "An RX 7600 XT owner got it training on Fedora with ROCm after two environment-variable workarounds, prompting a reply about weak AMD support on consumer cards.",
+          "url": "https://news.ycombinator.com/item?id=50500124"
+        },
+        {
+          "stance": "theme",
+          "text": "Newcomers ask for a learning path; replies point to 3Blue1Brown and Welch Labs videos and Karpathy's build-from-scratch tutorials.",
+          "url": "https://news.ycombinator.com/item?id=50500767"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One commenter suggests standard datasets over detective fiction so results can be compared, and the author agrees.",
+          "url": "https://news.ycombinator.com/item?id=50499974"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "GitHub - Vaibhaav-Tiwari/deepseek-v3-jax: DeepSeek V3 (MLA, DeepSeekMoE, aux-loss-free balancing, MTP) in 190 lines of pure JAX, trained on a MacBook Air. Write-up: vaibhaav.in/writing/deepseek-v3-jax",
+      "url": "https://github.com/Vaibhaav-Tiwari/deepseek-v3-jax"
+    },
+    {
+      "role": "discussion",
+      "title": "Show HN: DeepSeek V3 in ~200 lines of pure Jax",
+      "url": "https://news.ycombinator.com/item?id=50497589"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-show-hn-deepseek-v3-in-200-lines-of-pure-jax-2026-11-15",
+      "edition_date": "2026-11-15"
+    }
+  ],
+  "created_at": "2026-11-15T15:41:02Z",
+  "updated_at": "2026-11-15T15:41:02Z",
+  "stats": {
+    "points": 257,
+    "comments": 23,
+    "submitted_by": "VaibhaavTiwari",
+    "posted_at": "2026-11-14T15:04:15Z"
+  },
+  "stats_as_of": "2026-11-15T15:37:29Z"
+}

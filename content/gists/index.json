@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-14T15:02:25Z",
+  "generated_at": "2026-11-15T15:41:02Z",
   "gists": [
     {
       "slug": "gh-caveman",
@@ -13,6 +13,12 @@
       "source_key": "github.com/ChromeDevTools/chrome-devtools-mcp",
       "path": "gists/gh-chrome-devtools-mcp.json",
       "created_at": "2026-11-13T16:15:14Z"
+    },
+    {
+      "slug": "gh-claude-bughunter",
+      "source_key": "github.com/elementalsouls/Claude-BugHunter",
+      "path": "gists/gh-claude-bughunter.json",
+      "created_at": "2026-11-15T15:41:02Z"
     },
     {
       "slug": "gh-claude-trading-skills",
@@ -31,6 +37,12 @@
       "source_key": "github.com/ZhuLinsen/daily_stock_analysis",
       "path": "gists/gh-daily-stock-analysis.json",
       "created_at": "2026-11-13T16:15:14Z"
+    },
+    {
+      "slug": "gh-ggml",
+      "source_key": "github.com/ggml-org/ggml",
+      "path": "gists/gh-ggml.json",
+      "created_at": "2026-11-15T15:41:02Z"
     },
     {
       "slug": "gh-loopforge",
@@ -55,6 +67,18 @@
       "source_key": "github.com/QwenLM/qwen-code",
       "path": "gists/gh-qwen-code.json",
       "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
+      "slug": "gh-skillevaluator",
+      "source_key": "github.com/NVIDIA/SkillEvaluator",
+      "path": "gists/gh-skillevaluator.json",
+      "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
+      "slug": "gh-stitch-skills",
+      "source_key": "github.com/google-labs-code/stitch-skills",
+      "path": "gists/gh-stitch-skills.json",
+      "created_at": "2026-11-15T15:41:02Z"
     },
     {
       "slug": "gh-tensorfold",
@@ -93,10 +117,28 @@
       "created_at": "2026-11-14T15:02:25Z"
     },
     {
+      "slug": "hn-all-ai-generated-code-should-be-open-source",
+      "source_key": "news.ycombinator.com/item?id=50507303",
+      "path": "gists/hn-all-ai-generated-code-should-be-open-source.json",
+      "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
       "slug": "hn-anthropic-ipo",
       "source_key": "news.ycombinator.com/item?id=50465829",
       "path": "gists/hn-anthropic-ipo.json",
       "created_at": "2026-11-13T16:15:14Z"
+    },
+    {
+      "slug": "hn-anthropic-upgrades-claude-code-projects-to-run",
+      "source_key": "news.ycombinator.com/item?id=50492141",
+      "path": "gists/hn-anthropic-upgrades-claude-code-projects-to-run.json",
+      "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
+      "slug": "hn-ask-hn-what-are-the-most-useful-concrete-ai",
+      "source_key": "news.ycombinator.com/item?id=50494696",
+      "path": "gists/hn-ask-hn-what-are-the-most-useful-concrete-ai.json",
+      "created_at": "2026-11-15T15:41:02Z"
     },
     {
       "slug": "hn-chinese-frontier-ai-models-carry-the",
@@ -177,16 +219,70 @@
       "created_at": "2026-11-14T15:02:25Z"
     },
     {
+      "slug": "hn-serving-glm-5-3-at-607-8-tok-s-across-two",
+      "source_key": "news.ycombinator.com/item?id=50497155",
+      "path": "gists/hn-serving-glm-5-3-at-607-8-tok-s-across-two.json",
+      "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
+      "slug": "hn-show-hn-deepseek-v3-in-200-lines-of-pure-jax",
+      "source_key": "news.ycombinator.com/item?id=50497589",
+      "path": "gists/hn-show-hn-deepseek-v3-in-200-lines-of-pure-jax.json",
+      "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
+      "slug": "hn-smuggling-of-1-5m-ai-gpus-could-be-the-cause-of",
+      "source_key": "news.ycombinator.com/item?id=50498051",
+      "path": "gists/hn-smuggling-of-1-5m-ai-gpus-could-be-the-cause-of.json",
+      "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
+      "slug": "hn-the-claude-delusion",
+      "source_key": "news.ycombinator.com/item?id=50496921",
+      "path": "gists/hn-the-claude-delusion.json",
+      "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
+      "slug": "hn-understanding-positional-embeddings-in-modern",
+      "source_key": "news.ycombinator.com/item?id=50506376",
+      "path": "gists/hn-understanding-positional-embeddings-in-modern.json",
+      "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
       "slug": "hn-why-is-google-cutting-off-search-from-ai-free",
       "source_key": "news.ycombinator.com/item?id=50484960",
       "path": "gists/hn-why-is-google-cutting-off-search-from-ai-free.json",
       "created_at": "2026-11-14T15:02:25Z"
     },
     {
+      "slug": "ph-businesses-in-chatgpt",
+      "source_key": "producthunt.com/products/openai",
+      "path": "gists/ph-businesses-in-chatgpt.json",
+      "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
       "slug": "ph-claude-meetings",
       "source_key": "producthunt.com/products/claude",
       "path": "gists/ph-claude-meetings.json",
       "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
+      "slug": "ph-dex-semantics",
+      "source_key": "producthunt.com/products/dex-by-exmergo",
+      "path": "gists/ph-dex-semantics.json",
+      "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
+      "slug": "ph-gemini-robotics-2-5-7",
+      "source_key": "producthunt.com/products/gemini-robotics-2-5",
+      "path": "gists/ph-gemini-robotics-2-5-7.json",
+      "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
+      "slug": "ph-hiringnow-3",
+      "source_key": "producthunt.com/products/hiringnow",
+      "path": "gists/ph-hiringnow-3.json",
+      "created_at": "2026-11-15T15:41:02Z"
     },
     {
       "slug": "ph-l-3db3f332-bfc0-4c05-a7b9-3cda7e7608e3",
@@ -205,6 +301,12 @@
       "source_key": "producthunt.com/products/plurai",
       "path": "gists/ph-plurai-simulation.json",
       "created_at": "2026-11-13T16:15:14Z"
+    },
+    {
+      "slug": "ph-rakazo-2",
+      "source_key": "producthunt.com/products/rakazo",
+      "path": "gists/ph-rakazo-2.json",
+      "created_at": "2026-11-15T15:41:02Z"
     },
     {
       "slug": "ph-replicate-3",
@@ -237,6 +339,12 @@
       "created_at": "2026-11-14T15:02:25Z"
     },
     {
+      "slug": "tc-asian-governments-react-to-nvidia-ceo-jensen",
+      "source_key": "techcrunch.com/2026/11/14/asian-governments-react-to-nvidia-ceo-jensen-huangs-exit",
+      "path": "gists/tc-asian-governments-react-to-nvidia-ceo-jensen.json",
+      "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
       "slug": "tc-chatgpts-new-wallet-lets-ai-agents-shop-and",
       "source_key": "techcrunch.com/2026/11/13/chatgpts-new-wallet-lets-ai-agents-shop-and-check-out-for-you",
       "path": "gists/tc-chatgpts-new-wallet-lets-ai-agents-shop-and.json",
@@ -259,6 +367,12 @@
       "source_key": "techcrunch.com/2026/11/13/elevenlabs-new-app-combines-meeting-note-taking-and-dictation-for-teams",
       "path": "gists/tc-elevenlabs-new-app-combines-meeting-note-taking.json",
       "created_at": "2026-11-13T16:15:14Z"
+    },
+    {
+      "slug": "tc-elon-musk-other-tech-execs-sign-petition",
+      "source_key": "techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang",
+      "path": "gists/tc-elon-musk-other-tech-execs-sign-petition.json",
+      "created_at": "2026-11-15T15:41:02Z"
     },
     {
       "slug": "tc-export-banned-nvidia-chips-are-behind-chinas",
@@ -297,6 +411,12 @@
       "created_at": "2026-11-14T15:02:25Z"
     },
     {
+      "slug": "tc-the-ai-graveyard-a-running-list-of-projects-and",
+      "source_key": "techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it",
+      "path": "gists/tc-the-ai-graveyard-a-running-list-of-projects-and.json",
+      "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
       "slug": "tc-the-unfolding-jensen-huang-scandal-a-timeline",
       "source_key": "techcrunch.com/2026/11/13/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline",
       "path": "gists/tc-the-unfolding-jensen-huang-scandal-a-timeline.json",
@@ -307,6 +427,12 @@
       "source_key": "techcrunch.com/2026/11/12/united-airlines-blocks-ai-agents-from-booking-flights-citing-cybersecurity-risks",
       "path": "gists/tc-united-airlines-blocks-ai-agents-from-booking.json",
       "created_at": "2026-11-13T16:15:14Z"
+    },
+    {
+      "slug": "tc-where-was-nvidias-security-team",
+      "source_key": "techcrunch.com/2026/11/14/where-was-nvidias-security-team",
+      "path": "gists/tc-where-was-nvidias-security-team.json",
+      "created_at": "2026-11-15T15:41:02Z"
     }
   ]
 }

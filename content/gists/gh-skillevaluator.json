@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "slug": "gh-skillevaluator",
+  "kind": "repo",
+  "title": "NVIDIA/SkillEvaluator",
+  "url": "https://github.com/NVIDIA/SkillEvaluator",
+  "source_url": "https://github.com/NVIDIA/SkillEvaluator",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "Framework",
+    "Eval",
+    "Agents",
+    "Nvidia"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/NVIDIA.png?size=80"
+  },
+  "depth": "full",
+  "lede": "NVIDIA's SkillEvaluator grades agent skills in three tiers, from static safety and quality checks to live sandboxed runs that compare an agent with and without the skill.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Tier 1 checks that a skill is safe, well formed and compatible with agent harnesses, using scanners such as SkillSpector and Gitleaks.",
+        "Tier 2 uses embeddings to flag guidance that repeats inside a skill or overlaps with others in a catalog.",
+        "Tier 3 runs a real agent in a sandbox, Docker by default via the Harbor framework, to measure whether the skill actually helps.",
+        "Static checks need no API key; rubric scoring can use free NVIDIA Build endpoints for eligible developers.",
+        "It can check changed skills on every pull request, and ships as a skill that Claude Code or Codex can load."
+      ]
+    },
+    {
+      "key": "try_it",
+      "command": "pip install skillevaluator"
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "NVIDIA/SkillEvaluator",
+      "url": "https://github.com/NVIDIA/SkillEvaluator"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-skillevaluator-2026-11-15",
+      "edition_date": "2026-11-15"
+    }
+  ],
+  "created_at": "2026-11-15T15:41:02Z",
+  "updated_at": "2026-11-15T15:41:02Z",
+  "stats": {
+    "stars": 1390,
+    "forks": 167,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "created_on": "2026-06-24",
+    "contributors": 33,
+    "last_release": {
+      "tag": "v0.9.0",
+      "published_on": "2026-11-13"
+    },
+    "open_issues": 10,
+    "stars_gained": 133
+  },
+  "stats_as_of": "2026-11-15T15:37:29Z"
+}

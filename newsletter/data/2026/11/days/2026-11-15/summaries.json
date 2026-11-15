@@ -1,0 +1,117 @@
+{
+  "date": "2026-11-15",
+  "items": {
+    "ph-hiringnow-3-2026-11-15": {
+      "summary": "Polls 247,000+ company career sites every 5 minutes, tailors your resume and cover letter per job, and applies on the employer's own site only after you approve.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-businesses-in-chatgpt-2026-11-15": {
+      "summary": "OpenAI lets businesses claim a profile, manage the information ChatGPT shows customers, view discovery insights, and set up a Business Agent where eligible.",
+      "tags": ["OpenAI", "Agents", "Launch"]
+    },
+    "ph-dex-semantics-2026-11-15": {
+      "summary": "Adds code declarations for row meaning, join type and aggregation rules to analytical models, lifting Claude Sonnet 5.5 on ADE-bench from 73.3% to 80%.",
+      "tags": ["Dev Tool", "Agents", "Launch"]
+    },
+    "ph-rakazo-2-2026-11-15": {
+      "summary": "Self-hosted, open source AI bots that each keep their own memory, routines and computer, with a browser you can watch and take over; bring any model and your own keys.",
+      "tags": ["Open Source", "Agents", "Launch"]
+    },
+    "ph-gemini-robotics-2-5-7-2026-11-15": {
+      "summary": "Google DeepMind's vision-language-action model turns what a robot sees and is told into arm and hand movements, and hit 96% success in a Mercedes-Benz parts-kitting pilot.",
+      "tags": ["Model Release", "Robotics", "Google"]
+    },
+    "hn-show-hn-deepseek-v3-in-200-lines-of-pure-jax-2026-11-15": {
+      "summary": "A compact reimplementation of the DeepSeek V3 model architecture in pure JAX, published as a GitHub repo.",
+      "tags": ["Show HN", "Open Source", "LLM"]
+    },
+    "gh-modern-web-guidance-src-2026-11-15": {
+      "summary": "TypeScript source from the Google Chrome team for keeping coding agents current on the latest web platform best practices.",
+      "tags": ["Dev Tool", "Code Gen", "Google"]
+    },
+    "gh-univer-2026-11-15": {
+      "summary": "Open source TypeScript office SDK for embedding document editing, calculation, collaboration and file processing in your own product, usable by both people and AI agents.",
+      "tags": ["Open Source", "Framework", "Agents"]
+    },
+    "gh-chrome-devtools-mcp-2026-11-15": {
+      "summary": "MCP server from the Chrome DevTools team that gives coding agents access to Chrome DevTools, written in TypeScript.",
+      "tags": ["Dev Tool", "MCP", "Agents"]
+    },
+    "gh-claude-trading-skills-2026-11-15": {
+      "summary": "Python Claude Code skills for equity investors and traders covering market analysis, technical charting, economic calendars, screeners and strategy development.",
+      "tags": ["Claude Code", "Agents"]
+    },
+    "gh-open-code-review-2026-11-15": {
+      "summary": "Alibaba's Go code reviewer pairs deterministic pipelines with an LLM agent for line-level comments, with built-in rules for NPEs, thread safety, XSS and SQL injection.",
+      "tags": ["Dev Tool", "Code Gen", "Security"]
+    },
+    "gh-loopforge-2026-11-15": {
+      "summary": "Tencent's self-hosted Go workflows that orchestrate CodeBuddy, Codex and Claude Code through scripts, with human approval gates between steps.",
+      "tags": ["Dev Tool", "Agents", "Code Gen"]
+    },
+    "gh-stitch-skills-2026-11-15": {
+      "summary": "Google Labs library of skills for the Stitch MCP server, built to the open Agent Skills standard so Gemini CLI, Claude Code, Cursor and Antigravity can load them.",
+      "tags": ["MCP", "Agents", "Google"]
+    },
+    "gh-ggml-2026-11-15": {
+      "summary": "ggml-org's C++ tensor library for machine learning, a low-level building block rather than a ready-to-run model or app.",
+      "tags": ["Open Source", "Framework"]
+    },
+    "gh-skillevaluator-2026-11-15": {
+      "summary": "Nvidia's Python framework tests agent skills in tiers: quality gates, semantic overlap checks, synthetic eval datasets, and live runs measuring how a skill changes agent behaviour.",
+      "tags": ["Framework", "Eval", "Agents", "Nvidia"]
+    },
+    "gh-claude-bughunter-2026-11-15": {
+      "summary": "Claude Code bundle of 82 skills and 15 slash commands for bug hunting and red-team work, built on 681 disclosed-report patterns across 24 vulnerability classes.",
+      "tags": ["Claude Code", "Security"]
+    },
+    "tc-the-ai-graveyard-a-running-list-of-projects-and-2026-11-15": {
+      "summary": "TechCrunch's running list of AI projects that shut down or missed expectations, from Apple's repeatedly delayed Siri AI to OpenAI's messy super app launch.",
+      "tags": ["Deep Dive"]
+    },
+    "tc-where-was-nvidias-security-team-2026-11-15": {
+      "summary": "Nvidia's security chief quietly left in August; a former intelligence officer says leaks through everyday relationships, as in Huang's exit, are what corporate security rarely catches.",
+      "tags": ["Nvidia", "Security"]
+    },
+    "tc-elon-musk-other-tech-execs-sign-petition-2026-11-15": {
+      "summary": "The petition passed 115,000 signatures by Saturday afternoon, after Huang stepped down over relationships including one with an executive at a firm suspected of funneling chips to China.",
+      "tags": ["Nvidia"]
+    },
+    "tc-asian-governments-react-to-nvidia-ceo-jensen-2026-11-15": {
+      "summary": "Some governments moved to confirm chip supply commitments, while others are monitoring the impact on local projects or addressing ongoing investigations.",
+      "tags": ["Nvidia", "Policy"]
+    },
+    "hn-nvidia-allegedly-engineered-scarcity-by-funding-2026-11-15": {
+      "summary": "TechPowerUp report on allegations that Nvidia funded AI startups which then spent the money buying its own GPUs, tightening supply.",
+      "tags": ["Nvidia"]
+    },
+    "hn-the-claude-delusion-2026-11-15": {
+      "summary": "A personal blog essay on netmeister.org taking a skeptical look at Anthropic's Claude.",
+      "tags": ["Anthropic", "LLM"]
+    },
+    "hn-serving-glm-5-3-at-607-8-tok-s-across-two-2026-11-15": {
+      "summary": "Nvidia developer blog walkthrough of splitting one GLM-5.3 deployment across two DGX Station machines with vLLM when a single GPU is not enough.",
+      "tags": ["Inference", "Nvidia", "Tutorial"]
+    },
+    "hn-anthropic-upgrades-claude-code-projects-to-run-2026-11-15": {
+      "summary": "Claude.com article on the redesigned Projects, which lets Claude Code split work across several AI workers running in parallel.",
+      "tags": ["Claude Code", "Agents", "Anthropic"]
+    },
+    "hn-ask-hn-what-are-the-most-useful-concrete-ai-2026-11-15": {
+      "summary": "Ask HN thread collecting which hands-on AI skills are worth learning independently.",
+      "tags": ["LLM"]
+    },
+    "hn-understanding-positional-embeddings-in-modern-2026-11-15": {
+      "summary": "Sebastian Raschka's newsletter explainer on how modern LLMs encode token position.",
+      "tags": ["LLM", "Deep Dive"]
+    },
+    "hn-all-ai-generated-code-should-be-open-source-2026-11-15": {
+      "summary": "Personal blog essay by Jakub Jankiewicz arguing that code produced by AI models should be released as open source.",
+      "tags": ["Code Gen", "Open Source"]
+    },
+    "hn-smuggling-of-1-5m-ai-gpus-could-be-the-cause-of-2026-11-15": {
+      "summary": "Tom's Hardware reports analysts tracking more than 1.5 gigawatts of export-banned Nvidia chips to China despite export controls, and tying it to Huang's exit.",
+      "tags": ["Nvidia", "Policy"]
+    }
+  }
+}

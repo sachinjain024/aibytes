@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "slug": "gh-stitch-skills",
+  "kind": "repo",
+  "title": "google-labs-code/stitch-skills",
+  "url": "https://github.com/google-labs-code/stitch-skills",
+  "source_url": "https://github.com/google-labs-code/stitch-skills",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "MCP",
+    "Agents",
+    "Google"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/google-labs-code.png?size=80"
+  },
+  "depth": "full",
+  "lede": "stitch-skills packages agent skills for Google's Stitch design tool, so coding agents can generate screens, extract design systems and turn designs into React code through the Stitch MCP server.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Ships three plugins: stitch-design for creating and editing screens, stitch-build for code generation, and stitch-utilities for prompts and DESIGN.md files.",
+        "Skills cover converting existing frontend code into a Stitch design, pulling a DESIGN.md out of source, and turning screens into React or React Native components.",
+        "Follows the Agent Skills standard, so the folders load in Codex, Claude Code, Cursor, Gemini CLI and Antigravity; OpenCode needs a manual copy.",
+        "Every skill depends on a configured Stitch MCP server with its own credentials."
+      ]
+    },
+    {
+      "key": "try_it",
+      "command": "npx skills add google-labs-code/stitch-skills"
+    },
+    {
+      "key": "whats_open",
+      "points": [
+        {
+          "text": "Screen download links now redirect to Google sign-in, breaking MCP clients that authenticate with an API key.",
+          "url": "https://github.com/google-labs-code/stitch-skills/issues/94"
+        },
+        {
+          "text": "Users want a Vue skill alongside the React targets.",
+          "url": "https://github.com/google-labs-code/stitch-skills/issues/50"
+        },
+        {
+          "text": "The design-system uploader only works when run from a repo checkout.",
+          "url": "https://github.com/google-labs-code/stitch-skills/issues/96"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "google-labs-code/stitch-skills",
+      "url": "https://github.com/google-labs-code/stitch-skills"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-stitch-skills-2026-11-15",
+      "edition_date": "2026-11-15"
+    }
+  ],
+  "created_at": "2026-11-15T15:41:02Z",
+  "updated_at": "2026-11-15T15:41:02Z",
+  "stats": {
+    "stars": 9106,
+    "forks": 1088,
+    "language": "TypeScript",
+    "license": "Apache-2.0",
+    "created_on": "2026-01-16",
+    "contributors": 17,
+    "last_release": {
+      "tag": "v1.0",
+      "published_on": "2026-05-18"
+    },
+    "open_issues": 12,
+    "stars_gained": 248
+  },
+  "stats_as_of": "2026-11-15T15:37:29Z"
+}

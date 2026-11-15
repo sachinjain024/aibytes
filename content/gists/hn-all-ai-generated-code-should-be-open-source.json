@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "slug": "hn-all-ai-generated-code-should-be-open-source",
+  "kind": "hn",
+  "title": "All AI-generated code should be Open Source",
+  "url": "https://jakub.jankiewicz.org/blog/ai-code-open-source/",
+  "source_url": "https://news.ycombinator.com/item?id=50507303",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Code Gen",
+    "Open Source"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Jakub Jankiewicz argues that code written by AI should be released as open source or public domain, since the models learned from open code and pure machine output may not be copyrightable.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Models trained on scraped open-source code and Creative Commons Stack Overflow posts without attribution, which he calls license laundering.",
+        "He cites the monkey selfie dispute and US Copyright Office guidance that non-humans cannot hold copyright.",
+        "Because places like the UK give limited protection to computer-generated works, he proposes open licences or CC0 everywhere.",
+        "Code that developers accept without review or edits is, in his view, the clearest case."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "counterpoint",
+          "text": "The top reply says courts lean the other way: Doe v. GitHub found LLM output does not inherit open-source licences, and Thaler v. Perlmutter denied copyright to fully AI work.",
+          "url": "https://news.ycombinator.com/item?id=50507593"
+        },
+        {
+          "stance": "disputed",
+          "text": "Several argue that steering agents through a complex codebase is real human R&D that should earn ownership.",
+          "url": "https://news.ycombinator.com/item?id=50507662"
+        },
+        {
+          "stance": "theme",
+          "text": "Others compare models to programmers who learn patterns from books and examples, which creates no duty to open source.",
+          "url": "https://news.ycombinator.com/item?id=50507623"
+        },
+        {
+          "stance": "agreed",
+          "text": "Some agree in spirit; one maintainer already releases AI-written code under a choice of Apache, BSD, GPL or MIT.",
+          "url": "https://news.ycombinator.com/item?id=50507598"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "All AI-generated code should be Open Source",
+      "url": "https://jakub.jankiewicz.org/blog/ai-code-open-source/"
+    },
+    {
+      "role": "discussion",
+      "title": "All AI-generated code should be Open Source",
+      "url": "https://news.ycombinator.com/item?id=50507303"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-all-ai-generated-code-should-be-open-source-2026-11-15",
+      "edition_date": "2026-11-15"
+    }
+  ],
+  "created_at": "2026-11-15T15:41:02Z",
+  "updated_at": "2026-11-15T15:41:02Z",
+  "stats": {
+    "points": 70,
+    "comments": 35,
+    "submitted_by": "jcubic",
+    "posted_at": "2026-11-15T14:46:58Z"
+  },
+  "stats_as_of": "2026-11-15T15:37:29Z",
+  "front_page": true
+}

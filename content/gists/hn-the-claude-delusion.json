@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "slug": "hn-the-claude-delusion",
+  "kind": "hn",
+  "title": "The Claude Delusion",
+  "url": "https://www.netmeister.org/blog/claude-delusion.html",
+  "source_url": "https://news.ycombinator.com/item?id=50496921",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Anthropic",
+    "LLM"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "A personal essay argues that successful tech figures overrate AI because they overrate themselves, using Bill Gates's account of judging OpenAI and Claude as its main example.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The author says success, often largely luck, leads tech leaders to assume expertise well outside their field.",
+        "Gates testing GPT on AP biology questions he wrote himself is cited as overconfidence in a domain he does not practise.",
+        "Gates calling Claude's coding as good as his own, and therefore superhuman, is read as ego rather than evidence.",
+        "The essay links this mindset to both AI doom and utopian narratives, and to agent talk that shifts responsibility away from builders."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "Most top comments reject the essay's take on Gates, arguing that a strong programmer who spent years evaluating engineers is well placed to judge coding models.",
+          "url": "https://news.ycombinator.com/item?id=50497310"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "Commenters see a contradiction: the essay faults Gates for judging biology outside his field, then dismisses him in coding, where he is an expert.",
+          "url": "https://news.ycombinator.com/item?id=50497295"
+        },
+        {
+          "stance": "disputed",
+          "text": "Some side with the author, citing Microsoft's slow start on the internet, while a reply points to Gates's 1995 Internet Tidal Wave memo.",
+          "url": "https://news.ycombinator.com/item?id=50497374"
+        },
+        {
+          "stance": "theme",
+          "text": "Several cite firsthand experience, such as a veteran reverse engineer who says Claude Code cracked a hard proprietary encoding problem.",
+          "url": "https://news.ycombinator.com/item?id=50497912"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "The Claude Delusion",
+      "url": "https://www.netmeister.org/blog/claude-delusion.html"
+    },
+    {
+      "role": "discussion",
+      "title": "The Claude Delusion",
+      "url": "https://news.ycombinator.com/item?id=50496921"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-the-claude-delusion-2026-11-15",
+      "edition_date": "2026-11-15"
+    }
+  ],
+  "created_at": "2026-11-15T15:41:02Z",
+  "updated_at": "2026-11-15T15:41:02Z",
+  "stats": {
+    "points": 149,
+    "comments": 195,
+    "submitted_by": "janvdberg",
+    "posted_at": "2026-11-14T13:36:17Z"
+  },
+  "stats_as_of": "2026-11-15T15:37:29Z"
+}

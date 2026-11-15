@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "ph-rakazo-2",
+  "kind": "launch",
+  "title": "Rakazo",
+  "url": "https://www.producthunt.com/products/rakazo",
+  "source_url": "https://www.producthunt.com/products/rakazo",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Open Source",
+    "Agents",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/e55287d1-9b0f-4ac1-999b-f88b64bd0f28.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "Rakazo is an open-source, self-hostable platform for persistent AI bots that keep working after the chat closes, each with its own memory, schedule and computer.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Every bot gets its own machine, including a browser you can watch live and take control of.",
+        "Memory carries across tasks, and routines can fire on a schedule, an incoming email or a webhook.",
+        "Works with any model or sandbox provider; the team says ChatGPT and Claude subscriptions are supported.",
+        "Connects to Gmail, Slack, GitHub, Notion, Linear and any MCP server, and supports group chats.",
+        "Clients ship for web, desktop, iPhone and Android."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Developers and teams who want always-on agent assistants but prefer to keep the model choice, API keys and data on their own machines."
+    },
+    {
+      "key": "pricing",
+      "text": "Self-hosting is free; the launch comment says the hosted cloud version costs $15 a month."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Rakazo on Product Hunt",
+      "url": "https://www.producthunt.com/products/rakazo"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-rakazo-2-2026-11-15",
+      "edition_date": "2026-11-15"
+    }
+  ],
+  "created_at": "2026-11-15T15:41:02Z",
+  "updated_at": "2026-11-15T15:41:02Z",
+  "stats": {
+    "upvotes": 197,
+    "comments": 18
+  },
+  "stats_as_of": "2026-11-15T15:37:29Z"
+}

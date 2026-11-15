@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "slug": "gh-ggml",
+  "kind": "repo",
+  "title": "ggml-org/ggml",
+  "url": "https://github.com/ggml-org/ggml",
+  "source_url": "https://github.com/ggml-org/ggml",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "Open Source",
+    "Framework"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/ggml-org.png?size=80"
+  },
+  "depth": "full",
+  "lede": "ggml is a plain C/C++ tensor library for machine learning that aims to run models portably and efficiently on almost any hardware, with no external dependencies.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Builds for x86, ARM, RISC-V, LoongArch, PowerPC, s390x and WebAssembly, with SIMD kernels on x86, ARM and RISC-V.",
+        "Backends span CPU, GPU, NPU and the browser.",
+        "Supports 2- to 8-bit integer quantization plus the MXFP4 and NVFP4 microscaling formats.",
+        "Makes no memory allocations at runtime; its docs also cover the GGUF file format.",
+        "Changes to the core library are meant to land as pull requests in llama.cpp, where they get wider review and testing."
+      ]
+    },
+    {
+      "key": "whats_open",
+      "points": [
+        {
+          "text": "A long-running thread asks for text-to-speech model support.",
+          "url": "https://github.com/ggml-org/ggml/issues/59"
+        },
+        {
+          "text": "Users keep asking how to fine-tune models with ggml.",
+          "url": "https://github.com/ggml-org/ggml/issues/8"
+        },
+        {
+          "text": "A roadmap item proposes removing BLAS and all its variants, for performance and simpler code.",
+          "url": "https://github.com/ggml-org/ggml/issues/293"
+        },
+        {
+          "text": "Requests for more architectures, starting with the RWKV language model.",
+          "url": "https://github.com/ggml-org/ggml/issues/21"
+        },
+        {
+          "text": "Questions about the state of the Vulkan backend.",
+          "url": "https://github.com/ggml-org/ggml/issues/542"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "ggml-org/ggml",
+      "url": "https://github.com/ggml-org/ggml"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-ggml-2026-11-15",
+      "edition_date": "2026-11-15"
+    }
+  ],
+  "created_at": "2026-11-15T15:41:02Z",
+  "updated_at": "2026-11-15T15:41:02Z",
+  "stats": {
+    "stars": 15818,
+    "forks": 1957,
+    "language": "C++",
+    "license": "MIT",
+    "created_on": "2022-09-18",
+    "contributors": 920,
+    "last_release": {
+      "tag": "v1.0.0",
+      "published_on": "2026-11-13"
+    },
+    "open_issues": 324,
+    "stars_gained": 154
+  },
+  "stats_as_of": "2026-11-15T15:37:29Z"
+}

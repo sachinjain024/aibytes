@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "slug": "gh-claude-bughunter",
+  "kind": "repo",
+  "title": "elementalsouls/Claude-BugHunter",
+  "url": "https://github.com/elementalsouls/Claude-BugHunter",
+  "source_url": "https://github.com/elementalsouls/Claude-BugHunter",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "Claude Code",
+    "Security"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/elementalsouls.png?size=80"
+  },
+  "depth": "full",
+  "lede": "Claude-BugHunter is a skill bundle that turns Claude Code into a structured assistant for authorized bug bounty and external red-team work, loading the right technique by topic.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Hunting skills are distilled from disclosed HackerOne reports, with per-class detection patterns, payloads and chain templates for bugs like SSRF, IDOR and XSS.",
+        "Covers enterprise perimeter targets such as Microsoft 365 and Entra, Okta, vCenter and SSL VPN appliances.",
+        "A validation gate checks scope and accepted impact before a report is filed, and evidence-hygiene skills redact PII.",
+        "Internal Active Directory attacks, C2, post-exploitation and evasion are deliberately out of scope.",
+        "Installs as a Claude Code plugin, or copies into OpenCode, Codex CLI, Hermes Agent and Antigravity skill folders."
+      ]
+    },
+    {
+      "key": "try_it",
+      "command": "/plugin marketplace add elementalsouls/Claude-BugHunter"
+    },
+    {
+      "key": "whats_open",
+      "points": [
+        {
+          "text": "Three SKILL.md descriptions exceed the documented 1,024-character limit.",
+          "url": "https://github.com/elementalsouls/Claude-BugHunter/issues/82"
+        },
+        {
+          "text": "A proposal would add a subagent pipeline and a code-driven harness across three stacked PRs.",
+          "url": "https://github.com/elementalsouls/Claude-BugHunter/issues/88"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "elementalsouls/Claude-BugHunter",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-claude-bughunter-2026-11-15",
+      "edition_date": "2026-11-15"
+    }
+  ],
+  "created_at": "2026-11-15T15:41:02Z",
+  "updated_at": "2026-11-15T15:41:02Z",
+  "stats": {
+    "stars": 6014,
+    "forks": 914,
+    "language": "Python",
+    "license": "MIT",
+    "created_on": "2026-05-05",
+    "contributors": 11,
+    "last_release": {
+      "tag": "v2.1",
+      "published_on": "2026-06-05"
+    },
+    "open_issues": 3,
+    "stars_gained": 124
+  },
+  "stats_as_of": "2026-11-15T15:37:29Z"
+}
