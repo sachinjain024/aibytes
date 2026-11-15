@@ -35,7 +35,7 @@ COMPANIES = {
     "xai": "xAI", "spacexai": "xAI", "grok": "xAI",
     "googledeepmind": "Google", "googleai": "Google", "geminiapp": "Google",
     "googlefordevs": "Google", "officiallogank": "Google",
-    "aiatmeta": "Meta", "metaai": "Meta",
+    "aiatmeta": "Meta", "metaai": "Meta", "finkd": "Meta",
     "nvidia": "NVIDIA", "nvidiaai": "NVIDIA",
     "mistralai": "Mistral", "cursor_ai": "Cursor", "huggingface": "Hugging Face",
     "perplexity_ai": "Perplexity", "deepseek_ai": "DeepSeek", "alibaba_qwen": "Qwen",
