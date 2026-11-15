@@ -630,6 +630,13 @@ is needed (ask first if so).
 
 **Verification:** the publisher approves. **Dependencies:** T26. **Size:** S.
 
+**Done 15 Nov 2026:** spec approved with all three recommendations: counts in
+their own public document (`gist_reaction_counts/{slug}`) and each reader's set
+private (`gist_reactions/{slug}/by/{uid}`), written in one batch; a signed-out
+press asks for sign-in and applies nothing; several emoji per reader. No Cloud
+Function. T31 must prove the `getAfter()` counts rule on the emulator first; if it
+cannot, stop and ask before the fall-back.
+
 ### T31: rules and emulator tests
 
 **Description:** `firestore.rules` for reactions; emulator tests: signed out

@@ -5,7 +5,8 @@
 - **Builds on:** `AIB-145y-ledger-gist-ui.md` (`ReactionBar`), `AIB-145y-app-gist-pages.md`
   (the page), `AIB-145y-app-gist-panel.md` (the panel), the design record (D2), and the
   accounts spec AIB-75v (Google sign-in, `firestore.rules`, the emulator tests)
-- **Status:** draft, 15 Nov 2026, waiting for the publisher. Three choices under **Decide**.
+- **Status:** approved 15 Nov 2026, with all three recommendations. The choices
+  marked **Decide** below are settled as recommended.
 
 ## Objective
 

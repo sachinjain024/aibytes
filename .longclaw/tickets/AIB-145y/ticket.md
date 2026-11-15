@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-14T23:03:27.449Z
+updated_at: 2026-11-15T12:55:07.103Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -115,7 +115,7 @@ added_by:
 - [x] 9.3 T29: weekly pages and the panel event <!-- longclaw:item=ck_5577bc09 -->
 - [ ] 9.4 Checkpoint E: launch-ready; PR #65 squash-merged 13 Nov (gists live in the daily run), PR #68 (panel, T27-T29) still to squash-merge <!-- longclaw:item=ck_fc76f81a -->
 - [ ] 10. app-reactions (second PR) <!-- longclaw:item=ck_6684cc60 -->
-- [ ] 10.1 T30: reactions spec <!-- longclaw:item=ck_30babd49 -->
+- [x] 10.1 T30: reactions spec <!-- longclaw:item=ck_30babd49 -->
 - [ ] 10.2 T31: rules and emulator tests <!-- longclaw:item=ck_6d757e54 -->
 - [ ] 10.3 P5: publisher deploys the Firestore rules <!-- longclaw:item=ck_7173a9bc -->
 - [ ] 10.4 T32: reactions in the app <!-- longclaw:item=ck_759600ee -->
@@ -1198,6 +1198,51 @@ changes:
   - field: checklist.ck_fc76f81a.text
     from: "Checkpoint E: launch-ready; PR #65 squash-merged 13 Nov (gists live in the daily run), PR #68 (panel, T27-T29) still to squash-merge"
     to: "9.4 Checkpoint E: launch-ready; PR #65 squash-merged 13 Nov (gists live in the daily run), PR #68 (panel, T27-T29) still to squash-merge"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f7078146
+kind: update
+occurred_at: 2026-11-15T12:54:59.929Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_30babd49.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ad7a12ed
+kind: update
+occurred_at: 2026-11-15T12:54:59.953Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_6684cc60.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_c3e2a1b1
+kind: update
+occurred_at: 2026-11-15T12:55:07.103Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_6684cc60.checked
+    from: "true"
+    to: "false"
 -->
 ### You updated this ticket
 <!-- /longclaw:event -->
