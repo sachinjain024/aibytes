@@ -8,7 +8,7 @@ test("a mailto link encodes its subject", () => {
 
 test("the footer links, in order", () => {
   assert.deepEqual(FOOTER_LINKS.map((l) => l.label),
-    ["Chrome Extension (soon)", "GitHub", "X", "Suggest a link", "Advertise", "Privacy"]);
+    ["Chrome Extension (soon)", "Weekly Archive", "GitHub", "Advertise", "Privacy"]);
 });
 
 test("the extension has no link until it ships", () => {
@@ -20,7 +20,14 @@ test("every other link is https, mailto, or a page of the site", () => {
   assert.equal(FOOTER_LINKS.find((l) => l.label === "Privacy").href, "/privacy");
   assert.equal(GITHUB_URL, "https://github.com/sachinjain024/aibytes");
   assert.equal(FOOTER_LINKS.find((l) => l.label === "GitHub").href, GITHUB_URL);
-  assert.equal(FOOTER_LINKS.find((l) => l.label === "X").href, "https://x.com/sachinjain024");
+  assert.equal(FOOTER_LINKS.some((l) => l.label === "X" || l.label === "Suggest a link"), false);
+});
+
+test("the Weekly Archive is the site's own /weekly page, marked internal so it opens in the same tab", () => {
+  const archive = FOOTER_LINKS.find((l) => l.label === "Weekly Archive");
+  assert.equal(archive.href, "/weekly");
+  assert.equal(archive.internal, true);
+  assert.equal(FOOTER_LINKS.filter((l) => l.internal).length, 1);
 });
 
 test("subscribe goes to the newsletter's own subscribe page", () => {

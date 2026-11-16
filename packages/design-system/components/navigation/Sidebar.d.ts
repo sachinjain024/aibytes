@@ -11,8 +11,9 @@ export interface SidebarProps {
   /** the drawer is open (phones) */
   open?: boolean;
   onClose?: () => void;
-  /** footer links in order; one without href renders as plain text, e.g. "Chrome Extension (soon)" */
-  links?: { label: string; href?: string }[];
+  /** footer links in order; one without href renders as plain text, e.g. "Chrome Extension (soon)".
+   *  `internal` is a page of this site (e.g. /weekly): same tab, archive icon, no outward arrow. */
+  links?: { label: string; href?: string; internal?: boolean }[];
   /** the "Read aiBytes_ weekly · Subscribe" block renders only when this is passed */
   subscribeUrl?: string;
   /** the LIBRARY section and its Saved row render only when this is passed, at any count */

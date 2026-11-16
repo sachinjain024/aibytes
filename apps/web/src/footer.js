@@ -1,8 +1,9 @@
-// The footer's links (spec §6, Navigation links), as data so `node --test` can
-// check them. The X account is Sachin's own until aiBytes_ has one, and both
-// mail links go to the address Ledger's footer already shipped with.
+// The sidebar's footer links (spec §6, Navigation links), as data so `node --test`
+// can check them. The mail link goes to the address Ledger's footer already
+// shipped with. X and "Suggest a link" were dropped on 16 Nov 2026 for the
+// Weekly Archive, the site's own page, which opens in the same tab.
 import { withRef } from "@aibytes/design-system/components/content/withRef.js";
-import { NEWSLETTER_ORIGIN, privacyPath } from "./route.js";
+import { NEWSLETTER_ORIGIN, privacyPath, weeklyPath } from "./route.js";
 
 const EMAIL = "sachinjain.hq@gmail.com";
 
@@ -20,9 +21,8 @@ export const mailto = (address, subject) => `mailto:${address}?subject=${encodeU
 // No href renders as plain text: the extension has no page until it ships (phase 7).
 export const FOOTER_LINKS = [
   { label: "Chrome Extension (soon)" },
+  { label: "Weekly Archive", href: weeklyPath(), internal: true },
   { label: "GitHub", href: GITHUB_URL },
-  { label: "X", href: "https://x.com/sachinjain024" },
-  { label: "Suggest a link", href: mailto(EMAIL, "Suggest a link: aiBytes_") },
   { label: "Advertise", href: mailto(EMAIL, "Advertise: aiBytes_") },
   { label: "Privacy", href: privacyPath() },
 ];

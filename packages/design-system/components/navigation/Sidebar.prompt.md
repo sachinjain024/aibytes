@@ -13,4 +13,4 @@ Saves: pass `onSaved` to add a LIBRARY section under the categories with one Sav
 <Sidebar … onSaved={openSaved} savedCount={saves.length} savedActive={page === "saved"} />
 ```
 
-On phones it is the drawer the `AppHeader` menu button opens (pass the same open state to both); it renders its own backdrop. Put live links first and not-yet-live ones (no `href`) last. Leave GitHub out when the AppHeader already links it.
+On phones it is the drawer the `AppHeader` menu button opens (pass the same open state to both); it renders its own backdrop. Put live links first and not-yet-live ones (no `href`) last. Mark a page of the site itself `internal: true` (the Weekly Archive): it opens in the same tab, with the archive icon and no outward arrow; every other link opens in a new tab. Leave GitHub out when the AppHeader already links it.

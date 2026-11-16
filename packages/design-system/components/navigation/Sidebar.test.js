@@ -54,3 +54,11 @@ test('the Subscribe link opens the newsletter in a new tab',()=>{
   const html=renderToStaticMarkup(React.createElement(Sidebar,{categories:[],links:[],subscribeUrl:'https://newsletter.aibytes.io/subscribe'}));
   assert.match(html,/<a class="subscribe-link" href="https:\/\/newsletter.aibytes.io\/subscribe" target="_blank"/);
 });
+
+test('an internal link (the Weekly Archive) opens in the same tab, with the archive icon and no outward arrow',()=>{
+  const html=render({links:[{label:'Weekly Archive',href:'/weekly',internal:true},{label:'X',href:'https://x.com/aibytes'}]});
+  const archive=html.match(/<a href="\/weekly">.*?<\/a>/)[0];
+  assert.doesNotMatch(archive,/target=/);assert.doesNotMatch(archive,/link-arrow/);
+  assert.match(archive,/Weekly Archive/);
+  assert.match(html,/<a href="https:\/\/x\.com\/aibytes" target="_blank" rel="noreferrer">/);
+});
