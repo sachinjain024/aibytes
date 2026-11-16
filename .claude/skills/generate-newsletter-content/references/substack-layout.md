@@ -7,8 +7,10 @@ current theme. Decision record:
 `newsletter/artifacts/2026-Nov-03-Substack-design-taste.html`.
 
 The content rules in `SKILL.md` still apply: the voice, the intro beats, the
-verbatim X text, where each link points, clean URLs and single hyphens. This
-file only replaces how the issue is laid out.
+verbatim X text, where each link points (F2: title → gist, trailing source),
+clean source URLs, gist UTM tags, and single hyphens. This file only replaces
+how the issue is laid out. The one-colour mapping for gist links is recorded
+in `newsletter/artifacts/2026-Nov-16-newsletter-gist-links.html`.
 
 ## What the editor keeps
 
@@ -23,8 +25,9 @@ the email preview.
 | `<mark style="background-color:#hex">` in any colour, plus `code` | |
 
 Every link renders in the accent colour, and there is no second link colour,
-so the Beehiiv "grey attribution link" can't exist here. Stats and `(Source)`
-labels are plain body text.
+so the Beehiiv "grey attribution link" can't exist here. Stats stay plain
+body text. `(Source)` is a link to the article (F2); on Issues 1–18 it is
+still a label.
 
 ## Theme
 
@@ -56,13 +59,14 @@ body, sans headings, and orange links, blockquote bar and buttons.
 ### AI News
 
 - The **story of the week** comes first, as
-  `<h3>{emoji} <a href="{url}">{headline}</a></h3>`, then
-  `<p>{context} ({Source})</p>`. There's no "Story of the week" label, and
+  `<h3>{emoji} <a href="{gist}">{headline}</a></h3>`, then
+  `<p>{context} (<a href="{article}">{Source}</a>)</p>`. There's no "Story of the week" label, and
   **no divider** after it: it runs straight into the next story (picked
   3 Nov 2026 on the Issue 16 backfill). Its H3 and first place mark it out.
   The only `<hr>` in the body is the one before the sign-off.
 - Every other story is one paragraph:
-  `<p>{emoji} <a href="{url}"><b>{headline}</b></a> {context} ({Source})</p>`.
+  `<p>{emoji} <a href="{gist}"><b>{headline}</b></a> {context} (<a href="{article}">{Source}</a>)</p>`.
+  Issues 1–18 have no gist href, so `{url}` is still the article and `(Source)` is still a label.
 - The quote block becomes a pull quote at the end of the section:
   `<div class="pullquote"><p>{quote}</p></div>`. There's no attribution line.
 
@@ -70,7 +74,8 @@ body, sans headings, and orange links, blockquote bar and buttons.
 
 Per post: `<h3>{@handle} · {Day DD}</h3>` (the handle alone, no company name; publisher call on Issue 17), then the whole post in a
 `<blockquote>`, with one `<p>` per paragraph, then
-`<p><a href="{post}">Post on X ↗</a> · <a href="{link_url}">{domain} ↗</a></p>`.
+`<p><a href="{gist}">Gist ↗</a> · <a href="{post}">Post on X ↗</a> · <a href="{link_url}">{domain} ↗</a></p>`
+when a gist was written. Leave out `Gist ↗` when it wasn't (Issues 1–18).
 Leave out the domain link when there's no `link_url`.
 
 ### Ranked sections
@@ -79,18 +84,17 @@ Viral on X, New AI products, Trending GitHub projects and HN deep stories are
 each an `<ol>`, so the list number shows the rank. The stat goes **last** on
 the row, as plain text:
 
-- Viral on X: `{emoji} <a href="{post}"><b>@{handle}</b></a> {opening words} ♥ {likes}`.
-  Only the handle is a link, and it points at the **post**, not the profile.
-  The opening words stay plain text, so they read in body ink rather than a
-  run of orange (picked 3 Nov 2026 on the Issue 16 backfill).
-- New AI products: `{emoji} <a href="{site}"><b>{name}</b></a> - {description} (<a href="{launch}">Product Hunt</a>) ▲ {votes}`
-- Trending GitHub projects: `{emoji} <a href="{repo}"><b>{owner/repo}</b></a> - {description} +{stars} ★`
-- HN deep stories: `{emoji} {title} (<a href="{thread}">HN thread</a>) {points} pts`.
-  The title is **not linked and not bold**, so it reads as normal body text
-  (unbolded on the publisher's call, Issue 17). The thread link is the
-  only orange in the row. This overrides the step 3 link table for Substack:
-  the article isn't linked here (picked 3 Nov 2026 on the Issue 16 backfill).
-  HN only. The other sections keep their linked bold names.
+- Viral on X: `{emoji} <a href="{gist}"><b>@{handle}</b></a> {opening words} <a href="{post}">Post on X</a> ♥ {likes}`.
+  The handle points at the **gist**. The opening words stay plain text, so they
+  read in body ink rather than a run of orange (picked 3 Nov 2026 on the
+  Issue 16 backfill). Issues 1–18 have no gist: the handle still points at
+  the post, and there is no trailing Post on X.
+- New AI products: `{emoji} <a href="{gist}"><b>{name}</b></a> - {description} (<a href="{launch}">Product Hunt</a>) ▲ {votes}`
+- Trending GitHub projects: `{emoji} <a href="{gist}"><b>{owner/repo}</b></a> - {description} (<a href="{repo}">GitHub</a>) +{stars} ★`
+- HN deep stories: `{emoji} <a href="{gist}">{title}</a> (<a href="{thread}">HN thread</a>) {points} pts`.
+  The title is **linked to the gist and not bold** (unbolded on the publisher's
+  call, Issue 17; the "not linked" rule does not apply once a gist exists).
+  Issues 1–18 keep the title plain and the thread as the only orange.
 
 The X words are still verbatim and still come from the `x_items.py` render.
 `scripts/substack_export.py` builds this whole layout from the issue HTML, and

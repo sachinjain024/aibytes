@@ -131,17 +131,40 @@ def _a(url):
     return html.escape(url, quote=True)
 
 
+def gist_newsletter_url(slug, issue_number):
+    """https://aibytes.io/gists/<slug> with the newsletter UTM tags (AIB-145y T35)."""
+    if isinstance(issue_number, int):
+        n = issue_number
+    else:
+        match = re.search(r"(\d+)$", str(issue_number).strip())
+        if not match:
+            raise ValueError(f"not an issue number: {issue_number!r}")
+        n = int(match.group(1))
+    return (f"https://aibytes.io/gists/{slug}"
+            f"?utm_source=newsletter&utm_medium=email&utm_campaign=issue-{n}")
+
+
+def _gist_of(post, gist_urls):
+    if not gist_urls:
+        return None
+    return gist_urls.get(post["url"])
+
+
 # ── html: the issue template ─────────────────────────────────────────────────
 
-def announcement_html(post):
+def announcement_html(post, gist_url=None):
     name, _ = company(post)
     paras, cut = trim_long(paragraphs(post["text"]))
     body = "".join("<p>" + "<br>".join(_e(line) for line in para) + "</p>" for para in paras)
     if cut:
         body = body[:-4] + f' <span class="cut">{ELLIPSIS}</span></p>'
-    links = f'<a href="{_a(post["url"])}">Post on X ↗</a>'
+    parts = []
+    if gist_url:
+        parts.append(f'<a href="{_a(gist_url)}">Gist ↗</a>')
+    parts.append(f'<a href="{_a(post["url"])}">Post on X ↗</a>')
     if post["link_url"]:
-        links += f' <span class="dot">·</span> <a href="{_a(post["link_url"])}">{_e(domain(post["link_url"]))} ↗</a>'
+        parts.append(f'<a href="{_a(post["link_url"])}">{_e(domain(post["link_url"]))} ↗</a>')
+    links = ' <span class="dot">·</span> '.join(parts)
     return (f'<div class="oa-item"><div class="oa-by"><b>{_e(name)}</b> <span>{_e(post["author_handle"])} · {day(post["posted_at"])}</span></div>'
             f'<div class="oa-post">{body}</div><div class="oa-links">{links}</div></div>')
 
@@ -150,19 +173,21 @@ def profile_url(post):
     return "https://x.com/" + post["author_handle"].lstrip("@")
 
 
-def x_row_html(post):
+def x_row_html(post, gist_url=None):
     lines, cut = excerpt(post["text"])
     words = ' <span class="cut">/</span> '.join(_e(line) for line in lines)
     tail = f' <span class="cut">{ELLIPSIS}</span>' if cut else ""
+    words_href = gist_url or post["url"]
+    src = f' <span class="src">(<a href="{_a(post["url"])}">X</a>)</span>' if gist_url else ""
     return (f'<div class="row"><span class="ico">{_e(post.get("emoji") or "")}</span>'
             f'<span class="txt"><b><a href="{_a(profile_url(post))}">{_e(post["author_handle"])}</a></b> '
-            f'<a class="post" href="{_a(post["url"])}">{words}</a>{tail}</span>'
+            f'<a class="post" href="{_a(words_href)}">{words}</a>{tail}{src}</span>'
             f'<span class="stat"><b>{HEART} {likes(post["likes"])}</b></span></div>')
 
 
 # ── beehiiv: inline styles and tables only ───────────────────────────────────
 
-def announcement_beehiiv(post, last=False):
+def announcement_beehiiv(post, last=False, gist_url=None):
     name, _ = company(post)
     paras, cut = trim_long(paragraphs(post["text"]))
     p_style = f"padding:0;margin:0 0 8px 0;font-family:{FACE};font-size:15px;line-height:1.55;color:{BODY};"
@@ -182,7 +207,7 @@ def announcement_beehiiv(post, last=False):
             f'</td></tr>')
 
 
-def x_row_beehiiv(post, last=False):
+def x_row_beehiiv(post, last=False, gist_url=None):
     lines, cut = excerpt(post["text"])
     words = f' <span style="color:{SLATE};">/</span> '.join(_e(line) for line in lines)
     tail = f' <span style="color:{SLATE};">{ELLIPSIS}</span>' if cut else ""
@@ -222,64 +247,72 @@ def _squash(markup):
     return re.sub(r"\s+", " ", markup).strip()
 
 
-def announcement_substack(post):
+def announcement_substack(post, gist_url=None):
     # The handle names the company on its own, so the heading leaves the name out.
     paras, cut = trim_long(paragraphs(post["text"]))
     body = "".join("<p>" + _squash("<br>".join(_e(line) for line in para)) + "</p>" for para in paras)
     if cut:
         body = body[:-4] + f" {ELLIPSIS}</p>"
-    links = f'<a href="{_a(post["url"])}">Post on X ↗</a>'
+    parts = []
+    if gist_url:
+        parts.append(f'<a href="{_a(gist_url)}">Gist ↗</a>')
+    parts.append(f'<a href="{_a(post["url"])}">Post on X ↗</a>')
     if post["link_url"]:
-        links += f' · <a href="{_a(post["link_url"])}">{_e(domain(post["link_url"]))} ↗</a>'
+        parts.append(f'<a href="{_a(post["link_url"])}">{_e(domain(post["link_url"]))} ↗</a>')
+    links = " · ".join(parts)
     return (f'<h3>{_e(post["author_handle"])} · {day(post["posted_at"]).title()}</h3>'
             f'<blockquote>{body}</blockquote><p>{links}</p>')
 
 
-def x_row_substack(post):
-    # Only the handle is a link, and it points at the post; the words stay body ink.
+def x_row_substack(post, gist_url=None):
+    # Handle → gist when one was written, else the post. Words stay body ink.
     lines, cut = excerpt(post["text"])
     words = " / ".join(_e(line) for line in lines)
     tail = f" {ELLIPSIS}" if cut else ""
-    return _squash(f'<li>{_e(post.get("emoji") or "")} <a href="{_a(post["url"])}"><b>{_e(post["author_handle"])}</b></a> '
-                   f'{words}{tail} {HEART} {likes(post["likes"])}</li>')
+    handle_href = gist_url or post["url"]
+    post_link = f' <a href="{_a(post["url"])}">Post on X</a>' if gist_url else ""
+    return _squash(f'<li>{_e(post.get("emoji") or "")} <a href="{_a(handle_href)}"><b>{_e(post["author_handle"])}</b></a> '
+                   f'{words}{tail}{post_link} {HEART} {likes(post["likes"])}</li>')
 
 
 # ── the command's two jobs ───────────────────────────────────────────────────
 
-def render(snapshot, fmt="html", number="0x02"):
+def render(snapshot, fmt="html", number="0x02", gist_urls=None):
     """{"announcements": str, "viral": str} for the shortlisted posts, plus warnings."""
     oa, xs = shortlisted(snapshot, "announcement"), shortlisted(snapshot, "insight")
     warnings = [f"{p['author_handle']}: no company on file, labelled {p['author_name']!r}; add it to x_render.COMPANIES"
                 for p in oa if not company(p)[1] and p["author_type"] == "person"]
     warnings += [f"{p['url']}: no emoji; set one with x_items.py emoji" for p in xs if not p.get("emoji")]
     if fmt == "html":
-        out = {"announcements": "\n".join(announcement_html(p) for p in oa),
-               "viral": "\n".join(x_row_html(p) for p in xs)}
+        out = {"announcements": "\n".join(announcement_html(p, _gist_of(p, gist_urls)) for p in oa),
+               "viral": "\n".join(x_row_html(p, _gist_of(p, gist_urls)) for p in xs)}
     elif fmt == "substack":
-        out = {"announcements": "\n".join(announcement_substack(p) for p in oa),
-               "viral": "\n".join(x_row_substack(p) for p in xs)}
+        out = {"announcements": "\n".join(announcement_substack(p, _gist_of(p, gist_urls)) for p in oa),
+               "viral": "\n".join(x_row_substack(p, _gist_of(p, gist_urls)) for p in xs)}
     else:
         out = {"announcements": announcements_card_beehiiv(oa) if oa else "",
                "viral": viral_section_beehiiv(xs, number) if xs else ""}
     return out, warnings
 
 
-def verify(snapshot, page, fmt="html", sections=("announcements", "viral")):
+def verify(snapshot, page, fmt="html", sections=("announcements", "viral"), gist_urls=None):
     """Problems with how `page` carries the shortlisted posts; empty when all is well.
 
     Every rendered entry must appear in the page exactly, and in shortlist
     order. Anything the skill retyped or reordered shows up here. `sections`
     names the X sections the issue carries: Official Announcements is a
     per-issue call, so an issue without the card checks only "viral".
+    `gist_urls` is the same map `render` took, so a page whose words link to
+    the gist still verifies.
     """
     problems = []
     oa, xs = shortlisted(snapshot, "announcement"), shortlisted(snapshot, "insight")
     if fmt == "html":
-        groups = {"Official Announcements": [announcement_html(p) for p in oa],
-                  TITLE_X: [x_row_html(p) for p in xs]}
+        groups = {"Official Announcements": [announcement_html(p, _gist_of(p, gist_urls)) for p in oa],
+                  TITLE_X: [x_row_html(p, _gist_of(p, gist_urls)) for p in xs]}
     elif fmt == "substack":
-        groups = {"Official Announcements": [announcement_substack(p) for p in oa],
-                  TITLE_X: [x_row_substack(p) for p in xs]}
+        groups = {"Official Announcements": [announcement_substack(p, _gist_of(p, gist_urls)) for p in oa],
+                  TITLE_X: [x_row_substack(p, _gist_of(p, gist_urls)) for p in xs]}
     else:
         groups = {"Official Announcements": [announcement_beehiiv(p, i == len(oa) - 1) for i, p in enumerate(oa)],
                   TITLE_X: [x_row_beehiiv(p, i == len(xs) - 1) for i, p in enumerate(xs)]}

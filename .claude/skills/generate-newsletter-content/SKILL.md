@@ -36,9 +36,24 @@ If a bucket has no data at all, omit that section from the output rather than in
 - `yyyy` and `week_num`: the year and ISO week **of `issue_date`**, not of today: `date -j -f "%Y-%m-%d" "<issue_date>" "+%G %V"`. This matters most on a Sunday, where today's week number is one behind the issue's.
 - `num` (issue number): count existing folders under `newsletter/issues/` across all years and add 1. If none exist, it's issue 1. The user can override any of these.
 
-### 3. Build the HTML from the template
+### 3. Write the week's gists, then the HTML
 
-Copy `assets/template.html` and replace every `{{TOKEN}}`. The template is the complete, styled v3 design - do not alter its CSS, fonts, or structure; only fill content. Key conventions, visible in the template's inline examples:
+**Gists first.** After the rows are chosen (step 1) and the issue number is known (step 2), and **before** filling the template, write the week's gists so every title can link to one.
+
+1. Write `.cache/gists/issue-{num}/items.json` for the rows that will appear: news, products, GitHub, HN Deep, and (when those sections are in) Official Announcements and Viral on X. `issue_slug` is `issue-{num}`. News / launch / repo / HN rows use `{prefix}-{slugify(title)}-issue-{num}` (`packages/feed-schema/item_id.py`). X rows are `{ "kind": "x_post", "url", "source_url", "post": <snapshot object> }`; `draft` writes their ids.
+2. `python3 packages/gists/gists.py draft --issue issue-{num}`
+3. Run `/write-gists` on the new full/brief rows only. Preview X posts are copied, not written by Claude. A week whose every news/repo/launch/HN row already has a gist writes no Claude file; still run build.
+4. `python3 packages/gists/gists.py build --issue issue-{num}`
+
+Print the build summary (new / updated / failed). Per-gist failures are warnings; the issue is still written. Look up each row's slug in `content/gists/index.json` by `source_key(source_url)`. A row whose gist was written gets this title href (three UTM tags, nothing else):
+
+```
+https://aibytes.io/gists/<slug>?utm_source=newsletter&utm_medium=email&utm_campaign=issue-{num}
+```
+
+`x_render.gist_newsletter_url(slug, num)` builds it. A row whose gist failed keeps **today's** source as the title href, so the email never points at a 404.
+
+Then copy `assets/template.html` and replace every `{{TOKEN}}`. The template is the complete, styled v3 design - do not alter its CSS, fonts, or structure; only fill content. Key conventions, visible in the template's inline examples:
 
 - **Masthead**: the logo line reads `⚡ aiBytes_ #{num}` - the masthead brand is written "aiBytes_" (lowercase a, capital B, trailing underscore), and the issue number must match the auto-incremented `num` from step 2. There is deliberately no TL;DR summary block and no separate issue-header rule; the intro block opens the issue right after the masthead.
 - **Intro block**: the publisher talking to the reader - three short paragraphs, warm and first-person, closed by a table of contents. Never quote a comment, upvote, or star count anywhere in the intro: it argues, the item rows carry the receipts (write "set off the loudest argument of the week", not "drew 1,746 comments").
@@ -71,45 +86,45 @@ Copy `assets/template.html` and replace every `{{TOKEN}}`. The template is the c
 
   **Publisher's own intro.** When the publisher sends their own intro, show it verbatim beside three variations in an artifact and let them choose. The usual pick is "theirs, tightened": the same beats in their voice, with grammar fixed and every claim checked, including references to past issues, against `newsletter/issues/` and `newsletter/data/`. Map it onto the template's slots: the hook after the welcome line, the middle beat as the `<b>`-led storyline, and an opinion closer at the end of the storyline, before the table of contents. Issue #13 shipped this way (decision record: `newsletter/artifacts/2026-Oct-11-Intro-publisher-draft-taste.html`); its draft dated an earlier issue to 6 Sep when the archive had it in #2 and #3.
 - **No My Favourite Picks card.** It was retired at Issue #16: the publisher no longer runs it, so don't ask for picks or add the card.
-- **News items**: emoji + bold linked headline + one-line context + `<span class="src">(Source)</span>`. The source here is a plain text label, not a link. Mark the single biggest story with `<span class="hot">Story of the week</span>`.
-  When a news item's "article" is a bug report or GitHub issue that surfaced on HackerNews, the headline links the **HN thread**, and the intro links the bug report itself (Issue #17).
+- **News items**: emoji + bold headline linked to the **gist** + one-line context + `<span class="src">(<a href="ARTICLE_URL">Source</a>)</span>`. Mark the single biggest story with `<span class="hot">Story of the week</span>`.
+  When a news item's "article" is a bug report or GitHub issue that surfaced on HackerNews, the trailing source is the **HN thread**, and the intro links the bug report itself (Issue #17). If that row's gist failed, the headline stays the thread.
 - **Section order and numbers**: intro, AI News card, Official Announcements card, then the numbered sections **Viral on X `0x02`**, New AI Products `0x03`, Trending Github Projects `0x04`, HN Deep Stories `0x05`. The cards are unnumbered, and any of them can be absent. Numbers run in order over the sections present: with no X shortlist, Products is `0x02` and the rest move up.
 - **The X sections are verbatim, and rendered by script.** Every word shown from a post is the author's, exactly as in `text`: never reword, summarise, fix typos, add or drop emoji, or retitle. The words are already checked against X by `/x-fetch-items`. This overrides the punctuation rule below: a post's own em dashes stay. **Don't type the posts in.** Paste the output of the x-fetch-items script unchanged (`S=.claude/skills/x-fetch-items/scripts/x_items.py`, with `--date` set to the snapshot's date):
-  - `{{ANNOUNCEMENT_ITEMS}}` ← `python3 $S render --section announcements`
-  - `{{X_ROWS}}` ← `python3 $S render --section viral`
-  - The Substack export takes these rows from the issue itself (step 5), in the same words `render --format substack` prints, so nothing is pasted twice.
+  - `{{ANNOUNCEMENT_ITEMS}}` ← `python3 $S render --section announcements --issue-slug issue-{num}`
+  - `{{X_ROWS}}` ← `python3 $S render --section viral --issue-slug issue-{num}`
+  - The Substack export takes these rows from the issue itself (step 5), in the same words `render --format substack` prints, so nothing is pasted twice. Pass the same `--issue-slug` (and `--content-root` if it is not `content`) so Official Announcements and Viral on X pick up gist hrefs from `content/gists/index.json`. A post with no gist keeps today's X links.
 
   The rules below are what the script does; they're here so you can read the output, not so you can rewrite it. The only things we write are the byline labels, the link text, the @handle and the row emoji, and the script writes those too. If it warns that an account has no company on file, add the account to `COMPANIES` in `packages/fetchers/aibytes_fetchers/x_render.py` and render again. If it warns that a post has no emoji, pick one for each Viral on X row from what the post is about, set them with `python3 $S emoji URL EMOJI [URL EMOJI ...]`, and render again.
 - **Official Announcements card**: directly after the AI News card, title `📣 OFFICIAL ANNOUNCEMENTS`, subtitle fixed copy "This week's launches, in the companies' own words." Each entry is a byline, the post in a paper inset, and a footer:
   - **Byline**: the company in bold, then the posting account and the post's weekday and day from `posted_at` (`@claudeai · TUE 22`). The company is who the account speaks for, and all of a company's accounts are one company: `@claudeai` and `@ClaudeDevs` are Anthropic, `@SpaceXAI` is xAI, `@OfficialLoganK` is Google.
   - **Post**: the **whole** post. Split `text` into `<p>`s at blank lines and turn single line breaks into `<br>`; that is the only change. Announcements are short, so they are not trimmed. Only if a post runs past 600 characters, stop at its last paragraph break before 400 and end with `<span class="cut">…</span>`.
-  - **Footer**: `Post on X ↗` to the post's `url`, then, when `link_url` is set, the page's bare domain with `↗` (`anthropic.com ↗`).
+  - **Footer**: `Gist ↗` first (cobalt, to the preview gist) when one was written, then `Post on X ↗` to the post's `url`, then, when `link_url` is set, the page's bare domain with `↗` (`anthropic.com ↗`). The post body stays verbatim and unlinked.
   - No likes and no stat: a launch matters for what it is, not its reach.
-- **Viral on X rows**: under the `0x02` header and the fixed subtitle "The AI posts that drew the biggest reaction this week." Each row opens with an **emoji** in the `.ico` column, like the other ticker rows, then the author's **`@handle`** in bold cobalt linked to their profile (`https://x.com/{handle}`), then the post's **opening words, verbatim**, linked to the post:
+- **Viral on X rows**: under the `0x02` header and the fixed subtitle "The AI posts that drew the biggest reaction this week." Each row opens with an **emoji** in the `.ico` column, like the other ticker rows, then the author's **`@handle`** in bold cobalt linked to their profile (`https://x.com/{handle}`), then the post's **opening words, verbatim**, linked to the gist, then trailing `(X)` to the post:
   - Take `text` from the start and show each line break as `<span class="cut">/</span>`.
   - Stop at **280 characters** (three to four lines, at most four; raised from 140 on Issue 17 so a row carries the post's point), at the last word break inside that, and end with `<span class="cut">…</span>`. A post that fits in 140 is shown whole, with no ellipsis.
   - The stat is likes as `♥︎` plus one decimal of thousands (`♥︎ 13.3k`). The heart is U+2665 followed by U+FE0E; without the second character iOS Mail swaps in a red emoji.
   - The emoji is ours, not the author's: it sits in its own column, stored as the post's `emoji` field, and never enters the quoted words.
 - **Quote block**: the callout text only. No attribution line, no `- aiBytes_` under it. It is the issue talking to itself, so signing it reads like a stranger.
-- **New AI Products / Trending Github Projects / HN rows**: emoji, bold linked name, hyphen, description, right-aligned stat (`▲ upvotes`, `+N.Nk ★`, `N pts`). Engagement numbers belong here and in the news rows - never in the intro.
+- **New AI Products / Trending Github Projects / HN rows**: emoji, bold name linked to the gist, hyphen, description, trailing source, right-aligned stat (`▲ upvotes`, `+N.Nk ★`, `N pts`). Engagement numbers belong here and in the news rows - never in the intro.
 - **Issue tag**: `ISSUE 0x{num in hex, 2 digits} · TL;DR` and date + estimated read time.
 
-**Where each row's links point.** A row has one destination link (the thing the reader wants) and, for two of the sections, a trailing attribution link:
+**Where each row's links point.** F2: the title is the gist, a small source link stays beside it. A row whose gist failed uses the **current** title href (article, product site, repo, HN article, post) and no trailing gist.
 
-| Section | Bold name links to | Trailing link |
+| Section | Bold name links to | Trailing `.src` |
 |---|---|---|
-| AI News | the article | none, `(Source)` is a plain label |
-| New AI Products | the product's **own website** | `(ProductHunt)` to the launch page |
-| Trending Github Projects | the repo | none, the name is already the source |
-| HN Deep Stories | the **article**, not the thread | `(HackerNews)` to the thread |
-| Official Announcements | `Post on X ↗` to the post | `{domain} ↗` to `link_url`, when set |
-| Viral on X | the post on X (the opening words are the link); the `@handle` links to the author's profile | none |
+| AI News | the gist | `(Source)` → the article |
+| New AI Products | the gist | `(ProductHunt)` → the launch page |
+| Trending Github Projects | the gist | `(GitHub)` → the repo |
+| HN Deep Stories | the gist | `(HackerNews)` → the thread |
+| Official Announcements | `Gist ↗` first, to the preview | `Post on X ↗` and `{domain} ↗` stay |
+| Viral on X | `@handle` → the profile; opening words → the gist | `(X)` → the post |
 
 Attribution links use the same `<span class="src">` styling as the news source, with only the word inside the anchor: `<span class="src">(<a href="...">HackerNews</a>)</span>`. They render **grey with a hairline underline**, never cobalt - they are a quiet second door, and the bold name link stays the loud one. Substack has one link colour, so the export can't keep the grey: there the trailing links are plain accent links, and `references/substack-layout.md` decides which text is linked at all.
 
 **Product Hunt websites need resolving.** The API's `website` and `productLinks` fields only ever return a `producthunt.com/r/...` redirect, never the product's real domain, and that redirect returns 403 to curl. Get the real URL by fetching the launch page (`https://www.producthunt.com/products/{slug}`) and reading the "Visit website" link out of it. Use that resolved domain for the bold name link.
 
-**Link URLs stay clean.** Every link is the plain canonical URL, with no tracking or referral parameters appended - no `ref`, no `utm_*`. Strip any tracking params the source data carries (the Product Hunt API adds `utm_campaign`, `utm_medium` and `utm_source` to its links) before putting a URL in the issue.
+**Source links stay clean; gist links carry UTM.** Source hrefs are the plain canonical URL - no `ref`, no `utm_*`. Strip any tracking params the source data carries (the Product Hunt API adds `utm_campaign`, `utm_medium` and `utm_source` to its links) before putting a URL in the issue. Gist links to `aibytes.io/gists/<slug>` are the exception: they carry exactly `utm_source=newsletter&utm_medium=email&utm_campaign=issue-{num}`. `ref=aiBytes_` is for outbound links from aibytes.io, not the email.
 
 Match the template's tone: terse, builder-focused, no hype words. The intro is the one place the voice warms up - it greets the reader and speaks as "I"; everything below it stays clipped.
 
@@ -144,7 +159,7 @@ python3 .claude/skills/generate-newsletter-content/scripts/substack_export.py \
 
 It writes `aiBytes-substack-export-issue-{num}.html` beside the issue, from `assets/substack-export-template.html`: the title and subtitle with their own copy buttons (they're typed into Substack's fields as plain text), the after-paste steps, and the body with **⧉ Copy body**, which puts rich HTML on the clipboard for a `⌘V` into the empty post body. A live preview approximates the theme. `--body-only` prints the body instead, for pasting it some other way (for example onto the macOS clipboard as HTML).
 
-The script is the layout: it maps sections to `h2`s, the story of the week to an `h3`, the quote to a pull quote, ranked rows to `<ol>`s, and applies the link rules (Viral on X links only the handle, to the post; HN titles are plain text, not bold). Change the layout there and in the reference together, and take layout changes through a taste round first. It refuses an issue that still has `{{TOKENS}}`. If the issue's template markup changes, `tests/test_substack_export.py` fails until the script reads the new shape.
+The script is the layout: it maps sections to `h2`s, the story of the week to an `h3`, the quote to a pull quote, ranked rows to `<ol>`s, and applies the link rules in `references/substack-layout.md` (F2: title → gist and trailing source; HN title linked to the gist and still not bold; Viral handle → gist, words plain, trailing Post on X). Issues 1–18 have no gist hrefs, so they still export as before. Change the layout there and in the reference together. The one-colour mapping is recorded in `newsletter/artifacts/2026-Nov-16-newsletter-gist-links.html`. It refuses an issue that still has `{{TOKENS}}`. If the issue's template markup changes, `tests/test_substack_export.py` fails until the script reads the new shape.
 
 The Beehiiv export (`assets/beehiiv-export-template.html`, `references/beehiiv-patterns.html`, `x_items.py render --format beehiiv`) is no longer built. It stays in the repo until AIB-135b removes it.
 
@@ -204,9 +219,9 @@ python3 packages/feed-schema/validate.py
 
 Open both generated files and check: no `{{` tokens remain, every link came from the data, sections with no data were removed cleanly (including their `sec-head`), the hex issue number matches the decimal one, the title/description are filled in both files, and the export's counts (printed by the script and shown in its after-paste steps) match the issue's table of contents.
 
-Check the X sections with `python3 .claude/skills/x-fetch-items/scripts/x_items.py verify --date <snapshot date> --issue <issue.html> --substack <export.html>`, adding `--section viral` when the issue has no Official Announcements card. It fails if any shortlisted post is missing, retyped, or out of order in either file; fix it by pasting the render output into the issue again, never by editing the post, then rerun the export script. Never hand-edit the export page. Then check by eye that no story in Official Announcements also appears in AI News, and that the section numbers run without a gap.
+Check the X sections with `python3 .claude/skills/x-fetch-items/scripts/x_items.py verify --date <snapshot date> --issue <issue.html> --substack <export.html> --issue-slug issue-{num}`, adding `--section viral` when the issue has no Official Announcements card. It fails if any shortlisted post is missing, retyped, or out of order in either file; fix it by pasting the render output into the issue again, never by editing the post, then rerun the export script. Never hand-edit the export page. Then check by eye that no story in Official Announcements also appears in AI News, and that the section numbers run without a gap.
 
-Then check the links specifically: no URL carries a `ref` or `utm_*` parameter, no launch name still points at a `producthunt.com/r/` redirect, every HN deep cut name points at the article rather than the thread, and the quote block has no attribution line. Strip the template's fill-in comments from the issue before saving; the export script drops them on its own.
+Then check the links specifically: every gist title href is `aibytes.io/gists/<slug>` with the three UTM tags and nothing else; every source link (article, launch, repo, thread, post, profile) is clean - no `ref`, no `utm_*`; a row whose gist failed keeps the source as the title href; no launch name still points at a `producthunt.com/r/` redirect; and the quote block has no attribution line. Strip the template's fill-in comments from the issue before saving; the export script drops them on its own.
 
 Check the table of contents: one row per section actually present, in the same order as the issue, each count matching the rows that section really has, and no row for a section that was left out.
 

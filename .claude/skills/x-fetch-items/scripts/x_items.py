@@ -10,7 +10,9 @@ Thin CLI wrapper. The logic lives in packages/fetchers
     x_items.py shortlist --insight URL... --announcement URL... [--date D]
     x_items.py emoji     URL EMOJI [URL EMOJI ...] [--date D]  the emoji each Viral on X row opens with
     x_items.py render    [--format html|substack|beehiiv] [--section S] [--number 0x02] [--date D]
+                         [--issue-slug issue-N] [--content-root content]
     x_items.py verify    [--issue ISSUE.html] [--substack EXPORT.html] [--export EXPORT.html] [--section S] [--date D]
+                         [--issue-slug issue-N] [--content-root content]
 
 render prints the shortlisted posts as newsletter HTML, word for word, for
 /generate-newsletter-content to paste in; verify checks a built issue carries
@@ -23,13 +25,16 @@ from --date (default today).
 
 import argparse
 import datetime as dt
+import json
 import pathlib
 import sys
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(REPO_ROOT / "packages" / "fetchers"))
+sys.path.insert(0, str(REPO_ROOT / "packages" / "feed-schema"))
 
 from aibytes_fetchers import x_paste, x_render
+import gist_contract
 
 
 def main(argv=None):
@@ -56,12 +61,16 @@ def main(argv=None):
                          "beehiiv is the old Beehiiv export snippet (default html)")
     rd.add_argument("--section", choices=("announcements", "viral", "both"), default="both")
     rd.add_argument("--number", default="0x02", help="Viral on X section number, beehiiv only (default 0x02)")
+    rd.add_argument("--issue-slug", help="issue-N: look up gist slugs in content/gists/index.json")
+    rd.add_argument("--content-root", default="content", help="content tree for --issue-slug (default content)")
     vf = sub.add_parser("verify", parents=[common], help="check an issue carries the shortlisted posts unchanged")
     vf.add_argument("--issue", help="the issue HTML (checked against the html format)")
     vf.add_argument("--substack", help="the Substack export page (checked against the substack format)")
     vf.add_argument("--export", help="the Beehiiv export page (checked against the beehiiv format)")
     vf.add_argument("--section", choices=("announcements", "viral", "both"), default="both",
                     help="the X sections the issue carries (default both); viral when it has no announcements card")
+    vf.add_argument("--issue-slug", help="issue-N: the same gist lookup render used")
+    vf.add_argument("--content-root", default="content", help="content tree for --issue-slug (default content)")
 
     args = parser.parse_args(argv)
     as_of = dt.date.fromisoformat(args.date)
@@ -122,8 +131,38 @@ def main(argv=None):
     return 0
 
 
+def _gist_urls(args, snapshot):
+    """post url → newsletter gist URL, from content/gists/index.json. Empty without --issue-slug."""
+    slug = getattr(args, "issue_slug", None)
+    if not slug:
+        return None
+    path = pathlib.Path(args.content_root) / "gists" / "index.json"
+    if not path.is_file():
+        return {}
+    try:
+        entries = {e["source_key"]: e["slug"] for e in json.loads(path.read_text()).get("gists") or []
+                   if isinstance(e, dict) and e.get("source_key") and e.get("slug")}
+    except ValueError:
+        return {}
+    urls = {}
+    shortlisted = set()
+    for bucket in ("insight", "announcement"):
+        shortlisted.update((snapshot.get("shortlist") or {}).get(bucket) or [])
+    for post in snapshot.get("posts") or []:
+        if post.get("url") not in shortlisted:
+            continue
+        try:
+            key = gist_contract.source_key(post["url"])
+        except ValueError:
+            continue
+        gist_slug = entries.get(key)
+        if gist_slug:
+            urls[post["url"]] = x_render.gist_newsletter_url(gist_slug, slug)
+    return urls
+
+
 def _render(args, snapshot):
-    blocks, warnings = x_render.render(snapshot, args.format, args.number)
+    blocks, warnings = x_render.render(snapshot, args.format, args.number, gist_urls=_gist_urls(args, snapshot))
     for line in warnings:
         print(f"warning: {line}", file=sys.stderr)
     wanted = ("announcements", "viral") if args.section == "both" else (args.section,)
@@ -140,9 +179,10 @@ def _verify(args, snapshot):
         print("error: pass --issue, --substack and/or --export", file=sys.stderr)
         return 1
     failed = False
+    gist_urls = _gist_urls(args, snapshot)
     for file, fmt in pages:
         sections = ("announcements", "viral") if args.section == "both" else (args.section,)
-        problems = x_render.verify(snapshot, pathlib.Path(file).read_text(), fmt, sections)
+        problems = x_render.verify(snapshot, pathlib.Path(file).read_text(), fmt, sections, gist_urls=gist_urls)
         for line in problems:
             print(f"error: {file}: {line}", file=sys.stderr)
         failed |= bool(problems)

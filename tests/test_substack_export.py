@@ -6,6 +6,7 @@ from x_render, as the skill pastes them, and the export must carry them in
 x_render's substack format.
 """
 
+import html
 import importlib.util
 import pathlib
 import re
@@ -46,22 +47,60 @@ REPOS = ('<div class="row"><span class="ico">📎</span><span class="txt"><b><a 
 HN = ('<div class="row"><span class="ico">📊</span><span class="txt"><b><a href="https://article.example/">A deep story</a></b>'
       ' with context. <span class="src">(<a href="https://news.ycombinator.com/item?id=1">HackerNews</a>)</span></span>'
       '<span class="stat"><b>699</b> pts</span></div>')
+GIST_UTM = "utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19"
+GIST_NEWS = "\n      ".join([
+    f'<p class="news-item">🪤 <b><a href="https://aibytes.io/gists/hn-backdoor-in-an-editor-extension?{GIST_UTM}">'
+    'Backdoor in an editor extension</a></b> a compromised build opened a tunnel. '
+    '<span class="hot">Story of the week</span> '
+    '<span class="src">(<a href="https://lead.example/a">HackerNews</a>)</span></p>',
+    f'<p class="news-item">🌐 <b><a href="https://aibytes.io/gists/tc-genie-4?{GIST_UTM}">Genie 4</a></b> '
+    'a world model. <span class="src">(<a href="https://news.example/b">TechCrunch</a>)</span></p>',
+    '<p class="news-item">📌 <b><a href="https://news.example/failed">No gist yet</a></b> '
+    'still shipping. <span class="src">(<a href="https://news.example/failed">TechCrunch</a>)</span></p>',
+])
+GIST_LAUNCHES = (
+    f'<div class="row"><span class="ico">🎬</span><span class="txt">'
+    f'<b><a href="https://aibytes.io/gists/ph-cut?{GIST_UTM}">Cut</a></b>'
+    ' - edits video. <span class="src">(<a href="https://www.producthunt.com/products/cut">ProductHunt</a>)</span>'
+    '</span><span class="stat"><b>▲ 776</b></span></div>'
+)
+GIST_REPOS = (
+    f'<div class="row"><span class="ico">📎</span><span class="txt">'
+    f'<b><a href="https://aibytes.io/gists/gh-o-r?{GIST_UTM}">o/r</a></b>'
+    ' - a repo. <span class="src">(<a href="https://github.com/o/r">GitHub</a>)</span>'
+    '</span><span class="stat"><b>+6.4k</b> ★</span></div>'
+)
+GIST_HN = (
+    f'<div class="row"><span class="ico">📊</span><span class="txt">'
+    f'<b><a href="https://aibytes.io/gists/hn-a-deep-story?{GIST_UTM}">A deep story</a></b>'
+    ' with context. <span class="src">(<a href="https://news.ycombinator.com/item?id=1">HackerNews</a>)</span>'
+    '</span><span class="stat"><b>699</b> pts</span></div>'
+)
 TOC = "\n".join(f'<div class="r"><span class="m">{m}</span><span class="n">{n}</span><span class="d">{d}</span></div>'
                 for m, n, d in (("🌍", "AI News", "2 stories"), ("📣", "Official Announcements", "Lab · Otherlab"),
                                 ("0x02", "Viral on X", "5 posts"), ("0x03", "New AI Products", "1 launch"),
                                 ("0x04", "Trending Github Projects", "1 repo"), ("0x05", "HN Deep Stories", "1 thread")))
 
 
-def issue_html(snap):
-    blocks, _ = x_render.render(snap)
+def gist_urls_for(snap, issue=19):
+    urls = {}
+    for p in snap["posts"]:
+        if p["url"] in snap["shortlist"]["insight"] + snap["shortlist"]["announcement"]:
+            slug = "x-" + p["author_handle"].lstrip("@").lower() + "-preview"
+            urls[p["url"]] = x_render.gist_newsletter_url(slug, issue)
+    return urls
+
+
+def issue_html(snap, *, gist_urls=None, news=NEWS, launches=LAUNCHES, repos=REPOS, hn=HN):
+    blocks, _ = x_render.render(snap, gist_urls=gist_urls)
     fill = {
         "EMAIL_SUBJECT": "🪤 A backdoored extension &amp; a world model", "EMAIL_DESCRIPTION": "Plus a repo and a deep story.",
         "ISSUE_NUM": "17", "ISSUE_HEX": "11", "DATE_ISO": "2026-11-09", "READ_MIN": "5",
         "INTRO_HOOK": "I did not expect this 🪤", "INTRO_STORYLINE_LEAD": "Trust is the story",
         "INTRO_STORYLINE": 'read <a href="https://gist.example/">the gist</a>.', "TOC_ROWS": TOC,
-        "NEWS_ITEMS": NEWS, "QUOTE_TEXT": "The extension you install is code you run.",
+        "NEWS_ITEMS": news, "QUOTE_TEXT": "The extension you install is code you run.",
         "ANNOUNCEMENT_ITEMS": blocks["announcements"], "X_ROWS": blocks["viral"],
-        "LAUNCH_ROWS": LAUNCHES, "REPO_ROWS": REPOS, "HN_ROWS": HN,
+        "LAUNCH_ROWS": launches, "REPO_ROWS": repos, "HN_ROWS": hn,
     }
     text = (SKILL / "assets" / "template.html").read_text(encoding="utf-8")
     for token, value in fill.items():
@@ -146,6 +185,81 @@ class TestConvert(unittest.TestCase):
     def test_unfilled_template_is_refused(self):
         with self.assertRaises(ValueError):
             sx.convert((SKILL / "assets" / "template.html").read_text(encoding="utf-8"))
+
+
+class TestConvertGistLinks(unittest.TestCase):
+    """F2: titles are gist URLs with UTM; trailing source links stay clean."""
+
+    def setUp(self):
+        self.snap = shortlisted_snapshot()
+        self.gist_urls = gist_urls_for(self.snap)
+        self.src = issue_html(
+            self.snap, gist_urls=self.gist_urls,
+            news=GIST_NEWS, launches=GIST_LAUNCHES, repos=GIST_REPOS, hn=GIST_HN,
+        )
+        self.body = sx.convert(self.src)["body"]
+
+    def test_issue_html_titles_are_gists_with_utm_and_clean_sources(self):
+        body = re.sub(r"<!--.*?-->", "", self.src, flags=re.S)
+        hrefs = [html.unescape(h) for h in re.findall(r'href="([^"]+)"', body)]
+        gists = [h for h in hrefs if "/gists/" in h]
+        sources = [h for h in hrefs if h.startswith("http") and "/gists/" not in h]
+        self.assertGreaterEqual(len(gists), 5)
+        for gist in gists:
+            self.assertIn("utm_source=newsletter", gist)
+            self.assertIn("utm_medium=email", gist)
+            self.assertIn("utm_campaign=issue-19", gist)
+        for source in sources:
+            self.assertNotIn("utm_", source)
+            self.assertNotIn("ref=", source)
+        for slug, source in (
+            ("hn-backdoor-in-an-editor-extension", "https://lead.example/a"),
+            ("tc-genie-4", "https://news.example/b"),
+            ("ph-cut", "https://www.producthunt.com/products/cut"),
+            ("gh-o-r", "https://github.com/o/r"),
+            ("hn-a-deep-story", "https://news.ycombinator.com/item?id=1"),
+        ):
+            self.assertIn(x_render.gist_newsletter_url(slug, 19), gists)
+            self.assertIn(source, sources)
+        self.assertIn("https://news.example/failed", sources)
+        self.assertTrue(any(h.endswith("/failed") for h in hrefs if "/gists/" not in h))
+
+    def test_substack_news_and_products_keep_gist_and_source(self):
+        gist = html.escape(x_render.gist_newsletter_url("hn-backdoor-in-an-editor-extension", 19), quote=True)
+        self.assertIn(f'<h3>🪤 <a href="{gist}">Backdoor in an editor extension</a></h3>', self.body)
+        self.assertIn('(<a href="https://lead.example/a">HackerNews</a>)', self.body)
+        self.assertIn(
+            f'<li>🎬 <a href="{html.escape(x_render.gist_newsletter_url("ph-cut", 19), quote=True)}">'
+            '<b>Cut</b></a> - edits video. '
+            '(<a href="https://www.producthunt.com/products/cut">Product Hunt</a>) ▲ 776</li>',
+            self.body,
+        )
+        self.assertIn(
+            f'<li>📎 <a href="{html.escape(x_render.gist_newsletter_url("gh-o-r", 19), quote=True)}">'
+            '<b>o/r</b></a> - a repo. (<a href="https://github.com/o/r">GitHub</a>) +6.4k ★</li>',
+            self.body,
+        )
+
+    def test_substack_hn_title_is_linked_to_the_gist_and_not_bold(self):
+        gist = html.escape(x_render.gist_newsletter_url("hn-a-deep-story", 19), quote=True)
+        self.assertIn(
+            f'<li>📊 <a href="{gist}">A deep story</a> with context. '
+            '(<a href="https://news.ycombinator.com/item?id=1">HN thread</a>) 699 pts</li>',
+            self.body,
+        )
+        self.assertNotIn(f'<a href="{gist}"><b>A deep story</b></a>', self.body)
+
+    def test_substack_viral_handle_goes_to_the_gist_and_trails_the_post(self):
+        self.assertEqual(x_render.verify(self.snap, self.body, "substack", gist_urls=self.gist_urls), [])
+        alice = html.escape(self.gist_urls["https://x.com/alice/status/3"], quote=True)
+        self.assertIn(f'<a href="{alice}"><b>@alice</b></a>', self.body)
+        self.assertIn('<a href="https://x.com/alice/status/3">Post on X</a>', self.body)
+        self.assertNotIn('href="https://x.com/alice"', self.body)
+
+    def test_substack_oa_gist_link_leads(self):
+        lab = html.escape(self.gist_urls["https://x.com/lab/status/1"], quote=True)
+        self.assertIn(f'<a href="{lab}">Gist ↗</a>', self.body)
+        self.assertLess(self.body.find("Gist ↗"), self.body.find("Post on X ↗"))
 
 
 class TestPage(unittest.TestCase):

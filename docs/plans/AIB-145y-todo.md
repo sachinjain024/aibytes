@@ -754,9 +754,9 @@ Substack). `substack-layout.md` and the export script follow. A dated
 artifact note records the one-colour mapping.
 
 **Acceptance criteria:**
-- [ ] Tests check every news / products / GitHub / HN title is a gist URL
+- [x] Tests check every news / products / GitHub / HN title is a gist URL
       with the three UTM tags, and each has a clean source link.
-- [ ] `x_items.py verify` accepts gist hrefs and still requires verbatim
+- [x] `x_items.py verify` accepts gist hrefs and still requires verbatim
       post text.
 - [ ] The first issue to use it is approved by the publisher (P6).
 
