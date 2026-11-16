@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-16T03:12:07.528Z
+updated_at: 2026-11-16T05:01:09.757Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -103,22 +103,22 @@ added_by:
 - [x] 7.4 T21: reactions bar, front-page badge, saved line, banner copy <!-- longclaw:item=ck_77f4b374 -->
 - [x] 7.5 T22: UI kit screens and Design System Artifact sync <!-- longclaw:item=ck_f8e04426 -->
 - [x] 7.6 Checkpoint D: kit screens reviewed <!-- longclaw:item=ck_87ea0fa7 -->
-- [ ] 8. app-gist-pages <!-- longclaw:item=ck_9da86e57 -->
+- [x] 8. app-gist-pages <!-- longclaw:item=ck_9da86e57 -->
 - [x] 8.1 T23: pages spec <!-- longclaw:item=ck_2bd561ec -->
 - [x] 8.2 T24: route and page head <!-- longclaw:item=ck_888ec84a -->
 - [x] 8.3 T25: static gist pages, sitemap, robots <!-- longclaw:item=ck_6752a869 -->
 - [x] 8.4 T26: the gist page in the app <!-- longclaw:item=ck_a4ea4223 -->
 - [ ] 8.5 P8: publisher verifies aibytes.io in Google Search Console (DNS TXT) and submits sitemap.xml <!-- longclaw:item=ck_556cd1e6 -->
-- [ ] 9. app-gist-panel <!-- longclaw:item=ck_5670b0bb -->
+- [x] 9. app-gist-panel <!-- longclaw:item=ck_5670b0bb -->
 - [x] 9.1 T27: panel spec <!-- longclaw:item=ck_68012185 -->
 - [x] 9.2 T28: a card's title opens the panel <!-- longclaw:item=ck_7f55640b -->
 - [x] 9.3 T29: weekly pages and the panel event <!-- longclaw:item=ck_5577bc09 -->
-- [ ] 9.4 Checkpoint E: launch-ready; PR #65 squash-merged 13 Nov (gists live in the daily run), PR #68 (panel, T27-T29) still to squash-merge <!-- longclaw:item=ck_fc76f81a -->
-- [ ] 10. app-reactions (second PR) <!-- longclaw:item=ck_6684cc60 -->
+- [x] 9.4 Checkpoint E: launch-ready; PR #65 squash-merged 13 Nov (gists live in the daily run), PR #68 (panel, T27-T29) still to squash-merge <!-- longclaw:item=ck_fc76f81a -->
+- [x] 10. app-reactions (second PR) <!-- longclaw:item=ck_6684cc60 -->
 - [x] 10.1 T30: reactions spec <!-- longclaw:item=ck_30babd49 -->
 - [x] 10.2 T31: rules and emulator tests <!-- longclaw:item=ck_6d757e54 -->
 - [x] 10.3 P5: publisher deploys the Firestore rules <!-- longclaw:item=ck_7173a9bc -->
-- [ ] 10.4 T32: reactions in the app <!-- longclaw:item=ck_759600ee -->
+- [x] 10.4 T32: reactions in the app <!-- longclaw:item=ck_759600ee -->
 - [x] 10.5 Design sync: the Design System Artifact gets the reaction row beside Save, the sign-in line and its link (components.css) <!-- longclaw:item=ck_6f3d7376 -->
 - [ ] 11. newsletter-gist-links (second PR) <!-- longclaw:item=ck_ca91f71f -->
 - [ ] 11.1 T33: newsletter spec <!-- longclaw:item=ck_ba3092dd -->
@@ -1339,4 +1339,93 @@ actor:
 ### Claude Code commented
 
 16 Nov 2026, PR #70 review round (Grok 4.6 on 98482b3, plus Antigravity on b507e46): addressed in b3116ab, report at https://github.com/sachinjain024/aibytes/pull/70#issuecomment-6906643410. Fixed: public totals kept across sign-in/out; two new rules tests (two keys in one write, a swap), mutation-checked against firestore.rules:117; GistActions markup tests and a tested pure planPress; the Ledger REACTIONS test no longer compares the table with itself; signed-out store test reads a real count; spec T32 browser row follows the sign-in line. Not changed: the PR title and body (needs the publisher's go-ahead) and a visible 'counts unavailable' state (a spec decision). Tests: web 195, emulator 69, design-system 90, build ok. Still open on T32 (item 10.4): the signed-in browser pass (press, reload, second browser, panel, 375px, dark). Pushed 4630774 (design-sync log, Artifact version 14) with it.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_26e2d8dc
+kind: comment
+occurred_at: 2026-11-16T04:57:45.908Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+16 Nov 2026, T32 browser pass on localhost against the real project (signed in with Google, gist hn-nvidia-allegedly-engineered-scarcity-by-funding). Passed: a press shows at once and survives a reload (panel and /gists page); add a second emoji, remove one, remove the last (reader document deleted); public counts read with no auth show the right numbers and returned to all zeros after cleanup; unauthenticated list of counts, list of readers and get of a reader document are all 403; no error line; Save and the bar share one row at 1872px, and in a 371px frame the panel is a full sheet with no horizontal overflow and the eight emoji wrap under Save (also dark theme, by eye). Not checked: the signed-out press and its sign-in line (needs the reader signed out), a second real browser (replaced by the unauthenticated read), the panel opened by a card click, the sign-out transition keeping public counts. The window resize tool did not resize the window, so 375px was checked in an iframe. Item 10.4 stays open for the signed-out check.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_b50a4699
+kind: update
+occurred_at: 2026-11-16T05:00:52.928Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_759600ee.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_3fcbbd4b
+kind: update
+occurred_at: 2026-11-16T05:00:54.474Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_6684cc60.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_27712eae
+kind: update
+occurred_at: 2026-11-16T05:00:59.818Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_fc76f81a.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_01744ca4
+kind: update
+occurred_at: 2026-11-16T05:01:06.089Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_5670b0bb.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_37e087a1
+kind: update
+occurred_at: 2026-11-16T05:01:09.757Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_9da86e57.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
 <!-- /longclaw:event -->
