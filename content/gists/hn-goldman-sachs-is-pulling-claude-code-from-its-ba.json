@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "slug": "hn-goldman-sachs-is-pulling-claude-code-from-its-ba",
+  "kind": "news",
+  "title": "Goldman Sachs is pulling Claude Code from its bankers and traders",
+  "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
+  "source_url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
+  "source": "hackernews",
+  "category": "news",
+  "tags": [],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Goldman Sachs now limits Claude Code and GitHub to its engineers and strats, after October guidance cut off traders and bankers who had been building their own tools with coding agents.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Bloomberg reported the change follows an internal review of productivity and risk; strats, who span trading, research and engineering, keep access.",
+        "Traders had used the agents to watch client flows, model positions and produce written and visual material.",
+        "In July the bank's CIO, Marco Argenti, was still praising tools that non-engineers built with AI.",
+        "The firm's in-house assistant stays available to all staff; the limit covers outside agents that write and run code on their own.",
+        "Goldman is a lead underwriter on Anthropic's IPO and has used Anthropic engineers to build back-office agents."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "Coding agents run with the user's own access. On a trading floor, code that skips review and ignores information barriers is a compliance risk, so expect regulated firms to tie agent use to who can review the result."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Goldman Sachs is pulling Claude Code from its bankers and traders",
+      "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-goldman-sachs-is-pulling-claude-code-from-its-ba-issue-18",
+      "issue_slug": "issue-18"
+    }
+  ],
+  "created_at": "2026-11-16T08:47:53Z",
+  "updated_at": "2026-11-16T08:47:53Z"
+}

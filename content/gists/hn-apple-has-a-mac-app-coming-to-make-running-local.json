@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "slug": "hn-apple-has-a-mac-app-coming-to-make-running-local",
+  "kind": "news",
+  "title": "Apple has a Mac app coming to make running local AI models easy",
+  "url": "https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/",
+  "source_url": "https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/",
+  "source": "hackernews",
+  "category": "news",
+  "tags": [],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Apple is building Harbor, a Mac app that runs open-weight AI models locally as a private inference server and can link several Macs over Thunderbolt 5 to share their memory.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The leaker Aaron Perris found the app, which is in private preview under Apple's Claris brand.",
+        "Models run on Apple silicon, and data stays on the user's own hardware rather than going to a cloud service.",
+        "Harbor finds Macs connected over Thunderbolt 5 and forms a cluster without command-line setup.",
+        "Pooling unified memory across machines lets a cluster load models too large for one Mac, or serve more requests at once.",
+        "Models can be browsed, downloaded and loaded from inside the app."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "Running large open-weight models on a few Macs without setup work would make private, local inference practical for small teams that cannot send data to a hosted API."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Apple has a Mac app coming to make running local AI models easy",
+      "url": "https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-apple-has-a-mac-app-coming-to-make-running-local-issue-18",
+      "issue_slug": "issue-18"
+    }
+  ],
+  "created_at": "2026-11-16T08:47:53Z",
+  "updated_at": "2026-11-16T08:47:53Z"
+}
