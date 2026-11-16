@@ -115,13 +115,15 @@ export function useSaves(store) {
  * `user` is undefined while the session restores, null signed out, an object signed in.
  *
  * Counts load once when the gist opens, never live. A press shows at once and is undone,
- * with a line saying so, if the write fails. Signed out, a press asks for sign-in and
- * applies nothing. A press is held until the reader's own set has loaded, and while the
+ * with a line saying so, if the write fails. Signed out, a press applies nothing and shows
+ * "Please sign in to add your reaction" with a Sign in link (`askSignIn`); the link, not the
+ * press, opens Google (`onSignIn`). A press is held until the reader's own set has loaded, and while the
  * last press is still being written.
  */
 export function useReactions(slug, { store, user, signIn }) {
   const [state, setState] = React.useState(null);
   const [tries, setTries] = React.useState(0);
+  const [asking, setAsking] = React.useState(null); // the slug a signed-out press was made on
   const writing = React.useRef(false);
   React.useEffect(() => {
     if (!slug || !store) return undefined;
@@ -137,7 +139,7 @@ export function useReactions(slug, { store, user, signIn }) {
   const current = state && state.slug === slug && state.store === store ? state : { slug, totals: zeroTotals(), mine: [], mineKnown: !store?.signedIn, message: null };
   const onToggle = (key) => {
     if (user === undefined) return;
-    if (!user) { signIn(); return; }
+    if (!user) { setAsking(slug); return; }
     if (!store || !current.mineKnown) {
       if (state && state.slug === slug && state.mineKnown === false) setTries((n) => n + 1);
       return;
@@ -151,5 +153,5 @@ export function useReactions(slug, { store, user, signIn }) {
       setState((now) => (now && now.slug === slug && now.store === store ? { ...before, message: "Could not save your reaction. Try again." } : now));
     }).finally(() => { writing.current = false; });
   };
-  return { slug, totals: current.totals, mine: current.mine, message: current.message, onToggle };
+  return { slug, totals: current.totals, mine: current.mine, message: current.message, onToggle, askSignIn: user === null && asking === slug, onSignIn: signIn };
 }

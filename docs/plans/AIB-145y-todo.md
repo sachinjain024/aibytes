@@ -698,6 +698,12 @@ Checked in a browser, signed out, on the dev server against the real project: th
 draws with eight unpressed buttons and no error line. Not checked: a signed-in press,
 reload, a second browser, the panel, 375px, dark theme (the browser connection dropped).
 
+**Design change 16 Nov 2026 (the publisher, after trying it):** a signed-out press no
+longer opens Google; it shows "Please sign in to add your reaction. Sign in" under the
+row, in the saved line's style, and the Sign in link opens Google. The Save button and
+the reaction bar share one row. Spec updated; the Design System Artifact needs a sync
+for the two new rules in `components.css` (ticket item 10.5).
+
 ## Module 9: `newsletter-gist-links`
 
 ### T33: newsletter spec

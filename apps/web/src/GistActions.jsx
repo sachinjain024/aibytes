@@ -5,8 +5,8 @@ import { SaveStar } from "@aibytes/design-system/components/content/SaveStar.jsx
 import { barProps, KEYS } from "./reactionKeys.js";
 import { savedPath } from "./route.js";
 
-// The save row under a gist: the star, its label, and once saved the "Added to
-// your Saved items" line. The page and the panel both draw it, so the two cannot
+// The save row under a gist: the star, its label and, on the same row, the reaction bar;
+// then once saved the "Added to your Saved items" line. The page and the panel both draw it, so the two cannot
 // drift. Nothing here reads the browser while rendering (the page is server-rendered).
 //
 // `reactions` is useReactions' result, or absent on the server and the first client
@@ -21,12 +21,11 @@ export function GistActions({ saved, onToggle, reactions }) {
           <SaveStar saved={saved} onToggle={onToggle} />
           <button type="button" className="gist-save-label" onClick={onToggle}>{saved ? "Saved" : "Save"}</button>
         </span>
+        {reactions && <ReactionBar key={reactions.slug} {...barProps(reactions)} onToggle={(emoji) => reactions.onToggle(KEYS.find((k) => k.emoji === emoji).key)} />}
       </div>
       {saved && <SavedNote href={savedPath()} />}
-      {reactions && (
-        <div className="gist-react-row">
-          <ReactionBar key={reactions.slug} {...barProps(reactions)} onToggle={(emoji) => reactions.onToggle(KEYS.find((k) => k.emoji === emoji).key)} />
-          {reactions.message && <p className="gist-react-note" role="status">{reactions.message}</p>}
-        </div>)}
+      {reactions && reactions.askSignIn && (
+        <p className="gist-saved" role="status">Please sign in to add your reaction. <button type="button" className="gist-linkbtn" onClick={reactions.onSignIn}>Sign in</button></p>)}
+      {reactions && reactions.message && <p className="gist-react-note" role="status">{reactions.message}</p>}
     </div>);
 }

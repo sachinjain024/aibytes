@@ -184,16 +184,19 @@ reactions(db, uid?) → {
   after the press is not empty, and removed with `deleteDoc` when it would be empty
   (`picked` may never be empty), in the same batch as the counts change.
 
-- **Display.** `ReactionBar` goes in the `actions` slot of `GistView`, after the save
-  row (design D2), on the page and in the panel, as `GistActions` already does for
-  saving. The bar shows at once with zero counts and the numbers fill in when
+- **Display.** `ReactionBar` goes in the `actions` slot of `GistView`, **on the same row as
+  the Save button** (changed 16 Nov 2026, the publisher; it wraps under Save on a narrow
+  screen), on the page and in the panel, as `GistActions` already does for saving. The bar shows at once with zero counts and the numbers fill in when
   `load` resolves, so nothing shifts. The server-rendered page has no reaction row
   (the Ledger spec, unchanged); it appears after the page mounts.
 - **Pressing, signed in.** The count and the pressed state change at once. The write
   goes out. If the rules refuse it, or it fails, the change is undone and a short
   line under the bar says "Could not save your reaction. Try again."
-- **Pressing, signed out.** The existing Google sign-in opens. The press is not
-  applied afterwards; the reader presses again **(Decide 2)**.
+- **Pressing, signed out.** (Changed 16 Nov 2026, the publisher: a press no longer opens
+  Google at once.) Nothing is applied and a line shows under the row, in the style of the
+  saved line: "Please sign in to add your reaction. **Sign in**". Pressing *Sign in* opens
+  the existing Google sign-in; after it the reader presses again **(Decide 2)**. The line
+  goes when the reader signs in or the gist changes.
 - **When the counts will not load.** The bar still shows, with no numbers. A
   signed-in press still tries to write: the counts write is `increment`, so a missing
   total does not matter. No error is shown for a read that fails.
@@ -241,14 +244,14 @@ npm run dev:web                         # http://localhost:5173/, against the re
 | Task | Tests |
 |---|---|
 | T31 | Emulator rules, as listed under "The rules". Added to `test:rules`'s file list in `apps/web/package.json`. |
-| T32 | `reactions.test.js`: `toggle` adds then removes one key and writes both documents in one batch; two presses in a row stay consistent; a refused write rejects and the store reports it; `load` returns zeros for a gist with no counts document; the key table has eight entries in the Ledger order; adding the only key creates the reader document and removing it deletes the document and decrements the counts; `toggle` does nothing while `mine` has not loaded. Wiring: the bar sits in `GistActions` and re-keys on a slug change; the signed-out press calls sign-in and writes nothing. One `GistActions` case pins the adapter: the bar's counts are `totals` minus `mine`, keyed by emoji, so a signed-in 👍 with `totals.plus1 === 1` renders 1, not 2. |
+| T32 | `reactions.test.js`: `toggle` adds then removes one key and writes both documents in one batch; two presses in a row stay consistent; a refused write rejects and the store reports it; `load` returns zeros for a gist with no counts document; the key table has eight entries in the Ledger order; adding the only key creates the reader document and removing it deletes the document and decrements the counts; `toggle` does nothing while `mine` has not loaded. Wiring: the bar sits in `GistActions` and re-keys on a slug change; the signed-out press shows the sign-in line and writes nothing. One `GistActions` case pins the adapter: the bar's counts are `totals` minus `mine`, keyed by emoji, so a signed-in 👍 with `totals.plus1 === 1` renders 1, not 2. |
 | T32 browser | After P5, on the real project, in both themes at 1440px and 375px: a press shows at once and survives a reload; a second browser sees the count after a reload; signed out, a press opens sign-in and writes nothing; Back and the panel's close do not lose a press; the page's server markup is unchanged. |
 
 ## Success criteria
 
 1. Anyone can read a gist's counts without signing in; a signed-in reader can add and
    remove each of the eight, once each per gist.
-2. A signed-out reader's press asks for sign-in and writes nothing.
+2. A signed-out reader's press shows "Please sign in to add your reaction" with a Sign in link, applies nothing and writes nothing; the link opens sign-in.
 3. No client can write another reader's document, read another's choice, write counts
    alone, move counts by more than one, or use a key outside the eight (emulator).
 4. A page or panel view costs at most two reads and no listener.
@@ -263,8 +266,10 @@ npm run dev:web                         # http://localhost:5173/, against the re
    per view: simpler rules, but it exposes which gists each uid reacted to and costs
    eight reads a view. This choice is the one that most needs a yes from the publisher
    because the rules are the hardest part of the module.
-2. **A press while signed out.** Recommended: ask for sign-in and apply nothing; the
-   reader presses again. The alternative remembers the press through the Google popup
+2. **A press while signed out.** Settled: show the line "Please sign in to add your
+   reaction" with a Sign in link and apply nothing; the link opens sign-in (first
+   recommended as opening sign-in on the press; the publisher changed it on 16 Nov 2026
+   after trying it); the reader presses again. The alternative remembers the press through the Google popup
    and applies it on return, which reads better but needs state held across the
    sign-in and the gist changing underneath it.
 3. **Several emoji per reader, or one.** Recommended: several, one toggle each, as the

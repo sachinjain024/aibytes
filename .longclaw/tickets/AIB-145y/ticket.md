@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-15T16:07:31.735Z
+updated_at: 2026-11-16T02:58:49.529Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -119,6 +119,7 @@ added_by:
 - [x] 10.2 T31: rules and emulator tests <!-- longclaw:item=ck_6d757e54 -->
 - [x] 10.3 P5: publisher deploys the Firestore rules <!-- longclaw:item=ck_7173a9bc -->
 - [ ] 10.4 T32: reactions in the app <!-- longclaw:item=ck_759600ee -->
+- [ ] 10.5 Design sync: the Design System Artifact gets the reaction row beside Save, the sign-in line and its link (components.css) <!-- longclaw:item=ck_6f3d7376 -->
 - [ ] 11. newsletter-gist-links (second PR) <!-- longclaw:item=ck_ca91f71f -->
 - [ ] 11.1 T33: newsletter spec <!-- longclaw:item=ck_ba3092dd -->
 - [ ] 11.2 T34: the weekly pull writes gists <!-- longclaw:item=ck_04b7fc12 -->
@@ -1275,4 +1276,37 @@ changes:
     to: "true"
 -->
 ### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_64f2b8f8
+kind: update
+occurred_at: 2026-11-16T02:58:49.481Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_6f3d7376.added
+    to: "10.5 Design sync: the Design System Artifact gets the reaction row beside Save, the sign-in line and its link (components.css)"
+-->
+### Claude Code updated this ticket
+
+16 Nov 2026, design change (the publisher, after trying T32): (1) a signed-out press no longer opens Google. It shows 'Please sign in to add your reaction. Sign in' under the row, in the style of the saved line, and the Sign in link opens the prompt. (2) The Save button and the reaction bar share one row. The spec (Decide 2, Display, Pressing signed out) and the T32 plan note are updated. The Design System Artifact needs a sync for it: item 10.5.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_573c2037
+kind: update
+occurred_at: 2026-11-16T02:58:49.529Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_6f3d7376.moved
+    from: "66"
+    to: "56"
+-->
+### Claude Code updated this ticket
 <!-- /longclaw:event -->
