@@ -813,3 +813,16 @@ open for the publisher: P6, P7, Checkpoint A, Checkpoint F.
 
 **Verification:** the full checkpoint list. **Dependencies:** everything.
 **Size:** S.
+
+## Favicon (GitHub #38)
+
+Added 16 Nov 2026 at the publisher's request, on this branch as its own
+commit. Ticket items 14–14.3.
+
+- [x] 14.1 Option 1 of five (a white bolt on a cobalt tile): `favicon.svg`,
+      `favicon.ico` (16/32/48) and a 180px `apple-touch-icon.png` in
+      `apps/web/public/`, linked from `apps/web/index.html`, so every built
+      page carries them. Covered by `apps/web/src/gistBuild.test.js`.
+- [x] 14.2 `Wordmark.prompt.md` says the favicon is the bolt tile, not `aB_`.
+- [ ] 14.3 P9: the publisher checks the tab and bookmark icon on aibytes.io
+      after deploy, then closes #38.
