@@ -160,3 +160,10 @@ test('a click on the card body focuses the title link before opening, so closing
   const noTitle={...plain,currentTarget:{querySelector:()=>null}};
   assert.doesNotThrow(()=>openGistOnCardClick(item,()=>{},()=>'')(noTitle));
 });
+
+test('a starred weekly X item (on /saved) names its source X and carries the X mark',()=>{
+  const x={...item,id:'x-lab-five-words-issue-19',source:'x',category:'x',source_url:'https://x.com/lab/status/1',signals:{},meta:{}};
+  const html=renderToStaticMarkup(React.createElement(Card,{item:x}));
+  assert.match(html,/class="discussion" href="https:\/\/x\.com\/lab\/status\/1[^"]*"[^>]*>X<\/a>/);
+  assert.match(html,/aria-label="X"/);
+});

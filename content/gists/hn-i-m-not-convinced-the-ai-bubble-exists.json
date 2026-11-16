@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "slug": "hn-i-m-not-convinced-the-ai-bubble-exists",
+  "kind": "hn",
+  "title": "I'm not convinced the AI bubble exists",
+  "url": "https://matteoraso.github.io/im-not-convinced-the-ai-bubble-exists.html",
+  "source_url": "https://news.ycombinator.com/item?id=50418975",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Matteo Raso argues the AI boom may not be a bubble: data-centre spending is mostly one-off, Anthropic's S-1 shows strong unit economics, and the big public AI companies trade at ordinary earnings multiples.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The post puts industry spending and commitments near 5 trillion dollars and treats most of it as one-time data-centre build-out.",
+        "It cites Anthropic's S-1 as earning $2.08 per $1 of compute, with revenue reaching 16.3 billion dollars in the first half of 2026.",
+        "Alphabet, Meta and NVIDIA have price-to-earnings ratios in their 20s, unlike the loss-making firms of the dot-com bubble.",
+        "It argues brand loyalty and enterprise contracts can keep AI labs profitable without a lasting technical moat."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "disputed",
+          "text": "Commenters reject treating data centres as one-off costs, since GPUs age quickly and keep needing replacement.",
+          "url": "https://news.ycombinator.com/item?id=50424664"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One points out the post mixes up Alphabet's revenue with its earnings when estimating how debt could be repaid.",
+          "url": "https://news.ycombinator.com/item?id=50425936"
+        },
+        {
+          "stance": "theme",
+          "text": "Several say the post discusses revenue while claiming profits, and that price wars may let customers capture the margin.",
+          "url": "https://news.ycombinator.com/item?id=50421933"
+        },
+        {
+          "stance": "agreed",
+          "text": "Many accept the technology is useful but compare the risk to railroads and dot-com: a timing bubble, not a dead end.",
+          "url": "https://news.ycombinator.com/item?id=50420130"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "I'm Not Convinced The AI Bubble Exists",
+      "url": "https://matteoraso.github.io/im-not-convinced-the-ai-bubble-exists.html"
+    },
+    {
+      "role": "discussion",
+      "title": "I'm not convinced the AI bubble exists",
+      "url": "https://news.ycombinator.com/item?id=50418975"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-i-m-not-convinced-the-ai-bubble-exists-issue-18",
+      "issue_slug": "issue-18"
+    }
+  ],
+  "created_at": "2026-11-16T08:33:32Z",
+  "updated_at": "2026-11-16T09:30:18Z",
+  "stats": {
+    "points": 578,
+    "comments": 974
+  },
+  "stats_as_of": "2026-11-16T09:30:18Z"
+}

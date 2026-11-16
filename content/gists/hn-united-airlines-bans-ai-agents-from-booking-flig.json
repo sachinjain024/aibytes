@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "slug": "hn-united-airlines-bans-ai-agents-from-booking-flig",
+  "kind": "hn",
+  "title": "United Airlines bans AI agents from booking flights for travelers",
+  "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+  "source_url": "https://news.ycombinator.com/item?id=50458900",
+  "source": "hackernews",
+  "category": "news",
+  "tags": [],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "United Airlines will block third-party AI agents from booking flights for travelers, citing the risk of shared account logins and federal rules that need a person for steps such as check-in.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The airline says handing credentials to an assistant can expose personal data and lead to unintended purchases, account changes or MileagePlus redemptions.",
+        "It points to rules such as passengers confirming in person that their bags hold no banned items.",
+        "United will restrict agents on its own sites and, indirectly, through travel agencies and aggregators.",
+        "Analyst Henry Harteveldt reads it as United keeping control of booking and avoiding the cost of bot-driven searches.",
+        "Southwest has gone the other way, making its flights viewable to ChatGPT users."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "disputed",
+          "text": "Many doubt United can tell a browser-driving agent from a person, and resent sites that treat buyers as an optimisation problem.",
+          "url": "https://news.ycombinator.com/item?id=50459506"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "Several argue the real cost is not search load but lost chances to upsell and price-discriminate once an agent compares fares.",
+          "url": "https://news.ycombinator.com/item?id=50459145"
+        },
+        {
+          "stance": "theme",
+          "text": "Others question why flight booking is the standard agent demo, when it involves big payments and many personal preferences.",
+          "url": "https://news.ycombinator.com/item?id=50459719"
+        },
+        {
+          "stance": "theme",
+          "text": "A screen reader user warns that blanket agent bans may collide with accessibility as assistive tools become agentic.",
+          "url": "https://news.ycombinator.com/item?id=50459826"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+      "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/"
+    },
+    {
+      "role": "discussion",
+      "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+      "url": "https://news.ycombinator.com/item?id=50458900"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-united-airlines-bans-ai-agents-from-booking-flig-issue-18",
+      "issue_slug": "issue-18"
+    }
+  ],
+  "created_at": "2026-11-16T09:30:18Z",
+  "updated_at": "2026-11-16T09:30:18Z",
+  "stats": {
+    "points": 681,
+    "comments": 709
+  },
+  "stats_as_of": "2026-11-16T09:30:18Z"
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import { Icon } from "./icons.jsx";
 
-const linkIcon = label => (label === "X" ? "x" : label === "Advertise" ? "advertise" : "link");
+const linkIcon = l => (l.internal ? "archive" : l.label === "X" ? "x" : l.label === "Advertise" ? "advertise" : "link");
 
 // The category rail on desktop; on phones the same element is the slide-out
 // drawer, and while open it is a modal dialog behind a backdrop that traps Tab
@@ -63,9 +63,14 @@ export function Sidebar({ categories = [], count, active = "all", onCategory, op
         )}
         <div className="sidebar-footer">
           <div className="sidebar-links">
-            {links.map(l => l.href ? (
+            {links.map(l => l.href && l.internal ? (
+              <a key={l.label} href={l.href}>
+                <Icon name={linkIcon(l)} className="link-icon" />
+                <span>{l.label}</span>
+              </a>
+            ) : l.href ? (
               <a key={l.label} href={l.href} target="_blank" rel="noreferrer">
-                <Icon name={linkIcon(l.label)} className="link-icon" />
+                <Icon name={linkIcon(l)} className="link-icon" />
                 <span>{l.label}</span>
                 <Icon name="arrow" className="link-arrow" />
               </a>

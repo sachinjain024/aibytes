@@ -14,7 +14,7 @@ import { Sidebar } from "@aibytes/design-system/components/navigation/Sidebar.js
 import { Toolbar } from "@aibytes/design-system/components/navigation/Toolbar.jsx";
 import { loadEdition, loadGistPage, loadIndex, loadTags, loadWeeklyIndex, loadWeeklyIssue } from "./content.js";
 import { filesToLoad, leftOutNote, savedFeed, savedGroups } from "./saved.js";
-import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, SOURCES } from "./filters.js";
+import { CATEGORIES, countMatches, describeFilters, filtersToSearch, inFeed, matches, NO_FILTERS, parseFilters, SOURCES } from "./filters.js";
 import { FOOTER_LINKS, GITHUB_URL, mailto, SUBSCRIBE_HREF } from "./footer.js";
 import { longDate, midDate, shortDate } from "./format.js";
 import { useChoice, useDismiss, useGridColumns, useMedia, useReactions, useReturnFocus, useSaves, useTheme } from "./hooks.js";
@@ -421,7 +421,7 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
   const filters = feedPage ? parsed : { ...parsed, category: NO_FILTERS.category };
   const setFilters = (next) => navigate(location.pathname + keepGist(location.search, filtersToSearch(next, tagGroups)), { replace: true });
 
-  const visible = all && all.filter((item) => !item.hidden);
+  const visible = all && all.filter(inFeed);
   const categories = CATEGORIES.map((c) => ({ ...c, count: visible && feedPage ? visible.filter((i) => i.category === c.key).length : undefined }));
   const onPanel = (name) => setPanel((open) => (open === name ? null : name));
   // No filter controls until tags.json has settled: rewriting the URL before
@@ -432,7 +432,7 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
   // what it leaves. Both modes use it - Grouped only splits the ranked list by
   // category - so the two never disagree about what is best.
   // /saved passes its items already in order: newest file first, each file ranked on its own.
-  const items = all && (savedPage ? all : rankedItems(all)).filter((item) => !item.hidden && matches(item, filters));
+  const items = all && (savedPage ? all : rankedItems(all)).filter((item) => (savedPage ? !item.hidden : inFeed(item)) && matches(item, filters));
   const setCategory = (key) => setFilters({ ...filters, category: key });
   const setQuery = (query) => setFilters({ ...filters, query });
 

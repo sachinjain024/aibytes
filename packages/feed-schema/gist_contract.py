@@ -34,9 +34,11 @@ DEPTHS = ("full", "brief", "preview")
 # The fetcher source each kind belongs to, and the edition categories its
 # items can carry: curate files Show HN and Launch HN under launches, so an hn
 # gist may be either. x_post has neither: X posts come from a pasted Grok
-# snapshot, not a fetcher.
-KIND_SOURCE = {"news": ("techcrunch", ("news",)), "hn": ("hackernews", ("hn", "launches")),
-               "repo": ("github", ("repos",)), "launch": ("producthunt", ("launches",))}
+# snapshot, not a fetcher. Weekly AI News rows credited "(HackerNews)" link the
+# article: gists draft finds their thread, which makes an hn gist filed under
+# news, or, with no thread, a news gist from hackernews (AIB-145y, Issue 18).
+KIND_SOURCE = {"news": (("techcrunch", "hackernews"), ("news",)), "hn": (("hackernews",), ("hn", "launches", "news")),
+               "repo": (("github",), ("repos",)), "launch": (("producthunt",), ("launches",))}
 
 GIST_SLUG_RE = contract.SLUG_RE
 GIST_SLUG_MAX = contract.GIST_SLUG_MAX
@@ -178,8 +180,8 @@ def _kind_problems(gist, kind, depth):
         if "url" in gist and gist.get("source_url") != gist.get("url"):
             found.append("an x_post's source_url must equal its url (the post)")
     elif kind is not None:
-        source, categories = KIND_SOURCE[kind]
-        for key, allowed in (("source", (source,)), ("category", categories)):
+        sources, categories = KIND_SOURCE[kind]
+        for key, allowed in (("source", sources), ("category", categories)):
             if key not in gist:
                 found.append(f"missing required key: {key} (required for kind {kind!r})")
             elif gist[key] not in allowed:
@@ -570,9 +572,13 @@ def _items_agree(root, gists, known):
             else:
                 continue
             listed.add((place, item_id))
-            if gist.get("kind") == "x_post":
-                continue  # X posts are not carried in issue files; nothing to point back
             if (place, item_id) not in items:
+                # Weekly JSON is built from the issue HTML after gists land, so
+                # an issue_slug appearance may name an item that is not there
+                # yet. When the item exists it must point back. Daily edition
+                # appearances still require the item.
+                if "issue_slug" in appearance:
+                    continue
                 found.append(f"{where}: appearance {item_id} is not an item in {label}")
                 continue
             item = items[(place, item_id)][1]

@@ -259,12 +259,13 @@ class TestItemsAndGistsAgree(unittest.TestCase):
         tree.save()
         self.assertTrue(any("front_page" in p for p in tree.problems()))
 
-    def test_a_weekly_appearance_must_name_an_issue_item(self):
+    def test_a_weekly_appearance_may_land_before_the_issue_item(self):
+        # T34 writes gists before build_weekly_issues.py creates the item.
         tree = Tree(self)
         tree.gists["hn-show-hn-tinyeval"]["appearances"].append(
             {"item_id": "hn-show-hn-tinyeval-issue-9", "issue_slug": "issue-9"})
         tree.save()
-        self.assertTrue(any("issue-9" in p for p in tree.problems()))
+        self.assertEqual([p for p in tree.problems() if "issue-9" in p], [])
 
     def test_a_weekly_appearance_that_points_back_is_valid(self):
         tree = Tree(self)

@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "slug": "gh-google-elephant-goldfish-model",
+  "kind": "repo",
+  "title": "google/elephant-goldfish-model",
+  "url": "https://github.com/google/elephant-goldfish-model",
+  "source_url": "https://github.com/google/elephant-goldfish-model",
+  "source": "github",
+  "category": "repos",
+  "tags": [],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/google.png?size=80"
+  },
+  "depth": "full",
+  "lede": "Elephant Goldfish Model is a Google plugin for Claude Code, Codex and Antigravity that drafts a software design with full project context, then has fresh agents with no chat history review it.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The Elephant agent keeps your project's context and writes the specification; Goldfish reviewers see only the document and its sources.",
+        "Starting reviewers without the earlier conversation is meant to surface assumptions the drafting session never stated.",
+        "Skills cover brainstorming, drafting, resolving findings, bootstrapping docs for an existing codebase, reviews and drift reports.",
+        "A drift report compares design documents with the current code and lists where the two disagree.",
+        "Reviews stop if the agent cannot create fresh subagents. Apache 2.0, and not an officially supported Google product."
+      ]
+    },
+    {
+      "key": "try_it",
+      "command": "claude plugin marketplace add google/elephant-goldfish-model"
+    },
+    {
+      "key": "whats_open",
+      "points": [
+        {
+          "text": "Support for OpenCode is the main open request, tracked as verified support for both its first and second versions.",
+          "url": "https://github.com/google/elephant-goldfish-model/issues/282"
+        },
+        {
+          "text": "The earlier OpenCode V1 issue is still open alongside it, labelled for test harness and isolation work.",
+          "url": "https://github.com/google/elephant-goldfish-model/issues/146"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "google/elephant-goldfish-model",
+      "url": "https://github.com/google/elephant-goldfish-model"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-google-elephant-goldfish-model-issue-18",
+      "issue_slug": "issue-18"
+    }
+  ],
+  "created_at": "2026-11-16T08:33:32Z",
+  "updated_at": "2026-11-16T09:30:18Z",
+  "stats": {
+    "stars": 20000,
+    "forks": 1485,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "created_on": "2026-09-13",
+    "contributors": 37,
+    "last_release": {
+      "tag": "v0.1.1",
+      "published_on": "2026-11-06"
+    },
+    "open_issues": 74,
+    "stars_gained": 5560
+  },
+  "stats_as_of": "2026-11-16T09:30:18Z"
+}

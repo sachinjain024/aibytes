@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "slug": "hn-ai-usage-generates-a-fragile-codebase",
+  "kind": "hn",
+  "title": "AI usage generates a fragile codebase",
+  "url": "https://evanxmerz.com/post/ai-usage-generates-a-fragile-codebase/",
+  "source_url": "https://news.ycombinator.com/item?id=50438318",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "A former Meta engineer argues that relying on coding agents leaves large SaaS codebases brittle, and lists the habits and warning signs the author saw firsthand.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Agents tend to write shallow tests, such as trivial getters and setters, leaving gaps that line coverage does not reveal.",
+        "They over-apply rules like DRY, adding helpers and layers that make code harder for people to debug.",
+        "As agents write more of the code, fewer engineers understand its data structures well enough to spot a bad abstraction.",
+        "Pull requests arrive faster than reviewers can read them, so small quality problems pile up.",
+        "The warning signs listed: more incidents, slower fixes, and errors only real users ever hit."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "counterpoint",
+          "text": "One commenter points out that hand-written enterprise code was already fragile at scale, citing the Oracle database codebase.",
+          "url": "https://news.ycombinator.com/item?id=50439165"
+        },
+        {
+          "stance": "disputed",
+          "text": "Some say newer models have fixed shallow tests and over-complex code; a reply notes the same was claimed in earlier years.",
+          "url": "https://news.ycombinator.com/item?id=50446216"
+        },
+        {
+          "stance": "theme",
+          "text": "Several ask what review gates and deterministic checks the author used, and the author replies in the thread.",
+          "url": "https://news.ycombinator.com/item?id=50444766"
+        },
+        {
+          "stance": "agreed",
+          "text": "Others expect code quality to be ignored until changes start breaking features and agents burn more tokens reading the code.",
+          "url": "https://news.ycombinator.com/item?id=50444086"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "AI usage generates a fragile codebase",
+      "url": "https://evanxmerz.com/post/ai-usage-generates-a-fragile-codebase/"
+    },
+    {
+      "role": "discussion",
+      "title": "AI usage generates a fragile codebase",
+      "url": "https://news.ycombinator.com/item?id=50438318"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-ai-usage-generates-a-fragile-codebase-issue-18",
+      "issue_slug": "issue-18"
+    }
+  ],
+  "created_at": "2026-11-16T08:33:32Z",
+  "updated_at": "2026-11-16T09:30:18Z",
+  "stats": {
+    "points": 643,
+    "comments": 626
+  },
+  "stats_as_of": "2026-11-16T09:30:18Z"
+}

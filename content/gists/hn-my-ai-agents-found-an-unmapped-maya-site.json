@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "slug": "hn-my-ai-agents-found-an-unmapped-maya-site",
+  "kind": "hn",
+  "title": "My AI agents found an unmapped Maya site?",
+  "url": "https://pietromiotti.com/latest/maya-site",
+  "source_url": "https://news.ycombinator.com/item?id=50452455",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "A software engineer set 48 AI agents on public NASA lidar of the Maya lowlands and found a hilltop civic centre missing from Mexico's site register, though archaeologists had already mapped it in 2025.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The agents turned about 1,200 square kilometres of lidar strips into images and inspected them one by one against a written guide, with no custom classifier.",
+        "They flagged a levelled plaza, an oval pyramid at least 8 m tall, a raised courtyard and a possible rainwater reservoir.",
+        "The author sent a Spanish report to INAH, which replied within a day that the location had no registered site.",
+        "An update says the site appears in a 2025 study by Estrada-Belli and colleagues, which the agents missed in their literature search."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "counterpoint",
+          "text": "Several commenters say the result shows why agent output needs checking, since the 'unmapped' site was already in a published paper.",
+          "url": "https://news.ycombinator.com/item?id=50454227"
+        },
+        {
+          "stance": "theme",
+          "text": "The author joined the thread to confirm the earlier 2025 paper and say both the agents and the author missed it.",
+          "url": "https://news.ycombinator.com/item?id=50455574"
+        },
+        {
+          "stance": "disputed",
+          "text": "Some want an archaeologist's verification before accepting what the structures are, and doubt the fast official reply means much.",
+          "url": "https://news.ycombinator.com/item?id=50452940"
+        },
+        {
+          "stance": "theme",
+          "text": "Others note that finding sites is now easier than excavating and protecting them from looters.",
+          "url": "https://news.ycombinator.com/item?id=50453012"
+        },
+        {
+          "stance": "agreed",
+          "text": "A maker of a public UK lidar map says hobbyists already report new sites with such tools almost weekly.",
+          "url": "https://news.ycombinator.com/item?id=50455000"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "My AI Agents (Re)discovered a Maya Site in 72 Hours",
+      "url": "https://pietromiotti.com/latest/maya-site"
+    },
+    {
+      "role": "discussion",
+      "title": "My AI agents found an unmapped Maya site?",
+      "url": "https://news.ycombinator.com/item?id=50452455"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-my-ai-agents-found-an-unmapped-maya-site-issue-18",
+      "issue_slug": "issue-18"
+    }
+  ],
+  "created_at": "2026-11-16T08:33:32Z",
+  "updated_at": "2026-11-16T09:30:18Z",
+  "stats": {
+    "points": 1035,
+    "comments": 392
+  },
+  "stats_as_of": "2026-11-16T09:30:18Z"
+}

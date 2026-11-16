@@ -21,10 +21,11 @@ matching files — this file stays a map.
 | `packages/design-system/` | **Ledger**: tokens + React components for the app and extension (**not** the newsletter) |
 | `packages/fetchers/` | Shared, cadence-agnostic Python fetch machinery for every data source |
 | `packages/curate/` | The curate step: a day's raw snapshots become one published edition |
+| `packages/gists/` | The gists step: a day's edition (or a weekly issue) becomes gist pages. Claude writes the prose between `draft` and `build` |
 | `packages/runner/` | The daily runner: the scheduled job that publishes an edition, the GitHub Actions workflows that schedule it (launchd agents as a fallback), and the watchdog |
 | `packages/subscribers/` | Export, mark and count app subscribers in the `aibytes` Firestore database. Prints counts and paths only |
 | `packages/feed-schema/` | The contract for everything in `content/`: schemas, `feed.d.ts`, `validate.py`, `hide.py` |
-| `content/` | The published data — `editions/YYYY-MM-DD.json`, `index.json`, `tags.json`, `hidden.json` |
+| `content/` | The published data — `editions/YYYY-MM-DD.json`, `index.json`, `tags.json`, `hidden.json`, `gists/` |
 | `.claude/skills/` | Claude Code skills. Stays at the repo root — nested skill dirs are not in autocomplete until a file in them is touched |
 | `.claude/rules/` | Path-scoped conventions, loaded on demand |
 | `apps/web/` | The aibytes.io daily-edition app: Vite + React, a static build for GitHub Pages served from the root, with `content/` at `/content/` *(scaffold; AIB-8h phase 4)* |
@@ -54,6 +55,13 @@ npm run preview:design-system   # then open http://localhost:4300/ui_kits/aibyte
 python3 packages/curate/curate.py draft --date 2026-08-31
 python3 packages/curate/curate.py build --date 2026-08-31 --summaries summaries.json
 python3 packages/curate/curate.py rank --date 2026-08-31   # back-fill rank only, offline
+
+# Gists for one edition. Claude writes gists.json between the two — see the
+# write-gists skill. Weekly: after .cache/gists/issue-N/items.json exists.
+python3 packages/gists/gists.py draft --date 2026-11-11
+python3 packages/gists/gists.py build --date 2026-11-11 --gists .cache/gists/2026-11-11/gists.json
+python3 packages/gists/gists.py draft --issue issue-19
+python3 packages/gists/gists.py build --issue issue-19
 
 # The daily runner: sync main -> fetch -> curate -> validate -> commit -> push, then Slack.
 # This is what the edition workflow calls at 13:30 IST (08:00 UTC); --date backfills or re-runs a day.
@@ -138,7 +146,9 @@ user will call that out explicitly — do not infer the connection yourself.
 - Fetch logic belongs in `packages/fetchers`, not in a skill script. See
   `.claude/rules/fetchers.md`. Curation logic belongs in `packages/curate` the
   same way; its skill carries the voice rules, not the code. See
-  `.claude/rules/curate.md`.
+  `.claude/rules/curate.md`. Gist writing belongs in `packages/gists` the same
+  way; the write-gists skill carries the voice rules. See
+  `.claude/rules/gists.md`.
 - Anything under `content/` is a published contract read by a shipped Chrome
   extension that cannot be hotfixed. Add fields, never rename or remove them,
   and run `validate.py` before committing. See `.claude/rules/feed-schema.md`.

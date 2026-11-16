@@ -40,7 +40,7 @@ def clean(h):
     h = re.sub(r'<span class="src">(.*?)</span>', r"\1", h)
     h = re.sub(r'<a class="post" href=', "<a href=", h)
     h = re.sub(r"<b><a ([^>]*)>(.*?)</a></b>", r"<a \1><b>\2</b></a>", h)
-    h = h.replace(">ProductHunt<", ">Product Hunt<").replace(">HackerNews<", ">HN thread<")
+    h = h.replace(">ProductHunt<", ">Product Hunt<")
     return re.sub(r"\s+", " ", h).strip()
 
 
@@ -94,16 +94,28 @@ def _announcements(s):
 
 def _row(label, ico, txt, stat):
     if label == "Viral on X":
-        # Only the handle is a link, and it points at the post; the words stay body ink.
+        # Handle → gist when a.post is a gist; otherwise handle → the post (Issues 1–18).
         m = re.match(r'\s*<b><a href="[^"]+">(@[^<]+)</a></b>\s*<a class="post" href="([^"]+)">(.*?)</a>(.*)', txt, re.S)
         if m:
             handle, post, words, tail = m.groups()
+            if "/gists/" in post:
+                tail = re.sub(
+                    r'(?:<span class="src">)?\(<a href="([^"]+)">X</a>\)(?:</span>)?',
+                    r' <a href="\1">Post on X</a>',
+                    tail,
+                )
             txt = f'<a href="{post}"><b>{handle}</b></a> {words}{tail}'
     elif label == "HN deep stories":
-        # The title is plain text; the thread link is the only orange in the row.
-        m = re.match(r'\s*<b><a href="[^"]+">(.*?)</a></b>(.*)', txt, re.S)
+        m = re.match(r'\s*<b><a href="([^"]+)">(.*?)</a></b>(.*)', txt, re.S)
         if m and "HackerNews<" in txt:
-            txt = f"{m.group(1)}{m.group(2)}"
+            href, title, rest = m.groups()
+            rest = rest.replace(">HackerNews<", ">HN thread<")
+            if "/gists/" in href:
+                # F2: title → gist, still not bold. Thread stays the trailing link.
+                txt = f'<a href="{href}">{title}</a>{rest}'
+            else:
+                # Issues 1–18: title is plain text; the thread is the only orange.
+                txt = f"{title}{rest}"
     stat = re.sub(r"\s+", " ", strip_tags(stat or "")).strip()
     return f"<li>{ico} {clean(txt)}{' ' + stat if stat else ''}</li>"
 

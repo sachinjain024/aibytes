@@ -4,6 +4,7 @@
 // buildGistSite.js do the file work.
 import { midDate } from "./format.js";
 import { gistIsShown } from "./gistShown.js";
+import { inFeed } from "./filters.js";
 import { rankedItems } from "./order.js";
 import { SITE_ORIGIN } from "./route.js";
 
@@ -19,7 +20,7 @@ export function shownGists(gists, items) {
 export function moreFrom(gist, items) {
   const own = gist.appearances?.[0]?.item_id;
   if (!Array.isArray(items)) return [];
-  return rankedItems(items).filter((item) => item.hidden !== true && item.id !== own).slice(0, MORE_FROM);
+  return rankedItems(items).filter((item) => inFeed(item) && item.id !== own).slice(0, MORE_FROM);
 }
 
 /** Where "Back" goes and what it is called: the gist's first edition or issue. */

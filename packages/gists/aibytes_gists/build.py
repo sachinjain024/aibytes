@@ -16,6 +16,7 @@ import urllib.parse
 
 from . import DEFAULT_CACHE_ROOT, DEFAULT_CONTENT_ROOT, resolve
 from . import copying
+from . import draft as draft_mod
 import gist_contract
 import validate as contract
 
@@ -42,7 +43,7 @@ def _write(path, document):
     path.write_text(json.dumps(document, indent=2, ensure_ascii=False) + "\n")
 
 
-def stats_for(kind, item, facts):
+def stats_for(kind, item, facts, post=None):
     """The script's stats for a gist, from the edition item and what draft read."""
     signals, meta = item.get("signals") or {}, item.get("meta") or {}
     if kind == "hn":
@@ -57,6 +58,9 @@ def stats_for(kind, item, facts):
             stats.setdefault("language", meta["language"])
     elif kind == "launch":
         stats = {"upvotes": signals.get("upvotes"), "comments": signals.get("comments")}
+    elif kind == "x_post":
+        src = post or item.get("post") or {}
+        stats = {key: src[key] for key in ("likes", "reposts", "replies", "views") if key in src}
     else:
         return {}
     return {key: value for key, value in stats.items() if value is not None}
@@ -123,7 +127,7 @@ def _resolve_refs(sections, material):
     return out, problems
 
 
-def make_gist(entry, written, item, date, now, stats_as_of, tag_names):
+def make_gist(entry, written, item, date, now, stats_as_of, tag_names, issue_slug=None):
     """(gist, fatal problems, warnings) for one new item."""
     fatal, warnings = [], []
     if not isinstance(written, dict):
@@ -145,7 +149,7 @@ def make_gist(entry, written, item, date, now, stats_as_of, tag_names):
         "image": item.get("image") or {"type": "none"}, "depth": depth,
         "lede": written.get("lede"), "sections": sections if sections is not None else [],
         "links": links_for(kind, item, facts),
-        "appearances": [{"item_id": item["id"], "edition_date": date}],
+        "appearances": [_appearance(item["id"], date, issue_slug)],
         "created_at": now, "updated_at": now,
     }
     stats = stats_for(kind, item, facts)
@@ -175,18 +179,64 @@ def make_gist(entry, written, item, date, now, stats_as_of, tag_names):
     return gist, fatal, warnings
 
 
-def refresh(gist, item, kind, date, now, stats_as_of, facts=None):
+def _appearance(item_id, date=None, issue_slug=None):
+    if issue_slug:
+        return {"item_id": item_id, "issue_slug": issue_slug}
+    return {"item_id": item_id, "edition_date": date}
+
+
+def make_preview_gist(entry, item, issue_slug, now, stats_as_of, tag_names):
+    """Copy an X post into a preview gist. Claude never writes this."""
+    post = entry.get("post") or (item or {}).get("post") or {}
+    url = (item or {}).get("url") or post.get("url")
+    posted = post.get("posted_on") or post.get("posted_at")
+    gist = {
+        "schema_version": gist_contract.GIST_SCHEMA_VERSION,
+        "slug": entry["slug"],
+        "kind": "x_post",
+        "title": entry.get("title") or draft_mod._x_title(post),
+        "url": url,
+        "source_url": url,
+        "tags": list(entry.get("tags") or []),
+        "image": {"type": "none"},
+        "depth": "preview",
+        "sections": [],
+        "preview": {
+            "bucket": post.get("bucket"),
+            "author_name": post.get("author_name"),
+            "author_handle": post.get("author_handle"),
+            "posted_on": posted,
+            "text": (post.get("text") or "")[: gist_contract.PREVIEW_TEXT_MAX],
+            "media": post.get("media") or "none",
+        },
+        "links": [{"role": "discussion", "title": "The post on X", "url": url}],
+        "appearances": [_appearance(entry["item_id"], issue_slug=issue_slug)],
+        "created_at": now,
+        "updated_at": now,
+    }
+    stats = stats_for("x_post", item or {}, None, post=post)
+    if stats:
+        gist["stats"], gist["stats_as_of"] = stats, stats_as_of
+    return gist, gist_contract.gist_problems(gist, tag_names=tag_names), []
+
+
+def refresh(gist, item, kind, date, now, stats_as_of, facts=None, issue_slug=None, post=None):
     """A repeat: one more appearance, fresh stats, the badge if earned."""
     gist = json.loads(json.dumps(gist))
+    appearance = _appearance(item["id"], date, issue_slug)
     if not any(a.get("item_id") == item["id"] for a in gist["appearances"]):
-        gist["appearances"].append({"item_id": item["id"], "edition_date": date})
+        gist["appearances"].append(appearance)
         dated = [a for a in gist["appearances"] if "edition_date" in a]
-        weekly = [a for a in gist["appearances"] if "edition_date" not in a]
-        gist["appearances"] = sorted(dated, key=lambda a: a["edition_date"]) + weekly
+        weekly = [a for a in gist["appearances"] if "issue_slug" in a]
+        dated.sort(key=lambda a: a["edition_date"])
+        weekly.sort(key=lambda a: int(str(a["issue_slug"]).split("-")[-1] or 0))
+        gist["appearances"] = dated + weekly
     old = gist.get("stats") or {}
-    stats = stats_for(kind, item, facts)
-    if kind == "repo":  # keep the facts only a fetch knows; refresh what the item carries
-        stats = dict(old, **stats)
+    stats = stats_for(kind, item, facts, post=post)
+    # Refresh what this item carries and keep the rest: a repo's fetched facts,
+    # and an HN or PH gist's submitter, post time or comments, which a weekly
+    # row does not carry (AIB-145y, Issue 18 backfill).
+    stats = dict(old, **stats)
     if stats:
         gist["stats"], gist["stats_as_of"] = stats, stats_as_of
     if item.get("front_page") is True and kind == "hn":
@@ -195,42 +245,89 @@ def refresh(gist, item, kind, date, now, stats_as_of, facts=None):
     return gist
 
 
-def build(date, gists_path=None, content_root=DEFAULT_CONTENT_ROOT, cache_root=DEFAULT_CACHE_ROOT,
-          now=None, log=print):
+def _x_item(entry):
+    """A stand-in item for an X post whose row may not yet live in a weekly JSON."""
+    post = entry.get("post") or {}
+    url = post.get("url")
+    return {
+        "id": entry["item_id"],
+        "title": entry.get("title") or draft_mod._x_title(post),
+        "url": url,
+        "source_url": url,
+        "tags": entry.get("tags") or [],
+        "image": {"type": "none"},
+        "post": post,
+        "hidden": False,
+    }
+
+
+def build(date=None, gists_path=None, content_root=DEFAULT_CONTENT_ROOT, cache_root=DEFAULT_CACHE_ROOT,
+          now=None, log=print, issue=None):
     """Returns {"written": [...], "brief": [...], "updated": [...], "failed": {item_id: [problems]},
     "warnings": {item_id: [...]}, "missing": [...]}. Raises BuildError, having
     written nothing, when the run as a whole cannot be built."""
+    if (date is None) == (issue is None):
+        raise BuildError("pass --date or --issue")
+    if issue is not None:
+        issue, _ = draft_mod.parse_issue(issue)
     now = now or _now()
     root = resolve(content_root)
-    cache = resolve(cache_root) / date
+    cache = resolve(cache_root) / (issue or date)
     draft_path = cache / "draft.json"
     gists_path = resolve(gists_path) if gists_path else cache / "gists.json"
-    for path in (draft_path, gists_path):
-        if not path.exists():
-            raise BuildError(f"{path} not found")
+    if not draft_path.exists():
+        raise BuildError(f"{draft_path} not found")
     try:
-        draft, written = _read(draft_path), _read(gists_path)
+        draft = _read(draft_path)
     except ValueError as exc:
         raise BuildError(f"not valid JSON: {exc}")
-    if draft.get("date") != date or (isinstance(written, dict) and written.get("date") not in (None, date)):
+    if not gists_path.exists():
+        needs_claude = [e for e in (draft.get("new") or []) if e.get("kind") != "x_post"]
+        if issue is None or needs_claude:
+            raise BuildError(f"{gists_path} not found")
+        written = {"gists": {}}
+    else:
+        try:
+            written = _read(gists_path)
+        except ValueError as exc:
+            raise BuildError(f"not valid JSON: {exc}")
+    if issue is not None:
+        if draft.get("issue") != issue:
+            raise BuildError(f"draft file is not for {issue}")
+    elif draft.get("date") != date or (isinstance(written, dict) and written.get("date") not in (None, date)):
         raise BuildError(f"draft or gists file is not for {date}")
     by_id = (written or {}).get("gists") if isinstance(written, dict) else None
     if not isinstance(by_id, dict):
         raise BuildError("gists.json must have a `gists` object keyed by item id")
 
-    edition_path = root / "editions" / f"{date}.json"
-    edition = _read(edition_path)
-    items = {item["id"]: item for item in edition["items"]}
+    edition = None
+    weekly_issue, weekly_items = None, {}
+    if issue is not None:
+        # A backfill (Issue 18): the weekly file already exists, so its items
+        # must point back at the gists this run writes, or validate.py refuses.
+        weekly_path = root / "weekly" / "issues" / f"{issue}.json"
+        if weekly_path.exists():
+            weekly_issue = _read(weekly_path)
+            weekly_items = {item["id"]: item for item in weekly_issue.get("items") or []}
+        rows, _ = draft_mod.load_items(cache_root, issue)
+        items = {row["id"]: row for row in rows if row.get("id")}
+        for entry in (draft.get("new") or []) + (draft.get("repeats") or []):
+            if entry.get("kind") == "x_post" and entry["item_id"] not in items:
+                items[entry["item_id"]] = _x_item(entry)
+        stats_as_of = now
+    else:
+        edition = _read(root / "editions" / f"{date}.json")
+        items = {item["id"]: item for item in edition["items"]}
+        stats_as_of = edition.get("generated_at") or now
     tag_names = contract.tag_names(_read(root / "tags.json"))
     index_path = root / "gists" / "index.json"
     index = _read(index_path) if index_path.exists() else {
         "schema_version": gist_contract.GIST_SCHEMA_VERSION, "generated_at": now, "gists": []}
-    stats_as_of = edition.get("generated_at") or now
 
     report = {"written": [], "brief": [], "updated": [], "failed": {}, "warnings": {}, "missing": []}
     files, entries = {}, []
-    new_ids = {entry["item_id"] for entry in draft.get("new") or []}
-    for item_id in sorted(set(by_id) - new_ids):
+    claude_ids = {entry["item_id"] for entry in draft.get("new") or [] if entry.get("kind") != "x_post"}
+    for item_id in sorted(set(by_id) - claude_ids):
         report["failed"][item_id] = ["not in draft.json's new list"]
 
     for entry in draft.get("new") or []:
@@ -238,10 +335,14 @@ def build(date, gists_path=None, content_root=DEFAULT_CONTENT_ROOT, cache_root=D
         item = items.get(item_id)
         if item is None or item.get("hidden"):
             continue
-        if item_id not in by_id:
-            report["missing"].append(item_id)
-            continue
-        gist, fatal, warnings = make_gist(entry, by_id[item_id], item, date, now, stats_as_of, tag_names)
+        if entry.get("kind") == "x_post":
+            gist, fatal, warnings = make_preview_gist(entry, item, issue, now, stats_as_of, tag_names)
+        else:
+            if item_id not in by_id:
+                report["missing"].append(item_id)
+                continue
+            gist, fatal, warnings = make_gist(
+                entry, by_id[item_id], item, date, now, stats_as_of, tag_names, issue_slug=issue)
         if warnings:
             report["warnings"][item_id] = warnings
         if fatal:
@@ -250,7 +351,10 @@ def build(date, gists_path=None, content_root=DEFAULT_CONTENT_ROOT, cache_root=D
         files[entry["slug"]] = gist
         entries.append({"slug": entry["slug"], "source_key": gist_contract.source_key(item["source_url"]),
                         "path": f"gists/{entry['slug']}.json", "created_at": now})
-        item["gist"] = entry["slug"]
+        if edition is not None:
+            item["gist"] = entry["slug"]
+        if item_id in weekly_items:
+            weekly_items[item_id]["gist"] = entry["slug"]
         report["written"].append(entry["slug"])
         if gist["depth"] == "brief":
             report["brief"].append(entry["slug"])
@@ -262,12 +366,18 @@ def build(date, gists_path=None, content_root=DEFAULT_CONTENT_ROOT, cache_root=D
             report["failed"][repeat["item_id"]] = [f"repeat gist {repeat['slug']} not found"]
             continue
         existing = _read(path)
-        files[repeat["slug"]] = refresh(existing, item, existing["kind"], date, now, stats_as_of)
-        item["gist"] = repeat["slug"]
+        files[repeat["slug"]] = refresh(
+            existing, item, existing["kind"], date, now, stats_as_of,
+            issue_slug=issue, post=repeat.get("post"))
+        if edition is not None:
+            item["gist"] = repeat["slug"]
+        if repeat["item_id"] in weekly_items:
+            weekly_items[repeat["item_id"]]["gist"] = repeat["slug"]
         report["updated"].append(repeat["slug"])
 
+    label = issue or date
     if not files:
-        _log_report(report, date, log)
+        _log_report(report, label, log)
         return report
 
     known = {e["slug"] for e in index["gists"]}
@@ -279,7 +389,10 @@ def build(date, gists_path=None, content_root=DEFAULT_CONTENT_ROOT, cache_root=D
         for slug, gist in files.items():
             _write(target / "gists" / f"{slug}.json", gist)
         _write(target / "gists" / "index.json", index)
-        _write(target / "editions" / f"{date}.json", edition)
+        if edition is not None:
+            _write(target / "editions" / f"{date}.json", edition)
+        if weekly_issue is not None:
+            _write(target / "weekly" / "issues" / f"{issue}.json", weekly_issue)
 
     with tempfile.TemporaryDirectory() as tmp:
         staged = pathlib.Path(tmp) / "content"
@@ -292,7 +405,7 @@ def build(date, gists_path=None, content_root=DEFAULT_CONTENT_ROOT, cache_root=D
             raise BuildError("the content tree would not validate; nothing written:\n" + str(exc))
     apply(root)
     contract.validate_content_root(root)  # backstop, as curate and hide.py do
-    _log_report(report, date, log)
+    _log_report(report, label, log)
     return report
 
 

@@ -265,6 +265,32 @@ class TestExcerpt(unittest.TestCase):
         self.assertEqual((len(lines[0]), cut), (x_render.EXCERPT_LIMIT, True))
 
 
+class TestGistNewsletterUrl(unittest.TestCase):
+    def test_three_utm_tags_and_no_spaces(self):
+        url = x_render.gist_newsletter_url("hn-tinyeval", 19)
+        self.assertEqual(
+            url,
+            "https://aibytes.io/gists/hn-tinyeval"
+            "?utm_source=newsletter&utm_medium=email&utm_campaign=issue-19",
+        )
+        self.assertNotIn(" ", url)
+        self.assertEqual(url, url.lower())
+
+    def test_issue_slug_and_bare_number_string(self):
+        self.assertEqual(
+            x_render.gist_newsletter_url("ph-cut", "issue-19"),
+            x_render.gist_newsletter_url("ph-cut", 19),
+        )
+        self.assertEqual(
+            x_render.gist_newsletter_url("ph-cut", "19"),
+            x_render.gist_newsletter_url("ph-cut", 19),
+        )
+
+    def test_rejects_an_issue_with_no_number(self):
+        with self.assertRaises(ValueError):
+            x_render.gist_newsletter_url("hn-tinyeval", "weekly")
+
+
 class TestRenderHelpers(unittest.TestCase):
     def test_likes_format(self):
         self.assertEqual([x_render.likes(n) for n in (870, 3926, 13309, 95704, 123456, 1_250_000)],
@@ -370,6 +396,61 @@ class TestRender(unittest.TestCase):
         self.assertIn(" / Here's", row)
         self.assertTrue(row.endswith(f"keeps going for a while {x_render.HEART} 3.0k</li>"), row)
 
+    def test_html_x_row_with_a_gist_links_the_words_and_trails_the_post(self):
+        post = self.by_url["https://x.com/alice/status/3"]
+        gist = x_render.gist_newsletter_url("x-alice-i-asked-lab-2-to", 19)
+        row = x_render.x_row_html(post, gist)
+        self.assertIn(f'<b><a href="https://x.com/alice">@alice</a></b>', row)
+        escaped = html.escape(gist, quote=True)
+        self.assertIn(f'<a class="post" href="{escaped}">', row)
+        self.assertIn(f'<span class="src">(<a href="{html.escape(post["url"], quote=True)}">X</a>)</span>', row)
+        self.assertNotIn("utm_", re.search(r'class="src">(.*?)</span>', row).group(1))
+        words = untag(re.search(r'<a class="post"[^>]*>(.*?)</a>', row).group(1))
+        self.assertTrue(re.sub(r"\s+", " ", post["text"]).startswith(words.replace(" / ", " ")))
+
+    def test_html_announcement_with_a_gist_puts_gist_first(self):
+        post = self.by_url["https://x.com/lab/status/1"]
+        gist = x_render.gist_newsletter_url("x-lab-introducing-lab-2-our", 19)
+        rendered = x_render.announcement_html(post, gist)
+        links = re.search(r'<div class="oa-links">(.*?)</div>', rendered).group(1)
+        self.assertTrue(links.startswith(f'<a href="{html.escape(gist, quote=True)}">Gist ↗</a>'), links)
+        self.assertIn(f'<a href="{html.escape(post["url"], quote=True)}">Post on X ↗</a>', links)
+        self.assertLess(links.find("Gist ↗"), links.find("Post on X"))
+        inner = re.search(r'<div class="oa-post">(.*?)</div>', rendered).group(1)
+        self.assertEqual(untag(inner), post["text"])
+
+    def test_substack_x_row_with_a_gist_links_the_handle_and_trails_the_post(self):
+        post = self.by_url["https://x.com/alice/status/3"]
+        gist = x_render.gist_newsletter_url("x-alice-i-asked-lab-2-to", 19)
+        row = x_render.x_row_substack(post, gist)
+        self.assertIn(f'<a href="{html.escape(gist, quote=True)}"><b>@alice</b></a>', row)
+        self.assertIn(f'<a href="{html.escape(post["url"], quote=True)}">Post on X</a>', row)
+        self.assertEqual(row.count("<a "), 2)
+        self.assertNotIn("utm_source=newsletter", post["url"])
+        self.assertIn("I asked Lab 2", row)
+        self.assertNotIn("<a href=" + '"' + html.escape(post["url"], quote=True) + '"><b>@alice</b></a>', row)
+
+    def test_substack_announcement_with_a_gist_puts_gist_first(self):
+        post = self.by_url["https://x.com/lab/status/1"]
+        gist = x_render.gist_newsletter_url("x-lab-introducing-lab-2-our", 19)
+        rendered = x_render.announcement_substack(post, gist)
+        self.assertIn(f'<a href="{html.escape(gist, quote=True)}">Gist ↗</a>', rendered)
+        self.assertLess(rendered.find("Gist ↗"), rendered.find("Post on X"))
+        inner = re.search(r"<blockquote>(.*?)</blockquote>", rendered).group(1)
+        self.assertEqual(untag(inner), post["text"])
+
+    def test_beehiiv_ignores_gist_urls(self):
+        post = self.by_url["https://x.com/alice/status/3"]
+        gist = x_render.gist_newsletter_url("x-alice-i-asked-lab-2-to", 19)
+        self.assertEqual(x_render.x_row_beehiiv(post), x_render.x_row_beehiiv(post, gist_url=gist))
+        self.assertNotIn("aibytes.io/gists", x_render.x_row_beehiiv(post, gist_url=gist))
+
+    def test_render_passes_gist_urls_by_post_url(self):
+        gist = x_render.gist_newsletter_url("x-alice-i-asked-lab-2-to", 19)
+        blocks, _ = x_render.render(self.snap, gist_urls={"https://x.com/alice/status/3": gist})
+        self.assertIn("aibytes.io/gists/x-alice-i-asked-lab-2-to", blocks["viral"])
+        self.assertNotIn("aibytes.io/gists", blocks["announcements"])
+
     def test_render_keeps_shortlist_order(self):
         blocks, warnings = x_render.render(self.snap)
         order = [blocks["viral"].find(f"/{h}/status/") for h in ("alice", "bob", "carol", "dave", "erin")]
@@ -412,6 +493,20 @@ class TestVerify(unittest.TestCase):
         page = f"<section>{blocks['viral']}</section>"
         self.assertTrue(x_render.verify(self.snap, page))
         self.assertEqual(x_render.verify(self.snap, page, sections=("viral",)), [])
+
+    def test_verify_accepts_gist_hrefs_and_still_requires_verbatim_words(self):
+        gist_urls = {
+            p["url"]: x_render.gist_newsletter_url(f"x-{p['author_handle'].lstrip('@')}-preview", 19)
+            for p in self.snap["posts"]
+            if p["url"] in self.snap["shortlist"]["insight"] + self.snap["shortlist"]["announcement"]
+        }
+        blocks, _ = x_render.render(self.snap, gist_urls=gist_urls)
+        page = f"<main>{blocks['announcements']}<section>{blocks['viral']}</section></main>"
+        self.assertEqual(x_render.verify(self.snap, page, gist_urls=gist_urls), [])
+        self.assertNotEqual(x_render.verify(self.snap, page), [])
+        broken = page.replace("40% less", "40 percent less")
+        self.assertTrue(any("missing or was changed" in p for p in
+                            x_render.verify(self.snap, broken, gist_urls=gist_urls)))
 
     def test_two_launches_from_one_company_warn_at_shortlist(self):
         snap = x_paste.build(paste(), AS_OF)
@@ -493,6 +588,41 @@ class TestScript(unittest.TestCase):
         proc = self.run_script("render")
         self.assertEqual(proc.returncode, 1)
         self.assertIn("no shortlist", proc.stderr)
+
+    def test_render_issue_slug_looks_up_gists_in_the_index(self):
+        self.run_script("save", "--input", "-", stdin=json.dumps(paste()))
+        insight = [f"https://x.com/{h}/status/{s}" for h, s in (("alice", 3), ("bob", 4), ("carol", 5), ("dave", 6), ("erin", 7))]
+        self.run_script("shortlist", "--insight", *insight, "--announcement", "https://x.com/lab/status/1", "https://x.com/otherlab/status/2")
+        self.run_script("emoji", "https://x.com/alice/status/3", "🔬", "https://x.com/bob/status/4", "🎞️",
+                        "https://x.com/carol/status/5", "💸", "https://x.com/dave/status/6", "🏷️",
+                        "https://x.com/erin/status/7", "🛠️")
+        content = self.root / "content"
+        (content / "gists").mkdir(parents=True)
+        (content / "gists" / "index.json").write_text(json.dumps({
+            "gists": [
+                {"slug": "x-alice-i-asked-lab-2-to", "source_key": "x.com/alice/status/3",
+                 "path": "gists/x-alice-i-asked-lab-2-to.json", "created_at": "2026-11-16T12:00:00Z"},
+            ],
+        }))
+        proc = self.run_script("render", "--section", "viral", "--issue-slug", "issue-19",
+                               "--content-root", str(content))
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        self.assertIn("utm_campaign=issue-19", proc.stdout)
+        self.assertIn("x-alice-i-asked-lab-2-to", proc.stdout)
+        self.assertIn('class="src">(<a href="https://x.com/alice/status/3">X</a>)</span>', proc.stdout)
+        self.assertNotIn("x-bob-", proc.stdout)
+
+    def test_render_issue_slug_without_an_index_is_fatal(self):
+        self.run_script("save", "--input", "-", stdin=json.dumps(paste()))
+        insight = [f"https://x.com/{h}/status/{s}" for h, s in (("alice", 3), ("bob", 4), ("carol", 5), ("dave", 6), ("erin", 7))]
+        self.run_script("shortlist", "--insight", *insight, "--announcement", "https://x.com/lab/status/1", "https://x.com/otherlab/status/2")
+        content = self.root / "empty-content"
+        content.mkdir()
+        proc = self.run_script("render", "--section", "viral", "--issue-slug", "issue-19",
+                               "--content-root", str(content))
+        self.assertEqual(proc.returncode, 1)
+        self.assertIn("no gist index", proc.stderr)
+        self.assertNotIn("utm_campaign=issue-19", proc.stdout)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,46 @@
+<title>Newsletter gist links (F2, one colour)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
+    --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF; --body-ink:#3A3E4A;
+    --display:'Bricolage Grotesque',Helvetica,Arial,sans-serif;
+    --body:'Instrument Sans',Helvetica,Arial,sans-serif;
+    --mono:'JetBrains Mono',Menlo,Consolas,monospace;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+  .wrap{max-width:720px;margin:0 auto;padding:32px 16px 64px}
+  h1{font-family:var(--display);font-weight:800;font-size:28px;letter-spacing:-.01em;margin:0 0 6px}
+  .lede{color:var(--slate);margin:0 0 16px;max-width:62ch}
+  .facts{font-family:var(--mono);font-size:12px;color:var(--slate);border-left:3px solid var(--signal);padding:8px 12px;margin:0 0 22px;background:var(--card)}
+  .decision{border:1.5px solid var(--ink);border-left:5px solid var(--signal);background:var(--card);padding:14px 18px}
+  .decision p{margin:0 0 8px;font-size:14.5px;max-width:66ch}
+  .decision p:last-child{margin:0}
+  table{border-collapse:collapse;width:100%;font-size:13.5px;margin:16px 0}
+  th,td{border-bottom:1px solid var(--line);text-align:left;padding:8px 10px;vertical-align:top}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--slate)}
+  code{font-family:var(--mono);font-size:.88em}
+</style>
+<div class="wrap">
+  <h1>Newsletter gist links</h1>
+  <p class="lede">The destinations are a product decision (F2). This note only records that the one-colour Substack mapping was applied, without a new numbered-options round.</p>
+  <p class="facts">16 Nov 2026 · AIB-145y T35 · spec <code>docs/specs/AIB-145y-newsletter-gist-links.md</code> · Decide 1, settled as recommended</p>
+  <div class="decision">
+    <p><b>Issue HTML</b> keeps two colours: cobalt on the title (the gist), grey <code>.src</code> on the trailing source. UTM tags live only on the gist URL: <code>utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-N</code>.</p>
+    <p><b>Substack</b> has one accent. Two orange links per row is the cost of F2: the title still has to be the gist, and the source still has to be reachable. HN Deep titles stay unbolded (Issue 17) and become links. Viral on X keeps the words as body ink; the handle goes to the gist and <code>Post on X</code> trails to the post. Issues 1–18 have no gist hrefs, so they still export as they do today.</p>
+  </div>
+  <table>
+    <thead><tr><th>Section</th><th>Substack links</th></tr></thead>
+    <tbody>
+      <tr><td>AI News</td><td>Headline → gist. (Source) → article.</td></tr>
+      <tr><td>New AI products</td><td>Name → gist. (Product Hunt) → launch.</td></tr>
+      <tr><td>Trending GitHub</td><td>owner/repo → gist. (GitHub) → repo.</td></tr>
+      <tr><td>HN deep stories</td><td>Title → gist, not bold. (HN thread) → thread.</td></tr>
+      <tr><td>Viral on X</td><td>@handle → gist. Words plain. Post on X → post.</td></tr>
+      <tr><td>Official announcements</td><td>Gist ↗ first, then Post on X ↗ and the domain.</td></tr>
+    </tbody>
+  </table>
+</div>

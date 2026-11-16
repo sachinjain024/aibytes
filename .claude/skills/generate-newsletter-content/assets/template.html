@@ -138,8 +138,10 @@
     <div class="news-card">
       <div class="card-title">🌍 AI NEWS</div>
 
-      <!-- Repeat per news item. Mark the top story with the .hot badge. Pattern:
-      <p class="news-item">🔥 <b><a href="URL">Headline</a></b> one-line context <span class="hot">Story of the week</span> <span class="src">(Source)</span></p>
+      <!-- Repeat per news item. Mark the top story with the .hot badge. Title → gist
+      with UTM; trailing (Source) → the article, clean. If the gist was not written,
+      the title href stays the article. Pattern:
+      <p class="news-item">🔥 <b><a href="https://aibytes.io/gists/SLUG?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-N">Headline</a></b> one-line context <span class="hot">Story of the week</span> <span class="src">(<a href="ARTICLE_URL">Source</a>)</span></p>
       -->
       {{NEWS_ITEMS}}
 
@@ -157,12 +159,12 @@
          else - no headline, no trimming, no fixes. Only past 600 characters, cut at the
          author's last paragraph break before 400 and end with <span class="cut">…</span>.
          Byline: the company in bold (all of a company's accounts are one company), then
-         the posting account and weekday + date. Footer: the post on X, then link_url's
-         domain when the post has one. Pattern:
+         the posting account and weekday + date. Footer: Gist ↗ first (when written),
+         then the post on X, then link_url's domain when the post has one. Pattern:
     <div class="oa-item">
       <div class="oa-by"><b>Anthropic</b> <span>@claudeai · TUE 22</span></div>
       <div class="oa-post"><p>First paragraph, verbatim.</p><p>Second paragraph.</p></div>
-      <div class="oa-links"><a href="POST_URL">Post on X ↗</a> <span class="dot">·</span> <a href="LINK_URL">anthropic.com ↗</a></div>
+      <div class="oa-links"><a href="GIST_URL">Gist ↗</a> <span class="dot">·</span> <a href="POST_URL">Post on X ↗</a> <span class="dot">·</span> <a href="LINK_URL">anthropic.com ↗</a></div>
     </div>
     -->
     <div class="oa-card">
@@ -180,39 +182,43 @@
     <!-- The 5 shortlisted `insight` posts from x/x_data.json, in the shortlist's order.
          Omit the section when there is no shortlist. The post's emoji in the .ico
          column, the author's @handle in bold cobalt linked to their profile, then
-         the post's opening words, verbatim, linked to the post: take the text from its
+         the post's opening words, verbatim, linked to the gist: take the text from its
          start, show each line break as <span class="cut">/</span>, and stop at 280
          characters (at most four lines). If the post runs longer, cut at the last word
-         break inside that and end with <span class="cut">…</span>. Never reword. The
-         stat is likes as ♥︎ (U+2665 + U+FE0E, so iOS keeps it text) + one decimal of
-         thousands. Pattern:
-    <div class="row"><span class="ico">🔬</span><span class="txt"><b><a href="https://x.com/handle">@handle</a></b> <a class="post" href="POST_URL">Opening words <span class="cut">/</span> of the post</a> <span class="cut">…</span></span><span class="stat"><b>♥︎ 13.3k</b></span></div>
+         break inside that and end with <span class="cut">…</span>. Never reword. Trailing
+         (X) is the post. If the gist was not written, the words stay the post link and
+         there is no trailing (X). The stat is likes as ♥︎ (U+2665 + U+FE0E, so iOS
+         keeps it text) + one decimal of thousands. Pattern:
+    <div class="row"><span class="ico">🔬</span><span class="txt"><b><a href="https://x.com/handle">@handle</a></b> <a class="post" href="GIST_URL">Opening words <span class="cut">/</span> of the post</a> <span class="cut">…</span> <span class="src">(<a href="POST_URL">X</a>)</span></span><span class="stat"><b>♥︎ 13.3k</b></span></div>
     -->
     {{X_ROWS}}
   </section>
 
   <section>
     <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">New AI Products</h2><div class="sec-rule"></div></div>
-    <!-- Repeat per launch. The name links to the product's OWN website; the trailing
-    (ProductHunt) links to the launch page. Plain URLs, no tracking params. Pattern:
-    <div class="row"><span class="ico">🎬</span><span class="txt"><b><a href="SITE_URL">Name</a></b> - one-line description. <span class="src">(<a href="PH_LAUNCH_URL">ProductHunt</a>)</span></span><span class="stat"><b>▲ 776</b></span></div>
+    <!-- Repeat per launch. The name links to the gist (UTM); the trailing
+    (ProductHunt) links to the launch page, clean. If the gist was not written, the
+    name stays the product's own website. Pattern:
+    <div class="row"><span class="ico">🎬</span><span class="txt"><b><a href="GIST_URL">Name</a></b> - one-line description. <span class="src">(<a href="PH_LAUNCH_URL">ProductHunt</a>)</span></span><span class="stat"><b>▲ 776</b></span></div>
     -->
     {{LAUNCH_ROWS}}
   </section>
 
   <section>
     <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">Trending Github Projects</h2><div class="sec-rule"></div></div>
-    <!-- Repeat per repo. Pattern:
-    <div class="row"><span class="ico">📎</span><span class="txt"><b><a href="URL">repo-name</a></b> - one-line description.</span><span class="stat"><b>+6.4k</b> ★</span></div>
+    <!-- Repeat per repo. Name → gist; trailing (GitHub) → the repo, clean. If the
+    gist was not written, the name stays the repo. Pattern:
+    <div class="row"><span class="ico">📎</span><span class="txt"><b><a href="GIST_URL">repo-name</a></b> - one-line description. <span class="src">(<a href="REPO_URL">GitHub</a>)</span></span><span class="stat"><b>+6.4k</b> ★</span></div>
     -->
     {{REPO_ROWS}}
   </section>
 
   <section>
     <div class="sec-head"><span class="sec-hex">0x05</span><h2 class="sec-title">HN Deep Stories</h2><div class="sec-rule"></div></div>
-    <!-- Repeat per post. The title links to the ARTICLE; the trailing (HackerNews)
-    links to the thread. Pattern:
-    <div class="row"><span class="ico">📊</span><span class="txt"><b><a href="ARTICLE_URL">Post title</a></b> optional context. <span class="src">(<a href="HN_THREAD_URL">HackerNews</a>)</span></span><span class="stat"><b>699</b> pts</span></div>
+    <!-- Repeat per post. The title links to the gist; the trailing (HackerNews)
+    links to the thread, clean. If the gist was not written, the title stays the article.
+    Pattern:
+    <div class="row"><span class="ico">📊</span><span class="txt"><b><a href="GIST_URL">Post title</a></b> optional context. <span class="src">(<a href="HN_THREAD_URL">HackerNews</a>)</span></span><span class="stat"><b>699</b> pts</span></div>
     Add "· N 💬" to the stat when the comment count is itself the story. -->
     {{HN_ROWS}}
   </section>

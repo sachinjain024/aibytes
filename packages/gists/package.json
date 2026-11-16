@@ -1,0 +1,9 @@
+{
+  "name": "@aibytes/gists",
+  "private": true,
+  "version": "0.0.0",
+  "description": "The gists step: a built edition or weekly items.json becomes gist pages under content/gists/. Claude writes the prose; this package writes every fact.",
+  "scripts": {
+    "test": "cd ../.. && python3 -m unittest tests.test_gists -v"
+  }
+}

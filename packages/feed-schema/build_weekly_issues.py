@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 """Build content/weekly/issues/issue-N.json from newsletter issue HTML (AIB-105j).
 
-Skips the intro, Official Announcements, and Viral on X. Maps the four app
-categories so /weekly/issue-N can render in the Ledger shell with the side nav.
+Maps AI News, Products, Repos and HN Deep so /weekly/issue-N can render in the
+Ledger shell. After AIB-145y T36 a gist title href is resolved through the
+gist file to `url`, `source_url` and `gist`. Viral on X and Official
+Announcements are parsed when those rows carry a gist href (Issues 1–18 have
+none, so they still contribute no X items).
+
 Items follow the edition item contract (feed.d.ts) except for the id, which
 ends in `-issue-N` instead of an edition date.
 
@@ -24,6 +28,9 @@ import sys
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 
+import item_id as ids
+import validate as contract
+
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 SCHEMA_VERSION = 1
 SUMMARY_MAX = 200
@@ -39,9 +46,6 @@ SRC_LABEL = {
     "github": "github",
 }
 
-# The id prefix per source, as the daily editions use them.
-ID_PREFIX = {"producthunt": "ph", "github": "gh", "hackernews": "hn", "techcrunch": "tc"}
-
 SECTION_CATEGORY = (
     (re.compile(r"new ai products|launches", re.I), "launches", "producthunt"),
     (re.compile(r"trending (on )?github|trending repos|trending github projects", re.I), "repos", "github"),
@@ -49,11 +53,102 @@ SECTION_CATEGORY = (
 )
 
 CATEGORIES = ("launches", "repos", "news", "hn")
+GIST_HREF_RE = re.compile(
+    r"^https?://(?:www\.)?aibytes\.io/gists/([^/?#]+)/?(?:\?[^#]*)?(?:#.*)?$",
+    re.I,
+)
 
 
-def slugify(text: str) -> str:
-    text = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
-    return text[:48].strip("-") or "item"
+class BuildError(Exception):
+    """A gist href cannot be resolved and the row has no other source URL."""
+
+
+slugify = ids.slugify
+
+
+def gist_slug_from_href(href: str) -> str | None:
+    """Slug if this is aibytes.io/gists/<slug> and the slug is a contract slug."""
+    match = GIST_HREF_RE.match(htmlmod.unescape(href or "").strip())
+    if not match:
+        return None
+    slug = match.group(1)
+    if not (contract.SLUG_RE.match(slug) and len(slug) <= contract.GIST_SLUG_MAX):
+        return None
+    return slug
+
+
+def load_gist(content_root: pathlib.Path | None, slug: str) -> dict | None:
+    if content_root is None:
+        return None
+    path = pathlib.Path(content_root) / "gists" / f"{slug}.json"
+    if not path.is_file():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    return data if isinstance(data, dict) else None
+
+
+def urls_from_gist(gist: dict) -> tuple[str, str]:
+    dest = next((link.get("url") for link in gist.get("links") or []
+                 if isinstance(link, dict) and link.get("role") == "destination" and link.get("url")), None)
+    disc = next((link.get("url") for link in gist.get("links") or []
+                 if isinstance(link, dict) and link.get("role") == "discussion" and link.get("url")), None)
+    url = dest or gist.get("url")
+    source_url = disc or gist.get("source_url") or url
+    return url, source_url
+
+
+def other_http_hrefs(blob: str, title_href: str) -> list[str]:
+    skip = {htmlmod.unescape(title_href)}
+    out = []
+    for href in re.findall(r'href="([^"]+)"', blob):
+        href = htmlmod.unescape(href)
+        if not href.startswith("http") or href in skip or gist_slug_from_href(href):
+            continue
+        out.append(href)
+    return out
+
+
+def resolve_gist_title(blob: str, title_href: str, content_root, log) -> tuple[str, str | None, str | None]:
+    """(url, source_url or None, gist slug or None). source_url None means fill as today."""
+    slug = gist_slug_from_href(title_href)
+    if slug is None:
+        return title_href, None, None
+    gist = load_gist(content_root, slug)
+    if gist:
+        url, source_url = urls_from_gist(gist)
+        return url, source_url, slug
+    log(f"warning: gist {slug} is missing; keeping the row from trailing source links")
+    others = other_http_hrefs(blob, title_href)
+    if not others:
+        raise BuildError(f"gist {slug!r} is missing and the row has no other href")
+    return others[0], None, None
+
+
+def gists_by_appearance(content_root, issue_slug: str) -> dict[str, str]:
+    """item id -> gist slug, for gists with an appearance in this issue.
+
+    Issues sent before gist links (Issue 18 was backfilled) have no gist href
+    in their HTML. `gists build --issue` records the link on the gist instead,
+    so a rebuild keeps it rather than dropping it.
+    """
+    if content_root is None:
+        return {}
+    folder = pathlib.Path(content_root) / "gists"
+    found = {}
+    if not folder.is_dir():
+        return found
+    for path in sorted(folder.glob("*.json")):
+        if path.name == "index.json":
+            continue
+        gist = load_gist(content_root, path.stem)
+        for appearance in (gist or {}).get("appearances") or []:
+            if isinstance(appearance, dict) and appearance.get("issue_slug") == issue_slug \
+                    and isinstance(appearance.get("item_id"), str):
+                found[appearance["item_id"]] = path.stem
+    return found
 
 
 def strip_tags(text: str) -> str:
@@ -127,9 +222,9 @@ def parse_stat(stat: str, category: str) -> dict:
     return signals
 
 
-def _item(issue_num, category, source, title, summary, url, source_url, image, signals=None):
+def _item(issue_num, category, source, title, summary, url, source_url, image, signals=None, gist=None):
     item = {
-        "id": f"{ID_PREFIX[source]}-{slugify(title)}-issue-{issue_num}",
+        "id": ids.weekly_item_id(source, title, issue_num),
         "title": title,
         "summary": summary,
         "url": url,
@@ -142,10 +237,30 @@ def _item(issue_num, category, source, title, summary, url, source_url, image, s
     }
     if signals:
         item["signals"] = signals
+    if gist:
+        item["gist"] = gist
     return item
 
 
-def news_items(html: str, issue_num: int) -> list[dict]:
+def _x_item(issue_num, slug, title, summary, url, gist=None):
+    item = {
+        "id": f"{slug}-issue-{issue_num}",
+        "title": title,
+        "summary": (summary or "")[:SUMMARY_MAX],
+        "url": url,
+        "source": "x",
+        "source_url": url,
+        "category": "x",
+        "tags": [],
+        "image": {"type": "none"},
+        "hidden": False,
+    }
+    if gist:
+        item["gist"] = gist
+    return item
+
+
+def news_items(html: str, issue_num: int, content_root=None, log=print) -> list[dict]:
     # AI News lives in .news-item paragraphs inside .news-card. Prefer that card
     # so the intro TOC naming "AI News" cannot steal the start.
     card = re.search(r'<div class="news-card">(.*?)</div>\s*(?:<div class="oa-card"|<div class="sec-head">|$)', html, re.S | re.I)
@@ -163,13 +278,15 @@ def news_items(html: str, issue_num: int) -> list[dict]:
         link = re.search(r'<a href="([^"]+)">(.*?)</a>\s*</b>\s*(.*)$', blob, re.S)
         if not link:
             continue
-        url, title, rest = link.group(1), strip_tags(link.group(2)), link.group(3)
+        title_href, title, rest = link.group(1), strip_tags(link.group(2)), link.group(3)
+        url, gist_source_url, gist = resolve_gist_title(blob, title_href, content_root, log)
         source = parse_source_label(blob) or ("techcrunch" if "techcrunch.com" in url else "hackernews")
         hn = re.search(r'href="(https://news\.ycombinator\.com/item\?id=\d+)"', blob)
         if hn:
             source = "hackernews"
+        source_url = gist_source_url or (hn.group(1) if hn else url)
         items.append(_item(issue_num, "news", source, title, summary_text(rest, "news", url), url,
-                           hn.group(1) if hn else url, {"type": "none"}))
+                           source_url, {"type": "none"}, gist=gist))
     return items
 
 
@@ -183,61 +300,126 @@ def section_blocks(html: str) -> list[tuple[str, str]]:
     return out
 
 
-def row_items(section_html: str, issue_num: int, category: str, source: str) -> list[dict]:
+def row_items(section_html: str, issue_num: int, category: str, source: str,
+              content_root=None, log=print) -> list[dict]:
     items = []
     for m in re.finditer(r'<div class="row">(.*?)</div>', section_html, re.S):
         blob = m.group(1)
         link = re.search(r'<b>\s*<a href="([^"]+)">(.*?)</a>\s*</b>\s*(.*)$', blob, re.S)
         if not link:
             continue
-        url, title, rest = link.group(1), strip_tags(link.group(2)), link.group(3)
-        source_url = url
-        if category == "hn":
-            hn = re.search(r'href="(https://news\.ycombinator\.com/item\?id=\d+)"', blob)
-            if hn:
-                source_url = hn.group(1)
-        elif category == "launches":
-            ph = re.search(r'href="(https://www\.producthunt\.com/[^"]+)"', blob)
-            if ph:
-                source_url = ph.group(1)
+        title_href, title, rest = link.group(1), strip_tags(link.group(2)), link.group(3)
+        url, gist_source_url, gist = resolve_gist_title(blob, title_href, content_root, log)
+        source_url = gist_source_url or url
+        if gist_source_url is None:
+            if category == "hn":
+                hn = re.search(r'href="(https://news\.ycombinator\.com/item\?id=\d+)"', blob)
+                if hn:
+                    source_url = hn.group(1)
+            elif category == "launches":
+                ph = re.search(r'href="(https://www\.producthunt\.com/[^"]+)"', blob)
+                if ph:
+                    source_url = ph.group(1)
 
         stat = re.search(r'<span class="stat">(.*?)</span>', blob, re.S)
         signals = parse_stat(stat.group(1) if stat else "", category)
         image = github_image(url) if category == "repos" else {"type": "none"}
         items.append(_item(issue_num, category, source, title, summary_text(rest, category, url), url,
-                           source_url, image, signals))
+                           source_url, image, signals, gist=gist))
     return items
 
 
-def _unique_ids(items: list[dict]) -> None:
-    """Two items with the same title slug get -2, -3 before the issue suffix."""
-    seen = {}
-    for item in items:
-        base = item["id"]
-        seen[base] = seen.get(base, 0) + 1
-        if seen[base] > 1:
-            stem, suffix = base.rsplit("-issue-", 1)
-            item["id"] = f"{stem}-{seen[base]}-issue-{suffix}"
+def oa_items(html: str, issue_num: int, content_root=None, log=print) -> list[dict]:
+    items = []
+    for m in re.finditer(r'<div class="oa-item">(.*?)</div>\s*</div>', html, re.S):
+        blob = m.group(1)
+        by = re.search(r'<div class="oa-by">\s*<b>(.*?)</b>', blob, re.S)
+        gist_href = re.search(r'<a href="([^"]+)">\s*Gist', blob)
+        post = re.search(r'<a href="([^"]+)">\s*Post on X', blob)
+        if not by or not gist_href:
+            continue
+        slug = gist_slug_from_href(gist_href.group(1))
+        if slug is None:
+            continue
+        title = strip_tags(by.group(1))
+        gist = load_gist(content_root, slug)
+        post_url = htmlmod.unescape(post.group(1)) if post else None
+        if gist:
+            url, _ = urls_from_gist(gist)
+            preview = (gist.get("preview") or {}).get("text") or ""
+            items.append(_x_item(issue_num, slug, title, preview, url, gist=slug))
+            continue
+        log(f"warning: gist {slug} is missing; keeping the row from trailing source links")
+        if not post_url:
+            raise BuildError(f"gist {slug!r} is missing and the row has no other href")
+        words = strip_tags(re.search(r'<div class="oa-post">(.*?)</div>', blob, re.S).group(1)
+                           if re.search(r'<div class="oa-post">', blob) else title)
+        items.append(_x_item(issue_num, slug, title, words, post_url))
+    return items
 
 
-def extract_items(html: str, issue_num: int) -> list[dict]:
+def viral_items(section_html: str, issue_num: int, content_root=None, log=print) -> list[dict]:
+    items = []
+    for m in re.finditer(r'<div class="row">(.*?)</div>', section_html, re.S):
+        blob = m.group(1)
+        row = re.search(
+            r'<b>\s*<a href="[^"]+">(@[^<]+)</a>\s*</b>\s*'
+            r'<a class="post" href="([^"]+)">(.*?)</a>(.*)',
+            blob, re.S,
+        )
+        if not row:
+            continue
+        handle, gist_href, words, tail = row.groups()
+        slug = gist_slug_from_href(gist_href)
+        if slug is None:
+            continue
+        title = f"{handle} {strip_tags(words)}".strip()
+        post = re.search(r'href="(https?://[^"]+)"', tail)
+        post_url = htmlmod.unescape(post.group(1)) if post else None
+        gist = load_gist(content_root, slug)
+        if gist:
+            url, _ = urls_from_gist(gist)
+            preview = (gist.get("preview") or {}).get("text") or strip_tags(words)
+            items.append(_x_item(issue_num, slug, title, preview, url, gist=slug))
+            continue
+        log(f"warning: gist {slug} is missing; keeping the row from trailing source links")
+        if not post_url:
+            raise BuildError(f"gist {slug!r} is missing and the row has no other href")
+        items.append(_x_item(issue_num, slug, title, strip_tags(words), post_url))
+    return items
+
+
+def extract_items(html: str, issue_num: int, content_root=None, log=None) -> list[dict]:
+    log = log or (lambda message: print(message, file=sys.stderr))
     html = strip_comments(html)
-    items = news_items(html, issue_num)
+    items = news_items(html, issue_num, content_root, log)
+    items.extend(oa_items(html, issue_num, content_root, log))
     for title, body in section_blocks(html):
+        if re.search(r"viral on x", title, re.I):
+            items.extend(viral_items(body, issue_num, content_root, log))
+            continue
         for pattern, category, source in SECTION_CATEGORY:
             if pattern.search(title):
-                items.extend(row_items(body, issue_num, category, source))
+                items.extend(row_items(body, issue_num, category, source, content_root, log))
                 break
-    _unique_ids(items)
+    ids.unique_weekly_ids([item for item in items if item.get("source") != "x"])
+    linked = gists_by_appearance(content_root, f"issue-{issue_num}")
+    for item in items:
+        if "gist" not in item and item["id"] in linked:
+            item["gist"] = linked[item["id"]]
     # Rank is the issue's reading order.
     for rank, item in enumerate(items, start=1):
         item["rank"] = rank
     return items
 
 
-def build_issue(html: str, entry: dict, previous: dict | None = None, now: str | None = None) -> dict:
-    items = extract_items(html, entry["number"])
+def build_issue(html: str, entry: dict, previous: dict | None = None, now: str | None = None,
+                content_root=None) -> dict:
+    items = extract_items(html, entry["number"], content_root=content_root)
     counts = {key: sum(1 for i in items if i["category"] == key and not i["hidden"]) for key in CATEGORIES}
+    x_count = sum(1 for i in items if i["category"] == "x" and not i["hidden"])
+    if x_count:
+        counts["x"] = x_count
     issue = {
         "schema_version": SCHEMA_VERSION,
         "number": entry["number"],
@@ -281,7 +463,15 @@ def main(argv=None) -> int:
             failed = True
             continue
         dest = out_dir / f"{entry['slug']}.json"
-        issue = build_issue(html_path.read_text(encoding="utf-8", errors="replace"), entry, _read_json(dest))
+        try:
+            issue = build_issue(
+                html_path.read_text(encoding="utf-8", errors="replace"),
+                entry, _read_json(dest), content_root=root / "content",
+            )
+        except BuildError as err:
+            print(f"{entry.get('slug')}: {err}", file=sys.stderr)
+            failed = True
+            continue
         dest.write_text(json.dumps(issue, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         entry["path"] = f"weekly/issues/{entry['slug']}.json"
         print(f"{entry['slug']}: {len(issue['items'])} items {issue['counts']}")

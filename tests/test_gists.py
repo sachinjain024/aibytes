@@ -103,9 +103,10 @@ def index_entry(slug, url):
 class Fetchers:
     """Replaces every fetcher the draft can reach, and records the calls."""
 
-    def __init__(self, page=READABLE, thread=THREAD, repo=REPO, launch=LAUNCH):
+    def __init__(self, page=READABLE, thread=THREAD, repo=REPO, launch=LAUNCH, story=None):
         self.calls = []
         self.page, self.thread, self.repo, self.launch = page, thread, repo, launch
+        self.story = story
 
     def __enter__(self):
         def record(name, value):
@@ -116,6 +117,7 @@ class Fetchers:
         self.patches = [
             mock.patch.object(draft_mod.article, "article_text", record("article", self.page)),
             mock.patch.object(draft_mod.hn_thread, "hn_thread", record("hn", self.thread)),
+            mock.patch.object(draft_mod.hn_thread, "find_story", record("find_story", self.story)),
             mock.patch.object(draft_mod.github_repo, "repo_details", record("repo", self.repo)),
             mock.patch.object(draft_mod.ph_launch, "launch_material", record("launch", self.launch)),
         ]
@@ -362,9 +364,11 @@ class BuildTree:
         self.content = self.root / "content"
         shutil.copytree(REPO_ROOT / "content", self.content,
                         ignore=shutil.ignore_patterns("gists"))
-        # The copy has no gists, so editions that already carry a `gist` (the daily
-        # runs since launch) would not validate: the fixture starts gist-free.
-        for path in (self.content / "editions").glob("*.json"):
+        # The copy has no gists, so editions and weekly issues that already carry a
+        # `gist` (the daily runs since launch, Issue 18's backfill) would not
+        # validate: the fixture starts gist-free.
+        for path in [*(self.content / "editions").glob("*.json"),
+                     *(self.content / "weekly" / "issues").glob("*.json")]:
             edition = json.loads(path.read_text())
             if any("gist" in it for it in edition["items"]):
                 for it in edition["items"]:
@@ -574,6 +578,281 @@ class TestBuild(unittest.TestCase):
                             log=lambda line: None)
 
 
+ISSUE = "issue-19"
+X_POST = {
+    "bucket": "announcement",
+    "url": "https://x.com/AnthropicAI/status/2117343929960112486",
+    "author_handle": "@AnthropicAI",
+    "author_name": "Anthropic",
+    "posted_at": "2026-11-02",
+    "text": "Applications are now open for the Anthropic Residency, a paid program",
+    "media": "link",
+    "likes": 40500, "reposts": 3200, "replies": 1229, "views": 14766946,
+}
+
+
+def x_row(**extra):
+    row = {"kind": "x_post", "url": X_POST["url"], "source_url": X_POST["url"], "post": dict(X_POST)}
+    row.update(extra)
+    return row
+
+
+def weekly_hn(item_id, title, url, hn_id="50443999"):
+    return {
+        "id": item_id, "title": title, "summary": "One line about the post.",
+        "url": url, "source_url": f"https://news.ycombinator.com/item?id={hn_id}",
+        "source": "hackernews", "category": "hn", "tags": ["Agents"],
+        "image": {"type": "none"}, "hidden": False,
+        "signals": {"points": 412, "comments": 198},
+    }
+
+
+class WeeklyTree:
+    """Real content/ plus a weekly items.json under a temp cache."""
+
+    def __init__(self, test, items, issue=ISSUE):
+        self.issue = issue
+        self.tmp = tempfile.TemporaryDirectory()
+        test.addCleanup(self.tmp.cleanup)
+        self.root = pathlib.Path(self.tmp.name)
+        self.content = self.root / "content"
+        shutil.copytree(REPO_ROOT / "content", self.content)
+        build_mod.copy_weekly_sources(REPO_ROOT / "content", self.root)
+        self.cache = self.root / "cache"
+        folder = self.cache / issue
+        folder.mkdir(parents=True)
+        (folder / "items.json").write_text(json.dumps({"issue_slug": issue, "items": items}))
+        self.items = items
+
+    def draft(self, **kw):
+        kw.setdefault("ph_token", "tok")
+        kw.setdefault("log", lambda line: None)
+        return draft_mod.draft(issue=self.issue, content_root=self.content,
+                               data_root=self.root / "data", cache_root=self.cache, **kw)
+
+    def write_gists(self, written):
+        folder = self.cache / self.issue
+        folder.mkdir(parents=True, exist_ok=True)
+        (folder / "gists.json").write_text(json.dumps({"gists": written}))
+
+    def build(self, **kw):
+        kw.setdefault("now", "2026-11-16T12:00:00Z")
+        kw.setdefault("log", lambda line: None)
+        return build_mod.build(issue=self.issue, content_root=self.content, cache_root=self.cache, **kw)
+
+    def gist(self, slug):
+        return json.loads((self.content / "gists" / f"{slug}.json").read_text())
+
+    def index_slugs(self):
+        return {e["slug"] for e in json.loads((self.content / "gists" / "index.json").read_text())["gists"]}
+
+
+def _repeat_from_content():
+    """One published gist, as a weekly row that should reuse it."""
+    index = json.loads((REPO_ROOT / "content" / "gists" / "index.json").read_text())
+    entry = next(e for e in index["gists"] if not e["slug"].startswith("x-"))
+    gist = json.loads((REPO_ROOT / "content" / "gists" / f"{entry['slug']}.json").read_text())
+    item = {
+        "id": f"{gist['source'][:2] if gist.get('source') else 'xx'}-weekly-repeat-issue-19",
+        "title": gist["title"], "summary": "A repeat from the week.",
+        "url": gist["url"], "source_url": gist["source_url"],
+        "source": gist["source"], "category": gist["category"],
+        "tags": gist.get("tags") or [], "image": gist.get("image") or {"type": "none"},
+        "hidden": False,
+    }
+    # ids must match the contract prefix, not a slice of the source name
+    prefix = {"producthunt": "ph", "github": "gh", "hackernews": "hn", "techcrunch": "tc"}[gist["source"]]
+    item["id"] = f"{prefix}-weekly-repeat-issue-19"
+    return item, entry["slug"]
+
+
+class TestWeeklyDraft(unittest.TestCase):
+    def test_a_repeat_is_not_fetched_and_an_x_post_is_preview(self):
+        repeat, slug = _repeat_from_content()
+        hn = weekly_hn("hn-weekly-fixture-life-issue-19", "Life on Claude Nine",
+                       "https://babuschk.example/life-on-claude-nine")
+        tree = WeeklyTree(self, [repeat, hn, x_row()])
+        with Fetchers() as fetchers:
+            result = tree.draft()
+        by_id = {e["item_id"]: e for e in result["new"]}
+        self.assertEqual(result["repeats"], [{"item_id": repeat["id"], "slug": slug}])
+        self.assertNotIn(repeat["id"], by_id)
+        self.assertEqual(by_id[hn["id"]]["kind"], "hn")
+        x_id = "x-anthropicai-applications-are-now-open-for-issue-19"
+        self.assertEqual(by_id[x_id]["kind"], "x_post")
+        self.assertEqual(by_id[x_id]["depth"], "preview")
+        self.assertEqual(by_id[x_id]["slug"], "x-anthropicai-applications-are-now-open-for")
+        self.assertFalse(any(name == "article" and "old" in str(args) for name, args in fetchers.calls))
+        self.assertTrue(any(name == "hn" for name, _ in fetchers.calls))
+        self.assertEqual(json.loads((tree.cache / ISSUE / "draft.json").read_text()), result)
+
+    def test_an_ai_news_row_credited_to_hn_gets_its_thread_when_hn_has_one(self):
+        row = dict(weekly_hn("hn-weekly-fixture-article-issue-19", "An article HN discussed",
+                             "https://news.example/article"),
+                   category="news", source_url="https://news.example/article")
+        del row["signals"]
+        tree = self.tree = WeeklyTree(self, [row, x_row()])
+        before = json.loads((tree.cache / ISSUE / "items.json").read_text())
+        story = {"id": 9900001, "points": 905, "comments": 497}
+        with Fetchers(story=story, thread=dict(THREAD, comments=COMMENTS)) as fetchers:
+            result = tree.draft()
+        entry = {e["item_id"]: e for e in result["new"]}[row["id"]]
+        self.assertEqual(entry["kind"], "hn")
+        self.assertIn("comments", entry["material"])
+        self.assertIn(("find_story", ("https://news.example/article",)), fetchers.calls)
+        self.assertTrue(any(name == "hn" and 9900001 in args for name, args in fetchers.calls))
+        # build reads items.json, so the thread is written back there, and nothing else is.
+        after = json.loads((tree.cache / ISSUE / "items.json").read_text())
+        linked = next(r for r in after["items"] if r.get("id") == row["id"])
+        self.assertEqual(linked["source_url"], "https://news.ycombinator.com/item?id=9900001")
+        self.assertEqual(linked["signals"], {"points": 905, "comments": 497})
+        self.assertEqual([r for r in after["items"] if r.get("id") != row["id"]],
+                         [r for r in before["items"] if r.get("id") != row["id"]])
+        # ...and build publishes an hn gist filed under news, linking the thread.
+        self.tree.write_gists({entry["item_id"]: {"depth": "full", "lede": lede("hn"),
+                                                  "sections": good_sections("hn")}})
+        report = self.tree.build()
+        self.assertEqual(report["failed"], {})
+        gist = self.tree.gist(entry["slug"])
+        self.assertEqual((gist["kind"], gist["category"]), ("hn", "news"))
+        self.assertEqual(gist["source_url"], "https://news.ycombinator.com/item?id=9900001")
+        self.assertIn({"role": "discussion", "title": gist["links"][-1]["title"],
+                       "url": "https://news.ycombinator.com/item?id=9900001"}, gist["links"])
+        self.assertEqual(gist["links"][0]["url"], "https://news.example/article")
+        self.assertEqual(gist["stats"], {"points": 905, "comments": 497})
+
+    def test_the_thread_lookup_is_weekly_only_and_inside_the_fetch_budget(self):
+        def classify(weekly, elapsed=0):
+            row = dict(weekly_hn("hn-fixture-article-2026-11-16", "An article", "https://news.example/a"),
+                       category="news", source_url="https://news.example/a")
+            new = []
+            with Fetchers(story={"id": 9900002, "points": 5, "comments": 1}) as fetchers:
+                draft_mod._classify_item(row, {}, set(), {}, new, [], [], {}, None, 100,
+                                         lambda: elapsed, 0, lambda *_: None, weekly=weekly)
+            return new[0]["kind"], fetchers.names()
+        kind, calls = classify(weekly=False)  # a daily run cannot save what it found
+        self.assertEqual(kind, "news")
+        self.assertNotIn("find_story", calls)
+        kind, calls = classify(weekly=True, elapsed=100)  # out of budget
+        self.assertEqual(kind, "news")
+        self.assertNotIn("find_story", calls)
+        kind, calls = classify(weekly=True)
+        self.assertEqual(kind, "hn")
+        self.assertIn("find_story", calls)
+
+    def test_an_ai_news_row_credited_to_hn_with_no_thread_is_a_news_gist(self):
+        row = dict(weekly_hn("hn-weekly-fixture-article-issue-19", "An article HN discussed",
+                             "https://news.example/article"),
+                   category="news", source_url="https://news.example/article", signals={})
+        thread = weekly_hn("hn-weekly-fixture-thread-issue-19", "A real thread",
+                           "https://babuschk.example/thread")
+        tree = WeeklyTree(self, [row, thread])
+        with Fetchers() as fetchers:
+            result = tree.draft()
+        by_id = {e["item_id"]: e for e in result["new"]}
+        self.assertEqual(by_id[row["id"]]["kind"], "news")
+        self.assertEqual(by_id[row["id"]]["depth"], "full")
+        self.assertIn("article", by_id[row["id"]]["material"])
+        self.assertEqual(by_id[thread["id"]]["kind"], "hn")
+        self.assertTrue(any(name == "article" and "news.example" in str(args) for name, args in fetchers.calls))
+
+    def test_ph_posts_under_later_path_wins(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            url = "https://www.producthunt.com/posts/foo"
+            def write(rel, name):
+                path = root / rel
+                path.parent.mkdir(parents=True)
+                path.write_text(json.dumps({"posts": [{"url": url, "name": name}]}))
+            write("2026/10/weeks/week-40/producthunt/ph_data.json", "old")
+            write("2026/11/weeks/week-47/producthunt/ph_data.json", "new")
+            posts = draft_mod.ph_posts_under(root)
+            self.assertEqual(posts[url]["name"], "new")
+
+    def test_missing_items_json_is_fatal(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            done = subprocess.run(
+                [sys.executable, str(REPO_ROOT / "packages" / "gists" / "gists.py"),
+                 "draft", "--issue", ISSUE, "--content-root", tmp, "--cache-root", tmp],
+                capture_output=True, text=True)
+        self.assertEqual(done.returncode, 1)
+        self.assertIn("no items.json", done.stderr)
+
+
+class TestWeeklyBuild(unittest.TestCase):
+    def setUp(self):
+        self.repeat, self.repeat_slug = _repeat_from_content()
+        self.hn = weekly_hn("hn-weekly-fixture-life-issue-19", "Life on Claude Nine",
+                            "https://babuschk.example/life-on-claude-nine")
+        self.hn_bad = weekly_hn("hn-weekly-fixture-other-issue-19", "Other weekly HN",
+                                "https://babuschk.example/other-weekly", hn_id="50444000")
+        self.tree = WeeklyTree(self, [self.repeat, self.hn, self.hn_bad, x_row()])
+
+    def _draft_and_write(self, mutate=None):
+        with Fetchers(thread=dict(THREAD, comments=COMMENTS)):
+            draft = self.tree.draft()
+        written = {}
+        for entry in draft["new"]:
+            if entry["kind"] == "x_post":
+                continue
+            written[entry["item_id"]] = {
+                "depth": "full", "lede": lede(entry["kind"]),
+                "sections": good_sections(entry["kind"]),
+            }
+        if mutate:
+            mutate(written, draft)
+        self.tree.write_gists(written)
+        return draft
+
+    def test_writes_missing_gists_reuses_existing_and_copies_x_with_no_claude_file(self):
+        draft = self._draft_and_write()
+        x_entry = next(e for e in draft["new"] if e["kind"] == "x_post")
+        self.assertNotIn(x_entry["item_id"], json.loads((self.tree.cache / ISSUE / "gists.json").read_text())["gists"])
+        report = self.tree.build()
+        self.assertIn(x_entry["slug"], report["written"])
+        self.assertIn(self.repeat_slug, report["updated"])
+        hn_slug = next(e["slug"] for e in draft["new"] if e["item_id"] == self.hn["id"])
+        self.assertIn(hn_slug, report["written"])
+        gist = self.tree.gist(x_entry["slug"])
+        self.assertEqual(gist["kind"], "x_post")
+        self.assertEqual(gist["depth"], "preview")
+        self.assertEqual(gist["preview"]["author_handle"], "@AnthropicAI")
+        self.assertEqual(gist["appearances"],
+                         [{"item_id": x_entry["item_id"], "issue_slug": ISSUE}])
+        repeat = self.tree.gist(self.repeat_slug)
+        self.assertTrue(any(a.get("issue_slug") == ISSUE for a in repeat["appearances"]))
+        self.assertTrue(contract.validate_content_root(self.tree.content))
+        self.assertIn(x_entry["slug"], self.tree.index_slugs())
+
+    def test_one_failed_gist_leaves_the_others_written(self):
+        def mutate(written, draft):
+            written[self.hn_bad["id"]]["lede"] = "too short"
+        self._draft_and_write(mutate)
+        report = self.tree.build()
+        self.assertIn(self.hn_bad["id"], report["failed"])
+        self.assertTrue(report["written"])
+        self.assertNotIn(next(e["slug"] for e in json.loads((self.tree.cache / ISSUE / "draft.json").read_text())["new"]
+                              if e["item_id"] == self.hn_bad["id"]), report["written"])
+        self.assertTrue(contract.validate_content_root(self.tree.content))
+
+    def test_missing_gists_json_is_fatal_when_a_new_row_needs_claude(self):
+        with Fetchers(thread=dict(THREAD, comments=COMMENTS)):
+            self.tree.draft()
+        self.assertFalse((self.tree.cache / ISSUE / "gists.json").exists())
+        with self.assertRaises(build_mod.BuildError) as ctx:
+            self.tree.build()
+        self.assertIn("gists.json", str(ctx.exception))
+
+    def test_x_previews_build_without_a_claude_file(self):
+        tree = WeeklyTree(self, [x_row()])
+        tree.draft()
+        self.assertFalse((tree.cache / ISSUE / "gists.json").exists())
+        report = tree.build()
+        self.assertEqual(len(report["written"]), 1)
+        self.assertEqual(report["failed"], {})
+        self.assertTrue(contract.validate_content_root(tree.content))
+
+
 class TestCopying(unittest.TestCase):
     def test_runs_ignore_case_and_punctuation(self):
         from aibytes_gists import copying
@@ -589,5 +868,82 @@ class TestCopying(unittest.TestCase):
         self.assertEqual(copying.copied(text, source), "")
 
 
+class TestRefreshStats(unittest.TestCase):
+    """A repeat refreshes what the item carries and keeps the rest (Grok review)."""
+
+    def refresh(self, kind, old, item):
+        gist = {"appearances": [], "stats": old}
+        return build_mod.refresh(gist, dict(item, id="row-issue-18"), kind, None,
+                                 "2026-11-16T00:00:00Z", "2026-11-16T00:00:00Z", issue_slug="issue-18")["stats"]
+
+    def test_an_hn_repeat_from_a_weekly_row_keeps_submitter_and_post_time(self):
+        old = {"points": 900, "comments": 600, "submitted_by": "someone", "posted_at": "2026-11-14T02:52:59Z"}
+        got = self.refresh("hn", old, {"signals": {"points": 1103, "comments": 649}})
+        self.assertEqual(got, {"points": 1103, "comments": 649, "submitted_by": "someone",
+                               "posted_at": "2026-11-14T02:52:59Z"})
+
+    def test_a_launch_repeat_keeps_comments_the_weekly_row_lacks(self):
+        got = self.refresh("launch", {"upvotes": 300, "comments": 40}, {"signals": {"upvotes": 512}})
+        self.assertEqual(got, {"upvotes": 512, "comments": 40})
+
+
+class TestWeeklyBackfill(unittest.TestCase):
+    """Issue 18 was sent before gist links. Its weekly file already exists, so
+    build must make its items point back, and a rebuild must keep them."""
+
+    def setUp(self):
+        issue = json.loads((REPO_ROOT / "content" / "weekly" / "issues" / "issue-18.json").read_text())
+        hn = [item for item in issue["items"] if item["category"] == "hn"][:2]
+        self.ids = [item["id"] for item in hn]
+        self.tree = WeeklyTree(self, [{k: v for k, v in item.items() if k != "gist"} for item in hn], issue="issue-18")
+        # The copy is today's content/, where Issue 18 already points at its
+        # gists. Undo that for these two so build has to write the links: the
+        # first loses its gist too (a new gist), the second keeps it (a repeat).
+        content = self.tree.content
+        weekly_path = content / "weekly" / "issues" / "issue-18.json"
+        weekly_doc = json.loads(weekly_path.read_text())
+        for item in weekly_doc["items"]:
+            if item["id"] in self.ids:
+                item.pop("gist", None)
+        weekly_path.write_text(json.dumps(weekly_doc, indent=2, ensure_ascii=False) + "\n")
+        new_slug = hn[0]["gist"]
+        (content / "gists" / f"{new_slug}.json").unlink()
+        index_path = content / "gists" / "index.json"
+        index_doc = json.loads(index_path.read_text())
+        index_doc["gists"] = [g for g in index_doc["gists"] if g["slug"] != new_slug]
+        index_path.write_text(json.dumps(index_doc, indent=2, ensure_ascii=False) + "\n")
+
+    def _weekly(self):
+        return json.loads((self.tree.content / "weekly" / "issues" / "issue-18.json").read_text())
+
+    def test_build_points_existing_weekly_items_at_their_gists_and_a_rebuild_keeps_them(self):
+        with Fetchers(thread=dict(THREAD, comments=COMMENTS)):
+            draft = self.tree.draft()
+        self.assertEqual([e["item_id"] for e in draft["new"]], self.ids[:1])
+        self.assertEqual([r["item_id"] for r in draft["repeats"]], self.ids[1:])
+        written = {e["item_id"]: {"depth": "full", "lede": lede(e["kind"]), "sections": good_sections(e["kind"])}
+                   for e in draft["new"]}
+        self.tree.write_gists(written)
+        self.tree.build()
+        by_id = {item["id"]: item for item in self._weekly()["items"]}
+        slugs = {item_id: by_id[item_id].get("gist") for item_id in self.ids}
+        for item_id, slug in slugs.items():
+            self.assertIsInstance(slug, str, item_id)
+            self.assertIn({"item_id": item_id, "issue_slug": "issue-18"}, self.tree.gist(slug)["appearances"])
+        self.assertTrue(contract.validate_content_root(self.tree.content))
+
+        # The weekly builder rebuilds every issue from its HTML, which for
+        # Issue 18 has no gist hrefs. The links come back from the gists.
+        sys.path.insert(0, str(REPO_ROOT / "packages" / "feed-schema"))
+        import build_weekly_issues as weekly
+        entry = next(e for e in json.loads((self.tree.content / "weekly" / "index.json").read_text())["issues"]
+                     if e["slug"] == "issue-18")
+        html = (REPO_ROOT / entry["source"]).read_text(encoding="utf-8")
+        rebuilt = weekly.build_issue(html, entry, content_root=self.tree.content)
+        again = {item["id"]: item.get("gist") for item in rebuilt["items"]}
+        for item_id, slug in slugs.items():
+            self.assertEqual(again[item_id], slug)
+
 if __name__ == "__main__":
     unittest.main()
+

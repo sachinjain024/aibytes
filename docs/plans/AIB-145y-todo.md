@@ -710,55 +710,88 @@ for the two new rules in `components.css` (ticket item 10.5).
 ### T33: newsletter spec
 
 **Description:** `docs/specs/AIB-145y-newsletter-gist-links.md`: how the
-weekly pull finds items missing a gist, X and announcement previews, the
-link and source link in the template within Substack's colour rules, UTM
-tags, and how `build_weekly_issues.py` maps links back.
+weekly pull finds items missing a gist (`items.json` before the issue HTML),
+X and announcement previews, F2 in the issue HTML and under Substack's one
+link colour, UTM tags, and how `build_weekly_issues.py` maps gist hrefs back.
+
+**Acceptance criteria:**
+- [x] The weekly skill order, `items.json` shape, failure rule, F2 tables
+      (issue HTML and Substack), UTM helper, and builder resolution are
+      written down.
+- [x] Three Decide rows: two orange Substack links, `source: "x"` on weekly
+      items, HN Deep title linked to the gist. Approved 16 Nov 2026, all
+      three as recommended.
+- [x] T34–T36 file lists match the spec.
 
 **Verification:** the publisher approves. **Dependencies:** T16, T26.
-**Size:** S.
+**Size:** S. **Files:** `docs/specs/AIB-145y-newsletter-gist-links.md`,
+this list.
 
 ### T34: the weekly pull writes gists
 
-**Description:** A `gists` entry point for an issue: items without a gist
-get one (full, brief, or preview for X posts and announcements); issue items
-carry `gist`.
+**Description:** Per the spec: `gists draft --issue issue-N` and
+`gists build --issue issue-N` read `.cache/gists/issue-N/items.json`. Repeats
+gain an `issue_slug` appearance; new news/HN/repo/launch rows use the daily
+full/brief path; X posts are `preview`, copied, no Claude. Shared item-id
+helper with the weekly builder. A failed gist does not fail the issue.
 
 **Acceptance criteria:**
-- [ ] Tests on a fixture issue: missing gists written, existing ones reused,
-      X posts as `preview`.
+- [x] Tests on a fixture `items.json`: missing gists written, existing ones
+      reused, X posts as `preview` with no Claude file.
+- [x] Per-gist failure leaves the others written; missing `items.json` is
+      fatal.
 
 **Verification:** `tests/test_gists.py`. **Dependencies:** T33. **Size:** M.
+**Files:** `packages/gists/aibytes_gists/{cli,draft,build}.py`,
+`packages/feed-schema/` item-id helper, `tests/test_gists.py`.
 
 ### T35: the template and the skill
 
-**Description:** `generate-newsletter-content`'s template and SKILL.md link
-each item title to its gist with UTM tags and keep a small source link
-beside it (F2).
+**Description:** Per the spec: generate-newsletter-content writes gist
+title hrefs with UTM tags and a trailing source link (F2). `x_render.py`
+does the same for Official Announcements and Viral on X (issue HTML and
+Substack). `substack-layout.md` and the export script follow. A dated
+artifact note records the one-colour mapping.
 
 **Acceptance criteria:**
-- [ ] The skill's tests (or a new one) check every item link is a gist link
-      with tags, and each has a source link.
+- [x] Tests check every news / products / GitHub / HN title is a gist URL
+      with the three UTM tags, and each has a clean source link.
+- [x] `x_items.py verify` accepts gist hrefs and still requires verbatim
+      post text.
 - [ ] The first issue to use it is approved by the publisher (P6).
 
 **Verification:** a test issue rendered from fixtures. **Dependencies:** T34.
-**Size:** M.
+**Size:** M. **Files:** skill `SKILL.md`, `assets/template.html`,
+`references/substack-layout.md`, `substack_export.py`,
+`packages/fetchers/aibytes_fetchers/x_render.py`, tests, artifact.
 
 ### T36: weekly issue pages read gist links
 
-**Description:** `build_weekly_issues.py` resolves gist links back to the
-source and sets `gist` on issue items, so `/weekly/issue-N` cards keep their
-source and gain the panel.
+**Description:** Per the spec: `build_weekly_issues.py` resolves
+`aibytes.io/gists/<slug>` hrefs (UTM ignored, slug must match `SLUG_RE`)
+through the gist file to `url`, `source_url` and `gist`. A missing file
+keeps the row from trailing source links. Viral on X and Official
+Announcements are parsed from the HTML (opening-words / `Gist ↗` for the
+slug, `Post on X` for the post). Issues 1–18 unchanged. `validate.py`
+allows `source`/`category` `x` only on weekly items.
 
 **Acceptance criteria:**
-- [ ] `tests/test_build_weekly_issues.py`: an issue with gist links builds
+- [x] `tests/test_build_weekly_issues.py`: an issue with gist links builds
       the same items as one with source links, plus `gist`.
+- [x] A gist href with UTM still resolves. Old issues: no diff.
+- [x] Missing gist file with a trailing source: item kept, no `gist`.
+      Missing file and no other href: non-zero.
+- [x] Viral and OA rows present with `source` `x` and `{slug}-issue-N`
+      ids, not `slugify(title)`.
 
 **Verification:** that test; `validate.py`. **Dependencies:** T35.
-**Size:** S.
+**Size:** S. **Files:** `build_weekly_issues.py`, `validate.py`,
+`feed.d.ts`, tests.
 
 ### Checkpoint F: newsletter
 
-- [ ] Success criterion 11 passes.
+- [ ] Success criterion 11 passes. (T35/T36 are on PR #71. The first
+      gist-linked issue is P6.)
 
 ## Wrap-up
 
@@ -769,7 +802,48 @@ package READMEs; `.claude/rules/` for gists; the ticket's checklist all
 ticked; the publisher's browser checks on aibytes.io (P7).
 
 **Acceptance criteria:**
-- [ ] All twelve success criteria in the spec are checked off with how.
+- [x] All twelve success criteria in the spec are checked off with how.
+      Nine pass. 8, 9 and 11 record how-so-far and name P7 / Checkpoint A /
+      P6 for the live remainder.
+
+**Done 16 Nov 2026:** layout row and commands in `CLAUDE.md`;
+`.claude/rules/gists.md`; `packages/gists/{README.md,package.json}`;
+feed-schema and `content/` READMEs. Ticket: T34–T36 and T37 ticked. Left
+open for the publisher: P6, P7, Checkpoint A, Checkpoint F.
 
 **Verification:** the full checkpoint list. **Dependencies:** everything.
 **Size:** S.
+
+## Favicon (GitHub #38)
+
+Added 16 Nov 2026 at the publisher's request, on this branch as its own
+commit. Ticket items 14–14.3.
+
+- [x] 14.1 Option 1 of five (a white bolt on a cobalt tile): `favicon.svg`,
+      `favicon.ico` (16/32/48) and a 180px `apple-touch-icon.png` in
+      `apps/web/public/`, linked from `apps/web/index.html`, so every built
+      page carries them. Covered by `apps/web/src/gistBuild.test.js`.
+- [x] 14.2 `Wordmark.prompt.md` says the favicon is the bolt tile, not `aB_`.
+- [ ] 14.3 P9: the publisher checks the tab and bookmark icon on aibytes.io
+      after deploy, then closes #38.
+
+## Issue 18 backfill
+
+Added 16 Nov 2026 at the publisher's request. It is an exception to the
+newsletter spec's no-backfill rule, and only the weekly page changes: the
+Issue 18 HTML as sent is unchanged. Ticket items 15–15.4.
+
+- [x] 15.1 `gists build --issue` sets `gist` on an existing weekly issue
+      file in the same validated write, and `build_weekly_issues.py` keeps
+      that link from the gist's `issue_slug` appearance when the HTML has no
+      gist href (`69cf896`).
+- [x] 15.2 `items.json` from `issue-18.json`; `gists draft --issue issue-18`
+      found 14 new and 8 repeats; Claude wrote the prose; `gists build`.
+- [x] 15.3 All 22 items carry a gist (14 new, 8 repeats). Four of them are
+      AI News articles credited "(HackerNews)" whose row links only the
+      article. `gists draft` now finds each one's HN thread by URL, so they
+      are `hn` gists filed under news, with a Discussion section: Goldman,
+      United and Apple are new, and Nvidia reuses its 15 Nov daily gist. A
+      row with no thread on HN still gets a `news` gist from the article.
+- [x] 15.4 P10: the publisher checks `/weekly/issue-18`, then the ticket
+      closes.

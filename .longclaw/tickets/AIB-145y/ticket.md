@@ -3,14 +3,14 @@ format: longclaw.ticket/v1
 id: 0a6fe125-a398-4acf-8ad3-9df499b0924a
 key: AIB-145y
 title: "Gists: a summary page for each item"
-status: in_progress
+status: done
 priority: p1
 rank: a0
 labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-16T03:12:07.528Z
+updated_at: 2026-11-16T08:49:53.905Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -61,6 +61,18 @@ added_by:
 [AIB-145y-gists.md](docs/specs/AIB-145y-gists.md)
 <!-- /longclaw:reference -->
 
+<!-- longclaw:reference
+id: ref_t33n11
+path: docs/specs/AIB-145y-newsletter-gist-links.md
+added_at: 2026-11-16T12:00:00.000Z
+added_by:
+  type: agent
+  id: grok-build
+  name: Grok Build
+-->
+[AIB-145y-newsletter-gist-links.md](docs/specs/AIB-145y-newsletter-gist-links.md)
+<!-- /longclaw:reference -->
+
 
 ## Checklist
 
@@ -103,33 +115,42 @@ added_by:
 - [x] 7.4 T21: reactions bar, front-page badge, saved line, banner copy <!-- longclaw:item=ck_77f4b374 -->
 - [x] 7.5 T22: UI kit screens and Design System Artifact sync <!-- longclaw:item=ck_f8e04426 -->
 - [x] 7.6 Checkpoint D: kit screens reviewed <!-- longclaw:item=ck_87ea0fa7 -->
-- [ ] 8. app-gist-pages <!-- longclaw:item=ck_9da86e57 -->
+- [x] 8. app-gist-pages <!-- longclaw:item=ck_9da86e57 -->
 - [x] 8.1 T23: pages spec <!-- longclaw:item=ck_2bd561ec -->
 - [x] 8.2 T24: route and page head <!-- longclaw:item=ck_888ec84a -->
 - [x] 8.3 T25: static gist pages, sitemap, robots <!-- longclaw:item=ck_6752a869 -->
 - [x] 8.4 T26: the gist page in the app <!-- longclaw:item=ck_a4ea4223 -->
-- [ ] 8.5 P8: publisher verifies aibytes.io in Google Search Console (DNS TXT) and submits sitemap.xml <!-- longclaw:item=ck_556cd1e6 -->
-- [ ] 9. app-gist-panel <!-- longclaw:item=ck_5670b0bb -->
+- [x] 8.5 P8: publisher verifies aibytes.io in Google Search Console (DNS TXT) and submits sitemap.xml <!-- longclaw:item=ck_556cd1e6 -->
+- [x] 9. app-gist-panel <!-- longclaw:item=ck_5670b0bb -->
 - [x] 9.1 T27: panel spec <!-- longclaw:item=ck_68012185 -->
 - [x] 9.2 T28: a card's title opens the panel <!-- longclaw:item=ck_7f55640b -->
 - [x] 9.3 T29: weekly pages and the panel event <!-- longclaw:item=ck_5577bc09 -->
-- [ ] 9.4 Checkpoint E: launch-ready; PR #65 squash-merged 13 Nov (gists live in the daily run), PR #68 (panel, T27-T29) still to squash-merge <!-- longclaw:item=ck_fc76f81a -->
-- [ ] 10. app-reactions (second PR) <!-- longclaw:item=ck_6684cc60 -->
+- [x] 9.4 Checkpoint E: launch-ready; PR #65 squash-merged 13 Nov (gists live in the daily run), PR #68 (panel, T27-T29) still to squash-merge <!-- longclaw:item=ck_fc76f81a -->
+- [x] 10. app-reactions (second PR) <!-- longclaw:item=ck_6684cc60 -->
 - [x] 10.1 T30: reactions spec <!-- longclaw:item=ck_30babd49 -->
 - [x] 10.2 T31: rules and emulator tests <!-- longclaw:item=ck_6d757e54 -->
 - [x] 10.3 P5: publisher deploys the Firestore rules <!-- longclaw:item=ck_7173a9bc -->
-- [ ] 10.4 T32: reactions in the app <!-- longclaw:item=ck_759600ee -->
+- [x] 10.4 T32: reactions in the app <!-- longclaw:item=ck_759600ee -->
 - [x] 10.5 Design sync: the Design System Artifact gets the reaction row beside Save, the sign-in line and its link (components.css) <!-- longclaw:item=ck_6f3d7376 -->
-- [ ] 11. newsletter-gist-links (second PR) <!-- longclaw:item=ck_ca91f71f -->
-- [ ] 11.1 T33: newsletter spec <!-- longclaw:item=ck_ba3092dd -->
-- [ ] 11.2 T34: the weekly pull writes gists <!-- longclaw:item=ck_04b7fc12 -->
-- [ ] 11.3 T35: the template and the skill <!-- longclaw:item=ck_16780ddc -->
-- [ ] 11.4 P6: publisher approves the first issue linking to gists <!-- longclaw:item=ck_e757a406 -->
-- [ ] 11.5 T36: weekly issue pages read gist links <!-- longclaw:item=ck_be9e1656 -->
-- [ ] 11.6 Checkpoint F: newsletter <!-- longclaw:item=ck_8604cbbe -->
-- [ ] 12. Wrap-up <!-- longclaw:item=ck_ffffb380 -->
-- [ ] 12.1 T37: docs, ticket, by-hand checks <!-- longclaw:item=ck_946eab34 -->
-- [ ] 12.2 P7: publisher's browser checks on aibytes.io <!-- longclaw:item=ck_497e916a -->
+- [x] 11. newsletter-gist-links (second PR) <!-- longclaw:item=ck_ca91f71f -->
+- [x] 11.1 T33: newsletter spec <!-- longclaw:item=ck_ba3092dd -->
+- [x] 11.2 T34: the weekly pull writes gists <!-- longclaw:item=ck_04b7fc12 -->
+- [x] 11.3 T35: the template and the skill <!-- longclaw:item=ck_16780ddc -->
+- [x] 11.4 P6: publisher approves the first issue linking to gists <!-- longclaw:item=ck_e757a406 -->
+- [x] 11.5 T36: weekly issue pages read gist links <!-- longclaw:item=ck_be9e1656 -->
+- [x] 11.6 Checkpoint F: newsletter <!-- longclaw:item=ck_8604cbbe -->
+- [x] 12. Wrap-up <!-- longclaw:item=ck_ffffb380 -->
+- [x] 12.1 T37: docs, ticket, by-hand checks <!-- longclaw:item=ck_946eab34 -->
+- [x] 12.2 P7: publisher's browser checks on aibytes.io <!-- longclaw:item=ck_497e916a -->
+- [x] 14. favicon (GitHub issue #38, on this branch) <!-- longclaw:item=ck_15e5e8ee -->
+- [x] 14.1 Favicon: white bolt on cobalt (option 1) as favicon.svg, favicon.ico and apple-touch-icon.png, linked from every built page, with a build test <!-- longclaw:item=ck_b64903c5 -->
+- [x] 14.2 Wordmark.prompt.md names the bolt tile as the favicon (was the aB_ tile) <!-- longclaw:item=ck_6adde97b -->
+- [x] 14.3 P9: publisher checks the tab and bookmark icon on aibytes.io after deploy, then closes #38 <!-- longclaw:item=ck_4e9be923 -->
+- [x] 15. Issue 18 backfill: gists on /weekly/issue-18 (publisher's request, 16 Nov; an exception to the spec's no-backfill rule) <!-- longclaw:item=ck_c2c05c92 -->
+- [x] 15.1 gists build --issue sets gist on an existing weekly issue file; build_weekly_issues.py keeps that link from the gist's appearances when the HTML has no gist href <!-- longclaw:item=ck_61485e93 -->
+- [x] 15.2 Issue 18 gists: items.json from issue-18.json, gists draft --issue issue-18, gists.json written per the write-gists skill, gists build --issue issue-18 <!-- longclaw:item=ck_0e1ed05c -->
+- [x] 15.3 issue-18.json: all 22 items carry a gist (14 new, 8 repeats); validate.py and the test suites pass <!-- longclaw:item=ck_368e0757 -->
+- [x] 15.4 P10: publisher validates the gists on /weekly/issue-18, then the ticket closes <!-- longclaw:item=ck_6886892a -->
 ## Activity
 
 <!-- longclaw:event
@@ -1339,4 +1360,496 @@ actor:
 ### Claude Code commented
 
 16 Nov 2026, PR #70 review round (Grok 4.6 on 98482b3, plus Antigravity on b507e46): addressed in b3116ab, report at https://github.com/sachinjain024/aibytes/pull/70#issuecomment-6906643410. Fixed: public totals kept across sign-in/out; two new rules tests (two keys in one write, a swap), mutation-checked against firestore.rules:117; GistActions markup tests and a tested pure planPress; the Ledger REACTIONS test no longer compares the table with itself; signed-out store test reads a real count; spec T32 browser row follows the sign-in line. Not changed: the PR title and body (needs the publisher's go-ahead) and a visible 'counts unavailable' state (a spec decision). Tests: web 195, emulator 69, design-system 90, build ok. Still open on T32 (item 10.4): the signed-in browser pass (press, reload, second browser, panel, 375px, dark). Pushed 4630774 (design-sync log, Artifact version 14) with it.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_26e2d8dc
+kind: comment
+occurred_at: 2026-11-16T04:57:45.908Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+16 Nov 2026, T32 browser pass on localhost against the real project (signed in with Google, gist hn-nvidia-allegedly-engineered-scarcity-by-funding). Passed: a press shows at once and survives a reload (panel and /gists page); add a second emoji, remove one, remove the last (reader document deleted); public counts read with no auth show the right numbers and returned to all zeros after cleanup; unauthenticated list of counts, list of readers and get of a reader document are all 403; no error line; Save and the bar share one row at 1872px, and in a 371px frame the panel is a full sheet with no horizontal overflow and the eight emoji wrap under Save (also dark theme, by eye). Not checked: the signed-out press and its sign-in line (needs the reader signed out), a second real browser (replaced by the unauthenticated read), the panel opened by a card click, the sign-out transition keeping public counts. The window resize tool did not resize the window, so 375px was checked in an iframe. Item 10.4 stays open for the signed-out check.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_b50a4699
+kind: update
+occurred_at: 2026-11-16T05:00:52.928Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_759600ee.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_3fcbbd4b
+kind: update
+occurred_at: 2026-11-16T05:00:54.474Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_6684cc60.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_27712eae
+kind: update
+occurred_at: 2026-11-16T05:00:59.818Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_fc76f81a.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_01744ca4
+kind: update
+occurred_at: 2026-11-16T05:01:06.089Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_5670b0bb.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_37e087a1
+kind: update
+occurred_at: 2026-11-16T05:01:09.757Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_9da86e57.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ee8b0d3e
+kind: update
+occurred_at: 2026-11-16T05:21:24.816Z
+actor:
+  type: agent
+  id: grok-build
+  name: Grok Build
+changes:
+  - field: checklist.ck_ba3092dd.checked
+    from: "false"
+    to: "true"
+-->
+### Grok Build updated this ticket
+
+16 Nov 2026, T33 newsletter spec approved with all three recommendations (two orange Substack links, source/category x on weekly items, HN Deep title linked to the gist). Spec: docs/specs/AIB-145y-newsletter-gist-links.md. PR #71.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_a999015b
+kind: update
+occurred_at: 2026-11-16T06:18:11.173Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_556cd1e6.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+P8 done 16 Nov 2026: aibytes.io verified in Search Console; sitemap.xml submitted, status Success, 125 pages discovered.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e9e66dd3
+kind: update
+occurred_at: 2026-11-16T06:49:54.789Z
+actor:
+  type: agent
+  id: grok-build
+  name: Grok Build
+changes:
+  - field: checklist.ck_04b7fc12.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_16780ddc.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_be9e1656.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_946eab34.checked
+    from: "false"
+    to: "true"
+-->
+### Grok Build updated this ticket
+
+T34–T36 landed on aib-145y-newsletter-gist-links (PR #71). T37 docs: CLAUDE.md, packages/gists README and rules, success criteria recorded with how. P6, P7, Checkpoint A and Checkpoint F stay open for the publisher.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_30a3de7e
+kind: update
+occurred_at: 2026-11-16T07:19:51.588Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_15e5e8ee.added
+    to: "13. favicon (GitHub issue #38, on this branch)"
+  - field: checklist.ck_b64903c5.added
+    to: "13.1 Favicon: white bolt on cobalt (option 1) as favicon.svg, favicon.ico and apple-touch-icon.png, linked from every built page, with a build test"
+  - field: checklist.ck_6adde97b.added
+    to: 13.2 Wordmark.prompt.md names the bolt tile as the favicon (was the aB_ tile)
+  - field: checklist.ck_4e9be923.added
+    to: "13.3 P9: publisher checks the tab and bookmark icon on aibytes.io after deploy, then closes #38"
+-->
+### Claude Code updated this ticket
+
+Added item 13: the aibytes.io favicon from GitHub issue #38, which asks for the ⚡ from the wordmark. It ships on this branch at the publisher's request, as its own commit. Options were compared in an artifact; the publisher picked 1, a white bolt on a cobalt tile, drawn as a vector path so it does not depend on each OS's emoji font.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_1a543bc3
+kind: update
+occurred_at: 2026-11-16T07:20:03.838Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_15e5e8ee.text
+    from: "13. favicon (GitHub issue #38, on this branch)"
+    to: "14. favicon (GitHub issue #38, on this branch)"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8c8c2bd0
+kind: update
+occurred_at: 2026-11-16T07:20:03.870Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_b64903c5.text
+    from: "13.1 Favicon: white bolt on cobalt (option 1) as favicon.svg, favicon.ico and apple-touch-icon.png, linked from every built page, with a build test"
+    to: "14.1 Favicon: white bolt on cobalt (option 1) as favicon.svg, favicon.ico and apple-touch-icon.png, linked from every built page, with a build test"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_5518d375
+kind: update
+occurred_at: 2026-11-16T07:20:03.919Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_6adde97b.text
+    from: 13.2 Wordmark.prompt.md names the bolt tile as the favicon (was the aB_ tile)
+    to: 14.2 Wordmark.prompt.md names the bolt tile as the favicon (was the aB_ tile)
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_30d1433b
+kind: update
+occurred_at: 2026-11-16T07:20:03.950Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_4e9be923.text
+    from: "13.3 P9: publisher checks the tab and bookmark icon on aibytes.io after deploy, then closes #38"
+    to: "14.3 P9: publisher checks the tab and bookmark icon on aibytes.io after deploy, then closes #38"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_9dc4d716
+kind: update
+occurred_at: 2026-11-16T07:20:50.180Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_b64903c5.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_6adde97b.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Renumbered the favicon items to 14 (13 was already Outbound links). 14.1 and 14.2 done: the icons are in apps/web/public, linked from every built page and covered by the build test. 14 stays open until P9, the publisher's check on aibytes.io.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_3f0391c6
+kind: update
+occurred_at: 2026-11-16T08:28:20.458Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_c2c05c92.added
+    to: "15. Issue 18 backfill: gists on /weekly/issue-18 (publisher's request, 16 Nov; an exception to the spec's no-backfill rule)"
+  - field: checklist.ck_61485e93.added
+    to: 15.1 gists build --issue sets gist on an existing weekly issue file; build_weekly_issues.py keeps that link from the gist's appearances when the HTML has no gist href
+  - field: checklist.ck_0e1ed05c.added
+    to: "15.2 Issue 18 gists: items.json from issue-18.json, gists draft --issue issue-18, gists.json written per the write-gists skill, gists build --issue issue-18"
+  - field: checklist.ck_368e0757.added
+    to: 15.3 issue-18.json carries a gist on every item; validate.py and the test suites pass
+  - field: checklist.ck_6886892a.added
+    to: "15.4 P10: publisher validates the gists on /weekly/issue-18, then the ticket closes"
+-->
+### Claude Code updated this ticket
+
+Added item 15 at the publisher's request: backfill Issue 18 so /weekly/issue-18 opens each item's gist. This is an exception to the spec's no-backfill rule. The sent issue's HTML stays as it was; only the weekly page gains gists. 7 of its 22 items already have gists from the daily runs (they get an issue-18 appearance), and 15 need new ones. Issue 18 has no X rows in its weekly file, so no X previews.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8fbed3df
+kind: update
+occurred_at: 2026-11-16T08:29:42.164Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_15e5e8ee.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e3589525
+kind: update
+occurred_at: 2026-11-16T08:29:46.671Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_497e916a.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8ee3ee08
+kind: update
+occurred_at: 2026-11-16T08:29:50.613Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_ffffb380.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_2cf29072
+kind: update
+occurred_at: 2026-11-16T08:29:53.953Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_8604cbbe.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_99fb53db
+kind: update
+occurred_at: 2026-11-16T08:29:57.372Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_ca91f71f.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_6c6b3b41
+kind: update
+occurred_at: 2026-11-16T08:29:58.297Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_e757a406.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_719ccb48
+kind: update
+occurred_at: 2026-11-16T08:40:13.154Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_368e0757.text
+    from: 15.3 issue-18.json carries a gist on every item; validate.py and the test suites pass
+    to: "15.3 issue-18.json: 18 of 22 items carry a gist (10 new, 8 repeats); validate.py and the test suites pass"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_5c1859d9
+kind: update
+occurred_at: 2026-11-16T08:40:13.181Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_61485e93.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_0e1ed05c.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_368e0757.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Issue 18 backfill done on this branch: 18 of 22 items on /weekly/issue-18 now open a gist. 10 are new (9 full, 1 brief: Product Hunt MCP had no snapshot post), and 8 reuse gists from the daily runs, which now list an issue-18 appearance. The other four are AI News articles credited (HackerNews) with no HN thread: Nvidia scarcity, Goldman Sachs and Claude Code, United Airlines, Apple Harbor. An hn gist needs a thread and a news gist must come from TechCrunch, so the contract has no kind for them, and they ship without a gist. The sent issue's HTML is unchanged. Left open: 15.4 (P10), the publisher's check of /weekly/issue-18.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_09044387
+kind: update
+occurred_at: 2026-11-16T08:47:45.440Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_4e9be923.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_a0713fce
+kind: update
+occurred_at: 2026-11-16T08:47:46.902Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_c2c05c92.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_c2142e34
+kind: update
+occurred_at: 2026-11-16T08:47:49.932Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_6886892a.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ed7c2cd9
+kind: update
+occurred_at: 2026-11-16T08:47:55.678Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: status
+    from: in_progress
+    to: done
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_929a3d69
+kind: update
+occurred_at: 2026-11-16T08:49:53.905Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_368e0757.text
+    from: "15.3 issue-18.json: 18 of 22 items carry a gist (10 new, 8 repeats); validate.py and the test suites pass"
+    to: "15.3 issue-18.json: all 22 items carry a gist (14 new, 8 repeats); validate.py and the test suites pass"
+-->
+### Claude Code updated this ticket
+
+The four AI News items without a gist (Nvidia scarcity, Goldman Sachs and Claude Code, United Airlines, Apple Harbor) now have one. A news gist may come from hackernews as well as techcrunch, and gists draft makes a hackernews row filed under news with no HN thread a news gist, so the article itself is read. Goldman, United and Apple are full gists. Nvidia is brief, because its page returned the site's sidebar and comments, not the article. All 22 Issue 18 items on /weekly/issue-18 now open a gist.
 <!-- /longclaw:event -->

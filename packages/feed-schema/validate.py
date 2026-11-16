@@ -169,37 +169,47 @@ def _ranks_match_items(items):
     return [f"ranks must be {RANK_MIN}..{len(items)} with no repeats; " + ", ".join(details)]
 
 
-def _counts_problems(counts):
+def _counts_problems(counts, *, weekly=False):
     if not isinstance(counts, dict):
         return ["must be an object"]
     problems = []
+    extra = {"x"} if weekly else set()
     for key in CATEGORIES:
         if key not in counts:
             problems.append(f"missing category {key!r}")
     for key in counts:
-        if key not in CATEGORIES:
+        if key not in CATEGORIES and key not in extra:
             problems.append(f"unknown category {key!r}")
-        elif not _is_count(counts[key]):
-            problems.append(f"{key} {counts[key]!r} must be a non-negative integer")
+        else:
+            if not _is_count(counts[key]):
+                problems.append(f"{key} {counts[key]!r} must be a non-negative integer")
     return problems
 
 
 def _counts_match_items(counts, items):
     """counts is what the edition bar renders, so it must be the visible tally."""
     tally = dict.fromkeys(CATEGORIES, 0)
+    x_tally = 0
     for item in items:
         if not isinstance(item, dict) or item.get("hidden") is True:
             continue
         category = item.get("category")
         if category in tally:
             tally[category] += 1
-    return [
+        elif category == "x":
+            x_tally += 1
+    problems = [
         f"counts.{category} is {counts[category]} but {tally[category]} visible "
         f"item(s) are in that category"
         for category in CATEGORIES
         if category in counts and _is_count(counts[category])
         and counts[category] != tally[category]
     ]
+    if "x" in counts and _is_count(counts["x"]) and counts["x"] != x_tally:
+        problems.append(
+            f"counts.x is {counts['x']} but {x_tally} visible item(s) are in that category"
+        )
+    return problems
 
 
 def _item_problems(item, edition_date, tag_names, *, issue_number=None):
@@ -237,12 +247,14 @@ def _item_problems(item, edition_date, tag_names, *, issue_number=None):
             problems.append(f"{key} {value!r} must be an http(s) URL")
 
     source = item.get("source")
-    if source is not None and source not in SOURCES:
-        problems.append(f"source {source!r} not one of {SOURCES}")
+    sources = SOURCES + (("x",) if issue_number is not None else ())
+    if source is not None and source not in sources:
+        problems.append(f"source {source!r} not one of {sources}")
 
     category = item.get("category")
-    if category is not None and category not in CATEGORIES:
-        problems.append(f"category {category!r} not one of {CATEGORIES}")
+    categories = CATEGORIES + (("x",) if issue_number is not None else ())
+    if category is not None and category not in categories:
+        problems.append(f"category {category!r} not one of {categories}")
 
     problems += _tag_problems(item.get("tags"), tag_names)
     problems += _image_problems(item.get("image"))
@@ -661,7 +673,7 @@ def validate_weekly_issue(issue, *, tag_names=None):
 
     counts = issue.get("counts")
     if counts is not None:
-        problems += (f"counts: {p}" for p in _counts_problems(counts))
+        problems += (f"counts: {p}" for p in _counts_problems(counts, weekly=True))
     problems += _items_problems(issue.get("items"), counts,
                                 lambda item: _item_problems(item, None, tag_names, issue_number=number))
 

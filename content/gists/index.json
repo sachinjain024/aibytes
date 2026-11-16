@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-15T15:41:02Z",
+  "generated_at": "2026-11-16T09:30:18Z",
   "gists": [
     {
       "slug": "gh-caveman",
@@ -45,6 +45,18 @@
       "created_at": "2026-11-15T15:41:02Z"
     },
     {
+      "slug": "gh-google-elephant-goldfish-model",
+      "source_key": "github.com/google/elephant-goldfish-model",
+      "path": "gists/gh-google-elephant-goldfish-model.json",
+      "created_at": "2026-11-16T08:33:32Z"
+    },
+    {
+      "slug": "gh-herdrdev-herdr",
+      "source_key": "github.com/herdrdev/herdr",
+      "path": "gists/gh-herdrdev-herdr.json",
+      "created_at": "2026-11-16T08:33:32Z"
+    },
+    {
       "slug": "gh-loopforge",
       "source_key": "github.com/Tencent/LoopForge",
       "path": "gists/gh-loopforge.json",
@@ -61,6 +73,12 @@
       "source_key": "github.com/alibaba/open-code-review",
       "path": "gists/gh-open-code-review.json",
       "created_at": "2026-11-13T16:15:14Z"
+    },
+    {
+      "slug": "gh-pingdotgg-t3code",
+      "source_key": "github.com/pingdotgg/t3code",
+      "path": "gists/gh-pingdotgg-t3code.json",
+      "created_at": "2026-11-16T08:33:32Z"
     },
     {
       "slug": "gh-qwen-code",
@@ -93,6 +111,12 @@
       "created_at": "2026-11-14T15:02:25Z"
     },
     {
+      "slug": "gh-vercel-labs-agent-desktop",
+      "source_key": "github.com/vercel-labs/agent-desktop",
+      "path": "gists/gh-vercel-labs-agent-desktop.json",
+      "created_at": "2026-11-16T08:33:32Z"
+    },
+    {
       "slug": "gh-veyra-nrvideo",
       "source_key": "github.com/Likely7/Veyra-NRVideo",
       "path": "gists/gh-veyra-nrvideo.json",
@@ -117,6 +141,12 @@
       "created_at": "2026-11-14T15:02:25Z"
     },
     {
+      "slug": "hn-ai-usage-generates-a-fragile-codebase",
+      "source_key": "news.ycombinator.com/item?id=50438318",
+      "path": "gists/hn-ai-usage-generates-a-fragile-codebase.json",
+      "created_at": "2026-11-16T08:33:32Z"
+    },
+    {
       "slug": "hn-all-ai-generated-code-should-be-open-source",
       "source_key": "news.ycombinator.com/item?id=50507303",
       "path": "gists/hn-all-ai-generated-code-should-be-open-source.json",
@@ -133,6 +163,12 @@
       "source_key": "news.ycombinator.com/item?id=50492141",
       "path": "gists/hn-anthropic-upgrades-claude-code-projects-to-run.json",
       "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
+      "slug": "hn-apple-has-a-mac-app-coming-to-make-running-local",
+      "source_key": "news.ycombinator.com/item?id=50446520",
+      "path": "gists/hn-apple-has-a-mac-app-coming-to-make-running-local.json",
+      "created_at": "2026-11-16T09:30:18Z"
     },
     {
       "slug": "hn-ask-hn-what-are-the-most-useful-concrete-ai",
@@ -189,16 +225,34 @@
       "created_at": "2026-11-13T16:15:14Z"
     },
     {
+      "slug": "hn-goldman-sachs-is-pulling-claude-code-from-its-ba",
+      "source_key": "news.ycombinator.com/item?id=50415628",
+      "path": "gists/hn-goldman-sachs-is-pulling-claude-code-from-its-ba.json",
+      "created_at": "2026-11-16T09:30:18Z"
+    },
+    {
       "slug": "hn-i-m-making-llms-work-on-small-and-old-devices",
       "source_key": "news.ycombinator.com/item?id=50468888",
       "path": "gists/hn-i-m-making-llms-work-on-small-and-old-devices.json",
       "created_at": "2026-11-13T16:15:14Z"
     },
     {
+      "slug": "hn-i-m-not-convinced-the-ai-bubble-exists",
+      "source_key": "news.ycombinator.com/item?id=50418975",
+      "path": "gists/hn-i-m-not-convinced-the-ai-bubble-exists.json",
+      "created_at": "2026-11-16T08:33:32Z"
+    },
+    {
       "slug": "hn-jonathan-blow-if-ai-solved-coding-why-is-my",
       "source_key": "news.ycombinator.com/item?id=50484658",
       "path": "gists/hn-jonathan-blow-if-ai-solved-coding-why-is-my.json",
       "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
+      "slug": "hn-my-ai-agents-found-an-unmapped-maya-site",
+      "source_key": "news.ycombinator.com/item?id=50452455",
+      "path": "gists/hn-my-ai-agents-found-an-unmapped-maya-site.json",
+      "created_at": "2026-11-16T08:33:32Z"
     },
     {
       "slug": "hn-no-ai-slop-a-manifesto",
@@ -249,10 +303,22 @@
       "created_at": "2026-11-15T15:41:02Z"
     },
     {
+      "slug": "hn-united-airlines-bans-ai-agents-from-booking-flig",
+      "source_key": "news.ycombinator.com/item?id=50458900",
+      "path": "gists/hn-united-airlines-bans-ai-agents-from-booking-flig.json",
+      "created_at": "2026-11-16T09:30:18Z"
+    },
+    {
       "slug": "hn-why-is-google-cutting-off-search-from-ai-free",
       "source_key": "news.ycombinator.com/item?id=50484960",
       "path": "gists/hn-why-is-google-cutting-off-search-from-ai-free.json",
       "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
+      "slug": "ph-alsona",
+      "source_key": "producthunt.com/products/alsona",
+      "path": "gists/ph-alsona.json",
+      "created_at": "2026-11-16T08:33:32Z"
     },
     {
       "slug": "ph-businesses-in-chatgpt",
@@ -265,6 +331,12 @@
       "source_key": "producthunt.com/products/claude",
       "path": "gists/ph-claude-meetings.json",
       "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
+      "slug": "ph-dageno-ai-2-0",
+      "source_key": "producthunt.com/products/agent-powered-geo-by-dageno",
+      "path": "gists/ph-dageno-ai-2-0.json",
+      "created_at": "2026-11-16T08:33:32Z"
     },
     {
       "slug": "ph-dex-semantics",
@@ -301,6 +373,12 @@
       "source_key": "producthunt.com/products/plurai",
       "path": "gists/ph-plurai-simulation.json",
       "created_at": "2026-11-13T16:15:14Z"
+    },
+    {
+      "slug": "ph-product-hunt-mcp",
+      "source_key": "producthunt.com/mcp/install",
+      "path": "gists/ph-product-hunt-mcp.json",
+      "created_at": "2026-11-16T08:33:32Z"
     },
     {
       "slug": "ph-rakazo-2",

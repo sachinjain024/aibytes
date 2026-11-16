@@ -215,6 +215,7 @@ Header and footer both carry:
 - **Newsletter** -> `aibytes.io/newsletter` (or `newsletter.aibytes.io`; final choice below). Also an inline subscribe field in the footer (Beehiiv embed).
 - **Chrome Extension** -> Chrome Web Store listing. Until it ships, this links to a `/extension` "coming soon + notify me" page rather than being hidden, so the intent is visible from day one.
 - GitHub (if the repo is public), X, Suggest a link (mailto or form).
+  *Changed 16 Nov 2026 (AIB-145y, publisher's request):* the app's sidebar carries Weekly Archive (`/weekly`, same tab), Advertise and Privacy, plus Chrome Extension (soon). X and Suggest a link were dropped; GitHub is in the header.
 
 ## 7. Design system (fresh start)
 

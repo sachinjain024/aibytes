@@ -9,6 +9,7 @@ const ICON_PATHS = {
   filters: "M4 7h16M4 17h16",
   x: "M4 3h4l12 18h-4L4 3ZM20 3 4 21",
   link: "m10 13 4-4M8 16l-1 1a4 4 0 0 1-6-6l4-4a4 4 0 0 1 6 0m2 1 1-1a4 4 0 0 1 6 6l-4 4a4 4 0 0 1-6 0",
+  archive: "M3 4h18v4H3zM5 8v12h14V8M10 12h4",
   advertise: "m3 10 15-6v16L3 14v-4ZM7 16l1 5h4l-2-4M21 9v6",
   arrow: "M7 17 17 7M7 7h10v10",
   sun: "M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2",

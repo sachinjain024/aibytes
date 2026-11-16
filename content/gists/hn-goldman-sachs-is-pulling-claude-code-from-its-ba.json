@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "slug": "hn-goldman-sachs-is-pulling-claude-code-from-its-ba",
+  "kind": "hn",
+  "title": "Goldman Sachs is pulling Claude Code from its bankers and traders",
+  "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
+  "source_url": "https://news.ycombinator.com/item?id=50415628",
+  "source": "hackernews",
+  "category": "news",
+  "tags": [],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Goldman Sachs now limits Claude Code and GitHub to its engineers and strats, after October guidance cut off traders and bankers who had been building their own tools with coding agents.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Bloomberg reported the change follows an internal review of productivity and risk; strats, who span trading, research and engineering, keep access.",
+        "Traders had used the agents to watch client flows, model positions and produce written and visual material.",
+        "In July the bank's CIO, Marco Argenti, was still praising tools that non-engineers built with AI.",
+        "The firm's in-house assistant stays available to all staff; the limit covers outside agents that write and run code on their own.",
+        "Goldman is a lead underwriter on Anthropic's IPO and has used Anthropic engineers to build back-office agents."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "The top view: an agent on a workstation with client data, email and internet access is one prompt injection away from a leak, so banks are right to pull it.",
+          "url": "https://news.ycombinator.com/item?id=50416595"
+        },
+        {
+          "stance": "theme",
+          "text": "Some suspect an operational loss, since traders are the ones who can send orders and the agent would run under their account.",
+          "url": "https://news.ycombinator.com/item?id=50416452"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "Others say cost drives such cutbacks: usage billing keeps overrunning budgets, and flat-rate rivals win the non-engineering seats.",
+          "url": "https://news.ycombinator.com/item?id=50416136"
+        },
+        {
+          "stance": "theme",
+          "text": "Several compare agent-built tools to sprawling Excel macros that end up in a critical path nobody supports; a reply disputes the comparison.",
+          "url": "https://news.ycombinator.com/item?id=50416287"
+        },
+        {
+          "stance": "theme",
+          "text": "Commenters note the timing, weeks before the Anthropic IPO Goldman is leading, and point to Bloomberg as the original source.",
+          "url": "https://news.ycombinator.com/item?id=50416089"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Goldman Sachs Is Pulling Claude Code From Its Bankers and Traders | State of AI",
+      "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers"
+    },
+    {
+      "role": "discussion",
+      "title": "Goldman Sachs is pulling Claude Code from its bankers and traders",
+      "url": "https://news.ycombinator.com/item?id=50415628"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-goldman-sachs-is-pulling-claude-code-from-its-ba-issue-18",
+      "issue_slug": "issue-18"
+    }
+  ],
+  "created_at": "2026-11-16T09:30:18Z",
+  "updated_at": "2026-11-16T09:30:18Z",
+  "stats": {
+    "points": 905,
+    "comments": 497
+  },
+  "stats_as_of": "2026-11-16T09:30:18Z"
+}

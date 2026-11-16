@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "slug": "hn-apple-has-a-mac-app-coming-to-make-running-local",
+  "kind": "hn",
+  "title": "Apple has a Mac app coming to make running local AI models easy",
+  "url": "https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/",
+  "source_url": "https://news.ycombinator.com/item?id=50446520",
+  "source": "hackernews",
+  "category": "news",
+  "tags": [],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Apple is building Harbor, a Mac app that runs open-weight AI models locally as a private inference server and can link several Macs over Thunderbolt 5 to share their memory.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The leaker Aaron Perris found the app, which is in private preview under Apple's Claris brand.",
+        "Models run on Apple silicon, and data stays on the user's own hardware rather than going to a cloud service.",
+        "Harbor finds Macs connected over Thunderbolt 5 and forms a cluster without command-line setup.",
+        "Pooling unified memory across machines lets a cluster load models too large for one Mac, or serve more requests at once.",
+        "Models can be browsed, downloaded and loaded from inside the app."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "theme",
+          "text": "Clustering is seen as the main difference from LM Studio and similar apps, though a reply notes Exo already pools Macs this way.",
+          "url": "https://news.ycombinator.com/item?id=50447674"
+        },
+        {
+          "stance": "theme",
+          "text": "The Claris brand stands out; some read it as a product for small businesses, likely sold by subscription.",
+          "url": "https://news.ycombinator.com/item?id=50447481"
+        },
+        {
+          "stance": "disputed",
+          "text": "Commenters split on cost: one team would trade a large monthly Claude bill for a Mac Studio, while replies say local models are far behind.",
+          "url": "https://news.ycombinator.com/item?id=50450531"
+        },
+        {
+          "stance": "agreed",
+          "text": "Many welcome a vendor-supported option after setting up Ollama, LM Studio and others by hand, provided it stays lean.",
+          "url": "https://news.ycombinator.com/item?id=50451098"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Apple has new Mac app coming to make running local AI models easy - 9to5Mac",
+      "url": "https://9to5mac.com/2026/11/10/apple-has-new-mac-app-coming-to-make-running-local-ai-models-easy/"
+    },
+    {
+      "role": "discussion",
+      "title": "Apple has new Mac app coming to make running local AI models easy",
+      "url": "https://news.ycombinator.com/item?id=50446520"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-apple-has-a-mac-app-coming-to-make-running-local-issue-18",
+      "issue_slug": "issue-18"
+    }
+  ],
+  "created_at": "2026-11-16T09:30:18Z",
+  "updated_at": "2026-11-16T09:30:18Z",
+  "stats": {
+    "points": 575,
+    "comments": 564
+  },
+  "stats_as_of": "2026-11-16T09:30:18Z"
+}

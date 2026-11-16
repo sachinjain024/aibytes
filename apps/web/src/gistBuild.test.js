@@ -134,3 +134,14 @@ test("the sitemap lists the full gist and the edition, not the brief or hidden o
 test("robots.txt allows everything and names the sitemap", () => {
   assert.equal(read("robots.txt"), "User-agent: *\nAllow: /\n\nSitemap: https://aibytes.io/sitemap.xml\n");
 });
+
+test("every built page links the favicon, and the icon files ship at the site root (GitHub #38)", () => {
+  for (const file of ["favicon.svg", "favicon.ico", "apple-touch-icon.png"]) assert.ok(existsSync(path.join(out, file)), file + " is not in dist/");
+  assert.match(read("favicon.svg"), /<path d="[^"]+" fill="#fff"\/>/);
+  for (const page of [["index.html"], ["2026-08-27", "index.html"], ["404.html"], ["saved", "index.html"], ["gists", "full-one", "index.html"]]) {
+    const html = read(...page);
+    assert.match(html, /<link rel="icon" href="\/favicon\.svg" type="image\/svg\+xml" \/>/, page.join("/"));
+    assert.match(html, /<link rel="icon" href="\/favicon\.ico" sizes="any" \/>/, page.join("/"));
+    assert.match(html, /<link rel="apple-touch-icon" href="\/apple-touch-icon\.png" \/>/, page.join("/"));
+  }
+});

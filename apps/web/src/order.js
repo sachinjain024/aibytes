@@ -21,10 +21,15 @@ export function rankedItems(items) {
   return fullyRanked(items) ? [...items].sort((a, b) => a.rank - b.rank) : fallbackOrder(items);
 }
 
-/** [{ category, items }] in CATEGORIES order, empty categories left out.
+// Weekly Viral on X / Official Announcements rows. Not a category: no chip and
+// never on a feed page (inFeed drops them), but a reader can star one from its
+// gist page, so /saved groups them last.
+export const X_GROUP = { key: "x", label: "On X" };
+
+/** [{ category, items }] in CATEGORIES order, then X_GROUP, empty groups left out.
  * `ordered` is already ranked and filtered; this only splits it. */
 export function groupedItems(ordered) {
-  return CATEGORIES
+  return [...CATEGORIES, X_GROUP]
     .map((category) => ({ category, items: ordered.filter((item) => item.category === category.key) }))
     .filter((group) => group.items.length > 0);
 }

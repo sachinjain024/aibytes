@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "slug": "gh-pingdotgg-t3code",
+  "kind": "repo",
+  "title": "pingdotgg/t3code",
+  "url": "https://github.com/pingdotgg/t3code",
+  "source_url": "https://github.com/pingdotgg/t3code",
+  "source": "github",
+  "category": "repos",
+  "tags": [],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/pingdotgg.png?size=80"
+  },
+  "depth": "full",
+  "lede": "T3 Code is an open-source control plane for coding agents: it runs Claude Code, Codex and others on your own machine and puts them behind one interface you can use from desktop, web or phone.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "It drives agents you are already signed in to, including Claude Code, Codex, Cursor, OpenCode and any ACP agent, and resells no tokens.",
+        "Threads can switch models midway, and one agent can hand a task to another.",
+        "A single server backs every client, with iOS and Android apps, and remote access over the local network, Tailscale or T3 Connect.",
+        "Each thread can work in its own git worktree, with buttons to review the diff, commit, push and open a pull request.",
+        "MIT licensed; the team says it wants users able to fork it if the project goes the wrong way."
+      ]
+    },
+    {
+      "key": "try_it",
+      "command": "npx t3@latest"
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "pingdotgg/t3code",
+      "url": "https://github.com/pingdotgg/t3code"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-pingdotgg-t3code-issue-18",
+      "issue_slug": "issue-18"
+    }
+  ],
+  "created_at": "2026-11-16T08:33:32Z",
+  "updated_at": "2026-11-16T09:30:18Z",
+  "stats": {
+    "stars": 61954,
+    "forks": 11075,
+    "language": "TypeScript",
+    "license": "MIT",
+    "created_on": "2026-02-08",
+    "contributors": 1163,
+    "last_release": {
+      "tag": "v0.1.9",
+      "published_on": "2026-11-11"
+    },
+    "open_issues": 1197,
+    "stars_gained": 10130
+  },
+  "stats_as_of": "2026-11-16T09:30:18Z"
+}

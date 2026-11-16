@@ -25,7 +25,8 @@ concurrency:
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    # Pinned: ubuntu-latest moved to 26.04, which has no Python 3.8 (16 Nov 2026).
+    runs-on: ubuntu-24.04
     # A normal run takes 2 to 15 minutes; the gists step caps itself at 22.
     # Without this a hung step holds the edition queue for GitHub's 6 hours.
     timeout-minutes: 30
