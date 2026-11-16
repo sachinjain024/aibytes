@@ -710,51 +710,76 @@ for the two new rules in `components.css` (ticket item 10.5).
 ### T33: newsletter spec
 
 **Description:** `docs/specs/AIB-145y-newsletter-gist-links.md`: how the
-weekly pull finds items missing a gist, X and announcement previews, the
-link and source link in the template within Substack's colour rules, UTM
-tags, and how `build_weekly_issues.py` maps links back.
+weekly pull finds items missing a gist (`items.json` before the issue HTML),
+X and announcement previews, F2 in the issue HTML and under Substack's one
+link colour, UTM tags, and how `build_weekly_issues.py` maps gist hrefs back.
+
+**Acceptance criteria:**
+- [ ] The weekly skill order, `items.json` shape, failure rule, F2 tables
+      (issue HTML and Substack), UTM helper, and builder resolution are
+      written down.
+- [ ] Three Decide rows: two orange Substack links, `source: "x"` on weekly
+      items, HN Deep title linked to the gist.
+- [ ] T34–T36 file lists match the spec.
 
 **Verification:** the publisher approves. **Dependencies:** T16, T26.
-**Size:** S.
+**Size:** S. **Files:** `docs/specs/AIB-145y-newsletter-gist-links.md`,
+this list.
 
 ### T34: the weekly pull writes gists
 
-**Description:** A `gists` entry point for an issue: items without a gist
-get one (full, brief, or preview for X posts and announcements); issue items
-carry `gist`.
+**Description:** Per the spec: `gists draft --issue issue-N` and
+`gists build --issue issue-N` read `.cache/gists/issue-N/items.json`. Repeats
+gain an `issue_slug` appearance; new news/HN/repo/launch rows use the daily
+full/brief path; X posts are `preview`, copied, no Claude. Shared item-id
+helper with the weekly builder. A failed gist does not fail the issue.
 
 **Acceptance criteria:**
-- [ ] Tests on a fixture issue: missing gists written, existing ones reused,
-      X posts as `preview`.
+- [ ] Tests on a fixture `items.json`: missing gists written, existing ones
+      reused, X posts as `preview` with no Claude file.
+- [ ] Per-gist failure leaves the others written; missing `items.json` is
+      fatal.
 
 **Verification:** `tests/test_gists.py`. **Dependencies:** T33. **Size:** M.
+**Files:** `packages/gists/aibytes_gists/{cli,draft,build}.py`,
+`packages/feed-schema/` item-id helper, `tests/test_gists.py`.
 
 ### T35: the template and the skill
 
-**Description:** `generate-newsletter-content`'s template and SKILL.md link
-each item title to its gist with UTM tags and keep a small source link
-beside it (F2).
+**Description:** Per the spec: generate-newsletter-content writes gist
+title hrefs with UTM tags and a trailing source link (F2). `x_render.py`
+does the same for Official Announcements and Viral on X (issue HTML and
+Substack). `substack-layout.md` and the export script follow. A dated
+artifact note records the one-colour mapping.
 
 **Acceptance criteria:**
-- [ ] The skill's tests (or a new one) check every item link is a gist link
-      with tags, and each has a source link.
+- [ ] Tests check every news / products / GitHub / HN title is a gist URL
+      with the three UTM tags, and each has a clean source link.
+- [ ] `x_items.py verify` accepts gist hrefs and still requires verbatim
+      post text.
 - [ ] The first issue to use it is approved by the publisher (P6).
 
 **Verification:** a test issue rendered from fixtures. **Dependencies:** T34.
-**Size:** M.
+**Size:** M. **Files:** skill `SKILL.md`, `assets/template.html`,
+`references/substack-layout.md`, `substack_export.py`,
+`packages/fetchers/aibytes_fetchers/x_render.py`, tests, artifact.
 
 ### T36: weekly issue pages read gist links
 
-**Description:** `build_weekly_issues.py` resolves gist links back to the
-source and sets `gist` on issue items, so `/weekly/issue-N` cards keep their
-source and gain the panel.
+**Description:** Per the spec: `build_weekly_issues.py` resolves
+`aibytes.io/gists/<slug>` title hrefs (UTM ignored) through the gist file
+to `url`, `source_url` and `gist`. Issues 1–18 unchanged. If Decide 2 is
+approved, X rows land in the issue JSON (`source`/`category` `x`, chips
+stay four).
 
 **Acceptance criteria:**
 - [ ] `tests/test_build_weekly_issues.py`: an issue with gist links builds
       the same items as one with source links, plus `gist`.
+- [ ] A gist href with UTM still resolves. Old issues: no diff.
 
 **Verification:** that test; `validate.py`. **Dependencies:** T35.
-**Size:** S.
+**Size:** S. **Files:** `build_weekly_issues.py`, edition schema and
+`feed.d.ts` if Decide 2, tests.
 
 ### Checkpoint F: newsletter
 

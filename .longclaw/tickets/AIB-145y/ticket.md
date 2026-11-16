@@ -61,6 +61,18 @@ added_by:
 [AIB-145y-gists.md](docs/specs/AIB-145y-gists.md)
 <!-- /longclaw:reference -->
 
+<!-- longclaw:reference
+id: ref_t33n11
+path: docs/specs/AIB-145y-newsletter-gist-links.md
+added_at: 2026-11-16T12:00:00.000Z
+added_by:
+  type: agent
+  id: grok-build
+  name: Grok Build
+-->
+[AIB-145y-newsletter-gist-links.md](docs/specs/AIB-145y-newsletter-gist-links.md)
+<!-- /longclaw:reference -->
+
 
 ## Checklist
 
