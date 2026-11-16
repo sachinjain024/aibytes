@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
+import { inFeed } from "./filters.js";
 import { groupedItems, rankedItems, TIE_ORDER } from "./order.js";
 
 const PREFIX = { producthunt: "ph", github: "gh", techcrunch: "tc", hackernews: "hn" };
@@ -75,6 +76,16 @@ test("the order does not depend on input order", () => {
   const items = edition({ producthunt: 3, github: 2, techcrunch: 4, hackernews: 4 });
   items.forEach((item, i) => (item.rank = i + 1));
   assert.deepEqual(rankedItems([...items].reverse()).map((i) => i.id), rankedItems(items).map((i) => i.id));
+});
+
+test("a weekly issue with an x item keeps x off the ranked and grouped feeds", () => {
+  const items = edition({ producthunt: 1, github: 1, techcrunch: 1, hackernews: 1 });
+  items.forEach((item, i) => { item.rank = i + 1; });
+  items.push({ id: "x-lab-five-words-issue-19", source: "x", category: "x", hidden: false, rank: 5 });
+  const feed = rankedItems(items).filter(inFeed);
+  assert.equal(feed.some((item) => item.category === "x"), false);
+  assert.deepEqual(groupedItems(feed).map((g) => g.category.key), ["launches", "repos", "news", "hn"]);
+  assert.equal(feed.length, 4);
 });
 
 test("grouped keeps category order, drops empty categories, and keeps rank order inside", () => {

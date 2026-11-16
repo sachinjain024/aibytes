@@ -266,6 +266,8 @@ def build(date=None, gists_path=None, content_root=DEFAULT_CONTENT_ROOT, cache_r
     written nothing, when the run as a whole cannot be built."""
     if (date is None) == (issue is None):
         raise BuildError("pass --date or --issue")
+    if issue is not None:
+        issue, _ = draft_mod.parse_issue(issue)
     now = now or _now()
     root = resolve(content_root)
     cache = resolve(cache_root) / (issue or date)
@@ -273,17 +275,18 @@ def build(date=None, gists_path=None, content_root=DEFAULT_CONTENT_ROOT, cache_r
     gists_path = resolve(gists_path) if gists_path else cache / "gists.json"
     if not draft_path.exists():
         raise BuildError(f"{draft_path} not found")
+    try:
+        draft = _read(draft_path)
+    except ValueError as exc:
+        raise BuildError(f"not valid JSON: {exc}")
     if not gists_path.exists():
-        if issue is None:
+        needs_claude = [e for e in (draft.get("new") or []) if e.get("kind") != "x_post"]
+        if issue is None or needs_claude:
             raise BuildError(f"{gists_path} not found")
         written = {"gists": {}}
-        try:
-            draft = _read(draft_path)
-        except ValueError as exc:
-            raise BuildError(f"not valid JSON: {exc}")
     else:
         try:
-            draft, written = _read(draft_path), _read(gists_path)
+            written = _read(gists_path)
         except ValueError as exc:
             raise BuildError(f"not valid JSON: {exc}")
     if issue is not None:

@@ -681,6 +681,19 @@ class TestWeeklyDraft(unittest.TestCase):
         self.assertTrue(any(name == "hn" for name, _ in fetchers.calls))
         self.assertEqual(json.loads((tree.cache / ISSUE / "draft.json").read_text()), result)
 
+    def test_ph_posts_under_later_path_wins(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            url = "https://www.producthunt.com/posts/foo"
+            def write(rel, name):
+                path = root / rel
+                path.parent.mkdir(parents=True)
+                path.write_text(json.dumps({"posts": [{"url": url, "name": name}]}))
+            write("2026/10/weeks/week-40/producthunt/ph_data.json", "old")
+            write("2026/11/weeks/week-47/producthunt/ph_data.json", "new")
+            posts = draft_mod.ph_posts_under(root)
+            self.assertEqual(posts[url]["name"], "new")
+
     def test_missing_items_json_is_fatal(self):
         with tempfile.TemporaryDirectory() as tmp:
             done = subprocess.run(
@@ -746,6 +759,14 @@ class TestWeeklyBuild(unittest.TestCase):
         self.assertNotIn(next(e["slug"] for e in json.loads((self.tree.cache / ISSUE / "draft.json").read_text())["new"]
                               if e["item_id"] == self.hn_bad["id"]), report["written"])
         self.assertTrue(contract.validate_content_root(self.tree.content))
+
+    def test_missing_gists_json_is_fatal_when_a_new_row_needs_claude(self):
+        with Fetchers(thread=dict(THREAD, comments=COMMENTS)):
+            self.tree.draft()
+        self.assertFalse((self.tree.cache / ISSUE / "gists.json").exists())
+        with self.assertRaises(build_mod.BuildError) as ctx:
+            self.tree.build()
+        self.assertIn("gists.json", str(ctx.exception))
 
     def test_x_previews_build_without_a_claude_file(self):
         tree = WeeklyTree(self, [x_row()])

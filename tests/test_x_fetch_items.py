@@ -612,6 +612,18 @@ class TestScript(unittest.TestCase):
         self.assertIn('class="src">(<a href="https://x.com/alice/status/3">X</a>)</span>', proc.stdout)
         self.assertNotIn("x-bob-", proc.stdout)
 
+    def test_render_issue_slug_without_an_index_is_fatal(self):
+        self.run_script("save", "--input", "-", stdin=json.dumps(paste()))
+        insight = [f"https://x.com/{h}/status/{s}" for h, s in (("alice", 3), ("bob", 4), ("carol", 5), ("dave", 6), ("erin", 7))]
+        self.run_script("shortlist", "--insight", *insight, "--announcement", "https://x.com/lab/status/1", "https://x.com/otherlab/status/2")
+        content = self.root / "empty-content"
+        content.mkdir()
+        proc = self.run_script("render", "--section", "viral", "--issue-slug", "issue-19",
+                               "--content-root", str(content))
+        self.assertEqual(proc.returncode, 1)
+        self.assertIn("no gist index", proc.stderr)
+        self.assertNotIn("utm_campaign=issue-19", proc.stdout)
+
 
 if __name__ == "__main__":
     unittest.main()

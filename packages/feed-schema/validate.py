@@ -180,7 +180,7 @@ def _counts_problems(counts, *, weekly=False):
     for key in counts:
         if key not in CATEGORIES and key not in extra:
             problems.append(f"unknown category {key!r}")
-        elif key in CATEGORIES or key in extra:
+        else:
             if not _is_count(counts[key]):
                 problems.append(f"{key} {counts[key]!r} must be a non-negative integer")
     return problems

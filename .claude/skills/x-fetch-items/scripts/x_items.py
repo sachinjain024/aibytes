@@ -132,18 +132,23 @@ def main(argv=None):
 
 
 def _gist_urls(args, snapshot):
-    """post url → newsletter gist URL, from content/gists/index.json. Empty without --issue-slug."""
+    """post url → newsletter gist URL, from content/gists/index.json.
+
+    None without --issue-slug. Raises ValueError when the slug is given and
+    the index is missing or not JSON, so render/verify cannot silently ship
+    the Issues 1–18 layout.
+    """
     slug = getattr(args, "issue_slug", None)
     if not slug:
         return None
     path = pathlib.Path(args.content_root) / "gists" / "index.json"
     if not path.is_file():
-        return {}
+        raise ValueError(f"no gist index at {path}; run gists build --issue {slug} first")
     try:
         entries = {e["source_key"]: e["slug"] for e in json.loads(path.read_text()).get("gists") or []
                    if isinstance(e, dict) and e.get("source_key") and e.get("slug")}
-    except ValueError:
-        return {}
+    except ValueError as exc:
+        raise ValueError(f"{path} is not valid JSON") from exc
     urls = {}
     shortlisted = set()
     for bucket in ("insight", "announcement"):
@@ -162,7 +167,12 @@ def _gist_urls(args, snapshot):
 
 
 def _render(args, snapshot):
-    blocks, warnings = x_render.render(snapshot, args.format, args.number, gist_urls=_gist_urls(args, snapshot))
+    try:
+        gist_urls = _gist_urls(args, snapshot)
+    except ValueError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 1
+    blocks, warnings = x_render.render(snapshot, args.format, args.number, gist_urls=gist_urls)
     for line in warnings:
         print(f"warning: {line}", file=sys.stderr)
     wanted = ("announcements", "viral") if args.section == "both" else (args.section,)
@@ -179,7 +189,11 @@ def _verify(args, snapshot):
         print("error: pass --issue, --substack and/or --export", file=sys.stderr)
         return 1
     failed = False
-    gist_urls = _gist_urls(args, snapshot)
+    try:
+        gist_urls = _gist_urls(args, snapshot)
+    except ValueError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 1
     for file, fmt in pages:
         sections = ("announcements", "viral") if args.section == "both" else (args.section,)
         problems = x_render.verify(snapshot, pathlib.Path(file).read_text(), fmt, sections, gist_urls=gist_urls)

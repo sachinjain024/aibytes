@@ -58,7 +58,7 @@ def ph_posts_under(data_root):
     found = {}
     if not root.exists():
         return found
-    for path in root.rglob("ph_data.json"):
+    for path in sorted(root.rglob("ph_data.json")):
         found.update(_ph_posts_at(path))
     return found
 

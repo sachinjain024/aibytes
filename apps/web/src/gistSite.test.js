@@ -17,6 +17,12 @@ test("more from: the first appearance's edition, ranked, without the gist's own 
   assert.deepEqual(more.map((i) => i.id), ["b", "d", "e", "f"]);
 });
 
+test("more from leaves out weekly x items", () => {
+  const items = [item("a", 2), item("x-post-issue-19", 1, { category: "x", source: "x" }), item("b", 3)];
+  const more = moreFrom({ appearances: [{ item_id: "a", issue_slug: "issue-19" }] }, items);
+  assert.deepEqual(more.map((i) => i.id), ["b"]);
+});
+
 test("more from is empty when the edition or issue could not be loaded", () => {
   assert.deepEqual(moreFrom({ appearances: [{ item_id: "a", edition_date: "2026-08-27" }] }, undefined), []);
 });
