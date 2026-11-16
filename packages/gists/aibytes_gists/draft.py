@@ -274,7 +274,7 @@ def _draft_issue(issue, content_root, data_root, cache_root, ph_token, budget, c
                         new, repeats, skipped, log)
             continue
         _classify_item(item, index, taken, seen_keys, new, repeats, skipped,
-                       ph_by_page, ph_token, budget, clock, start, log)
+                       ph_by_page, ph_token, budget, clock, start, log, weekly=True)
 
     _save_threads(items, items_path)
     result = {"issue": issue, "new": new, "repeats": repeats, "skipped": skipped}
@@ -333,7 +333,7 @@ def _classify_x(item, issue, issue_number, index, taken, seen_keys, new, repeats
 
 
 def _classify_item(item, index, taken, seen_keys, new, repeats, skipped,
-                   ph_by_page, ph_token, budget, clock, start, log):
+                   ph_by_page, ph_token, budget, clock, start, log, weekly=False):
     if item.get("hidden"):
         skipped.append({"item_id": item["id"], "reason": "hidden"})
         return
@@ -343,8 +343,10 @@ def _classify_item(item, index, taken, seen_keys, new, repeats, skipped,
         return
     if kind == "hn" and item.get("category") == "news" and hn_id(item) is None:
         # A weekly AI News row credited "(HackerNews)" links only the article.
-        # Find its thread by URL; with none, the article is all there is.
-        if not link_thread(item):
+        # Find its thread by URL; with none, the article is all there is. Only
+        # the weekly path saves what it finds (_save_threads), and the lookup
+        # counts against the fetch budget like every other fetch.
+        if not (weekly and clock() - start < budget and link_thread(item)):
             kind = "news"
     key = gist_contract.source_key(item["source_url"])
     if key in index:

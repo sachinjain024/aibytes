@@ -691,10 +691,10 @@ class TestWeeklyDraft(unittest.TestCase):
                              "https://news.example/article"),
                    category="news", source_url="https://news.example/article")
         del row["signals"]
-        tree = WeeklyTree(self, [row, x_row()])
+        tree = self.tree = WeeklyTree(self, [row, x_row()])
         before = json.loads((tree.cache / ISSUE / "items.json").read_text())
         story = {"id": 9900001, "points": 905, "comments": 497}
-        with Fetchers(story=story) as fetchers:
+        with Fetchers(story=story, thread=dict(THREAD, comments=COMMENTS)) as fetchers:
             result = tree.draft()
         entry = {e["item_id"]: e for e in result["new"]}[row["id"]]
         self.assertEqual(entry["kind"], "hn")
@@ -708,6 +708,37 @@ class TestWeeklyDraft(unittest.TestCase):
         self.assertEqual(linked["signals"], {"points": 905, "comments": 497})
         self.assertEqual([r for r in after["items"] if r.get("id") != row["id"]],
                          [r for r in before["items"] if r.get("id") != row["id"]])
+        # ...and build publishes an hn gist filed under news, linking the thread.
+        self.tree.write_gists({entry["item_id"]: {"depth": "full", "lede": lede("hn"),
+                                                  "sections": good_sections("hn")}})
+        report = self.tree.build()
+        self.assertEqual(report["failed"], {})
+        gist = self.tree.gist(entry["slug"])
+        self.assertEqual((gist["kind"], gist["category"]), ("hn", "news"))
+        self.assertEqual(gist["source_url"], "https://news.ycombinator.com/item?id=9900001")
+        self.assertIn({"role": "discussion", "title": gist["links"][-1]["title"],
+                       "url": "https://news.ycombinator.com/item?id=9900001"}, gist["links"])
+        self.assertEqual(gist["links"][0]["url"], "https://news.example/article")
+        self.assertEqual(gist["stats"], {"points": 905, "comments": 497})
+
+    def test_the_thread_lookup_is_weekly_only_and_inside_the_fetch_budget(self):
+        def classify(weekly, elapsed=0):
+            row = dict(weekly_hn("hn-fixture-article-2026-11-16", "An article", "https://news.example/a"),
+                       category="news", source_url="https://news.example/a")
+            new = []
+            with Fetchers(story={"id": 9900002, "points": 5, "comments": 1}) as fetchers:
+                draft_mod._classify_item(row, {}, set(), {}, new, [], [], {}, None, 100,
+                                         lambda: elapsed, 0, lambda *_: None, weekly=weekly)
+            return new[0]["kind"], fetchers.names()
+        kind, calls = classify(weekly=False)  # a daily run cannot save what it found
+        self.assertEqual(kind, "news")
+        self.assertNotIn("find_story", calls)
+        kind, calls = classify(weekly=True, elapsed=100)  # out of budget
+        self.assertEqual(kind, "news")
+        self.assertNotIn("find_story", calls)
+        kind, calls = classify(weekly=True)
+        self.assertEqual(kind, "hn")
+        self.assertIn("find_story", calls)
 
     def test_an_ai_news_row_credited_to_hn_with_no_thread_is_a_news_gist(self):
         row = dict(weekly_hn("hn-weekly-fixture-article-issue-19", "An article HN discussed",
@@ -837,6 +868,25 @@ class TestCopying(unittest.TestCase):
         self.assertEqual(copying.copied(text, source), "")
 
 
+class TestRefreshStats(unittest.TestCase):
+    """A repeat refreshes what the item carries and keeps the rest (Grok review)."""
+
+    def refresh(self, kind, old, item):
+        gist = {"appearances": [], "stats": old}
+        return build_mod.refresh(gist, dict(item, id="row-issue-18"), kind, None,
+                                 "2026-11-16T00:00:00Z", "2026-11-16T00:00:00Z", issue_slug="issue-18")["stats"]
+
+    def test_an_hn_repeat_from_a_weekly_row_keeps_submitter_and_post_time(self):
+        old = {"points": 900, "comments": 600, "submitted_by": "someone", "posted_at": "2026-11-14T02:52:59Z"}
+        got = self.refresh("hn", old, {"signals": {"points": 1103, "comments": 649}})
+        self.assertEqual(got, {"points": 1103, "comments": 649, "submitted_by": "someone",
+                               "posted_at": "2026-11-14T02:52:59Z"})
+
+    def test_a_launch_repeat_keeps_comments_the_weekly_row_lacks(self):
+        got = self.refresh("launch", {"upvotes": 300, "comments": 40}, {"signals": {"upvotes": 512}})
+        self.assertEqual(got, {"upvotes": 512, "comments": 40})
+
+
 class TestWeeklyBackfill(unittest.TestCase):
     """Issue 18 was sent before gist links. Its weekly file already exists, so
     build must make its items point back, and a rebuild must keep them."""
@@ -846,6 +896,22 @@ class TestWeeklyBackfill(unittest.TestCase):
         hn = [item for item in issue["items"] if item["category"] == "hn"][:2]
         self.ids = [item["id"] for item in hn]
         self.tree = WeeklyTree(self, [{k: v for k, v in item.items() if k != "gist"} for item in hn], issue="issue-18")
+        # The copy is today's content/, where Issue 18 already points at its
+        # gists. Undo that for these two so build has to write the links: the
+        # first loses its gist too (a new gist), the second keeps it (a repeat).
+        content = self.tree.content
+        weekly_path = content / "weekly" / "issues" / "issue-18.json"
+        weekly_doc = json.loads(weekly_path.read_text())
+        for item in weekly_doc["items"]:
+            if item["id"] in self.ids:
+                item.pop("gist", None)
+        weekly_path.write_text(json.dumps(weekly_doc, indent=2, ensure_ascii=False) + "\n")
+        new_slug = hn[0]["gist"]
+        (content / "gists" / f"{new_slug}.json").unlink()
+        index_path = content / "gists" / "index.json"
+        index_doc = json.loads(index_path.read_text())
+        index_doc["gists"] = [g for g in index_doc["gists"] if g["slug"] != new_slug]
+        index_path.write_text(json.dumps(index_doc, indent=2, ensure_ascii=False) + "\n")
 
     def _weekly(self):
         return json.loads((self.tree.content / "weekly" / "issues" / "issue-18.json").read_text())
@@ -853,6 +919,8 @@ class TestWeeklyBackfill(unittest.TestCase):
     def test_build_points_existing_weekly_items_at_their_gists_and_a_rebuild_keeps_them(self):
         with Fetchers(thread=dict(THREAD, comments=COMMENTS)):
             draft = self.tree.draft()
+        self.assertEqual([e["item_id"] for e in draft["new"]], self.ids[:1])
+        self.assertEqual([r["item_id"] for r in draft["repeats"]], self.ids[1:])
         written = {e["item_id"]: {"depth": "full", "lede": lede(e["kind"]), "sections": good_sections(e["kind"])}
                    for e in draft["new"]}
         self.tree.write_gists(written)

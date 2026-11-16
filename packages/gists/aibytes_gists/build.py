@@ -233,8 +233,10 @@ def refresh(gist, item, kind, date, now, stats_as_of, facts=None, issue_slug=Non
         gist["appearances"] = dated + weekly
     old = gist.get("stats") or {}
     stats = stats_for(kind, item, facts, post=post)
-    if kind == "repo":  # keep the facts only a fetch knows; refresh what the item carries
-        stats = dict(old, **stats)
+    # Refresh what this item carries and keep the rest: a repo's fetched facts,
+    # and an HN or PH gist's submitter, post time or comments, which a weekly
+    # row does not carry (AIB-145y, Issue 18 backfill).
+    stats = dict(old, **stats)
     if stats:
         gist["stats"], gist["stats_as_of"] = stats, stats_as_of
     if item.get("front_page") is True and kind == "hn":

@@ -604,6 +604,12 @@ class TestFindStory(unittest.TestCase):
         self.assertIsNone(self.search({"hits": []}))
         self.assertIsNone(self.search({}, status=503))
 
+    def test_an_odd_response_is_none_not_an_exception(self):
+        # Mixed points types would make max() raise; find_story must not.
+        self.assertIsNone(self.search({"hits": [{"objectID": "1", "url": self.URL, "points": "many"},
+                                                {"objectID": "2", "url": self.URL, "points": 4}]}))
+        self.assertIsNone(self.search({"hits": "not a list"}))
+
 
 if __name__ == "__main__":
     unittest.main()

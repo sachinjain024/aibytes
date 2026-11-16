@@ -10,6 +10,7 @@ Comment text is other people's writing: callers keep it in the git-ignored
 """
 
 import datetime as dt
+import urllib.parse
 
 from . import http
 from .article import html_to_text, trim
@@ -107,8 +108,14 @@ def hn_thread(item_id, top=TOP_COMMENTS):
 def find_story(url):
     """The Hacker News story submitted with exactly `url`, as {id, points,
     comments}, or None. When several were submitted, the one with the most
-    points. Never raises: a failed search is None."""
-    import urllib.parse
+    points. Never raises: a failed search or an odd response is None."""
+    try:
+        return _find_story(url)
+    except Exception:  # one odd Algolia answer must never stop a draft
+        return None
+
+
+def _find_story(url):
     query = urllib.parse.urlencode({"query": url, "restrictSearchableAttributes": "url", "tags": "story"})
     resp = http.fetch(ALGOLIA_SEARCH.format(query=query))
     if not resp.ok:
