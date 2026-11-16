@@ -248,7 +248,7 @@ npm run dev:web                         # http://localhost:5173/, against the re
 |---|---|
 | T31 | Emulator rules, as listed under "The rules". Added to `test:rules`'s file list in `apps/web/package.json`. |
 | T32 | `reactions.test.js`: `toggle` adds then removes one key and writes both documents in one batch; two presses in a row stay consistent; a refused write rejects and the store reports it; `load` returns zeros for a gist with no counts document; the key table has eight entries in the Ledger order; adding the only key creates the reader document and removing it deletes the document and decrements the counts; `toggle` does nothing while `mine` has not loaded. Wiring: the bar sits in `GistActions` and re-keys on a slug change; the signed-out press shows the sign-in line and writes nothing. One `GistActions` case pins the adapter: the bar's counts are `totals` minus `mine`, keyed by emoji, so a signed-in 👍 with `totals.plus1 === 1` renders 1, not 2. |
-| T32 browser | After P5, on the real project, in both themes at 1440px and 375px: a press shows at once and survives a reload; a second browser sees the count after a reload; signed out, a press opens sign-in and writes nothing; Back and the panel's close do not lose a press; the page's server markup is unchanged. |
+| T32 browser | After P5, on the real project, in both themes at 1440px and 375px: a press shows at once and survives a reload; a second browser sees the count after a reload; signed out, a press shows "Please sign in to add your reaction" with a Sign in link, writes nothing, and the link opens sign-in; Save and the bar share one row with one feedback line under them; Back and the panel's close do not lose a press; the page's server markup is unchanged. |
 
 ## Success criteria
 

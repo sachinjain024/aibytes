@@ -8,20 +8,42 @@ import { readFileSync } from "node:fs";
 import { after, before, beforeEach, describe, test } from "node:test";
 import { initializeTestEnvironment } from "@firebase/rules-unit-testing";
 import { doc, getDoc } from "firebase/firestore";
-import { barProps, KEYS, LEDGER_EMOJI, pressed, reactions, zeroTotals } from "./reactions.js";
+import { loadJsx } from "./loadJsx.js";
+import { barProps, KEYS, LEDGER_EMOJI, planPress, pressed, reactions, zeroTotals } from "./reactions.js";
 
 const host = process.env.FIRESTORE_EMULATOR_HOST;
 const skip = host ? false : "needs the Firestore emulator: npm run test:rules -w @aibytes/web";
 const SLUG = "ph-plurai-simulation";
+// Ledger's own list, read from the component, so a swap on either side fails the test below.
+const { REACTIONS } = await loadJsx(new URL("../../../packages/design-system/components/content/ReactionBar.jsx", import.meta.url));
 
 describe("the key table", () => {
   test("eight keys, in the Ledger order, each with its emoji", () => {
     assert.deepEqual(KEYS.map((k) => k.key), ["plus1", "minus1", "laugh", "hooray", "confused", "heart", "rocket", "eyes"]);
-    assert.deepEqual(KEYS.map((k) => k.emoji), LEDGER_EMOJI);
+    assert.deepEqual(KEYS.map((k) => k.emoji), REACTIONS);
+    assert.deepEqual(LEDGER_EMOJI, REACTIONS);
+    assert.deepEqual(REACTIONS.slice(0, 2), ["👍", "👎"]);
   });
   test("zeroTotals has all eight keys at zero", () => {
     assert.deepEqual(Object.keys(zeroTotals()).sort(), KEYS.map((k) => k.key).sort());
     assert.ok(Object.values(zeroTotals()).every((n) => n === 0));
+  });
+});
+
+describe("planPress: what a press does", () => {
+  const known = { mineKnown: true, writing: false };
+  test("signed out asks for sign-in and writes nothing", () => {
+    assert.equal(planPress({ user: null, ...known }), "ask");
+  });
+  test("a session that is still restoring does nothing", () => {
+    assert.equal(planPress({ user: undefined, ...known }), "ignore");
+  });
+  test("signed in but the reader's own set not loaded is held", () => {
+    assert.equal(planPress({ user: { uid: "a" }, mineKnown: false, writing: false }), "hold");
+  });
+  test("signed in with the set known writes, unless the last press is still being written", () => {
+    assert.equal(planPress({ user: { uid: "a" }, ...known }), "write");
+    assert.equal(planPress({ user: { uid: "a" }, mineKnown: true, writing: true }), "ignore");
   });
 });
 
@@ -144,9 +166,11 @@ describe("the store", { skip }, () => {
   });
 
   test("a signed-out store reads the counts and holds no set", async () => {
-    await reactions(db, uid).toggle(SLUG, "eyes").catch(() => {});
+    const reader = reactions(db, uid);
+    await reader.load(SLUG);
+    await reader.toggle(SLUG, "eyes"); // a Google reader reacts first, so there is a count to read
     const store = reactions(env.unauthenticatedContext().firestore());
-    assert.deepEqual((await store.load(SLUG)).mine, []);
+    assert.deepEqual(await store.load(SLUG), { totals: { ...zeroTotals(), eyes: 1 }, mine: [] });
   });
 
   test("a read that fails is reported as null, not as zeros", async () => {

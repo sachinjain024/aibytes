@@ -38,7 +38,7 @@ export function GistActions({ saved, onToggle, reactions }) {
         </span>
         {reactions && (
           <ReactionBar key={reactions.slug} {...barProps(reactions)}
-            onToggle={(emoji) => { setLast("react"); reactions.onToggle(KEYS.find((k) => k.emoji === emoji).key); }} />)}
+            onToggle={(emoji) => { const k = KEYS.find((x) => x.emoji === emoji); if (!k) return; setLast("react"); reactions.onToggle(k.key); }} />)}
       </div>
       {line}
     </div>);

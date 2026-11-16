@@ -690,10 +690,11 @@ nothing, one write at a time), `GistActions` takes `reactions`, the page draws i
 mount only, the panel gets it from `App.jsx`, one sentence on `/privacy`, two CSS rules
 in `components.css`. `reactions.test.js`: the key table, `pressed`, `barProps` (a signed-in
 👍 with total 1 shows 1, not 2) and, on the emulator, the store under the real rules:
-63 pass in `test:rules`, 184 in `npm test`, the design-system 90 and the Python
+63 pass in `test:rules`, 184 in `npm test` (after the PR #70 review of `98482b3`: 69 and 195), the design-system 90 and the Python
 design-system suite pass, `build:web` builds and the built gist page has no reaction
-markup. Not covered by a test: the hook's undo-on-refusal and the signed-out press
-(there is no DOM test harness; the store's refusal is tested, the screen's undo is not).
+markup. Not covered by a test: the hook's undo-on-refusal (the store's refusal is tested, the
+screen's undo is not). The press decision is now the pure `planPress` (tested) and
+`GistActions` has markup tests via `loadJsx.js`.
 Checked in a browser, signed out, on the dev server against the real project: the bar
 draws with eight unpressed buttons and no error line. Not checked: a signed-in press,
 reload, a second browser, the panel, 375px, dark theme (the browser connection dropped).

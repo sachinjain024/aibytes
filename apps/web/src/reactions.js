@@ -10,7 +10,7 @@
 import { doc, getDoc, increment, serverTimestamp, writeBatch } from "firebase/firestore";
 import { KEYS } from "./reactionKeys.js";
 
-export { barProps, KEYS, LEDGER_EMOJI, pressed, zeroTotals } from "./reactionKeys.js";
+export { barProps, KEYS, LEDGER_EMOJI, planPress, pressed, zeroTotals } from "./reactionKeys.js";
 
 const whole = (n) => (Number.isInteger(n) && n >= 0 ? n : 0);
 const totalsOf = (data) => Object.fromEntries(KEYS.map((k) => [k.key, whole(data?.[k.key])]));

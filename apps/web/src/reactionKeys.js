@@ -37,3 +37,18 @@ export function barProps({ totals, mine }) {
   for (const { key, emoji } of KEYS) counts[emoji] = Math.max(0, (totals[key] || 0) - (mine.includes(key) ? 1 : 0));
   return { counts, mine: KEYS.filter((k) => mine.includes(k.key)).map((k) => k.emoji) };
 }
+
+/**
+ * What a press does, decided from what is known; the hook acts on the answer.
+ * "ignore": the session is still restoring, or the last press is still being written.
+ * "ask": signed out, so show the sign-in line and write nothing.
+ * "hold": signed in but the reader's own set is not known, so write nothing
+ * (a stale empty set would write the wrong `picked` and the wrong increment sign).
+ * "write": apply it and write.
+ */
+export function planPress({ user, mineKnown, writing }) {
+  if (user === undefined) return "ignore";
+  if (!user) return "ask";
+  if (!mineKnown) return "hold";
+  return writing ? "ignore" : "write";
+}

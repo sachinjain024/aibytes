@@ -1,7 +1,7 @@
 import React from "react";
 import { gridColumns } from "./layout.js";
 import { readChoice, THEME, writeChoice } from "./prefs.js";
-import { pressed, zeroTotals } from "./reactionKeys.js";
+import { planPress, pressed, zeroTotals } from "./reactionKeys.js";
 
 // The theme on screen, and a toggle. Light unless the reader picked dark: the
 // OS setting is not followed. The theme is always pinned on <html>, so Ledger's
@@ -135,20 +135,22 @@ export function useReactions(slug, { store, user, signIn }) {
     return () => { live = false; };
   }, [slug, store, tries]);
   if (!slug) return null;
-  // Until this gist's load has landed (or the store changed), show the bar at zero with nothing pressed.
-  const current = state && state.slug === slug && state.store === store ? state : { slug, totals: zeroTotals(), mine: [], mineKnown: !store?.signedIn, message: null };
+  // On this gist, before its first load: the bar at zero with nothing pressed. After a
+  // sign-in or sign-out (a new store) the public totals stay on screen while the new load
+  // runs; only the reader's own marks are cleared, since they belong to whoever was signed in.
+  const sameGist = state && state.slug === slug;
+  const current = sameGist && state.store === store ? state
+    : sameGist ? { ...state, mine: [], mineKnown: !store?.signedIn, message: null }
+    : { slug, totals: zeroTotals(), mine: [], mineKnown: !store?.signedIn, message: null };
   const onToggle = (key) => {
-    if (user === undefined) return;
-    if (!user) { setAsking(slug); return; }
-    if (!store || !current.mineKnown) {
-      if (state && state.slug === slug && state.mineKnown === false) setTries((n) => n + 1);
-      return;
-    }
-    if (writing.current) return;
+    const plan = planPress({ user, mineKnown: Boolean(store) && current.mineKnown, writing: writing.current });
+    if (plan === "ask") setAsking(slug);
+    if (plan === "hold" && state && state.slug === slug && state.mineKnown === false) setTries((n) => n + 1);
+    if (plan !== "write") return;
     const before = current;
     const next = pressed(before, key);
     writing.current = true;
-    setState({ ...before, ...next, message: null });
+    setState({ ...before, ...next, store, message: null });
     store.toggle(slug, key).catch(() => {
       setState((now) => (now && now.slug === slug && now.store === store ? { ...before, message: "Could not save your reaction. Try again." } : now));
     }).finally(() => { writing.current = false; });

@@ -196,6 +196,26 @@ describe("firestore.rules: gist reactions", { skip }, () => {
       await assertFails(b.commit());
     });
 
+    test("two keys added in one write are refused, even when each count moves by one", async () => {
+      const db = as("alice");
+      const b = writeBatch(db);
+      b.set(reader(db, "alice"), { picked: ["plus1", "heart"], updated_at: serverTimestamp() });
+      b.set(counts(db), Object.fromEntries(KEYS.map((k) => [k, increment(k === "plus1" || k === "heart" ? 1 : 0)])), { merge: true });
+      await assertFails(b.commit());
+      assert.equal(await readerNow("alice"), undefined);
+    });
+
+    test("a swap in one write (one key off, another on) is refused", async () => {
+      await seedReader("alice", ["plus1"]);
+      await seedCounts({ plus1: 1 });
+      const db = as("alice");
+      const b = writeBatch(db);
+      b.set(reader(db, "alice"), { picked: ["heart"], updated_at: serverTimestamp() });
+      b.set(counts(db), Object.fromEntries(KEYS.map((k) => [k, increment(k === "plus1" ? -1 : k === "heart" ? 1 : 0)])), { merge: true });
+      await assertFails(b.commit());
+      assert.deepEqual((await readerNow("alice")).picked, ["plus1"]);
+    });
+
     test("a count cannot go below zero", async () => {
       await seedReader("alice", ["plus1"]);
       await seedCounts(); // plus1 is 0 though alice holds it: a count that went wrong
