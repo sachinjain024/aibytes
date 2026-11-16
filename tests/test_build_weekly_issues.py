@@ -17,6 +17,7 @@ REPO_ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO_ROOT / "packages" / "feed-schema"))
 
 import build_weekly_issues as builder
+import item_id as ids
 import validate as contract
 
 ISSUE_HTML = """<html><head><title>aiBytes_ #16</title></head><body>
@@ -102,6 +103,8 @@ class TestExtract(unittest.TestCase):
     def test_ids_carry_the_source_prefix_and_the_issue(self):
         self.assertEqual(self.by_title["ChatCut"]["id"], "ph-chatcut-issue-16")
         self.assertEqual(self.by_title["acme/graph"]["id"], "gh-acme-graph-issue-16")
+        self.assertEqual(ids.weekly_item_id("producthunt", "ChatCut", 16), "ph-chatcut-issue-16")
+        self.assertEqual(ids.weekly_item_id("github", "acme/graph", 16), "gh-acme-graph-issue-16")
 
     def test_a_repeated_title_gets_a_distinct_id(self):
         html = ISSUE_HTML.replace("acme/tool</a>", "acme/graph</a>")

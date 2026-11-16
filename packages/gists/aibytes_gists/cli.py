@@ -9,7 +9,9 @@ from . import draft as draft_mod
 
 
 def _common(sub):
-    sub.add_argument("--date", required=True, help="the edition date, YYYY-MM-DD")
+    target = sub.add_mutually_exclusive_group(required=True)
+    target.add_argument("--date", help="the edition date, YYYY-MM-DD")
+    target.add_argument("--issue", help="the weekly issue slug, issue-N")
     sub.add_argument("--content-root", default=DEFAULT_CONTENT_ROOT,
                      help=f"the published content tree (default {DEFAULT_CONTENT_ROOT})")
     sub.add_argument("--cache-root", default=DEFAULT_CACHE_ROOT,
@@ -26,7 +28,7 @@ def parser():
     build = subs.add_parser("build", help="check gists.json; write content/gists/, the index and item gists")
     _common(build)
     build.add_argument("--gists", default=None,
-                       help="what Claude wrote (default <cache-root>/DATE/gists.json)")
+                       help="what Claude wrote (default <cache-root>/DATE-or-issue/gists.json)")
     return top
 
 
@@ -34,11 +36,11 @@ def main(argv=None):
     args = parser().parse_args(argv)
     try:
         if args.command == "draft":
-            draft_mod.draft(args.date, content_root=args.content_root, data_root=args.data_root,
-                            cache_root=args.cache_root)
+            draft_mod.draft(args.date, issue=args.issue, content_root=args.content_root,
+                            data_root=args.data_root, cache_root=args.cache_root)
         elif args.command == "build":
-            build_mod.build(args.date, gists_path=args.gists, content_root=args.content_root,
-                            cache_root=args.cache_root)
+            build_mod.build(args.date, issue=args.issue, gists_path=args.gists,
+                            content_root=args.content_root, cache_root=args.cache_root)
     except (draft_mod.DraftError, build_mod.BuildError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1

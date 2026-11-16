@@ -570,9 +570,13 @@ def _items_agree(root, gists, known):
             else:
                 continue
             listed.add((place, item_id))
-            if gist.get("kind") == "x_post":
-                continue  # X posts are not carried in issue files; nothing to point back
             if (place, item_id) not in items:
+                # Weekly JSON is built from the issue HTML after gists land, so
+                # an issue_slug appearance may name an item that is not there
+                # yet. When the item exists it must point back. Daily edition
+                # appearances still require the item.
+                if "issue_slug" in appearance:
+                    continue
                 found.append(f"{where}: appearance {item_id} is not an item in {label}")
                 continue
             item = items[(place, item_id)][1]

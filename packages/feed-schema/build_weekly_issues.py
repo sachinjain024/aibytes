@@ -24,6 +24,8 @@ import sys
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 
+import item_id as ids
+
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 SCHEMA_VERSION = 1
 SUMMARY_MAX = 200
@@ -39,9 +41,6 @@ SRC_LABEL = {
     "github": "github",
 }
 
-# The id prefix per source, as the daily editions use them.
-ID_PREFIX = {"producthunt": "ph", "github": "gh", "hackernews": "hn", "techcrunch": "tc"}
-
 SECTION_CATEGORY = (
     (re.compile(r"new ai products|launches", re.I), "launches", "producthunt"),
     (re.compile(r"trending (on )?github|trending repos|trending github projects", re.I), "repos", "github"),
@@ -51,9 +50,7 @@ SECTION_CATEGORY = (
 CATEGORIES = ("launches", "repos", "news", "hn")
 
 
-def slugify(text: str) -> str:
-    text = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
-    return text[:48].strip("-") or "item"
+slugify = ids.slugify
 
 
 def strip_tags(text: str) -> str:
@@ -129,7 +126,7 @@ def parse_stat(stat: str, category: str) -> dict:
 
 def _item(issue_num, category, source, title, summary, url, source_url, image, signals=None):
     item = {
-        "id": f"{ID_PREFIX[source]}-{slugify(title)}-issue-{issue_num}",
+        "id": ids.weekly_item_id(source, title, issue_num),
         "title": title,
         "summary": summary,
         "url": url,
@@ -209,17 +206,6 @@ def row_items(section_html: str, issue_num: int, category: str, source: str) -> 
     return items
 
 
-def _unique_ids(items: list[dict]) -> None:
-    """Two items with the same title slug get -2, -3 before the issue suffix."""
-    seen = {}
-    for item in items:
-        base = item["id"]
-        seen[base] = seen.get(base, 0) + 1
-        if seen[base] > 1:
-            stem, suffix = base.rsplit("-issue-", 1)
-            item["id"] = f"{stem}-{seen[base]}-issue-{suffix}"
-
-
 def extract_items(html: str, issue_num: int) -> list[dict]:
     html = strip_comments(html)
     items = news_items(html, issue_num)
@@ -228,7 +214,7 @@ def extract_items(html: str, issue_num: int) -> list[dict]:
             if pattern.search(title):
                 items.extend(row_items(body, issue_num, category, source))
                 break
-    _unique_ids(items)
+    ids.unique_weekly_ids(items)
     # Rank is the issue's reading order.
     for rank, item in enumerate(items, start=1):
         item["rank"] = rank

@@ -736,9 +736,9 @@ full/brief path; X posts are `preview`, copied, no Claude. Shared item-id
 helper with the weekly builder. A failed gist does not fail the issue.
 
 **Acceptance criteria:**
-- [ ] Tests on a fixture `items.json`: missing gists written, existing ones
+- [x] Tests on a fixture `items.json`: missing gists written, existing ones
       reused, X posts as `preview` with no Claude file.
-- [ ] Per-gist failure leaves the others written; missing `items.json` is
+- [x] Per-gist failure leaves the others written; missing `items.json` is
       fatal.
 
 **Verification:** `tests/test_gists.py`. **Dependencies:** T33. **Size:** M.
