@@ -715,12 +715,13 @@ X and announcement previews, F2 in the issue HTML and under Substack's one
 link colour, UTM tags, and how `build_weekly_issues.py` maps gist hrefs back.
 
 **Acceptance criteria:**
-- [ ] The weekly skill order, `items.json` shape, failure rule, F2 tables
+- [x] The weekly skill order, `items.json` shape, failure rule, F2 tables
       (issue HTML and Substack), UTM helper, and builder resolution are
       written down.
-- [ ] Three Decide rows: two orange Substack links, `source: "x"` on weekly
-      items, HN Deep title linked to the gist.
-- [ ] T34–T36 file lists match the spec.
+- [x] Three Decide rows: two orange Substack links, `source: "x"` on weekly
+      items, HN Deep title linked to the gist. Approved 16 Nov 2026, all
+      three as recommended.
+- [x] T34–T36 file lists match the spec.
 
 **Verification:** the publisher approves. **Dependencies:** T16, T26.
 **Size:** S. **Files:** `docs/specs/AIB-145y-newsletter-gist-links.md`,
@@ -768,9 +769,8 @@ artifact note records the one-colour mapping.
 
 **Description:** Per the spec: `build_weekly_issues.py` resolves
 `aibytes.io/gists/<slug>` title hrefs (UTM ignored) through the gist file
-to `url`, `source_url` and `gist`. Issues 1–18 unchanged. If Decide 2 is
-approved, X rows land in the issue JSON (`source`/`category` `x`, chips
-stay four).
+to `url`, `source_url` and `gist`. Issues 1–18 unchanged. X rows land in
+the issue JSON (`source`/`category` `x`, chips stay four).
 
 **Acceptance criteria:**
 - [ ] `tests/test_build_weekly_issues.py`: an issue with gist links builds

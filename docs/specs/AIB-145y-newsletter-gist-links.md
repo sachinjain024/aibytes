@@ -6,8 +6,8 @@
   appearances), `AIB-145y-gist-generate.md` (the `--issue` entry point),
   `AIB-145y-gist-analytics.md` (newsletter UTM tags), `AIB-145y-app-gist-pages.md`
   (the page a link opens), the design record (F2)
-- **Status:** draft, awaiting approval. The choices marked **Decide** below are
-  recommended; they are not settled until this spec is approved.
+- **Status:** approved 16 Nov 2026, with all three recommendations. The choices
+  marked **Decide** below are settled as recommended.
 
 ## Objective
 
@@ -212,7 +212,7 @@ rules in `substack-layout.md` change in the same commit as the renderer:
 
 Two orange links per row is the cost of F2 under Substack's one colour.
 Leaving the title unlinked would hide the gist; making only the gist a
-link would hide the source. F2 wants both. **(Decide 1)**
+link would hide the source. F2 wants both. **(Decide 1, settled 16 Nov 2026)**
 
 `x_items.py verify` still checks that every shortlisted post's **words**
 are present and in order. It does not require the handle's href to be
@@ -257,11 +257,11 @@ A fixture issue whose titles are gist links must build the same `url`,
 `source_url`, `source` and `category` as the same issue written with
 today's source titles, plus `gist`. Issues 1–18 rebuild with no diff.
 
-### X posts and announcements in the issue file **(Decide 2)**
+### X posts and announcements in the issue file **(Decide 2, settled 16 Nov 2026)**
 
 The parent module says X posts and announcements become starrable. A
-save needs an item in an edition or issue file. Recommended: T36 **adds**
-those rows to `content/weekly/issues/issue-N.json`.
+save needs an item in an edition or issue file. T36 **adds** those rows
+to `content/weekly/issues/issue-N.json`.
 
 That needs a contract addition, because today's item requires `source`
 in the four fetchers and `category` in the four chips:
@@ -289,11 +289,6 @@ appearance's `item_id`.
 `packages/fetchers` does not gain an `x` source. The test that
 `SOURCES == registry.names()` stays about the fetchers; the item `source`
 enum in the schema becomes that list plus `x`.
-
-If Decide 2 is rejected, T36 does not add these rows, preview gists get
-an `issue_slug` appearance with no matching item, `validate.py`'s
-cross-file rule  (appearance names an item that points back) has to
-carve out `x_post`, and starring an X gist is out of this module.
 
 ## Commands
 
@@ -355,7 +350,7 @@ Issue HTML row, AI News, after T35:
 | T35 issue HTML | A fixture issue: every news / products / GitHub / HN title href is a gist URL with the three UTM tags; each has a trailing source link without UTM; a missing gist keeps the source as the title href. |
 | T35 X | `x_items.py render` (issue HTML and Substack) puts the gist URL where the table says and keeps the post's words verbatim. `verify` accepts that shape. |
 | T35 Substack | `tests/test_substack_export.py` reads the new hrefs out of a fixture issue and checks the layout file's rules (HN title linked, Viral handle → gist, trailing Post on X). |
-| T36 | An issue whose titles are gist links builds the same items as one whose titles are source links, plus `gist`. Issues 1–18: no diff. A gist href with UTM still resolves. X rows present if Decide 2 is yes. |
+| T36 | An issue whose titles are gist links builds the same items as one whose titles are source links, plus `gist`. Issues 1–18: no diff. A gist href with UTM still resolves. X rows present. |
 | Contract | `source: "x"` accepted on a weekly item, rejected on an edition item; `counts.x` required on new issue files, absent on old ones still valid **or** always present at 0 — pick in T36 so old files do not break: **absent is valid, present is an int ≥ 0** (append-only, old issues stay). |
 
 ## Boundaries
@@ -364,9 +359,10 @@ Issue HTML row, AI News, after T35:
   links free of `utm_*` and `ref`; keep Issues 1–18 building; run
   `validate.py` before committing `content/`; leave the daily runner
   alone; X preview text comes from the snapshot, never from Claude.
-- **Ask first:** adding `source: "x"` / `category: "x"` (Decide 2); a new
-  dependency; switching an already-sent issue's live Substack post over
-  to gist links; a second UTM shape; putting gist links in the intro.
+- **Ask first:** a new dependency; switching an already-sent issue's live
+  Substack post over to gist links; a second UTM shape; putting gist
+  links in the intro. `source: "x"` / `category: "x"` on weekly items is
+  Decide 2, settled.
 - **Never:** backfill Issues 1–18; point an email at a gist that was not
   written; retitle or rewrite an X post to make the link fit; add
   `ref=aiBytes_` in the email; change a published slug; reference
@@ -391,25 +387,20 @@ Parent criterion 11, made checkable:
 5. A repeat item that already ran in a daily edition has one gist, two
    appearances (edition and issue).
 6. Official Announcements and Viral on X are `preview` gists, `noindex`,
-   copied from the snapshot. They are starrable if Decide 2 is yes.
+   copied from the snapshot. They are starrable (Decide 2).
 7. P6: the publisher would send the first issue with these links.
 
 ## Decide
 
-1. **Two orange links per Substack row.** Recommended: gist and source
-   both linked, because F2 wants both and Substack has one colour. The
-   alternative is gist only, which is fewer orange runs and closer to
-   Issue 17's HN row, but it drops the "not forced through aibytes.io"
-   half of F2.
-2. **X posts in the weekly issue JSON.** Recommended: add `source: "x"`
-   and `category: "x"` on weekly items, `counts.x` optional on old files,
-   chips unchanged. The alternative is to leave them out of the issue
-   file; then starring and the appearance cross-check need a carve-out,
-   and `/saved` cannot load them.
-3. **HN Deep title becomes a link on Substack.** Recommended: yes, to
-   the gist, still unbolded. The alternative keeps the Issue 17 "title
-   is plain text" rule and puts the gist on `(HN thread)`, which would
-   make the thread no longer a source link.
+Settled 16 Nov 2026, all three as recommended.
+
+1. **Two orange links per Substack row.** Gist and source both linked,
+   because F2 wants both and Substack has one colour.
+2. **X posts in the weekly issue JSON.** Add `source: "x"` and
+   `category: "x"` on weekly items, `counts.x` optional on old files,
+   chips unchanged.
+3. **HN Deep title becomes a link on Substack.** Yes, to the gist, still
+   unbolded.
 
 ## Tasks after this spec
 
@@ -422,7 +413,8 @@ Unchanged in count (T34, T35, T36, P6). Reshaped in files:
   and Substack formats), `substack-layout.md`, `substack_export.py` if
   the parser needs the new trailing links, verifier, a dated artifact
   note. P6 on the first real issue.
-- **T36** — gist href resolution; Decide 2's schema addition if approved.
+- **T36** — gist href resolution; Decide 2's schema addition (`source` /
+  `category` `x` on weekly items).
 
 ## Not in this spec
 
@@ -434,8 +426,7 @@ skill, as today.
 
 ## Open questions
 
-None beyond the three Decide rows. Assumptions used in this draft, to
-correct before approval:
+None. Assumptions, also settled 16 Nov 2026:
 
 1. The next unpublished issue after merge is the first to link to gists
    (Issue 19 if this lands before that issue is written).

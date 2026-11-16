@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-16T05:01:09.757Z
+updated_at: 2026-11-16T05:21:24.816Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -133,7 +133,7 @@ added_by:
 - [x] 10.4 T32: reactions in the app <!-- longclaw:item=ck_759600ee -->
 - [x] 10.5 Design sync: the Design System Artifact gets the reaction row beside Save, the sign-in line and its link (components.css) <!-- longclaw:item=ck_6f3d7376 -->
 - [ ] 11. newsletter-gist-links (second PR) <!-- longclaw:item=ck_ca91f71f -->
-- [ ] 11.1 T33: newsletter spec <!-- longclaw:item=ck_ba3092dd -->
+- [x] 11.1 T33: newsletter spec <!-- longclaw:item=ck_ba3092dd -->
 - [ ] 11.2 T34: the weekly pull writes gists <!-- longclaw:item=ck_04b7fc12 -->
 - [ ] 11.3 T35: the template and the skill <!-- longclaw:item=ck_16780ddc -->
 - [ ] 11.4 P6: publisher approves the first issue linking to gists <!-- longclaw:item=ck_e757a406 -->
@@ -1440,4 +1440,22 @@ changes:
     to: "true"
 -->
 ### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ee8b0d3e
+kind: update
+occurred_at: 2026-11-16T05:21:24.816Z
+actor:
+  type: agent
+  id: grok-build
+  name: Grok Build
+changes:
+  - field: checklist.ck_ba3092dd.checked
+    from: "false"
+    to: "true"
+-->
+### Grok Build updated this ticket
+
+16 Nov 2026, T33 newsletter spec approved with all three recommendations (two orange Substack links, source/category x on weekly items, HN Deep title linked to the gist). Spec: docs/specs/AIB-145y-newsletter-gist-links.md. PR #71.
 <!-- /longclaw:event -->
