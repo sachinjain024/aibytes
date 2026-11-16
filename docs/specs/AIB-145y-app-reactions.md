@@ -186,7 +186,10 @@ reactions(db, uid?) → {
 
 - **Display.** `ReactionBar` goes in the `actions` slot of `GistView`, **on the same row as
   the Save button** (changed 16 Nov 2026, the publisher; it wraps under Save on a narrow
-  screen), on the page and in the panel, as `GistActions` already does for saving. The bar shows at once with zero counts and the numbers fill in when
+  screen), on the page and in the panel, as `GistActions` already does for saving.
+  There are two rows only: Save + the reactions, then **one** feedback line. The line is
+  whatever the reader touched last (the saved line, the sign-in line or an error line);
+  a new one replaces the old, never stacks (changed 16 Nov 2026, the publisher). The bar shows at once with zero counts and the numbers fill in when
   `load` resolves, so nothing shifts. The server-rendered page has no reaction row
   (the Ledger spec, unchanged); it appears after the page mounts.
 - **Pressing, signed in.** The count and the pressed state change at once. The write
