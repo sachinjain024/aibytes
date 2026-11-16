@@ -3,14 +3,14 @@ format: longclaw.ticket/v1
 id: 0a6fe125-a398-4acf-8ad3-9df499b0924a
 key: AIB-145y
 title: "Gists: a summary page for each item"
-status: in_progress
+status: done
 priority: p1
 rank: a0
 labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-16T08:40:13.181Z
+updated_at: 2026-11-16T08:49:53.905Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -145,12 +145,12 @@ added_by:
 - [x] 14. favicon (GitHub issue #38, on this branch) <!-- longclaw:item=ck_15e5e8ee -->
 - [x] 14.1 Favicon: white bolt on cobalt (option 1) as favicon.svg, favicon.ico and apple-touch-icon.png, linked from every built page, with a build test <!-- longclaw:item=ck_b64903c5 -->
 - [x] 14.2 Wordmark.prompt.md names the bolt tile as the favicon (was the aB_ tile) <!-- longclaw:item=ck_6adde97b -->
-- [ ] 14.3 P9: publisher checks the tab and bookmark icon on aibytes.io after deploy, then closes #38 <!-- longclaw:item=ck_4e9be923 -->
-- [ ] 15. Issue 18 backfill: gists on /weekly/issue-18 (publisher's request, 16 Nov; an exception to the spec's no-backfill rule) <!-- longclaw:item=ck_c2c05c92 -->
+- [x] 14.3 P9: publisher checks the tab and bookmark icon on aibytes.io after deploy, then closes #38 <!-- longclaw:item=ck_4e9be923 -->
+- [x] 15. Issue 18 backfill: gists on /weekly/issue-18 (publisher's request, 16 Nov; an exception to the spec's no-backfill rule) <!-- longclaw:item=ck_c2c05c92 -->
 - [x] 15.1 gists build --issue sets gist on an existing weekly issue file; build_weekly_issues.py keeps that link from the gist's appearances when the HTML has no gist href <!-- longclaw:item=ck_61485e93 -->
 - [x] 15.2 Issue 18 gists: items.json from issue-18.json, gists draft --issue issue-18, gists.json written per the write-gists skill, gists build --issue issue-18 <!-- longclaw:item=ck_0e1ed05c -->
-- [x] 15.3 issue-18.json: 18 of 22 items carry a gist (10 new, 8 repeats); validate.py and the test suites pass <!-- longclaw:item=ck_368e0757 -->
-- [ ] 15.4 P10: publisher validates the gists on /weekly/issue-18, then the ticket closes <!-- longclaw:item=ck_6886892a -->
+- [x] 15.3 issue-18.json: all 22 items carry a gist (14 new, 8 repeats); validate.py and the test suites pass <!-- longclaw:item=ck_368e0757 -->
+- [x] 15.4 P10: publisher validates the gists on /weekly/issue-18, then the ticket closes <!-- longclaw:item=ck_6886892a -->
 ## Activity
 
 <!-- longclaw:event
@@ -1774,4 +1774,82 @@ changes:
 ### Claude Code updated this ticket
 
 Issue 18 backfill done on this branch: 18 of 22 items on /weekly/issue-18 now open a gist. 10 are new (9 full, 1 brief: Product Hunt MCP had no snapshot post), and 8 reuse gists from the daily runs, which now list an issue-18 appearance. The other four are AI News articles credited (HackerNews) with no HN thread: Nvidia scarcity, Goldman Sachs and Claude Code, United Airlines, Apple Harbor. An hn gist needs a thread and a news gist must come from TechCrunch, so the contract has no kind for them, and they ship without a gist. The sent issue's HTML is unchanged. Left open: 15.4 (P10), the publisher's check of /weekly/issue-18.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_09044387
+kind: update
+occurred_at: 2026-11-16T08:47:45.440Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_4e9be923.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_a0713fce
+kind: update
+occurred_at: 2026-11-16T08:47:46.902Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_c2c05c92.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_c2142e34
+kind: update
+occurred_at: 2026-11-16T08:47:49.932Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_6886892a.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ed7c2cd9
+kind: update
+occurred_at: 2026-11-16T08:47:55.678Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: status
+    from: in_progress
+    to: done
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_929a3d69
+kind: update
+occurred_at: 2026-11-16T08:49:53.905Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_368e0757.text
+    from: "15.3 issue-18.json: 18 of 22 items carry a gist (10 new, 8 repeats); validate.py and the test suites pass"
+    to: "15.3 issue-18.json: all 22 items carry a gist (14 new, 8 repeats); validate.py and the test suites pass"
+-->
+### Claude Code updated this ticket
+
+The four AI News items without a gist (Nvidia scarcity, Goldman Sachs and Claude Code, United Airlines, Apple Harbor) now have one. A news gist may come from hackernews as well as techcrunch, and gists draft makes a hackernews row filed under news with no HN thread a news gist, so the article itself is read. Goldman, United and Apple are full gists. Nvidia is brief, because its page returned the site's sidebar and comments, not the article. All 22 Issue 18 items on /weekly/issue-18 now open a gist.
 <!-- /longclaw:event -->

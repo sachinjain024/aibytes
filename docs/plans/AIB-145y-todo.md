@@ -839,9 +839,10 @@ Issue 18 HTML as sent is unchanged. Ticket items 15–15.4.
       gist href (`69cf896`).
 - [x] 15.2 `items.json` from `issue-18.json`; `gists draft --issue issue-18`
       found 14 new and 8 repeats; Claude wrote the prose; `gists build`.
-- [x] 15.3 18 of 22 items carry a gist (10 new, 8 repeats). The other four
-      are AI News articles credited "(HackerNews)" with no HN thread. An
-      `hn` gist needs a thread, and a `news` gist must come from TechCrunch,
-      so the contract has no kind for them and they ship without a gist.
-- [ ] 15.4 P10: the publisher checks `/weekly/issue-18`, then the ticket
+- [x] 15.3 All 22 items carry a gist (14 new, 8 repeats). Four of them are
+      AI News articles credited "(HackerNews)" with no HN thread. A `news`
+      gist may now come from `hackernews`, and `gists draft` makes such a
+      row a `news` gist, so the article is read. Three are full; Nvidia is
+      brief, because its page gave the site's chrome, not the article.
+- [x] 15.4 P10: the publisher checks `/weekly/issue-18`, then the ticket
       closes.
