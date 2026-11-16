@@ -693,18 +693,18 @@ class TestWeeklyDraft(unittest.TestCase):
         del row["signals"]
         tree = WeeklyTree(self, [row, x_row()])
         before = json.loads((tree.cache / ISSUE / "items.json").read_text())
-        story = {"id": 50415628, "points": 905, "comments": 497}
+        story = {"id": 9900001, "points": 905, "comments": 497}
         with Fetchers(story=story) as fetchers:
             result = tree.draft()
         entry = {e["item_id"]: e for e in result["new"]}[row["id"]]
         self.assertEqual(entry["kind"], "hn")
         self.assertIn("comments", entry["material"])
         self.assertIn(("find_story", ("https://news.example/article",)), fetchers.calls)
-        self.assertTrue(any(name == "hn" and 50415628 in args for name, args in fetchers.calls))
+        self.assertTrue(any(name == "hn" and 9900001 in args for name, args in fetchers.calls))
         # build reads items.json, so the thread is written back there, and nothing else is.
         after = json.loads((tree.cache / ISSUE / "items.json").read_text())
         linked = next(r for r in after["items"] if r.get("id") == row["id"])
-        self.assertEqual(linked["source_url"], "https://news.ycombinator.com/item?id=50415628")
+        self.assertEqual(linked["source_url"], "https://news.ycombinator.com/item?id=9900001")
         self.assertEqual(linked["signals"], {"points": 905, "comments": 497})
         self.assertEqual([r for r in after["items"] if r.get("id") != row["id"]],
                          [r for r in before["items"] if r.get("id") != row["id"]])
