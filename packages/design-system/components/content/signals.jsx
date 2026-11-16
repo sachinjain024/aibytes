@@ -1,5 +1,5 @@
 import React from "react";
-export const SOURCE_NAMES = { producthunt: "Product Hunt", hackernews: "Hacker News", github: "GitHub", techcrunch: "TechCrunch" };
+export const SOURCE_NAMES = { producthunt: "Product Hunt", hackernews: "Hacker News", github: "GitHub", techcrunch: "TechCrunch", x: "X" };
 const LANG = { Python: "var(--lang-python)", TypeScript: "var(--lang-ts)", JavaScript: "var(--lang-ts)", Rust: "var(--lang-rust)", Go: "var(--lang-go)", "C++": "var(--lang-cpp)", Shell: "var(--lang-shell)", "Jupyter Notebook": "var(--lang-jupyter)" };
 export const fmtNum = n => n >= 1000 ? ((n / 1000).toFixed(1).replace(/\.0$/, "") + "k") : String(n);
 export const bubble = (
