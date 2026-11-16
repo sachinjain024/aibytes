@@ -34,10 +34,10 @@ DEPTHS = ("full", "brief", "preview")
 # The fetcher source each kind belongs to, and the edition categories its
 # items can carry: curate files Show HN and Launch HN under launches, so an hn
 # gist may be either. x_post has neither: X posts come from a pasted Grok
-# snapshot, not a fetcher. A news gist may also come from hackernews: weekly AI
-# News rows credited "(HackerNews)" link the article, with no HN thread to read
-# (AIB-145y, Issue 18 backfill).
-KIND_SOURCE = {"news": (("techcrunch", "hackernews"), ("news",)), "hn": (("hackernews",), ("hn", "launches")),
+# snapshot, not a fetcher. Weekly AI News rows credited "(HackerNews)" link the
+# article: gists draft finds their thread, which makes an hn gist filed under
+# news, or, with no thread, a news gist from hackernews (AIB-145y, Issue 18).
+KIND_SOURCE = {"news": (("techcrunch", "hackernews"), ("news",)), "hn": (("hackernews",), ("hn", "launches", "news")),
                "repo": (("github",), ("repos",)), "launch": (("producthunt",), ("launches",))}
 
 GIST_SLUG_RE = contract.SLUG_RE

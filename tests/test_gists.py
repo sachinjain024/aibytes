@@ -103,9 +103,10 @@ def index_entry(slug, url):
 class Fetchers:
     """Replaces every fetcher the draft can reach, and records the calls."""
 
-    def __init__(self, page=READABLE, thread=THREAD, repo=REPO, launch=LAUNCH):
+    def __init__(self, page=READABLE, thread=THREAD, repo=REPO, launch=LAUNCH, story=None):
         self.calls = []
         self.page, self.thread, self.repo, self.launch = page, thread, repo, launch
+        self.story = story
 
     def __enter__(self):
         def record(name, value):
@@ -116,6 +117,7 @@ class Fetchers:
         self.patches = [
             mock.patch.object(draft_mod.article, "article_text", record("article", self.page)),
             mock.patch.object(draft_mod.hn_thread, "hn_thread", record("hn", self.thread)),
+            mock.patch.object(draft_mod.hn_thread, "find_story", record("find_story", self.story)),
             mock.patch.object(draft_mod.github_repo, "repo_details", record("repo", self.repo)),
             mock.patch.object(draft_mod.ph_launch, "launch_material", record("launch", self.launch)),
         ]
@@ -683,6 +685,29 @@ class TestWeeklyDraft(unittest.TestCase):
         self.assertFalse(any(name == "article" and "old" in str(args) for name, args in fetchers.calls))
         self.assertTrue(any(name == "hn" for name, _ in fetchers.calls))
         self.assertEqual(json.loads((tree.cache / ISSUE / "draft.json").read_text()), result)
+
+    def test_an_ai_news_row_credited_to_hn_gets_its_thread_when_hn_has_one(self):
+        row = dict(weekly_hn("hn-weekly-fixture-article-issue-19", "An article HN discussed",
+                             "https://news.example/article"),
+                   category="news", source_url="https://news.example/article")
+        del row["signals"]
+        tree = WeeklyTree(self, [row, x_row()])
+        before = json.loads((tree.cache / ISSUE / "items.json").read_text())
+        story = {"id": 50415628, "points": 905, "comments": 497}
+        with Fetchers(story=story) as fetchers:
+            result = tree.draft()
+        entry = {e["item_id"]: e for e in result["new"]}[row["id"]]
+        self.assertEqual(entry["kind"], "hn")
+        self.assertIn("comments", entry["material"])
+        self.assertIn(("find_story", ("https://news.example/article",)), fetchers.calls)
+        self.assertTrue(any(name == "hn" and 50415628 in args for name, args in fetchers.calls))
+        # build reads items.json, so the thread is written back there, and nothing else is.
+        after = json.loads((tree.cache / ISSUE / "items.json").read_text())
+        linked = next(r for r in after["items"] if r.get("id") == row["id"])
+        self.assertEqual(linked["source_url"], "https://news.ycombinator.com/item?id=50415628")
+        self.assertEqual(linked["signals"], {"points": 905, "comments": 497})
+        self.assertEqual([r for r in after["items"] if r.get("id") != row["id"]],
+                         [r for r in before["items"] if r.get("id") != row["id"]])
 
     def test_an_ai_news_row_credited_to_hn_with_no_thread_is_a_news_gist(self):
         row = dict(weekly_hn("hn-weekly-fixture-article-issue-19", "An article HN discussed",

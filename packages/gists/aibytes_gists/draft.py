@@ -81,6 +81,20 @@ def hn_id(item):
     return int(value) if value.isdigit() else None
 
 
+def link_thread(item):
+    """Point a hackernews row that has no thread at the story submitted with
+    its URL: source_url becomes the thread, signals its points and comments.
+    True when one was found. The row is changed in place."""
+    story = hn_thread.find_story(item.get("url") or "")
+    if story is None:
+        return False
+    item["source_url"] = hn_thread.ITEM_URL.format(id=story["id"])
+    signals = {key: story[key] for key in ("points", "comments") if story.get(key) is not None}
+    if signals:
+        item["signals"] = signals
+    return True
+
+
 def repo_of(item):
     path = [p for p in urllib.parse.urlsplit(item.get("url") or "").path.split("/") if p]
     return (path[0], path[1]) if len(path) >= 2 else None
@@ -244,7 +258,7 @@ def _draft_date(date, content_root, data_root, cache_root, ph_token, budget, clo
 def _draft_issue(issue, content_root, data_root, cache_root, ph_token, budget, clock, log):
     """Build and write .cache/gists/issue-N/draft.json from items.json."""
     issue, issue_number = parse_issue(issue)
-    items, _ = load_items(cache_root, issue)
+    items, items_path = load_items(cache_root, issue)
     index = load_index(content_root)
     taken = {entry["slug"] for entry in index.values()}
     ph_by_page = ph_posts_under(data_root)
@@ -262,8 +276,29 @@ def _draft_issue(issue, content_root, data_root, cache_root, ph_token, budget, c
         _classify_item(item, index, taken, seen_keys, new, repeats, skipped,
                        ph_by_page, ph_token, budget, clock, start, log)
 
+    _save_threads(items, items_path)
     result = {"issue": issue, "new": new, "repeats": repeats, "skipped": skipped}
     return _write_draft(result, resolve(cache_root) / issue / "draft.json", issue, log)
+
+
+def _save_threads(items, items_path):
+    """Write back the rows link_thread pointed at a thread, so build reads the
+    same source_url. Only those two fields; X rows stay as written."""
+    linked = {item["id"]: item for item in items if item.get("source") == "hackernews"
+              and item.get("category") == "news" and hn_id(item) is not None}
+    if not linked:
+        return
+    document = json.loads(items_path.read_text())
+    changed = False
+    for row in document["items"]:
+        found = linked.get(row.get("id"))
+        if found and row.get("source_url") != found["source_url"]:
+            row["source_url"] = found["source_url"]
+            if "signals" in found:
+                row["signals"] = found["signals"]
+            changed = True
+    if changed:
+        items_path.write_text(json.dumps(document, indent=2, ensure_ascii=False) + "\n")
 
 
 def _classify_x(item, issue, issue_number, index, taken, seen_keys, new, repeats, skipped, log):
@@ -307,9 +342,10 @@ def _classify_item(item, index, taken, seen_keys, new, repeats, skipped,
         skipped.append({"item_id": item.get("id"), "reason": f"no gist kind for {item.get('source')!r}"})
         return
     if kind == "hn" and item.get("category") == "news" and hn_id(item) is None:
-        # A weekly AI News row credited "(HackerNews)" with no thread: the
-        # article is all there is, so it is a news gist.
-        kind = "news"
+        # A weekly AI News row credited "(HackerNews)" links only the article.
+        # Find its thread by URL; with none, the article is all there is.
+        if not link_thread(item):
+            kind = "news"
     key = gist_contract.source_key(item["source_url"])
     if key in index:
         repeats.append({"item_id": item["id"], "slug": index[key]["slug"]})

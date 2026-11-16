@@ -576,6 +576,35 @@ class TestLaunchMaterial(unittest.TestCase):
         self.assertTrue(got["comments"] and got["comments"][0]["launch"])
 
 
+class TestFindStory(unittest.TestCase):
+    """hn_thread.find_story: the HN thread for an article URL, offline."""
+
+    URL = "https://news.example/article"
+
+    def search(self, payload, status=200):
+        def fetch(url, headers=None, data=None, **_):
+            self.asked = url
+            if status != 200:
+                return http.Response(status, error=f"HTTP {status}")
+            return http.Response(200, {}, json.dumps(payload).encode())
+        with mock.patch.object(http, "fetch", fetch):
+            return hn_thread.find_story(self.URL)
+
+    def test_the_most_pointed_exact_match_wins(self):
+        got = self.search({"hits": [
+            {"objectID": "1", "url": self.URL, "points": 12, "num_comments": 3},
+            {"objectID": "2", "url": self.URL + "/", "points": 905, "num_comments": 497},
+            {"objectID": "3", "url": self.URL + "-other", "points": 2000, "num_comments": 900},
+        ]})
+        self.assertEqual(got, {"id": 2, "points": 905, "comments": 497})
+        self.assertIn("restrictSearchableAttributes=url", self.asked)
+
+    def test_no_exact_match_or_a_failed_search_is_none(self):
+        self.assertIsNone(self.search({"hits": [{"objectID": "3", "url": self.URL + "-other", "points": 5}]}))
+        self.assertIsNone(self.search({"hits": []}))
+        self.assertIsNone(self.search({}, status=503))
+
+
 if __name__ == "__main__":
     unittest.main()
 

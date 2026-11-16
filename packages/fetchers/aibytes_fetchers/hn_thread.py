@@ -16,6 +16,7 @@ from .article import html_to_text, trim
 
 FIREBASE_ITEM = "https://hacker-news.firebaseio.com/v0/item/{id}.json"
 ALGOLIA_ITEM = "https://hn.algolia.com/api/v1/items/{id}"
+ALGOLIA_SEARCH = "https://hn.algolia.com/api/v1/search?{query}"
 ITEM_URL = "https://news.ycombinator.com/item?id={id}"
 
 TOP_COMMENTS = 10
@@ -101,3 +102,25 @@ def hn_thread(item_id, top=TOP_COMMENTS):
     result = thread(story, tree, top)
     result["error"] = "; ".join(errors) or None
     return result
+
+
+def find_story(url):
+    """The Hacker News story submitted with exactly `url`, as {id, points,
+    comments}, or None. When several were submitted, the one with the most
+    points. Never raises: a failed search is None."""
+    import urllib.parse
+    query = urllib.parse.urlencode({"query": url, "restrictSearchableAttributes": "url", "tags": "story"})
+    resp = http.fetch(ALGOLIA_SEARCH.format(query=query))
+    if not resp.ok:
+        return None
+    try:
+        hits = resp.json().get("hits") or []
+    except (ValueError, AttributeError):
+        return None
+    want = url.rstrip("/")
+    hits = [h for h in hits if isinstance(h, dict) and str(h.get("objectID", "")).isdigit()
+            and (h.get("url") or "").rstrip("/") == want]
+    if not hits:
+        return None
+    best = max(hits, key=lambda h: h.get("points") or 0)
+    return {"id": int(best["objectID"]), "points": best.get("points"), "comments": best.get("num_comments")}
