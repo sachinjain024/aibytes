@@ -97,6 +97,15 @@ test("grouped keeps category order, drops empty categories, and keeps rank order
   assert.equal(groups[2].category.label, "HN Threads");
 });
 
+test("a starred x item on /saved gets its own last group, so Grouped and Ranked show the same items", () => {
+  const items = edition({ producthunt: 1, hackernews: 1 });
+  items.push({ id: "x-lab-five-words-issue-19", source: "x", category: "x", hidden: false });
+  const groups = groupedItems(items);
+  assert.deepEqual(groups.map((g) => g.category.key), ["launches", "hn", "x"]);
+  assert.equal(groups[2].category.label, "On X");
+  assert.equal(groups.flatMap((g) => g.items).length, items.length);
+});
+
 test("grouped follows the given order, not the file's", () => {
   const items = edition({ producthunt: 3 });
   [3, 1, 2].forEach((rank, i) => (items[i].rank = rank));

@@ -1,5 +1,5 @@
 import React from "react";
-const NAMES = { producthunt: "Product Hunt", hackernews: "Hacker News", github: "GitHub", techcrunch: "TechCrunch" };
+const NAMES = { producthunt: "Product Hunt", hackernews: "Hacker News", github: "GitHub", techcrunch: "TechCrunch", x: "X" };
 export function SourceMark({ source, size = 40, className = "" }) {
   const r = size * 0.2, title = NAMES[source] || source;
   if (source === "hackernews") return (
@@ -15,6 +15,10 @@ export function SourceMark({ source, size = 40, className = "" }) {
     <svg className={className} width={size} height={size} viewBox="0 0 40 40" role="img" aria-label={title}>
       <rect width="40" height="40" rx="8" fill="#FFF"/><rect x=".5" y=".5" width="39" height="39" rx="7.5" fill="none" stroke="var(--border)"/>
       <g fill="#0A9928"><path d="M7 12h13v5h-4v11H11V17H7z"/><path d="M22 12h11v5h-6v6h6v5H22z"/></g>
+    </svg>);
+  if (source === "x") return (
+    <svg className={className} width={size} height={size} viewBox="0 0 40 40" role="img" aria-label={title}>
+      <g transform="translate(8 8)"><path fill="var(--text)" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></g>
     </svg>);
   return (
     <svg className={className} width={size} height={size} viewBox="0 0 40 40" role="img" aria-label={title}>
