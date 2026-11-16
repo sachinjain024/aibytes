@@ -776,12 +776,12 @@ slug, `Post on X` for the post). Issues 1–18 unchanged. `validate.py`
 allows `source`/`category` `x` only on weekly items.
 
 **Acceptance criteria:**
-- [ ] `tests/test_build_weekly_issues.py`: an issue with gist links builds
+- [x] `tests/test_build_weekly_issues.py`: an issue with gist links builds
       the same items as one with source links, plus `gist`.
-- [ ] A gist href with UTM still resolves. Old issues: no diff.
-- [ ] Missing gist file with a trailing source: item kept, no `gist`.
+- [x] A gist href with UTM still resolves. Old issues: no diff.
+- [x] Missing gist file with a trailing source: item kept, no `gist`.
       Missing file and no other href: non-zero.
-- [ ] Viral and OA rows present with `source` `x` and `{slug}-issue-N`
+- [x] Viral and OA rows present with `source` `x` and `{slug}-issue-N`
       ids, not `slugify(title)`.
 
 **Verification:** that test; `validate.py`. **Dependencies:** T35.

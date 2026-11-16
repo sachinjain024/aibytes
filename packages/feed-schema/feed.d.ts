@@ -130,6 +130,18 @@ export interface EditionItem {
  */
 export type EditionCounts = Record<Category, number>;
 
+/** Weekly issue files may also tally starrable X posts (AIB-145y T36). */
+export type WeeklyCounts = EditionCounts & { x?: number };
+
+/** Weekly items may be `x`; edition items may not. */
+export type WeeklySource = Source | "x";
+export type WeeklyCategory = Category | "x";
+
+export interface WeeklyItem extends Omit<EditionItem, "source" | "category"> {
+  source: WeeklySource;
+  category: WeeklyCategory;
+}
+
 /** One day: `content/editions/YYYY-MM-DD.json`. */
 export interface Edition {
   schema_version: SchemaVersion;
@@ -227,10 +239,10 @@ export interface WeeklyIndex {
 
 /**
  * `content/weekly/issues/issue-N.json` - one weekly issue as an edition-shaped
- * feed: AI News, Products, Repos and HN. The intro, Official Announcements and
- * Viral on X are not carried. Items follow `EditionItem`, except that `id`
- * ends `-issue-{number}` instead of an edition date, and `rank` is the issue's
- * reading order.
+ * feed: AI News, Products, Repos and HN. Official Announcements and Viral on X
+ * are carried from Issue 19 as `source: "x"` items when those rows have a gist
+ * href. Items follow `WeeklyItem`, except that `id` ends `-issue-{number}`
+ * instead of an edition date, and `rank` is the issue's reading order.
  */
 export interface WeeklyIssue {
   schema_version: SchemaVersion;
@@ -241,8 +253,8 @@ export interface WeeklyIssue {
   published_on: string;
   /** UTC timestamp of the last build that changed the issue. */
   generated_at: string;
-  counts: EditionCounts;
-  items: EditionItem[];
+  counts: WeeklyCounts;
+  items: WeeklyItem[];
 }
 
 // ---------------------------------------------------------------------------

@@ -682,6 +682,41 @@ class TestValidateWeeklyIssue(unittest.TestCase):
             contract.validate_weekly_issue(weekly_issue(slug="issue-15"))
         self.assertIn("slug 'issue-15' must be issue-16", str(ctx.exception))
 
+    def test_weekly_items_may_be_source_and_category_x(self):
+        x_item = weekly_item(
+            id="x-alice-i-asked-lab-2-to-issue-16", source="x", category="x",
+            url="https://x.com/alice/status/3", source_url="https://x.com/alice/status/3",
+            gist="x-alice-i-asked-lab-2-to",
+        )
+        issue = weekly_issue(
+            counts={"launches": 0, "repos": 0, "news": 0, "hn": 0, "x": 1},
+            items=[x_item],
+        )
+        self.assertTrue(contract.validate_weekly_issue(issue))
+        issue_no_x_count = weekly_issue(
+            counts={"launches": 0, "repos": 0, "news": 0, "hn": 0},
+            items=[x_item],
+        )
+        self.assertTrue(contract.validate_weekly_issue(issue_no_x_count))
+
+    def test_edition_items_still_reject_source_x(self):
+        with self.assertRaises(contract.FeedValidationError) as ctx:
+            contract.validate_edition(edition(items=[item(source="x")]))
+        self.assertIn("source 'x'", str(ctx.exception))
+
+    def test_edition_counts_still_forbid_x(self):
+        counts = {"launches": 1, "repos": 0, "news": 0, "hn": 0, "x": 0}
+        with self.assertRaises(contract.FeedValidationError) as ctx:
+            contract.validate_edition(edition(counts=counts))
+        self.assertIn("unknown category", str(ctx.exception))
+
+    def test_weekly_counts_x_must_match_the_visible_tally(self):
+        with self.assertRaises(contract.FeedValidationError) as ctx:
+            contract.validate_weekly_issue(weekly_issue(
+                counts={"launches": 1, "repos": 0, "news": 0, "hn": 0, "x": 2},
+                items=[weekly_item()]))
+        self.assertIn("counts.x is 2", str(ctx.exception))
+
 
 class TestValidateWeeklyArchive(unittest.TestCase):
     """content/weekly/ is optional, but once present it must hang together."""
