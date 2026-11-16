@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-16T06:49:54.789Z
+updated_at: 2026-11-16T07:20:50.180Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -142,6 +142,10 @@ added_by:
 - [ ] 12. Wrap-up <!-- longclaw:item=ck_ffffb380 -->
 - [x] 12.1 T37: docs, ticket, by-hand checks <!-- longclaw:item=ck_946eab34 -->
 - [ ] 12.2 P7: publisher's browser checks on aibytes.io <!-- longclaw:item=ck_497e916a -->
+- [ ] 14. favicon (GitHub issue #38, on this branch) <!-- longclaw:item=ck_15e5e8ee -->
+- [x] 14.1 Favicon: white bolt on cobalt (option 1) as favicon.svg, favicon.ico and apple-touch-icon.png, linked from every built page, with a build test <!-- longclaw:item=ck_b64903c5 -->
+- [x] 14.2 Wordmark.prompt.md names the bolt tile as the favicon (was the aB_ tile) <!-- longclaw:item=ck_6adde97b -->
+- [ ] 14.3 P9: publisher checks the tab and bookmark icon on aibytes.io after deploy, then closes #38 <!-- longclaw:item=ck_4e9be923 -->
 ## Activity
 
 <!-- longclaw:event
@@ -1502,4 +1506,112 @@ changes:
 ### Grok Build updated this ticket
 
 T34–T36 landed on aib-145y-newsletter-gist-links (PR #71). T37 docs: CLAUDE.md, packages/gists README and rules, success criteria recorded with how. P6, P7, Checkpoint A and Checkpoint F stay open for the publisher.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_30a3de7e
+kind: update
+occurred_at: 2026-11-16T07:19:51.588Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_15e5e8ee.added
+    to: "13. favicon (GitHub issue #38, on this branch)"
+  - field: checklist.ck_b64903c5.added
+    to: "13.1 Favicon: white bolt on cobalt (option 1) as favicon.svg, favicon.ico and apple-touch-icon.png, linked from every built page, with a build test"
+  - field: checklist.ck_6adde97b.added
+    to: 13.2 Wordmark.prompt.md names the bolt tile as the favicon (was the aB_ tile)
+  - field: checklist.ck_4e9be923.added
+    to: "13.3 P9: publisher checks the tab and bookmark icon on aibytes.io after deploy, then closes #38"
+-->
+### Claude Code updated this ticket
+
+Added item 13: the aibytes.io favicon from GitHub issue #38, which asks for the ⚡ from the wordmark. It ships on this branch at the publisher's request, as its own commit. Options were compared in an artifact; the publisher picked 1, a white bolt on a cobalt tile, drawn as a vector path so it does not depend on each OS's emoji font.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_1a543bc3
+kind: update
+occurred_at: 2026-11-16T07:20:03.838Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_15e5e8ee.text
+    from: "13. favicon (GitHub issue #38, on this branch)"
+    to: "14. favicon (GitHub issue #38, on this branch)"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8c8c2bd0
+kind: update
+occurred_at: 2026-11-16T07:20:03.870Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_b64903c5.text
+    from: "13.1 Favicon: white bolt on cobalt (option 1) as favicon.svg, favicon.ico and apple-touch-icon.png, linked from every built page, with a build test"
+    to: "14.1 Favicon: white bolt on cobalt (option 1) as favicon.svg, favicon.ico and apple-touch-icon.png, linked from every built page, with a build test"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_5518d375
+kind: update
+occurred_at: 2026-11-16T07:20:03.919Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_6adde97b.text
+    from: 13.2 Wordmark.prompt.md names the bolt tile as the favicon (was the aB_ tile)
+    to: 14.2 Wordmark.prompt.md names the bolt tile as the favicon (was the aB_ tile)
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_30d1433b
+kind: update
+occurred_at: 2026-11-16T07:20:03.950Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_4e9be923.text
+    from: "13.3 P9: publisher checks the tab and bookmark icon on aibytes.io after deploy, then closes #38"
+    to: "14.3 P9: publisher checks the tab and bookmark icon on aibytes.io after deploy, then closes #38"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_9dc4d716
+kind: update
+occurred_at: 2026-11-16T07:20:50.180Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_b64903c5.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_6adde97b.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Renumbered the favicon items to 14 (13 was already Outbound links). 14.1 and 14.2 done: the icons are in apps/web/public, linked from every built page and covered by the build test. 14 stays open until P9, the publisher's check on aibytes.io.
 <!-- /longclaw:event -->
