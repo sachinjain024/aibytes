@@ -171,7 +171,7 @@ Primary (accent fill), secondary (border), ghost. One text input style (used for
 Lists available edition dates from the index. Missing days are simply absent, not greyed - there are no fake editions.
 
 ### Footer
-Links to Newsletter, Chrome Extension (or "coming soon + notify me"), GitHub, X, Suggest a link. Inline subscribe field.
+Links to Newsletter, Chrome Extension (or "coming soon + notify me"), GitHub, X, Suggest a link. Inline subscribe field. *Changed 16 Nov 2026:* the shipped sidebar carries Weekly Archive, Advertise and Privacy instead of X and Suggest a link (see the product spec, §6 Navigation links).
 
 ## 6. Screens to produce
 
