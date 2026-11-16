@@ -10,7 +10,7 @@ committed to the repo and served statically — there is no content database.
 | `tags.json` | by hand | The fixed tag vocabulary |
 | `hidden.json` | `hide.py` | The admin hide log |
 | `weekly/index.json` | generate-newsletter-content (AIB-105j) | Index of published weekly issues for `/weekly` |
-| `weekly/issues/issue-N.json` | `build_weekly_issues.py` from issue HTML | Ledger feed for `/weekly/issue-N` (no intro / X sections yet) |
+| `weekly/issues/issue-N.json` | `build_weekly_issues.py` from issue HTML | Ledger feed for `/weekly/issue-N`. From Issue 19, gist title hrefs resolve to `url` / `source_url` / `gist`; Viral on X and Official Announcements land as `source` `x` |
 | `gists/<slug>.json` | the daily run's gists step (AIB-145y) | One gist: a short page about one source item, at `/gists/<slug>` |
 | `gists/index.json` | the same step | Every gist, keyed by its normalised source URL |
 

@@ -790,7 +790,8 @@ allows `source`/`category` `x` only on weekly items.
 
 ### Checkpoint F: newsletter
 
-- [ ] Success criterion 11 passes.
+- [ ] Success criterion 11 passes. (T35/T36 are on PR #71. The first
+      gist-linked issue is P6.)
 
 ## Wrap-up
 
@@ -801,7 +802,14 @@ package READMEs; `.claude/rules/` for gists; the ticket's checklist all
 ticked; the publisher's browser checks on aibytes.io (P7).
 
 **Acceptance criteria:**
-- [ ] All twelve success criteria in the spec are checked off with how.
+- [x] All twelve success criteria in the spec are checked off with how.
+      Nine pass. 8, 9 and 11 record how-so-far and name P7 / Checkpoint A /
+      P6 for the live remainder.
+
+**Done 16 Nov 2026:** layout row and commands in `CLAUDE.md`;
+`.claude/rules/gists.md`; `packages/gists/{README.md,package.json}`;
+feed-schema and `content/` READMEs. Ticket: T34–T36 and T37 ticked. Left
+open for the publisher: P6, P7, Checkpoint A, Checkpoint F.
 
 **Verification:** the full checkpoint list. **Dependencies:** everything.
 **Size:** S.

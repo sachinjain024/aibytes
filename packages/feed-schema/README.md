@@ -52,6 +52,14 @@ python3 packages/feed-schema/hide.py ph-chatcut-2026-08-27 --unhide
 
 Then commit and push; the site redeploys.
 
+## Gists
+
+`content/gists/` is written by `packages/gists`, never by hand. `validate.py`
+checks a gist file, its index entry, and every item that names it. A gist's
+slug never changes once published. Weekly items may carry `source` /
+`category` `x` (Viral on X and Official Announcements); edition items may
+not, and `SOURCES` still equals `registry.names()`.
+
 ## Shapes at a glance
 
 An edition carries `date`, `generated_at`, `counts` (visible items per

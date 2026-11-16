@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-16T06:18:11.173Z
+updated_at: 2026-11-16T06:49:54.789Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -134,13 +134,13 @@ added_by:
 - [x] 10.5 Design sync: the Design System Artifact gets the reaction row beside Save, the sign-in line and its link (components.css) <!-- longclaw:item=ck_6f3d7376 -->
 - [ ] 11. newsletter-gist-links (second PR) <!-- longclaw:item=ck_ca91f71f -->
 - [x] 11.1 T33: newsletter spec <!-- longclaw:item=ck_ba3092dd -->
-- [ ] 11.2 T34: the weekly pull writes gists <!-- longclaw:item=ck_04b7fc12 -->
-- [ ] 11.3 T35: the template and the skill <!-- longclaw:item=ck_16780ddc -->
+- [x] 11.2 T34: the weekly pull writes gists <!-- longclaw:item=ck_04b7fc12 -->
+- [x] 11.3 T35: the template and the skill <!-- longclaw:item=ck_16780ddc -->
 - [ ] 11.4 P6: publisher approves the first issue linking to gists <!-- longclaw:item=ck_e757a406 -->
-- [ ] 11.5 T36: weekly issue pages read gist links <!-- longclaw:item=ck_be9e1656 -->
+- [x] 11.5 T36: weekly issue pages read gist links <!-- longclaw:item=ck_be9e1656 -->
 - [ ] 11.6 Checkpoint F: newsletter <!-- longclaw:item=ck_8604cbbe -->
 - [ ] 12. Wrap-up <!-- longclaw:item=ck_ffffb380 -->
-- [ ] 12.1 T37: docs, ticket, by-hand checks <!-- longclaw:item=ck_946eab34 -->
+- [x] 12.1 T37: docs, ticket, by-hand checks <!-- longclaw:item=ck_946eab34 -->
 - [ ] 12.2 P7: publisher's browser checks on aibytes.io <!-- longclaw:item=ck_497e916a -->
 ## Activity
 
@@ -1475,4 +1475,31 @@ changes:
 ### claude-code updated this ticket
 
 P8 done 16 Nov 2026: aibytes.io verified in Search Console; sitemap.xml submitted, status Success, 125 pages discovered.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e9e66dd3
+kind: update
+occurred_at: 2026-11-16T06:49:54.789Z
+actor:
+  type: agent
+  id: grok-build
+  name: Grok Build
+changes:
+  - field: checklist.ck_04b7fc12.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_16780ddc.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_be9e1656.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_946eab34.checked
+    from: "false"
+    to: "true"
+-->
+### Grok Build updated this ticket
+
+T34–T36 landed on aib-145y-newsletter-gist-links (PR #71). T37 docs: CLAUDE.md, packages/gists README and rules, success criteria recorded with how. P6, P7, Checkpoint A and Checkpoint F stay open for the publisher.
 <!-- /longclaw:event -->

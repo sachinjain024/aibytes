@@ -1,7 +1,8 @@
 # Spec: gists, a summary page for each item (AIB-145y)
 
-Status: **approved 12 Nov 2026.** Nothing is built yet. This is the product
-spec and the capability map; the plan and the module specs follow.
+Status: **approved 12 Nov 2026.** Built through T36 (PR #65 launched the
+daily gists; PR #71 is newsletter gist-links). This is the product spec and
+the capability map; the plan and the module specs follow.
 Ticket: `.longclaw/tickets/AIB-145y/ticket.md`.
 Intent confirmed with the publisher on 2026-11-12 (the ticket's Statement of
 intent).
@@ -369,29 +370,59 @@ in the UI. The JSON above shows the naming.
 
 ## Success criteria
 
-1. From launch day, every visible item in every daily edition has a `gist`,
+Checked 16 Nov 2026 (T37). Publisher leftovers: P6 (first gist-linked issue),
+P7 (signed-in reactions and Umami dashboard on aibytes.io).
+
+1. [x] From launch day, every visible item in every daily edition has a `gist`,
    and `https://aibytes.io/gists/<slug>` returns 200 for each.
-2. With JavaScript off, a gist page shows its title, lede, key points and
+   *How:* editions 2026-11-13, 14 and 15 (launch and the two days after) have
+   a `gist` on every visible item (32, 32, 28). Live
+   `https://aibytes.io/gists/gh-caveman` returns 200.
+2. [x] With JavaScript off, a gist page shows its title, lede, key points and
    source links, and carries a canonical URL, Open Graph tags and structured
    data.
-3. `sitemap.xml` lists every published gist and no hidden one.
-4. Clicking a card on a daily or weekly page opens the panel with the same
+   *How:* T26 built-site check on 149 rehearsal gists. Live `gh-caveman` HTML
+   (curl, no JS) has `<title>`, canonical, `og:title`, JSON-LD, lede, key
+   points and Source.
+3. [x] `sitemap.xml` lists every published gist and no hidden one.
+   *How:* 72 gists on disk (66 `full`, 6 `brief`). Live `sitemap.xml` lists
+   66 `/gists/` URLs, matching the `full` set. `brief` gists are `noindex`.
+4. [x] Clicking a card on a daily or weekly page opens the panel with the same
    content as the page; Back closes it.
-5. A gist page links to every edition and issue the item appeared in, and
+   *How:* T28 (daily, 14 Nov, real 2026-11-13 content) and T29 (weekly fixture
+   of issue 17).
+5. [x] A gist page links to every edition and issue the item appeared in, and
    each of those cards links to the gist.
-6. An item that appears on three days has one gist and one URL.
-7. A reader can star from the page and the panel, and the star shows on the
+   *How:* `validate.py` checks appearances ↔ item `gist`. `gh-open-code-review`
+   appears on 13, 14 and 15 Nov under one slug.
+6. [x] An item that appears on three days has one gist and one URL.
+   *How:* the same `gh-open-code-review` row: three edition items, one file,
+   `https://aibytes.io/gists/gh-open-code-review`.
+7. [x] A reader can star from the page and the panel, and the star shows on the
    card and on `/saved`.
-8. A signed-in reader can add and remove each of the eight reactions; counts
+   *How:* T26 (page → `/saved` and the card) and T28 (`/saved` opens the panel
+   with the save on).
+8. [ ] A signed-in reader can add and remove each of the eight reactions; counts
    are visible to everyone.
-9. The publisher can see, per gist and per day, how many visits it had and
+   *How so far:* T31 emulator (25 cases) and T32 store tests; signed-out bar
+   draws on the live project. Signed-in press, reload and a second browser
+   are P7.
+9. [ ] The publisher can see, per gist and per day, how many visits it had and
    whether they came from the newsletter, a social post, search or the site.
-10. A daily run where gist writing fails still publishes the edition, and
+   *How so far:* Umami tag on every built page (T2); Search Console property
+   and sitemap submit (P8). Dashboard views are Checkpoint A / P7.
+10. [x] A daily run where gist writing fails still publishes the edition, and
     Slack names the failure.
-11. Every item in a weekly issue links to a gist, and the issue page on
+    *How:* `tests/test_runner.py` — the gists step reverts and warns; the
+    edition still publishes.
+11. [ ] Every item in a weekly issue links to a gist, and the issue page on
     aibytes.io still builds from the issue HTML.
-12. In a seven-edition rehearsal, the publisher reads the gists and would
+    *How so far:* T35 (F2 hrefs in the template and `x_render`) and T36
+    (builder resolves gist hrefs; Issues 1–18 rebuild unchanged). The first
+    gist-linked issue is P6.
+12. [x] In a seven-edition rehearsal, the publisher reads the gists and would
     link to them without edits.
+    *How:* P4, Checkpoint C, 13 Nov 2026 (149 new gists, 0 failed).
 
 ## Risks
 
