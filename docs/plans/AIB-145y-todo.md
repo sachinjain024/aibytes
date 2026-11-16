@@ -840,9 +840,10 @@ Issue 18 HTML as sent is unchanged. Ticket items 15–15.4.
 - [x] 15.2 `items.json` from `issue-18.json`; `gists draft --issue issue-18`
       found 14 new and 8 repeats; Claude wrote the prose; `gists build`.
 - [x] 15.3 All 22 items carry a gist (14 new, 8 repeats). Four of them are
-      AI News articles credited "(HackerNews)" with no HN thread. A `news`
-      gist may now come from `hackernews`, and `gists draft` makes such a
-      row a `news` gist, so the article is read. Three are full; Nvidia is
-      brief, because its page gave the site's chrome, not the article.
+      AI News articles credited "(HackerNews)" whose row links only the
+      article. `gists draft` now finds each one's HN thread by URL, so they
+      are `hn` gists filed under news, with a Discussion section: Goldman,
+      United and Apple are new, and Nvidia reuses its 15 Nov daily gist. A
+      row with no thread on HN still gets a `news` gist from the article.
 - [x] 15.4 P10: the publisher checks `/weekly/issue-18`, then the ticket
       closes.

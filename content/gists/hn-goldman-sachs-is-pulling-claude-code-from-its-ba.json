@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "slug": "hn-goldman-sachs-is-pulling-claude-code-from-its-ba",
-  "kind": "news",
+  "kind": "hn",
   "title": "Goldman Sachs is pulling Claude Code from its bankers and traders",
   "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
-  "source_url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
+  "source_url": "https://news.ycombinator.com/item?id=50415628",
   "source": "hackernews",
   "category": "news",
   "tags": [],
@@ -25,15 +25,46 @@
       ]
     },
     {
-      "key": "why_it_matters",
-      "text": "Coding agents run with the user's own access. On a trading floor, code that skips review and ignores information barriers is a compliance risk, so expect regulated firms to tie agent use to who can review the result."
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "The top view: an agent on a workstation with client data, email and internet access is one prompt injection away from a leak, so banks are right to pull it.",
+          "url": "https://news.ycombinator.com/item?id=50416595"
+        },
+        {
+          "stance": "theme",
+          "text": "Some suspect an operational loss, since traders are the ones who can send orders and the agent would run under their account.",
+          "url": "https://news.ycombinator.com/item?id=50416452"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "Others say cost drives such cutbacks: usage billing keeps overrunning budgets, and flat-rate rivals win the non-engineering seats.",
+          "url": "https://news.ycombinator.com/item?id=50416136"
+        },
+        {
+          "stance": "theme",
+          "text": "Several compare agent-built tools to sprawling Excel macros that end up in a critical path nobody supports; a reply disputes the comparison.",
+          "url": "https://news.ycombinator.com/item?id=50416287"
+        },
+        {
+          "stance": "theme",
+          "text": "Commenters note the timing, weeks before the Anthropic IPO Goldman is leading, and point to Bloomberg as the original source.",
+          "url": "https://news.ycombinator.com/item?id=50416089"
+        }
+      ]
     }
   ],
   "links": [
     {
       "role": "destination",
-      "title": "Goldman Sachs is pulling Claude Code from its bankers and traders",
+      "title": "Goldman Sachs Is Pulling Claude Code From Its Bankers and Traders | State of AI",
       "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers"
+    },
+    {
+      "role": "discussion",
+      "title": "Goldman Sachs is pulling Claude Code from its bankers and traders",
+      "url": "https://news.ycombinator.com/item?id=50415628"
     }
   ],
   "appearances": [
@@ -42,6 +73,11 @@
       "issue_slug": "issue-18"
     }
   ],
-  "created_at": "2026-11-16T08:47:53Z",
-  "updated_at": "2026-11-16T08:47:53Z"
+  "created_at": "2026-11-16T09:30:18Z",
+  "updated_at": "2026-11-16T09:30:18Z",
+  "stats": {
+    "points": 905,
+    "comments": 497
+  },
+  "stats_as_of": "2026-11-16T09:30:18Z"
 }
