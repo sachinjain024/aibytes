@@ -362,9 +362,11 @@ class BuildTree:
         self.content = self.root / "content"
         shutil.copytree(REPO_ROOT / "content", self.content,
                         ignore=shutil.ignore_patterns("gists"))
-        # The copy has no gists, so editions that already carry a `gist` (the daily
-        # runs since launch) would not validate: the fixture starts gist-free.
-        for path in (self.content / "editions").glob("*.json"):
+        # The copy has no gists, so editions and weekly issues that already carry a
+        # `gist` (the daily runs since launch, Issue 18's backfill) would not
+        # validate: the fixture starts gist-free.
+        for path in [*(self.content / "editions").glob("*.json"),
+                     *(self.content / "weekly" / "issues").glob("*.json")]:
             edition = json.loads(path.read_text())
             if any("gist" in it for it in edition["items"]):
                 for it in edition["items"]:

@@ -826,3 +826,22 @@ commit. Ticket items 14–14.3.
 - [x] 14.2 `Wordmark.prompt.md` says the favicon is the bolt tile, not `aB_`.
 - [ ] 14.3 P9: the publisher checks the tab and bookmark icon on aibytes.io
       after deploy, then closes #38.
+
+## Issue 18 backfill
+
+Added 16 Nov 2026 at the publisher's request. It is an exception to the
+newsletter spec's no-backfill rule, and only the weekly page changes: the
+Issue 18 HTML as sent is unchanged. Ticket items 15–15.4.
+
+- [x] 15.1 `gists build --issue` sets `gist` on an existing weekly issue
+      file in the same validated write, and `build_weekly_issues.py` keeps
+      that link from the gist's `issue_slug` appearance when the HTML has no
+      gist href (`69cf896`).
+- [x] 15.2 `items.json` from `issue-18.json`; `gists draft --issue issue-18`
+      found 14 new and 8 repeats; Claude wrote the prose; `gists build`.
+- [x] 15.3 18 of 22 items carry a gist (10 new, 8 repeats). The other four
+      are AI News articles credited "(HackerNews)" with no HN thread. An
+      `hn` gist needs a thread, and a `news` gist must come from TechCrunch,
+      so the contract has no kind for them and they ship without a gist.
+- [ ] 15.4 P10: the publisher checks `/weekly/issue-18`, then the ticket
+      closes.
