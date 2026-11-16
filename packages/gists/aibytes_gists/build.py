@@ -299,7 +299,14 @@ def build(date=None, gists_path=None, content_root=DEFAULT_CONTENT_ROOT, cache_r
         raise BuildError("gists.json must have a `gists` object keyed by item id")
 
     edition = None
+    weekly_issue, weekly_items = None, {}
     if issue is not None:
+        # A backfill (Issue 18): the weekly file already exists, so its items
+        # must point back at the gists this run writes, or validate.py refuses.
+        weekly_path = root / "weekly" / "issues" / f"{issue}.json"
+        if weekly_path.exists():
+            weekly_issue = _read(weekly_path)
+            weekly_items = {item["id"]: item for item in weekly_issue.get("items") or []}
         rows, _ = draft_mod.load_items(cache_root, issue)
         items = {row["id"]: row for row in rows if row.get("id")}
         for entry in (draft.get("new") or []) + (draft.get("repeats") or []):
@@ -344,6 +351,8 @@ def build(date=None, gists_path=None, content_root=DEFAULT_CONTENT_ROOT, cache_r
                         "path": f"gists/{entry['slug']}.json", "created_at": now})
         if edition is not None:
             item["gist"] = entry["slug"]
+        if item_id in weekly_items:
+            weekly_items[item_id]["gist"] = entry["slug"]
         report["written"].append(entry["slug"])
         if gist["depth"] == "brief":
             report["brief"].append(entry["slug"])
@@ -360,6 +369,8 @@ def build(date=None, gists_path=None, content_root=DEFAULT_CONTENT_ROOT, cache_r
             issue_slug=issue, post=repeat.get("post"))
         if edition is not None:
             item["gist"] = repeat["slug"]
+        if repeat["item_id"] in weekly_items:
+            weekly_items[repeat["item_id"]]["gist"] = repeat["slug"]
         report["updated"].append(repeat["slug"])
 
     label = issue or date
@@ -378,6 +389,8 @@ def build(date=None, gists_path=None, content_root=DEFAULT_CONTENT_ROOT, cache_r
         _write(target / "gists" / "index.json", index)
         if edition is not None:
             _write(target / "editions" / f"{date}.json", edition)
+        if weekly_issue is not None:
+            _write(target / "weekly" / "issues" / f"{issue}.json", weekly_issue)
 
     with tempfile.TemporaryDirectory() as tmp:
         staged = pathlib.Path(tmp) / "content"

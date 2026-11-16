@@ -606,7 +606,8 @@ def weekly_hn(item_id, title, url, hn_id="50443999"):
 class WeeklyTree:
     """Real content/ plus a weekly items.json under a temp cache."""
 
-    def __init__(self, test, items):
+    def __init__(self, test, items, issue=ISSUE):
+        self.issue = issue
         self.tmp = tempfile.TemporaryDirectory()
         test.addCleanup(self.tmp.cleanup)
         self.root = pathlib.Path(self.tmp.name)
@@ -614,26 +615,26 @@ class WeeklyTree:
         shutil.copytree(REPO_ROOT / "content", self.content)
         build_mod.copy_weekly_sources(REPO_ROOT / "content", self.root)
         self.cache = self.root / "cache"
-        folder = self.cache / ISSUE
+        folder = self.cache / issue
         folder.mkdir(parents=True)
-        (folder / "items.json").write_text(json.dumps({"issue_slug": ISSUE, "items": items}))
+        (folder / "items.json").write_text(json.dumps({"issue_slug": issue, "items": items}))
         self.items = items
 
     def draft(self, **kw):
         kw.setdefault("ph_token", "tok")
         kw.setdefault("log", lambda line: None)
-        return draft_mod.draft(issue=ISSUE, content_root=self.content,
+        return draft_mod.draft(issue=self.issue, content_root=self.content,
                                data_root=self.root / "data", cache_root=self.cache, **kw)
 
     def write_gists(self, written):
-        folder = self.cache / ISSUE
+        folder = self.cache / self.issue
         folder.mkdir(parents=True, exist_ok=True)
         (folder / "gists.json").write_text(json.dumps({"gists": written}))
 
     def build(self, **kw):
         kw.setdefault("now", "2026-11-16T12:00:00Z")
         kw.setdefault("log", lambda line: None)
-        return build_mod.build(issue=ISSUE, content_root=self.content, cache_root=self.cache, **kw)
+        return build_mod.build(issue=self.issue, content_root=self.content, cache_root=self.cache, **kw)
 
     def gist(self, slug):
         return json.loads((self.content / "gists" / f"{slug}.json").read_text())
@@ -793,5 +794,45 @@ class TestCopying(unittest.TestCase):
         self.assertEqual(copying.copied(text, source), "")
 
 
+class TestWeeklyBackfill(unittest.TestCase):
+    """Issue 18 was sent before gist links. Its weekly file already exists, so
+    build must make its items point back, and a rebuild must keep them."""
+
+    def setUp(self):
+        issue = json.loads((REPO_ROOT / "content" / "weekly" / "issues" / "issue-18.json").read_text())
+        hn = [item for item in issue["items"] if item["category"] == "hn"][:2]
+        self.ids = [item["id"] for item in hn]
+        self.tree = WeeklyTree(self, [{k: v for k, v in item.items() if k != "gist"} for item in hn], issue="issue-18")
+
+    def _weekly(self):
+        return json.loads((self.tree.content / "weekly" / "issues" / "issue-18.json").read_text())
+
+    def test_build_points_existing_weekly_items_at_their_gists_and_a_rebuild_keeps_them(self):
+        with Fetchers(thread=dict(THREAD, comments=COMMENTS)):
+            draft = self.tree.draft()
+        written = {e["item_id"]: {"depth": "full", "lede": lede(e["kind"]), "sections": good_sections(e["kind"])}
+                   for e in draft["new"]}
+        self.tree.write_gists(written)
+        self.tree.build()
+        by_id = {item["id"]: item for item in self._weekly()["items"]}
+        slugs = {item_id: by_id[item_id].get("gist") for item_id in self.ids}
+        for item_id, slug in slugs.items():
+            self.assertIsInstance(slug, str, item_id)
+            self.assertIn({"item_id": item_id, "issue_slug": "issue-18"}, self.tree.gist(slug)["appearances"])
+        self.assertTrue(contract.validate_content_root(self.tree.content))
+
+        # The weekly builder rebuilds every issue from its HTML, which for
+        # Issue 18 has no gist hrefs. The links come back from the gists.
+        sys.path.insert(0, str(REPO_ROOT / "packages" / "feed-schema"))
+        import build_weekly_issues as weekly
+        entry = next(e for e in json.loads((self.tree.content / "weekly" / "index.json").read_text())["issues"]
+                     if e["slug"] == "issue-18")
+        html = (REPO_ROOT / entry["source"]).read_text(encoding="utf-8")
+        rebuilt = weekly.build_issue(html, entry, content_root=self.tree.content)
+        again = {item["id"]: item.get("gist") for item in rebuilt["items"]}
+        for item_id, slug in slugs.items():
+            self.assertEqual(again[item_id], slug)
+
 if __name__ == "__main__":
     unittest.main()
+

@@ -127,6 +127,30 @@ def resolve_gist_title(blob: str, title_href: str, content_root, log) -> tuple[s
     return others[0], None, None
 
 
+def gists_by_appearance(content_root, issue_slug: str) -> dict[str, str]:
+    """item id -> gist slug, for gists with an appearance in this issue.
+
+    Issues sent before gist links (Issue 18 was backfilled) have no gist href
+    in their HTML. `gists build --issue` records the link on the gist instead,
+    so a rebuild keeps it rather than dropping it.
+    """
+    if content_root is None:
+        return {}
+    folder = pathlib.Path(content_root) / "gists"
+    found = {}
+    if not folder.is_dir():
+        return found
+    for path in sorted(folder.glob("*.json")):
+        if path.name == "index.json":
+            continue
+        gist = load_gist(content_root, path.stem)
+        for appearance in (gist or {}).get("appearances") or []:
+            if isinstance(appearance, dict) and appearance.get("issue_slug") == issue_slug \
+                    and isinstance(appearance.get("item_id"), str):
+                found[appearance["item_id"]] = path.stem
+    return found
+
+
 def strip_tags(text: str) -> str:
     text = re.sub(r"<br\s*/?>", " ", text, flags=re.I)
     text = re.sub(r"<[^>]+>", "", text)
@@ -379,6 +403,10 @@ def extract_items(html: str, issue_num: int, content_root=None, log=None) -> lis
                 items.extend(row_items(body, issue_num, category, source, content_root, log))
                 break
     ids.unique_weekly_ids([item for item in items if item.get("source") != "x"])
+    linked = gists_by_appearance(content_root, f"issue-{issue_num}")
+    for item in items:
+        if "gist" not in item and item["id"] in linked:
+            item["gist"] = linked[item["id"]]
     # Rank is the issue's reading order.
     for rank, item in enumerate(items, start=1):
         item["rank"] = rank
