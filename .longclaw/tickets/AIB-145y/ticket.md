@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-16T05:21:24.816Z
+updated_at: 2026-11-16T06:18:11.173Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -120,7 +120,7 @@ added_by:
 - [x] 8.2 T24: route and page head <!-- longclaw:item=ck_888ec84a -->
 - [x] 8.3 T25: static gist pages, sitemap, robots <!-- longclaw:item=ck_6752a869 -->
 - [x] 8.4 T26: the gist page in the app <!-- longclaw:item=ck_a4ea4223 -->
-- [ ] 8.5 P8: publisher verifies aibytes.io in Google Search Console (DNS TXT) and submits sitemap.xml <!-- longclaw:item=ck_556cd1e6 -->
+- [x] 8.5 P8: publisher verifies aibytes.io in Google Search Console (DNS TXT) and submits sitemap.xml <!-- longclaw:item=ck_556cd1e6 -->
 - [x] 9. app-gist-panel <!-- longclaw:item=ck_5670b0bb -->
 - [x] 9.1 T27: panel spec <!-- longclaw:item=ck_68012185 -->
 - [x] 9.2 T28: a card's title opens the panel <!-- longclaw:item=ck_7f55640b -->
@@ -1458,4 +1458,21 @@ changes:
 ### Grok Build updated this ticket
 
 16 Nov 2026, T33 newsletter spec approved with all three recommendations (two orange Substack links, source/category x on weekly items, HN Deep title linked to the gist). Spec: docs/specs/AIB-145y-newsletter-gist-links.md. PR #71.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_a999015b
+kind: update
+occurred_at: 2026-11-16T06:18:11.173Z
+actor:
+  type: agent
+  id: claude-code
+changes:
+  - field: checklist.ck_556cd1e6.checked
+    from: "false"
+    to: "true"
+-->
+### claude-code updated this ticket
+
+P8 done 16 Nov 2026: aibytes.io verified in Search Console; sitemap.xml submitted, status Success, 125 pages discovered.
 <!-- /longclaw:event -->
