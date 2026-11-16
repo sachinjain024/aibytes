@@ -768,18 +768,25 @@ artifact note records the one-colour mapping.
 ### T36: weekly issue pages read gist links
 
 **Description:** Per the spec: `build_weekly_issues.py` resolves
-`aibytes.io/gists/<slug>` title hrefs (UTM ignored) through the gist file
-to `url`, `source_url` and `gist`. Issues 1–18 unchanged. X rows land in
-the issue JSON (`source`/`category` `x`, chips stay four).
+`aibytes.io/gists/<slug>` hrefs (UTM ignored, slug must match `SLUG_RE`)
+through the gist file to `url`, `source_url` and `gist`. A missing file
+keeps the row from trailing source links. Viral on X and Official
+Announcements are parsed from the HTML (opening-words / `Gist ↗` for the
+slug, `Post on X` for the post). Issues 1–18 unchanged. `validate.py`
+allows `source`/`category` `x` only on weekly items.
 
 **Acceptance criteria:**
 - [ ] `tests/test_build_weekly_issues.py`: an issue with gist links builds
       the same items as one with source links, plus `gist`.
 - [ ] A gist href with UTM still resolves. Old issues: no diff.
+- [ ] Missing gist file with a trailing source: item kept, no `gist`.
+      Missing file and no other href: non-zero.
+- [ ] Viral and OA rows present with `source` `x` and `{slug}-issue-N`
+      ids, not `slugify(title)`.
 
 **Verification:** that test; `validate.py`. **Dependencies:** T35.
-**Size:** S. **Files:** `build_weekly_issues.py`, edition schema and
-`feed.d.ts` if Decide 2, tests.
+**Size:** S. **Files:** `build_weekly_issues.py`, `validate.py`,
+`feed.d.ts`, tests.
 
 ### Checkpoint F: newsletter
 

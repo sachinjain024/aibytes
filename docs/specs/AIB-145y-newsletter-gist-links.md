@@ -116,11 +116,18 @@ write an appearance:
 }
 ```
 
-`id` uses the same function `build_weekly_issues.py` uses today
-(`{prefix}-{slugify(title)}-issue-{N}`, clashes get `-2` before the
-suffix), moved to a shared helper so T34 and T36 cannot drift. An X
-post's id is the contract's X slug plus `-issue-N`:
-`x-anthropicai-applications-are-now-open-for-issue-19`.
+`id` for news, launches, repos and HN uses the same function
+`build_weekly_issues.py` uses today (`{prefix}-{slugify(title)}-issue-{N}`,
+clashes get `-2` before the suffix), moved to a shared helper so T34 and
+T36 cannot drift.
+
+An X post's id is **not** `slugify(title)`. It is the contract's X gist
+slug (`x-` + handle in lower case without `@` + the first five words of
+the post text, plus `-2` if that slug was taken) with `-issue-N`
+appended: `x-anthropicai-applications-are-now-open-for-issue-19`. T34
+writes that id. T36 rebuilds it as `{slug}-issue-{N}` from the gist
+href's slug, never from the title string (`@handle` plus five words),
+so a title edit cannot mint a second id.
 
 `post` is the snapshot object from `x_data.json` (the fields `build`
 already copies into a preview). The script does not re-read the snapshot
@@ -231,22 +238,38 @@ applied.
 
 ## The weekly builder (T36)
 
-`build_weekly_issues.py` already walks each row's `<b><a href>`. After
-T35 that href is a gist. The builder:
+`build_weekly_issues.py` reads the **issue HTML** (the index entry's
+`source`). It does not read `items.json`; that file is git-ignored and
+will not exist in CI or on another machine.
 
-1. Parses the title href. If it is `https://aibytes.io/gists/<slug>`
-   (query string ignored, `www.` ignored, trailing slash ignored), that
-   slug is `item.gist`.
+A gist href is `https://aibytes.io/gists/<slug>` (optional `www.`,
+optional trailing slash, query string ignored). Before any file is
+read, `<slug>` must match `SLUG_RE` and be at most `GIST_SLUG_MAX`
+(80), the same check `validate.py` uses for `item.gist`. A href that
+looks like a gist but fails that check is treated as an ordinary URL
+(step 4). That is what keeps `content/gists/<slug>.json` from seeing
+`..`, a slash, or any other path fragment.
+
+For news, launches, repos and HN Deep, it still walks each row's
+`<b><a href>`. After T35 that href is a gist. The builder:
+
+1. Parses the title href. If it is a gist href whose slug passed the
+   check above, that slug is the candidate `item.gist`.
 2. Loads `content/gists/<slug>.json`. `item.url` is the gist's
    `destination` link if it has one, else its `url`. `item.source_url`
    is the `discussion` link if it has one, else `source_url`.
-3. If the gist file is missing, the row is skipped with a stderr warning
-   and the rest of the issue still builds; `validate.py` then fails the
-   run if a `gist` field points at nothing, so the skill does not commit
-   a broken tree.
+3. If the href is a valid gist slug but the file is missing: **keep the
+   row** (do not skip, do not set `gist`). Recover `url` and
+   `source_url` from the other http(s) hrefs in the row — the trailing
+   `.src` link, the HN thread, the Product Hunt launch, the GitHub repo
+   — the same way step 4 already does when the title is not the
+   destination. Print a stderr warning. If the row has no other http(s)
+   href, the builder exits non-zero: it must not store a gist URL as
+   `item.url`, and it must not drop the item from `/weekly/issue-N`.
 4. If the title href is **not** a gist (Issues 1–18, and any row whose
-   weekly gist failed), behaviour is unchanged: `item.url` is that href,
-   `source_url` from the trailing HN/PH link as today, no `gist` field.
+   weekly gist failed, so the skill left today's source as the title),
+   behaviour is unchanged: `item.url` is that href, `source_url` from
+   the trailing HN/PH link as today, no `gist` field.
 
 HN Deep in the issue HTML has a gist title and a trailing thread link.
 The builder prefers the gist file over guessing from remaining hrefs, so
@@ -256,39 +279,78 @@ items.
 A fixture issue whose titles are gist links must build the same `url`,
 `source_url`, `source` and `category` as the same issue written with
 today's source titles, plus `gist`. Issues 1–18 rebuild with no diff.
+A fixture row with a gist href, no file, and a trailing source link
+keeps the item, with that source as `url` and no `gist`. A fixture row
+with a gist href, no file, and no other href exits non-zero.
 
 ### X posts and announcements in the issue file **(Decide 2, settled 16 Nov 2026)**
 
 The parent module says X posts and announcements become starrable. A
 save needs an item in an edition or issue file. T36 **adds** those rows
-to `content/weekly/issues/issue-N.json`.
+to `content/weekly/issues/issue-N.json`, parsed from the issue HTML.
+Today the builder skips Official Announcements and Viral on X; after
+T35 those sections have gist hrefs in known slots, and that is what T36
+reads.
 
-That needs a contract addition, because today's item requires `source`
-in the four fetchers and `category` in the four chips:
+| Section | Where the gist href is | Where the post URL is | Title |
+|---|---|---|---|
+| Viral on X | The opening-words link (`a.post` after T35). The `@handle` link stays the profile. | The trailing `(X)` / `Post on X` href. | The `@handle` text plus the opening words, as shown |
+| Official Announcements | The footer's `Gist ↗` (first of `.oa-links`) | `Post on X ↗` | The company name in `.oa-by` |
+
+For each of those rows:
+
+1. Take the slug from the gist href (same `SLUG_RE` check as above).
+2. If `content/gists/<slug>.json` exists, `item.gist` is that slug,
+   `item.url` and `item.source_url` are the gist's `url` (the post),
+   `item.summary` is `preview.text` cut at `SUMMARY_MAX`, and
+   `item.id` is `{slug}-issue-{N}` — the slug from the href, not
+   `slugify(title)`.
+3. If the gist href is present but the file is missing: keep the row,
+   no `gist`, `url` / `source_url` = the post URL from the table above,
+   `summary` from the visible words, `id` still `{slug}-issue-{N}` from
+   the href. Stderr warning. If there is no post URL either, exit
+   non-zero.
+4. Issues 1–18 have no gist href in these sections, so they still
+   contribute no X items (no diff).
 
 | Field | Value |
 |---|---|
-| `id` | the X id from T34 |
-| `title` | `@handle` plus the first five words, or the company name for an announcement |
+| `id` | `{gist slug}-issue-{N}`, never `slugify(title)` |
+| `title` | `@handle` plus the opening words, or the company name for an announcement |
 | `summary` | the preview text, cut at `SUMMARY_MAX` |
 | `url` / `source_url` | the post |
 | `source` | `x` |
 | `category` | `x` |
-| `gist` | the preview slug |
+| `gist` | the preview slug, when the file exists |
 | `hidden` | `false` |
 | `tags` | `[]` |
 | `image` | `{ "type": "none" }` |
 
-`counts` on the issue file gains `x` (append-only). The weekly page's
+`counts` on the issue file may gain `x` (append-only). The weekly page's
 chip list stays the four it has: launches, repos, news, hn. Items with
 `category: "x"` are omitted from those lists and have no chip. They exist
 so a gist page can star them and so `validate.py` can check the
 appearance's `item_id`.
 
-`source: "x"` is **weekly-only**. Edition items still refuse it.
-`packages/fetchers` does not gain an `x` source. The test that
-`SOURCES == registry.names()` stays about the fetchers; the item `source`
-enum in the schema becomes that list plus `x`.
+**How `x` is allowed on weekly items and refused on editions.** Weekly
+issue files are not `edition.schema.json`: their item ids end in
+`-issue-N`, which that schema's date-suffix pattern already rejects, and
+`validate.py` checks them through `validate_weekly_issue` /
+`_item_problems(..., issue_number=N)`. `edition.schema.json` keeps
+today's four-value `source` and `category` enums and a `counts` object
+with `additionalProperties: false` and the four required keys. T36 does
+not add `x` there.
+
+T36 changes `validate.py` (and `feed.d.ts` for the weekly item type):
+
+- `_item_problems`: when `issue_number` is set, `source` and `category`
+  may be `x`. When it is not (an edition item), `x` is still an error.
+- `_counts_problems`: edition `counts` stays the four keys, nothing
+  else. Weekly `counts` still requires the four; `x` is optional, and
+  when present it is an int ≥ 0 that matches the visible `category: "x"`
+  tally. Old issue files with no `counts.x` stay valid.
+- `SOURCES == registry.names()` is unchanged: it is about fetchers.
+  `packages/fetchers` does not gain an `x` source.
 
 ## Commands
 
@@ -311,10 +373,10 @@ checkpoint.
 packages/gists/aibytes_gists/cli.py          --issue on draft and build
 packages/gists/aibytes_gists/draft.py        weekly items.json, x_post preview
 packages/gists/aibytes_gists/build.py        issue_slug appearances; preview copy
-packages/feed-schema/build_weekly_issues.py  gist href → url, source_url, gist
+packages/feed-schema/build_weekly_issues.py  gist href → url, source_url, gist; X/OA rows
 packages/feed-schema/item_id.py              shared id helper (new, from the builder)
-packages/feed-schema/edition.schema.json     source/category `x`; issue counts.x
-packages/feed-schema/feed.d.ts               the same
+packages/feed-schema/validate.py             weekly-only source/category `x`; optional counts.x
+packages/feed-schema/feed.d.ts               WeeklyItem may be `x`; EditionItem may not
 packages/fetchers/aibytes_fetchers/x_render.py
 .claude/skills/generate-newsletter-content/SKILL.md
 .claude/skills/generate-newsletter-content/assets/template.html
@@ -350,15 +412,17 @@ Issue HTML row, AI News, after T35:
 | T35 issue HTML | A fixture issue: every news / products / GitHub / HN title href is a gist URL with the three UTM tags; each has a trailing source link without UTM; a missing gist keeps the source as the title href. |
 | T35 X | `x_items.py render` (issue HTML and Substack) puts the gist URL where the table says and keeps the post's words verbatim. `verify` accepts that shape. |
 | T35 Substack | `tests/test_substack_export.py` reads the new hrefs out of a fixture issue and checks the layout file's rules (HN title linked, Viral handle → gist, trailing Post on X). |
-| T36 | An issue whose titles are gist links builds the same items as one whose titles are source links, plus `gist`. Issues 1–18: no diff. A gist href with UTM still resolves. X rows present. |
-| Contract | `source: "x"` accepted on a weekly item, rejected on an edition item; `counts.x` required on new issue files, absent on old ones still valid **or** always present at 0 — pick in T36 so old files do not break: **absent is valid, present is an int ≥ 0** (append-only, old issues stay). |
+| T36 | An issue whose titles are gist links builds the same items as one whose titles are source links, plus `gist`. Issues 1–18: no diff. A gist href with UTM still resolves. A gist href whose file is missing keeps the row from trailing source links, no `gist`; with no other href it exits non-zero. Viral and OA rows parse from the HTML table above. A `..` or non-`SLUG_RE` gist path is not read as a file. |
+| Contract | `source: "x"` accepted on a weekly item (`issue_number` set in `_item_problems`), rejected on an edition item. `counts.x` absent is valid on old issue files; present is an int ≥ 0 that matches the visible `x` tally. Edition `counts` still forbids unknown keys. |
 
 ## Boundaries
 
 - **Always:** look up by `source_key` before writing a gist; keep source
   links free of `utm_*` and `ref`; keep Issues 1–18 building; run
   `validate.py` before committing `content/`; leave the daily runner
-  alone; X preview text comes from the snapshot, never from Claude.
+  alone; X preview text comes from the snapshot, never from Claude;
+  match a gist href's slug against `SLUG_RE` before reading
+  `content/gists/<slug>.json`.
 - **Ask first:** a new dependency; switching an already-sent issue's live
   Substack post over to gist links; a second UTM shape; putting gist
   links in the intro. `source: "x"` / `category: "x"` on weekly items is
@@ -413,8 +477,10 @@ Unchanged in count (T34, T35, T36, P6). Reshaped in files:
   and Substack formats), `substack-layout.md`, `substack_export.py` if
   the parser needs the new trailing links, verifier, a dated artifact
   note. P6 on the first real issue.
-- **T36** — gist href resolution; Decide 2's schema addition (`source` /
-  `category` `x` on weekly items).
+- **T36** — gist href resolution from the issue HTML (including Viral
+  and OA); slug check before the file read; missing-file fallback;
+  `validate.py` allows `source` / `category` `x` only when
+  `issue_number` is set.
 
 ## Not in this spec
 
