@@ -116,3 +116,13 @@ and the screens report "Ledger bundle not compiled yet".
   (32 components). Added `GistView`, `GistPanel`, `ReactionBar` and `SavedNote`
   with previews; `Card` and `ListRow` gained `front`; `SaveBanner` copy changed.
   Artifact version 10. The kit screens 16-18 are not synced (components only).
+- 2026-11-16 (AIB-145y, T32, PR #70): synced from `aib-145y-reactions@98482b3` with
+  `artifact/build.mjs` (32 components). Artifact version 14. The only changed file in
+  substance is `components/bundle.css`: `.gist-linkbtn` and `.gist-react-note`, the new
+  rules for the reaction row's feedback line (the row itself, Save beside the bar, is
+  app markup in `GistActions`, not a Ledger component). No component props changed. The
+  index's `lastChange` was set in full (`by`, `at`, `via`, `note`). Read back from the
+  Artifact: `bundle.css` has both rules. Not checked: the previews were not rendered in a
+  browser. Published from `file_path` = the index and `root` = the scratch dir (the tool
+  refuses `files` without a `file_path`), and the scratch dir must sit in the session's
+  own scratchpad folder.

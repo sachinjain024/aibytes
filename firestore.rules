@@ -5,8 +5,9 @@ rules_version = '2';
 // users/{uid}/saves, and every document written is exactly a save. They
 // subscribe themselves once at subscribers/{uid}, with their verified email,
 // and can read that one document back. Everything else is closed, including
-// alert_limits, which only a function may touch. Tested on the emulator by
-// apps/web/rules.test.js; deployed by hand:
+// alert_limits, which only a function may touch. Gist reactions (spec
+// AIB-145y-app-reactions) are at the foot of this file. Tested on the emulator by
+// apps/web/rules.test.js and apps/web/reactions.rules.test.js; deployed by hand:
 //   firebase deploy --only firestore:rules --project <project-id>
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -46,6 +47,92 @@ service cloud.firestore {
     match /subscribers/{uid} {
       allow get: if isOwner(uid);
       allow create: if isOwner(uid) && isSubscriber(request.resource.data);
+    }
+
+    // Gist reactions (spec AIB-145y-app-reactions). A reader holds a set of the
+    // eight reactions on a gist in gist_reactions/{slug}/by/{uid} ({picked,
+    // updated_at}), readable only by them. The public totals are numbers only, in
+    // gist_reaction_counts/{slug}, and move only in the same batched write as
+    // the reader's own one-key change. A missing document is a value here, not an
+    // error: no counts document is eight zeros, no reader document the empty set.
+    function isGoogle() {
+      return request.auth != null && request.auth.token.firebase.sign_in_provider == 'google.com';
+    }
+
+    function isSlug(slug) {
+      return slug.size() <= 80 && slug.matches('^[a-z0-9]+(-[a-z0-9]+)*$');
+    }
+
+    function reactionKeys() {
+      return ['plus1', 'minus1', 'laugh', 'hooray', 'confused', 'heart', 'rocket', 'eyes'];
+    }
+
+    // Exactly picked (1 to 8 of the eight, no repeats) and updated_at (this write's time).
+    function isReaderDoc(d) {
+      return d.keys().hasOnly(['picked', 'updated_at']) && d.keys().hasAll(['picked', 'updated_at'])
+        && d.picked is list && d.picked.size() >= 1 && d.picked.size() <= 8
+        && d.picked.hasOnly(reactionKeys()) && d.picked.toSet().size() == d.picked.size()
+        && d.updated_at == request.time;
+    }
+
+    // Exactly the eight integer counts, none below zero.
+    function isCountsDoc(d) {
+      return d.keys().hasOnly(reactionKeys()) && d.keys().hasAll(reactionKeys())
+        && d.plus1 is int && d.plus1 >= 0 && d.minus1 is int && d.minus1 >= 0
+        && d.laugh is int && d.laugh >= 0 && d.hooray is int && d.hooray >= 0
+        && d.confused is int && d.confused >= 0 && d.heart is int && d.heart >= 0
+        && d.rocket is int && d.rocket >= 0 && d.eyes is int && d.eyes >= 0;
+    }
+
+    function readerPath(slug) {
+      return /databases/$(database)/documents/gist_reactions/$(slug)/by/$(request.auth.uid);
+    }
+    function countsPath(slug) {
+      return /databases/$(database)/documents/gist_reaction_counts/$(slug);
+    }
+    function pickedBefore(slug) {
+      return exists(readerPath(slug)) ? get(readerPath(slug)).data.picked : [];
+    }
+    function pickedAfter(slug) {
+      return existsAfter(readerPath(slug)) ? getAfter(readerPath(slug)).data.picked : [];
+    }
+    function zeroCounts() {
+      return {'plus1': 0, 'minus1': 0, 'laugh': 0, 'hooray': 0, 'confused': 0, 'heart': 0, 'rocket': 0, 'eyes': 0};
+    }
+
+    // One count after the write: before, +1 if the reader added `k`, -1 if they removed it.
+    function moved(before, after, added, removed, k) {
+      return after[k] == before[k] + (added.hasAll([k]) ? 1 : 0) - (removed.hasAll([k]) ? 1 : 0);
+    }
+
+    // The reader changes their set by exactly one key, and the counts move by exactly that.
+    // Everything is bound once with let: the rules allow only 1000 expressions a request.
+    function countsFollowReader(slug) {
+      let was = pickedBefore(slug).toSet();
+      let now = pickedAfter(slug).toSet();
+      let added = now.difference(was);
+      let removed = was.difference(now);
+      let before = exists(countsPath(slug)) ? get(countsPath(slug)).data : zeroCounts();
+      let after = getAfter(countsPath(slug)).data;
+      return existsAfter(countsPath(slug)) && added.size() + removed.size() == 1
+        && moved(before, after, added, removed, 'plus1') && moved(before, after, added, removed, 'minus1')
+        && moved(before, after, added, removed, 'laugh') && moved(before, after, added, removed, 'hooray')
+        && moved(before, after, added, removed, 'confused') && moved(before, after, added, removed, 'heart')
+        && moved(before, after, added, removed, 'rocket') && moved(before, after, added, removed, 'eyes');
+    }
+
+    match /gist_reactions/{slug}/by/{uid} {
+      allow get: if isOwner(uid);
+      allow create, update: if isOwner(uid) && isGoogle() && isSlug(slug)
+                            && isReaderDoc(request.resource.data) && countsFollowReader(slug);
+      allow delete: if isOwner(uid) && isGoogle() && isSlug(slug) && countsFollowReader(slug);
+    }
+
+    match /gist_reaction_counts/{slug} {
+      allow get: if true;
+      allow create, update: if isSlug(slug) && isGoogle()
+                            && isCountsDoc(request.resource.data) && countsFollowReader(slug);
+      allow delete: if false;
     }
   }
 }

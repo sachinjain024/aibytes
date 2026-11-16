@@ -220,3 +220,5 @@ body.gist-resizing{cursor:col-resize;user-select:none}
 .gist-save{display:inline-flex;align-items:center;height:32px;padding:0 12px 0 4px;border:var(--border-w) solid var(--control-border);border-radius:999px}
 .gist-save--on .ldg-star{color:var(--save)}
 .gist-save-label{padding:0;border:0;background:none;color:var(--text);font:500 var(--text-13) var(--font-body);cursor:pointer}
+.gist-linkbtn{padding:0;border:0;background:none;color:var(--link);font:inherit;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.gist-react-note{margin:0;color:var(--text-2);font:400 var(--text-12) var(--font-body)}

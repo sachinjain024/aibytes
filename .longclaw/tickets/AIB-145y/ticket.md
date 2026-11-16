@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-11-11T17:57:27.265Z
-updated_at: 2026-11-14T23:03:27.449Z
+updated_at: 2026-11-16T03:12:07.528Z
 ---
 
 Every item aiBytes_ covers gets a gist: a short page on aibytes.io that explains the item at a glance. The same content also opens in the right panel from the daily and weekly pages.
@@ -115,10 +115,11 @@ added_by:
 - [x] 9.3 T29: weekly pages and the panel event <!-- longclaw:item=ck_5577bc09 -->
 - [ ] 9.4 Checkpoint E: launch-ready; PR #65 squash-merged 13 Nov (gists live in the daily run), PR #68 (panel, T27-T29) still to squash-merge <!-- longclaw:item=ck_fc76f81a -->
 - [ ] 10. app-reactions (second PR) <!-- longclaw:item=ck_6684cc60 -->
-- [ ] 10.1 T30: reactions spec <!-- longclaw:item=ck_30babd49 -->
-- [ ] 10.2 T31: rules and emulator tests <!-- longclaw:item=ck_6d757e54 -->
-- [ ] 10.3 P5: publisher deploys the Firestore rules <!-- longclaw:item=ck_7173a9bc -->
+- [x] 10.1 T30: reactions spec <!-- longclaw:item=ck_30babd49 -->
+- [x] 10.2 T31: rules and emulator tests <!-- longclaw:item=ck_6d757e54 -->
+- [x] 10.3 P5: publisher deploys the Firestore rules <!-- longclaw:item=ck_7173a9bc -->
 - [ ] 10.4 T32: reactions in the app <!-- longclaw:item=ck_759600ee -->
+- [x] 10.5 Design sync: the Design System Artifact gets the reaction row beside Save, the sign-in line and its link (components.css) <!-- longclaw:item=ck_6f3d7376 -->
 - [ ] 11. newsletter-gist-links (second PR) <!-- longclaw:item=ck_ca91f71f -->
 - [ ] 11.1 T33: newsletter spec <!-- longclaw:item=ck_ba3092dd -->
 - [ ] 11.2 T34: the weekly pull writes gists <!-- longclaw:item=ck_04b7fc12 -->
@@ -1200,4 +1201,142 @@ changes:
     to: "9.4 Checkpoint E: launch-ready; PR #65 squash-merged 13 Nov (gists live in the daily run), PR #68 (panel, T27-T29) still to squash-merge"
 -->
 ### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f7078146
+kind: update
+occurred_at: 2026-11-15T12:54:59.929Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_30babd49.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ad7a12ed
+kind: update
+occurred_at: 2026-11-15T12:54:59.953Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_6684cc60.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_c3e2a1b1
+kind: update
+occurred_at: 2026-11-15T12:55:07.103Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_6684cc60.checked
+    from: "true"
+    to: "false"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_09c29867
+kind: update
+occurred_at: 2026-11-15T14:54:07.856Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_6d757e54.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_aa90e3ea
+kind: update
+occurred_at: 2026-11-15T16:07:31.735Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_7173a9bc.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_64f2b8f8
+kind: update
+occurred_at: 2026-11-16T02:58:49.481Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_6f3d7376.added
+    to: "10.5 Design sync: the Design System Artifact gets the reaction row beside Save, the sign-in line and its link (components.css)"
+-->
+### Claude Code updated this ticket
+
+16 Nov 2026, design change (the publisher, after trying T32): (1) a signed-out press no longer opens Google. It shows 'Please sign in to add your reaction. Sign in' under the row, in the style of the saved line, and the Sign in link opens the prompt. (2) The Save button and the reaction bar share one row. The spec (Decide 2, Display, Pressing signed out) and the T32 plan note are updated. The Design System Artifact needs a sync for it: item 10.5.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_573c2037
+kind: update
+occurred_at: 2026-11-16T02:58:49.529Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_6f3d7376.moved
+    from: "66"
+    to: "56"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_b2cae5b7
+kind: update
+occurred_at: 2026-11-16T03:12:07.528Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_6f3d7376.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_0231b5dd
+kind: comment
+occurred_at: 2026-11-16T03:41:53.066Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+16 Nov 2026, PR #70 review round (Grok 4.6 on 98482b3, plus Antigravity on b507e46): addressed in b3116ab, report at https://github.com/sachinjain024/aibytes/pull/70#issuecomment-6906643410. Fixed: public totals kept across sign-in/out; two new rules tests (two keys in one write, a swap), mutation-checked against firestore.rules:117; GistActions markup tests and a tested pure planPress; the Ledger REACTIONS test no longer compares the table with itself; signed-out store test reads a real count; spec T32 browser row follows the sign-in line. Not changed: the PR title and body (needs the publisher's go-ahead) and a visible 'counts unavailable' state (a spec decision). Tests: web 195, emulator 69, design-system 90, build ok. Still open on T32 (item 10.4): the signed-in browser pass (press, reload, second browser, panel, 375px, dark). Pushed 4630774 (design-sync log, Artifact version 14) with it.
 <!-- /longclaw:event -->

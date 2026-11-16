@@ -23,13 +23,16 @@ import { GistActions } from "./GistActions.jsx";
 // dark-mode reader's page light until mount. The pre-paint script on <html> owns
 // the theme until then.
 //
+// `reactions` is the client's useReactions result; it is left out on the server and
+// the first client render, so the reaction row appears after mount.
+//
 // `headerProps` is what AppHeader gets for the account; an empty object, as on
 // the server, shows neither Sign in nor an avatar, the same as while Firebase
 // restores the session.
-export function GistPage({ gist, more = [], theme = "light", shellTheme, onToggleTheme = () => {}, headerProps = {}, banner = null, saved = new Set(), onToggleSave = () => {}, showSubscribe = true }) {
+export function GistPage({ gist, more = [], theme = "light", shellTheme, onToggleTheme = () => {}, headerProps = {}, banner = null, saved = new Set(), onToggleSave = () => {}, reactions, showSubscribe = true }) {
   const back = backLink(gist);
   const own = saved.has(gist.appearances[0]?.item_id);
-  const actions = <GistActions saved={own} onToggle={() => onToggleSave(gist.appearances[0].item_id)} />;
+  const actions = <GistActions saved={own} onToggle={() => onToggleSave(gist.appearances[0].item_id)} reactions={reactions} />;
   return (
     <div className="app-shell redesign" data-theme={shellTheme}>
       <a className="app-skip" href="#main">Skip to the gist</a>

@@ -630,17 +630,43 @@ is needed (ask first if so).
 
 **Verification:** the publisher approves. **Dependencies:** T26. **Size:** S.
 
+**Done 15 Nov 2026:** spec approved with all three recommendations: counts in
+their own public document (`gist_reaction_counts/{slug}`) and each reader's set
+private (`gist_reactions/{slug}/by/{uid}`), written in one batch; a signed-out
+press asks for sign-in and applies nothing; several emoji per reader. No Cloud
+Function. T31 must prove the `getAfter()` counts rule on the emulator first; if it
+cannot, stop and ask before the fall-back.
+
 ### T31: rules and emulator tests
 
-**Description:** `firestore.rules` for reactions; emulator tests: signed out
-cannot write, one reader cannot write another's, only the eight emoji,
-counts readable by anyone.
+**Description:** `firestore.rules` for reactions, from the approved spec's rules
+section (`docs/specs/AIB-145y-app-reactions.md`); emulator tests for every case it
+lists: signed out and non-Google cannot write; a reader cannot read or write
+another's; only the eight keys, no duplicate; exact fields on both documents
+(`hasOnly`) and `updated_at == request.time`; counts move only by the reader's own
+one-key change, never alone, never by two, never below 0; counts cannot be deleted;
+two readers add up and a delete subtracts; anyone can `get` counts and nobody can
+`list`. A missing counts or reader document counts as zeros or the empty set (the
+first reaction and the last removal pass); an empty `picked` is refused. The
+`getAfter()` rule is proved first.
 
 **Acceptance criteria:**
 - [ ] `npm run test:rules -w @aibytes/web` covers each rule.
-- [ ] Rules deployed by the publisher (P5).
+- [x] Rules deployed by the publisher (P5).
 
 **Verification:** the rules tests. **Dependencies:** T30. **Size:** S.
+
+**Done 15 Nov 2026:** rules at the foot of `firestore.rules`; 25 emulator cases in
+`apps/web/reactions.rules.test.js`, added to `test:rules` (47 pass in all). The tests
+send the exact batch the spec gives for T32 (`set` or `delete` of the reader document,
+the counts document `merge`d with `increment`), so they prove the rules accept what the
+app will write. The `getAfter()` rule is expressible, including the first reaction (no
+counts document) and the last removal (reader document deleted). One thing the spec
+did not say: the rules are capped at 1000 expressions a request, so the counts check
+binds everything once with `let`; the first version, which recomputed the reader's set
+per key, hit the cap. Mutation-checked: weakening the counts check, the counts delete,
+the Google check, `updated_at` or the duplicate check each fails its own test. Deployed by the
+publisher on 15 Nov 2026 (P5): `firebase deploy --only firestore:aibytes:rules`, released.
 
 ### T32: reactions in the app
 
@@ -654,6 +680,30 @@ update, sign-in ask when signed out) wired into the page and the panel.
 
 **Verification:** web tests; dev server against the real project.
 **Dependencies:** T31. **Size:** M.
+
+**Built 16 Nov 2026, not yet done** (browser check open). `reactionKeys.js` (the eight
+keys, `pressed`, and the `barProps` adapter, no Firebase so it stays out of the first
+paint), `reactions.js` (the store: `load` never rejects, `toggle` is one batch of
+`increment`s and does nothing until `mine` has loaded), `useReactions` in `hooks.js`
+(optimistic press, undo with the spec's line, signed-out press calls sign-in and applies
+nothing, one write at a time), `GistActions` takes `reactions`, the page draws it after
+mount only, the panel gets it from `App.jsx`, one sentence on `/privacy`, two CSS rules
+in `components.css`. `reactions.test.js`: the key table, `pressed`, `barProps` (a signed-in
+👍 with total 1 shows 1, not 2) and, on the emulator, the store under the real rules:
+63 pass in `test:rules`, 184 in `npm test` (after the PR #70 review of `98482b3`: 69 and 195), the design-system 90 and the Python
+design-system suite pass, `build:web` builds and the built gist page has no reaction
+markup. Not covered by a test: the hook's undo-on-refusal (the store's refusal is tested, the
+screen's undo is not). The press decision is now the pure `planPress` (tested) and
+`GistActions` has markup tests via `loadJsx.js`.
+Checked in a browser, signed out, on the dev server against the real project: the bar
+draws with eight unpressed buttons and no error line. Not checked: a signed-in press,
+reload, a second browser, the panel, 375px, dark theme (the browser connection dropped).
+
+**Design change 16 Nov 2026 (the publisher, after trying it):** a signed-out press no
+longer opens Google; it shows "Please sign in to add your reaction. Sign in" under the
+row, in the saved line's style, and the Sign in link opens Google. The Save button and
+the reaction bar share one row. Spec updated; the Design System Artifact needs a sync
+for the two new rules in `components.css` (ticket item 10.5).
 
 ## Module 9: `newsletter-gist-links`
 
