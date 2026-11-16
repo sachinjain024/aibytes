@@ -247,6 +247,13 @@ class TestKindAgreement(unittest.TestCase):
         self.assertTrue(problems(hn_gist(category="news")))
         self.assertTrue(problems(launch_gist(category="hn")))
 
+    def test_a_news_gist_may_come_from_hackernews_but_an_hn_gist_not_from_techcrunch(self):
+        # Weekly AI News rows credited "(HackerNews)" have no thread, only the article.
+        self.assertEqual(problems(news_gist(source="hackernews")), [])
+        self.assertTrue(problems(news_gist(source="github")))
+        self.assertTrue(problems(news_gist(source="hackernews", category="hn")))
+        self.assertTrue(problems(hn_gist(source="techcrunch")))
+
     def test_show_hn_is_an_hn_gist_filed_under_launches(self):
         # curate puts Show HN and Launch HN in launches (adapters.from_hackernews).
         self.assertEqual(problems(hn_gist(category="launches")), [])

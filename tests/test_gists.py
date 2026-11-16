@@ -684,6 +684,22 @@ class TestWeeklyDraft(unittest.TestCase):
         self.assertTrue(any(name == "hn" for name, _ in fetchers.calls))
         self.assertEqual(json.loads((tree.cache / ISSUE / "draft.json").read_text()), result)
 
+    def test_an_ai_news_row_credited_to_hn_with_no_thread_is_a_news_gist(self):
+        row = dict(weekly_hn("hn-weekly-fixture-article-issue-19", "An article HN discussed",
+                             "https://news.example/article"),
+                   category="news", source_url="https://news.example/article", signals={})
+        thread = weekly_hn("hn-weekly-fixture-thread-issue-19", "A real thread",
+                           "https://babuschk.example/thread")
+        tree = WeeklyTree(self, [row, thread])
+        with Fetchers() as fetchers:
+            result = tree.draft()
+        by_id = {e["item_id"]: e for e in result["new"]}
+        self.assertEqual(by_id[row["id"]]["kind"], "news")
+        self.assertEqual(by_id[row["id"]]["depth"], "full")
+        self.assertIn("article", by_id[row["id"]]["material"])
+        self.assertEqual(by_id[thread["id"]]["kind"], "hn")
+        self.assertTrue(any(name == "article" and "news.example" in str(args) for name, args in fetchers.calls))
+
     def test_ph_posts_under_later_path_wins(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = pathlib.Path(tmp)

@@ -306,6 +306,10 @@ def _classify_item(item, index, taken, seen_keys, new, repeats, skipped,
     if kind is None:
         skipped.append({"item_id": item.get("id"), "reason": f"no gist kind for {item.get('source')!r}"})
         return
+    if kind == "hn" and item.get("category") == "news" and hn_id(item) is None:
+        # A weekly AI News row credited "(HackerNews)" with no thread: the
+        # article is all there is, so it is a news gist.
+        kind = "news"
     key = gist_contract.source_key(item["source_url"])
     if key in index:
         repeats.append({"item_id": item["id"], "slug": index[key]["slug"]})
