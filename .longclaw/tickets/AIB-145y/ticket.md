@@ -1326,3 +1326,17 @@ changes:
 -->
 ### Claude Code updated this ticket
 <!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_0231b5dd
+kind: comment
+occurred_at: 2026-11-16T03:41:53.066Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+16 Nov 2026, PR #70 review round (Grok 4.6 on 98482b3, plus Antigravity on b507e46): addressed in b3116ab, report at https://github.com/sachinjain024/aibytes/pull/70#issuecomment-6906643410. Fixed: public totals kept across sign-in/out; two new rules tests (two keys in one write, a swap), mutation-checked against firestore.rules:117; GistActions markup tests and a tested pure planPress; the Ledger REACTIONS test no longer compares the table with itself; signed-out store test reads a real count; spec T32 browser row follows the sign-in line. Not changed: the PR title and body (needs the publisher's go-ahead) and a visible 'counts unavailable' state (a spec decision). Tests: web 195, emulator 69, design-system 90, build ok. Still open on T32 (item 10.4): the signed-in browser pass (press, reload, second browser, panel, 375px, dark). Pushed 4630774 (design-sync log, Artifact version 14) with it.
+<!-- /longclaw:event -->
