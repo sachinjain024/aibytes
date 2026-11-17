@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "slug": "tc-jordan-belforts-new-ai-voice-startup-tone-wants",
+  "kind": "news",
+  "title": "Jordan Belfort’s new AI voice startup, Tone, wants to sell like the ‘Wolf of Wall Street’",
+  "url": "https://techcrunch.com/2026/11/16/jordan-belforts-new-ai-voice-startup-tone-wants-to-sell-like-the-wolf-of-wall-street/",
+  "source_url": "https://techcrunch.com/2026/11/16/jordan-belforts-new-ai-voice-startup-tone-wants-to-sell-like-the-wolf-of-wall-street/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Voice / Speech"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/11/Jordan-Belfort.jpeg?resize=1200,675"
+  },
+  "depth": "full",
+  "lede": "Tone, a startup from Jordan Belfort and Shervin Pishevar, builds AI sales voices that choose a persuasive tonality for each moment of a call, and is now opening a self-serve audiobook narration product.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Belfort says the voices draw on about 15 tonalities from his sales training, and that when to use each is patented.",
+        "Tone runs its own small models rather than frontier ones to keep response latency near 600 milliseconds.",
+        "Customers include law firms, health insurers, polling and auto firms; it calls only opted-in leads or existing customers.",
+        "Belfort puts revenue at roughly $700,000 to $1 million and funding at about $10 million.",
+        "Voice cloning needs a live recording and signed consent; TechCrunch notes it could not verify the technology's claims."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "Tone shows the trade of model size for latency in real-time voice agents, and the consent and robocall rules any outbound AI calling product has to work within."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Jordan Belfort’s new AI voice startup, Tone, wants to sell like the ‘Wolf of Wall Street’",
+      "url": "https://techcrunch.com/2026/11/16/jordan-belforts-new-ai-voice-startup-tone-wants-to-sell-like-the-wolf-of-wall-street/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-jordan-belforts-new-ai-voice-startup-tone-wants-2026-11-16",
+      "edition_date": "2026-11-16"
+    }
+  ],
+  "created_at": "2026-11-17T05:59:03Z",
+  "updated_at": "2026-11-17T05:59:03Z"
+}

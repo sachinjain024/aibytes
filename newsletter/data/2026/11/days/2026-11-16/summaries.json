@@ -1,0 +1,129 @@
+{
+  "date": "2026-11-16",
+  "items": {
+    "ph-rakazo-2-2026-11-16": {
+      "summary": "Self-hosted open source bots, each with its own memory, routines and computer, plus a browser you can watch and take over; any model, your own keys, on web, desktop and mobile.",
+      "tags": ["Open Source", "Agents", "Launch"]
+    },
+    "ph-frevana-multiplayer-2026-11-16": {
+      "summary": "Adds shared team workspaces to Frevana's agent apps for finding customers and making content, so teammates join by link and reuse each other's agents and skills.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-zoom-slides-2026-11-16": {
+      "summary": "Builds editable decks from Zoom meeting transcripts, summaries and documents, with layouts, visuals and speaker notes, shared editing and PowerPoint export.",
+      "tags": ["Launch"]
+    },
+    "ph-boost-space-agentos-2026-11-16": {
+      "summary": "Workspace for deploying specialized agents that share context, skills and tools, controlled by chat or voice, with access to 1,400+ models and 1,500+ existing tools.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-openbot-3-2026-11-16": {
+      "summary": "Modular, self-hostable agent workspace from CopilotKit with built-in governance; bring any agent, pick its models, tools and infra, then run it as-is or white-label it.",
+      "tags": ["Open Source", "Agents", "Launch"]
+    },
+    "gh-univer-2026-11-16": {
+      "summary": "TypeScript office SDK for embedding document editing, calculation, collaboration and file processing in your own product, usable by both people and AI agents, on an open core.",
+      "tags": ["Open Source", "Framework", "Agents"]
+    },
+    "gh-claude-bughunter-2026-11-16": {
+      "summary": "82 Claude Code skills and 15 slash commands for bug bounty and external red-team work, built on 681 disclosed-report patterns across 24 vulnerability classes.",
+      "tags": ["Claude Code", "Security", "Open Source"]
+    },
+    "gh-open-code-review-2026-11-16": {
+      "summary": "Go reviewer pairing deterministic pipelines with an LLM agent for line-level comments, with built-in rules for NPE, thread-safety, XSS and SQL injection.",
+      "tags": ["Dev Tool", "Code Gen", "Open Source"]
+    },
+    "gh-skillevaluator-2026-11-16": {
+      "summary": "Python framework that scores agent skills and plugins through quality gates, semantic overlap checks, synthetic eval sets, and live runs measuring how a skill changes agent behavior.",
+      "tags": ["Framework", "Eval", "Agents", "Nvidia"]
+    },
+    "gh-chrome-devtools-mcp-2026-11-16": {
+      "summary": "MCP server from the Chrome DevTools team that exposes Chrome DevTools to coding agents, written in TypeScript.",
+      "tags": ["MCP", "Dev Tool", "Agents"]
+    },
+    "gh-claude-trading-skills-2026-11-16": {
+      "summary": "Claude Code skills for equity investors covering market analysis, technical charting, economic calendars, stock screeners and trading strategy development.",
+      "tags": ["Claude Code", "Agents"]
+    },
+    "gh-stitch-skills-2026-11-16": {
+      "summary": "Google Labs skill library for the Stitch MCP server, packaged to the Agent Skills open standard so it loads in Antigravity, Gemini CLI, Claude Code and Cursor.",
+      "tags": ["MCP", "Agents", "Google"]
+    },
+    "gh-ffmpeg-skill-2026-11-16": {
+      "summary": "42 local FFmpeg tools behind a machine-readable contract and MCP server, letting Claude Code, Cursor or Codex cut, caption, reframe and adjust loudness with no cloud.",
+      "tags": ["Video", "MCP", "Dev Tool"]
+    },
+    "gh-paper-orchestra-2026-11-16": {
+      "summary": "Google Research multi-agent framework, in Python, that automates writing AI research papers.",
+      "tags": ["Framework", "Agents", "Google"]
+    },
+    "gh-last30days-skill-2026-11-16": {
+      "summary": "Agent skill that searches Reddit, X, YouTube, HN, Polymarket and the open web on a topic, then writes a grounded summary from what it found.",
+      "tags": ["Agents"]
+    },
+    "tc-fbi-says-artex-ai-open-source-hacking-tool-used-2026-11-16": {
+      "summary": "The FBI links the open source tool to cyberattacks on a U.S. IT giant and on South Korea's financial industry.",
+      "tags": ["Security", "Open Source"]
+    },
+    "tc-us-tightens-ai-chip-export-controls-to-deter-2026-11-16": {
+      "summary": "An interim rule requires licenses to export AI chips to any firm that may provide compute to China or other restricted countries, targeting remote access.",
+      "tags": ["Policy"]
+    },
+    "tc-cybersecurity-ai-startup-corma-reaches-1b-2026-11-16": {
+      "summary": "A $125M Series A led by NEA sets the valuation, three months after the AI security startup introduced its product.",
+      "tags": ["Funding", "Security"]
+    },
+    "tc-all-the-questions-nvidia-should-answer-on-2026-11-16": {
+      "summary": "Preview of Nvidia's third-quarter results on Tuesday and the open questions facing interim CEO and longtime CFO Colette Kress as the company deals with turmoil.",
+      "tags": ["Nvidia"]
+    },
+    "tc-california-state-ag-sues-openai-over-rogue-2026-11-16": {
+      "summary": "One of the first attempts to hold an AI lab legally accountable for an agent going rogue, brought by California's attorney general.",
+      "tags": ["Legal", "OpenAI", "Agents"]
+    },
+    "tc-trump-says-ex-nvidia-ceo-jensen-huangs-affair-2026-11-16": {
+      "summary": "The statement contradicts U.S. intelligence officials, who reportedly concluded that Alice Huang is a Chinese spy.",
+      "tags": ["Nvidia"]
+    },
+    "tc-sam-altman-on-nvidia-without-jensen-huang-the-2026-11-16": {
+      "summary": "OpenAI's CEO acknowledged Huang's special role in the AI boom but expects the industry to carry on without him running Nvidia.",
+      "tags": ["Nvidia", "OpenAI"]
+    },
+    "tc-jordan-belforts-new-ai-voice-startup-tone-wants-2026-11-16": {
+      "summary": "Belfort claims Tone's AI sales voice already closes deals nearly as well as top human salespeople and expects it to match them within a year.",
+      "tags": ["Voice / Speech"]
+    },
+    "tc-openai-will-embed-safety-researchers-to-2026-11-16": {
+      "summary": "Six Apollo Research evaluators will test OpenAI models for subversive behavior, though limits on their access and disclosure raise questions about their independence.",
+      "tags": ["Safety", "OpenAI", "Eval"]
+    },
+    "tc-openai-releases-a-new-image-classifier-and-2026-11-16": {
+      "summary": "Alongside the classifier, ChatGPT now bans an account that tries to access CSAM for 24 hours as a warning.",
+      "tags": ["OpenAI", "Vision", "Policy"]
+    },
+    "hn-all-ai-generated-code-should-be-open-source-2026-11-16": {
+      "summary": "Essay on Jakub Jankiewicz's personal blog arguing that code produced with AI should be released as open source.",
+      "tags": ["Open Source", "Code Gen"]
+    },
+    "hn-understanding-positional-embeddings-in-modern-2026-11-16": {
+      "summary": "Explainer in Sebastian Raschka's newsletter on how modern LLMs encode token position.",
+      "tags": ["LLM", "Deep Dive"]
+    },
+    "hn-strengthening-the-fight-against-online-child-2026-11-16": {
+      "summary": "OpenAI's own post on its child-safety work, the announcement behind today's new image classifier and 24-hour ChatGPT bans for CSAM access attempts.",
+      "tags": ["OpenAI", "Policy"]
+    },
+    "hn-who-is-hiring-postings-stuck-near-12-year-lows-2026-11-16": {
+      "summary": "HN Trends' November tally of the monthly Hacker News hiring thread, tracking job posts near 12-year lows and the share of listings that involve AI.",
+      "tags": ["Deep Dive"]
+    },
+    "hn-how-billions-in-safe-insurance-money-is-being-2026-11-16": {
+      "summary": "New York Times report on insurers putting billions in conservatively managed money into AI-related debt.",
+      "tags": ["Funding"]
+    },
+    "hn-parents-pay-75k-for-alpha-s-ai-school-half-of-2026-11-16": {
+      "summary": "Fortune report on Alpha School's AI-led model, where tuition runs $75k, and its finding that half the students missed their math learning goals.",
+      "tags": ["Deep Dive"]
+    }
+  }
+}

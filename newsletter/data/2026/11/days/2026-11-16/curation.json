@@ -1,0 +1,712 @@
+{
+  "date": "2026-11-16",
+  "generated_at": "2026-11-17T05:54:57Z",
+  "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
+  "tags": [
+    {
+      "name": "What it is",
+      "tags": [
+        {
+          "name": "Model Release",
+          "slug": "model-release"
+        },
+        {
+          "name": "Open Source",
+          "slug": "open-source"
+        },
+        {
+          "name": "Paper",
+          "slug": "paper"
+        },
+        {
+          "name": "Benchmark",
+          "slug": "benchmark"
+        },
+        {
+          "name": "Dataset",
+          "slug": "dataset"
+        },
+        {
+          "name": "Framework",
+          "slug": "framework"
+        },
+        {
+          "name": "Dev Tool",
+          "slug": "dev-tool"
+        },
+        {
+          "name": "API",
+          "slug": "api"
+        }
+      ]
+    },
+    {
+      "name": "Domain",
+      "tags": [
+        {
+          "name": "LLM",
+          "slug": "llm"
+        },
+        {
+          "name": "Agents",
+          "slug": "agents"
+        },
+        {
+          "name": "RAG",
+          "slug": "rag"
+        },
+        {
+          "name": "Fine-tuning",
+          "slug": "fine-tuning"
+        },
+        {
+          "name": "Inference",
+          "slug": "inference"
+        },
+        {
+          "name": "Local LLM",
+          "slug": "local-llm"
+        },
+        {
+          "name": "Vision",
+          "slug": "vision"
+        },
+        {
+          "name": "Voice / Speech",
+          "slug": "voice-speech"
+        },
+        {
+          "name": "Video",
+          "slug": "video"
+        },
+        {
+          "name": "Image Gen",
+          "slug": "image-gen"
+        },
+        {
+          "name": "Code Gen",
+          "slug": "code-gen"
+        },
+        {
+          "name": "Embeddings",
+          "slug": "embeddings"
+        },
+        {
+          "name": "Eval",
+          "slug": "eval"
+        },
+        {
+          "name": "Reasoning",
+          "slug": "reasoning"
+        },
+        {
+          "name": "Multimodal",
+          "slug": "multimodal"
+        },
+        {
+          "name": "Robotics",
+          "slug": "robotics"
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem",
+      "tags": [
+        {
+          "name": "OpenAI",
+          "slug": "openai"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic"
+        },
+        {
+          "name": "Google",
+          "slug": "google"
+        },
+        {
+          "name": "Meta",
+          "slug": "meta"
+        },
+        {
+          "name": "Nvidia",
+          "slug": "nvidia"
+        },
+        {
+          "name": "Hugging Face",
+          "slug": "hugging-face"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft"
+        },
+        {
+          "name": "Claude Code",
+          "slug": "claude-code"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor"
+        },
+        {
+          "name": "MCP",
+          "slug": "mcp"
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "tags": [
+        {
+          "name": "Funding",
+          "slug": "funding"
+        },
+        {
+          "name": "Acquisition",
+          "slug": "acquisition"
+        },
+        {
+          "name": "Launch",
+          "slug": "launch"
+        },
+        {
+          "name": "Pricing",
+          "slug": "pricing"
+        },
+        {
+          "name": "Policy",
+          "slug": "policy"
+        },
+        {
+          "name": "Legal",
+          "slug": "legal"
+        },
+        {
+          "name": "Security",
+          "slug": "security"
+        },
+        {
+          "name": "Privacy",
+          "slug": "privacy"
+        },
+        {
+          "name": "Safety",
+          "slug": "safety"
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "tags": [
+        {
+          "name": "Show HN",
+          "slug": "show-hn"
+        },
+        {
+          "name": "Tutorial",
+          "slug": "tutorial"
+        },
+        {
+          "name": "Deep Dive",
+          "slug": "deep-dive"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ph-rakazo-2-2026-11-16",
+      "title": "Rakazo",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/rakazo",
+      "source_url": "https://www.producthunt.com/products/rakazo",
+      "source_text": "Rakazo The open source Grok Bot alternative you actually own Rakazo gives you AI teammates that keep working after you close the chat. Each bot has its own memory, routines and computer, with a browser you can watch and take over. Open source and self-hosted: any model, your keys, your machine. Web, desktop and mobile. Android Productivity Open Source Artificial Intelligence GitHub",
+      "signals": {
+        "upvotes": 401,
+        "comments": 45
+      },
+      "published_at": "2026-11-15T08:01:00Z"
+    },
+    {
+      "id": "ph-frevana-multiplayer-2026-11-16",
+      "title": "Frevana Multiplayer",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/frevana-2",
+      "source_url": "https://www.producthunt.com/products/frevana-2",
+      "source_text": "Frevana Multiplayer AI that grows your business alongside your team Frevana runs AI agent apps that find customers, create content, and automate busywork. Now it's multiplayer: invite your team with a link, share agents and skills, and build on each other's work. Your best workflow becomes everyone's. Productivity Artificial Intelligence No-Code",
+      "signals": {
+        "upvotes": 304,
+        "comments": 47
+      },
+      "published_at": "2026-11-15T08:01:00Z"
+    },
+    {
+      "id": "ph-zoom-slides-2026-11-16",
+      "title": "Zoom Slides",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/zoom",
+      "source_url": "https://www.producthunt.com/products/zoom",
+      "source_text": "Zoom Slides Turn your Zoom meetings into ready-to-present slides Zoom Slides is an AI-powered presentation maker that turns your meetings, documents, and ideas into polished, editable decks. Instead of starting from a blank slide, let Zoom AI turn meeting transcripts and summaries into structured presentations with professional layouts, visuals, and speaker notes. Refine content with AI, collaborate with teammates, and export to PowerPoint. Your meeting ends, and your presentation is already taking shape. Productivity Meetings Artificial Intelligence",
+      "signals": {
+        "upvotes": 272,
+        "comments": 90
+      },
+      "published_at": "2026-11-16T08:01:00Z"
+    },
+    {
+      "id": "ph-boost-space-agentos-2026-11-16",
+      "title": "Boost.space AgentOS",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/boost-space",
+      "source_url": "https://www.producthunt.com/products/boost-space",
+      "source_text": "Boost.space AgentOS One operating system for all your AI agents Build your agent-driven company with specialized agents that share context, skills, and tools. Deploy, control, manage and chat or talk to your agents with access to more than 1,400 AI models and access to more than 1,500 tools you already use. Productivity Developer Tools Artificial Intelligence",
+      "signals": {
+        "upvotes": 260,
+        "comments": 60
+      },
+      "published_at": "2026-11-16T08:01:00Z"
+    },
+    {
+      "id": "ph-openbot-3-2026-11-16",
+      "title": "OpenBot",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/copilotkit",
+      "source_url": "https://www.producthunt.com/products/copilotkit",
+      "source_text": "OpenBot Grok Bot alternative: self-host, fully customize, any stack Build your own enterprise-ready agent workspace that's modular and self-hostable. Designed with a clean architecture and built-in governance. Bring any agent- then choose the models, tools, and infra they run on. Use as-is, white-label it, or deeply customize it. Open Source Artificial Intelligence",
+      "signals": {
+        "upvotes": 232,
+        "comments": 75
+      },
+      "published_at": "2026-11-16T08:01:00Z"
+    },
+    {
+      "id": "gh-univer-2026-11-16",
+      "title": "dream-num/univer",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/dream-num/univer",
+      "source_url": "https://github.com/dream-num/univer",
+      "source_text": "dream-num/univer Build your own AI office with Univer Office SDK. Bring editing, calculation, collaboration, and file processing into your product for people and AI agents. Built on an extensible open-source core. TypeScript",
+      "signals": {
+        "stars": 27956,
+        "stars_gained": 1828,
+        "forks": 2549
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-claude-bughunter-2026-11-16",
+      "title": "elementalsouls/Claude-BugHunter",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_text": "elementalsouls/Claude-BugHunter A Claude Code skill bundle for bug hunting and external red-team work - 82 skills, 15 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices. Python",
+      "signals": {
+        "stars": 7672,
+        "stars_gained": 1094,
+        "forks": 1192
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-open-code-review-2026-11-16",
+      "title": "alibaba/open-code-review",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/alibaba/open-code-review",
+      "source_url": "https://github.com/alibaba/open-code-review",
+      "source_text": "alibaba/open-code-review Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), OpenAI & Anthropic compatible. Go",
+      "signals": {
+        "stars": 53125,
+        "stars_gained": 951,
+        "forks": 4335
+      },
+      "meta": {
+        "language": "Go"
+      }
+    },
+    {
+      "id": "gh-skillevaluator-2026-11-16",
+      "title": "NVIDIA/SkillEvaluator",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/NVIDIA/SkillEvaluator",
+      "source_url": "https://github.com/NVIDIA/SkillEvaluator",
+      "source_text": "NVIDIA/SkillEvaluator Multi-tier framework for evaluating AI agent skills and plugins with quality gates, semantic overlap detection, synthetic evaluation dataset generation, and live agent evaluation that measures how skills affect agent behavior. Python",
+      "signals": {
+        "stars": 2931,
+        "stars_gained": 873,
+        "forks": 401
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-chrome-devtools-mcp-2026-11-16",
+      "title": "ChromeDevTools/chrome-devtools-mcp",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "source_url": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+      "source_text": "ChromeDevTools/chrome-devtools-mcp Chrome DevTools for coding agents TypeScript",
+      "signals": {
+        "stars": 57791,
+        "stars_gained": 841,
+        "forks": 4857
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-claude-trading-skills-2026-11-16",
+      "title": "tradermonty/claude-trading-skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/tradermonty/claude-trading-skills",
+      "source_url": "https://github.com/tradermonty/claude-trading-skills",
+      "source_text": "tradermonty/claude-trading-skills Claude Code skills for equity investors and traders — market analysis, technical charting, economic calendars, screeners, and trading strategy development. Python",
+      "signals": {
+        "stars": 6505,
+        "stars_gained": 837,
+        "forks": 1363
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-stitch-skills-2026-11-16",
+      "title": "google-labs-code/stitch-skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "source_url": "https://github.com/google-labs-code/stitch-skills",
+      "source_text": "google-labs-code/stitch-skills A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor. TypeScript",
+      "signals": {
+        "stars": 9814,
+        "stars_gained": 529,
+        "forks": 1262
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-ffmpeg-skill-2026-11-16",
+      "title": "kajisho5/ffmpeg-skill",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/kajisho5/ffmpeg-skill",
+      "source_url": "https://github.com/kajisho5/ffmpeg-skill",
+      "source_text": "kajisho5/ffmpeg-skill Local video editor for coding agents: 42 FFmpeg tools with a machine-readable contract and an MCP server, for Claude Code, Cursor and Codex. Cut, captions, reframe, loudness, platform exports. No cloud, no API keys. Python",
+      "signals": {
+        "stars": 7100,
+        "stars_gained": 367,
+        "forks": 637
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-paper-orchestra-2026-11-16",
+      "title": "google-research/paper-orchestra",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/google-research/paper-orchestra",
+      "source_url": "https://github.com/google-research/paper-orchestra",
+      "source_text": "google-research/paper-orchestra PaperOrchestra is a multi-agent framework for automated AI research paper writing. Python",
+      "signals": {
+        "stars": 1764,
+        "stars_gained": 313,
+        "forks": 282
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-last30days-skill-2026-11-16",
+      "title": "mvanhorn/last30days-skill",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "source_url": "https://github.com/mvanhorn/last30days-skill",
+      "source_text": "mvanhorn/last30days-skill AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary Python",
+      "signals": {
+        "stars": 68314,
+        "stars_gained": 135,
+        "forks": 6066
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "tc-fbi-says-artex-ai-open-source-hacking-tool-used-2026-11-16",
+      "title": "FBI says Artex AI open source hacking tool used to breach networks in ‘under three hours’",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/",
+      "source_url": "https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/",
+      "source_text": "FBI says Artex AI open source hacking tool used to breach networks in ‘under three hours’ The FBI says that the open source hacking tool was used in cyberattacks targeting a U.S. IT giant and the South Korean financial industry.",
+      "meta": {
+        "author": "Zack Whittaker",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-16T17:36:43Z"
+    },
+    {
+      "id": "tc-us-tightens-ai-chip-export-controls-to-deter-2026-11-16",
+      "title": "US tightens AI chip export controls to deter Chinese companies from accessing compute remotely",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/16/us-tightens-ai-chip-export-controls-to-deter-chinese-companies-from-accessing-compute-remotely/",
+      "source_url": "https://techcrunch.com/2026/11/16/us-tightens-ai-chip-export-controls-to-deter-chinese-companies-from-accessing-compute-remotely/",
+      "source_text": "US tightens AI chip export controls to deter Chinese companies from accessing compute remotely Under the interim rule, the U.S. will require firms to get licenses to export AI chips if they may provide compute to China or other restricted countries.",
+      "meta": {
+        "author": "Ram Iyer",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-16T15:02:34Z"
+    },
+    {
+      "id": "tc-cybersecurity-ai-startup-corma-reaches-1b-2026-11-16",
+      "title": "Cybersecurity AI startup Corma reaches $1B valuation in about 3 months",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/16/cybersecurity-ai-startup-corma-reaches-1b-valuation-in-about-3-months/",
+      "source_url": "https://techcrunch.com/2026/11/16/cybersecurity-ai-startup-corma-reaches-1b-valuation-in-about-3-months/",
+      "source_text": "Cybersecurity AI startup Corma reaches $1B valuation in about 3 months Three months since introducing its product, AI cybersecurity startup Corba has raised a $125 million Series A at a $1 billion valuation led by NEA.",
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-16T23:32:32Z"
+    },
+    {
+      "id": "tc-all-the-questions-nvidia-should-answer-on-2026-11-16",
+      "title": "All the questions Nvidia should answer on Tuesday — but probably won’t",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/16/all-the-questions-nvidia-should-answer-on-tuesday-but-probably-wont/",
+      "source_url": "https://techcrunch.com/2026/11/16/all-the-questions-nvidia-should-answer-on-tuesday-but-probably-wont/",
+      "source_text": "All the questions Nvidia should answer on Tuesday — but probably won’t Nvidia interim CEO and longtime CFO Colette Kress is about to have one of the biggest days of her career on Tuesday when the company reports its third-quarter results. Given the turmoil Nvidia is in, there are a number of questions that Nvidia should answer.",
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-16T22:03:02Z"
+    },
+    {
+      "id": "tc-california-state-ag-sues-openai-over-rogue-2026-11-16",
+      "title": "California state AG sues OpenAI over rogue agent incidents",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents/",
+      "source_url": "https://techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents/",
+      "source_text": "California state AG sues OpenAI over rogue agent incidents The California lawsuit represents one of the first attempts to hold an AI lab legally accountable for a rogue agent incident.",
+      "meta": {
+        "author": "Russell Brandom",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-16T20:07:13Z"
+    },
+    {
+      "id": "tc-trump-says-ex-nvidia-ceo-jensen-huangs-affair-2026-11-16",
+      "title": "Trump says ex-Nvidia CEO Jensen Huang’s affair with an alleged Chinese spy did not threaten national security",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/16/trump-says-ex-nvidia-ceo-jensen-huangs-affair-with-an-alleged-chinese-spy-did-not-threaten-national-security/",
+      "source_url": "https://techcrunch.com/2026/11/16/trump-says-ex-nvidia-ceo-jensen-huangs-affair-with-an-alleged-chinese-spy-did-not-threaten-national-security/",
+      "source_text": "Trump says ex-Nvidia CEO Jensen Huang’s affair with an alleged Chinese spy did not threaten national security Trump contradicted his own government's intelligence officials, who reportedly concluded that Alice Huang is a Chinese spy.",
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-16T19:12:02Z"
+    },
+    {
+      "id": "tc-sam-altman-on-nvidia-without-jensen-huang-the-2026-11-16",
+      "title": "Sam Altman on Nvidia without Jensen Huang: The industry will be ‘fine’",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/16/sam-altman-on-nvidia-without-jensen-huang-the-industry-will-be-fine/",
+      "source_url": "https://techcrunch.com/2026/11/16/sam-altman-on-nvidia-without-jensen-huang-the-industry-will-be-fine/",
+      "source_text": "Sam Altman on Nvidia without Jensen Huang: The industry will be ‘fine’ OpenAI CEO Sam Altman acknowledged the special role Nvidia CEO Jensen Huang has played in the AI boom, but ultimately thinks the industry will be “fine” without him at the helm. ",
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-16T18:11:10Z"
+    },
+    {
+      "id": "tc-jordan-belforts-new-ai-voice-startup-tone-wants-2026-11-16",
+      "title": "Jordan Belfort’s new AI voice startup, Tone, wants to sell like the ‘Wolf of Wall Street’",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/16/jordan-belforts-new-ai-voice-startup-tone-wants-to-sell-like-the-wolf-of-wall-street/",
+      "source_url": "https://techcrunch.com/2026/11/16/jordan-belforts-new-ai-voice-startup-tone-wants-to-sell-like-the-wolf-of-wall-street/",
+      "source_text": "Jordan Belfort’s new AI voice startup, Tone, wants to sell like the ‘Wolf of Wall Street’ Belfort claims his AI sales voice can already close deals almost as well as the best human salespeople, and he thinks it will catch up in a year.",
+      "meta": {
+        "author": "Connie Loizos",
+        "reading_time": "9 minutes"
+      },
+      "published_at": "2026-11-16T17:10:00Z"
+    },
+    {
+      "id": "tc-openai-will-embed-safety-researchers-to-2026-11-16",
+      "title": "OpenAI will embed safety researchers to investigate AI subversion",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/16/openai-will-embed-apollo-researchers-to-investigate-ai-subversion/",
+      "source_url": "https://techcrunch.com/2026/11/16/openai-will-embed-apollo-researchers-to-investigate-ai-subversion/",
+      "source_text": "OpenAI will embed safety researchers to investigate AI subversion OpenAI will embed six Apollo Research evaluators to investigate whether its AI models engage in subversive behavior, but restrictions on access and disclosure raise questions about their independence.",
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "6 minutes"
+      },
+      "published_at": "2026-11-16T17:02:43Z"
+    },
+    {
+      "id": "tc-openai-releases-a-new-image-classifier-and-2026-11-16",
+      "title": "OpenAI releases a new image classifier and ChatGPT warnings to combat CSAM",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/16/openai-releases-a-new-image-classifier-and-chatgpt-warnings-to-combat-csam/",
+      "source_url": "https://techcrunch.com/2026/11/16/openai-releases-a-new-image-classifier-and-chatgpt-warnings-to-combat-csam/",
+      "source_text": "OpenAI releases a new image classifier and ChatGPT warnings to combat CSAM ChatGPT will ban an account trying to access CSAM content for 24 hours as a warning.",
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-16T17:00:00Z"
+    },
+    {
+      "id": "hn-all-ai-generated-code-should-be-open-source-2026-11-16",
+      "title": "All AI-generated code should be Open Source",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://jakub.jankiewicz.org/blog/ai-code-open-source/",
+      "source_url": "https://news.ycombinator.com/item?id=50507303",
+      "source_text": "All AI-generated code should be Open Source",
+      "signals": {
+        "points": 1270,
+        "comments": 660
+      },
+      "meta": {
+        "author": "jcubic"
+      },
+      "published_at": "2026-11-15T14:46:58Z"
+    },
+    {
+      "id": "hn-understanding-positional-embeddings-in-modern-2026-11-16",
+      "title": "Understanding Positional Embeddings in Modern LLMs",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://magazine.sebastianraschka.com/p/understanding-positional-embeddings",
+      "source_url": "https://news.ycombinator.com/item?id=50506376",
+      "source_text": "Understanding Positional Embeddings in Modern LLMs",
+      "signals": {
+        "points": 245,
+        "comments": 27
+      },
+      "meta": {
+        "author": "vismit2000"
+      },
+      "published_at": "2026-11-15T12:14:06Z"
+    },
+    {
+      "id": "hn-strengthening-the-fight-against-online-child-2026-11-16",
+      "title": "Strengthening the fight against online child sexual abuse",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://openai.com/index/strengthening-online-child-safety/",
+      "source_url": "https://news.ycombinator.com/item?id=50520804",
+      "source_text": "Strengthening the fight against online child sexual abuse",
+      "signals": {
+        "points": 112,
+        "comments": 257
+      },
+      "meta": {
+        "author": "rossant"
+      },
+      "published_at": "2026-11-16T18:12:48Z"
+    },
+    {
+      "id": "hn-who-is-hiring-postings-stuck-near-12-year-lows-2026-11-16",
+      "title": "\"Who is Hiring?\" postings stuck near 12-year lows as AI reaches half of all jobs",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.hntrends.com/2026/november.html",
+      "source_url": "https://news.ycombinator.com/item?id=50512950",
+      "source_text": "\"Who is Hiring?\" postings stuck near 12-year lows as AI reaches half of all jobs",
+      "signals": {
+        "points": 94,
+        "comments": 86
+      },
+      "meta": {
+        "author": "myth_drannon"
+      },
+      "published_at": "2026-11-16T01:31:30Z"
+    },
+    {
+      "id": "hn-how-billions-in-safe-insurance-money-is-being-2026-11-16",
+      "title": "How Billions in Safe Insurance Money Is Being Bet on A.I. Debt",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.nytimes.com/2026/11/16/business/insurance-ai-debt.html",
+      "source_url": "https://news.ycombinator.com/item?id=50520148",
+      "source_text": "How Billions in Safe Insurance Money Is Being Bet on A.I. Debt",
+      "signals": {
+        "points": 84,
+        "comments": 44
+      },
+      "meta": {
+        "author": "syllablehq"
+      },
+      "published_at": "2026-11-16T17:25:35Z"
+    },
+    {
+      "id": "hn-parents-pay-75k-for-alpha-s-ai-school-half-of-2026-11-16",
+      "title": "Parents pay $75k for Alpha's AI school. Half of its students missed math target",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://fortune.com/2026/11/14/alpha-school-ai-students-tuition-learning-goals/",
+      "source_url": "https://news.ycombinator.com/item?id=50509953",
+      "source_text": "Parents pay $75k for Alpha's AI school. Half of its students missed math target",
+      "signals": {
+        "points": 69,
+        "comments": 67
+      },
+      "meta": {
+        "author": "vrganj"
+      },
+      "published_at": "2026-11-15T19:39:46Z"
+    }
+  ]
+}

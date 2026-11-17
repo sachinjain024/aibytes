@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "slug": "gh-ffmpeg-skill",
+  "kind": "repo",
+  "title": "kajisho5/ffmpeg-skill",
+  "url": "https://github.com/kajisho5/ffmpeg-skill",
+  "source_url": "https://github.com/kajisho5/ffmpeg-skill",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "Video",
+    "MCP",
+    "Dev Tool"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/kajisho5.png?size=80"
+  },
+  "depth": "full",
+  "lede": "ffmpeg-skill gives Claude Code, Cursor, Codex and other MCP clients a local video editor: FFmpeg tools the agent drives through a fixed probe, edit, check and verify workflow.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Each tool is a Python script with typed flags; nothing runs through a shell and callers cannot pass raw filter graphs.",
+        "A machine-readable contract lists each tool's inputs, outputs, required FFmpeg components and how to verify its result.",
+        "The MCP server builds its tool list from each script's argparse parser, and CI fails if the schema drifts.",
+        "Every tool supports --dry-run and --json; output is probed, checked against platform specs and inspected as a contact sheet.",
+        "Templates render TikTok, Reels, Shorts, YouTube and other deliverables in one command; speech transcription is optional and stays on the machine."
+      ]
+    },
+    {
+      "key": "try_it",
+      "command": "npx ffmpeg-skill"
+    },
+    {
+      "key": "whats_open",
+      "points": [
+        {
+          "text": "Picture tools given an audio-only output extension fail inside ffmpeg instead of being refused up front.",
+          "url": "https://github.com/kajisho5/ffmpeg-skill/issues/551"
+        },
+        {
+          "text": "A cluster of bugs where streams are dropped or put in the wrong container, found while fixing earlier reports.",
+          "url": "https://github.com/kajisho5/ffmpeg-skill/issues/539"
+        },
+        {
+          "text": "Multi-clip crop projects keep letterbox bars on clips of another aspect, because join pads before fit crops.",
+          "url": "https://github.com/kajisho5/ffmpeg-skill/issues/552"
+        },
+        {
+          "text": "The maintainer wants Windows, Cursor and Codex installs checked on other people's machines.",
+          "url": "https://github.com/kajisho5/ffmpeg-skill/issues/143"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "kajisho5/ffmpeg-skill",
+      "url": "https://github.com/kajisho5/ffmpeg-skill"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-ffmpeg-skill-2026-11-16",
+      "edition_date": "2026-11-16"
+    }
+  ],
+  "created_at": "2026-11-17T05:59:03Z",
+  "updated_at": "2026-11-17T05:59:03Z",
+  "stats": {
+    "stars": 7103,
+    "forks": 637,
+    "language": "Python",
+    "license": "MIT",
+    "created_on": "2026-09-03",
+    "contributors": 11,
+    "last_release": {
+      "tag": "v3.10.1",
+      "published_on": "2026-11-15"
+    },
+    "open_issues": 27,
+    "stars_gained": 367
+  },
+  "stats_as_of": "2026-11-17T05:56:06Z"
+}

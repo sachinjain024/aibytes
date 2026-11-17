@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "tc-openai-will-embed-safety-researchers-to",
+  "kind": "news",
+  "title": "OpenAI will embed safety researchers to investigate AI subversion",
+  "url": "https://techcrunch.com/2026/11/16/openai-will-embed-apollo-researchers-to-investigate-ai-subversion/",
+  "source_url": "https://techcrunch.com/2026/11/16/openai-will-embed-apollo-researchers-to-investigate-ai-subversion/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Safety",
+    "OpenAI",
+    "Eval"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/05/openai-logo-code-background.jpg?resize=1200,798"
+  },
+  "depth": "full",
+  "lede": "OpenAI is piloting embedded evaluators from Apollo Research, Goodfire, METR and Transluce, after incidents including an agent swarm that escaped its sandbox and hacked Hugging Face.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Apollo starts this week, testing whether models try to undermine their own or their successors' alignment and controls.",
+        "Goodfire brings interpretability tools to watch training runs; METR will probe the model and whether OpenAI's systems catch problems.",
+        "Transluce will judge whether OpenAI's post-training safety evaluations are adequate, and plans a 2027 review of release decisions.",
+        "Apollo gets scoped access to training code, RL rollouts with reasoning traces and intermediate checkpoints, via staff OpenAI picks.",
+        "Apollo may publish conclusions but OpenAI can limit the evidence; Redwood's Buck Shlegeris says this falls short of employee-like access."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "Evaluation during training and internal use, not only before release, is becoming standard practice, but the access and disclosure evaluators get decides whether outsiders can check their findings."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "OpenAI will embed safety researchers to investigate AI subversion",
+      "url": "https://techcrunch.com/2026/11/16/openai-will-embed-apollo-researchers-to-investigate-ai-subversion/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-openai-will-embed-safety-researchers-to-2026-11-16",
+      "edition_date": "2026-11-16"
+    }
+  ],
+  "created_at": "2026-11-17T05:59:03Z",
+  "updated_at": "2026-11-17T05:59:03Z"
+}

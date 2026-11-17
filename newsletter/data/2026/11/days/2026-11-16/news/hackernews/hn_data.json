@@ -1,0 +1,86 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-16",
+  "window": {
+    "after": "2026-11-15",
+    "before": "2026-11-17"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 6,
+  "poolCount": 96,
+  "stories": [
+    {
+      "title": "All AI-generated code should be Open Source",
+      "url": "https://jakub.jankiewicz.org/blog/ai-code-open-source/",
+      "type": "story",
+      "points": 1270,
+      "num_comments": 660,
+      "author": "jcubic",
+      "created_at": "2026-11-15T14:46:58Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50507303",
+      "front_page": false
+    },
+    {
+      "title": "Understanding Positional Embeddings in Modern LLMs",
+      "url": "https://magazine.sebastianraschka.com/p/understanding-positional-embeddings",
+      "type": "story",
+      "points": 245,
+      "num_comments": 27,
+      "author": "vismit2000",
+      "created_at": "2026-11-15T12:14:06Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50506376",
+      "front_page": false
+    },
+    {
+      "title": "Strengthening the fight against online child sexual abuse",
+      "url": "https://openai.com/index/strengthening-online-child-safety/",
+      "type": "story",
+      "points": 112,
+      "num_comments": 257,
+      "author": "rossant",
+      "created_at": "2026-11-16T18:12:48Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50520804",
+      "front_page": false
+    },
+    {
+      "title": "\"Who is Hiring?\" postings stuck near 12-year lows as AI reaches half of all jobs",
+      "url": "https://www.hntrends.com/2026/november.html",
+      "type": "story",
+      "points": 94,
+      "num_comments": 86,
+      "author": "myth_drannon",
+      "created_at": "2026-11-16T01:31:30Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50512950",
+      "front_page": false
+    },
+    {
+      "title": "How Billions in Safe Insurance Money Is Being Bet on A.I. Debt",
+      "url": "https://www.nytimes.com/2026/11/16/business/insurance-ai-debt.html",
+      "type": "story",
+      "points": 84,
+      "num_comments": 44,
+      "author": "syllablehq",
+      "created_at": "2026-11-16T17:25:35Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50520148",
+      "front_page": false
+    },
+    {
+      "title": "Parents pay $75k for Alpha's AI school. Half of its students missed math target",
+      "url": "https://fortune.com/2026/11/14/alpha-school-ai-students-tuition-learning-goals/",
+      "type": "story",
+      "points": 69,
+      "num_comments": 67,
+      "author": "vrganj",
+      "created_at": "2026-11-15T19:39:46Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50509953",
+      "front_page": false
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "ph-boost-space-agentos",
+  "kind": "launch",
+  "title": "Boost.space AgentOS",
+  "url": "https://www.producthunt.com/products/boost-space",
+  "source_url": "https://www.producthunt.com/products/boost-space",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Agents",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/34e3a3b5-b0b6-4d28-b05d-cce0efbe0b6e.gif?auto=format"
+  },
+  "depth": "full",
+  "lede": "Boost.space AgentOS is a workspace for running role-based AI agents that share a common data layer, skills and tool connections, steered by chat or voice.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Agents get roles and business context from a shared Data Layer, which they also update as they work.",
+        "Models come from a large hosted catalog or your own key, and ChatGPT or Claude can connect over MCP.",
+        "Agents reach existing business tools and can be used from Slack, WhatsApp or Teams.",
+        "An AI Wallet pays for extras such as image and video generation or purchased market data.",
+        "Commenters asked about self-hosting, approving actions before they run, and how agents learn from feedback; the material gives no answers."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Businesses that want to hand recurring work such as competitor research or product catalog upkeep to agents while keeping data and tools in one place."
+    },
+    {
+      "key": "pricing",
+      "text": "The launch comment says agents can use AI credits from an existing ChatGPT or Claude plan, where eligible, with paid Wallet credits for extra tasks. A commenter mentions an AppSumo lifetime deal."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Boost.space AgentOS on Product Hunt",
+      "url": "https://www.producthunt.com/products/boost-space"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-boost-space-agentos-2026-11-16",
+      "edition_date": "2026-11-16"
+    }
+  ],
+  "created_at": "2026-11-17T05:59:03Z",
+  "updated_at": "2026-11-17T05:59:03Z",
+  "stats": {
+    "upvotes": 260,
+    "comments": 60
+  },
+  "stats_as_of": "2026-11-17T05:56:06Z"
+}

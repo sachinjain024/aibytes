@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "tc-fbi-says-artex-ai-open-source-hacking-tool-used",
+  "kind": "news",
+  "title": "FBI says Artex AI open source hacking tool used to breach networks in ‘under three hours’",
+  "url": "https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/",
+  "source_url": "https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Security",
+    "Open Source"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/02/china-hacker-computer-flag.jpg?resize=1200,675"
+  },
+  "depth": "full",
+  "lede": "An FBI flash advisory says attackers are using Artex, an open source AI penetration-testing platform, for largely autonomous intrusions, including the ConnectWise breach and attacks on South Korean banks.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Artex can be wired to hosted frontier models from Anthropic or OpenAI, as well as open and non-US models.",
+        "It scans networks quickly, exploits weak defences and exposed or stolen passwords, then spreads to databases and mailboxes.",
+        "The FBI says some attacks went from first targeting to compromise in under three hours, though they generate a lot of traffic.",
+        "Victims include ConnectWise customers, South Korean financial firms and Barracuda, which reset every customer credential.",
+        "The developer closed the source after the attacks, but the old open version still circulates and hundreds of instances were found exposed online."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "Agent tooling built on the same models developers use now compresses an intrusion into hours, so basics such as MFA, revoking old vendor credentials and never exposing an agent server without a password matter more."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "FBI says Artex AI open source hacking tool used to breach networks in ‘under three hours’",
+      "url": "https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-fbi-says-artex-ai-open-source-hacking-tool-used-2026-11-16",
+      "edition_date": "2026-11-16"
+    }
+  ],
+  "created_at": "2026-11-17T05:59:03Z",
+  "updated_at": "2026-11-17T05:59:03Z"
+}

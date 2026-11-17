@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-16T09:30:18Z",
+  "generated_at": "2026-11-17T05:59:03Z",
   "gists": [
     {
       "slug": "gh-caveman",
@@ -39,6 +39,12 @@
       "created_at": "2026-11-13T16:15:14Z"
     },
     {
+      "slug": "gh-ffmpeg-skill",
+      "source_key": "github.com/kajisho5/ffmpeg-skill",
+      "path": "gists/gh-ffmpeg-skill.json",
+      "created_at": "2026-11-17T05:59:03Z"
+    },
+    {
       "slug": "gh-ggml",
       "source_key": "github.com/ggml-org/ggml",
       "path": "gists/gh-ggml.json",
@@ -57,6 +63,12 @@
       "created_at": "2026-11-16T08:33:32Z"
     },
     {
+      "slug": "gh-last30days-skill",
+      "source_key": "github.com/mvanhorn/last30days-skill",
+      "path": "gists/gh-last30days-skill.json",
+      "created_at": "2026-11-17T05:59:03Z"
+    },
+    {
       "slug": "gh-loopforge",
       "source_key": "github.com/Tencent/LoopForge",
       "path": "gists/gh-loopforge.json",
@@ -73,6 +85,12 @@
       "source_key": "github.com/alibaba/open-code-review",
       "path": "gists/gh-open-code-review.json",
       "created_at": "2026-11-13T16:15:14Z"
+    },
+    {
+      "slug": "gh-paper-orchestra",
+      "source_key": "github.com/google-research/paper-orchestra",
+      "path": "gists/gh-paper-orchestra.json",
+      "created_at": "2026-11-17T05:59:03Z"
     },
     {
       "slug": "gh-pingdotgg-t3code",
@@ -231,6 +249,12 @@
       "created_at": "2026-11-16T09:30:18Z"
     },
     {
+      "slug": "hn-how-billions-in-safe-insurance-money-is-being",
+      "source_key": "news.ycombinator.com/item?id=50520148",
+      "path": "gists/hn-how-billions-in-safe-insurance-money-is-being.json",
+      "created_at": "2026-11-17T05:59:03Z"
+    },
+    {
       "slug": "hn-i-m-making-llms-work-on-small-and-old-devices",
       "source_key": "news.ycombinator.com/item?id=50468888",
       "path": "gists/hn-i-m-making-llms-work-on-small-and-old-devices.json",
@@ -273,6 +297,12 @@
       "created_at": "2026-11-14T15:02:25Z"
     },
     {
+      "slug": "hn-parents-pay-75k-for-alpha-s-ai-school-half-of",
+      "source_key": "news.ycombinator.com/item?id=50509953",
+      "path": "gists/hn-parents-pay-75k-for-alpha-s-ai-school-half-of.json",
+      "created_at": "2026-11-17T05:59:03Z"
+    },
+    {
       "slug": "hn-serving-glm-5-3-at-607-8-tok-s-across-two",
       "source_key": "news.ycombinator.com/item?id=50497155",
       "path": "gists/hn-serving-glm-5-3-at-607-8-tok-s-across-two.json",
@@ -289,6 +319,12 @@
       "source_key": "news.ycombinator.com/item?id=50498051",
       "path": "gists/hn-smuggling-of-1-5m-ai-gpus-could-be-the-cause-of.json",
       "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
+      "slug": "hn-strengthening-the-fight-against-online-child",
+      "source_key": "news.ycombinator.com/item?id=50520804",
+      "path": "gists/hn-strengthening-the-fight-against-online-child.json",
+      "created_at": "2026-11-17T05:59:03Z"
     },
     {
       "slug": "hn-the-claude-delusion",
@@ -309,6 +345,12 @@
       "created_at": "2026-11-16T09:30:18Z"
     },
     {
+      "slug": "hn-who-is-hiring-postings-stuck-near-12-year-lows",
+      "source_key": "news.ycombinator.com/item?id=50512950",
+      "path": "gists/hn-who-is-hiring-postings-stuck-near-12-year-lows.json",
+      "created_at": "2026-11-17T05:59:03Z"
+    },
+    {
       "slug": "hn-why-is-google-cutting-off-search-from-ai-free",
       "source_key": "news.ycombinator.com/item?id=50484960",
       "path": "gists/hn-why-is-google-cutting-off-search-from-ai-free.json",
@@ -319,6 +361,12 @@
       "source_key": "producthunt.com/products/alsona",
       "path": "gists/ph-alsona.json",
       "created_at": "2026-11-16T08:33:32Z"
+    },
+    {
+      "slug": "ph-boost-space-agentos",
+      "source_key": "producthunt.com/products/boost-space",
+      "path": "gists/ph-boost-space-agentos.json",
+      "created_at": "2026-11-17T05:59:03Z"
     },
     {
       "slug": "ph-businesses-in-chatgpt",
@@ -345,6 +393,12 @@
       "created_at": "2026-11-15T15:41:02Z"
     },
     {
+      "slug": "ph-frevana-multiplayer",
+      "source_key": "producthunt.com/products/frevana-2",
+      "path": "gists/ph-frevana-multiplayer.json",
+      "created_at": "2026-11-17T05:59:03Z"
+    },
+    {
       "slug": "ph-gemini-robotics-2-5-7",
       "source_key": "producthunt.com/products/gemini-robotics-2-5",
       "path": "gists/ph-gemini-robotics-2-5-7.json",
@@ -367,6 +421,12 @@
       "source_key": "producthunt.com/products/omnigraph",
       "path": "gists/ph-omnigraph.json",
       "created_at": "2026-11-13T16:15:14Z"
+    },
+    {
+      "slug": "ph-openbot-3",
+      "source_key": "producthunt.com/products/copilotkit",
+      "path": "gists/ph-openbot-3.json",
+      "created_at": "2026-11-17T05:59:03Z"
     },
     {
       "slug": "ph-plurai-simulation",
@@ -411,10 +471,22 @@
       "created_at": "2026-11-13T16:15:14Z"
     },
     {
+      "slug": "ph-zoom-slides",
+      "source_key": "producthunt.com/products/zoom",
+      "path": "gists/ph-zoom-slides.json",
+      "created_at": "2026-11-17T05:59:03Z"
+    },
+    {
       "slug": "tc-ai-agent-startup-langchain-hits-3b-valuation",
       "source_key": "techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation",
       "path": "gists/tc-ai-agent-startup-langchain-hits-3b-valuation.json",
       "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
+      "slug": "tc-all-the-questions-nvidia-should-answer-on",
+      "source_key": "techcrunch.com/2026/11/16/all-the-questions-nvidia-should-answer-on-tuesday-but-probably-wont",
+      "path": "gists/tc-all-the-questions-nvidia-should-answer-on.json",
+      "created_at": "2026-11-17T05:59:03Z"
     },
     {
       "slug": "tc-asian-governments-react-to-nvidia-ceo-jensen",
@@ -433,6 +505,12 @@
       "source_key": "techcrunch.com/2026/11/12/cyberattack-on-fireworks-ai-allowed-hackers-to-access-notion-customers-chat-transcripts",
       "path": "gists/tc-cyberattack-on-fireworks-ai-allowed-hackers-to.json",
       "created_at": "2026-11-13T16:15:14Z"
+    },
+    {
+      "slug": "tc-cybersecurity-ai-startup-corma-reaches-1b",
+      "source_key": "techcrunch.com/2026/11/16/cybersecurity-ai-startup-corma-reaches-1b-valuation-in-about-3-months",
+      "path": "gists/tc-cybersecurity-ai-startup-corma-reaches-1b.json",
+      "created_at": "2026-11-17T05:59:03Z"
     },
     {
       "slug": "tc-democrats-launch-nvidia-investigation-write",
@@ -457,6 +535,12 @@
       "source_key": "techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen",
       "path": "gists/tc-export-banned-nvidia-chips-are-behind-chinas.json",
       "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
+      "slug": "tc-fbi-says-artex-ai-open-source-hacking-tool-used",
+      "source_key": "techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours",
+      "path": "gists/tc-fbi-says-artex-ai-open-source-hacking-tool-used.json",
+      "created_at": "2026-11-17T05:59:03Z"
     },
     {
       "slug": "tc-hugging-face-ceo-vows-to-keep-fighting-for-open",
@@ -489,6 +573,30 @@
       "created_at": "2026-11-14T15:02:25Z"
     },
     {
+      "slug": "tc-jordan-belforts-new-ai-voice-startup-tone-wants",
+      "source_key": "techcrunch.com/2026/11/16/jordan-belforts-new-ai-voice-startup-tone-wants-to-sell-like-the-wolf-of-wall-street",
+      "path": "gists/tc-jordan-belforts-new-ai-voice-startup-tone-wants.json",
+      "created_at": "2026-11-17T05:59:03Z"
+    },
+    {
+      "slug": "tc-openai-releases-a-new-image-classifier-and",
+      "source_key": "techcrunch.com/2026/11/16/openai-releases-a-new-image-classifier-and-chatgpt-warnings-to-combat-csam",
+      "path": "gists/tc-openai-releases-a-new-image-classifier-and.json",
+      "created_at": "2026-11-17T05:59:03Z"
+    },
+    {
+      "slug": "tc-openai-will-embed-safety-researchers-to",
+      "source_key": "techcrunch.com/2026/11/16/openai-will-embed-apollo-researchers-to-investigate-ai-subversion",
+      "path": "gists/tc-openai-will-embed-safety-researchers-to.json",
+      "created_at": "2026-11-17T05:59:03Z"
+    },
+    {
+      "slug": "tc-sam-altman-on-nvidia-without-jensen-huang-the",
+      "source_key": "techcrunch.com/2026/11/16/sam-altman-on-nvidia-without-jensen-huang-the-industry-will-be-fine",
+      "path": "gists/tc-sam-altman-on-nvidia-without-jensen-huang-the.json",
+      "created_at": "2026-11-17T05:59:03Z"
+    },
+    {
       "slug": "tc-the-ai-graveyard-a-running-list-of-projects-and",
       "source_key": "techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it",
       "path": "gists/tc-the-ai-graveyard-a-running-list-of-projects-and.json",
@@ -501,10 +609,22 @@
       "created_at": "2026-11-13T16:15:14Z"
     },
     {
+      "slug": "tc-trump-says-ex-nvidia-ceo-jensen-huangs-affair",
+      "source_key": "techcrunch.com/2026/11/16/trump-says-ex-nvidia-ceo-jensen-huangs-affair-with-an-alleged-chinese-spy-did-not-threaten-national-security",
+      "path": "gists/tc-trump-says-ex-nvidia-ceo-jensen-huangs-affair.json",
+      "created_at": "2026-11-17T05:59:03Z"
+    },
+    {
       "slug": "tc-united-airlines-blocks-ai-agents-from-booking",
       "source_key": "techcrunch.com/2026/11/12/united-airlines-blocks-ai-agents-from-booking-flights-citing-cybersecurity-risks",
       "path": "gists/tc-united-airlines-blocks-ai-agents-from-booking.json",
       "created_at": "2026-11-13T16:15:14Z"
+    },
+    {
+      "slug": "tc-us-tightens-ai-chip-export-controls-to-deter",
+      "source_key": "techcrunch.com/2026/11/16/us-tightens-ai-chip-export-controls-to-deter-chinese-companies-from-accessing-compute-remotely",
+      "path": "gists/tc-us-tightens-ai-chip-export-controls-to-deter.json",
+      "created_at": "2026-11-17T05:59:03Z"
     },
     {
       "slug": "tc-where-was-nvidias-security-team",

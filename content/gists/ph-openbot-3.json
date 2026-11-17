@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "ph-openbot-3",
+  "kind": "launch",
+  "title": "OpenBot",
+  "url": "https://www.producthunt.com/products/copilotkit",
+  "source_url": "https://www.producthunt.com/products/copilotkit",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Open Source",
+    "Agents",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/1cf5fd2d-e38d-44b2-815e-3cb793d01968.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "OpenBot, from CopilotKit, is a self-hostable workspace for AI agents with identity, approvals, audit logs and spending limits built in, so a company decides what each agent may touch.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "SSO and SCIM tie access to the company directory, and tool permissions can be set per bot, role or person.",
+        "Admins choose which actions run freely, which wait for a person's approval and which are blocked.",
+        "Agent activity is logged and exportable to an existing SIEM; usage and spend are tracked per bot and team.",
+        "Existing agents plug in over AG-UI and tools over MCP, with any model; the workspace can be white-labelled.",
+        "Skills an agent learns stay inside its permissions, so getting better at a task does not widen its access."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "IT and security teams that must sign off on agents touching company systems, and developers who want to bring their own agent and model and run it locally."
+    },
+    {
+      "key": "pricing",
+      "text": "The launch comment says OpenBot is free for personal use on Mac and Windows. OpenBot for Business is in early access, with no price given."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "OpenBot on Product Hunt",
+      "url": "https://www.producthunt.com/products/copilotkit"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-openbot-3-2026-11-16",
+      "edition_date": "2026-11-16"
+    }
+  ],
+  "created_at": "2026-11-17T05:59:03Z",
+  "updated_at": "2026-11-17T05:59:03Z",
+  "stats": {
+    "upvotes": 232,
+    "comments": 75
+  },
+  "stats_as_of": "2026-11-17T05:56:06Z"
+}

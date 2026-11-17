@@ -1,0 +1,125 @@
+{
+  "source": "techcrunch",
+  "section": "ai-news",
+  "fetched_at": "2026-11-16",
+  "window": {
+    "after": "2026-11-15",
+    "before": "2026-11-17"
+  },
+  "query_params": {
+    "category": "artificial-intelligence",
+    "count": 10,
+    "ranking": "hackernews_points,recency"
+  },
+  "totalCount": 17,
+  "articles": [
+    {
+      "title": "FBI says Artex AI open source hacking tool used to breach networks in \u2018under three hours\u2019",
+      "description": "The FBI says that the open source hacking tool was used in cyberattacks targeting a U.S. IT giant and the South Korean financial industry.",
+      "url": "https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/",
+      "published_at": "2026-11-16T17:36:43Z",
+      "author": "Zack Whittaker",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/02/china-hacker-computer-flag.jpg?resize=1200,675",
+      "reading_time": "4 minutes",
+      "hackernews": {
+        "points": 45,
+        "num_comments": 9,
+        "hn_url": "https://news.ycombinator.com/item?id=50520796"
+      }
+    },
+    {
+      "title": "US tightens AI chip export controls to deter Chinese companies from accessing compute remotely",
+      "description": "Under the interim rule, the U.S. will require firms to get licenses to export AI chips if they may provide compute to China or other restricted countries.",
+      "url": "https://techcrunch.com/2026/11/16/us-tightens-ai-chip-export-controls-to-deter-chinese-companies-from-accessing-compute-remotely/",
+      "published_at": "2026-11-16T15:02:34Z",
+      "author": "Ram Iyer",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/us-commerce.jpg?w=564",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 1,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=50526799"
+      }
+    },
+    {
+      "title": "Cybersecurity AI startup Corma reaches $1B valuation in about 3 months",
+      "description": "Three months since introducing its product, AI cybersecurity startup Corba has raised a $125 million Series A at a $1 billion valuation led by NEA.",
+      "url": "https://techcrunch.com/2026/11/16/cybersecurity-ai-startup-corma-reaches-1b-valuation-in-about-3-months/",
+      "published_at": "2026-11-16T23:32:32Z",
+      "author": "Julie Bort",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/10/Networked-AI-swarm-with-glowing-nodes.png?resize=1200,600",
+      "reading_time": "2 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "All the questions Nvidia should answer on Tuesday \u2014 but probably won\u2019t",
+      "description": "Nvidia interim CEO and longtime CFO Colette Kress is about to have one of the biggest days of her career on Tuesday when the company reports its third-quarter results. Given the turmoil Nvidia is in, there are a number of questions that Nvidia should answer.",
+      "url": "https://techcrunch.com/2026/11/16/all-the-questions-nvidia-should-answer-on-tuesday-but-probably-wont/",
+      "published_at": "2026-11-16T22:03:02Z",
+      "author": "Julie Bort",
+      "image": "https://techcrunch.com/wp-content/uploads/2020/05/GettyImages-1147839035.jpg?resize=1200,800",
+      "reading_time": "4 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "California state AG sues OpenAI over rogue agent incidents",
+      "description": "The California lawsuit represents one of the first attempts to hold an AI lab legally accountable for a rogue agent incident.",
+      "url": "https://techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents/",
+      "published_at": "2026-11-16T20:07:13Z",
+      "author": "Russell Brandom",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/1920px-Rob_Bonta_at_Central_Bay_Operations_and_Maintenance_Facility_opening_December_2018.jpeg?resize=1200,981",
+      "reading_time": "3 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "Trump says ex-Nvidia CEO Jensen Huang\u2019s affair with an alleged Chinese spy did not threaten national security",
+      "description": "Trump contradicted his own government's intelligence officials, who reportedly concluded that Alice Huang is a Chinese spy.",
+      "url": "https://techcrunch.com/2026/11/16/trump-says-ex-nvidia-ceo-jensen-huangs-affair-with-an-alleged-chinese-spy-did-not-threaten-national-security/",
+      "published_at": "2026-11-16T19:12:02Z",
+      "author": "Amanda Silberling",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-2297572109.jpg?w=1024",
+      "reading_time": "2 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "Sam Altman on Nvidia without Jensen Huang: The industry will be \u2018fine\u2019",
+      "description": "OpenAI CEO Sam Altman acknowledged the special role Nvidia CEO Jensen Huang has played in the AI boom, but ultimately thinks the industry will be \u201cfine\u201d without him at the helm.\u00a0",
+      "url": "https://techcrunch.com/2026/11/16/sam-altman-on-nvidia-without-jensen-huang-the-industry-will-be-fine/",
+      "published_at": "2026-11-16T18:11:10Z",
+      "author": "Rebecca Bellan",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2297209338.jpg?w=1024",
+      "reading_time": "3 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "Jordan Belfort\u2019s new AI voice startup, Tone, wants to sell like the \u2018Wolf of Wall Street\u2019",
+      "description": "Belfort claims his AI sales voice can already close deals almost as well as the best human salespeople, and he thinks it will catch up in a year.",
+      "url": "https://techcrunch.com/2026/11/16/jordan-belforts-new-ai-voice-startup-tone-wants-to-sell-like-the-wolf-of-wall-street/",
+      "published_at": "2026-11-16T17:10:00Z",
+      "author": "Connie Loizos",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/Jordan-Belfort.jpeg?resize=1200,675",
+      "reading_time": "9 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "OpenAI will embed safety researchers to investigate AI subversion",
+      "description": "OpenAI will embed six Apollo Research evaluators to investigate whether its AI models engage in subversive behavior, but restrictions on access and disclosure raise questions about their independence.",
+      "url": "https://techcrunch.com/2026/11/16/openai-will-embed-apollo-researchers-to-investigate-ai-subversion/",
+      "published_at": "2026-11-16T17:02:43Z",
+      "author": "Rebecca Bellan",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/05/openai-logo-code-background.jpg?resize=1200,798",
+      "reading_time": "6 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "OpenAI releases a new image classifier and ChatGPT warnings to combat CSAM",
+      "description": "ChatGPT will ban an account trying to access CSAM content for 24 hours as a warning.",
+      "url": "https://techcrunch.com/2026/11/16/openai-releases-a-new-image-classifier-and-chatgpt-warnings-to-combat-csam/",
+      "published_at": "2026-11-16T17:00:00Z",
+      "author": "Ivan Mehta",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/OpenAI-chatgpt-CSAM.jpeg?resize=1200,675",
+      "reading_time": "3 minutes",
+      "hackernews": null
+    }
+  ]
+}
