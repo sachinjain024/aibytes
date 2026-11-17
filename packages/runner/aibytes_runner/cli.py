@@ -60,12 +60,33 @@ The draft step has already run. Do only this, and nothing else:
 2. Write {summaries} - one entry for every id in that file, each with a
    `summary` and 1-4 `tags`, following the voice rules and the tag rules in
    the curate-edition skill. Use the tag vocabulary carried inline in
-   curation.json.
+   curation.json. A summary is at most 200 characters; count them, because
+   the build step rejects the whole file if one goes over.
 
 Do NOT run the build step, do NOT touch content/, and do NOT run git. This is
 a scheduled run and the script does all of that itself once you are done.
 Write the file, then stop.
 """
+
+# `build` rejected the file. Claude has no Bash, so it could not check its own
+# work; this hands it build's exact complaints, once.
+REPAIR_PROMPT = """/curate-edition {date}
+
+You already wrote {summaries}, and the build step rejected it:
+
+{problems}
+
+Fix only those entries in {summaries}, in place, following the curate-edition
+skill. A summary is at most 200 characters - count them, and aim well under.
+Every tag must come from the vocabulary in {curation}. Leave every other entry
+exactly as it is.
+
+Do NOT run the build step, do NOT touch content/, and do NOT run git. Fix the
+file, then stop.
+"""
+# The header curate.py prints when the summaries file is the problem. Any other
+# build failure is not something a second model pass can fix.
+SUMMARIES_REJECTED = "does not match the"
 
 
 GISTS_PROMPT = """/write-gists {date}
@@ -320,7 +341,11 @@ def step_summaries(ctx):
         curation=ctx.shown(ctx.curation),
         summaries=ctx.shown(ctx.summaries),
     )
-    done = run_command(ctx, "summaries", [
+    _run_claude(ctx, "summaries", prompt)
+
+
+def _run_claude(ctx, step, prompt):
+    done = run_command(ctx, step, [
         ctx.claude, "--print", prompt,
         "--model", ctx.model,
         "--permission-mode", "acceptEdits",
@@ -381,16 +406,48 @@ def _check_summaries(ctx):
 
 
 def step_build(ctx):
-    run_command(ctx, "build", [
+    """Build the edition, giving Claude one chance to fix a rejected file.
+
+    `build` is the authority on the summaries file, and Claude cannot run it.
+    So a rejection (a summary over the cap, a tag outside the vocabulary, a
+    missing id) goes back to Claude with build's own words, once, and the
+    second build is final. Any other build failure fails the run as before.
+    """
+    argv = [
         ctx.python, "packages/curate/curate.py", "build",
         "--date", ctx.date,
         "--summaries", str(ctx.summaries),
         "--data-root", ctx.data_root,
         "--content-root", ctx.content_root,
-    ])
+    ]
+    done = run_command(ctx, "build", argv, check=False)
+    if done.returncode != 0:
+        problems = _rejections(done.stderr)
+        if not problems:
+            raise StepError("build", f"exited {done.returncode}")
+        ctx.log.line(f"build rejected {len(problems)} summary problem(s); "
+                     "asking Claude to fix them")
+        _run_claude(ctx, "build", REPAIR_PROMPT.format(
+            date=ctx.date,
+            curation=ctx.shown(ctx.curation),
+            summaries=ctx.shown(ctx.summaries),
+            problems="\n".join(f"- {line}" for line in problems),
+        ))
+        run_command(ctx, "build", argv)
+        ctx.warnings.append(f"build: Claude fixed {len(problems)} rejected "
+                            "summary problem(s) on a second pass")
     if not ctx.edition.exists():
         raise StepError("build", f"{ctx.shown(ctx.edition)} was not written")
     ctx.counts = _counts(ctx.edition)
+
+
+def _rejections(stderr):
+    """The problem lines under curate's summaries-rejection header, or []."""
+    lines = (stderr or "").splitlines()
+    for at, line in enumerate(lines):
+        if SUMMARIES_REJECTED in line:
+            return [p.strip() for p in lines[at + 1:] if p.strip()]
+    return []
 
 
 def step_gists(ctx):
