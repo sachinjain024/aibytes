@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "slug": "ph-readywhen-4",
+  "kind": "launch",
+  "title": "readywhen",
+  "url": "https://www.producthunt.com/products/readywhen",
+  "source_url": "https://www.producthunt.com/products/readywhen",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Agents",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/93202133-9124-4af2-8d5e-7f6339d3e115.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "readywhen is an assistant you reach only by email: send it a follow-up job and it drafts the message, holds it for your approval, then watches the thread for an answer.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Jobs are plain emails to assistant@readywhen.ai, such as chasing an unpaid invoice, holding a draft to an investor, or nudging someone if they have not replied by a set day.",
+        "Drafts go out from the user's own address, and only after the user replies \"send\".",
+        "When no answer arrives, it reports back and offers to send another nudge.",
+        "It can also list everything the user is still waiting on, and the team says it connects to more than 1,000 tools.",
+        "There is no app, dashboard or account setup; the email address is the whole interface."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "People who run client, investor and contract work from their inbox and lose track of who still owes them a reply."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "readywhen on Product Hunt",
+      "url": "https://www.producthunt.com/products/readywhen"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-readywhen-4-2026-11-17",
+      "edition_date": "2026-11-17"
+    }
+  ],
+  "created_at": "2026-11-17T17:37:40Z",
+  "updated_at": "2026-11-17T17:37:40Z",
+  "stats": {
+    "upvotes": 249,
+    "comments": 25
+  },
+  "stats_as_of": "2026-11-17T17:35:14Z"
+}

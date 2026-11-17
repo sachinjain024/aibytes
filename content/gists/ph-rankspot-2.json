@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "ph-rankspot-2",
+  "kind": "launch",
+  "title": "RankSpot",
+  "url": "https://www.producthunt.com/products/rankspot",
+  "source_url": "https://www.producthunt.com/products/rankspot",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Agents",
+    "MCP",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/7debbc6a-20c7-4604-b33a-2da89b48ba2f.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "RankSpot exposes SEO work as MCP tools, so an agent in Claude or ChatGPT can research rankings, write and publish articles, and run backlink outreach, paid per output rather than by subscription.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Before writing, it reads Google's top five results for the target keyword, then drafts a page meant to beat them in any of 100+ languages, publishes it and gets it indexed.",
+        "Backlink outreach finds the editors of pages that already rank and emails them from the user's own mailbox, then tracks each link and the site's Domain Rating.",
+        "It also tracks rankings, mentions in AI answers and competitor share of voice, all driven through the MCP connection with no API key to set up.",
+        "Agencies can run every client from one chat, approve what goes out, set a spend cap and schedule recurring tasks.",
+        "The team says this release follows feedback from more than 1,000 customers of an earlier autopilot content version."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Agencies and operators running several sites or businesses who would rather do SEO from inside Claude or ChatGPT than in another dashboard."
+    },
+    {
+      "key": "pricing",
+      "text": "No subscription. The launch comment lists $3 per article, $0.004 per prompt check and $0.09 per outreach pitch, with reading your data free. New accounts start with $1 of credit and one free article."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "RankSpot on Product Hunt",
+      "url": "https://www.producthunt.com/products/rankspot"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-rankspot-2-2026-11-17",
+      "edition_date": "2026-11-17"
+    }
+  ],
+  "created_at": "2026-11-17T17:37:40Z",
+  "updated_at": "2026-11-17T17:37:40Z",
+  "stats": {
+    "upvotes": 289,
+    "comments": 77
+  },
+  "stats_as_of": "2026-11-17T17:35:14Z"
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "hn-claude-mythos-slashed-software-work-to-onboard",
+  "kind": "hn",
+  "title": "Claude Mythos slashed software work to onboard AMD GPUs to around three days",
+  "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-says-claude-mythos-slashed-software-work-to-onboard-amd-gpus-from-up-to-12-months-to-around-three-days-writing-almost-100-percent-of-kernels-autonomously-chips-away-at-nvidias-cuda-moat",
+  "source_url": "https://news.ycombinator.com/item?id=50526264",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Anthropic",
+    "Code Gen",
+    "Inference"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Anthropic told IPO investors that Claude Mythos Preview handled bringing one model up on AMD MI355X GPUs in about three days, work it says once took six to twelve months.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "A slide footnote limits the three days to prompt processing (prefill) for one model at a useful level of performance.",
+        "Co-founder Tom Brown says Mythos ported or wrote nearly all the kernels with almost no human intervention.",
+        "Anthropic has not said whether decode was covered, or how fast the model runs on AMD compared with Nvidia.",
+        "Tom's Hardware reads it as CUDA's software moat narrowing, though agents still need scarce GPUs to test the kernels they write.",
+        "Anthropic already runs on Nvidia and AMD GPUs, Google TPUs and AWS Trainium as one pooled fleet."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "theme",
+          "text": "The main thread asks whether AI-written kernels erase CUDA's developer ecosystem, widely seen as Nvidia's real moat.",
+          "url": "https://news.ycombinator.com/item?id=50527106"
+        },
+        {
+          "stance": "disputed",
+          "text": "Several object that models able to do this work are withheld from the public and from AMD, so only the labs benefit.",
+          "url": "https://news.ycombinator.com/item?id=50528149"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One commenter doubts the claim's timing, landing just before Anthropic's IPO, and suspects hidden limitations.",
+          "url": "https://news.ycombinator.com/item?id=50527990"
+        },
+        {
+          "stance": "agreed",
+          "text": "Commenters expect the same speedup in any domain that is easy to verify, which shifts the problem to verifying harder ones.",
+          "url": "https://news.ycombinator.com/item?id=50527155"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Anthropic says Claude Mythos Preview cut AMD MI355X onboarding from up to 12 months to around three days",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-says-claude-mythos-slashed-software-work-to-onboard-amd-gpus-from-up-to-12-months-to-around-three-days-writing-almost-100-percent-of-kernels-autonomously-chips-away-at-nvidias-cuda-moat"
+    },
+    {
+      "role": "discussion",
+      "title": "Claude Mythos slashed software work to onboard AMD GPUs to around three days",
+      "url": "https://news.ycombinator.com/item?id=50526264"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-claude-mythos-slashed-software-work-to-onboard-2026-11-17",
+      "edition_date": "2026-11-17"
+    }
+  ],
+  "created_at": "2026-11-17T17:37:40Z",
+  "updated_at": "2026-11-17T17:37:40Z",
+  "stats": {
+    "points": 50,
+    "comments": 20,
+    "submitted_by": "nsoonhui",
+    "posted_at": "2026-11-17T01:35:16Z"
+  },
+  "stats_as_of": "2026-11-17T17:35:14Z"
+}

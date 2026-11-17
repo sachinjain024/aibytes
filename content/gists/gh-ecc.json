@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "slug": "gh-ecc",
+  "kind": "repo",
+  "title": "affaan-m/ECC",
+  "url": "https://github.com/affaan-m/ECC",
+  "source_url": "https://github.com/affaan-m/ECC",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "Open Source",
+    "Agents",
+    "Code Gen"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/affaan-m.png?size=80"
+  },
+  "depth": "full",
+  "lede": "ECC is an MIT-licensed bundle of agents, skills, hooks and memory that installs a plan, test, review and remember loop into coding agents, built first for Claude Code with adapters for Codex, Cursor, OpenCode and others.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Ships 72 agents, 327 skills and 98 legacy command shims, plus hooks, selectable rule packs, session memory and continuous learning.",
+        "AgentShield, included, scans prompts, hooks, MCP config, permissions, secrets and agent files.",
+        "Claude Code is the best-supported harness; Codex and Qoder get native plugin paths, while Gemini, Zed, Copilot and others get capability-limited adapters.",
+        "Release 2.2 adds a guided installer that configures Claude Code, Codex and Kimi Code in one reviewed pass, with a dry-run mode.",
+        "The README warns against installing twice into the same harness, which duplicates skills, hooks and commands; a paid ECC Pro GitHub App covers private repos."
+      ]
+    },
+    {
+      "key": "try_it",
+      "command": "npx ecc-universal@2.2.3 setup"
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "affaan-m/ECC",
+      "url": "https://github.com/affaan-m/ECC"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-ecc-2026-11-17",
+      "edition_date": "2026-11-17"
+    }
+  ],
+  "created_at": "2026-11-17T17:37:40Z",
+  "updated_at": "2026-11-17T17:37:40Z",
+  "stats": {
+    "stars": 305226,
+    "forks": 44946,
+    "language": "JavaScript",
+    "license": "MIT",
+    "created_on": "2026-01-18",
+    "contributors": 536,
+    "last_release": {
+      "tag": "v2.2.3",
+      "published_on": "2026-10-01"
+    },
+    "open_issues": 91,
+    "stars_gained": 902
+  },
+  "stats_as_of": "2026-11-17T17:35:14Z"
+}

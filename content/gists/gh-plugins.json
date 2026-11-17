@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "slug": "gh-plugins",
+  "kind": "repo",
+  "title": "cursor/plugins",
+  "url": "https://github.com/cursor/plugins",
+  "source_url": "https://github.com/cursor/plugins",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "Dev Tool",
+    "Cursor"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/cursor.png?size=80"
+  },
+  "depth": "full",
+  "lede": "cursor/plugins holds the Cursor plugin specification and the official plugins built on it, from agent workflow tools to connectors for dozens of SaaS products.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Each plugin is a standalone directory at the repository root with its own .cursor-plugin/plugin.json manifest.",
+        "Developer tools include Thermos for deep branch review, Orchestrate for fanning large tasks across cloud agents, and Advisor for consulting a stronger model before big decisions.",
+        "Integrations cover Gmail, Google Drive, GitHub, Salesforce, HubSpot, Playwright, Ahrefs and many more business apps.",
+        "A create-plugin plugin scaffolds and validates new agent plugins against the spec.",
+        "Some plugins come from individual authors, such as Lauren Tan's pstack workflows and a continual-learning plugin that updates AGENTS.md from transcripts."
+      ]
+    },
+    {
+      "key": "whats_open",
+      "points": [
+        {
+          "text": "The X plugin reportedly does not work at all, the most-discussed open issue.",
+          "url": "https://github.com/cursor/plugins/issues/270"
+        },
+        {
+          "text": "The GitHub plugin's Authenticate button gives no sign-in link.",
+          "url": "https://github.com/cursor/plugins/issues/251"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "cursor/plugins",
+      "url": "https://github.com/cursor/plugins"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-plugins-2026-11-17",
+      "edition_date": "2026-11-17"
+    }
+  ],
+  "created_at": "2026-11-17T17:37:40Z",
+  "updated_at": "2026-11-17T17:37:40Z",
+  "stats": {
+    "stars": 16817,
+    "forks": 1825,
+    "language": "TypeScript",
+    "created_on": "2026-01-23",
+    "contributors": 34,
+    "open_issues": 130,
+    "stars_gained": 196
+  },
+  "stats_as_of": "2026-11-17T17:35:14Z"
+}

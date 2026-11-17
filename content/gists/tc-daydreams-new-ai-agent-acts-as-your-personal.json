@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "tc-daydreams-new-ai-agent-acts-as-your-personal",
+  "kind": "news",
+  "title": "Daydream’s new AI agent acts as your personal stylist — and can shop for you, too",
+  "url": "https://techcrunch.com/2026/11/17/daydreams-new-ai-agent-acts-as-your-personal-stylist-and-can-shop-for-you-too/",
+  "source_url": "https://techcrunch.com/2026/11/17/daydreams-new-ai-agent-acts-as-your-personal-stylist-and-can-shop-for-you-too/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Agents",
+    "Launch"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/11/2daydream-agent-1.jpeg?w=1024"
+  },
+  "depth": "full",
+  "lede": "Daydream launched Daydream Agent, a fashion shopping agent that remembers a shopper's style, fit and budget, runs virtual try-ons and can finish a purchase with one-click checkout.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Shoppers upload one photo and the agent reuses it to try on any saved item.",
+        "It watches for sales and new brand drops, and sends weekly trend updates.",
+        "Connecting a closet and a calendar lets it build outfits around owned clothes and upcoming events.",
+        "It pulls live price and stock data from a catalog of more than 10,000 brands, using fine-tuned OpenAI, Gemini and Claude models alongside its own.",
+        "A Stylist in Residence, Francesca Salih, supplies styling content to the fashion knowledge base the agent draws on."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "It is a clear template for a vertical agent: general models fine-tuned and grounded in live catalog data, with a human-curated domain knowledge base steering the output."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Daydream’s new AI agent acts as your personal stylist — and can shop for you, too",
+      "url": "https://techcrunch.com/2026/11/17/daydreams-new-ai-agent-acts-as-your-personal-stylist-and-can-shop-for-you-too/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-daydreams-new-ai-agent-acts-as-your-personal-2026-11-17",
+      "edition_date": "2026-11-17"
+    }
+  ],
+  "created_at": "2026-11-17T17:37:40Z",
+  "updated_at": "2026-11-17T17:37:40Z"
+}

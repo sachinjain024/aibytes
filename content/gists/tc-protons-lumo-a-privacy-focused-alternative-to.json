@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "tc-protons-lumo-a-privacy-focused-alternative-to",
+  "kind": "news",
+  "title": "Proton’s Lumo, a privacy-focused alternative to ChatGPT and Claude, arrives on desktop",
+  "url": "https://techcrunch.com/2026/11/17/protons-lumo-a-privacy-focused-alternative-to-chatgpt-and-claude-arrives-on-desktop/",
+  "source_url": "https://techcrunch.com/2026/11/17/protons-lumo-a-privacy-focused-alternative-to-chatgpt-and-claude-arrives-on-desktop/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "LLM",
+    "Privacy",
+    "Launch"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2025/07/Lumo-by-proton.jpeg?resize=1200,600"
+  },
+  "depth": "full",
+  "lede": "Proton has released Lumo Desktop for Windows, macOS and Linux, letting its assistant act on local files, folders and connected apps under permission rules the user sets per connector.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Connectors include file-system access, shell execution, browser fetching, Proton's email app, Confluence, Dropbox and Jira.",
+        "Local and remote MCP servers can be added as connectors.",
+        "For each connector, users mark actions as automatic, needing approval, or blocked; scheduled tasks carry their own permission sets.",
+        "Proton says chat history is encrypted so only the user can read it, with no server-side logs and data hosted in Europe under Swiss law.",
+        "Skills store reusable instructions, templates and reference files, replacing the earlier Custom Lumos."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "Allow, approve and block levels per connector are a concrete pattern for scoping what a desktop agent may touch, a question every team shipping local agents now has to answer."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Proton’s Lumo, a privacy-focused alternative to ChatGPT and Claude, arrives on desktop",
+      "url": "https://techcrunch.com/2026/11/17/protons-lumo-a-privacy-focused-alternative-to-chatgpt-and-claude-arrives-on-desktop/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-protons-lumo-a-privacy-focused-alternative-to-2026-11-17",
+      "edition_date": "2026-11-17"
+    }
+  ],
+  "created_at": "2026-11-17T17:37:40Z",
+  "updated_at": "2026-11-17T17:37:40Z"
+}

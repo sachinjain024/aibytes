@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "slug": "gh-superpowers",
+  "kind": "repo",
+  "title": "obra/superpowers",
+  "url": "https://github.com/obra/superpowers",
+  "source_url": "https://github.com/obra/superpowers",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "Open Source",
+    "Framework",
+    "Agents"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/obra.png?size=80"
+  },
+  "depth": "full",
+  "lede": "Superpowers is a set of auto-triggering skills that make a coding agent draw out a spec, write a plan, then build it with test-first subagents and a code review between tasks.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The workflow chains brainstorming, git worktrees, plan writing, subagent or inline execution, TDD, code review and branch finishing.",
+        "Plans are cut into tasks of two to five minutes, each with exact file paths, code and a verification step.",
+        "The TDD skill enforces red-green-refactor and deletes any code written before its failing test.",
+        "Installs as a plugin for Claude Code, Codex, Cursor, Gemini CLI, Copilot CLI, Kimi Code, OpenCode and more, one install per harness.",
+        "A diagnosing-superpowers skill reads a session transcript to explain why a skill misfired or the agent strayed from its plan."
+      ]
+    },
+    {
+      "key": "try_it",
+      "command": "/plugin install superpowers@claude-plugins-official"
+    },
+    {
+      "key": "whats_open",
+      "points": [
+        {
+          "text": "The most-discussed open issue: users say the v7 brainstorming questions get in the way.",
+          "url": "https://github.com/obra/superpowers/issues/2530"
+        },
+        {
+          "text": "Token cost, with one Codex user reporting that subagent-driven development used a full five-hour budget on a simple plan.",
+          "url": "https://github.com/obra/superpowers/issues/1152"
+        },
+        {
+          "text": "Requests to support Claude Code Agent Teams and its messaging and task-list tools.",
+          "url": "https://github.com/obra/superpowers/issues/429"
+        },
+        {
+          "text": "Reports of slower responses after installing the skills, still waiting on a repro case.",
+          "url": "https://github.com/obra/superpowers/issues/743"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "obra/superpowers",
+      "url": "https://github.com/obra/superpowers"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-superpowers-2026-11-17",
+      "edition_date": "2026-11-17"
+    }
+  ],
+  "created_at": "2026-11-17T17:37:40Z",
+  "updated_at": "2026-11-17T17:37:40Z",
+  "stats": {
+    "stars": 319132,
+    "forks": 28451,
+    "language": "Shell",
+    "license": "MIT",
+    "created_on": "2025-10-09",
+    "contributors": 44,
+    "last_release": {
+      "tag": "v7.0.2",
+      "published_on": "2026-11-03"
+    },
+    "open_issues": 200,
+    "stars_gained": 598
+  },
+  "stats_as_of": "2026-11-17T17:35:14Z"
+}

@@ -1,0 +1,888 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-17",
+  "generated_at": "2026-11-17T17:35:14Z",
+  "counts": {
+    "launches": 4,
+    "repos": 10,
+    "news": 10,
+    "hn": 9
+  },
+  "items": [
+    {
+      "id": "ph-zoom-slides-2026-11-17",
+      "title": "Zoom Slides",
+      "summary": "Builds editable decks from Zoom meeting transcripts, summaries and documents, with layouts, visuals and speaker notes, then exports them to PowerPoint.",
+      "url": "https://www.producthunt.com/products/zoom",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/zoom",
+      "category": "launches",
+      "tags": [
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/d5daef6c-74d9-4f4e-9b3e-40662c483fed.jpeg?auto=format"
+      },
+      "signals": {
+        "upvotes": 298,
+        "comments": 101
+      },
+      "published_at": "2026-11-16T08:01:00Z",
+      "hidden": false,
+      "rank": 4,
+      "gist": "ph-zoom-slides"
+    },
+    {
+      "id": "ph-rankspot-2-2026-11-17",
+      "title": "RankSpot",
+      "summary": "An MCP server that lets Claude or ChatGPT write articles modeled on what already ranks on Google, publish them and pitch sites for backlinks, billed at $3 an article.",
+      "url": "https://www.producthunt.com/products/rankspot",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/rankspot",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "MCP",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/7debbc6a-20c7-4604-b33a-2da89b48ba2f.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 289,
+        "comments": 77
+      },
+      "published_at": "2026-11-17T08:01:00Z",
+      "hidden": false,
+      "rank": 11,
+      "gist": "ph-rankspot-2"
+    },
+    {
+      "id": "ph-boost-space-agentos-2026-11-17",
+      "title": "Boost.space AgentOS",
+      "summary": "Runs teams of specialized agents that share context, skills and tools, with access to 1,400+ AI models and 1,500+ connected apps, controlled by chat or voice.",
+      "url": "https://www.producthunt.com/products/boost-space",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/boost-space",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/34e3a3b5-b0b6-4d28-b05d-cce0efbe0b6e.gif?auto=format"
+      },
+      "signals": {
+        "upvotes": 282,
+        "comments": 69
+      },
+      "published_at": "2026-11-16T08:01:00Z",
+      "hidden": false,
+      "rank": 20,
+      "gist": "ph-boost-space-agentos"
+    },
+    {
+      "id": "ph-readywhen-4-2026-11-17",
+      "title": "readywhen",
+      "summary": "An email-only assistant: mail it a job, it drafts the follow-up, sends it from your account only after you reply send, then watches for the answer.",
+      "url": "https://www.producthunt.com/products/readywhen",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/readywhen",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/93202133-9124-4af2-8d5e-7f6339d3e115.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 249,
+        "comments": 25
+      },
+      "published_at": "2026-11-16T08:01:00Z",
+      "hidden": false,
+      "rank": 27,
+      "gist": "ph-readywhen-4"
+    },
+    {
+      "id": "gh-univer-2026-11-17",
+      "title": "dream-num/univer",
+      "summary": "TypeScript office SDK that embeds editing, calculation, collaboration and file processing into an app for both people and AI agents, built on an open-source core.",
+      "url": "https://github.com/dream-num/univer",
+      "source": "github",
+      "source_url": "https://github.com/dream-num/univer",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Dev Tool",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/dream-num.png?size=80"
+      },
+      "signals": {
+        "stars": 28770,
+        "stars_gained": 1776,
+        "forks": 2613
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 1,
+      "gist": "gh-univer"
+    },
+    {
+      "id": "gh-paper-orchestra-2026-11-17",
+      "title": "google-research/paper-orchestra",
+      "summary": "A Google Research multi-agent framework in Python that automates writing AI research papers.",
+      "url": "https://github.com/google-research/paper-orchestra",
+      "source": "github",
+      "source_url": "https://github.com/google-research/paper-orchestra",
+      "category": "repos",
+      "tags": [
+        "Framework",
+        "Agents",
+        "Google"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/google-research.png?size=80"
+      },
+      "signals": {
+        "stars": 2647,
+        "stars_gained": 1175,
+        "forks": 380
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 5,
+      "gist": "gh-paper-orchestra"
+    },
+    {
+      "id": "gh-claude-bughunter-2026-11-17",
+      "title": "elementalsouls/Claude-BugHunter",
+      "summary": "A Claude Code skill bundle for bug bounty and external red-team work: 82 skills, 15 slash commands and 681 disclosed-report patterns across 24 vulnerability classes.",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source": "github",
+      "source_url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Claude Code",
+        "Security"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/elementalsouls.png?size=80"
+      },
+      "signals": {
+        "stars": 8687,
+        "stars_gained": 1007,
+        "forks": 1314
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 8,
+      "gist": "gh-claude-bughunter"
+    },
+    {
+      "id": "gh-ecc-2026-11-17",
+      "title": "affaan-m/ECC",
+      "summary": "A harness layer for Claude Code, Codex, Opencode and Cursor that adds skills, instincts, memory, security checks and a research-first workflow to coding agents.",
+      "url": "https://github.com/affaan-m/ECC",
+      "source": "github",
+      "source_url": "https://github.com/affaan-m/ECC",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Code Gen"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/affaan-m.png?size=80"
+      },
+      "signals": {
+        "stars": 305226,
+        "stars_gained": 902,
+        "forks": 44946
+      },
+      "meta": {
+        "language": "JavaScript"
+      },
+      "hidden": false,
+      "rank": 12,
+      "gist": "gh-ecc"
+    },
+    {
+      "id": "gh-last30days-skill-2026-11-17",
+      "title": "mvanhorn/last30days-skill",
+      "summary": "An agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket and the web, then synthesizes the results into a grounded summary.",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "source": "github",
+      "source_url": "https://github.com/mvanhorn/last30days-skill",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mvanhorn.png?size=80"
+      },
+      "signals": {
+        "stars": 68788,
+        "stars_gained": 772,
+        "forks": 6134
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 15,
+      "gist": "gh-last30days-skill"
+    },
+    {
+      "id": "gh-open-code-review-2026-11-17",
+      "title": "alibaba/open-code-review",
+      "summary": "Alibaba's Go code reviewer pairing deterministic pipelines with an LLM agent for line-level comments, with built-in rules for NPE, thread safety, XSS and SQL injection.",
+      "url": "https://github.com/alibaba/open-code-review",
+      "source": "github",
+      "source_url": "https://github.com/alibaba/open-code-review",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Dev Tool",
+        "Code Gen"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/alibaba.png?size=80"
+      },
+      "signals": {
+        "stars": 53558,
+        "stars_gained": 764,
+        "forks": 4413
+      },
+      "meta": {
+        "language": "Go"
+      },
+      "hidden": false,
+      "rank": 18,
+      "gist": "gh-open-code-review"
+    },
+    {
+      "id": "gh-superpowers-2026-11-17",
+      "title": "obra/superpowers",
+      "summary": "A library of agentic skills packaged with a software development methodology for agents to follow, written in shell.",
+      "url": "https://github.com/obra/superpowers",
+      "source": "github",
+      "source_url": "https://github.com/obra/superpowers",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Framework",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/obra.png?size=80"
+      },
+      "signals": {
+        "stars": 319131,
+        "stars_gained": 598,
+        "forks": 28451
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 22,
+      "gist": "gh-superpowers"
+    },
+    {
+      "id": "gh-loopforge-2026-11-17",
+      "title": "Tencent/LoopForge",
+      "summary": "Tencent's self-hosted workflow engine that orchestrates CodeBuddy, Codex and Claude Code through scripts with human approval gates, including local workflows.",
+      "url": "https://github.com/Tencent/LoopForge",
+      "source": "github",
+      "source_url": "https://github.com/Tencent/LoopForge",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Code Gen"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Tencent.png?size=80"
+      },
+      "signals": {
+        "stars": 2968,
+        "stars_gained": 590,
+        "forks": 430
+      },
+      "meta": {
+        "language": "Go"
+      },
+      "hidden": false,
+      "rank": 25,
+      "gist": "gh-loopforge"
+    },
+    {
+      "id": "gh-stitch-skills-2026-11-17",
+      "title": "google-labs-code/stitch-skills",
+      "summary": "Google Labs' library of Agent Skills for the Stitch MCP server, following the open Agent Skills standard so Antigravity, Gemini CLI, Claude Code and Cursor can use them.",
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "source": "github",
+      "source_url": "https://github.com/google-labs-code/stitch-skills",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "MCP",
+        "Google"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/google-labs-code.png?size=80"
+      },
+      "signals": {
+        "stars": 9997,
+        "stars_gained": 350,
+        "forks": 1317
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 29,
+      "gist": "gh-stitch-skills"
+    },
+    {
+      "id": "gh-plugins-2026-11-17",
+      "title": "cursor/plugins",
+      "summary": "The Cursor plugin specification, alongside the official plugins built on it.",
+      "url": "https://github.com/cursor/plugins",
+      "source": "github",
+      "source_url": "https://github.com/cursor/plugins",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Cursor"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/cursor.png?size=80"
+      },
+      "signals": {
+        "stars": 16817,
+        "stars_gained": 196,
+        "forks": 1825
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 32,
+      "gist": "gh-plugins"
+    },
+    {
+      "id": "tc-fbi-says-artex-ai-open-source-hacking-tool-used-2026-11-17",
+      "title": "FBI says Artex AI open source hacking tool used to breach networks in ‘under three hours’",
+      "summary": "The FBI ties the tool to cyberattacks on a U.S. IT giant and on South Korea's financial industry.",
+      "url": "https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/",
+      "category": "news",
+      "tags": [
+        "Security"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/02/china-hacker-computer-flag.jpg?resize=1200,675"
+      },
+      "meta": {
+        "author": "Zack Whittaker",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-16T17:36:43Z",
+      "hidden": false,
+      "rank": 3,
+      "gist": "tc-fbi-says-artex-ai-open-source-hacking-tool-used"
+    },
+    {
+      "id": "tc-us-tightens-ai-chip-export-controls-to-deter-2026-11-17",
+      "title": "US tightens AI chip export controls to deter Chinese companies from accessing compute remotely",
+      "summary": "An interim rule requires a license to export AI chips to any firm that may provide compute to China or other restricted countries.",
+      "url": "https://techcrunch.com/2026/11/16/us-tightens-ai-chip-export-controls-to-deter-chinese-companies-from-accessing-compute-remotely/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/16/us-tightens-ai-chip-export-controls-to-deter-chinese-companies-from-accessing-compute-remotely/",
+      "category": "news",
+      "tags": [
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/us-commerce.jpg?w=564"
+      },
+      "meta": {
+        "author": "Ram Iyer",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-16T15:02:34Z",
+      "hidden": false,
+      "rank": 6,
+      "gist": "tc-us-tightens-ai-chip-export-controls-to-deter"
+    },
+    {
+      "id": "tc-protons-lumo-a-privacy-focused-alternative-to-2026-11-17",
+      "title": "Proton’s Lumo, a privacy-focused alternative to ChatGPT and Claude, arrives on desktop",
+      "summary": "Lumo Desktop for Windows, Mac and Linux automates tasks across files and connected apps, with granular controls over what the AI can access.",
+      "url": "https://techcrunch.com/2026/11/17/protons-lumo-a-privacy-focused-alternative-to-chatgpt-and-claude-arrives-on-desktop/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/17/protons-lumo-a-privacy-focused-alternative-to-chatgpt-and-claude-arrives-on-desktop/",
+      "category": "news",
+      "tags": [
+        "LLM",
+        "Privacy",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2025/07/Lumo-by-proton.jpeg?resize=1200,600"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-17T17:32:25Z",
+      "hidden": false,
+      "rank": 9,
+      "gist": "tc-protons-lumo-a-privacy-focused-alternative-to"
+    },
+    {
+      "id": "tc-ai-models-can-be-tricked-into-identifying-2026-11-17",
+      "title": "AI models can be tricked into identifying civilians as military targets by telling them it’s a game",
+      "summary": "Vals, a San Francisco AI evaluation startup, tested whether leading models could be manipulated into taking part in autonomous warfare, and they usually complied.",
+      "url": "https://techcrunch.com/2026/11/17/ai-models-can-be-tricked-into-identifying-civilians-as-military-targets-by-telling-them-its-a-game/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/17/ai-models-can-be-tricked-into-identifying-civilians-as-military-targets-by-telling-them-its-a-game/",
+      "category": "news",
+      "tags": [
+        "Safety",
+        "Eval"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-1670871943.jpg?resize=1200,675"
+      },
+      "meta": {
+        "author": "Kirsten Korosec, Rebecca Bellan",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-17T17:20:41Z",
+      "hidden": false,
+      "rank": 13,
+      "gist": "tc-ai-models-can-be-tricked-into-identifying"
+    },
+    {
+      "id": "tc-jensen-huang-says-he-would-be-honored-if-2026-11-17",
+      "title": "Jensen Huang says he would be ‘honored’ if allowed to return as Nvidia CEO",
+      "summary": "In his first public statement since resigning, the Nvidia founder signalled he is willing to come back as CEO.",
+      "url": "https://techcrunch.com/2026/11/17/jensen-huang-says-he-would-be-honored-if-allowed-to-return-as-nvidia-ceo/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/17/jensen-huang-says-he-would-be-honored-if-allowed-to-return-as-nvidia-ceo/",
+      "category": "news",
+      "tags": [
+        "Nvidia"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/01/GettyImages-2256813240.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Russell Brandom",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-17T16:44:15Z",
+      "hidden": false,
+      "rank": 16,
+      "gist": "tc-jensen-huang-says-he-would-be-honored-if"
+    },
+    {
+      "id": "tc-daydreams-new-ai-agent-acts-as-your-personal-2026-11-17",
+      "title": "Daydream’s new AI agent acts as your personal stylist — and can shop for you, too",
+      "summary": "The shopping agent remembers your style, runs virtual try-ons, plans outfits around your wardrobe, tracks sales and completes purchases.",
+      "url": "https://techcrunch.com/2026/11/17/daydreams-new-ai-agent-acts-as-your-personal-stylist-and-can-shop-for-you-too/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/17/daydreams-new-ai-agent-acts-as-your-personal-stylist-and-can-shop-for-you-too/",
+      "category": "news",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/2daydream-agent-1.jpeg?w=1024"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-17T16:32:55Z",
+      "hidden": false,
+      "rank": 19,
+      "gist": "tc-daydreams-new-ai-agent-acts-as-your-personal"
+    },
+    {
+      "id": "tc-voyage-labs-raises-12-million-for-a-specialized-2026-11-17",
+      "title": "Voyage Labs raises $12 million for a specialized AI travel assistant",
+      "summary": "Its flagship product Atlas is a personal trip-planning assistant, available now in private beta.",
+      "url": "https://techcrunch.com/2026/11/17/voyage-labs-raises-12-million-for-a-specialized-ai-travel-assistant/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/17/voyage-labs-raises-12-million-for-a-specialized-ai-travel-assistant/",
+      "category": "news",
+      "tags": [
+        "Funding",
+        "Agents"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Screenshot-2026-11-13-at-12.32.41-PM.jpg?w=942"
+      },
+      "meta": {
+        "author": "Russell Brandom",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-17T15:00:00Z",
+      "hidden": false,
+      "rank": 23,
+      "gist": "tc-voyage-labs-raises-12-million-for-a-specialized"
+    },
+    {
+      "id": "tc-isomorphic-labs-raises-5b-as-it-looks-to-take-2026-11-17",
+      "title": "Isomorphic Labs raises $5B as it looks to take drug candidates to clinical trials",
+      "summary": "A Series C for the AI drug-discovery company spun out of Google DeepMind in 2021.",
+      "url": "https://techcrunch.com/2026/11/17/isomorphic-labs-raises-5b-as-it-looks-to-take-drug-candidates-to-clinical-trials/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/17/isomorphic-labs-raises-5b-as-it-looks-to-take-drug-candidates-to-clinical-trials/",
+      "category": "news",
+      "tags": [
+        "Funding",
+        "Google"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2024/12/GettyImages-2151467531.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Ram Iyer",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-17T14:50:58Z",
+      "hidden": false,
+      "rank": 26,
+      "gist": "tc-isomorphic-labs-raises-5b-as-it-looks-to-take"
+    },
+    {
+      "id": "tc-science-corporations-brain-tech-is-worth-3-5-2026-11-17",
+      "title": "Science Corporation’s brain tech is worth $3.5 billion after new funding",
+      "summary": "A $400 million Series D will scale up the brain-tech company's anti-blindness business.",
+      "url": "https://techcrunch.com/2026/11/17/science-corporations-brain-tech-is-worth-3-5-billion-after-new-funding/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/17/science-corporations-brain-tech-is-worth-3-5-billion-after-new-funding/",
+      "category": "news",
+      "tags": [
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/10/55588371385_eb2e316d52_o.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-17T14:26:46Z",
+      "hidden": false,
+      "rank": 30,
+      "gist": "tc-science-corporations-brain-tech-is-worth-3-5"
+    },
+    {
+      "id": "tc-nvidias-first-big-move-after-jensen-huangs-exit-2026-11-17",
+      "title": "Nvidia’s first big move after Jensen Huang’s exit targets national security",
+      "summary": "A new standing board committee will oversee national security policies, export control compliance and global trade risks.",
+      "url": "https://techcrunch.com/2026/11/17/nvidias-first-big-move-after-jensen-huangs-exit-targets-national-security/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/17/nvidias-first-big-move-after-jensen-huangs-exit-targets-national-security/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2024/10/GettyImages-2087335475.jpg?resize=1200,799"
+      },
+      "meta": {
+        "author": "Kirsten Korosec",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-17T14:05:30Z",
+      "hidden": false,
+      "rank": 33,
+      "gist": "tc-nvidias-first-big-move-after-jensen-huangs-exit"
+    },
+    {
+      "id": "hn-how-the-claude-code-team-thinks-about-2026-11-17",
+      "title": "How the Claude Code team thinks about verification",
+      "summary": "A post on the Claude Code blog at claude.dev on how the team behind the tool approaches verification.",
+      "url": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50529612",
+      "category": "hn",
+      "tags": [
+        "Claude Code",
+        "Code Gen"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 160,
+        "comments": 148
+      },
+      "meta": {
+        "author": "craigmart"
+      },
+      "published_at": "2026-11-17T10:20:40Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 2,
+      "gist": "hn-how-the-claude-code-team-thinks-about"
+    },
+    {
+      "id": "hn-baidu-xiaomi-ceos-warn-of-growing-gap-between-2026-11-17",
+      "title": "Baidu, Xiaomi CEOs warn of growing gap between AI hype and returns",
+      "summary": "A South China Morning Post report on Baidu and Xiaomi chiefs cautioning that AI returns are lagging the hype.",
+      "url": "https://www.scmp.com/tech/big-tech/article/3374774/baidu-xiaomi-ceos-warn-growing-gap-between-ai-hype-and-returns",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50531751",
+      "category": "hn",
+      "tags": [
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 154,
+        "comments": 196
+      },
+      "meta": {
+        "author": "larrysalibra"
+      },
+      "published_at": "2026-11-17T14:19:59Z",
+      "hidden": false,
+      "rank": 7,
+      "gist": "hn-baidu-xiaomi-ceos-warn-of-growing-gap-between"
+    },
+    {
+      "id": "hn-regulatory-capture-by-anthropic-through-metr-2026-11-17",
+      "title": "Regulatory Capture by Anthropic Through METR",
+      "summary": "A thread on X, linked via a Nitter mirror, alleging Anthropic gains regulatory influence through the evaluation group METR.",
+      "url": "https://nitter.cf/kevinnbass/status/2099621874279817638",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50530450",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "Policy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 133,
+        "comments": 72
+      },
+      "meta": {
+        "author": "agnosticmantis"
+      },
+      "published_at": "2026-11-17T12:21:57Z",
+      "hidden": false,
+      "rank": 10,
+      "gist": "hn-regulatory-capture-by-anthropic-through-metr"
+    },
+    {
+      "id": "hn-strengthening-the-fight-against-online-child-2026-11-17",
+      "title": "Strengthening the fight against online child sexual abuse",
+      "summary": "An OpenAI announcement on its measures against online child sexual abuse.",
+      "url": "https://openai.com/index/strengthening-online-child-safety/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50520804",
+      "category": "hn",
+      "tags": [
+        "OpenAI",
+        "Policy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 122,
+        "comments": 307
+      },
+      "meta": {
+        "author": "rossant"
+      },
+      "published_at": "2026-11-16T18:12:48Z",
+      "hidden": false,
+      "rank": 14,
+      "gist": "hn-strengthening-the-fight-against-online-child"
+    },
+    {
+      "id": "hn-who-is-hiring-postings-stuck-near-12-year-lows-2026-11-17",
+      "title": "\"Who is Hiring?\" postings stuck near 12-year lows as AI reaches half of all jobs",
+      "summary": "HN Trends' November tally of the Hacker News Who is Hiring threads, putting postings near 12-year lows as AI reaches half of all listed jobs.",
+      "url": "https://www.hntrends.com/2026/november.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50512950",
+      "category": "hn",
+      "tags": [
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 94,
+        "comments": 86
+      },
+      "meta": {
+        "author": "myth_drannon"
+      },
+      "published_at": "2026-11-16T01:31:30Z",
+      "hidden": false,
+      "rank": 17,
+      "gist": "hn-who-is-hiring-postings-stuck-near-12-year-lows"
+    },
+    {
+      "id": "hn-how-billions-in-safe-insurance-money-is-being-2026-11-17",
+      "title": "How Billions in Safe Insurance Money Is Being Bet on A.I. Debt",
+      "summary": "A New York Times report on insurers putting billions of conservatively held money into AI-related debt.",
+      "url": "https://www.nytimes.com/2026/11/16/business/insurance-ai-debt.html",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50520148",
+      "category": "hn",
+      "tags": [
+        "Funding"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 91,
+        "comments": 51
+      },
+      "meta": {
+        "author": "syllablehq"
+      },
+      "published_at": "2026-11-16T17:25:35Z",
+      "hidden": false,
+      "rank": 21,
+      "gist": "hn-how-billions-in-safe-insurance-money-is-being"
+    },
+    {
+      "id": "hn-ask-hn-if-ai-tools-are-so-good-why-isn-t-your-2026-11-17",
+      "title": "Ask HN: If AI tools are so good, why isn't your bug backlog empty?",
+      "summary": "An Ask HN thread asking why AI coding tools have not cleared developers' bug backlogs.",
+      "url": "https://news.ycombinator.com/item?id=50520076",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50520076",
+      "category": "hn",
+      "tags": [
+        "Code Gen"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 77,
+        "comments": 99
+      },
+      "meta": {
+        "author": "ex-aws-dude"
+      },
+      "published_at": "2026-11-16T17:20:28Z",
+      "hidden": false,
+      "rank": 24,
+      "gist": "hn-ask-hn-if-ai-tools-are-so-good-why-isn-t-your"
+    },
+    {
+      "id": "hn-first-phase-of-embedded-assessments-at-openai-2026-11-17",
+      "title": "First phase of embedded assessments at OpenAI",
+      "summary": "An OpenAI post describing the first phase of its embedded assessments program.",
+      "url": "https://openai.com/index/our-first-phase-of-embedded-assessments/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50519153",
+      "category": "hn",
+      "tags": [
+        "OpenAI"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 57,
+        "comments": 18
+      },
+      "meta": {
+        "author": "dvaplima"
+      },
+      "published_at": "2026-11-16T16:07:20Z",
+      "hidden": false,
+      "rank": 28,
+      "gist": "hn-first-phase-of-embedded-assessments-at-openai"
+    },
+    {
+      "id": "hn-claude-mythos-slashed-software-work-to-onboard-2026-11-17",
+      "title": "Claude Mythos slashed software work to onboard AMD GPUs to around three days",
+      "summary": "Tom's Hardware reports Anthropic's claim that Claude Mythos cut AMD GPU onboarding from up to 12 months to about three days, writing nearly all kernels autonomously.",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-says-claude-mythos-slashed-software-work-to-onboard-amd-gpus-from-up-to-12-months-to-around-three-days-writing-almost-100-percent-of-kernels-autonomously-chips-away-at-nvidias-cuda-moat",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50526264",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "Code Gen",
+        "Inference"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 50,
+        "comments": 20
+      },
+      "meta": {
+        "author": "nsoonhui"
+      },
+      "published_at": "2026-11-17T01:35:16Z",
+      "hidden": false,
+      "rank": 31,
+      "gist": "hn-claude-mythos-slashed-software-work-to-onboard"
+    }
+  ]
+}

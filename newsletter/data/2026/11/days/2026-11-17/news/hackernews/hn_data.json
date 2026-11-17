@@ -1,0 +1,119 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-17",
+  "window": {
+    "after": "2026-11-16",
+    "before": "2026-11-18"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 9,
+  "poolCount": 84,
+  "stories": [
+    {
+      "title": "How the Claude Code team thinks about verification",
+      "url": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/",
+      "type": "story",
+      "points": 160,
+      "num_comments": 148,
+      "author": "craigmart",
+      "created_at": "2026-11-17T10:20:40Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50529612",
+      "front_page": true
+    },
+    {
+      "title": "Baidu, Xiaomi CEOs warn of growing gap between AI hype and returns",
+      "url": "https://www.scmp.com/tech/big-tech/article/3374774/baidu-xiaomi-ceos-warn-growing-gap-between-ai-hype-and-returns",
+      "type": "story",
+      "points": 154,
+      "num_comments": 196,
+      "author": "larrysalibra",
+      "created_at": "2026-11-17T14:19:59Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50531751",
+      "front_page": false
+    },
+    {
+      "title": "Regulatory Capture by Anthropic Through METR",
+      "url": "https://nitter.cf/kevinnbass/status/2099621874279817638",
+      "type": "story",
+      "points": 133,
+      "num_comments": 72,
+      "author": "agnosticmantis",
+      "created_at": "2026-11-17T12:21:57Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50530450",
+      "front_page": false
+    },
+    {
+      "title": "Strengthening the fight against online child sexual abuse",
+      "url": "https://openai.com/index/strengthening-online-child-safety/",
+      "type": "story",
+      "points": 122,
+      "num_comments": 307,
+      "author": "rossant",
+      "created_at": "2026-11-16T18:12:48Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50520804",
+      "front_page": false
+    },
+    {
+      "title": "\"Who is Hiring?\" postings stuck near 12-year lows as AI reaches half of all jobs",
+      "url": "https://www.hntrends.com/2026/november.html",
+      "type": "story",
+      "points": 94,
+      "num_comments": 86,
+      "author": "myth_drannon",
+      "created_at": "2026-11-16T01:31:30Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50512950",
+      "front_page": false
+    },
+    {
+      "title": "How Billions in Safe Insurance Money Is Being Bet on A.I. Debt",
+      "url": "https://www.nytimes.com/2026/11/16/business/insurance-ai-debt.html",
+      "type": "story",
+      "points": 91,
+      "num_comments": 51,
+      "author": "syllablehq",
+      "created_at": "2026-11-16T17:25:35Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50520148",
+      "front_page": false
+    },
+    {
+      "title": "Ask HN: If AI tools are so good, why isn't your bug backlog empty?",
+      "url": "https://news.ycombinator.com/item?id=50520076",
+      "type": "ask_hn",
+      "points": 77,
+      "num_comments": 99,
+      "author": "ex-aws-dude",
+      "created_at": "2026-11-16T17:20:28Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50520076",
+      "front_page": false
+    },
+    {
+      "title": "First phase of embedded assessments at OpenAI",
+      "url": "https://openai.com/index/our-first-phase-of-embedded-assessments/",
+      "type": "story",
+      "points": 57,
+      "num_comments": 18,
+      "author": "dvaplima",
+      "created_at": "2026-11-16T16:07:20Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50519153",
+      "front_page": false
+    },
+    {
+      "title": "Claude Mythos slashed software work to onboard AMD GPUs to around three days",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-says-claude-mythos-slashed-software-work-to-onboard-amd-gpus-from-up-to-12-months-to-around-three-days-writing-almost-100-percent-of-kernels-autonomously-chips-away-at-nvidias-cuda-moat",
+      "type": "story",
+      "points": 50,
+      "num_comments": 20,
+      "author": "nsoonhui",
+      "created_at": "2026-11-17T01:35:16Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50526264",
+      "front_page": false
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "hn-how-the-claude-code-team-thinks-about",
+  "kind": "hn",
+  "title": "How the Claude Code team thinks about verification",
+  "url": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/",
+  "source_url": "https://news.ycombinator.com/item?id=50529612",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Claude Code",
+    "Code Gen"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Addy Osmani's post on the claude.dev blog explains how the Claude Code team, whose code is roughly 90% written and reviewed by Claude, makes agents prove a change works before a person looks.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "It ranks end-to-end tests first, then property tests for edge cases and differential tests that use the old system as the oracle.",
+        "A repo-level verify skill tells Claude how to boot and drive the app, and it runs before every commit.",
+        "Checks still failing after three rounds stop the agent and call in a human.",
+        "A 39-item reliability checklist fires from the diff, and review rules are read from the base branch so a change cannot edit its own checks.",
+        "A commit gate with off, observe and enforce modes flags commits made without review or verification."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "counterpoint",
+          "text": "The top comment calls the approach token-hungry, arguing Playwright gives deterministic browser checks at almost no cost.",
+          "url": "https://news.ycombinator.com/item?id=50530087"
+        },
+        {
+          "stance": "theme",
+          "text": "Cost recurs: one commenter already spends about $2,000 a month on one or two agents and asks how hundreds could be affordable.",
+          "url": "https://news.ycombinator.com/item?id=50529872"
+        },
+        {
+          "stance": "disputed",
+          "text": "Commenters split on whether every diff can still get human review if work is cut into small enough pieces.",
+          "url": "https://news.ycombinator.com/item?id=50530221"
+        },
+        {
+          "stance": "theme",
+          "text": "Several want deterministic checks above the linter level, since stochastic output can only be trusted through deterministic verification.",
+          "url": "https://news.ycombinator.com/item?id=50530314"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "How the Claude Code team thinks about verification / claude.dev Blog",
+      "url": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/"
+    },
+    {
+      "role": "discussion",
+      "title": "How the Claude Code team thinks about verification",
+      "url": "https://news.ycombinator.com/item?id=50529612"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-how-the-claude-code-team-thinks-about-2026-11-17",
+      "edition_date": "2026-11-17"
+    }
+  ],
+  "created_at": "2026-11-17T17:37:40Z",
+  "updated_at": "2026-11-17T17:37:40Z",
+  "stats": {
+    "points": 160,
+    "comments": 148,
+    "submitted_by": "craigmart",
+    "posted_at": "2026-11-17T10:20:40Z"
+  },
+  "stats_as_of": "2026-11-17T17:35:14Z",
+  "front_page": true
+}

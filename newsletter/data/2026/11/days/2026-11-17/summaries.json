@@ -1,0 +1,137 @@
+{
+  "date": "2026-11-17",
+  "items": {
+    "ph-zoom-slides-2026-11-17": {
+      "summary": "Builds editable decks from Zoom meeting transcripts, summaries and documents, with layouts, visuals and speaker notes, then exports them to PowerPoint.",
+      "tags": ["Launch"]
+    },
+    "ph-rankspot-2-2026-11-17": {
+      "summary": "An MCP server that lets Claude or ChatGPT write articles modeled on what already ranks on Google, publish them and pitch sites for backlinks, billed at $3 an article.",
+      "tags": ["Agents", "MCP", "Launch"]
+    },
+    "ph-boost-space-agentos-2026-11-17": {
+      "summary": "Runs teams of specialized agents that share context, skills and tools, with access to 1,400+ AI models and 1,500+ connected apps, controlled by chat or voice.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-readywhen-4-2026-11-17": {
+      "summary": "An email-only assistant: mail it a job, it drafts the follow-up, sends it from your account only after you reply send, then watches for the answer.",
+      "tags": ["Agents", "Launch"]
+    },
+    "gh-univer-2026-11-17": {
+      "summary": "TypeScript office SDK that embeds editing, calculation, collaboration and file processing into an app for both people and AI agents, built on an open-source core.",
+      "tags": ["Open Source", "Dev Tool", "Agents"]
+    },
+    "gh-paper-orchestra-2026-11-17": {
+      "summary": "A Google Research multi-agent framework in Python that automates writing AI research papers.",
+      "tags": ["Framework", "Agents", "Google"]
+    },
+    "gh-claude-bughunter-2026-11-17": {
+      "summary": "A Claude Code skill bundle for bug bounty and external red-team work: 82 skills, 15 slash commands and 681 disclosed-report patterns across 24 vulnerability classes.",
+      "tags": ["Open Source", "Claude Code", "Security"]
+    },
+    "gh-ecc-2026-11-17": {
+      "summary": "A harness layer for Claude Code, Codex, Opencode and Cursor that adds skills, instincts, memory, security checks and a research-first workflow to coding agents.",
+      "tags": ["Open Source", "Agents", "Code Gen"]
+    },
+    "gh-last30days-skill-2026-11-17": {
+      "summary": "An agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket and the web, then synthesizes the results into a grounded summary.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-open-code-review-2026-11-17": {
+      "summary": "Alibaba's Go code reviewer pairing deterministic pipelines with an LLM agent for line-level comments, with built-in rules for NPE, thread safety, XSS and SQL injection.",
+      "tags": ["Open Source", "Dev Tool", "Code Gen"]
+    },
+    "gh-superpowers-2026-11-17": {
+      "summary": "A library of agentic skills packaged with a software development methodology for agents to follow, written in shell.",
+      "tags": ["Open Source", "Framework", "Agents"]
+    },
+    "gh-loopforge-2026-11-17": {
+      "summary": "Tencent's self-hosted workflow engine that orchestrates CodeBuddy, Codex and Claude Code through scripts with human approval gates, including local workflows.",
+      "tags": ["Open Source", "Agents", "Code Gen"]
+    },
+    "gh-stitch-skills-2026-11-17": {
+      "summary": "Google Labs' library of Agent Skills for the Stitch MCP server, following the open Agent Skills standard so Antigravity, Gemini CLI, Claude Code and Cursor can use them.",
+      "tags": ["Open Source", "MCP", "Google"]
+    },
+    "gh-plugins-2026-11-17": {
+      "summary": "The Cursor plugin specification, alongside the official plugins built on it.",
+      "tags": ["Dev Tool", "Cursor"]
+    },
+    "tc-fbi-says-artex-ai-open-source-hacking-tool-used-2026-11-17": {
+      "summary": "The FBI ties the tool to cyberattacks on a U.S. IT giant and on South Korea's financial industry.",
+      "tags": ["Security"]
+    },
+    "tc-us-tightens-ai-chip-export-controls-to-deter-2026-11-17": {
+      "summary": "An interim rule requires a license to export AI chips to any firm that may provide compute to China or other restricted countries.",
+      "tags": ["Policy"]
+    },
+    "tc-protons-lumo-a-privacy-focused-alternative-to-2026-11-17": {
+      "summary": "Lumo Desktop for Windows, Mac and Linux automates tasks across files and connected apps, with granular controls over what the AI can access.",
+      "tags": ["LLM", "Privacy", "Launch"]
+    },
+    "tc-ai-models-can-be-tricked-into-identifying-2026-11-17": {
+      "summary": "Vals, a San Francisco AI evaluation startup, tested whether leading models could be manipulated into taking part in autonomous warfare, and they usually complied.",
+      "tags": ["Safety", "Eval"]
+    },
+    "tc-jensen-huang-says-he-would-be-honored-if-2026-11-17": {
+      "summary": "In his first public statement since resigning, the Nvidia founder signalled he is willing to come back as CEO.",
+      "tags": ["Nvidia"]
+    },
+    "tc-daydreams-new-ai-agent-acts-as-your-personal-2026-11-17": {
+      "summary": "The shopping agent remembers your style, runs virtual try-ons, plans outfits around your wardrobe, tracks sales and completes purchases.",
+      "tags": ["Agents", "Launch"]
+    },
+    "tc-voyage-labs-raises-12-million-for-a-specialized-2026-11-17": {
+      "summary": "Its flagship product Atlas is a personal trip-planning assistant, available now in private beta.",
+      "tags": ["Funding", "Agents"]
+    },
+    "tc-isomorphic-labs-raises-5b-as-it-looks-to-take-2026-11-17": {
+      "summary": "A Series C for the AI drug-discovery company spun out of Google DeepMind in 2021.",
+      "tags": ["Funding", "Google"]
+    },
+    "tc-science-corporations-brain-tech-is-worth-3-5-2026-11-17": {
+      "summary": "A $400 million Series D will scale up the brain-tech company's anti-blindness business.",
+      "tags": ["Funding"]
+    },
+    "tc-nvidias-first-big-move-after-jensen-huangs-exit-2026-11-17": {
+      "summary": "A new standing board committee will oversee national security policies, export control compliance and global trade risks.",
+      "tags": ["Nvidia", "Policy"]
+    },
+    "hn-how-the-claude-code-team-thinks-about-2026-11-17": {
+      "summary": "A post on the Claude Code blog at claude.dev on how the team behind the tool approaches verification.",
+      "tags": ["Claude Code", "Code Gen"]
+    },
+    "hn-baidu-xiaomi-ceos-warn-of-growing-gap-between-2026-11-17": {
+      "summary": "A South China Morning Post report on Baidu and Xiaomi chiefs cautioning that AI returns are lagging the hype.",
+      "tags": ["LLM"]
+    },
+    "hn-regulatory-capture-by-anthropic-through-metr-2026-11-17": {
+      "summary": "A thread on X, linked via a Nitter mirror, alleging Anthropic gains regulatory influence through the evaluation group METR.",
+      "tags": ["Anthropic", "Policy"]
+    },
+    "hn-strengthening-the-fight-against-online-child-2026-11-17": {
+      "summary": "An OpenAI announcement on its measures against online child sexual abuse.",
+      "tags": ["OpenAI", "Policy"]
+    },
+    "hn-who-is-hiring-postings-stuck-near-12-year-lows-2026-11-17": {
+      "summary": "HN Trends' November tally of the Hacker News Who is Hiring threads, putting postings near 12-year lows as AI reaches half of all listed jobs.",
+      "tags": ["Deep Dive"]
+    },
+    "hn-how-billions-in-safe-insurance-money-is-being-2026-11-17": {
+      "summary": "A New York Times report on insurers putting billions of conservatively held money into AI-related debt.",
+      "tags": ["Funding"]
+    },
+    "hn-ask-hn-if-ai-tools-are-so-good-why-isn-t-your-2026-11-17": {
+      "summary": "An Ask HN thread asking why AI coding tools have not cleared developers' bug backlogs.",
+      "tags": ["Code Gen"]
+    },
+    "hn-first-phase-of-embedded-assessments-at-openai-2026-11-17": {
+      "summary": "An OpenAI post describing the first phase of its embedded assessments program.",
+      "tags": ["OpenAI"]
+    },
+    "hn-claude-mythos-slashed-software-work-to-onboard-2026-11-17": {
+      "summary": "Tom's Hardware reports Anthropic's claim that Claude Mythos cut AMD GPU onboarding from up to 12 months to about three days, writing nearly all kernels autonomously.",
+      "tags": ["Anthropic", "Code Gen", "Inference"]
+    }
+  }
+}

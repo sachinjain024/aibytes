@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-17T06:04:14Z",
+  "generated_at": "2026-11-17T17:37:40Z",
   "gists": [
     {
       "slug": "gh-caveman",
@@ -37,6 +37,12 @@
       "source_key": "github.com/ZhuLinsen/daily_stock_analysis",
       "path": "gists/gh-daily-stock-analysis.json",
       "created_at": "2026-11-13T16:15:14Z"
+    },
+    {
+      "slug": "gh-ecc",
+      "source_key": "github.com/affaan-m/ECC",
+      "path": "gists/gh-ecc.json",
+      "created_at": "2026-11-17T17:37:40Z"
     },
     {
       "slug": "gh-ffmpeg-skill",
@@ -99,6 +105,12 @@
       "created_at": "2026-11-16T08:33:32Z"
     },
     {
+      "slug": "gh-plugins",
+      "source_key": "github.com/cursor/plugins",
+      "path": "gists/gh-plugins.json",
+      "created_at": "2026-11-17T17:37:40Z"
+    },
+    {
       "slug": "gh-qwen-code",
       "source_key": "github.com/QwenLM/qwen-code",
       "path": "gists/gh-qwen-code.json",
@@ -115,6 +127,12 @@
       "source_key": "github.com/google-labs-code/stitch-skills",
       "path": "gists/gh-stitch-skills.json",
       "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
+      "slug": "gh-superpowers",
+      "source_key": "github.com/obra/superpowers",
+      "path": "gists/gh-superpowers.json",
+      "created_at": "2026-11-17T17:37:40Z"
     },
     {
       "slug": "gh-tensorfold",
@@ -189,10 +207,22 @@
       "created_at": "2026-11-16T09:30:18Z"
     },
     {
+      "slug": "hn-ask-hn-if-ai-tools-are-so-good-why-isn-t-your",
+      "source_key": "news.ycombinator.com/item?id=50520076",
+      "path": "gists/hn-ask-hn-if-ai-tools-are-so-good-why-isn-t-your.json",
+      "created_at": "2026-11-17T17:37:40Z"
+    },
+    {
       "slug": "hn-ask-hn-what-are-the-most-useful-concrete-ai",
       "source_key": "news.ycombinator.com/item?id=50494696",
       "path": "gists/hn-ask-hn-what-are-the-most-useful-concrete-ai.json",
       "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
+      "slug": "hn-baidu-xiaomi-ceos-warn-of-growing-gap-between",
+      "source_key": "news.ycombinator.com/item?id=50531751",
+      "path": "gists/hn-baidu-xiaomi-ceos-warn-of-growing-gap-between.json",
+      "created_at": "2026-11-17T17:37:40Z"
     },
     {
       "slug": "hn-chinese-frontier-ai-models-carry-the",
@@ -213,6 +243,12 @@
       "created_at": "2026-11-14T15:02:25Z"
     },
     {
+      "slug": "hn-claude-mythos-slashed-software-work-to-onboard",
+      "source_key": "news.ycombinator.com/item?id=50526264",
+      "path": "gists/hn-claude-mythos-slashed-software-work-to-onboard.json",
+      "created_at": "2026-11-17T17:37:40Z"
+    },
+    {
       "slug": "hn-edge0-145b-frontier-ai-capabilities-on-your-own",
       "source_key": "news.ycombinator.com/item?id=50475713",
       "path": "gists/hn-edge0-145b-frontier-ai-capabilities-on-your-own.json",
@@ -223,6 +259,12 @@
       "source_key": "news.ycombinator.com/item?id=50481187",
       "path": "gists/hn-elevated-errors-on-claude-ai-claude-code-and.json",
       "created_at": "2026-11-13T16:15:14Z"
+    },
+    {
+      "slug": "hn-first-phase-of-embedded-assessments-at-openai",
+      "source_key": "news.ycombinator.com/item?id=50519153",
+      "path": "gists/hn-first-phase-of-embedded-assessments-at-openai.json",
+      "created_at": "2026-11-17T17:37:40Z"
     },
     {
       "slug": "hn-foundation-models-framework",
@@ -253,6 +295,12 @@
       "source_key": "news.ycombinator.com/item?id=50520148",
       "path": "gists/hn-how-billions-in-safe-insurance-money-is-being.json",
       "created_at": "2026-11-17T05:59:03Z"
+    },
+    {
+      "slug": "hn-how-the-claude-code-team-thinks-about",
+      "source_key": "news.ycombinator.com/item?id=50529612",
+      "path": "gists/hn-how-the-claude-code-team-thinks-about.json",
+      "created_at": "2026-11-17T17:37:40Z"
     },
     {
       "slug": "hn-i-m-making-llms-work-on-small-and-old-devices",
@@ -301,6 +349,12 @@
       "source_key": "news.ycombinator.com/item?id=50509953",
       "path": "gists/hn-parents-pay-75k-for-alpha-s-ai-school-half-of.json",
       "created_at": "2026-11-17T05:59:03Z"
+    },
+    {
+      "slug": "hn-regulatory-capture-by-anthropic-through-metr",
+      "source_key": "news.ycombinator.com/item?id=50530450",
+      "path": "gists/hn-regulatory-capture-by-anthropic-through-metr.json",
+      "created_at": "2026-11-17T17:37:40Z"
     },
     {
       "slug": "hn-serving-glm-5-3-at-607-8-tok-s-across-two",
@@ -447,6 +501,18 @@
       "created_at": "2026-11-15T15:41:02Z"
     },
     {
+      "slug": "ph-rankspot-2",
+      "source_key": "producthunt.com/products/rankspot",
+      "path": "gists/ph-rankspot-2.json",
+      "created_at": "2026-11-17T17:37:40Z"
+    },
+    {
+      "slug": "ph-readywhen-4",
+      "source_key": "producthunt.com/products/readywhen",
+      "path": "gists/ph-readywhen-4.json",
+      "created_at": "2026-11-17T17:37:40Z"
+    },
+    {
       "slug": "ph-replicate-3",
       "source_key": "producthunt.com/products/replicate-10",
       "path": "gists/ph-replicate-3.json",
@@ -481,6 +547,12 @@
       "source_key": "techcrunch.com/2026/11/13/ai-agent-startup-langchain-hits-3b-valuation",
       "path": "gists/tc-ai-agent-startup-langchain-hits-3b-valuation.json",
       "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
+      "slug": "tc-ai-models-can-be-tricked-into-identifying",
+      "source_key": "techcrunch.com/2026/11/17/ai-models-can-be-tricked-into-identifying-civilians-as-military-targets-by-telling-them-its-a-game",
+      "path": "gists/tc-ai-models-can-be-tricked-into-identifying.json",
+      "created_at": "2026-11-17T17:37:40Z"
     },
     {
       "slug": "tc-all-the-questions-nvidia-should-answer-on",
@@ -519,6 +591,12 @@
       "created_at": "2026-11-17T05:59:03Z"
     },
     {
+      "slug": "tc-daydreams-new-ai-agent-acts-as-your-personal",
+      "source_key": "techcrunch.com/2026/11/17/daydreams-new-ai-agent-acts-as-your-personal-stylist-and-can-shop-for-you-too",
+      "path": "gists/tc-daydreams-new-ai-agent-acts-as-your-personal.json",
+      "created_at": "2026-11-17T17:37:40Z"
+    },
+    {
       "slug": "tc-democrats-launch-nvidia-investigation-write",
       "source_key": "techcrunch.com/2026/11/12/democrats-launch-nvidia-investigation-write-scathing-letter-on-huangs-scheme-with-trump",
       "path": "gists/tc-democrats-launch-nvidia-investigation-write.json",
@@ -555,6 +633,12 @@
       "created_at": "2026-11-13T16:15:14Z"
     },
     {
+      "slug": "tc-isomorphic-labs-raises-5b-as-it-looks-to-take",
+      "source_key": "techcrunch.com/2026/11/17/isomorphic-labs-raises-5b-as-it-looks-to-take-drug-candidates-to-clinical-trials",
+      "path": "gists/tc-isomorphic-labs-raises-5b-as-it-looks-to-take.json",
+      "created_at": "2026-11-17T17:37:40Z"
+    },
+    {
       "slug": "tc-israels-vcs-see-opportunity-for-challengers-in",
       "source_key": "techcrunch.com/2026/11/13/israels-vcs-see-opportunity-for-challengers-in-nvidias-turmoil",
       "path": "gists/tc-israels-vcs-see-opportunity-for-challengers-in.json",
@@ -573,6 +657,12 @@
       "created_at": "2026-11-13T16:15:14Z"
     },
     {
+      "slug": "tc-jensen-huang-says-he-would-be-honored-if",
+      "source_key": "techcrunch.com/2026/11/17/jensen-huang-says-he-would-be-honored-if-allowed-to-return-as-nvidia-ceo",
+      "path": "gists/tc-jensen-huang-says-he-would-be-honored-if.json",
+      "created_at": "2026-11-17T17:37:40Z"
+    },
+    {
       "slug": "tc-jensen-huangs-departure-blasts-big-hole-in-ai",
       "source_key": "techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say",
       "path": "gists/tc-jensen-huangs-departure-blasts-big-hole-in-ai.json",
@@ -583,6 +673,12 @@
       "source_key": "techcrunch.com/2026/11/16/jordan-belforts-new-ai-voice-startup-tone-wants-to-sell-like-the-wolf-of-wall-street",
       "path": "gists/tc-jordan-belforts-new-ai-voice-startup-tone-wants.json",
       "created_at": "2026-11-17T05:59:03Z"
+    },
+    {
+      "slug": "tc-nvidias-first-big-move-after-jensen-huangs-exit",
+      "source_key": "techcrunch.com/2026/11/17/nvidias-first-big-move-after-jensen-huangs-exit-targets-national-security",
+      "path": "gists/tc-nvidias-first-big-move-after-jensen-huangs-exit.json",
+      "created_at": "2026-11-17T17:37:40Z"
     },
     {
       "slug": "tc-openai-releases-a-new-image-classifier-and",
@@ -597,10 +693,22 @@
       "created_at": "2026-11-17T05:59:03Z"
     },
     {
+      "slug": "tc-protons-lumo-a-privacy-focused-alternative-to",
+      "source_key": "techcrunch.com/2026/11/17/protons-lumo-a-privacy-focused-alternative-to-chatgpt-and-claude-arrives-on-desktop",
+      "path": "gists/tc-protons-lumo-a-privacy-focused-alternative-to.json",
+      "created_at": "2026-11-17T17:37:40Z"
+    },
+    {
       "slug": "tc-sam-altman-on-nvidia-without-jensen-huang-the",
       "source_key": "techcrunch.com/2026/11/16/sam-altman-on-nvidia-without-jensen-huang-the-industry-will-be-fine",
       "path": "gists/tc-sam-altman-on-nvidia-without-jensen-huang-the.json",
       "created_at": "2026-11-17T05:59:03Z"
+    },
+    {
+      "slug": "tc-science-corporations-brain-tech-is-worth-3-5",
+      "source_key": "techcrunch.com/2026/11/17/science-corporations-brain-tech-is-worth-3-5-billion-after-new-funding",
+      "path": "gists/tc-science-corporations-brain-tech-is-worth-3-5.json",
+      "created_at": "2026-11-17T17:37:40Z"
     },
     {
       "slug": "tc-the-ai-graveyard-a-running-list-of-projects-and",
@@ -631,6 +739,12 @@
       "source_key": "techcrunch.com/2026/11/16/us-tightens-ai-chip-export-controls-to-deter-chinese-companies-from-accessing-compute-remotely",
       "path": "gists/tc-us-tightens-ai-chip-export-controls-to-deter.json",
       "created_at": "2026-11-17T05:59:03Z"
+    },
+    {
+      "slug": "tc-voyage-labs-raises-12-million-for-a-specialized",
+      "source_key": "techcrunch.com/2026/11/17/voyage-labs-raises-12-million-for-a-specialized-ai-travel-assistant",
+      "path": "gists/tc-voyage-labs-raises-12-million-for-a-specialized.json",
+      "created_at": "2026-11-17T17:37:40Z"
     },
     {
       "slug": "tc-where-was-nvidias-security-team",
