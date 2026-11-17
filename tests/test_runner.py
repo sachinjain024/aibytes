@@ -643,8 +643,10 @@ print("fetched", sys.argv[1:])
 
 STUB_CURATE = r'''#!/usr/bin/env python3
 """Stands in for packages/curate/curate.py: draft writes a curation request,
-build turns a summaries file into an edition."""
-import json, pathlib, sys
+build turns a summaries file into an edition. STUB_BUILD_REJECT: once (rejects
+the first summaries file, accepts Claude's fix), always, other (not a summaries
+problem)."""
+import json, os, pathlib, sys
 
 args = sys.argv[1:]
 command = args[0]
@@ -663,6 +665,15 @@ if command == "draft":
 else:
     written = json.loads(pathlib.Path(value("--summaries")).read_text())
     assert set(written["items"]) == {"hn-1"}, written
+    reject = os.environ.get("STUB_BUILD_REJECT", "")
+    if reject == "always" or (reject == "once" and written["items"]["hn-1"]["summary"] == "s"):
+        print(value("--summaries") + " does not match the 1 item(s) in this edition, "
+              "so nothing was written:\nhn-1: summary is 203 chars, over the 200 cap",
+              file=sys.stderr)
+        raise SystemExit(1)
+    if reject == "other":
+        print("edition would be invalid, so nothing was written:\nbad", file=sys.stderr)
+        raise SystemExit(1)
     (content / "editions").mkdir(parents=True, exist_ok=True)
     (content / "editions" / (date + ".json")).write_text(json.dumps(
         {"date": date, "counts": {"HN": 1}}))
@@ -700,8 +711,9 @@ match = re.search(r"(\S*summaries\.json)", prompt)
 if match and os.environ.get("STUB_CLAUDE_WRITE") != "0":
     target = pathlib.Path(os.environ["STUB_CLAUDE_REPO"]) / match.group(1)
     target.parent.mkdir(parents=True, exist_ok=True)
+    summary = "fixed" if "rejected it" in prompt else "s"
     target.write_text(json.dumps(
-        {"date": "DATE", "items": {"hn-1": {"summary": "s", "tags": ["Model"]}}}))
+        {"date": "DATE", "items": {"hn-1": {"summary": summary, "tags": ["Model"]}}}))
 print(json.dumps({"is_error": False, "num_turns": 4, "total_cost_usd": 0.31,
                   "result": "wrote the summaries"}))
 '''
@@ -821,6 +833,31 @@ class EndToEndTest(unittest.TestCase):
         self.assertIn("at step `summaries`", self.recorder.only)
         self.assertIn("without writing", self.recorder.only)
         self.assertFalse((self.tmp / "content" / "editions").exists())
+
+    def test_a_rejected_summaries_file_gets_one_repair_pass(self):
+        with mock.patch.dict(os.environ, {"STUB_BUILD_REJECT": "once"}):
+            self.assertEqual(self.run_it(), 0)
+        self.assertTrue((self.tmp / "content" / "editions" / f"{DATE}.json").exists())
+        # Claude is handed build's own words, and the run says it needed help.
+        prompt = json.loads(self.argv_file.read_text())
+        prompt = prompt[prompt.index("--print") + 1]
+        self.assertIn("hn-1: summary is 203 chars, over the 200 cap", prompt)
+        self.assertIn("Do NOT run the build step", prompt)
+        self.assertIn("published", self.recorder.only)
+        self.assertIn("second pass", self.recorder.only)
+
+    def test_a_second_rejection_fails_the_run(self):
+        with mock.patch.dict(os.environ, {"STUB_BUILD_REJECT": "always"}):
+            self.assertEqual(self.run_it(), 1)
+        self.assertIn("at step `build`", self.recorder.only)
+        self.assertFalse((self.tmp / "content" / "editions").exists())
+
+    def test_a_build_failure_that_is_not_the_summaries_is_not_retried(self):
+        with mock.patch.dict(os.environ, {"STUB_BUILD_REJECT": "other"}):
+            self.assertEqual(self.run_it(), 1)
+        self.assertIn("at step `build`", self.recorder.only)
+        prompt = "\n".join(json.loads(self.argv_file.read_text()))
+        self.assertNotIn("rejected it", prompt)
 
     def edition(self):
         return json.loads((self.tmp / "content" / "editions" / f"{DATE}.json").read_text())
