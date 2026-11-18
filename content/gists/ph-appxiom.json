@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "ph-appxiom",
+  "kind": "launch",
+  "title": "Appxiom",
+  "url": "https://www.producthunt.com/products/appxiom",
+  "source_url": "https://www.producthunt.com/products/appxiom",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Dev Tool",
+    "Agents",
+    "Code Gen",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/bfd480d0-4122-4529-9b0b-27c80926323f.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "Appxiom records crashes, freezes, memory leaks, failed network calls and broken user journeys in production apps, and hands that context to coding agents through an MCP connector.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "SDKs cover Android, iOS, Flutter, Kotlin Multiplatform and the web, with extra support for React among JavaScript and TypeScript frameworks.",
+        "Goal Friction Impact: you mark goals such as signup or checkout, and each failed completion is linked to the bug behind it.",
+        "Agents can then rank bugs by how many goal completions each one cost, rather than by raw crash counts.",
+        "The MCP connector and agent Skills are live; the Skills can wire up the SDK and suggest which goals are worth tracking.",
+        "The team says Appxiom only supplies context: root cause and fix stay with the agent and developer. React Native and Shopify support are next."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Mobile and web teams already working with coding agents who want those agents fixing the production failures that block users, instead of guessing from a stack trace or a hand-picked ticket."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Appxiom on Product Hunt",
+      "url": "https://www.producthunt.com/products/appxiom"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-appxiom-2026-11-18",
+      "edition_date": "2026-11-18"
+    }
+  ],
+  "created_at": "2026-11-18T17:15:44Z",
+  "updated_at": "2026-11-18T17:15:44Z",
+  "stats": {
+    "upvotes": 287,
+    "comments": 45
+  },
+  "stats_as_of": "2026-11-18T17:12:37Z"
+}

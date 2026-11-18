@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "tc-nvidia-is-abandoning-china-after-jensen-huangs",
+  "kind": "news",
+  "title": "Nvidia is abandoning China after Jensen Huang’s ouster",
+  "url": "https://techcrunch.com/2026/11/17/nvidia-is-abandoning-china-after-jensen-huangs-ouster/",
+  "source_url": "https://techcrunch.com/2026/11/17/nvidia-is-abandoning-china-after-jensen-huangs-ouster/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Nvidia",
+    "Policy"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/03/jensen-huang-gtc-getty.jpg?resize=1200,781"
+  },
+  "depth": "full",
+  "lede": "Interim CEO Colette Kress said Nvidia will stop selling H200 chips in China, ending its part in a Trump-brokered exception to US limits on exporting advanced AI chips there.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The arrangement, negotiated by Huang, routed chips through the US so the government could collect a 25% tariff.",
+        "Nvidia also set up a board committee for national security, export compliance and trade risk.",
+        "Rules issued Monday bar advanced US chips from foreign data centers that serve Chinese customers remotely.",
+        "Jefferies estimates the rules could take $44 billion to $62 billion off next year's data center revenue; Kress says the backlog means no top-line hit.",
+        "China had already refused most H200 deliveries, preferring to build demand for domestic chips."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "Large training clusters outside China will have to certify they serve no Chinese customers before buying Nvidia chips, which may push some operators toward other accelerators."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Nvidia is abandoning China after Jensen Huang’s ouster",
+      "url": "https://techcrunch.com/2026/11/17/nvidia-is-abandoning-china-after-jensen-huangs-ouster/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-nvidia-is-abandoning-china-after-jensen-huangs-2026-11-18",
+      "edition_date": "2026-11-18"
+    }
+  ],
+  "created_at": "2026-11-18T17:15:44Z",
+  "updated_at": "2026-11-18T17:15:44Z"
+}

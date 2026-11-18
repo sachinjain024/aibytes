@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "ph-ekline",
+  "kind": "launch",
+  "title": "EkLine",
+  "url": "https://www.producthunt.com/products/ekline",
+  "source_url": "https://www.producthunt.com/products/ekline",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Dev Tool",
+    "Agents",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/fd23932c-0e87-4ff1-ada0-0b753a60f0ba.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "EkLine checks what AI assistants say about a developer tool and whether they can build with it, then opens pull requests to fix the docs and pages behind the wrong answers.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Agents audit the website, docs, GitHub repos and community threads for things AI misreads or cannot implement.",
+        "It asks AI the questions buyers ask and lists every source behind each answer, including pages the company does not control.",
+        "Gaps are ranked, and fixes are drafted from the codebase, Jira and Notion as pull requests that the team approves.",
+        "It then reruns the same questions to measure the change; the team cites Socure moving from an agent experience score of 80 to about 95.",
+        "A user at Okteto says its agents notice code changes and propose matching documentation updates."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "API-first companies and developer tool makers whose buyers choose tools by asking ChatGPT and then build with them in Cursor."
+    },
+    {
+      "key": "pricing",
+      "text": "The launch comment offers $50 in credits to Product Hunt sign-ups who use a work email. No other pricing is given."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "EkLine on Product Hunt",
+      "url": "https://www.producthunt.com/products/ekline"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-ekline-2026-11-18",
+      "edition_date": "2026-11-18"
+    }
+  ],
+  "created_at": "2026-11-18T17:15:44Z",
+  "updated_at": "2026-11-18T17:15:44Z",
+  "stats": {
+    "upvotes": 266,
+    "comments": 125
+  },
+  "stats_as_of": "2026-11-18T17:12:37Z"
+}

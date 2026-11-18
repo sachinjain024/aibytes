@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "slug": "gh-appwrite",
+  "kind": "repo",
+  "title": "appwrite/appwrite",
+  "url": "https://github.com/appwrite/appwrite",
+  "source_url": "https://github.com/appwrite/appwrite",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "Open Source",
+    "Dev Tool"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/appwrite.png?size=80"
+  },
+  "depth": "full",
+  "lede": "Appwrite is a BSD-licensed backend platform bundling auth, databases, storage, functions, messaging, realtime and hosting, with an MCP server so coding agents can operate on a live project.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Auth covers email, SMS, OAuth, anonymous sessions and magic URLs; databases include managed PostgreSQL and MySQL options.",
+        "Sites deploys static, SSR and CSR frontends from Git with previews, and a Firewall product adds traffic rules and abuse controls.",
+        "The hosted MCP server signs in with OAuth, so Cursor, Claude Code or Codex connect without API keys; self-hosters use a local server.",
+        "Self-hosting is one Docker command that starts a setup wizard bound to localhost and guarded by a one-time installer secret.",
+        "Client SDKs span web, Flutter, Apple, Android, React Native and Unity, and server SDKs cover ten languages."
+      ]
+    },
+    {
+      "key": "try_it",
+      "command": "npx skills add appwrite/agent-skills"
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "appwrite/appwrite",
+      "url": "https://github.com/appwrite/appwrite"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-appwrite-2026-11-18",
+      "edition_date": "2026-11-18"
+    }
+  ],
+  "created_at": "2026-11-18T17:15:44Z",
+  "updated_at": "2026-11-18T17:15:44Z",
+  "stats": {
+    "stars": 58156,
+    "forks": 5887,
+    "language": "TypeScript",
+    "license": "BSD-3-Clause",
+    "created_on": "2019-04-08",
+    "contributors": 556,
+    "last_release": {
+      "tag": "2.7.3",
+      "published_on": "2026-11-17"
+    },
+    "open_issues": 287,
+    "stars_gained": 239
+  },
+  "stats_as_of": "2026-11-18T17:12:37Z"
+}

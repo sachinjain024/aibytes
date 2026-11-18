@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "hn-why-is-gemini-4-carbon-taking-so-long",
+  "kind": "hn",
+  "title": "Why is Gemini 4 Carbon taking so long?",
+  "url": "https://kernel.dev/blog/why-is-gemini-4-carbon-taking-so-long/",
+  "source_url": "https://news.ycombinator.com/item?id=50541790",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Google",
+    "LLM"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "A team tracing Gemini 4 Carbon on a private bug-fixing eval found it took close to an hour on tasks Opus and Astra finished in minutes, and broke down where the time went.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Slower inference explains 16 to 30% of the extra time against Astra and about half against Opus; the rest comes from longer runs.",
+        "Carbon took about seven times Astra's steps and eleven times its actions, and processed over sixteen times the input.",
+        "Roughly half its steps went on work the ticket never asked for: auditing unrelated code paths and guarding cases already ruled out.",
+        "Injecting a check-in every five turns cut one trial from 37 to 28 minutes, suggesting the cause is habit, not missing knowledge.",
+        "One tool call per step and re-reading 39% of lines, against 7% for Astra, account for about a quarter of the excess."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "A commenter with separate data confirmed the slowness: about three times the completion time, more than double the output tokens and nearly twice the tool calls.",
+          "url": "https://news.ycombinator.com/item?id=50548020"
+        },
+        {
+          "stance": "disputed",
+          "text": "Commenters split on whether something is broken, such as time to first token, or whether benchmarks like CursorBench show the model is simply thorough.",
+          "url": "https://news.ycombinator.com/item?id=50542487"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One reader treats the extra auditing as a feature, since it surfaces distant bugs and subtle dead code a narrower model would miss.",
+          "url": "https://news.ycombinator.com/item?id=50547330"
+        },
+        {
+          "stance": "theme",
+          "text": "Several want strict instruction following above all; one found their harness was telling the model to go beyond each request.",
+          "url": "https://news.ycombinator.com/item?id=50548043"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Why is Gemini 4 Carbon taking so long?",
+      "url": "https://kernel.dev/blog/why-is-gemini-4-carbon-taking-so-long/"
+    },
+    {
+      "role": "discussion",
+      "title": "Why is Gemini 4 Carbon taking so long?",
+      "url": "https://news.ycombinator.com/item?id=50541790"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-why-is-gemini-4-carbon-taking-so-long-2026-11-18",
+      "edition_date": "2026-11-18"
+    }
+  ],
+  "created_at": "2026-11-18T17:15:44Z",
+  "updated_at": "2026-11-18T17:15:44Z",
+  "stats": {
+    "points": 234,
+    "comments": 122,
+    "submitted_by": "deenadz",
+    "posted_at": "2026-11-18T04:14:04Z"
+  },
+  "stats_as_of": "2026-11-18T17:12:37Z",
+  "front_page": true
+}

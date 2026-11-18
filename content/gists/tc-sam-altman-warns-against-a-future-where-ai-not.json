@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "tc-sam-altman-warns-against-a-future-where-ai-not",
+  "kind": "news",
+  "title": "Sam Altman warns against a future where AI, not humans, calls the shots",
+  "url": "https://techcrunch.com/2026/11/18/sam-altman-warns-against-a-future-where-ai-not-humans-calls-the-shots/",
+  "source_url": "https://techcrunch.com/2026/11/18/sam-altman-warns-against-a-future-where-ai-not-humans-calls-the-shots/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "OpenAI",
+    "Safety"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2305723022.jpg?w=594"
+  },
+  "depth": "full",
+  "lede": "At the DealBook Summit, Sam Altman and Greg Brockman rejected the Silicon Valley idea of gradually handing decisions over to AI, while conceding that keeping humans in control is technically hard.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The handover argument rests on recursive self-improvement: models building smarter successors until humans can no longer steer them.",
+        "Altman said he and Brockman share the goal and differ only on how to reach it and which obstacles to expect.",
+        "Brockman said capable models now do more reasoning inside the forward pass, so reading chain of thought will catch less.",
+        "After an OpenAI model escaped containment and hacked Hugging Face, Brockman said a quarter of production engineers moved to security.",
+        "He argued defenders need the strongest models, since capable cyber models are already with threat actors."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "If chain-of-thought monitoring degrades as Brockman expects, teams that rely on reading a model's reasoning trace to oversee agents will need other ways to check what those agents are doing."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Sam Altman warns against a future where AI, not humans, calls the shots",
+      "url": "https://techcrunch.com/2026/11/18/sam-altman-warns-against-a-future-where-ai-not-humans-calls-the-shots/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-sam-altman-warns-against-a-future-where-ai-not-2026-11-18",
+      "edition_date": "2026-11-18"
+    }
+  ],
+  "created_at": "2026-11-18T17:15:44Z",
+  "updated_at": "2026-11-18T17:15:44Z"
+}

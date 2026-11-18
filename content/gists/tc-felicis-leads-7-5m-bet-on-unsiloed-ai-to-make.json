@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "tc-felicis-leads-7-5m-bet-on-unsiloed-ai-to-make",
+  "kind": "news",
+  "title": "Felicis leads $7.5M bet on Unsiloed AI to make enterprise documents usable by AI agents",
+  "url": "https://techcrunch.com/2026/11/18/felicis-leads-7-5m-bet-on-unsiloed-ai-to-make-enterprise-documents-usable-by-ai-agents/",
+  "source_url": "https://techcrunch.com/2026/11/18/felicis-leads-7-5m-bet-on-unsiloed-ai-to-make-enterprise-documents-usable-by-ai-agents/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Funding",
+    "Agents"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/11/unsiloed-AI-founders-adnan-abbas-aman-mishra.jpg?resize=1200,800"
+  },
+  "depth": "full",
+  "lede": "Unsiloed AI turns tables, charts and tangled layouts in enterprise documents into structured data that agents can use, with each value traced to its place in the original page.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Its 'dual-stream' vision models handle text tokens and image tokens separately, and heat-map chunking puts more compute on figures, numbers and charts.",
+        "A domain-aware decoder tells apart terms that mean different things in different industries.",
+        "The startup reports 99.78% accuracy over about 84,000 fields from 542 financial documents; the result has not been independently checked.",
+        "In its own olmOCR-Bench runs it scored 88.0, against 66.0 for Reducto's agentic system and 39.9 for Unstructured.",
+        "Pricing starts at one cent per page. Customers include an unnamed bank and law firm, and voice AI startup Bolna AI."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "Agents that read contracts, filings or medical records fail quietly when extraction goes wrong; structured output with source locations lets builders verify each value instead of trusting it."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Felicis leads $7.5M bet on Unsiloed AI to make enterprise documents usable by AI agents",
+      "url": "https://techcrunch.com/2026/11/18/felicis-leads-7-5m-bet-on-unsiloed-ai-to-make-enterprise-documents-usable-by-ai-agents/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-felicis-leads-7-5m-bet-on-unsiloed-ai-to-make-2026-11-18",
+      "edition_date": "2026-11-18"
+    }
+  ],
+  "created_at": "2026-11-18T17:15:44Z",
+  "updated_at": "2026-11-18T17:15:44Z"
+}

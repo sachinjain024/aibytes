@@ -1,0 +1,130 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-18",
+  "window": {
+    "after": "2026-11-17",
+    "before": "2026-11-19"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 18,
+  "poolCount": 80,
+  "stories": [
+    {
+      "title": "GPT\u20116.2 Astra and Sol",
+      "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+      "type": "story",
+      "points": 1326,
+      "num_comments": 836,
+      "author": "jasondavies",
+      "created_at": "2026-11-17T17:46:43Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50535230",
+      "front_page": false
+    },
+    {
+      "title": "AI is killing All About Berlin",
+      "url": "https://nicolasbouliane.com/blog/death-by-ai",
+      "type": "story",
+      "points": 681,
+      "num_comments": 625,
+      "author": "grey-area",
+      "created_at": "2026-11-18T06:47:26Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50542705",
+      "front_page": false
+    },
+    {
+      "title": "Google's AI answers reducing search traffic by 40%",
+      "url": "https://revscope.co/blog/search-seo-geo-2026/",
+      "type": "story",
+      "points": 651,
+      "num_comments": 498,
+      "author": "slashdev",
+      "created_at": "2026-11-18T00:17:58Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50540178",
+      "front_page": false
+    },
+    {
+      "title": "Harvard researchers find AI coding agents shifted the bottleneck to code review",
+      "url": "https://complexdiscovery.com/harvard-researchers-find-ai-coding-agents-shifted-the-bottleneck-to-code-review/",
+      "type": "story",
+      "points": 298,
+      "num_comments": 388,
+      "author": "judahmeek",
+      "created_at": "2026-11-17T21:16:12Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50538303",
+      "front_page": false
+    },
+    {
+      "title": "How the Claude Code team thinks about verification",
+      "url": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/",
+      "type": "story",
+      "points": 290,
+      "num_comments": 229,
+      "author": "craigmart",
+      "created_at": "2026-11-17T10:20:40Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50529612",
+      "front_page": false
+    },
+    {
+      "title": "Why is Gemini 4 Carbon taking so long?",
+      "url": "https://kernel.dev/blog/why-is-gemini-4-carbon-taking-so-long/",
+      "type": "story",
+      "points": 234,
+      "num_comments": 122,
+      "author": "deenadz",
+      "created_at": "2026-11-18T04:14:04Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50541790",
+      "front_page": true
+    },
+    {
+      "title": "Baidu, Xiaomi CEOs warn of growing gap between AI hype and returns",
+      "url": "https://www.scmp.com/tech/big-tech/article/3374774/baidu-xiaomi-ceos-warn-growing-gap-between-ai-hype-and-returns",
+      "type": "story",
+      "points": 190,
+      "num_comments": 254,
+      "author": "larrysalibra",
+      "created_at": "2026-11-17T14:19:59Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50531751",
+      "front_page": false
+    },
+    {
+      "title": "Not Everything Needs an LLM",
+      "url": "https://newsletter.posthog.com/p/decision-models",
+      "type": "story",
+      "points": 174,
+      "num_comments": 72,
+      "author": "speckx",
+      "created_at": "2026-11-17T18:16:18Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50535740",
+      "front_page": false
+    },
+    {
+      "title": "Claude was trained on protein sequences at scale",
+      "url": "http://xinmingtu.cn/blog/2026/claude-opus-5-5-protein-sequences/",
+      "type": "story",
+      "points": 140,
+      "num_comments": 64,
+      "author": "gmays",
+      "created_at": "2026-11-18T03:47:43Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50541619",
+      "front_page": false
+    },
+    {
+      "title": "Regulatory Capture by Anthropic Through METR",
+      "url": "https://nitter.cf/kevinnbass/status/2099621874279817638",
+      "type": "story",
+      "points": 140,
+      "num_comments": 74,
+      "author": "agnosticmantis",
+      "created_at": "2026-11-17T12:21:57Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50530450",
+      "front_page": false
+    }
+  ]
+}

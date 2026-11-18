@@ -1,0 +1,929 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-18",
+  "generated_at": "2026-11-18T17:12:37Z",
+  "counts": {
+    "launches": 4,
+    "repos": 10,
+    "news": 10,
+    "hn": 10
+  },
+  "items": [
+    {
+      "id": "ph-rankspot-2-2026-11-18",
+      "title": "RankSpot",
+      "summary": "MCP server for Claude or ChatGPT that writes articles from what already ranks on Google, publishes them and pitches sites for backlinks, billed at $3 an article.",
+      "url": "https://www.producthunt.com/products/rankspot",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/rankspot",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "MCP",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/7debbc6a-20c7-4604-b33a-2da89b48ba2f.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 434,
+        "comments": 121
+      },
+      "published_at": "2026-11-17T08:01:00Z",
+      "hidden": false,
+      "rank": 4,
+      "gist": "ph-rankspot-2"
+    },
+    {
+      "id": "ph-thebold-2026-11-18",
+      "title": "TheBold",
+      "summary": "Founders pass an AI investor-readiness interview, log verified traction and rehearse investor-specific simulations, then enter matching investors' deal flow and book meetings.",
+      "url": "https://www.producthunt.com/products/thebold",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/thebold",
+      "category": "launches",
+      "tags": [
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/6b79eba9-0b76-4326-8bd8-5465bca28056.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 419,
+        "comments": 75
+      },
+      "published_at": "2026-11-17T08:01:00Z",
+      "hidden": false,
+      "rank": 11,
+      "gist": "ph-thebold"
+    },
+    {
+      "id": "ph-appxiom-2026-11-18",
+      "title": "Appxiom",
+      "summary": "Feeds coding agents production crash, freeze, memory-leak and failed-request data from Android, iOS, Flutter and web apps, ranked by which user goals each bug blocks.",
+      "url": "https://www.producthunt.com/products/appxiom",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/appxiom",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Code Gen",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/bfd480d0-4122-4529-9b0b-27c80926323f.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 287,
+        "comments": 45
+      },
+      "published_at": "2026-11-17T08:00:00Z",
+      "hidden": false,
+      "rank": 21,
+      "gist": "ph-appxiom"
+    },
+    {
+      "id": "ph-ekline-2026-11-18",
+      "title": "EkLine",
+      "summary": "Agents audit a dev tool's site, docs and GitHub for what ChatGPT or Cursor gets wrong, open code-grounded fix PRs, then retest the AI answers to measure the change.",
+      "url": "https://www.producthunt.com/products/ekline",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/ekline",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/fd23932c-0e87-4ff1-ada0-0b753a60f0ba.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 266,
+        "comments": 125
+      },
+      "published_at": "2026-11-17T08:01:00Z",
+      "hidden": false,
+      "rank": 28,
+      "gist": "ph-ekline"
+    },
+    {
+      "id": "gh-claude-bughunter-2026-11-18",
+      "title": "elementalsouls/Claude-BugHunter",
+      "summary": "Claude Code skill bundle for bug bounty and red-team work: 82 skills, 15 slash commands and 681 disclosed-report patterns across 24 vulnerability classes, in Python.",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source": "github",
+      "source_url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Claude Code",
+        "Security"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/elementalsouls.png?size=80"
+      },
+      "signals": {
+        "stars": 10913,
+        "stars_gained": 2322,
+        "forks": 1486
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 1,
+      "gist": "gh-claude-bughunter"
+    },
+    {
+      "id": "gh-paper-orchestra-2026-11-18",
+      "title": "google-research/paper-orchestra",
+      "summary": "Google Research's Python multi-agent framework that automates writing AI research papers.",
+      "url": "https://github.com/google-research/paper-orchestra",
+      "source": "github",
+      "source_url": "https://github.com/google-research/paper-orchestra",
+      "category": "repos",
+      "tags": [
+        "Framework",
+        "Agents",
+        "Google"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/google-research.png?size=80"
+      },
+      "signals": {
+        "stars": 4016,
+        "stars_gained": 1529,
+        "forks": 504
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 5,
+      "gist": "gh-paper-orchestra"
+    },
+    {
+      "id": "gh-ecc-2026-11-18",
+      "title": "affaan-m/ECC",
+      "summary": "JavaScript harness layer that adds skills, instincts, memory and security rules to coding agents including Claude Code, Codex, Opencode and Cursor.",
+      "url": "https://github.com/affaan-m/ECC",
+      "source": "github",
+      "source_url": "https://github.com/affaan-m/ECC",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Claude Code"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/affaan-m.png?size=80"
+      },
+      "signals": {
+        "stars": 306277,
+        "stars_gained": 1109,
+        "forks": 45092
+      },
+      "meta": {
+        "language": "JavaScript"
+      },
+      "hidden": false,
+      "rank": 8,
+      "gist": "gh-ecc"
+    },
+    {
+      "id": "gh-last30days-skill-2026-11-18",
+      "title": "mvanhorn/last30days-skill",
+      "summary": "Python agent skill that researches a topic across Reddit, X, YouTube, Hacker News, Polymarket and the web, then writes a grounded summary.",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "source": "github",
+      "source_url": "https://github.com/mvanhorn/last30days-skill",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mvanhorn.png?size=80"
+      },
+      "signals": {
+        "stars": 69777,
+        "stars_gained": 1062,
+        "forks": 6230
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 12,
+      "gist": "gh-last30days-skill"
+    },
+    {
+      "id": "gh-superpowers-2026-11-18",
+      "title": "obra/superpowers",
+      "summary": "Shell-based agentic skills framework that doubles as a software development methodology for coding agents.",
+      "url": "https://github.com/obra/superpowers",
+      "source": "github",
+      "source_url": "https://github.com/obra/superpowers",
+      "category": "repos",
+      "tags": [
+        "Framework",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/obra.png?size=80"
+      },
+      "signals": {
+        "stars": 319854,
+        "stars_gained": 823,
+        "forks": 28534
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 15,
+      "gist": "gh-superpowers"
+    },
+    {
+      "id": "gh-stitch-skills-2026-11-18",
+      "title": "google-labs-code/stitch-skills",
+      "summary": "Google Labs library of Agent Skills for the Stitch MCP server, built to the open Agent Skills standard for Antigravity, Gemini CLI, Claude Code and Cursor.",
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "source": "github",
+      "source_url": "https://github.com/google-labs-code/stitch-skills",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "MCP",
+        "Google"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/google-labs-code.png?size=80"
+      },
+      "signals": {
+        "stars": 10330,
+        "stars_gained": 369,
+        "forks": 1362
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 18,
+      "gist": "gh-stitch-skills"
+    },
+    {
+      "id": "gh-skillevaluator-2026-11-18",
+      "title": "NVIDIA/SkillEvaluator",
+      "summary": "Nvidia's tiered evaluator for agent skills and plugins: quality gates, semantic overlap detection, synthetic eval datasets and live runs measuring how a skill changes agent behaviour.",
+      "url": "https://github.com/NVIDIA/SkillEvaluator",
+      "source": "github",
+      "source_url": "https://github.com/NVIDIA/SkillEvaluator",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Eval",
+        "Agents",
+        "Nvidia"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/NVIDIA.png?size=80"
+      },
+      "signals": {
+        "stars": 3578,
+        "stars_gained": 323,
+        "forks": 503
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 22,
+      "gist": "gh-skillevaluator"
+    },
+    {
+      "id": "gh-n8n-2026-11-18",
+      "title": "n8n-io/n8n",
+      "summary": "Fair-code workflow automation in TypeScript that mixes a visual builder with custom code and native AI steps, self-hosted or cloud, with 400+ integrations.",
+      "url": "https://github.com/n8n-io/n8n",
+      "source": "github",
+      "source_url": "https://github.com/n8n-io/n8n",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/n8n-io.png?size=80"
+      },
+      "signals": {
+        "stars": 210928,
+        "stars_gained": 315,
+        "forks": 61559
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 25,
+      "gist": "gh-n8n"
+    },
+    {
+      "id": "gh-plugins-2026-11-18",
+      "title": "cursor/plugins",
+      "summary": "Cursor's specification for editor plugins, plus the official plugins built against it, in TypeScript.",
+      "url": "https://github.com/cursor/plugins",
+      "source": "github",
+      "source_url": "https://github.com/cursor/plugins",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Cursor",
+        "Dev Tool"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/cursor.png?size=80"
+      },
+      "signals": {
+        "stars": 17113,
+        "stars_gained": 315,
+        "forks": 1886
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 29,
+      "gist": "gh-plugins"
+    },
+    {
+      "id": "gh-appwrite-2026-11-18",
+      "title": "appwrite/appwrite",
+      "summary": "Open-source backend in TypeScript bundling auth, databases, storage, functions, messaging, hosting, realtime and a WAF, pitched at agents and developers alike.",
+      "url": "https://github.com/appwrite/appwrite",
+      "source": "github",
+      "source_url": "https://github.com/appwrite/appwrite",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Dev Tool"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/appwrite.png?size=80"
+      },
+      "signals": {
+        "stars": 58156,
+        "stars_gained": 239,
+        "forks": 5887
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 32,
+      "gist": "gh-appwrite"
+    },
+    {
+      "id": "tc-nvidia-says-its-open-source-ai-strategy-remains-2026-11-18",
+      "title": "Nvidia says its open source AI strategy remains intact after Jensen Huang’s exit",
+      "summary": "The interim CEO also confirmed Nvidia still plans to acquire Hugging Face despite Jensen Huang's sudden departure.",
+      "url": "https://techcrunch.com/2026/11/17/nvidia-says-its-open-source-ai-strategy-remains-intact-after-jensen-huangs-exit/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/17/nvidia-says-its-open-source-ai-strategy-remains-intact-after-jensen-huangs-exit/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Hugging Face",
+        "Acquisition"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2290097570.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-17T23:04:35Z",
+      "hidden": false,
+      "rank": 3,
+      "gist": "tc-nvidia-says-its-open-source-ai-strategy-remains"
+    },
+    {
+      "id": "tc-amazon-and-google-will-together-own-nearly-30-2026-11-18",
+      "title": "Amazon and Google will together own nearly 30% of Anthropic after its IPO",
+      "summary": "Amazon will hold just under 15% after the IPO with an option to go much higher, and Google close to 14%.",
+      "url": "https://techcrunch.com/2026/11/17/amazon-and-google-will-together-own-nearly-30-of-anthropic-after-its-ipo/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/17/amazon-and-google-will-together-own-nearly-30-of-anthropic-after-its-ipo/",
+      "category": "news",
+      "tags": [
+        "Anthropic",
+        "Google",
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2022/09/GettyImages-1415078085.jpg?resize=1200,721"
+      },
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-17T22:29:05Z",
+      "hidden": false,
+      "rank": 7,
+      "gist": "tc-amazon-and-google-will-together-own-nearly-30"
+    },
+    {
+      "id": "tc-sam-altman-warns-against-a-future-where-ai-not-2026-11-18",
+      "title": "Sam Altman warns against a future where AI, not humans, calls the shots",
+      "summary": "Altman and Greg Brockman pushed back on Silicon Valley's AI-takeover debate while conceding that keeping advanced models under human control is hard.",
+      "url": "https://techcrunch.com/2026/11/18/sam-altman-warns-against-a-future-where-ai-not-humans-calls-the-shots/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/18/sam-altman-warns-against-a-future-where-ai-not-humans-calls-the-shots/",
+      "category": "news",
+      "tags": [
+        "OpenAI",
+        "Safety"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2305723022.jpg?w=594"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-18T16:59:00Z",
+      "hidden": false,
+      "rank": 10,
+      "gist": "tc-sam-altman-warns-against-a-future-where-ai-not"
+    },
+    {
+      "id": "tc-openai-ceo-sam-altman-says-its-hard-to-imagine-2026-11-18",
+      "title": "OpenAI CEO Sam Altman says it’s ‘hard to imagine the AI industry without Jensen’",
+      "summary": "The comment follows Jensen Huang stepping down as Nvidia CEO last week amid several scandals, including an affair with an alleged Chinese spy.",
+      "url": "https://techcrunch.com/2026/11/18/openai-ceo-sam-altman-says-its-hard-to-imagine-the-ai-industry-without-jensen/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/18/openai-ceo-sam-altman-says-its-hard-to-imagine-the-ai-industry-without-jensen/",
+      "category": "news",
+      "tags": [
+        "OpenAI",
+        "Nvidia"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2297209338.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-18T16:14:09Z",
+      "hidden": false,
+      "rank": 14,
+      "gist": "tc-openai-ceo-sam-altman-says-its-hard-to-imagine"
+    },
+    {
+      "id": "tc-nvidia-clarifies-when-it-will-and-wont-keep-2026-11-18",
+      "title": "Nvidia clarifies when it will — and won’t — keep financing neoclouds",
+      "summary": "Interim CEO Colette Kress said Nvidia is only on the hook for a backstopped data center loan once the neocloud has independent financing and the facility is built with Nvidia gear.",
+      "url": "https://techcrunch.com/2026/11/18/nvidia-clarifies-when-it-will-and-wont-keep-financing-neoclouds/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/18/nvidia-clarifies-when-it-will-and-wont-keep-financing-neoclouds/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/04/dollar-signs-data-center.png?w=1024"
+      },
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-18T13:00:00Z",
+      "hidden": false,
+      "rank": 17,
+      "gist": "tc-nvidia-clarifies-when-it-will-and-wont-keep"
+    },
+    {
+      "id": "tc-felicis-leads-7-5m-bet-on-unsiloed-ai-to-make-2026-11-18",
+      "title": "Felicis leads $7.5M bet on Unsiloed AI to make enterprise documents usable by AI agents",
+      "summary": "Unsiloed AI has a team of seven and plans to take on tech giants and specialised startups in the crowded AI document-processing market.",
+      "url": "https://techcrunch.com/2026/11/18/felicis-leads-7-5m-bet-on-unsiloed-ai-to-make-enterprise-documents-usable-by-ai-agents/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/18/felicis-leads-7-5m-bet-on-unsiloed-ai-to-make-enterprise-documents-usable-by-ai-agents/",
+      "category": "news",
+      "tags": [
+        "Funding",
+        "Agents"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/unsiloed-AI-founders-adnan-abbas-aman-mishra.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Jagmeet Singh",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-18T12:00:00Z",
+      "hidden": false,
+      "rank": 20,
+      "gist": "tc-felicis-leads-7-5m-bet-on-unsiloed-ai-to-make"
+    },
+    {
+      "id": "tc-indias-humyn-labs-raises-47m-to-feed-u-s-2026-11-18",
+      "title": "India’s Humyn Labs raises $47M to feed U.S. robotics companies the data they need",
+      "summary": "Founded in February, the Accel-backed startup earns about 90% of its revenue in the U.S. and competes with Mecka AI and XDOF on robotics training data.",
+      "url": "https://techcrunch.com/2026/11/18/accel-backs-indias-humyn-labs-to-supply-training-data-needed-by-u-s-robotics-ai-developers/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/18/accel-backs-indias-humyn-labs-to-supply-training-data-needed-by-u-s-robotics-ai-developers/",
+      "category": "news",
+      "tags": [
+        "Funding",
+        "Robotics",
+        "Dataset"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/humyn-labs-co-founders_164602.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Jagmeet Singh",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-18T11:30:00Z",
+      "hidden": false,
+      "rank": 24,
+      "gist": "tc-indias-humyn-labs-raises-47m-to-feed-u-s"
+    },
+    {
+      "id": "tc-nvidias-startup-stakes-ballooned-to-65b-but-2026-11-18",
+      "title": "Nvidia’s startup stakes ballooned to $65B, but Huang’s exit puts future  deals in doubt",
+      "summary": "The value of Nvidia's private investments nearly tripled in nine months, driven by Huang's dealmaking and rising valuations across its portfolio.",
+      "url": "https://techcrunch.com/2026/11/17/nvidias-startup-stakes-ballooned-to-65b-but-huangs-exit-puts-future-deals-in-doubt/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/17/nvidias-startup-stakes-ballooned-to-65b-but-huangs-exit-puts-future-deals-in-doubt/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2024/11/GettyImages-2150167239.jpg?resize=1200,771"
+      },
+      "meta": {
+        "author": "Dominic-Madori Davis, Marina Temkin",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-18T01:44:21Z",
+      "hidden": false,
+      "rank": 27,
+      "gist": "tc-nvidias-startup-stakes-ballooned-to-65b-but"
+    },
+    {
+      "id": "tc-nvidia-promises-that-revenue-will-keep-soaring-2026-11-18",
+      "title": "Nvidia promises that revenue will keep soaring — for now",
+      "summary": "Nvidia projected its run of record-breaking revenue will continue despite the turmoil after founder Jensen Huang's departure.",
+      "url": "https://techcrunch.com/2026/11/17/nvidia-promises-that-revenue-will-keep-soaring-for-now/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/17/nvidia-promises-that-revenue-will-keep-soaring-for-now/",
+      "category": "news",
+      "tags": [
+        "Nvidia"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/02/GettyImages-157503102.jpg?resize=1200,776"
+      },
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-18T00:16:50Z",
+      "hidden": false,
+      "rank": 31,
+      "gist": "tc-nvidia-promises-that-revenue-will-keep-soaring"
+    },
+    {
+      "id": "tc-nvidia-is-abandoning-china-after-jensen-huangs-2026-11-18",
+      "title": "Nvidia is abandoning China after Jensen Huang’s ouster",
+      "summary": "Nvidia's interim CEO says the company is done selling chips to China, and the piece weighs what losing that market will cost.",
+      "url": "https://techcrunch.com/2026/11/17/nvidia-is-abandoning-china-after-jensen-huangs-ouster/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/17/nvidia-is-abandoning-china-after-jensen-huangs-ouster/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/03/jensen-huang-gtc-getty.jpg?resize=1200,781"
+      },
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-17T23:37:48Z",
+      "hidden": false,
+      "rank": 34,
+      "gist": "tc-nvidia-is-abandoning-china-after-jensen-huangs"
+    },
+    {
+      "id": "hn-gpt6-2-astra-and-sol-2026-11-18",
+      "title": "GPT‑6.2 Astra and Sol",
+      "summary": "OpenAI's announcement post on openai.com introducing two GPT-6.2 models, Astra and Sol.",
+      "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50535230",
+      "category": "hn",
+      "tags": [
+        "Model Release",
+        "OpenAI",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 1326,
+        "comments": 836
+      },
+      "meta": {
+        "author": "jasondavies"
+      },
+      "published_at": "2026-11-17T17:46:43Z",
+      "hidden": false,
+      "rank": 2,
+      "gist": "hn-gpt6-2-astra-and-sol"
+    },
+    {
+      "id": "hn-ai-is-killing-all-about-berlin-2026-11-18",
+      "title": "AI is killing All About Berlin",
+      "summary": "Essay by Nicolas Bouliane on his own blog, filed under death by AI, about what AI is doing to his site All About Berlin.",
+      "url": "https://nicolasbouliane.com/blog/death-by-ai",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50542705",
+      "category": "hn",
+      "tags": [
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 681,
+        "comments": 625
+      },
+      "meta": {
+        "author": "grey-area"
+      },
+      "published_at": "2026-11-18T06:47:26Z",
+      "hidden": false,
+      "rank": 6,
+      "gist": "hn-ai-is-killing-all-about-berlin"
+    },
+    {
+      "id": "hn-google-s-ai-answers-reducing-search-traffic-by-2026-11-18",
+      "title": "Google's AI answers reducing search traffic by 40%",
+      "summary": "Revscope blog analysis of search, SEO and generative engine optimisation in 2026, on how Google's AI answers cut traffic to sites.",
+      "url": "https://revscope.co/blog/search-seo-geo-2026/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50540178",
+      "category": "hn",
+      "tags": [
+        "Google",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 651,
+        "comments": 498
+      },
+      "meta": {
+        "author": "slashdev"
+      },
+      "published_at": "2026-11-18T00:17:58Z",
+      "hidden": false,
+      "rank": 9,
+      "gist": "hn-google-s-ai-answers-reducing-search-traffic-by"
+    },
+    {
+      "id": "hn-harvard-researchers-find-ai-coding-agents-2026-11-18",
+      "title": "Harvard researchers find AI coding agents shifted the bottleneck to code review",
+      "summary": "ComplexDiscovery report on a Harvard study finding that coding agents moved the development bottleneck from writing code to reviewing it.",
+      "url": "https://complexdiscovery.com/harvard-researchers-find-ai-coding-agents-shifted-the-bottleneck-to-code-review/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50538303",
+      "category": "hn",
+      "tags": [
+        "Paper",
+        "Code Gen",
+        "Agents"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 298,
+        "comments": 388
+      },
+      "meta": {
+        "author": "judahmeek"
+      },
+      "published_at": "2026-11-17T21:16:12Z",
+      "hidden": false,
+      "rank": 13,
+      "gist": "hn-harvard-researchers-find-ai-coding-agents"
+    },
+    {
+      "id": "hn-how-the-claude-code-team-thinks-about-2026-11-18",
+      "title": "How the Claude Code team thinks about verification",
+      "summary": "Post on the claude.dev blog in which the Claude Code team sets out its approach to verification.",
+      "url": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50529612",
+      "category": "hn",
+      "tags": [
+        "Claude Code",
+        "Code Gen",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 290,
+        "comments": 229
+      },
+      "meta": {
+        "author": "craigmart"
+      },
+      "published_at": "2026-11-17T10:20:40Z",
+      "hidden": false,
+      "rank": 16,
+      "gist": "hn-how-the-claude-code-team-thinks-about"
+    },
+    {
+      "id": "hn-why-is-gemini-4-carbon-taking-so-long-2026-11-18",
+      "title": "Why is Gemini 4 Carbon taking so long?",
+      "summary": "Essay on the kernel.dev blog examining the delay to Google's Gemini 4 Carbon model.",
+      "url": "https://kernel.dev/blog/why-is-gemini-4-carbon-taking-so-long/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50541790",
+      "category": "hn",
+      "tags": [
+        "Google",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 234,
+        "comments": 122
+      },
+      "meta": {
+        "author": "deenadz"
+      },
+      "published_at": "2026-11-18T04:14:04Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 19,
+      "gist": "hn-why-is-gemini-4-carbon-taking-so-long"
+    },
+    {
+      "id": "hn-baidu-xiaomi-ceos-warn-of-growing-gap-between-2026-11-18",
+      "title": "Baidu, Xiaomi CEOs warn of growing gap between AI hype and returns",
+      "summary": "South China Morning Post report on Baidu and Xiaomi chiefs cautioning that AI spending is outpacing the returns it brings.",
+      "url": "https://www.scmp.com/tech/big-tech/article/3374774/baidu-xiaomi-ceos-warn-growing-gap-between-ai-hype-and-returns",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50531751",
+      "category": "hn",
+      "tags": [
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 190,
+        "comments": 254
+      },
+      "meta": {
+        "author": "larrysalibra"
+      },
+      "published_at": "2026-11-17T14:19:59Z",
+      "hidden": false,
+      "rank": 23,
+      "gist": "hn-baidu-xiaomi-ceos-warn-of-growing-gap-between"
+    },
+    {
+      "id": "hn-not-everything-needs-an-llm-2026-11-18",
+      "title": "Not Everything Needs an LLM",
+      "summary": "PostHog newsletter essay arguing for simpler decision models over LLMs where a task does not need one.",
+      "url": "https://newsletter.posthog.com/p/decision-models",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50535740",
+      "category": "hn",
+      "tags": [
+        "LLM",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 174,
+        "comments": 72
+      },
+      "meta": {
+        "author": "speckx"
+      },
+      "published_at": "2026-11-17T18:16:18Z",
+      "hidden": false,
+      "rank": 26,
+      "gist": "hn-not-everything-needs-an-llm"
+    },
+    {
+      "id": "hn-claude-was-trained-on-protein-sequences-at-scale-2026-11-18",
+      "title": "Claude was trained on protein sequences at scale",
+      "summary": "Blog post by Xinming Tu examining evidence that Claude Opus 5.5 was trained on protein sequences at scale.",
+      "url": "http://xinmingtu.cn/blog/2026/claude-opus-5-5-protein-sequences/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50541619",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 140,
+        "comments": 64
+      },
+      "meta": {
+        "author": "gmays"
+      },
+      "published_at": "2026-11-18T03:47:43Z",
+      "hidden": false,
+      "rank": 30,
+      "gist": "hn-claude-was-trained-on-protein-sequences-at-scale"
+    },
+    {
+      "id": "hn-regulatory-capture-by-anthropic-through-metr-2026-11-18",
+      "title": "Regulatory Capture by Anthropic Through METR",
+      "summary": "X thread by Kevin Bass, via a Nitter mirror, alleging Anthropic shapes AI regulation through its ties to the evaluator METR.",
+      "url": "https://nitter.cf/kevinnbass/status/2099621874279817638",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50530450",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "Policy",
+        "Eval"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 140,
+        "comments": 74
+      },
+      "meta": {
+        "author": "agnosticmantis"
+      },
+      "published_at": "2026-11-17T12:21:57Z",
+      "hidden": false,
+      "rank": 33,
+      "gist": "hn-regulatory-capture-by-anthropic-through-metr"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "slug": "hn-ai-is-killing-all-about-berlin",
+  "kind": "hn",
+  "title": "AI is killing All About Berlin",
+  "url": "https://nicolasbouliane.com/blog/death-by-ai",
+  "source_url": "https://news.ycombinator.com/item?id=50542705",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Deep Dive"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Nicolas Bouliane, who has made his living from the guide site All About Berlin since 2020, says Google's AI Overviews have taken about three quarters of its traffic.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "A search now shows ads and an AI answer drawn from his guides before any link to the site itself.",
+        "Government offices refer people to the guides, and the site inspired two official portals.",
+        "He says other site owners have paywalled their work or stopped updating it.",
+        "In the thread, Bouliane says things have got worse since the post and next year may be his last running the site full time."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "Many see a loop that eats itself: AI depends on openly published human work while removing the reason to publish it.",
+          "url": "https://news.ycombinator.com/item?id=50543324"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One commenter says many readers simply prefer an AI summary to affiliate-driven pages; a reply notes niche answers still need checking against the sources.",
+          "url": "https://news.ycombinator.com/item?id=50543027"
+        },
+        {
+          "stance": "disputed",
+          "text": "A comparison to ad blocking, which HN usually defends, splits the thread; replies say the difference is that readers never visit the site at all.",
+          "url": "https://news.ycombinator.com/item?id=50545057"
+        },
+        {
+          "stance": "theme",
+          "text": "Several argue small publishers need a different revenue model, with ad-funded sites already weakened by ad blockers.",
+          "url": "https://news.ycombinator.com/item?id=50546832"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "AI is killing All About Berlin - Nicolas Bouliane",
+      "url": "https://nicolasbouliane.com/blog/death-by-ai"
+    },
+    {
+      "role": "discussion",
+      "title": "AI is killing All About Berlin",
+      "url": "https://news.ycombinator.com/item?id=50542705"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-ai-is-killing-all-about-berlin-2026-11-18",
+      "edition_date": "2026-11-18"
+    }
+  ],
+  "created_at": "2026-11-18T17:15:44Z",
+  "updated_at": "2026-11-18T17:15:44Z",
+  "stats": {
+    "points": 681,
+    "comments": 625,
+    "submitted_by": "grey-area",
+    "posted_at": "2026-11-18T06:47:26Z"
+  },
+  "stats_as_of": "2026-11-18T17:12:37Z"
+}

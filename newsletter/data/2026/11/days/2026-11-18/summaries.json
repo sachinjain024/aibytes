@@ -1,0 +1,141 @@
+{
+  "date": "2026-11-18",
+  "items": {
+    "ph-rankspot-2-2026-11-18": {
+      "summary": "MCP server for Claude or ChatGPT that writes articles from what already ranks on Google, publishes them and pitches sites for backlinks, billed at $3 an article.",
+      "tags": ["Agents", "MCP", "Launch"]
+    },
+    "ph-thebold-2026-11-18": {
+      "summary": "Founders pass an AI investor-readiness interview, log verified traction and rehearse investor-specific simulations, then enter matching investors' deal flow and book meetings.",
+      "tags": ["Launch"]
+    },
+    "ph-appxiom-2026-11-18": {
+      "summary": "Feeds coding agents production crash, freeze, memory-leak and failed-request data from Android, iOS, Flutter and web apps, ranked by which user goals each bug blocks.",
+      "tags": ["Dev Tool", "Agents", "Code Gen", "Launch"]
+    },
+    "ph-ekline-2026-11-18": {
+      "summary": "Agents audit a dev tool's site, docs and GitHub for what ChatGPT or Cursor gets wrong, open code-grounded fix PRs, then retest the AI answers to measure the change.",
+      "tags": ["Dev Tool", "Agents", "Launch"]
+    },
+    "gh-claude-bughunter-2026-11-18": {
+      "summary": "Claude Code skill bundle for bug bounty and red-team work: 82 skills, 15 slash commands and 681 disclosed-report patterns across 24 vulnerability classes, in Python.",
+      "tags": ["Open Source", "Claude Code", "Security"]
+    },
+    "gh-paper-orchestra-2026-11-18": {
+      "summary": "Google Research's Python multi-agent framework that automates writing AI research papers.",
+      "tags": ["Framework", "Agents", "Google"]
+    },
+    "gh-ecc-2026-11-18": {
+      "summary": "JavaScript harness layer that adds skills, instincts, memory and security rules to coding agents including Claude Code, Codex, Opencode and Cursor.",
+      "tags": ["Open Source", "Agents", "Claude Code"]
+    },
+    "gh-last30days-skill-2026-11-18": {
+      "summary": "Python agent skill that researches a topic across Reddit, X, YouTube, Hacker News, Polymarket and the web, then writes a grounded summary.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-superpowers-2026-11-18": {
+      "summary": "Shell-based agentic skills framework that doubles as a software development methodology for coding agents.",
+      "tags": ["Framework", "Agents"]
+    },
+    "gh-stitch-skills-2026-11-18": {
+      "summary": "Google Labs library of Agent Skills for the Stitch MCP server, built to the open Agent Skills standard for Antigravity, Gemini CLI, Claude Code and Cursor.",
+      "tags": ["Open Source", "Agents", "MCP", "Google"]
+    },
+    "gh-skillevaluator-2026-11-18": {
+      "summary": "Nvidia's tiered evaluator for agent skills and plugins: quality gates, semantic overlap detection, synthetic eval datasets and live runs measuring how a skill changes agent behaviour.",
+      "tags": ["Open Source", "Eval", "Agents", "Nvidia"]
+    },
+    "gh-n8n-2026-11-18": {
+      "summary": "Fair-code workflow automation in TypeScript that mixes a visual builder with custom code and native AI steps, self-hosted or cloud, with 400+ integrations.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-plugins-2026-11-18": {
+      "summary": "Cursor's specification for editor plugins, plus the official plugins built against it, in TypeScript.",
+      "tags": ["Open Source", "Cursor", "Dev Tool"]
+    },
+    "gh-appwrite-2026-11-18": {
+      "summary": "Open-source backend in TypeScript bundling auth, databases, storage, functions, messaging, hosting, realtime and a WAF, pitched at agents and developers alike.",
+      "tags": ["Open Source", "Dev Tool"]
+    },
+    "tc-nvidia-says-its-open-source-ai-strategy-remains-2026-11-18": {
+      "summary": "The interim CEO also confirmed Nvidia still plans to acquire Hugging Face despite Jensen Huang's sudden departure.",
+      "tags": ["Nvidia", "Hugging Face", "Acquisition"]
+    },
+    "tc-amazon-and-google-will-together-own-nearly-30-2026-11-18": {
+      "summary": "Amazon will hold just under 15% after the IPO with an option to go much higher, and Google close to 14%.",
+      "tags": ["Anthropic", "Google", "Funding"]
+    },
+    "tc-sam-altman-warns-against-a-future-where-ai-not-2026-11-18": {
+      "summary": "Altman and Greg Brockman pushed back on Silicon Valley's AI-takeover debate while conceding that keeping advanced models under human control is hard.",
+      "tags": ["OpenAI", "Safety"]
+    },
+    "tc-openai-ceo-sam-altman-says-its-hard-to-imagine-2026-11-18": {
+      "summary": "The comment follows Jensen Huang stepping down as Nvidia CEO last week amid several scandals, including an affair with an alleged Chinese spy.",
+      "tags": ["OpenAI", "Nvidia"]
+    },
+    "tc-nvidia-clarifies-when-it-will-and-wont-keep-2026-11-18": {
+      "summary": "Interim CEO Colette Kress said Nvidia is only on the hook for a backstopped data center loan once the neocloud has independent financing and the facility is built with Nvidia gear.",
+      "tags": ["Nvidia", "Funding"]
+    },
+    "tc-felicis-leads-7-5m-bet-on-unsiloed-ai-to-make-2026-11-18": {
+      "summary": "Unsiloed AI has a team of seven and plans to take on tech giants and specialised startups in the crowded AI document-processing market.",
+      "tags": ["Funding", "Agents"]
+    },
+    "tc-indias-humyn-labs-raises-47m-to-feed-u-s-2026-11-18": {
+      "summary": "Founded in February, the Accel-backed startup earns about 90% of its revenue in the U.S. and competes with Mecka AI and XDOF on robotics training data.",
+      "tags": ["Funding", "Robotics", "Dataset"]
+    },
+    "tc-nvidias-startup-stakes-ballooned-to-65b-but-2026-11-18": {
+      "summary": "The value of Nvidia's private investments nearly tripled in nine months, driven by Huang's dealmaking and rising valuations across its portfolio.",
+      "tags": ["Nvidia", "Funding"]
+    },
+    "tc-nvidia-promises-that-revenue-will-keep-soaring-2026-11-18": {
+      "summary": "Nvidia projected its run of record-breaking revenue will continue despite the turmoil after founder Jensen Huang's departure.",
+      "tags": ["Nvidia"]
+    },
+    "tc-nvidia-is-abandoning-china-after-jensen-huangs-2026-11-18": {
+      "summary": "Nvidia's interim CEO says the company is done selling chips to China, and the piece weighs what losing that market will cost.",
+      "tags": ["Nvidia", "Policy"]
+    },
+    "hn-gpt6-2-astra-and-sol-2026-11-18": {
+      "summary": "OpenAI's announcement post on openai.com introducing two GPT-6.2 models, Astra and Sol.",
+      "tags": ["Model Release", "OpenAI", "LLM"]
+    },
+    "hn-ai-is-killing-all-about-berlin-2026-11-18": {
+      "summary": "Essay by Nicolas Bouliane on his own blog, filed under death by AI, about what AI is doing to his site All About Berlin.",
+      "tags": ["Deep Dive"]
+    },
+    "hn-google-s-ai-answers-reducing-search-traffic-by-2026-11-18": {
+      "summary": "Revscope blog analysis of search, SEO and generative engine optimisation in 2026, on how Google's AI answers cut traffic to sites.",
+      "tags": ["Google", "Deep Dive"]
+    },
+    "hn-harvard-researchers-find-ai-coding-agents-2026-11-18": {
+      "summary": "ComplexDiscovery report on a Harvard study finding that coding agents moved the development bottleneck from writing code to reviewing it.",
+      "tags": ["Paper", "Code Gen", "Agents"]
+    },
+    "hn-how-the-claude-code-team-thinks-about-2026-11-18": {
+      "summary": "Post on the claude.dev blog in which the Claude Code team sets out its approach to verification.",
+      "tags": ["Claude Code", "Code Gen", "Deep Dive"]
+    },
+    "hn-why-is-gemini-4-carbon-taking-so-long-2026-11-18": {
+      "summary": "Essay on the kernel.dev blog examining the delay to Google's Gemini 4 Carbon model.",
+      "tags": ["Google", "LLM"]
+    },
+    "hn-baidu-xiaomi-ceos-warn-of-growing-gap-between-2026-11-18": {
+      "summary": "South China Morning Post report on Baidu and Xiaomi chiefs cautioning that AI spending is outpacing the returns it brings.",
+      "tags": ["LLM"]
+    },
+    "hn-not-everything-needs-an-llm-2026-11-18": {
+      "summary": "PostHog newsletter essay arguing for simpler decision models over LLMs where a task does not need one.",
+      "tags": ["LLM", "Deep Dive"]
+    },
+    "hn-claude-was-trained-on-protein-sequences-at-scale-2026-11-18": {
+      "summary": "Blog post by Xinming Tu examining evidence that Claude Opus 5.5 was trained on protein sequences at scale.",
+      "tags": ["Anthropic", "LLM"]
+    },
+    "hn-regulatory-capture-by-anthropic-through-metr-2026-11-18": {
+      "summary": "X thread by Kevin Bass, via a Nitter mirror, alleging Anthropic shapes AI regulation through its ties to the evaluator METR.",
+      "tags": ["Anthropic", "Policy", "Eval"]
+    }
+  }
+}
