@@ -1,0 +1,780 @@
+{
+  "date": "2026-11-19",
+  "generated_at": "2026-11-19T17:18:48Z",
+  "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
+  "tags": [
+    {
+      "name": "What it is",
+      "tags": [
+        {
+          "name": "Model Release",
+          "slug": "model-release"
+        },
+        {
+          "name": "Open Source",
+          "slug": "open-source"
+        },
+        {
+          "name": "Paper",
+          "slug": "paper"
+        },
+        {
+          "name": "Benchmark",
+          "slug": "benchmark"
+        },
+        {
+          "name": "Dataset",
+          "slug": "dataset"
+        },
+        {
+          "name": "Framework",
+          "slug": "framework"
+        },
+        {
+          "name": "Dev Tool",
+          "slug": "dev-tool"
+        },
+        {
+          "name": "API",
+          "slug": "api"
+        }
+      ]
+    },
+    {
+      "name": "Domain",
+      "tags": [
+        {
+          "name": "LLM",
+          "slug": "llm"
+        },
+        {
+          "name": "Agents",
+          "slug": "agents"
+        },
+        {
+          "name": "RAG",
+          "slug": "rag"
+        },
+        {
+          "name": "Fine-tuning",
+          "slug": "fine-tuning"
+        },
+        {
+          "name": "Inference",
+          "slug": "inference"
+        },
+        {
+          "name": "Local LLM",
+          "slug": "local-llm"
+        },
+        {
+          "name": "Vision",
+          "slug": "vision"
+        },
+        {
+          "name": "Voice / Speech",
+          "slug": "voice-speech"
+        },
+        {
+          "name": "Video",
+          "slug": "video"
+        },
+        {
+          "name": "Image Gen",
+          "slug": "image-gen"
+        },
+        {
+          "name": "Code Gen",
+          "slug": "code-gen"
+        },
+        {
+          "name": "Embeddings",
+          "slug": "embeddings"
+        },
+        {
+          "name": "Eval",
+          "slug": "eval"
+        },
+        {
+          "name": "Reasoning",
+          "slug": "reasoning"
+        },
+        {
+          "name": "Multimodal",
+          "slug": "multimodal"
+        },
+        {
+          "name": "Robotics",
+          "slug": "robotics"
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem",
+      "tags": [
+        {
+          "name": "OpenAI",
+          "slug": "openai"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic"
+        },
+        {
+          "name": "Google",
+          "slug": "google"
+        },
+        {
+          "name": "Meta",
+          "slug": "meta"
+        },
+        {
+          "name": "Nvidia",
+          "slug": "nvidia"
+        },
+        {
+          "name": "Hugging Face",
+          "slug": "hugging-face"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft"
+        },
+        {
+          "name": "Claude Code",
+          "slug": "claude-code"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor"
+        },
+        {
+          "name": "MCP",
+          "slug": "mcp"
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "tags": [
+        {
+          "name": "Funding",
+          "slug": "funding"
+        },
+        {
+          "name": "Acquisition",
+          "slug": "acquisition"
+        },
+        {
+          "name": "Launch",
+          "slug": "launch"
+        },
+        {
+          "name": "Pricing",
+          "slug": "pricing"
+        },
+        {
+          "name": "Policy",
+          "slug": "policy"
+        },
+        {
+          "name": "Legal",
+          "slug": "legal"
+        },
+        {
+          "name": "Security",
+          "slug": "security"
+        },
+        {
+          "name": "Privacy",
+          "slug": "privacy"
+        },
+        {
+          "name": "Safety",
+          "slug": "safety"
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "tags": [
+        {
+          "name": "Show HN",
+          "slug": "show-hn"
+        },
+        {
+          "name": "Tutorial",
+          "slug": "tutorial"
+        },
+        {
+          "name": "Deep Dive",
+          "slug": "deep-dive"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ph-s-space-2026-11-19",
+      "title": "S.Space",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/s-space",
+      "source_url": "https://www.producthunt.com/products/s-space",
+      "source_text": "S.Space Your team and everyone's AI agents, in one workspace Everyone on your team has an AI agent, and none of them work together, so you copy, paste and re-explain all day. S.Space is one workspace for your team and everyone's agents. Bring the ones you already use, like Claude Code and Codex, from any vendor. Agents reach out, hand work to each other and bring you finished results, with shared memory so you explain things once. Agents act, you approve what matters. Free to start. Built by the team behind AutoGen. Productivity Developer Tools Artificial Intelligence",
+      "signals": {
+        "upvotes": 375,
+        "comments": 122
+      },
+      "published_at": "2026-11-18T08:01:00Z"
+    },
+    {
+      "id": "ph-bluedot-phone-calls-2026-11-19",
+      "title": "Bluedot Phone Calls",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/bluedot-2",
+      "source_url": "https://www.producthunt.com/products/bluedot-2",
+      "source_text": "Bluedot Phone Calls AI note taker for phone calls Bluedot now covers phone calls, not just meetings. Dial from the web or mobile app, keep your own caller ID, and get a transcript, summary and action items automatically. Android iOS Productivity",
+      "signals": {
+        "upvotes": 311,
+        "comments": 47
+      },
+      "published_at": "2026-11-18T08:01:00Z"
+    },
+    {
+      "id": "ph-toone-4-2026-11-19",
+      "title": "Toone",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/toone",
+      "source_url": "https://www.producthunt.com/products/toone",
+      "source_text": "Toone Grokbot meets n8n/zapier Toone: Grokbot meets n8n/zapier. Build precise agentic workflows and routines in natural language. Each node is an agent's chat thread on the model you pick (ChatGPT or Claude), or an automatic step that runs the same way every time without AI. Run repeatable routines, babysit them with agents, polish as they run, pause and continue anytime. Plus live share, meeting notes, Spotlight-style layouts, Zen Mode, Calendar, Quick Capture, Git, and MCPs for research, SEO and more. Mac Artificial Intelligence",
+      "signals": {
+        "upvotes": 272,
+        "comments": 49
+      },
+      "published_at": "2026-11-18T08:01:00Z"
+    },
+    {
+      "id": "ph-testsprite-4-0-2026-11-19",
+      "title": "TestSprite 4.0",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/testsprite",
+      "source_url": "https://www.producthunt.com/products/testsprite",
+      "source_text": "TestSprite 4.0 Fix one thing, break another? This agent checks it all Your coding agent fixes one thing and breaks another. TestSprite 4.0 is a brand-new testing agent that remembers what your app should do and checks all of it, every time. Tell it in plain words what to test. It explores your running app, writes and runs the end-to-end tests, tells you which failures are real bugs, and keeps checking every change from the web, your terminal or your pull requests. Software Engineering Developer Tools Artificial Intelligence GitHub",
+      "signals": {
+        "upvotes": 241,
+        "comments": 34
+      },
+      "published_at": "2026-11-19T08:01:00Z"
+    },
+    {
+      "id": "ph-waldo-by-wherobots-2026-11-19",
+      "title": "Waldo by Wherobots",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/waldo-by-wherobots",
+      "source_url": "https://www.producthunt.com/products/waldo-by-wherobots",
+      "source_text": "Waldo by Wherobots The AI agent that accelerates engineering with spatial data Waldo is the geospatial data agent that turns questions about the physical world into answers, maps, and production-ready data pipelines. It analyzes satellite imagery, geometries, geography data, and your organization's first party data, writes and debugs the analysis, and delivers results in hours. When the work needs to run continuously, Waldo turns it into a scheduled pipeline on your existing data platform. Built for spatial analytics at scale by the creators of Apache Sedona. Amazon Developer Tools Artificial Intelligence Data & Analytics",
+      "signals": {
+        "upvotes": 233,
+        "comments": 35
+      },
+      "published_at": "2026-11-18T08:01:00Z"
+    },
+    {
+      "id": "gh-superpowers-2026-11-19",
+      "title": "obra/superpowers",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/obra/superpowers",
+      "source_url": "https://github.com/obra/superpowers",
+      "source_text": "obra/superpowers An agentic skills framework & software development methodology that works. Shell",
+      "signals": {
+        "stars": 321858,
+        "stars_gained": 2029,
+        "forks": 28611
+      },
+      "meta": {
+        "language": "Shell"
+      }
+    },
+    {
+      "id": "gh-claude-bughunter-2026-11-19",
+      "title": "elementalsouls/Claude-BugHunter",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_text": "elementalsouls/Claude-BugHunter A Claude Code skill bundle for bug hunting and external red-team work - 82 skills, 15 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices. Python",
+      "signals": {
+        "stars": 12111,
+        "stars_gained": 1353,
+        "forks": 1570
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-last30days-skill-2026-11-19",
+      "title": "mvanhorn/last30days-skill",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "source_url": "https://github.com/mvanhorn/last30days-skill",
+      "source_text": "mvanhorn/last30days-skill AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary Python",
+      "signals": {
+        "stars": 70639,
+        "stars_gained": 952,
+        "forks": 6294
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-firecrawl-2026-11-19",
+      "title": "firecrawl/firecrawl",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "source_url": "https://github.com/firecrawl/firecrawl",
+      "source_text": "firecrawl/firecrawl Knowledge infrastructure to make your agents smarter. Search, scrape and 550+ data providers through one API. TypeScript",
+      "signals": {
+        "stars": 203859,
+        "stars_gained": 795,
+        "forks": 10680
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-app-store-compliance-2026-11-19",
+      "title": "mjmirza/app-store-compliance",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/mjmirza/app-store-compliance",
+      "source_url": "https://github.com/mjmirza/app-store-compliance",
+      "source_text": "mjmirza/app-store-compliance Avoid common App Store and Google Play rejections. Open playbook and pre-submission guard with 117 documented rejection patterns and fixes, privacy manifest and Data safety checks, 95 tracked deadlines (EU AI Act, DSA, COPPA, age laws), and a skill for AI coding agents. Shell",
+      "signals": {
+        "stars": 1659,
+        "stars_gained": 542,
+        "forks": 120
+      },
+      "meta": {
+        "language": "Shell"
+      }
+    },
+    {
+      "id": "gh-plugins-2026-11-19",
+      "title": "cursor/plugins",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/cursor/plugins",
+      "source_url": "https://github.com/cursor/plugins",
+      "source_text": "cursor/plugins Cursor plugin specification and official plugins TypeScript",
+      "signals": {
+        "stars": 17483,
+        "stars_gained": 383,
+        "forks": 1928
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-diagram-design-2026-11-19",
+      "title": "cathrynlavery/diagram-design",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "source_url": "https://github.com/cathrynlavery/diagram-design",
+      "source_text": "cathrynlavery/diagram-design Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory Droid, Qoder, and Pi. 45 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop. HTML",
+      "signals": {
+        "stars": 68489,
+        "stars_gained": 332,
+        "forks": 4604
+      },
+      "meta": {
+        "language": "HTML"
+      }
+    },
+    {
+      "id": "gh-stitch-skills-2026-11-19",
+      "title": "google-labs-code/stitch-skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "source_url": "https://github.com/google-labs-code/stitch-skills",
+      "source_text": "google-labs-code/stitch-skills A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor. TypeScript",
+      "signals": {
+        "stars": 10629,
+        "stars_gained": 303,
+        "forks": 1380
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-minimind-2026-11-19",
+      "title": "jingyaogong/minimind",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/jingyaogong/minimind",
+      "source_url": "https://github.com/jingyaogong/minimind",
+      "source_text": "jingyaogong/minimind 🧠 两小时从 0 训出你的 64M 大模型。Train your own 64M LLM from scratch in 2 hours. Python",
+      "signals": {
+        "stars": 66743,
+        "stars_gained": 301,
+        "forks": 8775
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-openvino-2026-11-19",
+      "title": "openvinotoolkit/openvino",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/openvinotoolkit/openvino",
+      "source_url": "https://github.com/openvinotoolkit/openvino",
+      "source_text": "openvinotoolkit/openvino OpenVINO™ is an open source toolkit for optimizing and deploying AI inference C++",
+      "signals": {
+        "stars": 11506,
+        "stars_gained": 246,
+        "forks": 3616
+      },
+      "meta": {
+        "language": "C++"
+      }
+    },
+    {
+      "id": "tc-microsoft-ceo-satya-nadella-explains-why-he-2026-11-19",
+      "title": "Microsoft CEO Satya Nadella explains why he asked 60K employees to quit",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-explains-why-he-asked-60k-employees-to-quit/",
+      "source_url": "https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-explains-why-he-asked-60k-employees-to-quit/",
+      "source_text": "Microsoft CEO Satya Nadella explains why he asked 60K employees to quit Microsoft CEO Satya Nadella explained why he offered buyouts to 60,000 of his employees in October, essentially urging them to voluntarily quit, rather than reducing the workforce via another massive layoff. The short answer is AI, but not in the way you might expect.",
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-19T00:42:56Z"
+    },
+    {
+      "id": "tc-former-alibaba-execs-everful-raises-48-5m-to-2026-11-19",
+      "title": "Former Alibaba exec’s Everful raises $48.5M to connect retailers with Chinese factories",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/19/former-alibaba-execs-everful-raises-48-5m-to-connect-retailers-with-chinese-factories/",
+      "source_url": "https://techcrunch.com/2026/11/19/former-alibaba-execs-everful-raises-48-5m-to-connect-retailers-with-chinese-factories/",
+      "source_text": "Former Alibaba exec’s Everful raises $48.5M to connect retailers with Chinese factories Everful has raised $48.5 million to expand its factory-direct sourcing platform, helping retailers source products from overseas manufacturers.",
+      "meta": {
+        "author": "Kate Park",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-19T17:00:00Z"
+    },
+    {
+      "id": "tc-anthropic-hits-nasdaq-exchanges-at-111-33-above-2026-11-19",
+      "title": "Anthropic hits NASDAQ exchanges at $111, 33% above IPO price",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/19/anthropic-hits-nasdaq-exchanges-at-110-27-above-ipo-price/",
+      "source_url": "https://techcrunch.com/2026/11/19/anthropic-hits-nasdaq-exchanges-at-110-27-above-ipo-price/",
+      "source_text": "Anthropic hits NASDAQ exchanges at $111, 33% above IPO price Anthropic's IPO price was set at $83, representing more than $80 billion in new capital raised.",
+      "meta": {
+        "author": "Russell Brandom",
+        "reading_time": "1 minute"
+      },
+      "published_at": "2026-11-19T16:59:23Z"
+    },
+    {
+      "id": "tc-at-nasdaq-opening-bell-anthropic-ceo-recommits-2026-11-19",
+      "title": "At Nasdaq opening bell, Anthropic CEO recommits to pacing AI development",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/19/at-nasdaq-opening-bell-anthropic-ceo-recommits-to-pacing-ai-development/",
+      "source_url": "https://techcrunch.com/2026/11/19/at-nasdaq-opening-bell-anthropic-ceo-recommits-to-pacing-ai-development/",
+      "source_text": "At Nasdaq opening bell, Anthropic CEO recommits to pacing AI development In his Nasdaq opening bell speech, Dario Amodei reiterated Anthropic's commitment to pacing AI development, regardless of business or political pressure.",
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-19T16:19:41Z"
+    },
+    {
+      "id": "tc-anthropics-ipo-puts-ais-circular-financing-boom-2026-11-19",
+      "title": "Anthropic’s IPO puts AI’s circular financing boom to the test",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/19/anthropics-ipo-puts-ais-circular-financing-boom-to-the-test/",
+      "source_url": "https://techcrunch.com/2026/11/19/anthropics-ipo-puts-ais-circular-financing-boom-to-the-test/",
+      "source_text": "Anthropic’s IPO puts AI’s circular financing boom to the test Anthropic faces enormous compute commitments as it goes public, but its biggest infrastructure partners, including Amazon and Google, could continue profiting from AI even if Anthropic loses its lead.",
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-11-19T14:54:39Z"
+    },
+    {
+      "id": "tc-superhuman-pushes-its-go-assistant-everywhere-2026-11-19",
+      "title": "Superhuman pushes its Go assistant everywhere",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/19/superhuman-pushes-its-go-assistant-everywhere/",
+      "source_url": "https://techcrunch.com/2026/11/19/superhuman-pushes-its-go-assistant-everywhere/",
+      "source_text": "Superhuman pushes its Go assistant everywhere Superhuman is making Go its central agent and making it available in Docs and Mail",
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-19T14:00:00Z"
+    },
+    {
+      "id": "tc-amidst-fears-of-ai-cyberattacks-satya-nadella-2026-11-19",
+      "title": "Amidst fears of AI cyberattacks, Satya Nadella says lots of critical infrastructure is ‘unpatchable’",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/18/amidst-fears-of-ai-cyberattacks-satya-nadella-says-lots-of-critical-infrastructure-is-unpatchable/",
+      "source_url": "https://techcrunch.com/2026/11/18/amidst-fears-of-ai-cyberattacks-satya-nadella-says-lots-of-critical-infrastructure-is-unpatchable/",
+      "source_text": "Amidst fears of AI cyberattacks, Satya Nadella says lots of critical infrastructure is ‘unpatchable’ The Microsoft CEO downplayed the recent Outlook outage while noting that AI was causing both opportunities and new challenges for securing much of the connected world.",
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-18T23:45:00Z"
+    },
+    {
+      "id": "tc-elon-musk-says-ousting-jensen-huang-is-like-2026-11-19",
+      "title": "Elon Musk says ousting Jensen Huang is like ‘kicking Michael Jordan off your team’",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/18/elon-musk-says-ousting-jensen-huang-is-like-kicking-michael-jordan-off-your-team/",
+      "source_url": "https://techcrunch.com/2026/11/18/elon-musk-says-ousting-jensen-huang-is-like-kicking-michael-jordan-off-your-team/",
+      "source_text": "Elon Musk says ousting Jensen Huang is like ‘kicking Michael Jordan off your team’ “I don’t think disloyal to the United States,\" Musk said.",
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-18T23:25:17Z"
+    },
+    {
+      "id": "tc-microsoft-ceo-satya-nadella-remains-confident-2026-11-19",
+      "title": "Microsoft CEO Satya Nadella remains confident in Nvidia after Huang’s exit",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-remains-confident-in-nvidia-after-huangs-exit/",
+      "source_url": "https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-remains-confident-in-nvidia-after-huangs-exit/",
+      "source_text": "Microsoft CEO Satya Nadella remains confident in Nvidia after Huang’s exit Microsoft CEO Satya Nadella expressed confidence in Jensen Huang's successor Colette Kress, who is serving as Nvidia's interim CEO.",
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-18T23:17:28Z"
+    },
+    {
+      "id": "tc-satya-nadella-predicts-ai-agents-will-reshuffle-2026-11-19",
+      "title": "Satya Nadella predicts AI agents will reshuffle the economics of the web",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/18/satya-nadella-predicts-ai-agents-will-reshuffle-the-economics-of-the-web/",
+      "source_url": "https://techcrunch.com/2026/11/18/satya-nadella-predicts-ai-agents-will-reshuffle-the-economics-of-the-web/",
+      "source_text": "Satya Nadella predicts AI agents will reshuffle the economics of the web Microsoft's CEO says AI agents could disrupt advertising-driven business models, forcing companies like Amazon to rethink how they compete for customers.",
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-18T22:58:11Z"
+    },
+    {
+      "id": "hn-gemini-4-neon-2026-11-19",
+      "title": "Gemini 4 Neon",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+      "source_url": "https://news.ycombinator.com/item?id=50552424",
+      "source_text": "Gemini 4 Neon",
+      "signals": {
+        "points": 976,
+        "comments": 740
+      },
+      "meta": {
+        "author": "yigitdemirag"
+      },
+      "published_at": "2026-11-18T21:34:07Z"
+    },
+    {
+      "id": "hn-ai-is-killing-all-about-berlin-2026-11-19",
+      "title": "AI is killing All About Berlin",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://nicolasbouliane.com/blog/death-by-ai",
+      "source_url": "https://news.ycombinator.com/item?id=50542705",
+      "source_text": "AI is killing All About Berlin",
+      "signals": {
+        "points": 798,
+        "comments": 706
+      },
+      "meta": {
+        "author": "grey-area"
+      },
+      "published_at": "2026-11-18T06:47:26Z"
+    },
+    {
+      "id": "hn-google-s-ai-answers-reducing-search-traffic-by-2026-11-19",
+      "title": "Google's AI answers reducing search traffic by 40%",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://revscope.co/blog/search-seo-geo-2026/",
+      "source_url": "https://news.ycombinator.com/item?id=50540178",
+      "source_text": "Google's AI answers reducing search traffic by 40%",
+      "signals": {
+        "points": 707,
+        "comments": 559
+      },
+      "meta": {
+        "author": "slashdev"
+      },
+      "published_at": "2026-11-18T00:17:58Z"
+    },
+    {
+      "id": "hn-ai-agents-ask-better-questions-than-kpmg-2026-11-19",
+      "title": "AI agents ask better questions than KPMG accountants in audit trial",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://europeanbusinessmagazine.com/ai-agents-better-questions-kpmg/",
+      "source_url": "https://news.ycombinator.com/item?id=50547777",
+      "source_text": "AI agents ask better questions than KPMG accountants in audit trial",
+      "signals": {
+        "points": 478,
+        "comments": 240
+      },
+      "meta": {
+        "author": "Betelbuddy"
+      },
+      "published_at": "2026-11-18T15:49:34Z"
+    },
+    {
+      "id": "hn-anthropic-prices-initial-public-offering-2026-11-19",
+      "title": "Anthropic prices initial public offering",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering",
+      "source_url": "https://news.ycombinator.com/item?id=50553843",
+      "source_text": "Anthropic prices initial public offering",
+      "signals": {
+        "points": 384,
+        "comments": 726
+      },
+      "meta": {
+        "author": "surprisetalk"
+      },
+      "published_at": "2026-11-18T23:30:09Z"
+    },
+    {
+      "id": "hn-llm-assisted-reverse-engineering-2026-11-19",
+      "title": "LLM assisted reverse engineering",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.slowchronicle.com/posts/llm-assisted-reverse-engineering",
+      "source_url": "https://news.ycombinator.com/item?id=50553225",
+      "source_text": "LLM assisted reverse engineering",
+      "signals": {
+        "points": 289,
+        "comments": 72
+      },
+      "meta": {
+        "author": "ioma8"
+      },
+      "published_at": "2026-11-18T22:29:13Z"
+    },
+    {
+      "id": "hn-why-is-gemini-4-carbon-taking-so-long-2026-11-19",
+      "title": "Why is Gemini 4 Carbon taking so long?",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://kernel.dev/blog/why-is-gemini-4-carbon-taking-so-long/",
+      "source_url": "https://news.ycombinator.com/item?id=50541790",
+      "source_text": "Why is Gemini 4 Carbon taking so long?",
+      "signals": {
+        "points": 271,
+        "comments": 139
+      },
+      "meta": {
+        "author": "deenadz"
+      },
+      "published_at": "2026-11-18T04:14:04Z"
+    },
+    {
+      "id": "hn-gemini-4-neon-looks-like-an-opus-5-5-competitor-2026-11-19",
+      "title": "Gemini 4 Neon looks like an Opus 5.5 competitor",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://micjm.com/blog/gemini-4-neon-looks-like-a-top-model/",
+      "source_url": "https://news.ycombinator.com/item?id=50554374",
+      "source_text": "Gemini 4 Neon looks like an Opus 5.5 competitor",
+      "signals": {
+        "points": 245,
+        "comments": 76
+      },
+      "meta": {
+        "author": "seizethecheese"
+      },
+      "published_at": "2026-11-19T00:29:45Z"
+    },
+    {
+      "id": "hn-advancing-chip-design-with-openai-models-2026-11-19",
+      "title": "Advancing chip design with OpenAI models",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://openai.com/index/advancing-chip-design-with-our-models/",
+      "source_url": "https://news.ycombinator.com/item?id=50549493",
+      "source_text": "Advancing chip design with OpenAI models",
+      "signals": {
+        "points": 218,
+        "comments": 163
+      },
+      "meta": {
+        "author": "vighneshiyer"
+      },
+      "published_at": "2026-11-18T17:45:47Z"
+    },
+    {
+      "id": "hn-claude-was-trained-on-protein-sequences-at-scale-2026-11-19",
+      "title": "Claude was trained on protein sequences at scale",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "http://xinmingtu.cn/blog/2026/claude-opus-5-5-protein-sequences/",
+      "source_url": "https://news.ycombinator.com/item?id=50541619",
+      "source_text": "Claude was trained on protein sequences at scale",
+      "signals": {
+        "points": 176,
+        "comments": 76
+      },
+      "meta": {
+        "author": "gmays"
+      },
+      "published_at": "2026-11-18T03:47:43Z"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "ph-s-space",
+  "kind": "launch",
+  "title": "S.Space",
+  "url": "https://www.producthunt.com/products/s-space",
+  "source_url": "https://www.producthunt.com/products/s-space",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Agents",
+    "Dev Tool",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/2862be57-c51b-45fc-8618-6e62c9ca35cb.jpeg?auto=format"
+  },
+  "depth": "full",
+  "lede": "S.Space puts a team and the AI agents each member already uses into shared rooms, where agents from different vendors pass work to each other over a common memory and people approve the important steps.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Agents from any vendor join a room next to the people on the team, including Claude Code, Codex, ChatGPT and Grok Bot.",
+        "A question asked in a room is picked up by whoever can answer it, person or agent, and agents can contact one another directly.",
+        "The room keeps short- and long-term memory, so context is explained once instead of re-pasted at every handoff.",
+        "Agents carry out actions, while people sign off on the ones that matter.",
+        "It comes from the team behind AutoGen; the launch comment says 83% of agent-to-agent messages on its own network went to an agent owned by someone else."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Teams whose members each rely on a different AI agent and currently act as the copy-paste link between them; the launch says joining needs no code."
+    },
+    {
+      "key": "pricing",
+      "text": "Free to start. The launch comment offers Product Hunt users $100 in credits for the company's Sutando cloud agent and its MCP marketplace."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "S.Space on Product Hunt",
+      "url": "https://www.producthunt.com/products/s-space"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-s-space-2026-11-19",
+      "edition_date": "2026-11-19"
+    }
+  ],
+  "created_at": "2026-11-19T17:24:12Z",
+  "updated_at": "2026-11-19T17:24:12Z",
+  "stats": {
+    "upvotes": 375,
+    "comments": 122
+  },
+  "stats_as_of": "2026-11-19T17:20:03Z"
+}

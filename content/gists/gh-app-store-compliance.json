@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "slug": "gh-app-store-compliance",
+  "kind": "repo",
+  "title": "mjmirza/app-store-compliance",
+  "url": "https://github.com/mjmirza/app-store-compliance",
+  "source_url": "https://github.com/mjmirza/app-store-compliance",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "Dev Tool",
+    "Policy"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/mjmirza.png?size=80"
+  },
+  "depth": "full",
+  "lede": "app-store-compliance is a playbook and shell-script guard that scans an iOS or Android project for known App Store and Google Play rejection risks before submission.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "It documents 117 rejection patterns, each mapped to the guideline involved and its fix.",
+        "The guard reads a project without changing it, lists critical findings first, and ends on BLOCKED, CLEAR or NOT CHECKED.",
+        "It checks privacy manifests and Data safety declarations and tracks 95 regulatory deadlines, including the EU AI Act, DSA and COPPA.",
+        "An installer wires the guard into Claude Code, Codex, Gemini CLI, Cursor, Copilot and other agent tools as a hook that stops uploads while a critical risk stands.",
+        "A plain checklist covers the account and listing steps a code scan cannot see."
+      ]
+    },
+    {
+      "key": "try_it",
+      "command": "git clone https://github.com/mjmirza/app-store-compliance ~/repositories/app-store-compliance"
+    },
+    {
+      "key": "whats_open",
+      "points": [
+        {
+          "text": "Windows is the clearest gap: open bugs report scripts calling python3 literally, install.sh failing to parse, and data read with the wrong encoding.",
+          "url": "https://github.com/mjmirza/app-store-compliance/issues/2330"
+        },
+        {
+          "text": "Much of the tracker is regulatory deadlines still being added, from the EU AI Act in December 2026 to Utah's app store law in 2027.",
+          "url": "https://github.com/mjmirza/app-store-compliance/issues/626"
+        },
+        {
+          "text": "Items left unverified by a September 2026 gap analysis still need checking against primary sources.",
+          "url": "https://github.com/mjmirza/app-store-compliance/issues/659"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "mjmirza/app-store-compliance",
+      "url": "https://github.com/mjmirza/app-store-compliance"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-app-store-compliance-2026-11-19",
+      "edition_date": "2026-11-19"
+    }
+  ],
+  "created_at": "2026-11-19T17:24:12Z",
+  "updated_at": "2026-11-19T17:24:12Z",
+  "stats": {
+    "stars": 1660,
+    "forks": 120,
+    "language": "Shell",
+    "license": "Other",
+    "created_on": "2026-06-06",
+    "contributors": 2,
+    "last_release": {
+      "tag": "v2.4.0",
+      "published_on": "2026-11-15"
+    },
+    "open_issues": 30,
+    "stars_gained": 542
+  },
+  "stats_as_of": "2026-11-19T17:20:03Z"
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "ph-testsprite-4-0",
+  "kind": "launch",
+  "title": "TestSprite 4.0",
+  "url": "https://www.producthunt.com/products/testsprite",
+  "source_url": "https://www.producthunt.com/products/testsprite",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Dev Tool",
+    "Agents",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/9279be6d-64f3-4c05-b0a9-6c9ac0f5f814.gif?auto=format"
+  },
+  "depth": "full",
+  "lede": "TestSprite 4.0 is a testing agent that takes plain-language goals, explores a running app, writes and runs end-to-end tests, and sorts each failure into a real bug, a test problem or an environment problem.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "It maps the app's flows first, then runs UI and API tests in real browsers, more than 100 at once, signing itself in even with one-time codes.",
+        "Every failure comes with expected and actual behaviour plus a recording of each step.",
+        "Approved tests become a regression suite it maintains as the UI changes; what a test expects only changes with user approval.",
+        "It runs from the web app, from an open-source CLI that coding agents can drive, or on every pull request.",
+        "The team claims 94% bug-finding accuracy on its own benchmark, against 86% for Claude Code and Codex."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Teams shipping with a coding agent and an AI reviewer where nobody actually clicks through the product before merging."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "TestSprite 4.0 on Product Hunt",
+      "url": "https://www.producthunt.com/products/testsprite"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-testsprite-4-0-2026-11-19",
+      "edition_date": "2026-11-19"
+    }
+  ],
+  "created_at": "2026-11-19T17:24:12Z",
+  "updated_at": "2026-11-19T17:24:12Z",
+  "stats": {
+    "upvotes": 241,
+    "comments": 34
+  },
+  "stats_as_of": "2026-11-19T17:20:03Z"
+}

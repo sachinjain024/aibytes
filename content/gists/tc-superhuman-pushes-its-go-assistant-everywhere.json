@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "tc-superhuman-pushes-its-go-assistant-everywhere",
+  "kind": "news",
+  "title": "Superhuman pushes its Go assistant everywhere",
+  "url": "https://techcrunch.com/2026/11/19/superhuman-pushes-its-go-assistant-everywhere/",
+  "source_url": "https://techcrunch.com/2026/11/19/superhuman-pushes-its-go-assistant-everywhere/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Agents",
+    "Launch"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/11/Static_Go-Proactive.jpeg?resize=1200,675"
+  },
+  "depth": "full",
+  "lede": "Superhuman, formerly Grammarly, is making its Go assistant the central agent across its products, with cross-app context, proactive drafting, and Go agents running natively in Docs and Mail.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Go now learns context across connected apps, picks up each user's writing style and suggests personalised prompts; onboarding asks users to connect tools upfront.",
+        "It works inline at the cursor, manages other agents, and acts proactively by watching the calendar and inbox and drafting replies.",
+        "Twenty new connected agents arrive through the Go SDK, including DeepL, Legora, Amplitude, Databricks and Blackboard.",
+        "In Docs, agents run tasks in the background and routines fire on events; in Mail, Go replaces the old AI and handles enterprise search and inbox sorting.",
+        "After buying Fathom, Superhuman adds live shared notetaking, and Go can draft follow-ups such as a proposal after a meeting."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "The Go SDK is the route for third-party agents into Superhuman's apps, and CEO Shishir Mehrotra says Go already has over 1 million active users."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Superhuman pushes its Go assistant everywhere",
+      "url": "https://techcrunch.com/2026/11/19/superhuman-pushes-its-go-assistant-everywhere/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-superhuman-pushes-its-go-assistant-everywhere-2026-11-19",
+      "edition_date": "2026-11-19"
+    }
+  ],
+  "created_at": "2026-11-19T17:24:12Z",
+  "updated_at": "2026-11-19T17:24:12Z"
+}

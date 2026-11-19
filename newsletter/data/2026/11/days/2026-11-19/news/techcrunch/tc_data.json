@@ -1,0 +1,121 @@
+{
+  "source": "techcrunch",
+  "section": "ai-news",
+  "fetched_at": "2026-11-19",
+  "window": {
+    "after": "2026-11-18",
+    "before": "2026-11-20"
+  },
+  "query_params": {
+    "category": "artificial-intelligence",
+    "count": 10,
+    "ranking": "hackernews_points,recency"
+  },
+  "totalCount": 23,
+  "articles": [
+    {
+      "title": "Microsoft CEO Satya Nadella explains why he asked 60K employees to quit",
+      "description": "Microsoft CEO Satya Nadella explained why he offered buyouts to 60,000 of his employees in October, essentially urging them to voluntarily quit, rather than reducing the workforce via another massive layoff. The short answer is AI, but not in the way you might expect.",
+      "url": "https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-explains-why-he-asked-60k-employees-to-quit/",
+      "published_at": "2026-11-19T00:42:56Z",
+      "author": "Julie Bort",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/Microsoft-Satya-Nadella.jpg?resize=1200,800",
+      "reading_time": "3 minutes",
+      "hackernews": {
+        "points": 2,
+        "num_comments": 0,
+        "hn_url": "https://news.ycombinator.com/item?id=50560571"
+      }
+    },
+    {
+      "title": "Former Alibaba exec\u2019s Everful raises $48.5M to connect retailers with Chinese factories",
+      "description": "Everful has raised $48.5 million to expand its factory-direct sourcing platform, helping retailers source products from overseas manufacturers.",
+      "url": "https://techcrunch.com/2026/11/19/former-alibaba-execs-everful-raises-48-5m-to-connect-retailers-with-chinese-factories/",
+      "published_at": "2026-11-19T17:00:00Z",
+      "author": "Kate Park",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/Everful-founders.jpg?resize=1200,800",
+      "reading_time": "3 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "Anthropic hits NASDAQ exchanges at $111, 33% above IPO price",
+      "description": "Anthropic's IPO price was set at $83, representing more than $80 billion in new capital raised.",
+      "url": "https://techcrunch.com/2026/11/19/anthropic-hits-nasdaq-exchanges-at-110-27-above-ipo-price/",
+      "published_at": "2026-11-19T16:59:23Z",
+      "author": "Russell Brandom",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/anthropic-opening-Getty.jpg?resize=1200,801",
+      "reading_time": "1 minute",
+      "hackernews": null
+    },
+    {
+      "title": "At Nasdaq opening bell, Anthropic CEO recommits to pacing AI development",
+      "description": "In his Nasdaq opening bell speech, Dario Amodei reiterated Anthropic's commitment to pacing AI development, regardless of business or political pressure.",
+      "url": "https://techcrunch.com/2026/11/19/at-nasdaq-opening-bell-anthropic-ceo-recommits-to-pacing-ai-development/",
+      "published_at": "2026-11-19T16:19:41Z",
+      "author": "Sarah Perez",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2305298275.jpg?w=594",
+      "reading_time": "3 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "Anthropic\u2019s IPO puts AI\u2019s circular financing boom to the test",
+      "description": "Anthropic faces enormous compute commitments as it goes public, but its biggest infrastructure partners, including Amazon and Google, could continue profiting from AI even if Anthropic loses its lead.",
+      "url": "https://techcrunch.com/2026/11/19/anthropics-ipo-puts-ais-circular-financing-boom-to-the-test/",
+      "published_at": "2026-11-19T14:54:39Z",
+      "author": "Rebecca Bellan",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2304538389.jpg?w=1024",
+      "reading_time": "5 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "Superhuman pushes its Go assistant everywhere",
+      "description": "Superhuman is making Go its central agent and making it available in Docs and Mail",
+      "url": "https://techcrunch.com/2026/11/19/superhuman-pushes-its-go-assistant-everywhere/",
+      "published_at": "2026-11-19T14:00:00Z",
+      "author": "Ivan Mehta",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/Static_Go-Proactive.jpeg?resize=1200,675",
+      "reading_time": "3 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "Amidst fears of AI cyberattacks, Satya Nadella says lots of critical infrastructure is \u2018unpatchable\u2019",
+      "description": "The Microsoft CEO downplayed the recent Outlook outage while noting that AI was causing both opportunities and new challenges for securing much of the connected world.",
+      "url": "https://techcrunch.com/2026/11/18/amidst-fears-of-ai-cyberattacks-satya-nadella-says-lots-of-critical-infrastructure-is-unpatchable/",
+      "published_at": "2026-11-18T23:45:00Z",
+      "author": "Lucas Ropek",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2305773699.jpg?resize=857,1200",
+      "reading_time": "3 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "Elon Musk says ousting Jensen Huang is like \u2018kicking Michael Jordan off your team\u2019",
+      "description": "\u201cI don\u2019t think disloyal to the United States,\" Musk said.",
+      "url": "https://techcrunch.com/2026/11/18/elon-musk-says-ousting-jensen-huang-is-like-kicking-michael-jordan-off-your-team/",
+      "published_at": "2026-11-18T23:25:17Z",
+      "author": "Amanda Silberling",
+      "image": "https://techcrunch.com/wp-content/uploads/2024/08/GettyImages-524212924.jpg?resize=1200,800",
+      "reading_time": "3 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "Microsoft CEO Satya Nadella remains confident in Nvidia after Huang\u2019s exit",
+      "description": "Microsoft CEO Satya Nadella expressed confidence in Jensen Huang's successor Colette Kress, who is serving as Nvidia's interim CEO.",
+      "url": "https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-remains-confident-in-nvidia-after-huangs-exit/",
+      "published_at": "2026-11-18T23:17:28Z",
+      "author": "Amanda Silberling",
+      "image": "https://techcrunch.com/wp-content/uploads/2024/02/GettyImages-1930518491.jpg?resize=1200,800",
+      "reading_time": "2 minutes",
+      "hackernews": null
+    },
+    {
+      "title": "Satya Nadella predicts AI agents will reshuffle the economics of the web",
+      "description": "Microsoft's CEO says AI agents could disrupt advertising-driven business models, forcing companies like Amazon to rethink how they compete for customers.",
+      "url": "https://techcrunch.com/2026/11/18/satya-nadella-predicts-ai-agents-will-reshuffle-the-economics-of-the-web/",
+      "published_at": "2026-11-18T22:58:11Z",
+      "author": "Sarah Perez",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2305773211.jpg?w=594",
+      "reading_time": "2 minutes",
+      "hackernews": null
+    }
+  ]
+}

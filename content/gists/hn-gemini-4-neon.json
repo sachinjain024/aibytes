@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "slug": "hn-gemini-4-neon",
+  "kind": "hn",
+  "title": "Gemini 4 Neon",
+  "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+  "source_url": "https://news.ycombinator.com/item?id=50552424",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Model Release",
+    "Google",
+    "LLM"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Google DeepMind's Gemini 4 Neon is a mid-tier model built for fast end-to-end coding, knowledge work and science tasks, priced at $3 and $15 per million input and output tokens with a 1 million-token context.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Google says it ranks third overall on the Artificial Analysis Intelligence Index at its xhigh level and first on that firm's Coding Agent Index.",
+        "It sits between Carbon, for the longest projects, and Hydrogen, for quick execution, and can orchestrate parallel Hydrogen subagents in Antigravity.",
+        "Four thinking levels trade intelligence against token spend; Google claims 32% lower cost per task than Carbon at the default level.",
+        "A cyber variant goes to vetted defenders through the Fairwind Program.",
+        "It is rolling out in the Gemini API, AI Studio, Antigravity, Gemini for business and the Gemini app for Pro and Ultra subscribers."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "Early users report a real step up in usability, describing Neon as eager, efficient and good at running tasks through to the end.",
+          "url": "https://news.ycombinator.com/item?id=50554410"
+        },
+        {
+          "stance": "theme",
+          "text": "Commenters notice Neon serving far faster than Carbon on OpenRouter, about 127 versus 46 tokens per second, and wonder whether Carbon was throttled.",
+          "url": "https://news.ycombinator.com/item?id=50552830"
+        },
+        {
+          "stance": "disputed",
+          "text": "Whether Neon matches Opus 5.5 splits the thread: one commenter reads the Vals benchmarks as putting it just under Fable, and a reply rejects that outright.",
+          "url": "https://news.ycombinator.com/item?id=50552548"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One commenter says Opus 5.5 still feels more like talking to a coworker than Gemini does, whatever the benchmarks show.",
+          "url": "https://news.ycombinator.com/item?id=50552711"
+        },
+        {
+          "stance": "theme",
+          "text": "Google's element-based model names confuse readers, who build tables to work out which model sits in which size class.",
+          "url": "https://news.ycombinator.com/item?id=50556084"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Introducing Gemini 4 Neon",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+    },
+    {
+      "role": "discussion",
+      "title": "Gemini 4 Neon",
+      "url": "https://news.ycombinator.com/item?id=50552424"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-gemini-4-neon-2026-11-19",
+      "edition_date": "2026-11-19"
+    }
+  ],
+  "created_at": "2026-11-19T17:24:12Z",
+  "updated_at": "2026-11-19T17:24:12Z",
+  "stats": {
+    "points": 976,
+    "comments": 740,
+    "submitted_by": "yigitdemirag",
+    "posted_at": "2026-11-18T21:34:07Z"
+  },
+  "stats_as_of": "2026-11-19T17:20:03Z"
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "slug": "hn-gemini-4-neon-looks-like-an-opus-5-5-competitor",
+  "kind": "hn",
+  "title": "Gemini 4 Neon looks like an Opus 5.5 competitor",
+  "url": "https://micjm.com/blog/gemini-4-neon-looks-like-a-top-model/",
+  "source_url": "https://news.ycombinator.com/item?id=50554374",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Google",
+    "Eval",
+    "LLM"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "A post from the Agent Duel team projects that Gemini 4 Neon would land just behind Claude Opus 5.5 on its coding-agent leaderboard, by assuming Carbon's quality at Neon's much higher speed.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Gemini 4 Carbon tops the Agent Duel leaderboard when early votes are excluded, but runs at only about 46 tokens per second.",
+        "On launch day, OpenRouter served Neon at about 127 tokens per second.",
+        "The author modeled win rate from model identity, speed and early voting, and found speed roughly as important as the model itself.",
+        "The projection gives Neon an Elo of 1,066 against 1,078 for Opus 5.5, a 90% interval of -94 to +68, and a 48.3% expected win rate."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "counterpoint",
+          "text": "Readers object to projecting the score of a model that is already out; the author concedes and frames the post as a study of speed.",
+          "url": "https://news.ycombinator.com/item?id=50554953"
+        },
+        {
+          "stance": "theme",
+          "text": "Commenters say models now specialise, one running Fable as orchestrator with Opus workers and doubting Gemini on long sessions.",
+          "url": "https://news.ycombinator.com/item?id=50555163"
+        },
+        {
+          "stance": "disputed",
+          "text": "Harness choice is contested: one commenter finds Copilot weaker than Claude Code on the same model, while the author's data says it matters less.",
+          "url": "https://news.ycombinator.com/item?id=50554778"
+        },
+        {
+          "stance": "agreed",
+          "text": "Early users are impressed, with one calling Neon the first Google model that feels good for coding, though speed doubts linger.",
+          "url": "https://news.ycombinator.com/item?id=50554904"
+        },
+        {
+          "stance": "theme",
+          "text": "Cost comes up as well, and the author notes DeepSeek wins about half its duels by being very fast and good enough.",
+          "url": "https://news.ycombinator.com/item?id=50554735"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Gemini 4 Neon looks like an Opus 5.5 competitor",
+      "url": "https://micjm.com/blog/gemini-4-neon-looks-like-a-top-model/"
+    },
+    {
+      "role": "discussion",
+      "title": "Gemini 4 Neon looks like an Opus 5.5 competitor",
+      "url": "https://news.ycombinator.com/item?id=50554374"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-gemini-4-neon-looks-like-an-opus-5-5-competitor-2026-11-19",
+      "edition_date": "2026-11-19"
+    }
+  ],
+  "created_at": "2026-11-19T17:24:12Z",
+  "updated_at": "2026-11-19T17:24:12Z",
+  "stats": {
+    "points": 245,
+    "comments": 76,
+    "submitted_by": "seizethecheese",
+    "posted_at": "2026-11-19T00:29:45Z"
+  },
+  "stats_as_of": "2026-11-19T17:20:03Z"
+}

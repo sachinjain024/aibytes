@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "gh-diagram-design",
+  "kind": "repo",
+  "title": "cathrynlavery/diagram-design",
+  "url": "https://github.com/cathrynlavery/diagram-design",
+  "source_url": "https://github.com/cathrynlavery/diagram-design",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "Dev Tool",
+    "Agents"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/cathrynlavery.png?size=80"
+  },
+  "depth": "full",
+  "lede": "diagram-design is an agent skill that has Claude Code, Codex, Cursor and other coding agents draw diagrams as a single self-contained HTML file with inline SVG, in one restrained editorial style.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The README lists 51 diagram types, from architecture and sequence diagrams to Sankey, Wardley maps and Gantt charts, each in light, dark and editorial variants.",
+        "The agent picks the type, states a plan and places elements on a 4px grid, with CI checks for overlaps and clipping.",
+        "It can pull a site's palette and fonts so later diagrams match a brand.",
+        "It redraws existing Mermaid, draw.io, Excalidraw and PlantUML files, and exports to SVG or PNG.",
+        "The README is candid on limits: output varies by model and run, and with no diffable source, Mermaid still suits docs that change every sprint."
+      ]
+    },
+    {
+      "key": "try_it",
+      "command": "npx skills add cathrynlavery/diagram-design"
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "cathrynlavery/diagram-design",
+      "url": "https://github.com/cathrynlavery/diagram-design"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-diagram-design-2026-11-19",
+      "edition_date": "2026-11-19"
+    }
+  ],
+  "created_at": "2026-11-19T17:24:12Z",
+  "updated_at": "2026-11-19T17:24:12Z",
+  "stats": {
+    "stars": 68489,
+    "forks": 4604,
+    "language": "HTML",
+    "license": "MIT",
+    "created_on": "2026-04-16",
+    "contributors": 75,
+    "open_issues": 18,
+    "stars_gained": 332
+  },
+  "stats_as_of": "2026-11-19T17:20:03Z"
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "slug": "gh-minimind",
+  "kind": "repo",
+  "title": "jingyaogong/minimind",
+  "url": "https://github.com/jingyaogong/minimind",
+  "source_url": "https://github.com/jingyaogong/minimind",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "LLM",
+    "Open Source"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/jingyaogong.png?size=80"
+  },
+  "depth": "full",
+  "lede": "MiniMind is a PyTorch-native project for training a 64M-parameter language model from scratch on one consumer GPU, with every training stage written out in plain code as a hands-on LLM course.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The headline two hours is one SFT epoch on a single RTX 3090, at about 3 yuan of rented GPU time, per the README.",
+        "Code covers pretraining, SFT, LoRA, DPO, PPO, GRPO and CISPO, tool use, agentic RL and distillation, without high-level library wrappers.",
+        "minimind-3 follows the Qwen3 architecture, in a 64M dense model and a 198M mixture-of-experts model with 64M active.",
+        "Weights load in transformers, llama.cpp, vLLM and Ollama, and the repo includes an OpenAI-compatible server and a Streamlit chat UI.",
+        "Training datasets are published, with mini versions sized for a quick reproduction."
+      ]
+    },
+    {
+      "key": "try_it",
+      "command": "ollama run jingyaogong/minimind-3"
+    },
+    {
+      "key": "whats_open",
+      "points": [
+        {
+          "text": "Many open threads are not bugs but shared training logs, experiment results and tutorials from people reproducing the model.",
+          "url": "https://github.com/jingyaogong/minimind/issues/26"
+        },
+        {
+          "text": "Users ask how to teach the small model narrow skills, such as addition and subtraction under 100.",
+          "url": "https://github.com/jingyaogong/minimind/issues/620"
+        },
+        {
+          "text": "Others want guidance on adjusting the model's parameter configuration for their own runs.",
+          "url": "https://github.com/jingyaogong/minimind/issues/40"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "jingyaogong/minimind",
+      "url": "https://github.com/jingyaogong/minimind"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-minimind-2026-11-19",
+      "edition_date": "2026-11-19"
+    }
+  ],
+  "created_at": "2026-11-19T17:24:12Z",
+  "updated_at": "2026-11-19T17:24:12Z",
+  "stats": {
+    "stars": 66744,
+    "forks": 8775,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "created_on": "2024-07-27",
+    "contributors": 30,
+    "last_release": {
+      "tag": "v2",
+      "published_on": "2025-10-21"
+    },
+    "open_issues": 31,
+    "stars_gained": 301
+  },
+  "stats_as_of": "2026-11-19T17:20:03Z"
+}

@@ -1,0 +1,145 @@
+{
+  "date": "2026-11-19",
+  "items": {
+    "ph-s-space-2026-11-19": {
+      "summary": "Shared workspace where agents from any vendor, such as Claude Code and Codex, hand work to each other over a common memory while you approve key actions; from the AutoGen team.",
+      "tags": ["Agents", "Dev Tool", "Launch"]
+    },
+    "ph-bluedot-phone-calls-2026-11-19": {
+      "summary": "Extends the Bluedot note taker from meetings to calls dialed in its web or mobile app under your own caller ID, producing a transcript, summary and action items.",
+      "tags": ["Voice / Speech", "Launch"]
+    },
+    "ph-toone-4-2026-11-19": {
+      "summary": "Mac app for natural-language workflows where each node is a ChatGPT or Claude chat thread or a fixed non-AI step, with pause and resume, Git and MCP integrations.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-testsprite-4-0-2026-11-19": {
+      "summary": "Testing agent that takes plain-language test goals, explores your running app, writes and runs end-to-end tests, and flags which failures are real bugs on every change.",
+      "tags": ["Dev Tool", "Agents", "Launch"]
+    },
+    "ph-waldo-by-wherobots-2026-11-19": {
+      "summary": "Geospatial data agent from the Apache Sedona creators that analyzes satellite imagery and geometries, writes the analysis, and turns it into scheduled pipelines on your platform.",
+      "tags": ["Agents", "Launch"]
+    },
+    "gh-superpowers-2026-11-19": {
+      "summary": "Shell-based agentic skills framework paired with a software development methodology for coding agents to follow.",
+      "tags": ["Framework", "Agents", "Code Gen"]
+    },
+    "gh-claude-bughunter-2026-11-19": {
+      "summary": "Claude Code skill bundle for bug hunting and external red-team work: 82 skills, 15 slash commands and 681 disclosed-report patterns across 24 vulnerability classes.",
+      "tags": ["Claude Code", "Security", "Agents"]
+    },
+    "gh-last30days-skill-2026-11-19": {
+      "summary": "Python agent skill that researches a topic across Reddit, X, YouTube, HN, Polymarket and the web, then synthesizes a grounded summary of what it found.",
+      "tags": ["Agents", "Open Source"]
+    },
+    "gh-firecrawl-2026-11-19": {
+      "summary": "TypeScript service that gives agents search, scraping and 550+ data providers through a single API.",
+      "tags": ["API", "Agents", "RAG"]
+    },
+    "gh-app-store-compliance-2026-11-19": {
+      "summary": "Pre-submission playbook and guard covering 117 App Store and Google Play rejection patterns, privacy manifest and Data safety checks, 95 regulatory deadlines, and an agent skill.",
+      "tags": ["Dev Tool", "Policy"]
+    },
+    "gh-plugins-2026-11-19": {
+      "summary": "Cursor's plugin specification in TypeScript, together with the official plugins built against it.",
+      "tags": ["Cursor", "Dev Tool"]
+    },
+    "gh-diagram-design-2026-11-19": {
+      "summary": "Skill for Claude Code, Codex, Cursor and other coding agents that renders 45 editorial diagram types as self-contained HTML and SVG instead of Mermaid.",
+      "tags": ["Dev Tool", "Agents"]
+    },
+    "gh-stitch-skills-2026-11-19": {
+      "summary": "Google Labs library of skills for the Stitch MCP server, built to the open Agent Skills standard so Gemini CLI, Claude Code, Cursor and Antigravity can load them.",
+      "tags": ["Google", "MCP", "Agents"]
+    },
+    "gh-minimind-2026-11-19": {
+      "summary": "Python codebase that trains a 64M-parameter language model from scratch in roughly two hours, a compact end-to-end LLM training project.",
+      "tags": ["LLM", "Open Source"]
+    },
+    "gh-openvino-2026-11-19": {
+      "summary": "Open source C++ toolkit for optimizing trained models and deploying them for inference.",
+      "tags": ["Inference", "Open Source"]
+    },
+    "tc-microsoft-ceo-satya-nadella-explains-why-he-2026-11-19": {
+      "summary": "Microsoft offered voluntary buyouts to 60,000 employees in October instead of another mass layoff, and Nadella ties the choice to AI, though not in the obvious way.",
+      "tags": ["Microsoft"]
+    },
+    "tc-former-alibaba-execs-everful-raises-48-5m-to-2026-11-19": {
+      "summary": "Everful runs a factory-direct sourcing platform linking retailers with overseas manufacturers, and will use the round to expand it.",
+      "tags": ["Funding"]
+    },
+    "tc-anthropic-hits-nasdaq-exchanges-at-111-33-above-2026-11-19": {
+      "summary": "Shares opened well above the $83 IPO price, an offering that raised more than $80 billion in new capital.",
+      "tags": ["Anthropic", "Funding"]
+    },
+    "tc-at-nasdaq-opening-bell-anthropic-ceo-recommits-2026-11-19": {
+      "summary": "In his opening bell speech Dario Amodei said Anthropic will keep pacing AI development regardless of business or political pressure.",
+      "tags": ["Anthropic", "Safety"]
+    },
+    "tc-anthropics-ipo-puts-ais-circular-financing-boom-2026-11-19": {
+      "summary": "Anthropic goes public carrying huge compute commitments, while partners Amazon and Google could keep profiting from AI even if Anthropic loses its lead.",
+      "tags": ["Anthropic", "Deep Dive"]
+    },
+    "tc-superhuman-pushes-its-go-assistant-everywhere-2026-11-19": {
+      "summary": "Superhuman makes Go its central agent and brings it into its Docs and Mail products.",
+      "tags": ["Agents", "Launch"]
+    },
+    "tc-amidst-fears-of-ai-cyberattacks-satya-nadella-2026-11-19": {
+      "summary": "The Microsoft CEO downplayed the recent Outlook outage while saying AI brings both opportunities and new challenges for securing the connected world.",
+      "tags": ["Microsoft", "Security"]
+    },
+    "tc-elon-musk-says-ousting-jensen-huang-is-like-2026-11-19": {
+      "summary": "Musk criticized Jensen Huang's exit from Nvidia and pushed back on a disloyalty-to-the-United-States framing; Colette Kress is serving as interim CEO.",
+      "tags": ["Nvidia"]
+    },
+    "tc-microsoft-ceo-satya-nadella-remains-confident-2026-11-19": {
+      "summary": "Nadella expressed confidence in Colette Kress, Huang's successor now serving as Nvidia's interim CEO.",
+      "tags": ["Nvidia", "Microsoft"]
+    },
+    "tc-satya-nadella-predicts-ai-agents-will-reshuffle-2026-11-19": {
+      "summary": "Nadella argues agents could undercut ad-driven business models, forcing companies like Amazon to rethink how they compete for customers.",
+      "tags": ["Agents", "Microsoft"]
+    },
+    "hn-gemini-4-neon-2026-11-19": {
+      "summary": "Google's announcement post introducing the Gemini 4 Neon model; a separate post in this edition sizes it up as a Claude Opus 5.5 competitor.",
+      "tags": ["Model Release", "Google", "LLM"]
+    },
+    "hn-ai-is-killing-all-about-berlin-2026-11-19": {
+      "summary": "Personal essay by Nicolas Bouliane, who runs the All About Berlin site, on how AI is killing it.",
+      "tags": ["LLM"]
+    },
+    "hn-google-s-ai-answers-reducing-search-traffic-by-2026-11-19": {
+      "summary": "Revscope blog analysis of search, SEO and generative engine optimization in 2026, putting the traffic loss from Google's AI answers at 40%.",
+      "tags": ["Google", "Deep Dive"]
+    },
+    "hn-ai-agents-ask-better-questions-than-kpmg-2026-11-19": {
+      "summary": "European Business Magazine report on an audit trial in which AI agents' questions were judged better than those from KPMG accountants.",
+      "tags": ["Agents", "Eval"]
+    },
+    "hn-anthropic-prices-initial-public-offering-2026-11-19": {
+      "summary": "Anthropic's own announcement of its IPO pricing, set at $83 per share with more than $80 billion in new capital raised.",
+      "tags": ["Anthropic", "Funding"]
+    },
+    "hn-llm-assisted-reverse-engineering-2026-11-19": {
+      "summary": "Slow Chronicle blog post on using LLMs to assist reverse engineering work.",
+      "tags": ["LLM", "Security"]
+    },
+    "hn-why-is-gemini-4-carbon-taking-so-long-2026-11-19": {
+      "summary": "Kernel.dev blog post on why Gemini 4 Carbon has not shipped, in the same week Google released Gemini 4 Neon.",
+      "tags": ["Google", "LLM"]
+    },
+    "hn-gemini-4-neon-looks-like-an-opus-5-5-competitor-2026-11-19": {
+      "summary": "Blog post comparing Google's new Gemini 4 Neon with Claude Opus 5.5 and arguing it belongs among the top models.",
+      "tags": ["Google", "Eval", "LLM"]
+    },
+    "hn-advancing-chip-design-with-openai-models-2026-11-19": {
+      "summary": "OpenAI post on applying its models to chip design work.",
+      "tags": ["OpenAI"]
+    },
+    "hn-claude-was-trained-on-protein-sequences-at-scale-2026-11-19": {
+      "summary": "Blog post on evidence that Claude Opus 5.5 was trained on protein sequences at scale.",
+      "tags": ["Anthropic", "LLM"]
+    }
+  }
+}

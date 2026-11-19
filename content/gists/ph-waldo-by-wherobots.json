@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "ph-waldo-by-wherobots",
+  "kind": "launch",
+  "title": "Waldo by Wherobots",
+  "url": "https://www.producthunt.com/products/waldo-by-wherobots",
+  "source_url": "https://www.producthunt.com/products/waldo-by-wherobots",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Agents",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/37641999-062a-4186-8e84-fcd32f5af621.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "Waldo, from the Apache Sedona creators at Wherobots, is a geospatial data agent that answers plain-English questions about the physical world with analysis, maps and scheduled pipelines.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "It finds open and private datasets for a question and checks whether they fit before using them.",
+        "It writes and runs the spatial analysis and imagery inference, building maps so each step can be inspected.",
+        "Inputs span satellite imagery, geometries, geography data and an organisation's own first-party data.",
+        "Finished work ships as a pipeline, dataset or map to an Iceberg-compatible platform such as Databricks, Snowflake or AWS Glue, on a schedule if needed.",
+        "It launched in public preview; the team argues general coding agents get spatial relationships wrong and stop at the code."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Data teams with a backlog of spatial requests and few specialists able to handle geospatial engineering at regional or planetary scale."
+    },
+    {
+      "key": "pricing",
+      "text": "During the preview, Waldo tokens cost nothing extra and users pay only for compute; the launch comment offers $250 in extra credits to Product Hunt users."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Waldo by Wherobots on Product Hunt",
+      "url": "https://www.producthunt.com/products/waldo-by-wherobots"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-waldo-by-wherobots-2026-11-19",
+      "edition_date": "2026-11-19"
+    }
+  ],
+  "created_at": "2026-11-19T17:24:12Z",
+  "updated_at": "2026-11-19T17:24:12Z",
+  "stats": {
+    "upvotes": 233,
+    "comments": 35
+  },
+  "stats_as_of": "2026-11-19T17:20:03Z"
+}

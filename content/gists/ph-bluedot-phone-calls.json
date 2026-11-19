@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "slug": "ph-bluedot-phone-calls",
+  "kind": "launch",
+  "title": "Bluedot Phone Calls",
+  "url": "https://www.producthunt.com/products/bluedot-2",
+  "source_url": "https://www.producthunt.com/products/bluedot-2",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Voice / Speech",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/cc1c935b-f3e3-49be-a1b0-1814e5e0227c.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "Bluedot, a meeting note taker that records without a bot joining the call, now records outbound phone calls placed from its web or mobile app and returns a transcript, summary and action items.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Users verify their number once, then dial from Bluedot so the other side sees their own caller ID.",
+        "Each call is recorded and transcribed, with a summary and action items ready once it ends.",
+        "Call notes land in the same workspace as notes from online and in-person meetings.",
+        "An optional announcement tells the other party the call is being recorded.",
+        "The team names two limits: outbound calls only for now, and a country list still being extended."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "People whose work runs over the phone, such as client follow-ups, candidate screens and supplier check-ins; commenters in sales are already asking for inbound calls."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Bluedot Phone Calls on Product Hunt",
+      "url": "https://www.producthunt.com/products/bluedot-2"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-bluedot-phone-calls-2026-11-19",
+      "edition_date": "2026-11-19"
+    }
+  ],
+  "created_at": "2026-11-19T17:24:12Z",
+  "updated_at": "2026-11-19T17:24:12Z",
+  "stats": {
+    "upvotes": 311,
+    "comments": 47
+  },
+  "stats_as_of": "2026-11-19T17:20:03Z"
+}

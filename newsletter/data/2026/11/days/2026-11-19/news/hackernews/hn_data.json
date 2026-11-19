@@ -1,0 +1,130 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-19",
+  "window": {
+    "after": "2026-11-18",
+    "before": "2026-11-20"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 24,
+  "poolCount": 92,
+  "stories": [
+    {
+      "title": "Gemini 4 Neon",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+      "type": "story",
+      "points": 976,
+      "num_comments": 740,
+      "author": "yigitdemirag",
+      "created_at": "2026-11-18T21:34:07Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50552424",
+      "front_page": false
+    },
+    {
+      "title": "AI is killing All About Berlin",
+      "url": "https://nicolasbouliane.com/blog/death-by-ai",
+      "type": "story",
+      "points": 798,
+      "num_comments": 706,
+      "author": "grey-area",
+      "created_at": "2026-11-18T06:47:26Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50542705",
+      "front_page": false
+    },
+    {
+      "title": "Google's AI answers reducing search traffic by 40%",
+      "url": "https://revscope.co/blog/search-seo-geo-2026/",
+      "type": "story",
+      "points": 707,
+      "num_comments": 559,
+      "author": "slashdev",
+      "created_at": "2026-11-18T00:17:58Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50540178",
+      "front_page": false
+    },
+    {
+      "title": "AI agents ask better questions than KPMG accountants in audit trial",
+      "url": "https://europeanbusinessmagazine.com/ai-agents-better-questions-kpmg/",
+      "type": "story",
+      "points": 478,
+      "num_comments": 240,
+      "author": "Betelbuddy",
+      "created_at": "2026-11-18T15:49:34Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50547777",
+      "front_page": false
+    },
+    {
+      "title": "Anthropic prices initial public offering",
+      "url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering",
+      "type": "story",
+      "points": 384,
+      "num_comments": 726,
+      "author": "surprisetalk",
+      "created_at": "2026-11-18T23:30:09Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50553843",
+      "front_page": false
+    },
+    {
+      "title": "LLM assisted reverse engineering",
+      "url": "https://www.slowchronicle.com/posts/llm-assisted-reverse-engineering",
+      "type": "story",
+      "points": 289,
+      "num_comments": 72,
+      "author": "ioma8",
+      "created_at": "2026-11-18T22:29:13Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50553225",
+      "front_page": false
+    },
+    {
+      "title": "Why is Gemini 4 Carbon taking so long?",
+      "url": "https://kernel.dev/blog/why-is-gemini-4-carbon-taking-so-long/",
+      "type": "story",
+      "points": 271,
+      "num_comments": 139,
+      "author": "deenadz",
+      "created_at": "2026-11-18T04:14:04Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50541790",
+      "front_page": false
+    },
+    {
+      "title": "Gemini 4 Neon looks like an Opus 5.5 competitor",
+      "url": "https://micjm.com/blog/gemini-4-neon-looks-like-a-top-model/",
+      "type": "story",
+      "points": 245,
+      "num_comments": 76,
+      "author": "seizethecheese",
+      "created_at": "2026-11-19T00:29:45Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50554374",
+      "front_page": false
+    },
+    {
+      "title": "Advancing chip design with OpenAI models",
+      "url": "https://openai.com/index/advancing-chip-design-with-our-models/",
+      "type": "story",
+      "points": 218,
+      "num_comments": 163,
+      "author": "vighneshiyer",
+      "created_at": "2026-11-18T17:45:47Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50549493",
+      "front_page": false
+    },
+    {
+      "title": "Claude was trained on protein sequences at scale",
+      "url": "http://xinmingtu.cn/blog/2026/claude-opus-5-5-protein-sequences/",
+      "type": "story",
+      "points": 176,
+      "num_comments": 76,
+      "author": "gmays",
+      "created_at": "2026-11-18T03:47:43Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50541619",
+      "front_page": false
+    }
+  ]
+}

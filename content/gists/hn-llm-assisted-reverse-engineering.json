@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "slug": "hn-llm-assisted-reverse-engineering",
+  "kind": "hn",
+  "title": "LLM assisted reverse engineering",
+  "url": "https://www.slowchronicle.com/posts/llm-assisted-reverse-engineering",
+  "source_url": "https://news.ycombinator.com/item?id=50553225",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "LLM",
+    "Security"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "A hacker with two decades of hardware and software experience explains how they now reverse engineer binaries and devices by pointing an agent at the target with a small set of skills.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The agent identifies the binary's type and platform, then maps main functions, branching and imports, writing findings to Markdown notes that survive context compaction.",
+        "When static analysis stalls, the agent sets breakpoints, injects logging probes, or gets computer use or an emulator.",
+        "A hypothesis-debugging skill makes a stuck agent log each hypothesis in a CSV and run a decisive experiment, ending guesswork loops.",
+        "Probes are written in Python with uv and finished hacks in Rust, whose strict compiler gives the agent tight feedback.",
+        "Six months of results include custom synthesizer and e-reader firmware, mapped camera protocols and a fixed macOS printer driver."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "theme",
+          "text": "Commenters share their own agent-assisted wins, from lighting and camera apps to CCTV plugins, children's story cartridges and audio gear.",
+          "url": "https://news.ycombinator.com/item?id=50561231"
+        },
+        {
+          "stance": "agreed",
+          "text": "Others recognise the guessing loops the post describes, saying Claude needs constant steering on harder targets.",
+          "url": "https://news.ycombinator.com/item?id=50554878"
+        },
+        {
+          "stance": "disputed",
+          "text": "A commenter who had Codex unlock paid features in Android apps draws a sharp reply calling it theft.",
+          "url": "https://news.ycombinator.com/item?id=50555377"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One reader argues that handing the work to AI removes the learning and satisfaction that make reverse engineering worth doing.",
+          "url": "https://news.ycombinator.com/item?id=50555496"
+        },
+        {
+          "stance": "theme",
+          "text": "Refusals come up too: a reply says models often stonewall once the work involves reversing authentication.",
+          "url": "https://news.ycombinator.com/item?id=50556237"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "LLM assisted reverse engineering",
+      "url": "https://www.slowchronicle.com/posts/llm-assisted-reverse-engineering"
+    },
+    {
+      "role": "discussion",
+      "title": "LLM assisted reverse engineering",
+      "url": "https://news.ycombinator.com/item?id=50553225"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-llm-assisted-reverse-engineering-2026-11-19",
+      "edition_date": "2026-11-19"
+    }
+  ],
+  "created_at": "2026-11-19T17:24:12Z",
+  "updated_at": "2026-11-19T17:24:12Z",
+  "stats": {
+    "points": 289,
+    "comments": 72,
+    "submitted_by": "ioma8",
+    "posted_at": "2026-11-18T22:29:13Z"
+  },
+  "stats_as_of": "2026-11-19T17:20:03Z"
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "slug": "gh-openvino",
+  "kind": "repo",
+  "title": "openvinotoolkit/openvino",
+  "url": "https://github.com/openvinotoolkit/openvino",
+  "source_url": "https://github.com/openvinotoolkit/openvino",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "Inference",
+    "Open Source"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/openvinotoolkit.png?size=80"
+  },
+  "depth": "full",
+  "lede": "OpenVINO is an open-source C++ toolkit that converts trained models and runs optimized inference on CPUs, Intel GPUs and NPUs, from edge devices to the cloud.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "It takes models from PyTorch, TensorFlow, ONNX, Keras, PaddlePaddle and JAX/Flax and deploys them without the original framework.",
+        "Targets include x86 and ARM CPUs, Intel integrated and discrete GPUs, and Intel NPUs.",
+        "APIs ship for C++, Python, C and Node.js, with a GenAI API for LLM and image-generation pipelines.",
+        "It plugs into Hugging Face through Optimum Intel, and into torch.compile, ExecuTorch, vLLM, ONNX Runtime, LangChain and LlamaIndex.",
+        "It collects usage telemetry by default, which one command switches off."
+      ]
+    },
+    {
+      "key": "try_it",
+      "command": "pip install -U openvino"
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "openvinotoolkit/openvino",
+      "url": "https://github.com/openvinotoolkit/openvino"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-openvino-2026-11-19",
+      "edition_date": "2026-11-19"
+    }
+  ],
+  "created_at": "2026-11-19T17:24:12Z",
+  "updated_at": "2026-11-19T17:24:12Z",
+  "stats": {
+    "stars": 11507,
+    "forks": 3616,
+    "language": "C++",
+    "license": "Apache-2.0",
+    "created_on": "2018-10-15",
+    "contributors": 942,
+    "last_release": {
+      "tag": "2026.4.1",
+      "published_on": "2026-10-01"
+    },
+    "open_issues": 409,
+    "stars_gained": 246
+  },
+  "stats_as_of": "2026-11-19T17:20:03Z"
+}

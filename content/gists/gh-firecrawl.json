@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "slug": "gh-firecrawl",
+  "kind": "repo",
+  "title": "firecrawl/firecrawl",
+  "url": "https://github.com/firecrawl/firecrawl",
+  "source_url": "https://github.com/firecrawl/firecrawl",
+  "source": "github",
+  "category": "repos",
+  "tags": [
+    "API",
+    "Agents",
+    "RAG"
+  ],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/firecrawl.png?size=80"
+  },
+  "depth": "full",
+  "lede": "Firecrawl is an open-source TypeScript service that gives agents web data through one API: search, scraping, page interaction and crawling, plus a hosted catalogue of 550+ data providers.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Core endpoints search the web, turn any URL into markdown, HTML, JSON or screenshots, and let an agent click and type on a scraped page.",
+        "Further endpoints crawl a site, map its URLs, batch-scrape thousands of pages, parse PDFs and DOCX, and watch pages for changes.",
+        "An Agent endpoint gathers data from a prompt alone, with no URLs needed, and accepts a schema for structured output.",
+        "Alexandria, the 550+ provider library, runs only on Firecrawl Cloud; the self-hosted server leaves it out.",
+        "SDKs cover Python, Node.js and Go, alongside a CLI, an agent skill and an MCP server."
+      ]
+    },
+    {
+      "key": "try_it",
+      "command": "pip install firecrawl"
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "firecrawl/firecrawl",
+      "url": "https://github.com/firecrawl/firecrawl"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-firecrawl-2026-11-19",
+      "edition_date": "2026-11-19"
+    }
+  ],
+  "created_at": "2026-11-19T17:24:12Z",
+  "updated_at": "2026-11-19T17:24:12Z",
+  "stats": {
+    "stars": 203859,
+    "forks": 10680,
+    "language": "TypeScript",
+    "license": "AGPL-3.0",
+    "created_on": "2024-04-15",
+    "contributors": 181,
+    "last_release": {
+      "tag": "v2.11.0",
+      "published_on": "2026-06-19"
+    },
+    "open_issues": 121,
+    "stars_gained": 795
+  },
+  "stats_as_of": "2026-11-19T17:20:03Z"
+}

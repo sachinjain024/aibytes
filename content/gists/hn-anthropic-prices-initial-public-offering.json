@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "slug": "hn-anthropic-prices-initial-public-offering",
+  "kind": "hn",
+  "title": "Anthropic prices initial public offering",
+  "url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering",
+  "source_url": "https://news.ycombinator.com/item?id=50553843",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Anthropic",
+    "Funding"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Anthropic priced its IPO at $83 a share for 980 million Class A shares, almost all of them new stock, ahead of Nasdaq trading under the ticker ANT on November 19, 2026.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "About 956 million shares come from Anthropic and about 23.6 million from existing holders, whose proceeds the company does not receive.",
+        "Underwriters hold a 30-day option on up to 147 million more shares.",
+        "The SEC declared the registration effective on November 18, and the offering is expected to close on November 20.",
+        "Goldman Sachs and Morgan Stanley distribute the final prospectus."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "disputed",
+          "text": "The thread splits on whether Anthropic has a moat, with one commenter casting it and OpenAI as the AltaVista of the AI era.",
+          "url": "https://news.ycombinator.com/item?id=50557483"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "Others argue it has pulled ahead regardless, with Opus 5.5 and Fable unmatched for now and Claude improving steadily as a product.",
+          "url": "https://news.ycombinator.com/item?id=50557528"
+        },
+        {
+          "stance": "theme",
+          "text": "Commenters work the numbers, noting the offering grew from 825 million shares and estimating roughly $105 billion in cash raised.",
+          "url": "https://news.ycombinator.com/item?id=50554051"
+        },
+        {
+          "stance": "theme",
+          "text": "One reader points out the S-1 shows about $132 billion in cash against roughly $141 billion raised, at odds with the cash-furnace story.",
+          "url": "https://news.ycombinator.com/item?id=50562755"
+        },
+        {
+          "stance": "theme",
+          "text": "Valuation unease runs through the thread, with one commenter struck that a 2021 company lists near a $1.5 trillion market cap.",
+          "url": "https://news.ycombinator.com/item?id=50555009"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Anthropic prices initial public offering",
+      "url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering"
+    },
+    {
+      "role": "discussion",
+      "title": "Anthropic prices initial public offering",
+      "url": "https://news.ycombinator.com/item?id=50553843"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-anthropic-prices-initial-public-offering-2026-11-19",
+      "edition_date": "2026-11-19"
+    }
+  ],
+  "created_at": "2026-11-19T17:24:12Z",
+  "updated_at": "2026-11-19T17:24:12Z",
+  "stats": {
+    "points": 384,
+    "comments": 726,
+    "submitted_by": "surprisetalk",
+    "posted_at": "2026-11-18T23:30:09Z"
+  },
+  "stats_as_of": "2026-11-19T17:20:03Z"
+}
