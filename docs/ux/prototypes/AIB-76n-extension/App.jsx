@@ -341,7 +341,7 @@ function Onboarding({ opts, pinned, user, onSignIn, subscribed, setSubscribed, i
         <h2 id="s2">Sign in to save &amp; bookmark items <span className="proto-step-opt">Optional</span></h2>
         {wizard && <span className="proto-step-of">Step 2 of 2</span>}
       </div>
-      <p>Items you bookmark will be stored in your account and can help you access them across devices.</p>
+      <p>Items you bookmark will be stored in your account and accessible across devices.</p>
       <p>Without signing in, any saved items are only stored in the browser's local storage.</p>
       {user ? (
         <>
@@ -369,7 +369,7 @@ function Onboarding({ opts, pinned, user, onSignIn, subscribed, setSubscribed, i
 
   return (
     <div className="proto-onb">
-      <h1 className="proto-onb-h1">aiBytes_ extension is successfully installed.</h1>
+      <h1 className="proto-onb-h1"><span className="proto-onb-check" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 10 10"><path d="M2 5.2l2 2L8 3" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg></span>aiBytes_ extension is successfully installed.</h1>
       <p className="proto-onb-sub">Let's get started with a couple of quick steps to help you get the most out of it.</p>
       {opts.flow === "1" ? (
         <>{pinCard(false)}{signCard(false)}{(pinned || skipped[1]) && (user || skipped[2]) && done}</>

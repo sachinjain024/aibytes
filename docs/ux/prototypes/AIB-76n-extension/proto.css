@@ -88,6 +88,8 @@ body { background: var(--bg); }
 .proto-onb-shell { min-height: 100%; }
 .proto-onb { max-width: 620px; margin: 0 auto; padding: 40px 20px 120px; display: flex; flex-direction: column; gap: 16px; }
 .proto-onb-h1 { margin: 0; font: 800 28px/1.15 var(--font-display); letter-spacing: var(--tracking-heading); }
+.proto-onb-h1:has(.proto-onb-check) { display: flex; align-items: flex-start; gap: 12px; }
+.proto-onb-check { flex: none; display: inline-grid; place-items: center; width: 32px; height: 32px; margin-top: 1px; border-radius: 16px; background: var(--success); color: var(--success-fg); }
 .proto-onb-sub { margin: 0 0 8px; color: var(--text-2); font-size: 15px; }
 .proto-onb-fine { margin: 0; font-size: 12px; color: var(--muted); }
 .proto-onb > .ldg-btn { align-self: flex-start; }
