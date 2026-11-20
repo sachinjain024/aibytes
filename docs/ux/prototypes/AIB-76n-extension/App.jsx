@@ -341,7 +341,8 @@ function Onboarding({ opts, pinned, user, onSignIn, subscribed, setSubscribed, i
         <h2 id="s2">Sign in to save &amp; bookmark items <span className="proto-step-opt">Optional</span></h2>
         {wizard && <span className="proto-step-of">Step 2 of 2</span>}
       </div>
-      <p>Items you save in the popup show up in Saved on aibytes.io, and on any computer you sign in on. Without signing in, saved items stay in this browser.</p>
+      <p>Items you bookmark will be stored in your account and can help you access them across devices.</p>
+      <p>Without signing in, any saved items are only stored in the browser's local storage.</p>
       {user ? (
         <>
           <p className="proto-step-status"><Tick /> Signed in as {user.name}. The extension is signed in too.</p>
@@ -349,11 +350,11 @@ function Onboarding({ opts, pinned, user, onSignIn, subscribed, setSubscribed, i
         </>
       ) : (
         <>
-          <label className="proto-check"><input type="checkbox" checked={box} onChange={e => setBox(e.target.checked)} /> Also subscribe to the aiBytes_ weekly newsletter</label>
           <div className="proto-step-actions">
             <Button variant="google" onClick={signIn}>Sign in with Google</Button>
             <button className="proto-skip" onClick={() => { setSkipped(s => ({ ...s, 2: true })); if (wizard) setStep(3); }}>{skipped[2] ? "Skipped" : "Skip for now"}</button>
           </div>
+          <label className="proto-check"><input type="checkbox" checked={box} onChange={e => setBox(e.target.checked)} /> Also subscribe me to the weekly newsletter</label>
         </>
       )}
     </section>
