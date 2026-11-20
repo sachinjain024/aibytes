@@ -95,7 +95,9 @@ const OPTIONS = {
   },
 };
 
-const DEFAULTS = Object.fromEntries(Object.keys(OPTIONS).map(k => [k, "1"]));
+// Decided 20 Nov 2026: E2, one step at a time. Kept in OPTIONS so the letters stay fixed.
+const DECIDED = { flow: "2" };
+const DEFAULTS = { ...Object.fromEntries(Object.keys(OPTIONS).map(k => [k, "1"])), ...DECIDED };
 
 // ---------- the Chrome toolbar ----------
 
@@ -366,8 +368,8 @@ function Onboarding({ opts, pinned, user, onSignIn, subscribed, setSubscribed, i
 
   return (
     <div className="proto-onb">
-      <h1 className="proto-onb-h1">aiBytes_ is installed</h1>
-      <p className="proto-onb-sub">Two quick steps. Both are optional.</p>
+      <h1 className="proto-onb-h1">aiBytes_ extension is successfully installed.</h1>
+      <p className="proto-onb-sub">Let's get started with a couple of quick steps to help you get the most out of it.</p>
       {opts.flow === "1" ? (
         <>{pinCard(false)}{signCard(false)}{(pinned || skipped[1]) && (user || skipped[2]) && done}</>
       ) : (
@@ -446,7 +448,7 @@ function Site({ opts, theme, setTheme, user, setUser, saves, toggleSave, install
 const HASH = Object.fromEntries(new URLSearchParams(location.hash.slice(1)));
 
 function Proto() {
-  const [opts, setOpts] = React.useState(() => ({ ...DEFAULTS, ...Object.fromEntries(Object.keys(OPTIONS).filter(k => HASH[k]).map(k => [k, HASH[k]])) }));
+  const [opts, setOpts] = React.useState(() => ({ ...DEFAULTS, ...Object.fromEntries(Object.keys(OPTIONS).filter(k => HASH[k]).map(k => [k, HASH[k]])), ...DECIDED }));
   const [view, setView] = React.useState(HASH.view || "popup");
   const [theme, setTheme] = React.useState(() => HASH.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
   const [user, setUser] = React.useState(HASH.user === "1" ? USER : null);
@@ -500,7 +502,7 @@ function Proto() {
   );
 }
 
-const GROUPS = { popup: ["saved", "row", "signin", "gist"], onboarding: ["flow", "pin", "subscribe"], site: ["banner"] };
+const GROUPS = { popup: ["saved", "row", "signin", "gist"], onboarding: ["pin", "subscribe"], site: ["banner"] };
 
 function ReviewPanel({ opts, setOpt, view, go, user, setUser, installed, setInstalled, pinned, setPinned, theme, setTheme }) {
   const [open, setOpen] = React.useState(() => HASH.panel !== "0" && innerWidth > 900);
