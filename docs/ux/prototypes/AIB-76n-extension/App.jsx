@@ -338,10 +338,10 @@ function Onboarding({ opts, pinned, user, onSignIn, subscribed, setSubscribed, i
     <section className={"proto-step" + (user ? " is-done" : "")} aria-labelledby="s2">
       <div className="proto-step-head">
         <span className="proto-step-n">{user ? <Tick /> : "2"}</span>
-        <h2 id="s2">Sign in to keep your stars <span className="proto-step-opt">Optional</span></h2>
+        <h2 id="s2">Sign in to save &amp; bookmark items <span className="proto-step-opt">Optional</span></h2>
         {wizard && <span className="proto-step-of">Step 2 of 2</span>}
       </div>
-      <p>Items you star in the popup show up in Saved on aibytes.io, and on any computer you sign in on. Without signing in, stars stay in this browser.</p>
+      <p>Items you save in the popup show up in Saved on aibytes.io, and on any computer you sign in on. Without signing in, saved items stay in this browser.</p>
       {user ? (
         <>
           <p className="proto-step-status"><Tick /> Signed in as {user.name}. The extension is signed in too.</p>
