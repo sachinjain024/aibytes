@@ -273,3 +273,17 @@ changes:
 -->
 ### Claude Code updated this ticket
 <!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_91b6f9c0
+kind: comment
+occurred_at: 2026-11-20T13:26:48.995Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Prototype: docs/ux/prototypes/AIB-76n-extension/ (open aib-76n-extension.html; rebuild with node docs/ux/prototypes/AIB-76n-extension/build.mjs). Eight open choices, A-H: popup Saved, rows, signed-out, gist view; onboarding steps, pin animation, newsletter box; install banner.
+<!-- /longclaw:event -->
