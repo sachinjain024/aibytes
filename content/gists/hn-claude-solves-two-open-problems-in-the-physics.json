@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "hn-claude-solves-two-open-problems-in-the-physics",
+  "kind": "hn",
+  "title": "Claude solves two open problems in the physics of black holes",
+  "url": "https://www.anthropic.com/research/claude-black-hole-physics",
+  "source_url": "https://news.ycombinator.com/item?id=50563148",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Anthropic",
+    "Reasoning"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Anthropic says agents running Claude Fable 5.2 settled two open questions in theoretical quantum gravity, one about the Hawking-Page transition and one about the modular bootstrap.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Claude finished a calculation laid out in 2003 and showed the Hawking-Page phase transition stays abrupt even where spacetime has no definite shape.",
+        "For a toy universe with two space dimensions, it found and proved the exact ceiling on the lightest black hole's mass under the simplest bootstrap.",
+        "A researcher had Claude pick 22 candidate problems and ran one agent per problem for about six weeks, with agents sharing progress.",
+        "The bootstrap method came from an agent working on sphere packing, and the result was formally checked in Lean.",
+        "Anthropic says neither result describes our own universe or has practical applications."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "theme",
+          "text": "Readers single out the black hole mass ceiling as the more exciting result, though a reply stresses it holds only in a 2D universe.",
+          "url": "https://news.ycombinator.com/item?id=50563740"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "A physicist cautions that theoretical physics has countless open problems, and most matter to only a handful of specialists.",
+          "url": "https://news.ycombinator.com/item?id=50568683"
+        },
+        {
+          "stance": "disputed",
+          "text": "Some object to crediting Claude in the headline, asking what the prompts were and who framed the problems.",
+          "url": "https://news.ycombinator.com/item?id=50565562"
+        },
+        {
+          "stance": "theme",
+          "text": "Others note the papers list no human authors at all, only Claude and Anthropic.",
+          "url": "https://news.ycombinator.com/item?id=50563841"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Claude Fable 5.2 solves two open problems in the physics of black holes",
+      "url": "https://www.anthropic.com/research/claude-black-hole-physics"
+    },
+    {
+      "role": "discussion",
+      "title": "Claude solves two open problems in the physics of black holes",
+      "url": "https://news.ycombinator.com/item?id=50563148"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-claude-solves-two-open-problems-in-the-physics-2026-11-20",
+      "edition_date": "2026-11-20"
+    }
+  ],
+  "created_at": "2026-11-20T16:59:26Z",
+  "updated_at": "2026-11-20T16:59:26Z",
+  "stats": {
+    "points": 528,
+    "comments": 255,
+    "submitted_by": "cybermango",
+    "posted_at": "2026-11-19T17:30:44Z"
+  },
+  "stats_as_of": "2026-11-20T16:56:15Z",
+  "front_page": true
+}

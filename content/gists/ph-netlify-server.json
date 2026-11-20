@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "ph-netlify-server",
+  "kind": "launch",
+  "title": "Netlify Server",
+  "url": "https://www.producthunt.com/products/netlify",
+  "source_url": "https://www.producthunt.com/products/netlify",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Dev Tool",
+    "Agents",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/bf391ec5-9490-4c9b-9ad1-452a43fd1fa8.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "Netlify Server adds a long-running backend to Netlify projects, so apps can keep WebSocket connections and in-memory state alive instead of squeezing into short-lived functions.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Holds WebSockets open and keeps caches, connection pools and other state in memory across requests.",
+        "Runs existing Express, Fastify, Hono or Koa apps without adapters, or an agent in the Netlify UI builds the backend from a description.",
+        "Agent loops and long model calls can run for minutes or hours without being cut off by a function timeout.",
+        "Deploys with the frontend: every deploy preview gets its own server, and each branch gets its own Netlify Database branch.",
+        "Scales up with traffic and back down to zero when nothing is using it."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Teams on Netlify building multiplayer games, live chat, collaborative tools or long-running AI agents, who previously had to host that part of the app elsewhere."
+    },
+    {
+      "key": "pricing",
+      "text": "Usage is free during early access. The launch does not say what it will cost afterwards."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Netlify Server on Product Hunt",
+      "url": "https://www.producthunt.com/products/netlify"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-netlify-server-2026-11-20",
+      "edition_date": "2026-11-20"
+    }
+  ],
+  "created_at": "2026-11-20T16:59:26Z",
+  "updated_at": "2026-11-20T16:59:26Z",
+  "stats": {
+    "upvotes": 286,
+    "comments": 20
+  },
+  "stats_as_of": "2026-11-20T16:56:15Z"
+}

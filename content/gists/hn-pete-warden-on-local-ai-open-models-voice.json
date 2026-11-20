@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "slug": "hn-pete-warden-on-local-ai-open-models-voice",
+  "kind": "hn",
+  "title": "Pete Warden on local AI, open models, voice interfaces, the future of hardware",
+  "url": "https://thedataexchange.media/pete-warden-moonshine/",
+  "source_url": "https://news.ycombinator.com/item?id=50561508",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Local LLM",
+    "Voice / Speech"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "In a Data Exchange interview, Moonshine co-creator Pete Warden argues local models are already good enough for most work and are held back mainly by usability and a lack of marketing.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Warden says big AI companies have little reason to promote local models because they are hard to monetize.",
+        "A 9B-parameter model needs about 9 GB at 8 bits, and Q4 quantization squeezes it onto a 4 GB graphics card.",
+        "Machines with large unified memory, such as a 256 GB M5 Studio, can run models with hundreds of billions of parameters.",
+        "He argues local models should become an operating system service for apps, a direction he sees Apple heading.",
+        "Commercial guardrails can block benign work such as white-hat security research, another reason to run models yourself."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "theme",
+          "text": "Commenters with home rigs describe using open models for serious systems work, from compiler bugs to kernel hardening.",
+          "url": "https://news.ycombinator.com/item?id=50563160"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One local-AI fan concedes the economics favor data centers, where batching keeps hardware far better utilized.",
+          "url": "https://news.ycombinator.com/item?id=50562385"
+        },
+        {
+          "stance": "disputed",
+          "text": "Others doubt ordinary users will spend thousands on hardware when most never self-hosted far simpler software.",
+          "url": "https://news.ycombinator.com/item?id=50562313"
+        },
+        {
+          "stance": "theme",
+          "text": "Nvidia is blamed for neglecting consumer GPUs, which commenters say keeps stronger local models out of reach.",
+          "url": "https://news.ycombinator.com/item?id=50561803"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Why AI Wants to Be Local - The Data Exchange",
+      "url": "https://thedataexchange.media/pete-warden-moonshine/"
+    },
+    {
+      "role": "discussion",
+      "title": "Pete Warden on local AI, open models, voice interfaces, the future of hardware",
+      "url": "https://news.ycombinator.com/item?id=50561508"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-pete-warden-on-local-ai-open-models-voice-2026-11-20",
+      "edition_date": "2026-11-20"
+    }
+  ],
+  "created_at": "2026-11-20T16:59:26Z",
+  "updated_at": "2026-11-20T16:59:26Z",
+  "stats": {
+    "points": 265,
+    "comments": 242,
+    "submitted_by": "datascientist",
+    "posted_at": "2026-11-19T15:38:12Z"
+  },
+  "stats_as_of": "2026-11-20T16:56:15Z"
+}

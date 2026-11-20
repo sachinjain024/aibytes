@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "slug": "hn-frostbite-a-new-cpu-architecture-discovered",
+  "kind": "hn",
+  "title": "Frostbite: A new CPU architecture discovered, designed and verified by AI",
+  "url": "https://architectlabs.com/blog/frostbite",
+  "source_url": "https://news.ycombinator.com/item?id=50572503",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Deep Dive"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Architect Labs says its AI systems designed Frostbite, a CPU with a new instruction set built around interaction nets, taking it from compiler and ISA through RTL to final layout.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Interaction nets keep dependencies explicit and give each value a single owner, so parallelism comes from the program rather than out-of-order hardware.",
+        "On 25 workloads, 15 held back until the final evaluation, it reports 4.59x performance per watt against a dual-issue in-order core.",
+        "Agents specified the chip in ASL, an in-house formal language that lowers to Lean; the spec grew past 800,000 lines of Lean.",
+        "A system model was tuned against the RTL until power estimates matched within 5%, then simulated about 660x faster than RTL.",
+        "Agent swarms proposed 58 architecture changes in parallel and kept 37."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "counterpoint",
+          "text": "Skeptics say an in-order baseline is a weak comparison next to modern out-of-order cores, and the program set is small.",
+          "url": "https://news.ycombinator.com/item?id=50572930"
+        },
+        {
+          "stance": "disputed",
+          "text": "Commenters argue over credit: one says humans supplied the core ideas and AI mostly turned decades of research into a product.",
+          "url": "https://news.ycombinator.com/item?id=50574628"
+        },
+        {
+          "stance": "theme",
+          "text": "Several see echoes of earlier dataflow machines, from 1980s dynamic dataflow designs to WaveScalar.",
+          "url": "https://news.ycombinator.com/item?id=50573043"
+        },
+        {
+          "stance": "theme",
+          "text": "One notes the tested kernels use small, fixed working sets and asks how the design copes with programs that build large structures.",
+          "url": "https://news.ycombinator.com/item?id=50575675"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Introducing Frostbite: A new CPU architecture discovered, designed, and verified end-to-end by AI",
+      "url": "https://architectlabs.com/blog/frostbite"
+    },
+    {
+      "role": "discussion",
+      "title": "Frostbite: A new CPU architecture discovered, designed and verified by AI",
+      "url": "https://news.ycombinator.com/item?id=50572503"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-frostbite-a-new-cpu-architecture-discovered-2026-11-20",
+      "edition_date": "2026-11-20"
+    }
+  ],
+  "created_at": "2026-11-20T16:59:26Z",
+  "updated_at": "2026-11-20T16:59:26Z",
+  "stats": {
+    "points": 449,
+    "comments": 264,
+    "submitted_by": "shioyama",
+    "posted_at": "2026-11-20T10:01:41Z"
+  },
+  "stats_as_of": "2026-11-20T16:56:15Z",
+  "front_page": true
+}

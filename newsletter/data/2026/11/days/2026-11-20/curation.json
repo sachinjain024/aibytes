@@ -1,0 +1,751 @@
+{
+  "date": "2026-11-20",
+  "generated_at": "2026-11-20T16:55:08Z",
+  "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
+  "tags": [
+    {
+      "name": "What it is",
+      "tags": [
+        {
+          "name": "Model Release",
+          "slug": "model-release"
+        },
+        {
+          "name": "Open Source",
+          "slug": "open-source"
+        },
+        {
+          "name": "Paper",
+          "slug": "paper"
+        },
+        {
+          "name": "Benchmark",
+          "slug": "benchmark"
+        },
+        {
+          "name": "Dataset",
+          "slug": "dataset"
+        },
+        {
+          "name": "Framework",
+          "slug": "framework"
+        },
+        {
+          "name": "Dev Tool",
+          "slug": "dev-tool"
+        },
+        {
+          "name": "API",
+          "slug": "api"
+        }
+      ]
+    },
+    {
+      "name": "Domain",
+      "tags": [
+        {
+          "name": "LLM",
+          "slug": "llm"
+        },
+        {
+          "name": "Agents",
+          "slug": "agents"
+        },
+        {
+          "name": "RAG",
+          "slug": "rag"
+        },
+        {
+          "name": "Fine-tuning",
+          "slug": "fine-tuning"
+        },
+        {
+          "name": "Inference",
+          "slug": "inference"
+        },
+        {
+          "name": "Local LLM",
+          "slug": "local-llm"
+        },
+        {
+          "name": "Vision",
+          "slug": "vision"
+        },
+        {
+          "name": "Voice / Speech",
+          "slug": "voice-speech"
+        },
+        {
+          "name": "Video",
+          "slug": "video"
+        },
+        {
+          "name": "Image Gen",
+          "slug": "image-gen"
+        },
+        {
+          "name": "Code Gen",
+          "slug": "code-gen"
+        },
+        {
+          "name": "Embeddings",
+          "slug": "embeddings"
+        },
+        {
+          "name": "Eval",
+          "slug": "eval"
+        },
+        {
+          "name": "Reasoning",
+          "slug": "reasoning"
+        },
+        {
+          "name": "Multimodal",
+          "slug": "multimodal"
+        },
+        {
+          "name": "Robotics",
+          "slug": "robotics"
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem",
+      "tags": [
+        {
+          "name": "OpenAI",
+          "slug": "openai"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic"
+        },
+        {
+          "name": "Google",
+          "slug": "google"
+        },
+        {
+          "name": "Meta",
+          "slug": "meta"
+        },
+        {
+          "name": "Nvidia",
+          "slug": "nvidia"
+        },
+        {
+          "name": "Hugging Face",
+          "slug": "hugging-face"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft"
+        },
+        {
+          "name": "Claude Code",
+          "slug": "claude-code"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor"
+        },
+        {
+          "name": "MCP",
+          "slug": "mcp"
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "tags": [
+        {
+          "name": "Funding",
+          "slug": "funding"
+        },
+        {
+          "name": "Acquisition",
+          "slug": "acquisition"
+        },
+        {
+          "name": "Launch",
+          "slug": "launch"
+        },
+        {
+          "name": "Pricing",
+          "slug": "pricing"
+        },
+        {
+          "name": "Policy",
+          "slug": "policy"
+        },
+        {
+          "name": "Legal",
+          "slug": "legal"
+        },
+        {
+          "name": "Security",
+          "slug": "security"
+        },
+        {
+          "name": "Privacy",
+          "slug": "privacy"
+        },
+        {
+          "name": "Safety",
+          "slug": "safety"
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "tags": [
+        {
+          "name": "Show HN",
+          "slug": "show-hn"
+        },
+        {
+          "name": "Tutorial",
+          "slug": "tutorial"
+        },
+        {
+          "name": "Deep Dive",
+          "slug": "deep-dive"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ph-testsprite-4-0-2026-11-20",
+      "title": "TestSprite 4.0",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/testsprite",
+      "source_url": "https://www.producthunt.com/products/testsprite",
+      "source_text": "TestSprite 4.0 Fix one thing, break another? This agent checks it all Your coding agent fixes one thing and breaks another. TestSprite 4.0 is a brand-new testing agent that remembers what your app should do and checks all of it, every time. Tell it in plain words what to test. It explores your running app, writes and runs the end-to-end tests, tells you which failures are real bugs, and keeps checking every change from the web, your terminal or your pull requests. Software Engineering Developer Tools Artificial Intelligence GitHub",
+      "signals": {
+        "upvotes": 363,
+        "comments": 55
+      },
+      "published_at": "2026-11-19T08:01:00Z"
+    },
+    {
+      "id": "ph-netlify-server-2026-11-20",
+      "title": "Netlify Server",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/netlify",
+      "source_url": "https://www.producthunt.com/products/netlify",
+      "source_text": "Netlify Server Run WebSockets, multiplayer apps, and long-running agents Netlify Server gives your app a backend that stays alive while people are using it. Build realtime experiences, multiplayer games, and AI agents that need time to finish. Describe what you want and an agent builds it, or bring your Express, Fastify, Hono, or Koa code. It holds WebSockets open, keeps state in memory, and deploys with the rest of your project, with its own server for every preview. Scales with demand and down to zero when idle. Free during early access. SaaS Developer Tools Artificial Intelligence",
+      "signals": {
+        "upvotes": 286,
+        "comments": 20
+      },
+      "published_at": "2026-11-19T08:01:00Z"
+    },
+    {
+      "id": "ph-stripo-email-widgets-2026-11-20",
+      "title": "Stripo Email Widgets",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/stripo-email",
+      "source_url": "https://www.producthunt.com/products/stripo-email",
+      "source_text": "Stripo Email Widgets Put a game, quiz or survey in your next email. No coding Put a scratch card, quiz, poll, NPS survey or event agenda into your email. Drag a widget into the Stripo editor, then tell the AI Assistant what to change: text, colors, questions, prizes. Each of the 20+ widgets comes with its design, interaction and fallback logic built in. It plays where the inbox supports interactivity and shows a clean static block where it doesn't. Save the container and reuse it in any template. Available on every plan, including Free. Design Tools Email Marketing Artificial Intelligence",
+      "signals": {
+        "upvotes": 252,
+        "comments": 149
+      },
+      "published_at": "2026-11-19T08:01:00Z"
+    },
+    {
+      "id": "gh-claude-bughunter-2026-11-20",
+      "title": "elementalsouls/Claude-BugHunter",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_text": "elementalsouls/Claude-BugHunter A Claude Code skill bundle for bug hunting and external red-team work - 82 skills, 15 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices. Python",
+      "signals": {
+        "stars": 13726,
+        "stars_gained": 1660,
+        "forks": 1660
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-firecrawl-2026-11-20",
+      "title": "firecrawl/firecrawl",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "source_url": "https://github.com/firecrawl/firecrawl",
+      "source_text": "firecrawl/firecrawl Knowledge infrastructure to make your agents smarter. Search, scrape and 550+ data providers through one API. TypeScript",
+      "signals": {
+        "stars": 204989,
+        "stars_gained": 1226,
+        "forks": 10743
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-autoclip-2026-11-20",
+      "title": "zhouxiaoka/autoclip",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/zhouxiaoka/autoclip",
+      "source_url": "https://github.com/zhouxiaoka/autoclip",
+      "source_text": "zhouxiaoka/autoclip AutoClip｜一个链接，一键出片。开源 AI 视频剪辑桌面工具，将播客、访谈、课程等长视频自动剪成短视频，生成字幕、封面和发布文案，适配抖音、小红书、TikTok、Reels 与 YouTube Shorts。Open-source AI video clipping & content repurposing. Python",
+      "signals": {
+        "stars": 12011,
+        "stars_gained": 983,
+        "forks": 1998
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-superpowers-2026-11-20",
+      "title": "obra/superpowers",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/obra/superpowers",
+      "source_url": "https://github.com/obra/superpowers",
+      "source_text": "obra/superpowers An agentic skills framework & software development methodology that works. Shell",
+      "signals": {
+        "stars": 322660,
+        "stars_gained": 888,
+        "forks": 28662
+      },
+      "meta": {
+        "language": "Shell"
+      }
+    },
+    {
+      "id": "gh-app-store-compliance-2026-11-20",
+      "title": "mjmirza/app-store-compliance",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/mjmirza/app-store-compliance",
+      "source_url": "https://github.com/mjmirza/app-store-compliance",
+      "source_text": "mjmirza/app-store-compliance Avoid common App Store and Google Play rejections. Open playbook and pre-submission guard with 117 documented rejection patterns and fixes, privacy manifest and Data safety checks, 95 tracked deadlines (EU AI Act, DSA, COPPA, age laws), and a skill for AI coding agents. Shell",
+      "signals": {
+        "stars": 2520,
+        "stars_gained": 874,
+        "forks": 164
+      },
+      "meta": {
+        "language": "Shell"
+      }
+    },
+    {
+      "id": "gh-minimind-2026-11-20",
+      "title": "jingyaogong/minimind",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/jingyaogong/minimind",
+      "source_url": "https://github.com/jingyaogong/minimind",
+      "source_text": "jingyaogong/minimind 🧠 两小时从 0 训出你的 64M 大模型。Train your own 64M LLM from scratch in 2 hours. Python",
+      "signals": {
+        "stars": 67571,
+        "stars_gained": 841,
+        "forks": 8856
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-last30days-skill-2026-11-20",
+      "title": "mvanhorn/last30days-skill",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "source_url": "https://github.com/mvanhorn/last30days-skill",
+      "source_text": "mvanhorn/last30days-skill AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary Python",
+      "signals": {
+        "stars": 71286,
+        "stars_gained": 685,
+        "forks": 6340
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-diagram-design-2026-11-20",
+      "title": "cathrynlavery/diagram-design",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "source_url": "https://github.com/cathrynlavery/diagram-design",
+      "source_text": "cathrynlavery/diagram-design Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory Droid, Qoder, and Pi. 45 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop. HTML",
+      "signals": {
+        "stars": 69147,
+        "stars_gained": 634,
+        "forks": 4653
+      },
+      "meta": {
+        "language": "HTML"
+      }
+    },
+    {
+      "id": "gh-stitch-skills-2026-11-20",
+      "title": "google-labs-code/stitch-skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "source_url": "https://github.com/google-labs-code/stitch-skills",
+      "source_text": "google-labs-code/stitch-skills A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor. TypeScript",
+      "signals": {
+        "stars": 10937,
+        "stars_gained": 315,
+        "forks": 1399
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-plugins-2026-11-20",
+      "title": "cursor/plugins",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/cursor/plugins",
+      "source_url": "https://github.com/cursor/plugins",
+      "source_text": "cursor/plugins Cursor plugin specification and official plugins TypeScript",
+      "signals": {
+        "stars": 17770,
+        "stars_gained": 292,
+        "forks": 1954
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "tc-metas-ai-agent-muse-is-mixing-up-conversations-2026-11-20",
+      "title": "Meta’s AI agent Muse is mixing up conversations and could be exposing private data, report says",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/19/metas-ai-agent-muse-is-mixing-up-conversations-and-exposing-private-data-report-says/",
+      "source_url": "https://techcrunch.com/2026/11/19/metas-ai-agent-muse-is-mixing-up-conversations-and-exposing-private-data-report-says/",
+      "source_text": "Meta’s AI agent Muse is mixing up conversations and could be exposing private data, report says In some of these instances, employees said Muse surfaced messages about childcare requests they never made, career advice they never asked for, product orders they never placed, and bank account balances that didn't belong to them.",
+      "meta": {
+        "author": "Aisha Malik",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-19T17:38:40Z"
+    },
+    {
+      "id": "tc-apple-may-be-developing-its-own-ai-agent-that-2026-11-20",
+      "title": "Apple may be developing its own AI agent that runs your Mac",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/",
+      "source_url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/",
+      "source_text": "Apple may be developing its own AI agent that runs your Mac The iPhone maker appears to be building agents that can compete with the likes of Meta Muse, Instinct, Claude, and OpenAI Dots.",
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-20T00:56:01Z"
+    },
+    {
+      "id": "tc-the-fallout-from-nvidias-jensen-huang-scandal-2026-11-20",
+      "title": "The fallout from Nvidia’s Jensen Huang scandal continues",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/podcast/the-fallout-from-nvidias-jensen-huang-scandal-continues/",
+      "source_url": "https://techcrunch.com/podcast/the-fallout-from-nvidias-jensen-huang-scandal-continues/",
+      "source_text": "The fallout from Nvidia’s Jensen Huang scandal continues This week on Equity, we break down Nvidia’s strong earnings after Jensen Huang’s ouster, its retreat from China, and how Anthropic’s IPO tests AI’s circular financing.",
+      "meta": {
+        "reading_time": "1 minute"
+      },
+      "published_at": "2026-11-20T14:55:44Z"
+    },
+    {
+      "id": "tc-six-ai-powered-gadgets-that-could-make-your-2026-11-20",
+      "title": "Six AI-powered gadgets that could make your home office smarter",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/20/6-ai-powered-gadgets-that-could-make-your-home-office-smarter/",
+      "source_url": "https://techcrunch.com/2026/11/20/6-ai-powered-gadgets-that-could-make-your-home-office-smarter/",
+      "source_text": "Six AI-powered gadgets that could make your home office smarter From notetakers to webcams, here are six AI-powered gadgets to upgrade your workspace.",
+      "meta": {
+        "author": "Lauren Forristal",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-11-20T14:00:00Z"
+    },
+    {
+      "id": "tc-anthropics-7-founders-cashed-out-nearly-2b-in-2026-11-20",
+      "title": "Anthropic’s 7 founders cashed out nearly $2B in record-breaking IPO",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/19/anthropics-7-founders-cashed-out-nearly-2b-in-record-breaking-ipo/",
+      "source_url": "https://techcrunch.com/2026/11/19/anthropics-7-founders-cashed-out-nearly-2b-in-record-breaking-ipo/",
+      "source_text": "Anthropic’s 7 founders cashed out nearly $2B in record-breaking IPO At the upgraded $83/share IPO price, Anthropic's seven founders each pocketed $280 million, while the company nabbed nearly $105 billion.",
+      "meta": {
+        "author": "Julie Bort",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-20T00:43:50Z"
+    },
+    {
+      "id": "tc-metas-new-muse-charm-device-may-cost-300-2026-11-20",
+      "title": "Meta’s new Muse Charm device may cost $300",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/19/metas-new-muse-charm-device-may-cost-300/",
+      "source_url": "https://techcrunch.com/2026/11/19/metas-new-muse-charm-device-may-cost-300/",
+      "source_text": "Meta’s new Muse Charm device may cost $300 Meta hasn't denied the reporting from The Information, saying only that it will \"have more to share soon\" about its upcoming AI wearable.",
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-19T21:58:06Z"
+    },
+    {
+      "id": "tc-these-tech-outages-are-giving-y2k-ai-agent-style-2026-11-20",
+      "title": "These tech outages are giving Y2K, AI agent style",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/19/these-tech-outages-are-giving-y2k-ai-agent-style/",
+      "source_url": "https://techcrunch.com/2026/11/19/these-tech-outages-are-giving-y2k-ai-agent-style/",
+      "source_text": "These tech outages are giving Y2K, AI agent style Are the recent outages in the airline booking systems, banking platforms, and productivity platforms really a coincidence? There's actually likely something deeper going on, cybersecurity experts say.",
+      "meta": {
+        "author": "Dominic-Madori Davis",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-19T21:42:31Z"
+    },
+    {
+      "id": "tc-the-unfolding-jensen-huang-scandal-a-timeline-2026-11-20",
+      "title": "The unfolding Jensen Huang scandal: a timeline",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/19/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+      "source_url": "https://techcrunch.com/2026/11/19/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
+      "source_text": "The unfolding Jensen Huang scandal: a timeline Jensen Huang has resigned from Nvidia following an affair, which could have ramifications for national security as the U.S. and China race to develop the most advanced AI infrastructure.",
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "12 minutes"
+      },
+      "published_at": "2026-11-19T20:18:49Z"
+    },
+    {
+      "id": "tc-anthropics-ipo-could-deliver-156b-to-charity-2026-11-20",
+      "title": "Anthropic’s IPO could deliver $156B to charity",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/19/anthropics-ipo-could-deliver-156-billion-to-charity/",
+      "source_url": "https://techcrunch.com/2026/11/19/anthropics-ipo-could-deliver-156-billion-to-charity/",
+      "source_text": "Anthropic’s IPO could deliver $156B to charity At a stock price of $95, the frontier lab's Public Benefit Foundation, its employee donations, and the company's match tot up to $156 billion.",
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-19T19:10:45Z"
+    },
+    {
+      "id": "tc-google-gives-gemini-the-ability-to-use-your-mac-2026-11-20",
+      "title": "Google gives Gemini the ability to use your Mac for you",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you/",
+      "source_url": "https://techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you/",
+      "source_text": "Google gives Gemini the ability to use your Mac for you Google's latest update to Gemini brings an AI agent to the Mac that can organize files, fill out forms, and tackle multistep workflows.",
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-19T18:09:11Z"
+    },
+    {
+      "id": "hn-anthropic-employee-claims-general-proof-of-the-2026-11-20",
+      "title": "Anthropic employee claims general proof of the Riemann Hypothesis [pdf]",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://alpo.ge/remark.pdf",
+      "source_url": "https://news.ycombinator.com/item?id=50574968",
+      "source_text": "Anthropic employee claims general proof of the Riemann Hypothesis [pdf]",
+      "signals": {
+        "points": 1160,
+        "comments": 750
+      },
+      "meta": {
+        "author": "iamronaldo"
+      },
+      "published_at": "2026-11-20T14:16:21Z"
+    },
+    {
+      "id": "hn-anthropics-nasdaq-debut-2026-11-20",
+      "title": "Anthropic’s Nasdaq debut",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/",
+      "source_url": "https://news.ycombinator.com/item?id=50562754",
+      "source_text": "Anthropic’s Nasdaq debut",
+      "signals": {
+        "points": 1112,
+        "comments": 2244
+      },
+      "meta": {
+        "author": "wslh"
+      },
+      "published_at": "2026-11-19T17:02:40Z"
+    },
+    {
+      "id": "hn-fuck-your-ai-safeguards-2026-11-20",
+      "title": "Fuck Your AI Safeguards",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://ounapuu.ee/posts/2026/11/19/unsafeguards/",
+      "source_url": "https://news.ycombinator.com/item?id=50562262",
+      "source_text": "Fuck Your AI Safeguards",
+      "signals": {
+        "points": 580,
+        "comments": 238
+      },
+      "meta": {
+        "author": "speckx"
+      },
+      "published_at": "2026-11-19T16:30:18Z"
+    },
+    {
+      "id": "hn-claude-solves-two-open-problems-in-the-physics-2026-11-20",
+      "title": "Claude solves two open problems in the physics of black holes",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.anthropic.com/research/claude-black-hole-physics",
+      "source_url": "https://news.ycombinator.com/item?id=50563148",
+      "source_text": "Claude solves two open problems in the physics of black holes",
+      "signals": {
+        "points": 528,
+        "comments": 255
+      },
+      "meta": {
+        "author": "cybermango"
+      },
+      "published_at": "2026-11-19T17:30:44Z"
+    },
+    {
+      "id": "hn-frostbite-a-new-cpu-architecture-discovered-2026-11-20",
+      "title": "Frostbite: A new CPU architecture discovered, designed and verified by AI",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://architectlabs.com/blog/frostbite",
+      "source_url": "https://news.ycombinator.com/item?id=50572503",
+      "source_text": "Frostbite: A new CPU architecture discovered, designed and verified by AI",
+      "signals": {
+        "points": 449,
+        "comments": 264
+      },
+      "meta": {
+        "author": "shioyama"
+      },
+      "published_at": "2026-11-20T10:01:41Z"
+    },
+    {
+      "id": "hn-gemini-4-neon-is-the-new-1-on-the-models-2026-11-20",
+      "title": "Gemini 4 Neon is the new #1 on the Models Engineering Index",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://git-aarvin.github.io/mei/",
+      "source_url": "https://news.ycombinator.com/item?id=50568130",
+      "source_text": "Gemini 4 Neon is the new #1 on the Models Engineering Index",
+      "signals": {
+        "points": 360,
+        "comments": 235
+      },
+      "meta": {
+        "author": "hn-aarvin"
+      },
+      "published_at": "2026-11-19T23:35:35Z"
+    },
+    {
+      "id": "hn-pete-warden-on-local-ai-open-models-voice-2026-11-20",
+      "title": "Pete Warden on local AI, open models, voice interfaces, the future of hardware",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://thedataexchange.media/pete-warden-moonshine/",
+      "source_url": "https://news.ycombinator.com/item?id=50561508",
+      "source_text": "Pete Warden on local AI, open models, voice interfaces, the future of hardware",
+      "signals": {
+        "points": 265,
+        "comments": 242
+      },
+      "meta": {
+        "author": "datascientist"
+      },
+      "published_at": "2026-11-19T15:38:12Z"
+    },
+    {
+      "id": "hn-gemini-4-neon-looks-like-an-opus-5-5-competitor-2026-11-20",
+      "title": "Gemini 4 Neon looks like an Opus 5.5 competitor",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://micjm.com/blog/gemini-4-neon-looks-like-a-top-model/",
+      "source_url": "https://news.ycombinator.com/item?id=50554374",
+      "source_text": "Gemini 4 Neon looks like an Opus 5.5 competitor",
+      "signals": {
+        "points": 255,
+        "comments": 78
+      },
+      "meta": {
+        "author": "seizethecheese"
+      },
+      "published_at": "2026-11-19T00:29:45Z"
+    },
+    {
+      "id": "hn-ai-isn-t-replacing-your-job-it-s-turning-it-2026-11-20",
+      "title": "AI isn't replacing your job. It's turning it into low-paid gig work",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://restofworld.org/2026/ai-jobs-skills-gig-work/",
+      "source_url": "https://news.ycombinator.com/item?id=50562500",
+      "source_text": "AI isn't replacing your job. It's turning it into low-paid gig work",
+      "signals": {
+        "points": 141,
+        "comments": 77
+      },
+      "meta": {
+        "author": "cdrnsf"
+      },
+      "published_at": "2026-11-19T16:45:50Z"
+    },
+    {
+      "id": "hn-global-stock-markets-slump-as-anthropic-s-2026-11-20",
+      "title": "Global stock markets slump as Anthropic's record IPO fails to stem AI sell-off",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off",
+      "source_url": "https://news.ycombinator.com/item?id=50574383",
+      "source_text": "Global stock markets slump as Anthropic's record IPO fails to stem AI sell-off",
+      "signals": {
+        "points": 139,
+        "comments": 131
+      },
+      "meta": {
+        "author": "cdrnsf"
+      },
+      "published_at": "2026-11-20T13:29:59Z"
+    }
+  ]
+}

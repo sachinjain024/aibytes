@@ -1,0 +1,137 @@
+{
+  "date": "2026-11-20",
+  "items": {
+    "ph-testsprite-4-0-2026-11-20": {
+      "summary": "Testing agent that explores your running app from plain-language instructions, writes and runs end-to-end tests, and flags which failures are real bugs on every change.",
+      "tags": ["Dev Tool", "Agents", "Launch"]
+    },
+    "ph-netlify-server-2026-11-20": {
+      "summary": "Long-lived backend on Netlify that holds WebSockets open and keeps state in memory, runs Express, Fastify, Hono or Koa code, and scales to zero when idle.",
+      "tags": ["Dev Tool", "Agents", "Launch"]
+    },
+    "ph-stripo-email-widgets-2026-11-20": {
+      "summary": "20+ drag-in email widgets (scratch cards, quizzes, polls, NPS surveys) edited via an AI assistant, with a static fallback block for inboxes without interactivity.",
+      "tags": ["Launch"]
+    },
+    "gh-claude-bughunter-2026-11-20": {
+      "summary": "Claude Code skill bundle for bug bounty and red-team work: 82 skills, 15 slash commands and 681 disclosed-report patterns across 24 vulnerability classes.",
+      "tags": ["Open Source", "Claude Code", "Security"]
+    },
+    "gh-firecrawl-2026-11-20": {
+      "summary": "TypeScript service that gives agents web search, scraping and 550+ data providers through a single API.",
+      "tags": ["Open Source", "API", "Agents"]
+    },
+    "gh-autoclip-2026-11-20": {
+      "summary": "Open-source Python desktop app that cuts long podcasts, interviews and courses into short clips with subtitles, covers and post copy for TikTok, Reels and Shorts.",
+      "tags": ["Open Source", "Video"]
+    },
+    "gh-superpowers-2026-11-20": {
+      "summary": "Shell-based agentic skills framework that pairs reusable skills for coding agents with a software development methodology.",
+      "tags": ["Open Source", "Framework", "Agents"]
+    },
+    "gh-app-store-compliance-2026-11-20": {
+      "summary": "Pre-submission guard with 117 App Store and Google Play rejection patterns and fixes, privacy manifest checks, 95 tracked regulatory deadlines and a coding-agent skill.",
+      "tags": ["Open Source", "Dev Tool", "Policy"]
+    },
+    "gh-minimind-2026-11-20": {
+      "summary": "Python code for training a 64M-parameter language model from scratch on a two-hour budget.",
+      "tags": ["Open Source", "LLM"]
+    },
+    "gh-last30days-skill-2026-11-20": {
+      "summary": "Agent skill that researches a topic across Reddit, X, YouTube, HN, Polymarket and the web, then writes a summary grounded in those sources.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-diagram-design-2026-11-20": {
+      "summary": "Skill for coding agents including Claude Code, Codex, Copilot and Cursor that draws 45 diagram types as self-contained HTML and SVG instead of Mermaid.",
+      "tags": ["Open Source", "Dev Tool"]
+    },
+    "gh-stitch-skills-2026-11-20": {
+      "summary": "Google Labs library of Agent Skills built for the Stitch MCP server, following the open standard so Gemini CLI, Antigravity, Claude Code and Cursor can load them.",
+      "tags": ["Open Source", "Agents", "Google", "MCP"]
+    },
+    "gh-plugins-2026-11-20": {
+      "summary": "The plugin specification for the Cursor editor plus the official plugins built against it, in TypeScript.",
+      "tags": ["Open Source", "Dev Tool", "Cursor"]
+    },
+    "tc-metas-ai-agent-muse-is-mixing-up-conversations-2026-11-20": {
+      "summary": "Employees say Muse surfaced childcare requests, career advice, product orders and bank balances that belonged to someone else.",
+      "tags": ["Agents", "Meta", "Privacy"]
+    },
+    "tc-apple-may-be-developing-its-own-ai-agent-that-2026-11-20": {
+      "summary": "Apple appears to be building Mac-controlling agents to compete with Meta Muse, Instinct, Claude and OpenAI Dots, the same week Google shipped a Gemini agent for Mac.",
+      "tags": ["Agents", "Apple"]
+    },
+    "tc-the-fallout-from-nvidias-jensen-huang-scandal-2026-11-20": {
+      "summary": "Equity podcast episode on Nvidia's strong earnings after Huang's ouster, its retreat from China, and how Anthropic's IPO tests AI's circular financing.",
+      "tags": ["Nvidia"]
+    },
+    "tc-six-ai-powered-gadgets-that-could-make-your-2026-11-20": {
+      "summary": "Buyer's roundup of six AI hardware picks for a home workspace, from notetakers to webcams.",
+      "tags": ["Voice / Speech"]
+    },
+    "tc-anthropics-7-founders-cashed-out-nearly-2b-in-2026-11-20": {
+      "summary": "At the upgraded $83 IPO price each of the seven founders took home $280 million, while Anthropic itself raised nearly $105 billion.",
+      "tags": ["Anthropic", "Funding"]
+    },
+    "tc-metas-new-muse-charm-device-may-cost-300-2026-11-20": {
+      "summary": "The price comes from The Information; Meta did not deny it, saying only that it will have more to share soon about the AI wearable.",
+      "tags": ["Meta", "Pricing"]
+    },
+    "tc-these-tech-outages-are-giving-y2k-ai-agent-style-2026-11-20": {
+      "summary": "Cybersecurity experts say recent outages at airline booking, banking and productivity platforms likely share a deeper cause than coincidence.",
+      "tags": ["Agents", "Security"]
+    },
+    "tc-the-unfolding-jensen-huang-scandal-a-timeline-2026-11-20": {
+      "summary": "Timeline of Jensen Huang's resignation from Nvidia over an affair, and why it could matter for US national security as the US and China race on AI infrastructure.",
+      "tags": ["Nvidia", "Deep Dive"]
+    },
+    "tc-anthropics-ipo-could-deliver-156b-to-charity-2026-11-20": {
+      "summary": "At a $95 share price, the Public Benefit Foundation, employee donations and Anthropic's matching would add up to $156 billion.",
+      "tags": ["Anthropic"]
+    },
+    "tc-google-gives-gemini-the-ability-to-use-your-mac-2026-11-20": {
+      "summary": "The Gemini update adds a Mac agent that organizes files, fills out forms and works through multistep workflows on the user's behalf.",
+      "tags": ["Agents", "Google", "Launch"]
+    },
+    "hn-anthropic-employee-claims-general-proof-of-the-2026-11-20": {
+      "summary": "A PDF on a personal domain claiming a general proof of the Riemann Hypothesis, posted the same week Anthropic published Claude's black hole physics results.",
+      "tags": ["Paper"]
+    },
+    "hn-anthropics-nasdaq-debut-2026-11-20": {
+      "summary": "Reuters on the listing as a Wall Street test of AI's promise; TechCrunch puts the IPO at $83 a share and nearly $105 billion raised.",
+      "tags": ["Anthropic", "Funding"]
+    },
+    "hn-fuck-your-ai-safeguards-2026-11-20": {
+      "summary": "Personal blog post arguing against the safeguards built into AI products.",
+      "tags": ["Safety"]
+    },
+    "hn-claude-solves-two-open-problems-in-the-physics-2026-11-20": {
+      "summary": "Anthropic research post reporting that Claude resolved two open problems in black hole physics.",
+      "tags": ["Anthropic", "Reasoning"]
+    },
+    "hn-frostbite-a-new-cpu-architecture-discovered-2026-11-20": {
+      "summary": "Architect Labs blog post on a CPU architecture it says AI discovered, designed and verified end to end.",
+      "tags": ["Deep Dive"]
+    },
+    "hn-gemini-4-neon-is-the-new-1-on-the-models-2026-11-20": {
+      "summary": "Leaderboard page for the Models Engineering Index, now topped by Google's Gemini 4 Neon; a separate post this week calls it an Opus 5.5 competitor.",
+      "tags": ["Benchmark", "Eval", "Google"]
+    },
+    "hn-pete-warden-on-local-ai-open-models-voice-2026-11-20": {
+      "summary": "Data Exchange interview with Pete Warden of Moonshine on running AI locally, open models, voice interfaces and where hardware is heading.",
+      "tags": ["Local LLM", "Voice / Speech"]
+    },
+    "hn-gemini-4-neon-looks-like-an-opus-5-5-competitor-2026-11-20": {
+      "summary": "Personal blog post sizing up Google's Gemini 4 Neon against Anthropic's Opus 5.5; the model also tops the Models Engineering Index this week.",
+      "tags": ["LLM", "Google"]
+    },
+    "hn-ai-isn-t-replacing-your-job-it-s-turning-it-2026-11-20": {
+      "summary": "Rest of World report on AI breaking skilled jobs into lower-paid gig tasks rather than eliminating them.",
+      "tags": ["Deep Dive"]
+    },
+    "hn-global-stock-markets-slump-as-anthropic-s-2026-11-20": {
+      "summary": "Guardian report on the wider market drop; per TechCrunch the listing raised nearly $105 billion at $83 a share.",
+      "tags": ["Anthropic", "Funding"]
+    }
+  }
+}

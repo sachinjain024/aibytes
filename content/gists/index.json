@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-19T17:24:12Z",
+  "generated_at": "2026-11-20T16:59:26Z",
   "gists": [
     {
       "slug": "gh-app-store-compliance",
@@ -13,6 +13,12 @@
       "source_key": "github.com/appwrite/appwrite",
       "path": "gists/gh-appwrite.json",
       "created_at": "2026-11-18T17:15:44Z"
+    },
+    {
+      "slug": "gh-autoclip",
+      "source_key": "github.com/zhouxiaoka/autoclip",
+      "path": "gists/gh-autoclip.json",
+      "created_at": "2026-11-20T16:59:26Z"
     },
     {
       "slug": "gh-caveman",
@@ -231,6 +237,12 @@
       "created_at": "2026-11-13T16:15:14Z"
     },
     {
+      "slug": "hn-ai-isn-t-replacing-your-job-it-s-turning-it",
+      "source_key": "news.ycombinator.com/item?id=50562500",
+      "path": "gists/hn-ai-isn-t-replacing-your-job-it-s-turning-it.json",
+      "created_at": "2026-11-20T16:59:26Z"
+    },
+    {
       "slug": "hn-ai-unlocks-godel-s-notebooks-said-to-contain",
       "source_key": "news.ycombinator.com/item?id=50486748",
       "path": "gists/hn-ai-unlocks-godel-s-notebooks-said-to-contain.json",
@@ -249,6 +261,12 @@
       "created_at": "2026-11-15T15:41:02Z"
     },
     {
+      "slug": "hn-anthropic-employee-claims-general-proof-of-the",
+      "source_key": "news.ycombinator.com/item?id=50574968",
+      "path": "gists/hn-anthropic-employee-claims-general-proof-of-the.json",
+      "created_at": "2026-11-20T16:59:26Z"
+    },
+    {
       "slug": "hn-anthropic-ipo",
       "source_key": "news.ycombinator.com/item?id=50465829",
       "path": "gists/hn-anthropic-ipo.json",
@@ -265,6 +283,12 @@
       "source_key": "news.ycombinator.com/item?id=50492141",
       "path": "gists/hn-anthropic-upgrades-claude-code-projects-to-run.json",
       "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
+      "slug": "hn-anthropics-nasdaq-debut",
+      "source_key": "news.ycombinator.com/item?id=50562754",
+      "path": "gists/hn-anthropics-nasdaq-debut.json",
+      "created_at": "2026-11-20T16:59:26Z"
     },
     {
       "slug": "hn-apple-has-a-mac-app-coming-to-make-running-local",
@@ -315,6 +339,12 @@
       "created_at": "2026-11-17T17:37:40Z"
     },
     {
+      "slug": "hn-claude-solves-two-open-problems-in-the-physics",
+      "source_key": "news.ycombinator.com/item?id=50563148",
+      "path": "gists/hn-claude-solves-two-open-problems-in-the-physics.json",
+      "created_at": "2026-11-20T16:59:26Z"
+    },
+    {
       "slug": "hn-claude-was-trained-on-protein-sequences-at-scale",
       "source_key": "news.ycombinator.com/item?id=50541619",
       "path": "gists/hn-claude-was-trained-on-protein-sequences-at-scale.json",
@@ -345,6 +375,18 @@
       "created_at": "2026-11-13T16:15:14Z"
     },
     {
+      "slug": "hn-frostbite-a-new-cpu-architecture-discovered",
+      "source_key": "news.ycombinator.com/item?id=50572503",
+      "path": "gists/hn-frostbite-a-new-cpu-architecture-discovered.json",
+      "created_at": "2026-11-20T16:59:26Z"
+    },
+    {
+      "slug": "hn-fuck-your-ai-safeguards",
+      "source_key": "news.ycombinator.com/item?id=50562262",
+      "path": "gists/hn-fuck-your-ai-safeguards.json",
+      "created_at": "2026-11-20T16:59:26Z"
+    },
+    {
       "slug": "hn-gemini-4-hydrogen",
       "source_key": "news.ycombinator.com/item?id=50471431",
       "path": "gists/hn-gemini-4-hydrogen.json",
@@ -363,10 +405,22 @@
       "created_at": "2026-11-19T17:24:12Z"
     },
     {
+      "slug": "hn-gemini-4-neon-is-the-new-1-on-the-models",
+      "source_key": "news.ycombinator.com/item?id=50568130",
+      "path": "gists/hn-gemini-4-neon-is-the-new-1-on-the-models.json",
+      "created_at": "2026-11-20T16:59:26Z"
+    },
+    {
       "slug": "hn-gemini-4-neon-looks-like-an-opus-5-5-competitor",
       "source_key": "news.ycombinator.com/item?id=50554374",
       "path": "gists/hn-gemini-4-neon-looks-like-an-opus-5-5-competitor.json",
       "created_at": "2026-11-19T17:24:12Z"
+    },
+    {
+      "slug": "hn-global-stock-markets-slump-as-anthropic-s",
+      "source_key": "news.ycombinator.com/item?id=50574383",
+      "path": "gists/hn-global-stock-markets-slump-as-anthropic-s.json",
+      "created_at": "2026-11-20T16:59:26Z"
     },
     {
       "slug": "hn-goldman-sachs-is-pulling-claude-code-from-its-ba",
@@ -463,6 +517,12 @@
       "source_key": "news.ycombinator.com/item?id=50509953",
       "path": "gists/hn-parents-pay-75k-for-alpha-s-ai-school-half-of.json",
       "created_at": "2026-11-17T05:59:03Z"
+    },
+    {
+      "slug": "hn-pete-warden-on-local-ai-open-models-voice",
+      "source_key": "news.ycombinator.com/item?id=50561508",
+      "path": "gists/hn-pete-warden-on-local-ai-open-models-voice.json",
+      "created_at": "2026-11-20T16:59:26Z"
     },
     {
       "slug": "hn-regulatory-capture-by-anthropic-through-metr",
@@ -609,6 +669,12 @@
       "created_at": "2026-11-13T16:15:14Z"
     },
     {
+      "slug": "ph-netlify-server",
+      "source_key": "producthunt.com/products/netlify",
+      "path": "gists/ph-netlify-server.json",
+      "created_at": "2026-11-20T16:59:26Z"
+    },
+    {
       "slug": "ph-omnigraph",
       "source_key": "producthunt.com/products/omnigraph",
       "path": "gists/ph-omnigraph.json",
@@ -661,6 +727,12 @@
       "source_key": "producthunt.com/products/s-space",
       "path": "gists/ph-s-space.json",
       "created_at": "2026-11-19T17:24:12Z"
+    },
+    {
+      "slug": "ph-stripo-email-widgets",
+      "source_key": "producthunt.com/products/stripo-email",
+      "path": "gists/ph-stripo-email-widgets.json",
+      "created_at": "2026-11-20T16:59:26Z"
     },
     {
       "slug": "ph-templify-ai-2",
@@ -747,10 +819,28 @@
       "created_at": "2026-11-19T17:24:12Z"
     },
     {
+      "slug": "tc-anthropics-7-founders-cashed-out-nearly-2b-in",
+      "source_key": "techcrunch.com/2026/11/19/anthropics-7-founders-cashed-out-nearly-2b-in-record-breaking-ipo",
+      "path": "gists/tc-anthropics-7-founders-cashed-out-nearly-2b-in.json",
+      "created_at": "2026-11-20T16:59:26Z"
+    },
+    {
+      "slug": "tc-anthropics-ipo-could-deliver-156b-to-charity",
+      "source_key": "techcrunch.com/2026/11/19/anthropics-ipo-could-deliver-156-billion-to-charity",
+      "path": "gists/tc-anthropics-ipo-could-deliver-156b-to-charity.json",
+      "created_at": "2026-11-20T16:59:26Z"
+    },
+    {
       "slug": "tc-anthropics-ipo-puts-ais-circular-financing-boom",
       "source_key": "techcrunch.com/2026/11/19/anthropics-ipo-puts-ais-circular-financing-boom-to-the-test",
       "path": "gists/tc-anthropics-ipo-puts-ais-circular-financing-boom.json",
       "created_at": "2026-11-19T17:24:12Z"
+    },
+    {
+      "slug": "tc-apple-may-be-developing-its-own-ai-agent-that",
+      "source_key": "techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac",
+      "path": "gists/tc-apple-may-be-developing-its-own-ai-agent-that.json",
+      "created_at": "2026-11-20T16:59:26Z"
     },
     {
       "slug": "tc-asian-governments-react-to-nvidia-ceo-jensen",
@@ -843,6 +933,12 @@
       "created_at": "2026-11-19T17:24:12Z"
     },
     {
+      "slug": "tc-google-gives-gemini-the-ability-to-use-your-mac",
+      "source_key": "techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you",
+      "path": "gists/tc-google-gives-gemini-the-ability-to-use-your-mac.json",
+      "created_at": "2026-11-20T16:59:26Z"
+    },
+    {
       "slug": "tc-hugging-face-ceo-vows-to-keep-fighting-for-open",
       "source_key": "techcrunch.com/2026/11/12/hugging-face-ceo-vows-to-keep-fighting-for-open-source-ai-after-jensen-huangs-exit",
       "path": "gists/tc-hugging-face-ceo-vows-to-keep-fighting-for-open.json",
@@ -895,6 +991,18 @@
       "source_key": "techcrunch.com/2026/11/16/jordan-belforts-new-ai-voice-startup-tone-wants-to-sell-like-the-wolf-of-wall-street",
       "path": "gists/tc-jordan-belforts-new-ai-voice-startup-tone-wants.json",
       "created_at": "2026-11-17T05:59:03Z"
+    },
+    {
+      "slug": "tc-metas-ai-agent-muse-is-mixing-up-conversations",
+      "source_key": "techcrunch.com/2026/11/19/metas-ai-agent-muse-is-mixing-up-conversations-and-exposing-private-data-report-says",
+      "path": "gists/tc-metas-ai-agent-muse-is-mixing-up-conversations.json",
+      "created_at": "2026-11-20T16:59:26Z"
+    },
+    {
+      "slug": "tc-metas-new-muse-charm-device-may-cost-300",
+      "source_key": "techcrunch.com/2026/11/19/metas-new-muse-charm-device-may-cost-300",
+      "path": "gists/tc-metas-new-muse-charm-device-may-cost-300.json",
+      "created_at": "2026-11-20T16:59:26Z"
     },
     {
       "slug": "tc-microsoft-ceo-satya-nadella-explains-why-he",
@@ -993,6 +1101,12 @@
       "created_at": "2026-11-17T17:37:40Z"
     },
     {
+      "slug": "tc-six-ai-powered-gadgets-that-could-make-your",
+      "source_key": "techcrunch.com/2026/11/20/6-ai-powered-gadgets-that-could-make-your-home-office-smarter",
+      "path": "gists/tc-six-ai-powered-gadgets-that-could-make-your.json",
+      "created_at": "2026-11-20T16:59:26Z"
+    },
+    {
       "slug": "tc-superhuman-pushes-its-go-assistant-everywhere",
       "source_key": "techcrunch.com/2026/11/19/superhuman-pushes-its-go-assistant-everywhere",
       "path": "gists/tc-superhuman-pushes-its-go-assistant-everywhere.json",
@@ -1005,10 +1119,28 @@
       "created_at": "2026-11-15T15:41:02Z"
     },
     {
+      "slug": "tc-the-fallout-from-nvidias-jensen-huang-scandal",
+      "source_key": "techcrunch.com/podcast/the-fallout-from-nvidias-jensen-huang-scandal-continues",
+      "path": "gists/tc-the-fallout-from-nvidias-jensen-huang-scandal.json",
+      "created_at": "2026-11-20T16:59:26Z"
+    },
+    {
       "slug": "tc-the-unfolding-jensen-huang-scandal-a-timeline",
       "source_key": "techcrunch.com/2026/11/13/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline",
       "path": "gists/tc-the-unfolding-jensen-huang-scandal-a-timeline.json",
       "created_at": "2026-11-13T16:15:14Z"
+    },
+    {
+      "slug": "tc-the-unfolding-jensen-huang-scandal-a-timeline-2",
+      "source_key": "techcrunch.com/2026/11/19/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline",
+      "path": "gists/tc-the-unfolding-jensen-huang-scandal-a-timeline-2.json",
+      "created_at": "2026-11-20T16:59:26Z"
+    },
+    {
+      "slug": "tc-these-tech-outages-are-giving-y2k-ai-agent-style",
+      "source_key": "techcrunch.com/2026/11/19/these-tech-outages-are-giving-y2k-ai-agent-style",
+      "path": "gists/tc-these-tech-outages-are-giving-y2k-ai-agent-style.json",
+      "created_at": "2026-11-20T16:59:26Z"
     },
     {
       "slug": "tc-trump-says-ex-nvidia-ceo-jensen-huangs-affair",

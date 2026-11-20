@@ -1,0 +1,682 @@
+{
+  "source": "producthunt",
+  "fetched_at": "2026-11-20",
+  "window": {
+    "postedAfter": "2026-11-19T00:00:00Z",
+    "postedBefore": "2026-11-21T00:00:00Z"
+  },
+  "query_params": {
+    "first": 5,
+    "order": "VOTES",
+    "featured": true
+  },
+  "totalCount": 89,
+  "posts": [
+    {
+      "id": "1314645",
+      "name": "TestSprite 4.0",
+      "tagline": "Fix one thing, break another? This agent checks it all",
+      "description": "Your coding agent fixes one thing and breaks another. TestSprite 4.0 is a brand-new testing agent that remembers what your app should do and checks all of it, every time. Tell it in plain words what to test. It explores your running app, writes and runs the end-to-end tests, tells you which failures are real bugs, and keeps checking every change from the web, your terminal or your pull requests.",
+      "slug": "testsprite-4-0",
+      "votesCount": 363,
+      "commentsCount": 55,
+      "reviewsRating": 4.75,
+      "reviewsCount": 4,
+      "dailyRank": 1,
+      "weeklyRank": 5,
+      "url": "https://www.producthunt.com/products/testsprite?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/7TKIXW445YMK2C?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-19T08:01:00Z",
+      "createdAt": "2026-11-19T08:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/9279be6d-64f3-4c05-b0a9-6c9ac0f5f814.gif?auto=format"
+      },
+      "media": [
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/725acadf-a563-4f71-9403-e3c172ff5cca.jpeg?auto=format",
+          "videoUrl": "https://youtu.be/Iu7n1pl_SnI"
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/715ff793-077f-44fb-a5f5-cd8f29e5be16.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/d79932c2-0a40-4d50-ac07-f5d46bde2d32.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/772ef502-8682-48f7-8b42-6e73e32cd28e.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/b0887da6-13a8-4973-9b6f-4761ea975672.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/5896da84-8f74-4da8-8d71-5b69840be784.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/d8381b5f-e3cc-41ad-acfc-edd1e17de424.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/2bdb6bcb-bfa1-4b92-a1bb-bc0c85538c92.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/e8f4d121-d995-4df5-a565-d049df5be832.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/7e820c45-f497-46f5-bd60-a8c6da6e1346.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/d8acda7c-48fd-4113-884b-e8d529211c78.jpeg?auto=format",
+          "videoUrl": null
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Github",
+          "url": "https://www.producthunt.com/r/CXG37AAH6LZITI?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/7TKIXW445YMK2C?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Software Engineering",
+            "slug": "software-engineering"
+          },
+          {
+            "name": "Developer Tools",
+            "slug": "developer-tools"
+          },
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          },
+          {
+            "name": "GitHub",
+            "slug": "github"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "Mia Wang",
+          "username": "mia_wang3",
+          "headline": "UX Designer",
+          "url": "https://www.producthunt.com/@mia_wang3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        },
+        {
+          "name": "Yunhao Jiao",
+          "username": "jiao_yunhao",
+          "headline": "Founder & CEO of TestSprite",
+          "url": "https://www.producthunt.com/@jiao_yunhao?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        },
+        {
+          "name": "Shawnie Shan",
+          "username": "shawnie_shan",
+          "headline": "Founding team member in TestSprite",
+          "url": "https://www.producthunt.com/@shawnie_shan?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": "jinix_io"
+        },
+        {
+          "name": "Rui Li",
+          "username": "rui_li6",
+          "headline": "Co-founder and CTO of TestSprite",
+          "url": "https://www.producthunt.com/@rui_li6?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Chris Messina",
+        "username": "chrismessina",
+        "headline": "\ud83c\udfc6 #1 Hunter!",
+        "url": "https://www.producthunt.com/@chrismessina?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1320414",
+      "name": "Verse Engine by Ctruh",
+      "tagline": "Blender, Unity or Unreal to a live 3D link in one click",
+      "description": "Verse Engine by Ctruh is a browser-native 3D and XR engine that turns any 3D into one link. Bring files, scans and floor plans, or publish straight from Blender, Unity and Unreal. The link opens in any browser with no app and no download. Built for developers, 3D artists, game studios, architects, real estate teams and e-commerce brands. A scene streams only what the viewer sees, so a 10.3 billion triangle city opens from a link on a laptop. Embeds, API and SDK included. Free 14-day Pro trial.",
+      "slug": "verse-engine-by-ctruh",
+      "votesCount": 321,
+      "commentsCount": 60,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 2,
+      "weeklyRank": 6,
+      "url": "https://www.producthunt.com/products/verse-engine-by-ctruh?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/CBNSNOACCLEF75?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-19T08:01:00Z",
+      "createdAt": "2026-11-19T08:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/ca195bc7-2b31-40a1-b965-db21124d8c5b.jpeg?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/809eb699-e4be-4bdf-a820-8a87e064b494/8bb661d25b11d5b70a72ff4c2507294cea9edabd91ab8ead8daa0ee110bff6f1.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/fbe65e18-b280-4b3b-b266-1ba8d5bf37ee/8f835c40daa776b6b5b323c873423e82d809fcb15c2f079590a29e7292b17ee5.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/ce18dc2e-5321-4386-93ef-871602a4c096/25778274aa41852ac961b8080486af8804941291a674ce88a8e7d61e397d01f6.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/071a0dad-1b24-49a4-9347-79894d10a950/de56fe7309280979ce32b7a0277afa5fd3b4b7af41cca2bc4a6e34d6b96a80f7.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/122586c4-e895-45cd-9a3a-3edc9c1de297/33c14c980984890b427ec581ac37a59d26240d3b9c40e2be0915166c3cabf345.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/2ff8e2f5-c435-4fad-bb7a-3ea25dbeffa7/2836d1142c37985e06394a6aedbffe1df2939f39d537495723251ffe1cba3aa4.gif?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/76a21323-877f-47f2-a86e-312e4ae1dfc1.jpeg?auto=format",
+          "videoUrl": "https://www.youtube.com/watch?v=fTw9gmn3GkA"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/CBNSNOACCLEF75?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/GGXG4ENEL74TMN?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Github",
+          "url": "https://www.producthunt.com/r/33SQRPUPSQ6XK7?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "MCP server",
+          "url": "https://www.producthunt.com/r/ETSFGXASTQGERK?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Npm",
+          "url": "https://www.producthunt.com/r/JL2QTBQTKIJMFY?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Developer Tools",
+            "slug": "developer-tools"
+          },
+          {
+            "name": "Augmented Reality",
+            "slug": "augmented-reality"
+          },
+          {
+            "name": "3D Modeling",
+            "slug": "3d-modeling"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Somesh Putatunda",
+          "username": "somesh_putatunda",
+          "headline": "Marketing \u2022 AI \u2022 Startups \u2022 Growth.",
+          "url": "https://www.producthunt.com/@somesh_putatunda?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Rohan Chaubey",
+        "username": "rohanrecommends",
+        "headline": "\ud83e\udd47 Top Hunter | Author | Startup Advisor",
+        "url": "https://www.producthunt.com/@rohanrecommends?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1311952",
+      "name": "Netlify Server",
+      "tagline": "Run WebSockets, multiplayer apps, and long-running agents",
+      "description": "Netlify Server gives your app a backend that stays alive while people are using it. Build realtime experiences, multiplayer games, and AI agents that need time to finish. Describe what you want and an agent builds it, or bring your Express, Fastify, Hono, or Koa code. It holds WebSockets open, keeps state in memory, and deploys with the rest of your project, with its own server for every preview. Scales with demand and down to zero when idle. Free during early access.",
+      "slug": "netlify-server",
+      "votesCount": 286,
+      "commentsCount": 20,
+      "reviewsRating": 4.97,
+      "reviewsCount": 62,
+      "dailyRank": 3,
+      "weeklyRank": 11,
+      "url": "https://www.producthunt.com/products/netlify?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/VOJHOAWTB6DIXE?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-19T08:01:00Z",
+      "createdAt": "2026-11-19T08:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/bf391ec5-9490-4c9b-9ad1-452a43fd1fa8.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/eef318da-b1e4-4f61-b75f-541556934903.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/9ffb2666-08ce-4b21-a98f-e30b79448cb8.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/3d9c8ae8-d2b3-4688-b2cc-7f27e998697e.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/df0e4514-6e4d-4181-8a78-0a17c49c9031.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/982ddd9c-6956-48f1-adbb-a397adae9ce0.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/33904cc7-616f-4c51-93d5-e41c1d8a4ec2.jpeg?auto=format",
+          "videoUrl": "https://www.youtube.com/watch?v=8uSl_k4_aaw"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/D2E66T4XERS2WQ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/VOJHOAWTB6DIXE?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "SaaS",
+            "slug": "saas"
+          },
+          {
+            "name": "Developer Tools",
+            "slug": "developer-tools"
+          },
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Matt Yow",
+          "username": "matt_yow",
+          "headline": "Coffee, books, heavy metal, design",
+          "url": "https://www.producthunt.com/@matt_yow?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": "matt_yow"
+        }
+      ],
+      "user": {
+        "name": "KP",
+        "username": "thisiskp_",
+        "headline": "GTM Specialist & Top Hunter \ud83c\udfc6",
+        "url": "https://www.producthunt.com/@thisiskp_?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1312482",
+      "name": "Stripo Email Widgets",
+      "tagline": "Put a game, quiz or survey in your next email. No coding",
+      "description": "Put a scratch card, quiz, poll, NPS survey or event agenda into your email. Drag a widget into the Stripo editor, then tell the AI Assistant what to change: text, colors, questions, prizes. Each of the 20+ widgets comes with its design, interaction and fallback logic built in. It plays where the inbox supports interactivity and shows a clean static block where it doesn't. Save the container and reuse it in any template. Available on every plan, including Free.",
+      "slug": "stripo-email-widgets",
+      "votesCount": 252,
+      "commentsCount": 149,
+      "reviewsRating": 4.9,
+      "reviewsCount": 20,
+      "dailyRank": 4,
+      "weeklyRank": 16,
+      "url": "https://www.producthunt.com/products/stripo-email?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/Q2V6HYMV6Q7K4J?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-19T08:01:00Z",
+      "createdAt": "2026-11-19T08:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/15d70099-307f-4004-9561-a7ff6ee13a92.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "interactive_demo",
+          "url": "https://ph-files.imgix.net/2cbeeeb7-c18a-45e0-90fb-439318f509b4.gif?auto=format",
+          "videoUrl": "https://app.supademo.com/demo/cmqahgl8i0kfwqma4njiwwdxx?utm_source=link&step=1"
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/38f79443-528c-46ae-bb78-3b399d319f21.jpeg?auto=format",
+          "videoUrl": "https://youtu.be/O89MycOrSHc"
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/4dd873be-33e2-4ace-9c61-e3f64d9ce88e.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/c7a57ac8-8ead-4359-b4b0-c825f405610f.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/f20730cf-7d7f-4acf-b5d0-0ad896a0f57c.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/7c627d34-f579-45a7-9908-cdb647eed99f.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/c8659edf-74b6-4817-8c05-27183d00faf4.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/823c1d3c-bf71-4335-9f1b-81fd6eeb01eb.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/9d662738-654f-4a33-8ad4-abe6b2c00b73.jpeg?auto=format",
+          "videoUrl": null
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/Q2V6HYMV6Q7K4J?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Design Tools",
+            "slug": "design-tools"
+          },
+          {
+            "name": "Email Marketing",
+            "slug": "email-marketing"
+          },
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Volodymyr Kreshchenko",
+          "username": "volodymyr_kreshchenko",
+          "headline": "CMO at Stripo.email",
+          "url": "https://www.producthunt.com/@volodymyr_kreshchenko?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": ""
+        }
+      ],
+      "user": {
+        "name": "Dmitry Kudrenko",
+        "username": "dmitry_spuntik",
+        "headline": "Email Marketing Entrepreneur",
+        "url": "https://www.producthunt.com/@dmitry_spuntik?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1322672",
+      "name": "Saparo",
+      "tagline": "Muse for shopping with deals stacks",
+      "description": "Saparo is a personal shopping agent that stacks every deal. Tell it what you want, and it searches U.S. stores for the same item in your size, combining promo codes, cash back, and eligible card offers that work together. It ranks options by estimated total cost, including shipping and tax, so you skip the legwork. With your approval, Saparo applies selected offers and gets checkout ready. You review the order and make the final payment yourself.",
+      "slug": "saparo-2",
+      "votesCount": 231,
+      "commentsCount": 58,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 1,
+      "weeklyRank": 19,
+      "url": "https://www.producthunt.com/products/saparo?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/CGUN3ORBJWPLHU?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-20T08:01:00Z",
+      "createdAt": "2026-11-20T08:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/f286c44e-6081-4be4-b4c6-2575392cd1b7.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/cb4f4249-89e3-49d3-b59c-27a94e079519.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/0925e1c6-3422-4677-ae15-83e5df4db037.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/2ca74df3-eab2-442a-99f0-0ce25758324c.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/ff0ec21f-6ff5-43d7-82d6-4f6a1ecb6532.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/a0e9065b-fb4b-402f-9a78-e1a4297a1d12.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/76273881-538b-4292-937c-98d16e404ed4.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/97c72071-622b-4fa0-90b7-f02c9145f2fc.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/97408e28-2f6c-487c-8462-32929030c22f.jpeg?auto=format",
+          "videoUrl": "https://youtu.be/rpvfrIUoXbw"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/CGUN3ORBJWPLHU?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Productivity",
+            "slug": "productivity"
+          },
+          {
+            "name": "E-Commerce",
+            "slug": "e-commerce"
+          },
+          {
+            "name": "Tech",
+            "slug": "tech"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "silicon li",
+          "username": "silicon1",
+          "headline": "AI agent that helps people spend smarter",
+          "url": "https://www.producthunt.com/@silicon1?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": "ha54126948"
+        }
+      ],
+      "user": {
+        "name": "Justin Jincaid",
+        "username": "justin2025",
+        "headline": "Maker of GNGM & Forget",
+        "url": "https://www.producthunt.com/@justin2025?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    }
+  ]
+}

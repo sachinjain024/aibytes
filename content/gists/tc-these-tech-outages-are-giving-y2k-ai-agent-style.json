@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "tc-these-tech-outages-are-giving-y2k-ai-agent-style",
+  "kind": "news",
+  "title": "These tech outages are giving Y2K, AI agent style",
+  "url": "https://techcrunch.com/2026/11/19/these-tech-outages-are-giving-y2k-ai-agent-style/",
+  "source_url": "https://techcrunch.com/2026/11/19/these-tech-outages-are-giving-y2k-ai-agent-style/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Agents",
+    "Security"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/11/Muharrem-huner.jpg?resize=1200,800"
+  },
+  "depth": "full",
+  "lede": "A run of US outages, from Apple Pay to an FAA ground stop, has security figures arguing that AI-speed vulnerability discovery and rushed patching, not attacks, may be the common thread.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Within two weeks Apple Pay, NASA's internal network, the FAA and Microsoft's Outlook, Teams and Copilot all went down.",
+        "Officials and most of the affected companies say the incidents were technical failures rather than cyberattacks.",
+        "Investor Dave DeWalt argues AI tools are surfacing old flaws so quickly that the scramble to patch them is causing short-term breakage.",
+        "Corsha founder Anusha Iyer blames hasty mixing of modern systems with legacy hardware, citing early findings on the FAA's telecom upgrade.",
+        "Both urge more testing, tighter segmentation and phased rollouts; DeWalt expects new startups in automated remediation and safe patch deployment."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "If AI is speeding up how fast flaws are found, the bottleneck shifts to testing and shipping fixes safely, especially where new code meets legacy systems that cannot keep pace."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "These tech outages are giving Y2K, AI agent style",
+      "url": "https://techcrunch.com/2026/11/19/these-tech-outages-are-giving-y2k-ai-agent-style/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-these-tech-outages-are-giving-y2k-ai-agent-style-2026-11-20",
+      "edition_date": "2026-11-20"
+    }
+  ],
+  "created_at": "2026-11-20T16:59:26Z",
+  "updated_at": "2026-11-20T16:59:26Z"
+}

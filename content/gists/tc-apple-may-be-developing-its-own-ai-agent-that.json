@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "tc-apple-may-be-developing-its-own-ai-agent-that",
+  "kind": "news",
+  "title": "Apple may be developing its own AI agent that runs your Mac",
+  "url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/",
+  "source_url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Agents",
+    "Apple"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/06/iphone-usb-cable.jpg?resize=1200,800"
+  },
+  "depth": "full",
+  "lede": "An Apple job listing, first spotted by Bloomberg, describes an in-house agent that would operate a Mac by browsing, working in apps, running commands and writing code.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The posting is for a senior engineering manager to lead an agent that uses a computer the way a capable person would.",
+        "It should pick the right tool per step and chain multi-step tasks across apps, browsers, the command line, code and APIs, while staying private.",
+        "Bloomberg says Apple has considered shipping as soon as the end of next year, but the project is still early.",
+        "macOS 27.3 will show warnings that discourage users from giving third-party agents full control of the Mac.",
+        "In October Apple told developers that granting that level of access would require very explicit action from the user."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "Developers shipping computer-use agents on macOS should expect more friction: Apple is adding consent gates for full-access permissions at the same time as it builds a first-party rival."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Apple may be developing its own AI agent that runs your Mac",
+      "url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-apple-may-be-developing-its-own-ai-agent-that-2026-11-20",
+      "edition_date": "2026-11-20"
+    }
+  ],
+  "created_at": "2026-11-20T16:59:26Z",
+  "updated_at": "2026-11-20T16:59:26Z"
+}
