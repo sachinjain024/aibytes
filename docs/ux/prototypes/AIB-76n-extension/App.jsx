@@ -350,11 +350,11 @@ function Onboarding({ opts, pinned, user, onSignIn, subscribed, setSubscribed, i
         </>
       ) : (
         <>
-          <div className="proto-step-actions">
+          <div className="proto-signin">
             <Button variant="google" onClick={signIn}>Sign in with Google</Button>
+            <label className="proto-check"><input type="checkbox" checked={box} onChange={e => setBox(e.target.checked)} /> Also subscribe me to the weekly newsletter</label>
             <button className="proto-skip" onClick={() => { setSkipped(s => ({ ...s, 2: true })); if (wizard) setStep(3); }}>{skipped[2] ? "Skipped" : "Skip for now"}</button>
           </div>
-          <label className="proto-check"><input type="checkbox" checked={box} onChange={e => setBox(e.target.checked)} /> Also subscribe me to the weekly newsletter</label>
         </>
       )}
     </section>

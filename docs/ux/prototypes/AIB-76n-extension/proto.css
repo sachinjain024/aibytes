@@ -105,6 +105,9 @@ body { background: var(--bg); }
 .proto-step-n .proto-tick { width: 24px; height: 24px; }
 .proto-step-wait { font-size: 12px !important; color: var(--muted) !important; }
 .proto-step-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.proto-signin { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 8px 0 2px; }
+.proto-signin .ldg-btn--google { width: 100%; max-width: 360px; height: 48px; padding: 0 20px; justify-content: center; font-size: 16px; font-weight: 600; border-radius: 8px; }
+.proto-signin .ldg-btn--google svg { width: 20px; height: 20px; }
 .proto-step--done { border-style: dashed; }
 .proto-step--done p { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .proto-step--done .ldg-btn { align-self: flex-start; }
