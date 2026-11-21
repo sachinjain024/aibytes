@@ -392,8 +392,19 @@ function Onboarding({ opts, pinned, user, onSignIn, subscribed, setSubscribed, i
 // ---------- the install banner on aibytes.io ----------
 
 function InstallStrip({ onDismiss }) {
+  // Sticky under the masthead: push the rail and drawer down by the strip's height.
+  const ref = React.useRef(null);
+  React.useLayoutEffect(() => {
+    const el = ref.current, shell = el && el.closest(".app-shell");
+    if (!el || !shell) return;
+    const set = () => shell.style.setProperty("--redesign-top", "calc(var(--redesign-header) + " + el.offsetHeight + "px)");
+    set();
+    const ro = typeof ResizeObserver !== "undefined" ? new ResizeObserver(set) : null;
+    ro && ro.observe(el);
+    return () => { ro && ro.disconnect(); shell.style.removeProperty("--redesign-top"); };
+  }, []);
   return (
-    <div className="ldg-banner ldg-banner--sticky proto-install-strip" role="region" aria-label="Chrome extension">
+    <div ref={ref} className="ldg-banner ldg-banner--sticky proto-install-strip" role="region" aria-label="Chrome extension">
       <div className="ldg-banner__in">
         <span className="ldg-banner__msg"><ExtIcon size={18} /><span>{t("site.h1.before")} <strong>{t("site.name")}</strong> {t("site.h1.after")}</span>
           <a className="ldg-btn ldg-btn--primary proto-install-btn" href="#install" onClick={e => e.preventDefault()}>{t("site.cta")}</a></span>

@@ -165,3 +165,7 @@ body { background: var(--bg); }
   .proto-chrome-nav { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* Sticky under the masthead while the extension is not installed; the rail and drawer drop below it. */
+.proto-install-strip.ldg-banner--sticky { border-bottom-color: var(--control-border); }
+.proto-install-strip .proto-install-btn { white-space: nowrap; flex: none; }
