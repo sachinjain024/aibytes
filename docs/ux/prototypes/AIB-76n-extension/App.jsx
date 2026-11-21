@@ -89,9 +89,9 @@ const OPTIONS = {
   },
   banner: {
     label: "aibytes.io: the install banner",
-    choices: { 1: "Strip under the header", 2: "A row in the feed", 3: "A box in the sidebar" },
+    choices: { 1: "Sticky strip under the header", 2: "A row in the feed", 3: "A box in the sidebar" },
     notes: {
-      1: "Full width under the header, like the save banner. Seen on every page; dismissible.",
+      1: "Full width, sticky under the header as the page scrolls, like the save banner. Shown only when the extension isn't installed (the extension marks aibytes.io pages so the site can tell); dismissible.",
       2: "A row after the fifth item, in the list's own style. Seen while reading; scrolls away.",
       3: "A small box in the rail above Subscribe. Always there on desktop, never in the reading column.",
     },
@@ -388,7 +388,7 @@ function Onboarding({ opts, pinned, user, onSignIn, subscribed, setSubscribed, i
 
 function InstallStrip({ onDismiss }) {
   return (
-    <div className="ldg-banner proto-install-strip" role="region" aria-label="Chrome extension">
+    <div className="ldg-banner ldg-banner--sticky proto-install-strip" role="region" aria-label="Chrome extension">
       <div className="ldg-banner__in">
         <span className="ldg-banner__msg"><ExtIcon size={18} /><span>{t("site.h1.before")} <strong>{t("site.name")}</strong> {t("site.h1.after")}</span>
           <a className="ldg-btn ldg-btn--primary proto-install-btn" href="#install" onClick={e => e.preventDefault()}>{t("site.cta")}</a></span>
