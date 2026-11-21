@@ -258,5 +258,7 @@ Correct any of these now; the module specs are written on them.
    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxPHtR6Mr6q8jKMI3ikRUPZh5Zk9qkdTBRgz9mCTXSCSx2Bky1zaexCtLsZuiMrCVai2mA3k3pC5jGQgaIN4fRvQYTktDp1/51eYOzhEaiWzTXRzHLhDLgVUDo/EZwDIpy6N0qklmdAI99QCGmaYd83D2bEsbqjxOQcaNXrHoXm0G5vVOlASKlG2iALeRqickCM3YmxnZSq+j1QUk03N3f13rgpYZ8zE+Oo2JtWxk1Hz08EC30IbnyNDH7bGmxeNTSLcLQQnUW+qvo1GqWjGATAw5Pt3624lk98E62Kj20bYAZ0BhuWk3OEoOkag9o1kErMlF5CxFEin4epSK3yawRwIDAQAB
    ```
 6. **`packages/app-core`** is approved.
-7. **The store name** is open: candidates for store search were proposed on
-   21 Nov 2026; the pick lands in `AIB-76n-store-listing.md`.
+7. **The store name is "aiBytes – AI News Feed for Developers".** No underscore
+   in the store name, so a search for "aibytes" matches; no superlatives, and no
+   third-party names in the title (they go in the description).
+   `AIB-76n-store-listing.md` writes the rest of the listing around it.
