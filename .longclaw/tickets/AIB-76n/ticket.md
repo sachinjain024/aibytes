@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T10:23:17.730Z
-updated_at: 2026-11-21T16:07:30.511Z
+updated_at: 2026-11-21T16:31:01.190Z
 ---
 
 The aiBytes_ Chrome extension, popup first: clicking the toolbar icon shows today's edition as a ranked list, with a star on every row that syncs to the reader's aibytes.io account. It replaces the existing "AI Bytes" listing on the Chrome Web Store. Split out of AIB-8h (phase 7) on 2026-10-08; re-scoped on 2026-11-20 after a requirements interview with the publisher. The new-tab page moved to its own ticket, AIB-151m.
@@ -61,7 +61,7 @@ Same flow as AIB-75v:
 ## Checklist
 
 - [x] 1. Prototype the popup, onboarding and aibytes.io install banner, and record the picks in docs/decisions/product/AIB-76n-extension-design.md <!-- longclaw:item=ck_cc395d9b -->
-- [ ] 2. Capability map and module specs (docs/specs/AIB-76n-*.md) <!-- longclaw:item=ck_019d540e -->
+- [ ] 2. Capability map (docs/specs/AIB-76n-capability-map.md), then the module specs (docs/specs/AIB-76n-<module-id>.md) <!-- longclaw:item=ck_019d540e -->
 - [ ] 3. Plan and todo (docs/plans/AIB-76n-plan.md), mirrored here as numbered build items <!-- longclaw:item=ck_79c8511c -->
 - [ ] 4. Store listing written for search and conversion: version above 26.1.15, name, short description, icon, screenshots, promo tile, privacy answers; submit the update <!-- longclaw:item=ck_a7dacce3 -->
 - [ ] 5. Point the aibytes.io footer "Chrome Extension" link at the store listing <!-- longclaw:item=ck_f68f9eec -->
@@ -304,4 +304,34 @@ changes:
 ### Claude Code updated this ticket
 
 Design decided from the prototype: A2 B1 C1 D2 E2 F1 G1 H3, the favicon as the extension icon, and the publisher's copy changes. Record: docs/decisions/product/AIB-76n-extension-design.md
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e7750949
+kind: update
+occurred_at: 2026-11-21T16:31:01.190Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_019d540e.text
+    from: 2. Capability map and module specs (docs/specs/AIB-76n-*.md)
+    to: 2. Capability map (docs/specs/AIB-76n-capability-map.md), then the module specs (docs/specs/AIB-76n-<module-id>.md)
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_9cf9adc8
+kind: comment
+occurred_at: 2026-11-21T16:31:01.214Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Spec drafted: docs/specs/AIB-76n-capability-map.md. Six modules in build order: ledger-extension-ui, app-core, extension-popup, extension-auth, site-extension, store-listing. Awaiting the publisher's review of the map (assumptions, risks, 3 open questions) before the module specs.
 <!-- /longclaw:event -->

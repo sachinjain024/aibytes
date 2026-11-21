@@ -64,8 +64,8 @@ default, then "Skip for now".
 
 **H3 · The install box.** A small box at the top of the sidebar's footer,
 above the links: the icon, "aiBytes_ for Chrome", one line, "Add to Chrome"
-and "Not now". It never sits in the reading column; on a phone it is in the
-drawer with the rest of the rail. It shows only while the extension isn't installed: the site
+and "Not now". It never sits in the reading column, and it shows on desktop
+Chrome only: a phone can't install extensions. It shows only while the extension isn't installed: the site
 asks the extension (through `externally_connectable`, which sign-in already
 needs) and the box disappears the moment the extension answers. Ledger's
 `Sidebar` has no slot for it today; the build adds an optional one.
