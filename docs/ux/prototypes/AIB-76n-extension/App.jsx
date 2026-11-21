@@ -59,8 +59,8 @@ const OPTIONS = {
     label: "Popup: the gist view",
     choices: { 1: "Actions in the top bar", 2: "Actions pinned at the bottom" },
     notes: {
-      1: "← Back, the star and Open on aibytes.io share one bar above the gist.",
-      2: "← Back alone at the top; the star and Open on aibytes.io stay in a bar at the bottom while the gist scrolls.",
+      1: "← Back, the star and View on Web share one bar above the gist.",
+      2: "← Back alone at the top; the star and View on Web stay in a bar at the bottom while the gist scrolls.",
     },
   },
   flow: {
@@ -93,15 +93,15 @@ const OPTIONS = {
     notes: {
       1: "Full width, sticky under the header as the page scrolls, like the save banner. Shown only when the extension isn't installed (the extension marks aibytes.io pages so the site can tell); dismissible.",
       2: "A row after the fifth item, in the list's own style. Seen while reading; scrolls away.",
-      3: "A small box in the rail above Subscribe. Always there on desktop, never in the reading column.",
+      3: "A small box in the rail's footer, above the links. Shown only while the extension isn't installed, and it disappears the moment it is; Not now hides it. Never in the reading column.",
     },
   },
 };
 
 // Choices the publisher has confirmed: shown as "E2 ✓" and fixed. Kept in
 // OPTIONS so the letters never shift. E2 confirmed 20 Nov 2026; A2 B1 C1 D2
-// confirmed 21 Nov 2026.
-const DECIDED = { saved: "2", row: "1", signin: "1", gist: "2", flow: "2" };
+// confirmed 21 Nov 2026, then F1 G1 H3.
+const DECIDED = { saved: "2", row: "1", signin: "1", gist: "2", flow: "2", pin: "1", subscribe: "1", banner: "3" };
 const DEFAULTS = { ...Object.fromEntries(Object.keys(OPTIONS).map(k => [k, "1"])), ...DECIDED };
 
 // ---------- the Chrome toolbar ----------
@@ -438,6 +438,22 @@ function InstallBox({ onDismiss }) {
   );
 }
 
+/** Puts its children at the top of the Sidebar's footer, above the links. The
+ *  real Sidebar has no slot for this; the build adds one (an optional prop). */
+function RailSlot({ children }) {
+  const [box, setBox] = React.useState(null);
+  React.useLayoutEffect(() => {
+    const foot = document.querySelector(".sidebar .sidebar-footer");
+    if (!foot) return;
+    const el = document.createElement("div");
+    el.className = "proto-install-box-slot";
+    foot.prepend(el);
+    setBox(el);
+    return () => el.remove();
+  }, []);
+  return box ? createPortal(children, box) : null;
+}
+
 function Site({ opts, theme, setTheme, user, setUser, saves, toggleSave, installed }) {
   const [dismissed, setDismissed] = React.useState(false);
   React.useEffect(() => setDismissed(false), [opts.banner, installed]);
@@ -450,7 +466,7 @@ function Site({ opts, theme, setTheme, user, setUser, saves, toggleSave, install
         onSignIn={() => setUser(USER)} user={user || undefined} onSignOut={() => setUser(null)} />
       {show && opts.banner === "1" && <InstallStrip onDismiss={() => setDismissed(true)} />}
       <Sidebar categories={cats} count={ED.items.length} active="all" links={links} subscribeUrl={D.subscribeUrl} onSaved={() => {}} savedCount={saves.length} />
-      {show && opts.banner === "3" && <div className="proto-install-box-slot"><InstallBox onDismiss={() => setDismissed(true)} /></div>}
+      {show && opts.banner === "3" && <RailSlot><InstallBox onDismiss={() => setDismissed(true)} /></RailSlot>}
       <main className="redesign-main"><div className="workspace"><section className="feed"><div className="app-main">
         <h1 className="proto-site-h1">{ED.label}</h1>
         <RowList>{RANKED.flatMap((item, i) => {

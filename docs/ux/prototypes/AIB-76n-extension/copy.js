@@ -13,10 +13,10 @@ export const COPY = makeCopy([
   { key: "pop.prompt.link", where: "Popup › Signed-out prompt › Link (C2)", text: "Sign in on aibytes.io", when: o => o.signin === "2" },
   { key: "pop.prompt.after", where: "Popup › Signed-out prompt › After the link (C2)", text: "to keep them in your account.", when: o => o.signin === "2" },
   { key: "pop.empty.title", where: "Popup › Saved, empty › Title", text: "No saved items yet." },
-  { key: "pop.empty.body", where: "Popup › Saved, empty › Body", text: "Select the ☆ on any row to save it. Saved items show here and in Saved on aibytes.io." },
+  { key: "pop.empty.body", where: "Popup › Saved, empty › Body", text: "Use the ☆ to save an item. Saved items appear here." },
   { key: "pop.end", where: "Popup › End of the list", text: "That's the {date} edition." },
   { key: "pop.foot.meta", where: "Popup › Footer › Edition and count", text: "{date} · {count} items" },
-  { key: "pop.site", where: "Popup › Footer and gist bar › Link to the site", text: "Open on aibytes.io" },
+  { key: "pop.site", where: "Popup › Footer and gist bar › Link to the site", text: "View on Web" },
   { key: "pop.back.today", where: "Popup › Gist view › Back, from Today", text: "← Today" },
   { key: "pop.back.saved", where: "Popup › Gist view › Back, from Saved", text: "← Saved" },
   { key: "pop.gist.save", where: "Popup › Gist view › Bottom bar, not saved (D2)", text: "Save", when: o => o.gist === "2" },
@@ -24,7 +24,7 @@ export const COPY = makeCopy([
 
   // Onboarding
   { key: "onb.h1", where: "Onboarding › Heading", text: "aiBytes_ extension is successfully installed." },
-  { key: "onb.sub", where: "Onboarding › Under the heading", text: "Let's get started with a couple of quick steps to help you get the most out of it." },
+  { key: "onb.sub", where: "Onboarding › Under the heading", text: "A couple of quick steps to help you get the most out of it." },
   { key: "onb.stepof", where: "Onboarding › Step counter (E2)", text: "Step {n} of 2", when: o => o.flow === "2" },
   { key: "onb.s1.title", where: "Onboarding › Step 1 › Title", text: "Pin aiBytes_ to your toolbar" },
   { key: "onb.s1.body", where: "Onboarding › Step 1 › Body", text: "Chrome puts new extensions behind the puzzle icon. Pin aiBytes_ so today's edition is one click away." },

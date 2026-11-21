@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T10:23:17.730Z
-updated_at: 2026-11-20T13:19:34.719Z
+updated_at: 2026-11-21T16:07:30.511Z
 ---
 
 The aiBytes_ Chrome extension, popup first: clicking the toolbar icon shows today's edition as a ranked list, with a star on every row that syncs to the reader's aibytes.io account. It replaces the existing "AI Bytes" listing on the Chrome Web Store. Split out of AIB-8h (phase 7) on 2026-10-08; re-scoped on 2026-11-20 after a requirements interview with the publisher. The new-tab page moved to its own ticket, AIB-151m.
@@ -60,7 +60,7 @@ Same flow as AIB-75v:
 
 ## Checklist
 
-- [ ] 1. Prototype the popup, onboarding and aibytes.io install banner, and record the picks in docs/decisions/product/AIB-76n-extension-design.md <!-- longclaw:item=ck_cc395d9b -->
+- [x] 1. Prototype the popup, onboarding and aibytes.io install banner, and record the picks in docs/decisions/product/AIB-76n-extension-design.md <!-- longclaw:item=ck_cc395d9b -->
 - [ ] 2. Capability map and module specs (docs/specs/AIB-76n-*.md) <!-- longclaw:item=ck_019d540e -->
 - [ ] 3. Plan and todo (docs/plans/AIB-76n-plan.md), mirrored here as numbered build items <!-- longclaw:item=ck_79c8511c -->
 - [ ] 4. Store listing written for search and conversion: version above 26.1.15, name, short description, icon, screenshots, promo tile, privacy answers; submit the update <!-- longclaw:item=ck_a7dacce3 -->
@@ -286,4 +286,22 @@ actor:
 ### Claude Code commented
 
 Prototype: docs/ux/prototypes/AIB-76n-extension/ (open aib-76n-extension.html; rebuild with node docs/ux/prototypes/AIB-76n-extension/build.mjs). Eight open choices, A-H: popup Saved, rows, signed-out, gist view; onboarding steps, pin animation, newsletter box; install banner.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_19bd6ad4
+kind: update
+occurred_at: 2026-11-21T16:07:30.511Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_cc395d9b.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Design decided from the prototype: A2 B1 C1 D2 E2 F1 G1 H3, the favicon as the extension icon, and the publisher's copy changes. Record: docs/decisions/product/AIB-76n-extension-design.md
 <!-- /longclaw:event -->

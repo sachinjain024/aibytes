@@ -150,13 +150,12 @@ body { background: var(--bg); }
 .proto-install-row .story-visual { padding-top: 2px; }
 .proto-install-acts { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
 .proto-install-acts .ldg-btn { height: 30px; font-size: 13px; }
-.proto-install-box-slot { position: fixed; left: 16px; bottom: 150px; width: calc(var(--redesign-rail, 250px) - 32px); z-index: 60; }
+.proto-install-box-slot { margin-bottom: 14px; }
 .proto-install-box { background: var(--surface); border: 1px solid var(--control-border); border-radius: var(--radius-card); padding: 12px; display: flex; flex-direction: column; gap: 8px; font-size: 13px; }
 .proto-install-box p { margin: 0; color: var(--text-2); }
 .proto-install-box-h { display: flex; align-items: center; gap: 8px; color: var(--text) !important; font-weight: 600; }
 .proto-install-box .ldg-btn { height: 30px; font-size: 13px; }
 .proto-install-box .proto-skip { align-self: flex-start; padding: 0; font-size: 12px; }
-@media (max-width: 760px) { .proto-install-box-slot { display: none; } }
 .proto-site-h1 { margin: 16px 0 12px; font: 700 20px var(--font-display); }
 
 @media (max-width: 520px) {
@@ -169,3 +168,8 @@ body { background: var(--bg); }
 /* Sticky under the masthead while the extension is not installed; the rail and drawer drop below it. */
 .proto-install-strip.ldg-banner--sticky { border-bottom-color: var(--control-border); }
 .proto-install-strip .proto-install-btn { white-space: nowrap; flex: none; }
+
+/* Inside the rail's footer the box sits under .sidebar-footer a; keep the button's own look. */
+.sidebar-footer .proto-install-box a.ldg-btn--primary,
+.sidebar-footer .proto-install-box a.ldg-btn--primary:hover,
+.sidebar-footer .proto-install-box a.ldg-btn--primary:focus-visible { display: inline-flex; justify-content: center; font-size: 13px; color: var(--accent-fg); text-decoration: none; }

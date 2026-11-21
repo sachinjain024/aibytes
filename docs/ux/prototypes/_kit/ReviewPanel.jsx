@@ -32,7 +32,7 @@ export function ReviewPanel({ title, options, groups, decided = {}, opts, setOpt
               {views.map(([k, l]) => <button key={k} aria-pressed={view === k} onClick={() => go(k)}>{l}</button>)}
             </div>
           </fieldset>
-          {keys.length > 0 && <p className="kit-tally">{open_ ? `${open_} open` : "All decided"}{keys.length - open_ ? ` · ${keys.length - open_} decided` : ""}</p>}
+          {keys.length > 0 && <p className="kit-tally">{open_ ? `${open_} open${keys.length - open_ ? ` · ${keys.length - open_} decided` : ""}` : `All ${keys.length} decided`}</p>}
           {keys.map(key => {
             const o = options[key], L = letter(key), pick = decided[key];
             return (
