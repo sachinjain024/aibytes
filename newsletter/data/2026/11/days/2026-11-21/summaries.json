@@ -1,0 +1,125 @@
+{
+  "date": "2026-11-21",
+  "items": {
+    "ph-tripmojo-3-2026-11-21": {
+      "summary": "Syncs booking emails into a shared trip; its agent, Mojo, runs group polls, tries check-in, saves boarding passes, flags delays and gate changes, and splits expenses.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-docker-2026-11-21": {
+      "summary": "Adds Docker Sandboxes to isolate AI agents at runtime, a trusted supply chain for agents to build from, and Docker AI Governance for cross-team policy, plus a rebrand.",
+      "tags": ["Dev Tool", "Agents", "Security", "Launch"]
+    },
+    "ph-altercontacts-2026-11-21": {
+      "summary": "Voice-first assistant for advisors and brokers: talk through a meeting and it updates the client profile, tracks promises and renewals, and drafts follow-ups for approval.",
+      "tags": ["Agents", "Voice / Speech", "Launch"]
+    },
+    "ph-bookella-2026-11-21": {
+      "summary": "Reading tracker for iPhone, iPad and Android that scans a shelf of barcodes at once, times sessions, tracks goals and pace, and imports from Goodreads or StoryGraph.",
+      "tags": ["Launch"]
+    },
+    "gh-claude-bughunter-2026-11-21": {
+      "summary": "Claude Code skill bundle for bug bounty and external red-team work: 82 skills, 15 slash commands and 681 disclosed-report patterns across 24 vulnerability classes.",
+      "tags": ["Open Source", "Security", "Claude Code"]
+    },
+    "gh-firecrawl-2026-11-21": {
+      "summary": "One TypeScript API for agents to search the web, scrape pages and query 550+ data providers.",
+      "tags": ["Open Source", "API", "Agents"]
+    },
+    "gh-superpowers-2026-11-21": {
+      "summary": "A skills framework for coding agents paired with a software development methodology, written in Shell.",
+      "tags": ["Open Source", "Framework", "Agents"]
+    },
+    "gh-app-store-compliance-2026-11-21": {
+      "summary": "Pre-submission guard with 117 App Store and Google Play rejection patterns, privacy manifest and Data safety checks, 95 tracked deadlines like the EU AI Act, and an agent skill.",
+      "tags": ["Open Source", "Dev Tool", "Policy"]
+    },
+    "gh-autoclip-2026-11-21": {
+      "summary": "Desktop app that cuts podcasts, interviews and lectures into short clips with subtitles, covers and post copy for TikTok, Douyin, Xiaohongshu, Reels and Shorts.",
+      "tags": ["Open Source", "Video"]
+    },
+    "gh-diagram-design-2026-11-21": {
+      "summary": "Agent skill for editorial diagrams as self-contained HTML and SVG, 45 diagram types, for Claude Code, Codex, Copilot, Cursor and other coding agents.",
+      "tags": ["Open Source", "Dev Tool", "Agents"]
+    },
+    "gh-last30days-skill-2026-11-21": {
+      "summary": "Agent skill that researches a topic across Reddit, X, YouTube, HN, Polymarket and the web, then writes a summary grounded in what it found.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-minimind-2026-11-21": {
+      "summary": "Python codebase for training a 64M-parameter language model from scratch in about two hours.",
+      "tags": ["Open Source", "LLM", "Tutorial"]
+    },
+    "gh-stitch-skills-2026-11-21": {
+      "summary": "Google Labs library of Agent Skills for the Stitch MCP server, following the open Agent Skills standard so Gemini CLI, Antigravity, Claude Code and Cursor can use them.",
+      "tags": ["Open Source", "Google", "MCP", "Agents"]
+    },
+    "gh-plugins-2026-11-21": {
+      "summary": "Cursor's plugin specification alongside the official plugins built on it, in TypeScript.",
+      "tags": ["Open Source", "Cursor", "Dev Tool"]
+    },
+    "tc-is-selling-an-ai-version-of-your-face-to-this-2026-11-21": {
+      "summary": "An actor has licensed his likeness to a microdrama startup, a practice already common in China; experts weigh the consequences if Hollywood follows.",
+      "tags": ["Video"]
+    },
+    "tc-daniel-ek-backs-ai-researchers-fusion-power-2026-11-21": {
+      "summary": "The Spotify founder is backing Europa Fusion, a fusion power startup founded by an AI researcher; TechCrunch looks at what it is building.",
+      "tags": ["Funding"]
+    },
+    "tc-ai-claimed-a-solution-to-the-167-year-old-2026-11-21": {
+      "summary": "Mathematicians are weighing an AI-driven claimed proof against a competing human solution to the same problem.",
+      "tags": ["Reasoning"]
+    },
+    "tc-chips-can-survive-the-space-environment-can-2026-11-21": {
+      "summary": "Lenders balk at collateral launched into orbit by SpaceX, raising the question of how space data centers get financed.",
+      "tags": ["Funding"]
+    },
+    "tc-the-fallout-from-nvidias-jensen-huang-scandal-2026-11-21": {
+      "summary": "Equity podcast on Nvidia's strong earnings after Huang's ouster, its retreat from China, and how Anthropic's IPO tests AI's circular financing.",
+      "tags": ["Nvidia", "Anthropic"]
+    },
+    "tc-six-ai-powered-gadgets-that-could-make-your-2026-11-21": {
+      "summary": "Roundup of six AI hardware picks for a home workspace, from meeting notetakers to webcams.",
+      "tags": ["Voice / Speech"]
+    },
+    "hn-frostbite-a-new-cpu-architecture-discovered-2026-11-21": {
+      "summary": "Architect Labs blog post on a CPU architecture it says was discovered, designed and verified by AI.",
+      "tags": ["Deep Dive"]
+    },
+    "hn-restricting-ai-agents-in-mobile-operating-2026-11-21": {
+      "summary": "Signal blog post on limiting how AI agents built into mobile operating systems can capture app data.",
+      "tags": ["Privacy", "Agents"]
+    },
+    "hn-language-models-can-rewrite-their-own-weights-2026-11-21": {
+      "summary": "arXiv paper on language models that modify their own weights.",
+      "tags": ["Paper", "LLM", "Fine-tuning"]
+    },
+    "hn-nasdaq-erases-all-2026-gains-as-ai-sell-off-2026-11-21": {
+      "summary": "Guardian markets report on the AI sell-off during Anthropic's second trading day; the WSJ separately puts the AI stock wipeout at $4T.",
+      "tags": ["Anthropic"]
+    },
+    "hn-google-workers-tell-their-employer-not-to-2026-11-21": {
+      "summary": "Mother Jones reports on an Alphabet union petition asking Google not to penalize schools that opt out of Gemini.",
+      "tags": ["Google", "Policy"]
+    },
+    "hn-what-comes-after-agi-2026-11-21": {
+      "summary": "Essay from the Google DeepMind institute on what follows once AGI arrives.",
+      "tags": ["Google", "Deep Dive"]
+    },
+    "hn-clawdos-an-ai-coding-agent-for-dos-2026-11-21": {
+      "summary": "Hobby project running an AI coding agent under DOS, hosted on the author's personal site.",
+      "tags": ["Code Gen", "Agents"]
+    },
+    "hn-chatgpt-for-snes-2026-11-21": {
+      "summary": "BX Foundry project bringing a ChatGPT chat interface to the Super Nintendo.",
+      "tags": ["LLM"]
+    },
+    "hn-ai-is-giving-everyone-the-same-advice-2026-11-21": {
+      "summary": "Experiment on a90.com testing whether AI models give different people the same advice.",
+      "tags": ["LLM", "Eval"]
+    },
+    "hn-anthropic-s-ipo-bust-deepens-4t-ai-wipeout-on-2026-11-21": {
+      "summary": "WSJ markets piece on Anthropic's weak debut; the Guardian reports the same sell-off erased the Nasdaq's 2026 gains.",
+      "tags": ["Anthropic"]
+    }
+  }
+}

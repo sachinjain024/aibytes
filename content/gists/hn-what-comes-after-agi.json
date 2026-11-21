@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "slug": "hn-what-comes-after-agi",
+  "kind": "hn",
+  "title": "What Comes After AGI?",
+  "url": "https://institute.deepmind.com/essays/what-comes-after-agi/",
+  "source_url": "https://news.ycombinator.com/item?id=50569519",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Google",
+    "Deep Dive"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "A Google DeepMind essay treats intelligence as a continuum and sketches how AI might move from human-level AGI to superintelligence, and how to track that progress.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "It defines ASI as systems that consistently beat large expert groups on long tasks across nearly all domains, faster and cheaper.",
+        "Growth in hardware, algorithmic efficiency and investment is estimated to multiply effective compute at least tenfold a year.",
+        "The authors call the resulting commoditisation of cognitive work cognitive industrialization.",
+        "Four routes to ASI are named, including scaling models and data, paradigm shifts and multi-agent coordination.",
+        "Bottlenecks include running out of training data, diminishing returns on scale and physical limits on power and chips."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "counterpoint",
+          "text": "The top comment rejects the premise, calling claims that AGI is near propaganda and arguing LLMs are a communications technology.",
+          "url": "https://news.ycombinator.com/item?id=50575870"
+        },
+        {
+          "stance": "theme",
+          "text": "Several note the goalposts have moved: what the essay calls ASI is roughly what AGI meant before LLMs.",
+          "url": "https://news.ycombinator.com/item?id=50572150"
+        },
+        {
+          "stance": "disputed",
+          "text": "Commenters split on the compute extrapolations: one says investment cannot keep compounding, a reply says real capability would fund itself.",
+          "url": "https://news.ycombinator.com/item?id=50570053"
+        },
+        {
+          "stance": "theme",
+          "text": "Others doubt intelligence can be measured precisely enough to place anything on such a continuum.",
+          "url": "https://news.ycombinator.com/item?id=50570061"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "What comes after AGI? From AGI to Superintelligence",
+      "url": "https://institute.deepmind.com/essays/what-comes-after-agi/"
+    },
+    {
+      "role": "discussion",
+      "title": "What Comes After AGI?",
+      "url": "https://news.ycombinator.com/item?id=50569519"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-what-comes-after-agi-2026-11-21",
+      "edition_date": "2026-11-21"
+    }
+  ],
+  "created_at": "2026-11-21T16:08:42Z",
+  "updated_at": "2026-11-21T16:08:42Z",
+  "stats": {
+    "points": 170,
+    "comments": 328,
+    "submitted_by": "jdkee",
+    "posted_at": "2026-11-20T02:44:13Z"
+  },
+  "stats_as_of": "2026-11-21T16:06:56Z"
+}

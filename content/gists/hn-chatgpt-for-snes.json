@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "slug": "hn-chatgpt-for-snes",
+  "kind": "hn",
+  "title": "ChatGPT for SNES",
+  "url": "https://www.bxfoundry.com/chatgpt_snes/",
+  "source_url": "https://news.ycombinator.com/item?id=50568548",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "LLM"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "An unofficial Super Nintendo cartridge runs a tiny chat model of about 2.2 million parameters on the Super FX 2 chip, built by Benj Edwards with AI coding agents.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Its training conversations were written by OpenAI's open-weight gpt-oss-120b; OpenAI did not make or endorse it.",
+        "The model knows about 8,000 words and is openly described as wrong often, not a useful assistant.",
+        "An optional build adds a fact book of 150,000 Simple English Wikipedia openings on an MSU-1 data file that the model can look up.",
+        "Version 0.7 runs in a browser Snes9x emulator, or on hardware through a flash cart with Super FX support."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "disputed",
+          "text": "One commenter marvels that transformers could have run on 1990 consumer hardware; a reply says running a model is not the same as creating it.",
+          "url": "https://news.ycombinator.com/item?id=50570331"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "A skeptic says a model this small is little more than a Markov chain producing English-shaped nonsense.",
+          "url": "https://news.ycombinator.com/item?id=50571281"
+        },
+        {
+          "stance": "theme",
+          "text": "Much of the thread is people sharing the absurd answers they got, delivered with affection.",
+          "url": "https://news.ycombinator.com/item?id=50570908"
+        },
+        {
+          "stance": "agreed",
+          "text": "Commenters like the presentation, especially the on-screen keyboard typing and its sound effects.",
+          "url": "https://news.ycombinator.com/item?id=50572669"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "ChatGPT for SNES",
+      "url": "https://www.bxfoundry.com/chatgpt_snes/"
+    },
+    {
+      "role": "discussion",
+      "title": "ChatGPT for SNES",
+      "url": "https://news.ycombinator.com/item?id=50568548"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-chatgpt-for-snes-2026-11-21",
+      "edition_date": "2026-11-21"
+    }
+  ],
+  "created_at": "2026-11-21T16:08:42Z",
+  "updated_at": "2026-11-21T16:08:42Z",
+  "stats": {
+    "points": 125,
+    "comments": 41,
+    "submitted_by": "evan_",
+    "posted_at": "2026-11-20T00:25:59Z"
+  },
+  "stats_as_of": "2026-11-21T16:06:56Z"
+}

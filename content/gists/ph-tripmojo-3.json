@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "ph-tripmojo-3",
+  "kind": "launch",
+  "title": "Tripmojo",
+  "url": "https://www.producthunt.com/products/tripmojo",
+  "source_url": "https://www.producthunt.com/products/tripmojo",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Agents",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/launch-image-uploads/8a624bfb-f6c8-4b12-8587-8eaff2451e94/63a72628f9a36b034e1430233822a19af6ca8df90e2db500df3effdba2d727cf.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "Tripmojo reads booking confirmations from a connected Gmail inbox and assembles them into one day-by-day trip a group shares, with an agent called Mojo handling the chores around it.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Flights, hotels, trains and activities found in email become a shared itinerary without manual entry.",
+        "Tagging @Mojo in the group chat with a link or Reel extracts places, starts polls and records what the group settled on.",
+        "Before travel day Mojo asks for missing passport details, attempts check-in, stores boarding passes and warns of delays and gate changes with a leave-by time.",
+        "It also watches booked hotel prices, tracks shared expenses and works on the web as well as mobile.",
+        "Early testers report extraction slips: a duplicated traveller from a name spelling variant and a receipt not linked to its booking."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Groups planning a trip together whose bookings are spread across several inboxes and whose plans live in a chat thread."
+    },
+    {
+      "key": "pricing",
+      "text": "The listing says the app is free on iOS and Android."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Tripmojo on Product Hunt",
+      "url": "https://www.producthunt.com/products/tripmojo"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-tripmojo-3-2026-11-21",
+      "edition_date": "2026-11-21"
+    }
+  ],
+  "created_at": "2026-11-21T16:08:42Z",
+  "updated_at": "2026-11-21T16:08:42Z",
+  "stats": {
+    "upvotes": 299,
+    "comments": 106
+  },
+  "stats_as_of": "2026-11-21T16:06:56Z"
+}

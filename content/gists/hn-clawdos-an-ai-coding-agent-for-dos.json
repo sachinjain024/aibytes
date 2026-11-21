@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "slug": "hn-clawdos-an-ai-coding-agent-for-dos",
+  "kind": "hn",
+  "title": "ClawDOS – An AI coding agent for DOS",
+  "url": "http://ricapar.net/ClawDOS/",
+  "source_url": "https://news.ycombinator.com/item?id=50586292",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Code Gen",
+    "Agents"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "ClawDOS is a Claude coding agent that runs natively on an IBM PC XT, with an 8088 CPU and 640K of RAM, handing only TLS to a bridge machine.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "HARNESS.EXE, a 176 KB DOS program, builds Messages API requests, parses the streamed reply, runs 18 tools and stores chats on disk.",
+        "The agent edits files and compiles with Turbo C, stepping out of memory so the compiler has the machine to itself.",
+        "A timer interrupt captures CGA video memory, which the 8088 encodes as a PNG so Claude can see program output.",
+        "Memories and skills are plain text files; a safe mode asks before any file, memory or port change.",
+        "The author says Claude wrote the whole repo; it is GPLv3 and runs in 86Box or on real hardware."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "theme",
+          "text": "One commenter wants agents for legacy Windows XP and 7 machines, since most current agents need Windows 10 1809 or newer.",
+          "url": "https://news.ycombinator.com/item?id=50586979"
+        },
+        {
+          "stance": "agreed",
+          "text": "Many enjoy dropping agents into odd environments; one built a Win32 agent and watched a model realise it was on NT 4.0.",
+          "url": "https://news.ycombinator.com/item?id=50586705"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "Another suggests demoscene-style projects would work better driven remotely, since the harness competes with them for resources.",
+          "url": "https://news.ycombinator.com/item?id=50589296"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "ClawDOS",
+      "url": "http://ricapar.net/ClawDOS/"
+    },
+    {
+      "role": "discussion",
+      "title": "ClawDOS – An AI coding agent for DOS",
+      "url": "https://news.ycombinator.com/item?id=50586292"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-clawdos-an-ai-coding-agent-for-dos-2026-11-21",
+      "edition_date": "2026-11-21"
+    }
+  ],
+  "created_at": "2026-11-21T16:08:42Z",
+  "updated_at": "2026-11-21T16:08:42Z",
+  "stats": {
+    "points": 125,
+    "comments": 39,
+    "submitted_by": "Ricapar",
+    "posted_at": "2026-11-21T05:38:01Z"
+  },
+  "stats_as_of": "2026-11-21T16:06:56Z",
+  "front_page": true
+}

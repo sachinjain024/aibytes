@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "ph-docker",
+  "kind": "launch",
+  "title": "Docker",
+  "url": "https://www.producthunt.com/products/docker",
+  "source_url": "https://www.producthunt.com/products/docker",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Dev Tool",
+    "Agents",
+    "Security",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/6be36375-d756-4f7b-b908-1e76bddc3ebc.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "Docker is repositioning around AI agents, arguing they are actors rather than workloads, and adds a sandbox runtime, a governance layer and a curated supply chain alongside a new brand.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Docker Sandboxes run agents such as Claude Code and Codex inside MicroVMs, on a laptop or in the cloud.",
+        "Sandboxed agents get networking that is denied by default.",
+        "Docker AI Governance lets an organisation define sandbox, network and MCP policy once and apply it on every machine.",
+        "A trusted supply chain gives agents vetted components to build from.",
+        "The launch also brings a redesigned brand and Moby whale, which commenters liked and disliked in equal measure."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Developers and teams running coding agents unattended who want them isolated from the host machine and governed by shared policy."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Docker on Product Hunt",
+      "url": "https://www.producthunt.com/products/docker"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-docker-2026-11-21",
+      "edition_date": "2026-11-21"
+    }
+  ],
+  "created_at": "2026-11-21T16:08:42Z",
+  "updated_at": "2026-11-21T16:08:42Z",
+  "stats": {
+    "upvotes": 259,
+    "comments": 4
+  },
+  "stats_as_of": "2026-11-21T16:06:56Z"
+}

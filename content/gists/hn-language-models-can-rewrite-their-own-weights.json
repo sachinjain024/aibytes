@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "slug": "hn-language-models-can-rewrite-their-own-weights",
+  "kind": "hn",
+  "title": "Language Models Can Rewrite Their Own Weights",
+  "url": "https://arxiv.org/abs/2611.21885",
+  "source_url": "https://news.ycombinator.com/item?id=50577265",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Paper",
+    "LLM",
+    "Fine-tuning"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "An arXiv paper reports an open 27B model that inspects its own weights and graded answers, diagnoses a failure and edits the weights directly, improving without gradient updates.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The authors call the method self-rewriting: the model acts as its own optimizer using only forward passes.",
+        "Its edit raised accuracy by 6.6 points on held-out problems, and accuracy rose across eight consecutive editing sessions.",
+        "Edits are tested on practice problems and kept only if they help.",
+        "It restored a damaged copy of itself to over 80% of the original accuracy on unseen image tasks.",
+        "Within one model family only the largest model improved; smaller ones made no edit or broke themselves."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "counterpoint",
+          "text": "A top comment says the only fix the model found was shortening its reasoning traces to stay under the token limit.",
+          "url": "https://news.ycombinator.com/item?id=50578348"
+        },
+        {
+          "stance": "disputed",
+          "text": "Readers argue over the no-training claim: testing edits and keeping winners looks like optimization, though it avoids backprop.",
+          "url": "https://news.ycombinator.com/item?id=50579143"
+        },
+        {
+          "stance": "agreed",
+          "text": "Several think these weight-editing papers inspire more than they deliver, with models making simple scripted tweaks for now.",
+          "url": "https://news.ycombinator.com/item?id=50579239"
+        },
+        {
+          "stance": "theme",
+          "text": "Safety worries recur: a self-editing model could in principle suppress the activations tied to alignment.",
+          "url": "https://news.ycombinator.com/item?id=50583498"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Language Models Can Rewrite Their Own Weights",
+      "url": "https://arxiv.org/abs/2611.21885"
+    },
+    {
+      "role": "discussion",
+      "title": "Language Models Can Rewrite Their Own Weights",
+      "url": "https://news.ycombinator.com/item?id=50577265"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-language-models-can-rewrite-their-own-weights-2026-11-21",
+      "edition_date": "2026-11-21"
+    }
+  ],
+  "created_at": "2026-11-21T16:08:42Z",
+  "updated_at": "2026-11-21T16:08:42Z",
+  "stats": {
+    "points": 450,
+    "comments": 132,
+    "submitted_by": "lwhsiao",
+    "posted_at": "2026-11-20T16:29:06Z"
+  },
+  "stats_as_of": "2026-11-21T16:06:56Z",
+  "front_page": true
+}

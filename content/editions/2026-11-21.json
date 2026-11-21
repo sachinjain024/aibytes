@@ -1,0 +1,818 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-21",
+  "generated_at": "2026-11-21T16:06:56Z",
+  "counts": {
+    "launches": 4,
+    "repos": 10,
+    "news": 6,
+    "hn": 10
+  },
+  "items": [
+    {
+      "id": "ph-tripmojo-3-2026-11-21",
+      "title": "Tripmojo",
+      "summary": "Syncs booking emails into a shared trip; its agent, Mojo, runs group polls, tries check-in, saves boarding passes, flags delays and gate changes, and splits expenses.",
+      "url": "https://www.producthunt.com/products/tripmojo",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/tripmojo",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/launch-image-uploads/8a624bfb-f6c8-4b12-8587-8eaff2451e94/63a72628f9a36b034e1430233822a19af6ca8df90e2db500df3effdba2d727cf.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 299,
+        "comments": 106
+      },
+      "published_at": "2026-11-20T08:00:00Z",
+      "hidden": false,
+      "rank": 4,
+      "gist": "ph-tripmojo-3"
+    },
+    {
+      "id": "ph-docker-2026-11-21",
+      "title": "Docker",
+      "summary": "Adds Docker Sandboxes to isolate AI agents at runtime, a trusted supply chain for agents to build from, and Docker AI Governance for cross-team policy, plus a rebrand.",
+      "url": "https://www.producthunt.com/products/docker",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/docker",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Security",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/6be36375-d756-4f7b-b908-1e76bddc3ebc.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 259,
+        "comments": 4
+      },
+      "published_at": "2026-11-20T08:00:00Z",
+      "hidden": false,
+      "rank": 10,
+      "gist": "ph-docker"
+    },
+    {
+      "id": "ph-altercontacts-2026-11-21",
+      "title": "AlterContacts",
+      "summary": "Voice-first assistant for advisors and brokers: talk through a meeting and it updates the client profile, tracks promises and renewals, and drafts follow-ups for approval.",
+      "url": "https://www.producthunt.com/products/alter-contacts-ai-client-relationships",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/alter-contacts-ai-client-relationships",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Voice / Speech",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/046485e6-d8fe-4168-8047-978bd2b33c83.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 195,
+        "comments": 33
+      },
+      "published_at": "2026-11-21T08:01:00Z",
+      "hidden": false,
+      "rank": 19,
+      "gist": "ph-altercontacts"
+    },
+    {
+      "id": "ph-bookella-2026-11-21",
+      "title": "Bookella",
+      "summary": "Reading tracker for iPhone, iPad and Android that scans a shelf of barcodes at once, times sessions, tracks goals and pace, and imports from Goodreads or StoryGraph.",
+      "url": "https://www.producthunt.com/products/bookella",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/bookella",
+      "category": "launches",
+      "tags": [
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/launch-image-uploads/946196d0-8ea1-4a14-8e2f-3dc18455d7fb/1132b988430641476f4a3aed531767465de3983993ef983c115c0022ed6d1c65.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 184,
+        "comments": 27
+      },
+      "published_at": "2026-11-20T08:00:00Z",
+      "hidden": false,
+      "rank": 25,
+      "gist": "ph-bookella"
+    },
+    {
+      "id": "gh-claude-bughunter-2026-11-21",
+      "title": "elementalsouls/Claude-BugHunter",
+      "summary": "Claude Code skill bundle for bug bounty and external red-team work: 82 skills, 15 slash commands and 681 disclosed-report patterns across 24 vulnerability classes.",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source": "github",
+      "source_url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Security",
+        "Claude Code"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/elementalsouls.png?size=80"
+      },
+      "signals": {
+        "stars": 15467,
+        "stars_gained": 1794,
+        "forks": 1784
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 1,
+      "gist": "gh-claude-bughunter"
+    },
+    {
+      "id": "gh-firecrawl-2026-11-21",
+      "title": "firecrawl/firecrawl",
+      "summary": "One TypeScript API for agents to search the web, scrape pages and query 550+ data providers.",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "source": "github",
+      "source_url": "https://github.com/firecrawl/firecrawl",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "API",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/firecrawl.png?size=80"
+      },
+      "signals": {
+        "stars": 205874,
+        "stars_gained": 999,
+        "forks": 10762
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 5,
+      "gist": "gh-firecrawl"
+    },
+    {
+      "id": "gh-superpowers-2026-11-21",
+      "title": "obra/superpowers",
+      "summary": "A skills framework for coding agents paired with a software development methodology, written in Shell.",
+      "url": "https://github.com/obra/superpowers",
+      "source": "github",
+      "source_url": "https://github.com/obra/superpowers",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Framework",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/obra.png?size=80"
+      },
+      "signals": {
+        "stars": 323460,
+        "stars_gained": 884,
+        "forks": 28700
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 8,
+      "gist": "gh-superpowers"
+    },
+    {
+      "id": "gh-app-store-compliance-2026-11-21",
+      "title": "mjmirza/app-store-compliance",
+      "summary": "Pre-submission guard with 117 App Store and Google Play rejection patterns, privacy manifest and Data safety checks, 95 tracked deadlines like the EU AI Act, and an agent skill.",
+      "url": "https://github.com/mjmirza/app-store-compliance",
+      "source": "github",
+      "source_url": "https://github.com/mjmirza/app-store-compliance",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Dev Tool",
+        "Policy"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mjmirza.png?size=80"
+      },
+      "signals": {
+        "stars": 3176,
+        "stars_gained": 724,
+        "forks": 198
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 11,
+      "gist": "gh-app-store-compliance"
+    },
+    {
+      "id": "gh-autoclip-2026-11-21",
+      "title": "zhouxiaoka/autoclip",
+      "summary": "Desktop app that cuts podcasts, interviews and lectures into short clips with subtitles, covers and post copy for TikTok, Douyin, Xiaohongshu, Reels and Shorts.",
+      "url": "https://github.com/zhouxiaoka/autoclip",
+      "source": "github",
+      "source_url": "https://github.com/zhouxiaoka/autoclip",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Video"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/zhouxiaoka.png?size=80"
+      },
+      "signals": {
+        "stars": 12657,
+        "stars_gained": 689,
+        "forks": 2056
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 14,
+      "gist": "gh-autoclip"
+    },
+    {
+      "id": "gh-diagram-design-2026-11-21",
+      "title": "cathrynlavery/diagram-design",
+      "summary": "Agent skill for editorial diagrams as self-contained HTML and SVG, 45 diagram types, for Claude Code, Codex, Copilot, Cursor and other coding agents.",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "source": "github",
+      "source_url": "https://github.com/cathrynlavery/diagram-design",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Dev Tool",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/cathrynlavery.png?size=80"
+      },
+      "signals": {
+        "stars": 69657,
+        "stars_gained": 582,
+        "forks": 4675
+      },
+      "meta": {
+        "language": "HTML"
+      },
+      "hidden": false,
+      "rank": 16,
+      "gist": "gh-diagram-design"
+    },
+    {
+      "id": "gh-last30days-skill-2026-11-21",
+      "title": "mvanhorn/last30days-skill",
+      "summary": "Agent skill that researches a topic across Reddit, X, YouTube, HN, Polymarket and the web, then writes a summary grounded in what it found.",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "source": "github",
+      "source_url": "https://github.com/mvanhorn/last30days-skill",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mvanhorn.png?size=80"
+      },
+      "signals": {
+        "stars": 71789,
+        "stars_gained": 566,
+        "forks": 6361
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 20,
+      "gist": "gh-last30days-skill"
+    },
+    {
+      "id": "gh-minimind-2026-11-21",
+      "title": "jingyaogong/minimind",
+      "summary": "Python codebase for training a 64M-parameter language model from scratch in about two hours.",
+      "url": "https://github.com/jingyaogong/minimind",
+      "source": "github",
+      "source_url": "https://github.com/jingyaogong/minimind",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "LLM",
+        "Tutorial"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/jingyaogong.png?size=80"
+      },
+      "signals": {
+        "stars": 68032,
+        "stars_gained": 488,
+        "forks": 8897
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 23,
+      "gist": "gh-minimind"
+    },
+    {
+      "id": "gh-stitch-skills-2026-11-21",
+      "title": "google-labs-code/stitch-skills",
+      "summary": "Google Labs library of Agent Skills for the Stitch MCP server, following the open Agent Skills standard so Gemini CLI, Antigravity, Claude Code and Cursor can use them.",
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "source": "github",
+      "source_url": "https://github.com/google-labs-code/stitch-skills",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Google",
+        "MCP",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/google-labs-code.png?size=80"
+      },
+      "signals": {
+        "stars": 11280,
+        "stars_gained": 324,
+        "forks": 1426
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 26,
+      "gist": "gh-stitch-skills"
+    },
+    {
+      "id": "gh-plugins-2026-11-21",
+      "title": "cursor/plugins",
+      "summary": "Cursor's plugin specification alongside the official plugins built on it, in TypeScript.",
+      "url": "https://github.com/cursor/plugins",
+      "source": "github",
+      "source_url": "https://github.com/cursor/plugins",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Cursor",
+        "Dev Tool"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/cursor.png?size=80"
+      },
+      "signals": {
+        "stars": 18016,
+        "stars_gained": 261,
+        "forks": 1967
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 29,
+      "gist": "gh-plugins"
+    },
+    {
+      "id": "tc-is-selling-an-ai-version-of-your-face-to-this-2026-11-21",
+      "title": "Is selling an AI version of your face to this microdrama startup the future of Hollywood?",
+      "summary": "An actor has licensed his likeness to a microdrama startup, a practice already common in China; experts weigh the consequences if Hollywood follows.",
+      "url": "https://techcrunch.com/2026/11/21/is-selling-an-ai-version-of-your-face-to-this-microdrama-startup-the-future-of-hollywood/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/21/is-selling-an-ai-version-of-your-face-to-this-microdrama-startup-the-future-of-hollywood/",
+      "category": "news",
+      "tags": [
+        "Video"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Inevitable-Key-Art_3x4-full-size.jpg?resize=899,1200"
+      },
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "6 minutes"
+      },
+      "published_at": "2026-11-21T16:00:00Z",
+      "hidden": false,
+      "rank": 3,
+      "gist": "tc-is-selling-an-ai-version-of-your-face-to-this"
+    },
+    {
+      "id": "tc-daniel-ek-backs-ai-researchers-fusion-power-2026-11-21",
+      "title": "Daniel Ek backs AI researcher’s fusion power startup. Here’s what they’re building.",
+      "summary": "The Spotify founder is backing Europa Fusion, a fusion power startup founded by an AI researcher; TechCrunch looks at what it is building.",
+      "url": "https://techcrunch.com/2026/11/20/daniel-ek-backs-ai-researchers-fusion-power-startup-heres-what-theyre-building/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/20/daniel-ek-backs-ai-researchers-fusion-power-startup-heres-what-theyre-building/",
+      "category": "news",
+      "tags": [
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2023/07/GettyImages-1500013882.jpg?resize=1200,812"
+      },
+      "meta": {
+        "author": "Tim De Chant",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-20T19:53:41Z",
+      "hidden": false,
+      "rank": 7,
+      "gist": "tc-daniel-ek-backs-ai-researchers-fusion-power"
+    },
+    {
+      "id": "tc-ai-claimed-a-solution-to-the-167-year-old-2026-11-21",
+      "title": "AI claimed a solution to the 167-year-old Riemann hypothesis — and a human did, too",
+      "summary": "Mathematicians are weighing an AI-driven claimed proof against a competing human solution to the same problem.",
+      "url": "https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/",
+      "category": "news",
+      "tags": [
+        "Reasoning"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2022/08/GettyImages-1219382595.jpg?resize=1200,750"
+      },
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-20T19:32:08Z",
+      "hidden": false,
+      "rank": 13,
+      "gist": "tc-ai-claimed-a-solution-to-the-167-year-old"
+    },
+    {
+      "id": "tc-chips-can-survive-the-space-environment-can-2026-11-21",
+      "title": "Chips can survive the space environment — can their financing?",
+      "summary": "Lenders balk at collateral launched into orbit by SpaceX, raising the question of how space data centers get financed.",
+      "url": "https://techcrunch.com/2026/11/20/chips-can-survive-the-space-environment-can-their-financing/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/20/chips-can-survive-the-space-environment-can-their-financing/",
+      "category": "news",
+      "tags": [
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/06/SpaceXAIsatrender.jpg?resize=1200,639"
+      },
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-20T17:40:01Z",
+      "hidden": false,
+      "rank": 18,
+      "gist": "tc-chips-can-survive-the-space-environment-can"
+    },
+    {
+      "id": "tc-the-fallout-from-nvidias-jensen-huang-scandal-2026-11-21",
+      "title": "The fallout from Nvidia’s Jensen Huang scandal continues",
+      "summary": "Equity podcast on Nvidia's strong earnings after Huang's ouster, its retreat from China, and how Anthropic's IPO tests AI's circular financing.",
+      "url": "https://techcrunch.com/podcast/the-fallout-from-nvidias-jensen-huang-scandal-continues/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/podcast/the-fallout-from-nvidias-jensen-huang-scandal-continues/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Anthropic"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Jensen-Huang.jpg?w=1024"
+      },
+      "meta": {
+        "reading_time": "1 minute"
+      },
+      "published_at": "2026-11-20T14:55:44Z",
+      "hidden": false,
+      "rank": 22,
+      "gist": "tc-the-fallout-from-nvidias-jensen-huang-scandal"
+    },
+    {
+      "id": "tc-six-ai-powered-gadgets-that-could-make-your-2026-11-21",
+      "title": "Six AI-powered gadgets that could make your home office smarter",
+      "summary": "Roundup of six AI hardware picks for a home workspace, from meeting notetakers to webcams.",
+      "url": "https://techcrunch.com/2026/11/20/6-ai-powered-gadgets-that-could-make-your-home-office-smarter/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/20/6-ai-powered-gadgets-that-could-make-your-home-office-smarter/",
+      "category": "news",
+      "tags": [
+        "Voice / Speech"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2023/08/GettyImages-1348850409.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Lauren Forristal",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-11-20T14:00:00Z",
+      "hidden": false,
+      "rank": 28,
+      "gist": "tc-six-ai-powered-gadgets-that-could-make-your"
+    },
+    {
+      "id": "hn-frostbite-a-new-cpu-architecture-discovered-2026-11-21",
+      "title": "Frostbite: A new CPU architecture discovered, designed and verified by AI",
+      "summary": "Architect Labs blog post on a CPU architecture it says was discovered, designed and verified by AI.",
+      "url": "https://architectlabs.com/blog/frostbite",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50572503",
+      "category": "hn",
+      "tags": [
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 657,
+        "comments": 342
+      },
+      "meta": {
+        "author": "shioyama"
+      },
+      "published_at": "2026-11-20T10:01:41Z",
+      "hidden": false,
+      "rank": 2,
+      "gist": "hn-frostbite-a-new-cpu-architecture-discovered"
+    },
+    {
+      "id": "hn-restricting-ai-agents-in-mobile-operating-2026-11-21",
+      "title": "Restricting AI agents in mobile operating systems platforms from capturing data",
+      "summary": "Signal blog post on limiting how AI agents built into mobile operating systems can capture app data.",
+      "url": "https://signal.org/blog/protecting-your-privacy/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50572348",
+      "category": "hn",
+      "tags": [
+        "Privacy",
+        "Agents"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 559,
+        "comments": 329
+      },
+      "meta": {
+        "author": "dotcoma"
+      },
+      "published_at": "2026-11-20T09:42:16Z",
+      "hidden": false,
+      "rank": 6,
+      "gist": "hn-restricting-ai-agents-in-mobile-operating"
+    },
+    {
+      "id": "hn-language-models-can-rewrite-their-own-weights-2026-11-21",
+      "title": "Language Models Can Rewrite Their Own Weights",
+      "summary": "arXiv paper on language models that modify their own weights.",
+      "url": "https://arxiv.org/abs/2611.21885",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50577265",
+      "category": "hn",
+      "tags": [
+        "Paper",
+        "LLM",
+        "Fine-tuning"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 450,
+        "comments": 132
+      },
+      "meta": {
+        "author": "lwhsiao"
+      },
+      "published_at": "2026-11-20T16:29:06Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 9,
+      "gist": "hn-language-models-can-rewrite-their-own-weights"
+    },
+    {
+      "id": "hn-nasdaq-erases-all-2026-gains-as-ai-sell-off-2026-11-21",
+      "title": "Nasdaq erases all 2026 gains as AI sell-off dampens Anthropic’s second day",
+      "summary": "Guardian markets report on the AI sell-off during Anthropic's second trading day; the WSJ separately puts the AI stock wipeout at $4T.",
+      "url": "https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50574383",
+      "category": "hn",
+      "tags": [
+        "Anthropic"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 419,
+        "comments": 739
+      },
+      "meta": {
+        "author": "cdrnsf"
+      },
+      "published_at": "2026-11-20T13:29:59Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 12,
+      "gist": "hn-global-stock-markets-slump-as-anthropic-s"
+    },
+    {
+      "id": "hn-google-workers-tell-their-employer-not-to-2026-11-21",
+      "title": "Google workers tell their employer not to punish schools that don't want AI",
+      "summary": "Mother Jones reports on an Alphabet union petition asking Google not to penalize schools that opt out of Gemini.",
+      "url": "https://www.motherjones.com/politics/2026/11/google-alphabet-union-school-ai-protest-gemini-workers-petition/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50577901",
+      "category": "hn",
+      "tags": [
+        "Google",
+        "Policy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 277,
+        "comments": 219
+      },
+      "meta": {
+        "author": "cdrnsf"
+      },
+      "published_at": "2026-11-20T16:59:27Z",
+      "hidden": false,
+      "rank": 15,
+      "gist": "hn-google-workers-tell-their-employer-not-to"
+    },
+    {
+      "id": "hn-what-comes-after-agi-2026-11-21",
+      "title": "What Comes After AGI?",
+      "summary": "Essay from the Google DeepMind institute on what follows once AGI arrives.",
+      "url": "https://institute.deepmind.com/essays/what-comes-after-agi/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50569519",
+      "category": "hn",
+      "tags": [
+        "Google",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 170,
+        "comments": 328
+      },
+      "meta": {
+        "author": "jdkee"
+      },
+      "published_at": "2026-11-20T02:44:13Z",
+      "hidden": false,
+      "rank": 17,
+      "gist": "hn-what-comes-after-agi"
+    },
+    {
+      "id": "hn-clawdos-an-ai-coding-agent-for-dos-2026-11-21",
+      "title": "ClawDOS – An AI coding agent for DOS",
+      "summary": "Hobby project running an AI coding agent under DOS, hosted on the author's personal site.",
+      "url": "http://ricapar.net/ClawDOS/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50586292",
+      "category": "hn",
+      "tags": [
+        "Code Gen",
+        "Agents"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 125,
+        "comments": 39
+      },
+      "meta": {
+        "author": "Ricapar"
+      },
+      "published_at": "2026-11-21T05:38:01Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 21,
+      "gist": "hn-clawdos-an-ai-coding-agent-for-dos"
+    },
+    {
+      "id": "hn-chatgpt-for-snes-2026-11-21",
+      "title": "ChatGPT for SNES",
+      "summary": "BX Foundry project bringing a ChatGPT chat interface to the Super Nintendo.",
+      "url": "https://www.bxfoundry.com/chatgpt_snes/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50568548",
+      "category": "hn",
+      "tags": [
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 125,
+        "comments": 41
+      },
+      "meta": {
+        "author": "evan_"
+      },
+      "published_at": "2026-11-20T00:25:59Z",
+      "hidden": false,
+      "rank": 24,
+      "gist": "hn-chatgpt-for-snes"
+    },
+    {
+      "id": "hn-ai-is-giving-everyone-the-same-advice-2026-11-21",
+      "title": "AI is giving everyone the same advice",
+      "summary": "Experiment on a90.com testing whether AI models give different people the same advice.",
+      "url": "https://a90.com/experiments/same-advice/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50577872",
+      "category": "hn",
+      "tags": [
+        "LLM",
+        "Eval"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 104,
+        "comments": 43
+      },
+      "meta": {
+        "author": "amin"
+      },
+      "published_at": "2026-11-20T16:58:05Z",
+      "hidden": false,
+      "rank": 27,
+      "gist": "hn-ai-is-giving-everyone-the-same-advice"
+    },
+    {
+      "id": "hn-anthropic-s-ipo-bust-deepens-4t-ai-wipeout-on-2026-11-21",
+      "title": "Anthropic's IPO Bust Deepens $4T AI Wipeout on Wall Street",
+      "summary": "WSJ markets piece on Anthropic's weak debut; the Guardian reports the same sell-off erased the Nasdaq's 2026 gains.",
+      "url": "https://www.wsj.com/finance/stocks/anthropics-ipo-bust-punctuates-4-trillion-ai-wipeout-on-wall-street-f1f1ec90",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50582280",
+      "category": "hn",
+      "tags": [
+        "Anthropic"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 62,
+        "comments": 5
+      },
+      "meta": {
+        "author": "qlte"
+      },
+      "published_at": "2026-11-20T21:18:46Z",
+      "hidden": false,
+      "rank": 30,
+      "gist": "hn-anthropic-s-ipo-bust-deepens-4t-ai-wipeout-on"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "slug": "hn-ai-is-giving-everyone-the-same-advice",
+  "kind": "hn",
+  "title": "AI is giving everyone the same advice",
+  "url": "https://a90.com/experiments/same-advice/",
+  "source_url": "https://news.ycombinator.com/item?id=50577872",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "LLM",
+    "Eval"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Cody Collier asked 65 AI models the same everyday questions ten times each and found their advice converges on a handful of default answers, set during fine-tuning.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Asked for a life-changing book, models named Man's Search for Meaning 73 times in 100; 98% said to put $10,000 in an index fund.",
+        "Variety appears only within one chat: new chats return the same first answer.",
+        "Invented people are 34 years old 69% of the time, and each lab has a signature name, such as Marisol for Claude and Elena for Gemini.",
+        "Answers to harmless questions identify a model's maker: 59% sit nearest a sibling from the same lab.",
+        "Measuring OLMo at each training stage, the favourite answer appears at supervised fine-tuning, not pretraining."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "counterpoint",
+          "text": "Some argue a generic question with no context should get the most likely answer, and much of this is sound consensus advice.",
+          "url": "https://news.ycombinator.com/item?id=50582000"
+        },
+        {
+          "stance": "theme",
+          "text": "Others connect it to known research that RL training amplifies small preferences, visible in near-identical outputs across models.",
+          "url": "https://news.ycombinator.com/item?id=50586023"
+        },
+        {
+          "stance": "disputed",
+          "text": "One user got different answers with personalization on; a reply says a handful of tries proves little.",
+          "url": "https://news.ycombinator.com/item?id=50583202"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "AI is giving everyone the same advice",
+      "url": "https://a90.com/experiments/same-advice/"
+    },
+    {
+      "role": "discussion",
+      "title": "AI is giving everyone the same advice",
+      "url": "https://news.ycombinator.com/item?id=50577872"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-ai-is-giving-everyone-the-same-advice-2026-11-21",
+      "edition_date": "2026-11-21"
+    }
+  ],
+  "created_at": "2026-11-21T16:08:42Z",
+  "updated_at": "2026-11-21T16:08:42Z",
+  "stats": {
+    "points": 104,
+    "comments": 43,
+    "submitted_by": "amin",
+    "posted_at": "2026-11-20T16:58:05Z"
+  },
+  "stats_as_of": "2026-11-21T16:06:56Z"
+}

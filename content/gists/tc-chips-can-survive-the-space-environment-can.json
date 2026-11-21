@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "slug": "tc-chips-can-survive-the-space-environment-can",
+  "kind": "news",
+  "title": "Chips can survive the space environment — can their financing?",
+  "url": "https://techcrunch.com/2026/11/20/chips-can-survive-the-space-environment-can-their-financing/",
+  "source_url": "https://techcrunch.com/2026/11/20/chips-can-survive-the-space-environment-can-their-financing/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Funding"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/06/SpaceXAIsatrender.jpg?resize=1200,639"
+  },
+  "depth": "full",
+  "lede": "Data center debt is usually secured against the GPUs themselves, and lenders cannot repossess chips in orbit, which complicates financing for space-based compute.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Used chips hold resale value, which makes them good collateral: some H100s still fetch about half their 2023 cost.",
+        "The Financial Times reports lenders on SpaceX's $40 billion chip deal asked that none of the chips go to orbital data centers.",
+        "It is unclear whether SpaceX accepted; its ground-based compute is already lucrative.",
+        "Elon Musk says space will be the cheapest place for data centers within two to three years, which likely needs a fully reusable Starship.",
+        "Startups including StarCloud, Sophia Space and Orbital face the same financing problem, while Google plans to fly its own TPUs."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "Compute financing depends on chips keeping resale value; orbital compute removes that backstop, so its capital will cost more than ground capacity."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Chips can survive the space environment — can their financing?",
+      "url": "https://techcrunch.com/2026/11/20/chips-can-survive-the-space-environment-can-their-financing/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-chips-can-survive-the-space-environment-can-2026-11-21",
+      "edition_date": "2026-11-21"
+    }
+  ],
+  "created_at": "2026-11-21T16:08:42Z",
+  "updated_at": "2026-11-21T16:08:42Z"
+}

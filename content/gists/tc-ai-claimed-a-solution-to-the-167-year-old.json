@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "slug": "tc-ai-claimed-a-solution-to-the-167-year-old",
+  "kind": "news",
+  "title": "AI claimed a solution to the 167-year-old Riemann hypothesis — and a human did, too",
+  "url": "https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/",
+  "source_url": "https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Reasoning"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2022/08/GettyImages-1219382595.jpg?resize=1200,750"
+  },
+  "depth": "full",
+  "lede": "Anthropic mathematician Levent Alpöge released a Lean-verified proof of the Riemann hypothesis found working with Claude, while a separate all-human proof surfaced from Stanford.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Alpöge's proof is formalised in Lean, and mathematicians including MIT's Andrew Sutherland report that it compiles.",
+        "He released it before writing a human-readable explanation, and has committed to producing one.",
+        "Experts on Zulip are still working through the argument, which draws on deep results in automorphic forms.",
+        "Ravi Vakil posted a draft proof by postdoc Alessandro Masullo, described as entirely human and the result of 12 years of work; it is not formalised.",
+        "Alpöge and NYU's Tristan Buckmaster also released a proof related to the Navier-Stokes equations."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "Formal verification let a machine-assisted proof be checked before anyone fully understood it, which makes Lean output the bar for trusting AI-generated mathematics."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "AI claimed a solution to the 167-year-old Riemann hypothesis — and a human did, too",
+      "url": "https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-ai-claimed-a-solution-to-the-167-year-old-2026-11-21",
+      "edition_date": "2026-11-21"
+    }
+  ],
+  "created_at": "2026-11-21T16:08:42Z",
+  "updated_at": "2026-11-21T16:08:42Z"
+}
