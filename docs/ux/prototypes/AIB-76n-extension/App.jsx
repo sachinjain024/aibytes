@@ -256,7 +256,7 @@ function Popup({ opts, user, saves, toggleSave, onSignIn, onClose }) {
               gistHref={GISTS[item.id] ? "#gist" : undefined} onOpenGist={GISTS[item.id] ? open : undefined} />
           ))}</RowList>
         )}
-        {tab === "today" && <p className="proto-pop-end">That's the {ED.short} edition. {toSite}</p>}
+        {tab === "today" && <p className="proto-pop-end">That's the {ED.short} edition.</p>}
       </div>
       {showPrompt && (
         <div className="proto-pop-prompt" role="status">
@@ -264,7 +264,7 @@ function Popup({ opts, user, saves, toggleSave, onSignIn, onClose }) {
           <span>Stars are kept in this browser. <a href="#signin" onClick={e => { e.preventDefault(); onSignIn(); }}>Sign in on aibytes.io</a> to keep them in your account.</span>
         </div>
       )}
-      {opts.saved === "1" || <div className="proto-pop-foot proto-pop-foot--quiet">{toSite}</div>}
+      <div className="proto-pop-foot proto-pop-foot--sticky"><span className="proto-pop-foot-meta">{ED.short} · {RANKED.length} items</span>{toSite}</div>
       {note && <p className="proto-pop-note" role="status">{note}</p>}
     </div>
   );
