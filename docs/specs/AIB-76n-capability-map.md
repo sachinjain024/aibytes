@@ -1,7 +1,10 @@
 # Capability map: AIB-76n, the Chrome extension
 
-Status: **approved 21 Nov 2026, with the answers below.** Module specs follow
-in build order. Progress is tracked in the ticket's checklist.
+Status: **approved 21 Nov 2026, with the answers below; revised 22 Nov 2026
+after the PR #73 review** (Saved's data, the contract's refuse rule, the
+subscriber `source` path, the merge, sign-in sync, icons, `app-core`'s list).
+Module specs follow in build order once the revisions are accepted. Progress is
+tracked in the ticket's checklist.
 
 Source of the work: `.longclaw/tickets/AIB-76n/ticket.md` (goal and statement
 of intent, confirmed 20 Nov 2026), and the design decided on 20–21 Nov 2026 in
@@ -30,7 +33,10 @@ What a reader can do when the map is done:
    and "View on Web".
 2. Star any row. Signed out, the star is kept in the extension. Signed in, it
    is written to `users/{uid}/saves`, so it shows in Saved on aibytes.io.
-3. Press the ☆ button to see their saved items. Press it again to go back.
+3. Press the ☆ button to see every item they have saved: the same list as
+   Saved on aibytes.io, one section per edition or weekly issue, newest first,
+   ranked inside each, with hidden items left out and counted in the site's
+   note. Press it again to go back to today.
 4. Select a row with a gist and read it full size in the popup. "← Today" (or
    "← Saved") is at the top; the star and "View on Web" are in a bar at the
    bottom (D2). A row without a gist opens its source in a new tab.
@@ -53,12 +59,12 @@ privileged backend call and an IAM grant.
 
 | Module id | Responsibility | Depends on |
 |---|---|---|
-| `ledger-extension-ui` | The new visual pieces, in Ledger, with `.d.ts`, `.prompt.md` and UI kit screens. **Popup:** a header (wordmark, date, saved toggle with count, Sign in or avatar); the sticky footer; the gist view's top bar and bottom action bar (D2). **Onboarding:** the step card ("Step n of 2", number or tick, Optional tag), the pin animation (F1, with its five captions and still under `prefers-reduced-motion`), and the large Google button. **Site:** `ExtensionPromo` (the H3 box) and an optional `promo` slot at the top of `Sidebar`'s footer. **Brand:** the extension icon, the favicon tile, as `ExtensionIcon`. Every option is off by default, so aibytes.io is unchanged | — |
-| `app-core` | Move the shared pure modules from `apps/web/src` into a new workspace package, `packages/app-core`, unchanged, with their tests: `order.js` (`rankedItems`), `saves.js` (`localSaves`, `readSaves`, `clearSaves`), `accountData.js`, `accountSaves.js` (with `mergeInto`), `merge.js`, `firebase-config.js`, and the few helpers they import (`isRealDate`, `browserStorage`). `apps/web` imports them from there. A refactor with no visible change | — |
-| `extension-popup` | `apps/extension` (`@aibytes/extension`): Manifest V3, Vite + React, Ledger, with the manifest `key` below. The popup reads `content/index.json`, the latest edition and `gists/<slug>.json` from `https://aibytes.io/content/`. It shows visible items in `rankedItems` order, the Saved toggle, the gist view, and local saves. Every link opens a new tab. The last edition is cached so the popup paints at once. Also: the manifest with only the permissions the build needs, its `key` (so dev builds keep the store ID), the background worker opening onboarding on install only, `npm run dev:extension`, and `npm run package:extension` building the zip | `ledger-extension-ui`, `app-core` |
-| `extension-auth` | Signing the extension in, and syncing its saves. **Function:** a callable `aibytesExtensionToken` in `functions/`, which mints a Firebase custom token for the caller's own uid. **Extension:** `externally_connectable` for `https://aibytes.io/*`, and a background handler for the message protocol below. It checks the sender's origin, signs in with `firebase/auth/web-extension`, and answers status questions (installed, version, pinned, signed-in uid). **Popup:** uses the account store while signed in, and merges local saves into the account on the first open after sign-in. **The protocol** (the provider side of the contract `site-extension` uses) is specified here | `extension-popup`, `app-core` |
-| `site-extension` | The aibytes.io side. **A bridge module:** asks the extension for its status, sends a token after every sign-in (and on load, when the site is signed in and the extension isn't, or is signed in as someone else), and sends sign-out. **The onboarding page** at `/extension-onboarding` (a real page, noindex): steps 1 and 2 (E2 F1 G1), the done card, and the not-installed state with "Add to Chrome". The newsletter box subscribes through the AIB-140p path with a new `source`, `"extension-onboarding"`, which needs a rules change. **The install box** (H3) in the sidebar, while the extension is absent, on desktop Chrome only. Umami events for the box and the onboarding steps | `ledger-extension-ui`, `extension-auth` |
-| `store-listing` | The update, live. Version `YY.M.D` of the submission day (above 26.1.15). The icon (from the favicon), screenshots, small promo tile, and a name, short description and description written for store search and conversion. The privacy answers (Google account email and uid for sign-in, saved item ids). `/privacy` updated to cover the extension. Submit; once live, the footer's "Chrome Extension (soon)" becomes a link to the listing. Product spec §9 rewritten | `extension-popup`, `extension-auth`, `site-extension` |
+| `ledger-extension-ui` | The new visual pieces, in Ledger, with `.d.ts`, `.prompt.md` and UI kit screens. **Popup:** a header (wordmark, date, saved toggle with count, Sign in or avatar); the sticky footer; the gist view's top bar and bottom action bar (D2). **Onboarding:** the step card ("Step n of 2", number or tick, Optional tag), the pin animation (F1, with its five captions and still under `prefers-reduced-motion`), and the large Google button. **Site:** `ExtensionPromo` (the H3 box) and an optional `promo` slot at the top of `Sidebar`'s footer. **Brand:** the extension icon, the favicon tile, as `ExtensionIcon` for pages, and PNGs rasterised from `apps/web/public/favicon.svg` at 16, 32, 48 and 128 px for the manifest and the store (Chrome takes no SVG for `action` icons). Every option is off by default, so aibytes.io is unchanged | — |
+| `app-core` | Move the shared pure modules from `apps/web/src` into a new workspace package, `packages/app-core`, unchanged, with their tests, and point `apps/web` at them. **Ranking:** `rankedItems` and its fallback (`TIE_ORDER`) from `order.js`; `groupedItems` and `X_GROUP` stay in `apps/web`, so `CATEGORIES` does not move. **Visibility:** `inFeed` (not hidden, not an X row) from `filters.js`, alone. **Saves:** `saves.js` (`localSaves`, `readSaves`, `clearSaves`, `asSave`, `sourceOf`), `accountData.js`, `accountSaves.js` (with `mergeInto`), `merge.js`. **Saved list:** `saved.js` (`filesToLoad`, `savedGroups`, `leftOutNote`, `savedFeed`) and the `format.js` dates it uses. **Config:** `firebase-config.js`. **Helpers:** `isRealDate`, `browserStorage`. The extension never imports `apps/web/src`. A refactor with no visible change | — |
+| `extension-popup` | `apps/extension` (`@aibytes/extension`): Manifest V3, Vite + React, Ledger, with the manifest `key` below. The popup reads `content/index.json`, the latest edition and `gists/<slug>.json` from `https://aibytes.io/content/`. **Today:** the whole edition goes through `rankedItems` (hidden items included, so standing is over the edition), then `inFeed` filters it; filtering first would reshuffle it. **Saved:** as `/saved`, through `app-core`'s `saved.js`: it loads `weekly/index.json` too, then only the editions and issues the saves name. **Contract:** a file whose `schema_version` is not 1 is refused, with an error state and no rows (`feed.d.ts`). **Gists:** a row without `gist`, or whose gist file 404s, opens its source in a new tab. Every link opens a new tab. **Cache:** the last edition is kept in the popup's `localStorage` (`aibytes-extension-edition`, apart from saves), read synchronously and painted first, then replaced by the fetch. **Saves signed out** live in `chrome.storage.local` (the `storage` permission, which shows no install warning), so the background can merge them (see `extension-auth`): a small adapter loads them before the stars render and gives `localSaves` the synchronous storage it expects. Also: the manifest with only the permissions the build needs, its `key` (so dev builds keep the store ID), the background worker opening onboarding on install only, `npm run dev:extension`, and `npm run package:extension` building the zip | `ledger-extension-ui`, `app-core` |
+| `extension-auth` | Signing the extension in, and syncing its saves. **Function:** a callable `aibytesExtensionToken` in `functions/`, which mints a Firebase custom token for the caller's own uid. **Extension:** `externally_connectable` for `https://aibytes.io/*`, and a background handler for the message protocol below. It checks the sender's origin, signs in with `firebase/auth/web-extension`, and answers status questions (installed, version, pinned, signed-in uid). **Merge:** on every successful `signin`, the background runs `mergeInto` with the saves in `chrome.storage.local` and clears them once the batch commits, as the web does on sign-in; the popup retries on open if that write failed or is still in flight. **Popup:** uses the account store while signed in. **The token:** minted only for `request.auth.uid`; sent only by `sendMessage` to this extension's ID; never logged, stored in Firestore or echoed in a reply; dropped after `signInWithCustomToken`. **Publisher steps:** the IAM grant (*Service Account Token Creator*), `chrome-extension://faamldnehjdjdobapchedpmldfjjfife` added to Firebase Auth's authorised domains, and a check that the web API key has no HTTP-referrer restriction that would refuse the extension. **Runbook:** `functions/README.md` gains the new function: the list before and after a deploy keeps `aibytesReportSubscribeFailure` and gains `aibytesExtensionToken`; if the CLI offers to delete anything, stop. **The protocol** (the provider side of the contract `site-extension` uses) is specified here | `extension-popup`, `app-core` |
+| `site-extension` | The aibytes.io side. **A bridge module** that reconciles on every aibytes.io load and every auth change: it asks the extension for its status; if the site is signed in and the extension's uid is missing or different, it sends `signin` with a fresh token; if the site is signed out and the extension has a uid, it sends `signout`. So a missed message is put right on the next visit. **The onboarding page** at `/extension-onboarding` (a real page, noindex): steps 1 and 2 (E2 F1 G1), the done card, and the not-installed state with "Add to Chrome". The newsletter box subscribes through the AIB-140p path with a new `source`: `subscribe` and `toSubscriberDoc` take a `source` (default `"signin-prompt"`, so the existing prompt is unchanged); `firestore.rules` allows `'signin-prompt'` or `'extension-onboarding'`; emulator tests cover both and refuse anything else. The publisher deploys the rules **before** the site code that writes the new value ships (rules that allow both values break nothing already live). **The install box** (H3) in the sidebar, while the extension is absent, on desktop Chrome only. Umami events for the box and the onboarding steps | `ledger-extension-ui`, `extension-auth` |
+| `store-listing` | The update, live. Version `YY.M.D` of the submission day (above 26.1.15). The icon (from the favicon), screenshots, small promo tile, and a name, short description and description written for store search and conversion. The privacy answers (Google account email and uid for sign-in, saved item ids). `/privacy` updated to cover the extension. The permission set is frozen before the zip, since adding a permission that warns in a later update disables the extension for existing users until they accept it. Submit; once live, the footer's "Chrome Extension (soon)" becomes a link to the listing | `extension-popup`, `extension-auth`, `site-extension` |
 
 Out of scope, per the ticket: the new tab (AIB-151m); launch posts and the demo
 video (AIB-152d, which reuses this map's screenshots); monetization; content
@@ -106,8 +112,9 @@ extension as absent and shows nothing about it.
 
 For step 1's live tick, the onboarding page opens a port
 (`chrome.runtime.connect`) and the extension posts `{ pinned }` whenever
-`action.onUserSettingsChanged` fires. Where that event is missing, the page asks
-for status every 2 seconds while step 1 shows. The extension accepts messages
+`action.onUserSettingsChanged` fires. That event is Chrome 130+; `getUserSettings` is
+Chrome 91+. Where the event is missing, the page asks for status every 2
+seconds while step 1 shows. The extension accepts messages
 only when `sender.origin === "https://aibytes.io"` (plus `http://localhost:5173`
 in dev builds only). `EXTENSION_ID` is `faamldnehjdjdobapchedpmldfjjfife` in a
 site constant, and the dev build has the same ID through the manifest `key`.
@@ -167,11 +174,13 @@ unpacked in Chrome, in light and dark, against the live `content/`.
 
 **Boundaries**
 
-- *Always:* read only contract fields and ignore unknown ones (the extension
-  cannot be hotfixed); feature-detect every Chrome API used; keep copy in one
+- *Always:* read only contract fields and ignore unknown ones, and refuse a
+  file with an unknown `schema_version` (the extension cannot be hotfixed);
+  rank the whole file, then filter; feature-detect every Chrome API used; keep copy in one
   table per surface, taken from the prototype's `copy.js`; run every package's
   tests before a commit.
-- *Ask first:* nothing for permissions (see answer 1); any new
+- *Ask first:* nothing for permissions while building (answer 1; the set
+  starts as `storage` alone), but none added once 26.x ships; any new
   dependency beyond `firebase` in the extension; any change to
   `firestore.rules` beyond the one `source` value; anything sent to the store.
 - *Never:* commit the store's private key or any credential (the manifest `key`
@@ -184,8 +193,10 @@ unpacked in Chrome, in light and dark, against the live `content/`.
 - The 7 reader outcomes above work in Chrome stable with the live `content/`.
 - `manifest.json` requests only the permissions the build uses, each with its
   reason in the module spec and the store's justification text.
-- The popup shows a cached edition within 100 ms of opening, and the fresh one
-  once it loads.
+- The popup paints the cached edition from `localStorage` within 100 ms of
+  opening, and the fresh one once it loads.
+- Saved in the popup and `/saved` on aibytes.io list the same items for the
+  same account.
 - A star made in the popup while signed in shows in Saved on aibytes.io (after
   a reload there), and the other way round.
 - Signing out on aibytes.io signs the extension out; the next popup shows Sign
@@ -200,13 +211,18 @@ unpacked in Chrome, in light and dark, against the live `content/`.
 Correct any of these now; the module specs are written on them.
 
 1. **Minimal permissions, added as needed.** The content is served with
-   `access-control-allow-origin: *`, and `getUserSettings`, `tabs.create` and
-   `onInstalled` need none, so the starting point is none. A module may add one
-   when the build needs it (answer 1); the spec names it and why.
-2. **Saves signed out live in the popup's `localStorage`** (the extension's own
-   origin), through `localSaves` from `app-core`, so no `storage` permission is
-   needed. The merge into the account runs in the popup, on its first open
-   after a sign-in, as on the web.
+   `access-control-allow-origin: *` (checked live on 22 Nov 2026 on
+   `/content/index.json`, with `cache-control: max-age=600`), so no host
+   permission; `getUserSettings`, `tabs.create`, `onInstalled` and
+   `onMessageExternal` need none; `externally_connectable` is a manifest key,
+   not a permission. The set is `storage` alone (assumption 2). A module may add
+   one when the build needs it (answer 1); the spec names it and why.
+2. **Saves signed out live in `chrome.storage.local`,** not the popup's
+   `localStorage`, because the background service worker has no
+   `localStorage` and must merge them the moment a sign-in arrives (as the web
+   merges as soon as it sees a uid). That needs the `storage` permission, which
+   shows no install warning. Only the edition cache stays in `localStorage`,
+   for a synchronous first paint.
 3. **The popup's Sign in opens `aibytes.io/extension-onboarding?step=signin`,**
    which shows step 2 alone. Signing in there sends the token as any sign-in
    does.
@@ -232,11 +248,19 @@ Correct any of these now; the module specs are written on them.
 - **Firebase Auth in an MV3 service worker.** `firebase/auth/web-extension`
   (in the installed `firebase` 13.2.0) is meant for this, but sign-in from the
   worker is a spike, the first task of `extension-auth`. If it fails, the
-  fallback is for the worker to keep the token for one hour (custom tokens
-  expire after that), and for the popup to sign in on its next open.
-- **The IAM grant.** `createCustomToken` needs the functions' service account
-  to hold *Service Account Token Creator*. That is a one-time grant by the
-  publisher, and `extension-auth` waits on it.
+  fallback is for the worker to keep the unused token in
+  `chrome.storage.session` (a worker's memory does not last; custom tokens
+  expire after an hour) and for the popup to sign in with it on its next open;
+  after an hour the bridge's reconcile sends a fresh one.
+- **The publisher's Firebase steps.** `createCustomToken` needs the functions'
+  service account to hold *Service Account Token Creator*; Firebase Auth needs
+  `chrome-extension://faamldnehjdjdobapchedpmldfjjfife` as an authorised domain
+  (Firebase's Chrome-extension guide); and a referrer-restricted API key would
+  refuse the extension. `extension-auth` waits on all three.
+- **XSS on aibytes.io** could ask the callable for a token and hand it to the
+  extension, but it could already act as the signed-in reader on the site, so
+  the extension adds no new reach. Pages outside `externally_connectable`'s
+  `matches` cannot message the extension at all.
 - **The store review** can take days, and asks for a justification for
   `externally_connectable`. `store-listing` writes that text.
 - **The popup bundle.** React, Ledger and the Firebase modules are bundled
