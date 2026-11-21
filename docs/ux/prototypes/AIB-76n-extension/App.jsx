@@ -99,8 +99,9 @@ const OPTIONS = {
 };
 
 // Choices the publisher has confirmed: shown as "E2 ✓" and fixed. Kept in
-// OPTIONS so the letters never shift. E2 confirmed 20 Nov 2026.
-const DECIDED = { flow: "2" };
+// OPTIONS so the letters never shift. E2 confirmed 20 Nov 2026; A2 B1 C1 D2
+// confirmed 21 Nov 2026.
+const DECIDED = { saved: "2", row: "1", signin: "1", gist: "2", flow: "2" };
 const DEFAULTS = { ...Object.fromEntries(Object.keys(OPTIONS).map(k => [k, "1"])), ...DECIDED };
 
 // ---------- the Chrome toolbar ----------
@@ -111,9 +112,13 @@ function Puzzle() {
 function Pin({ on }) {
   return <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 2l4 4-2 1-2.5 2.5L9 13l-6-6 3.5-.5L9 4z M3 13l3-3" fill={on ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/></svg>;
 }
-/** The extension's toolbar icon. No drawn logo exists (Ledger readme), so the prototype uses the wordmark's ⚡ on an accent tile; the store icon is designed separately. */
+/** The extension's icon: the aibytes.io favicon (apps/web/public/favicon.svg), the wordmark's bolt on a cobalt tile. Its colours are fixed brand colours, the same in both themes. */
 function ExtIcon({ size = 20 }) {
-  return <span className="proto-exticon" style={{ width: size, height: size, fontSize: size * 0.62 }} aria-hidden="true">⚡</span>;
+  return (
+    <svg className="proto-exticon" width={size} height={size} viewBox="0 0 32 32" aria-hidden="true">
+      <rect width="32" height="32" rx="7" fill="#285ed1" /><path d="M18.2 3 7 18.4h7.6L12.8 29 25 13.2h-7.9z" fill="#fff" />
+    </svg>
+  );
 }
 
 function ChromeBar({ url, pinned, setPinned, popupOpen, setPopupOpen, installed }) {
@@ -211,7 +216,7 @@ function Popup({ opts, user, saves, toggleSave, onSignIn, onClose }) {
       <span className="proto-pop-date">{ED.mid}</span>
       <span className="proto-pop-head-r">
         {opts.saved === "2" && (
-          <button className={"proto-pop-savedbtn" + (tab === "saved" ? " is-on" : "")} aria-pressed={tab === "saved"} onClick={() => { setTab(t => t === "saved" ? "today" : "saved"); setOpenId(null); }}>
+          <button className={"proto-pop-savedbtn" + (tab === "saved" ? " is-on" : "")} aria-pressed={tab === "saved"} aria-label={t("pop.savedbtn")} onClick={() => { setTab(t => t === "saved" ? "today" : "saved"); setOpenId(null); }}>
             <Icon name="star" /> <span>{saves.length}</span>
           </button>
         )}
@@ -334,7 +339,7 @@ function Onboarding({ opts, pinned, user, onSignIn, subscribed, setSubscribed, i
         {wizard && <span className="proto-step-of">{t("onb.stepof", { n: 1 })}</span>}
       </div>
       <p>{t("onb.s1.body")}</p>
-      {pinned ? <p className="proto-step-status"><Tick /> {t("onb.s1.done")}</p> : <PinAnimation />}
+      {pinned ? <p className="proto-step-status"><Tick /> {t("onb.s1.done.before")} <ExtIcon size={16} /> {t("onb.s1.done.after")}</p> : <PinAnimation />}
       {!pinned && <p className="proto-step-wait">{t("onb.s1.wait")}{wizard && <> <button className="proto-skip" onClick={() => { setSkipped(s => ({ ...s, 1: true })); setStep(2); }}>{t("onb.s1.skip")}</button></>}</p>}
     </section>
   );

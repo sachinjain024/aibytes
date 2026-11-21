@@ -14,7 +14,7 @@ body { background: var(--bg); }
 .proto-chrome-btn:hover, .proto-chrome-btn.is-on { background: var(--hover); }
 .proto-chrome-btn.is-pinned { color: var(--accent); }
 .proto-chrome-avatar { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 13px; background: var(--muted); color: var(--bg); font-size: 12px; font-weight: 600; margin-left: 4px; }
-.proto-exticon { display: inline-grid; place-items: center; flex: none; border-radius: 5px; background: var(--accent); color: var(--accent-fg); line-height: 1; }
+.proto-exticon { display: inline-block; flex: none; vertical-align: -0.2em; }
 
 .proto-extmenu { position: absolute; top: 38px; right: 0; width: 260px; background: var(--surface); border: 1px solid var(--control-border); border-radius: 10px; box-shadow: 0 10px 30px var(--shadow); padding: 8px 0; z-index: 10; }
 .proto-extmenu-h { margin: 0; padding: 4px 14px 8px; font-size: 13px; font-weight: 600; }
