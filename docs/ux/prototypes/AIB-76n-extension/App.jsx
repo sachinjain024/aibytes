@@ -18,6 +18,9 @@ import { Wordmark } from "@ds/components/brand/Wordmark.jsx";
 import { Button } from "@ds/components/forms/Button.jsx";
 import { Icon } from "@ds/components/navigation/icons.jsx";
 import { SOURCE_NAMES, Signals } from "@ds/components/content/signals.jsx";
+import { ReviewPanel, letterFor } from "../_kit/ReviewPanel.jsx";
+import { CopyScreen } from "../_kit/CopyScreen.jsx";
+import { COPY, t } from "./copy.js";
 
 const D = window.LEDGER_DATA;
 const GISTS = window.LEDGER_GISTS;
@@ -95,7 +98,8 @@ const OPTIONS = {
   },
 };
 
-// Decided 20 Nov 2026: E2, one step at a time. Kept in OPTIONS so the letters stay fixed.
+// Choices the publisher has confirmed: shown as "E2 ✓" and fixed. Kept in
+// OPTIONS so the letters never shift. E2 confirmed 20 Nov 2026.
 const DECIDED = { flow: "2" };
 const DEFAULTS = { ...Object.fromEntries(Object.keys(OPTIONS).map(k => [k, "1"])), ...DECIDED };
 
@@ -199,7 +203,7 @@ function Popup({ opts, user, saves, toggleSave, onSignIn, onClose }) {
   };
 
   const star = item => <SaveStar saved={saves.includes(item.id)} onToggle={() => toggleSave(item.id)} />;
-  const toSite = <a className="proto-pop-site" href="#site" onClick={e => { e.preventDefault(); setNote("Opens aibytes.io in a new tab."); }}>Open on aibytes.io <Icon name="arrow" /></a>;
+  const toSite = <a className="proto-pop-site" href="#site" onClick={e => { e.preventDefault(); setNote("Opens aibytes.io in a new tab."); }}>{t("pop.site")} <Icon name="arrow" /></a>;
 
   const header = (
     <header className="proto-pop-head">
@@ -212,7 +216,7 @@ function Popup({ opts, user, saves, toggleSave, onSignIn, onClose }) {
           </button>
         )}
         {user ? <span className="proto-pop-avatar" title={`Signed in as ${user.name}`}>{user.name[0]}</span>
-          : opts.signin === "1" && <button className="proto-pop-link" onClick={onSignIn}>Sign in</button>}
+          : opts.signin === "1" && <button className="proto-pop-link" onClick={onSignIn}>{t("pop.signin")}</button>}
       </span>
     </header>
   );
@@ -222,11 +226,11 @@ function Popup({ opts, user, saves, toggleSave, onSignIn, onClose }) {
     return (
       <div className="proto-popup" onClickCapture={e => { const a = e.target.closest(".gist-view a, .gist a"); if (a && a.getAttribute("href") !== "#back") { e.preventDefault(); setNote("Opens in a new tab."); } }}>
         <div className="proto-pop-gistbar">
-          <button className="proto-pop-back" onClick={() => { setOpenId(null); setNote(null); }}>← {tab === "saved" ? "Saved" : "Today"}</button>
+          <button className="proto-pop-back" onClick={() => { setOpenId(null); setNote(null); }}>{t(tab === "saved" ? "pop.back.saved" : "pop.back.today")}</button>
           {opts.gist === "1" && <span className="proto-pop-gistbar-r">{star(item)}{toSite}</span>}
         </div>
         <div className="proto-pop-scroll proto-pop-gist ldg-prose"><GistView gist={gist} as="panel" /></div>
-        {opts.gist === "2" && <div className="proto-pop-foot">{star(item)}<span>{saves.includes(item.id) ? "Saved" : "Save"}</span>{toSite}</div>}
+        {opts.gist === "2" && <div className="proto-pop-foot">{star(item)}<span>{t(saves.includes(item.id) ? "pop.gist.saved" : "pop.gist.save")}</span>{toSite}</div>}
         {note && <p className="proto-pop-note" role="status">{note}</p>}
       </div>
     );
@@ -238,15 +242,15 @@ function Popup({ opts, user, saves, toggleSave, onSignIn, onClose }) {
       {header}
       {opts.saved === "1" && (
         <div className="proto-pop-tabs" role="tablist">
-          <button role="tab" aria-selected={tab === "today"} onClick={() => setTab("today")}>Today <span>{RANKED.length}</span></button>
-          <button role="tab" aria-selected={tab === "saved"} onClick={() => setTab("saved")}>Saved <span>{saves.length}</span></button>
+          <button role="tab" aria-selected={tab === "today"} onClick={() => setTab("today")}>{t("pop.tab.today")} <span>{RANKED.length}</span></button>
+          <button role="tab" aria-selected={tab === "saved"} onClick={() => setTab("saved")}>{t("pop.tab.saved")} <span>{saves.length}</span></button>
         </div>
       )}
       <div className="proto-pop-scroll" ref={listRef} onClickCapture={capture}>
         {tab === "saved" && list.length === 0 ? (
           <div className="proto-pop-empty">
-            <p className="proto-pop-empty-h">No saved items yet.</p>
-            <p>Select the ☆ on any row to save it. Saved items show here and in Saved on aibytes.io{user ? "." : " once you sign in."}</p>
+            <p className="proto-pop-empty-h">{t("pop.empty.title")}</p>
+            <p>{t("pop.empty.body")}</p>
           </div>
         ) : opts.row === "2" ? (
           <div className="proto-crows">{list.map((item, i) => <CompactRow key={item.id} item={item} n={tab === "saved" ? i + 1 : (item.rank || i + 1)} saved={saves.includes(item.id)} onToggleSave={toggleSave} onOpen={open} />)}</div>
@@ -256,15 +260,15 @@ function Popup({ opts, user, saves, toggleSave, onSignIn, onClose }) {
               gistHref={GISTS[item.id] ? "#gist" : undefined} onOpenGist={GISTS[item.id] ? open : undefined} />
           ))}</RowList>
         )}
-        {tab === "today" && <p className="proto-pop-end">That's the {ED.short} edition.</p>}
+        {tab === "today" && <p className="proto-pop-end">{t("pop.end", { date: ED.short })}</p>}
       </div>
       {showPrompt && (
         <div className="proto-pop-prompt" role="status">
           <Icon name="warning" strokeWidth="1.5" />
-          <span>Stars are kept in this browser. <a href="#signin" onClick={e => { e.preventDefault(); onSignIn(); }}>Sign in on aibytes.io</a> to keep them in your account.</span>
+          <span>{t("pop.prompt.before")} <a href="#signin" onClick={e => { e.preventDefault(); onSignIn(); }}>{t("pop.prompt.link")}</a> {t("pop.prompt.after")}</span>
         </div>
       )}
-      <div className="proto-pop-foot proto-pop-foot--sticky"><span className="proto-pop-foot-meta">{ED.short} · {RANKED.length} items</span>{toSite}</div>
+      <div className="proto-pop-foot proto-pop-foot--sticky"><span className="proto-pop-foot-meta">{t("pop.foot.meta", { date: ED.short, count: RANKED.length })}</span>{toSite}</div>
       {note && <p className="proto-pop-note" role="status">{note}</p>}
     </div>
   );
@@ -276,7 +280,7 @@ function PinAnimation() {
   const reduce = typeof matchMedia !== "undefined" && matchMedia("(prefers-reduced-motion: reduce)").matches;
   const [f, setF] = React.useState(reduce ? 4 : 0);
   React.useEffect(() => { if (reduce) return; const t = setInterval(() => setF(x => (x + 1) % 6), 1100); return () => clearInterval(t); }, [reduce]);
-  const caption = ["Look at the top right of Chrome", "Select the puzzle icon", "Find aiBytes_ in the list", "Select the pin", "aiBytes_ is in your toolbar", "aiBytes_ is in your toolbar"][f];
+  const caption = t("onb.pin." + Math.min(f + 1, 5));
   return (
     <figure className="proto-pinanim" aria-label="Animation: select the puzzle icon, then the pin next to aiBytes_">
       <div className="proto-pinanim-bar">
@@ -313,10 +317,10 @@ function Onboarding({ opts, pinned, user, onSignIn, subscribed, setSubscribed, i
   if (!installed) {
     return (
       <div className="proto-onb">
-        <h1 className="proto-onb-h1">aiBytes_ for Chrome</h1>
-        <p className="proto-onb-sub">Today's edition, ranked, one click from your toolbar. Star items to read later on aibytes.io.</p>
-        <Button variant="primary">Add to Chrome</Button>
-        <p className="proto-onb-fine">Free. Reads only aibytes.io.</p>
+        <h1 className="proto-onb-h1">{t("onb.ni.h1")}</h1>
+        <p className="proto-onb-sub">{t("onb.ni.sub")}</p>
+        <Button variant="primary">{t("site.cta")}</Button>
+        <p className="proto-onb-fine">{t("onb.ni.fine")}</p>
       </div>
     );
   }
@@ -326,34 +330,34 @@ function Onboarding({ opts, pinned, user, onSignIn, subscribed, setSubscribed, i
     <section className={"proto-step" + (pinned ? " is-done" : "")} aria-labelledby="s1">
       <div className="proto-step-head">
         <span className="proto-step-n">{pinned ? <Tick /> : "1"}</span>
-        <h2 id="s1">Pin aiBytes_ to your toolbar</h2>
-        {wizard && <span className="proto-step-of">Step 1 of 2</span>}
+        <h2 id="s1">{t("onb.s1.title")}</h2>
+        {wizard && <span className="proto-step-of">{t("onb.stepof", { n: 1 })}</span>}
       </div>
-      <p>Chrome puts new extensions behind the puzzle icon. Pin aiBytes_ so today's edition is one click away.</p>
-      {pinned ? <p className="proto-step-status"><Tick /> Pinned. Select ⚡ in the toolbar any time.</p> : <PinAnimation />}
-      {!pinned && <p className="proto-step-wait">This step ticks itself when you pin.{wizard && <> <button className="proto-skip" onClick={() => { setSkipped(s => ({ ...s, 1: true })); setStep(2); }}>Skip</button></>}</p>}
+      <p>{t("onb.s1.body")}</p>
+      {pinned ? <p className="proto-step-status"><Tick /> {t("onb.s1.done")}</p> : <PinAnimation />}
+      {!pinned && <p className="proto-step-wait">{t("onb.s1.wait")}{wizard && <> <button className="proto-skip" onClick={() => { setSkipped(s => ({ ...s, 1: true })); setStep(2); }}>{t("onb.s1.skip")}</button></>}</p>}
     </section>
   );
   const signCard = (wizard) => (
     <section className={"proto-step" + (user ? " is-done" : "")} aria-labelledby="s2">
       <div className="proto-step-head">
         <span className="proto-step-n">{user ? <Tick /> : "2"}</span>
-        <h2 id="s2">Sign in to save &amp; bookmark items <span className="proto-step-opt">Optional</span></h2>
-        {wizard && <span className="proto-step-of">Step 2 of 2</span>}
+        <h2 id="s2">{t("onb.s2.title")} <span className="proto-step-opt">{t("onb.optional")}</span></h2>
+        {wizard && <span className="proto-step-of">{t("onb.stepof", { n: 2 })}</span>}
       </div>
-      <p>Items you bookmark will be stored in your account and accessible across devices.</p>
-      <p>Without signing in, any saved items are only stored in the browser's local storage.</p>
+      <p>{t("onb.s2.body1")}</p>
+      <p>{t("onb.s2.body2")}</p>
       {user ? (
         <>
-          <p className="proto-step-status"><Tick /> Signed in as {user.name}. The extension is signed in too.</p>
-          {subscribed && <p className="proto-step-status"><Tick /> Subscribed to aiBytes_ weekly.</p>}
+          <p className="proto-step-status"><Tick /> {t("onb.s2.signedin", { name: user.name })}</p>
+          {subscribed && <p className="proto-step-status"><Tick /> {t("onb.s2.subscribed")}</p>}
         </>
       ) : (
         <>
           <div className="proto-signin">
-            <Button variant="google" onClick={signIn}>Sign in with Google</Button>
-            <label className="proto-check"><input type="checkbox" checked={box} onChange={e => setBox(e.target.checked)} /> Also subscribe me to the weekly newsletter</label>
-            <button className="proto-skip" onClick={() => { setSkipped(s => ({ ...s, 2: true })); if (wizard) setStep(3); }}>{skipped[2] ? "Skipped" : "Skip for now"}</button>
+            <Button variant="google" onClick={signIn}>{t("onb.google")}</Button>
+            <label className="proto-check"><input type="checkbox" checked={box} onChange={e => setBox(e.target.checked)} /> {t("onb.subscribe")}</label>
+            <button className="proto-skip" onClick={() => { setSkipped(s => ({ ...s, 2: true })); if (wizard) setStep(3); }}>{skipped[2] ? "Skipped" : t("onb.s2.skip")}</button>
           </div>
         </>
       )}
@@ -361,16 +365,16 @@ function Onboarding({ opts, pinned, user, onSignIn, subscribed, setSubscribed, i
   );
   const done = (
     <section className="proto-step proto-step--done">
-      <h2>You're set.</h2>
-      <p>Select <ExtIcon size={16} /> in the toolbar to open today's edition. {user ? "Your stars sync to your account." : "You can sign in later from the popup."}</p>
-      <a className="ldg-btn ldg-btn--secondary" href="#feed" onClick={e => e.preventDefault()}>Read today's edition on aibytes.io</a>
+      <h2>{t("onb.done.title")}</h2>
+      <p>{t("onb.done.before")} <ExtIcon size={16} /> {t("onb.done.after")} {t(user ? "onb.done.synced" : "onb.done.later")}</p>
+      <a className="ldg-btn ldg-btn--secondary" href="#feed" onClick={e => e.preventDefault()}>{t("onb.done.cta")}</a>
     </section>
   );
 
   return (
     <div className="proto-onb">
-      <h1 className="proto-onb-h1"><span className="proto-onb-check" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 10 10"><path d="M2 5.2l2 2L8 3" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg></span>aiBytes_ extension is successfully installed.</h1>
-      <p className="proto-onb-sub">Let's get started with a couple of quick steps to help you get the most out of it.</p>
+      <h1 className="proto-onb-h1"><span className="proto-onb-check" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 10 10"><path d="M2 5.2l2 2L8 3" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg></span>{t("onb.h1")}</h1>
+      <p className="proto-onb-sub">{t("onb.sub")}</p>
       {opts.flow === "1" ? (
         <>{pinCard(false)}{signCard(false)}{(pinned || skipped[1]) && (user || skipped[2]) && done}</>
       ) : (
@@ -386,8 +390,8 @@ function InstallStrip({ onDismiss }) {
   return (
     <div className="ldg-banner proto-install-strip" role="region" aria-label="Chrome extension">
       <div className="ldg-banner__in">
-        <span className="ldg-banner__msg"><ExtIcon size={18} /><span>Read the daily edition from your toolbar. <strong>aiBytes_ for Chrome</strong> is free.</span>
-          <a className="ldg-btn ldg-btn--primary proto-install-btn" href="#install" onClick={e => e.preventDefault()}>Add to Chrome</a></span>
+        <span className="ldg-banner__msg"><ExtIcon size={18} /><span>{t("site.h1.before")} <strong>{t("site.name")}</strong> {t("site.h1.after")}</span>
+          <a className="ldg-btn ldg-btn--primary proto-install-btn" href="#install" onClick={e => e.preventDefault()}>{t("site.cta")}</a></span>
         <button type="button" className="ldg-iconbtn ldg-banner__dismiss" aria-label="Dismiss" onClick={onDismiss}>
           <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" strokeWidth="1.5"/></svg>
         </button>
@@ -400,9 +404,9 @@ function InstallRow({ onDismiss }) {
     <article className="story proto-install-row">
       <div className="story-visual"><ExtIcon size={28} /></div>
       <div className="story-content">
-        <div className="story-top"><h3>aiBytes_ for Chrome</h3></div>
-        <p className="summary">Today's edition, ranked, one click from your toolbar. Stars sync with Saved here.</p>
-        <div className="metadata proto-install-acts"><a className="ldg-btn ldg-btn--primary" href="#install" onClick={e => e.preventDefault()}>Add to Chrome</a><button className="proto-skip" onClick={onDismiss}>Not now</button></div>
+        <div className="story-top"><h3>{t("site.name")}</h3></div>
+        <p className="summary">{t("site.h2.body")}</p>
+        <div className="metadata proto-install-acts"><a className="ldg-btn ldg-btn--primary" href="#install" onClick={e => e.preventDefault()}>{t("site.cta")}</a><button className="proto-skip" onClick={onDismiss}>{t("site.notnow")}</button></div>
       </div>
     </article>
   );
@@ -410,10 +414,10 @@ function InstallRow({ onDismiss }) {
 function InstallBox({ onDismiss }) {
   return (
     <div className="proto-install-box">
-      <p className="proto-install-box-h"><ExtIcon size={16} /> aiBytes_ for Chrome</p>
-      <p>Today's edition from your toolbar.</p>
-      <a className="ldg-btn ldg-btn--primary" href="#install" onClick={e => e.preventDefault()}>Add to Chrome</a>
-      <button className="proto-skip" onClick={onDismiss}>Not now</button>
+      <p className="proto-install-box-h"><ExtIcon size={16} /> {t("site.name")}</p>
+      <p>{t("site.h3.body")}</p>
+      <a className="ldg-btn ldg-btn--primary" href="#install" onClick={e => e.preventDefault()}>{t("site.cta")}</a>
+      <button className="proto-skip" onClick={onDismiss}>{t("site.notnow")}</button>
     </div>
   );
 }
@@ -423,7 +427,7 @@ function Site({ opts, theme, setTheme, user, setUser, saves, toggleSave, install
   React.useEffect(() => setDismissed(false), [opts.banner, installed]);
   const show = !installed && !dismissed;
   const cats = D.categories.map(c => ({ ...c, count: ED.items.filter(i => i.category === c.key).length }));
-  const links = D.links.map(l => l.label.startsWith("Chrome") ? { label: "Chrome Extension", href: "#store" } : l);
+  const links = D.links.map(l => l.label.startsWith("Chrome") ? { label: t("site.link"), href: "#store" } : l);
   return (
     <div className="app-shell redesign" data-theme={theme}>
       <AppHeader theme={theme} onToggleTheme={() => setTheme(t => t === "light" ? "dark" : "light")} githubUrl={D.githubUrl}
@@ -447,6 +451,7 @@ function Site({ opts, theme, setTheme, user, setUser, saves, toggleSave, install
 // The hash sets the starting state, so one option can be linked to:
 // #view=onboarding&flow=2&theme=light&pinned=0&user=1&gistOpen=ph-chatcut
 const HASH = Object.fromEntries(new URLSearchParams(location.hash.slice(1)));
+const DRAFTS_KEY = "aib-76n-copy-drafts";
 
 function Proto() {
   const [opts, setOpts] = React.useState(() => ({ ...DEFAULTS, ...Object.fromEntries(Object.keys(OPTIONS).filter(k => HASH[k]).map(k => [k, HASH[k]])), ...DECIDED }));
@@ -459,22 +464,27 @@ function Proto() {
   const [subscribed, setSubscribed] = React.useState(false);
   const [popupOpen, setPopupOpen] = React.useState((HASH.view || "popup") === "popup");
   const toggleSave = id => setSaves(s => s.includes(id) ? s.filter(x => x !== id) : [...s, id]);
+  // Copy drafts: per viewer, kept in this browser only.
+  const [drafts, setDraftsState] = React.useState(() => { try { return JSON.parse(localStorage.getItem(DRAFTS_KEY)) || {}; } catch { return {}; } });
+  const setDrafts = d => { setDraftsState(d); try { localStorage.setItem(DRAFTS_KEY, JSON.stringify(d)); } catch {} };
+  COPY.setDrafts(drafts);
 
   const go = v => {
     setView(v);
     if (v === "popup") { setInstalled(true); setPinned(true); setPopupOpen(true); }
     if (v === "onboarding") { setInstalled(true); setPinned(false); setPopupOpen(false); }
     if (v === "site") { setPopupOpen(false); setInstalled(false); }
+    if (v === "copy") { setPopupOpen(false); }
   };
   // Sign in from the popup: the real extension opens aibytes.io in a tab; here it goes to the onboarding page's step.
   const signInFromPopup = () => { setPopupOpen(false); setView("onboarding"); };
-  const url = view === "onboarding" ? "aibytes.io/extension-onboarding" : view === "site" ? "aibytes.io" : "news.ycombinator.com";
+  const url = view === "onboarding" ? "aibytes.io/extension-onboarding" : view === "site" ? "aibytes.io" : view === "copy" ? "Copy review" : "news.ycombinator.com";
 
   return (
     <div className="proto-root" data-theme={theme}>
       <ChromeBar url={url} pinned={pinned} setPinned={setPinned} popupOpen={popupOpen} setPopupOpen={setPopupOpen} installed={installed} />
       {view === "onboarding" && opts.pin === "2" && installed && !pinned && (
-        <div className="proto-pointer" aria-hidden="true"><span>Pin aiBytes_ here</span><span className="proto-pointer-arrow">↗</span></div>
+        <div className="proto-pointer" aria-hidden="true"><span>{t("onb.pointer")}</span><span className="proto-pointer-arrow">↗</span></div>
       )}
       <div className="proto-frame">
         <div className="proto-scroll">
@@ -486,6 +496,7 @@ function Proto() {
               <Onboarding key={opts.flow} opts={opts} pinned={pinned} user={user} onSignIn={() => setUser(USER)} subscribed={subscribed} setSubscribed={setSubscribed} installed={installed} />
             </div>
           )}
+          {view === "copy" && <CopyScreen title="AIB-76n" rows={COPY.rows} drafts={drafts} setDrafts={setDrafts} opts={opts} letterOf={letterFor(OPTIONS)} />}
           {view === "site" && <Site opts={opts} theme={theme} setTheme={setTheme} user={user} setUser={setUser} saves={saves} toggleSave={toggleSave} installed={installed} />}
         </div>
       </div>
@@ -496,63 +507,29 @@ function Proto() {
           </Frame>
         </div>
       )}
-      <ReviewPanel opts={opts} setOpt={(k, v) => setOpts(o => ({ ...o, [k]: v }))} view={view} go={go}
-        user={user} setUser={setUser} installed={installed} setInstalled={v => { setInstalled(v); if (!v) setPopupOpen(false); }}
-        pinned={pinned} setPinned={setPinned} theme={theme} setTheme={setTheme} />
+      <ReviewPanel title="AIB-76n" options={OPTIONS} groups={GROUPS} decided={DECIDED} opts={opts} setOpt={(k, v) => setOpts(o => ({ ...o, [k]: v }))}
+        views={[["popup", "Popup"], ["onboarding", "Onboarding"], ["site", "aibytes.io banner"], ["copy", "Copy"]]} view={view} go={go}
+        right={view === "site"} startOpen={HASH.panel !== "0" && innerWidth > 900}>
+        <div className="kit-foot">
+          <span>{user ? "Signed in" : "Signed out"}</span>
+          <button className="ldg-btn ldg-btn--ghost" onClick={() => setUser(user ? null : USER)}>{user ? "Sign out" : "Sign in"}</button>
+        </div>
+        <div className="kit-foot">
+          <span>Extension {installed ? (pinned ? "pinned" : "installed") : "not installed"}</span>
+          {installed && <button className="ldg-btn ldg-btn--ghost" onClick={() => setPinned(!pinned)}>{pinned ? "Unpin" : "Pin"}</button>}
+          <button className="ldg-btn ldg-btn--ghost" onClick={() => { setInstalled(!installed); if (installed) setPopupOpen(false); }}>{installed ? "Uninstall" : "Install"}</button>
+        </div>
+        <div className="kit-foot">
+          <span>Theme</span>
+          <button className="ldg-btn ldg-btn--ghost" onClick={() => setTheme(theme === "light" ? "dark" : "light")}>{theme === "light" ? "Dark" : "Light"}</button>
+        </div>
+      </ReviewPanel>
     </div>
   );
 }
 
-const GROUPS = { popup: ["saved", "row", "signin", "gist"], onboarding: ["pin", "subscribe"], site: ["banner"] };
-
-function ReviewPanel({ opts, setOpt, view, go, user, setUser, installed, setInstalled, pinned, setPinned, theme, setTheme }) {
-  const [open, setOpen] = React.useState(() => HASH.panel !== "0" && innerWidth > 900);
-  const keys = Object.keys(OPTIONS);
-  return (
-    <aside className={"proto-review" + (open ? "" : " proto-review--closed") + (view === "site" ? " proto-review--right" : "")} aria-label="Prototype options">
-      <button className="proto-review-toggle" aria-expanded={open} onClick={() => setOpen(o => !o)}>
-        <span>AIB-76n options</span><span aria-hidden="true">{open ? "–" : "+"}</span>
-      </button>
-      {open && (
-        <div className="proto-review-body">
-          <fieldset>
-            <legend>Show</legend>
-            <div className="proto-seg">
-              {[["popup", "Popup"], ["onboarding", "Onboarding"], ["site", "aibytes.io banner"]].map(([k, l]) =>
-                <button key={k} aria-pressed={view === k} onClick={() => go(k)}>{l}</button>)}
-            </div>
-          </fieldset>
-          {GROUPS[view].map(key => {
-            const o = OPTIONS[key], letter = String.fromCharCode(65 + keys.indexOf(key));
-            return (
-              <fieldset key={key}>
-                <legend><span className="proto-q">{letter}</span>{o.label}</legend>
-                <div className="proto-seg">
-                  {Object.entries(o.choices).map(([n, label]) => (
-                    <button key={n} aria-pressed={opts[key] === n} onClick={() => setOpt(key, n)}>{letter}{n} · {label}</button>
-                  ))}
-                </div>
-                {o.notes && <p className="proto-note">{o.notes[opts[key]]}</p>}
-              </fieldset>
-            );
-          })}
-          <div className="proto-review-foot">
-            <span>{user ? "Signed in" : "Signed out"}</span>
-            <button className="ldg-btn ldg-btn--ghost" onClick={() => setUser(user ? null : USER)}>{user ? "Sign out" : "Sign in"}</button>
-          </div>
-          <div className="proto-review-foot">
-            <span>Extension {installed ? (pinned ? "pinned" : "installed") : "not installed"}</span>
-            {installed && <button className="ldg-btn ldg-btn--ghost" onClick={() => setPinned(!pinned)}>{pinned ? "Unpin" : "Pin"}</button>}
-            <button className="ldg-btn ldg-btn--ghost" onClick={() => setInstalled(!installed)}>{installed ? "Uninstall" : "Install"}</button>
-          </div>
-          <div className="proto-review-foot">
-            <span>Theme</span>
-            <button className="ldg-btn ldg-btn--ghost" onClick={() => setTheme(theme === "light" ? "dark" : "light")}>{theme === "light" ? "Dark" : "Light"}</button>
-          </div>
-        </div>
-      )}
-    </aside>
-  );
-}
+// The options each screen shows; the Copy screen shows them all, so a choice
+// can be switched while reading its strings.
+const GROUPS = { popup: ["saved", "row", "signin", "gist"], onboarding: ["flow", "pin", "subscribe"], site: ["banner"], copy: Object.keys(OPTIONS) };
 
 createRoot(document.getElementById("root")).render(<Proto />);

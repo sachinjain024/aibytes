@@ -22,6 +22,7 @@ const css = [
   strip(await readFile(DS + "/tokens/token.css", "utf8")),
   strip(await readFile(DS + "/components/components.css", "utf8")),
   strip(await readFile(DS + "/styles.css", "utf8")),
+  await readFile(HERE + "../_kit/kit.css", "utf8"),
   await readFile(HERE + "proto.css", "utf8"),
 ].join("\n");
 const data = await readFile(DS + "/ui_kits/aibytes-app/data.js", "utf8");
