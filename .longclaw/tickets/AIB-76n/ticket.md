@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T10:23:17.730Z
-updated_at: 2026-11-21T16:31:01.190Z
+updated_at: 2026-11-21T20:12:59.895Z
 ---
 
 The aiBytes_ Chrome extension, popup first: clicking the toolbar icon shows today's edition as a ranked list, with a star on every row that syncs to the reader's aibytes.io account. It replaces the existing "AI Bytes" listing on the Chrome Web Store. Split out of AIB-8h (phase 7) on 2026-10-08; re-scoped on 2026-11-20 after a requirements interview with the publisher. The new-tab page moved to its own ticket, AIB-151m.
@@ -62,6 +62,8 @@ Same flow as AIB-75v:
 
 - [x] 1. Prototype the popup, onboarding and aibytes.io install banner, and record the picks in docs/decisions/product/AIB-76n-extension-design.md <!-- longclaw:item=ck_cc395d9b -->
 - [ ] 2. Capability map (docs/specs/AIB-76n-capability-map.md), then the module specs (docs/specs/AIB-76n-<module-id>.md) <!-- longclaw:item=ck_019d540e -->
+- [ ] 2.1 Publisher, before extension-auth: add chrome-extension://faamldnehjdjdobapchedpmldfjjfife to Firebase Auth's authorised domains (project ai-bytes-b42d2) <!-- longclaw:item=ck_c4a64b1c -->
+- [ ] 2.2 Publisher, before extension-auth: the web API key is HTTP-referrer restricted to aibytes.io; confirm, and allow the extension (chrome-extension://faamldnehjdjdobapchedpmldfjjfife) so its Auth and Firestore calls are not refused <!-- longclaw:item=ck_469985f9 -->
 - [ ] 3. Plan and todo (docs/plans/AIB-76n-plan.md), mirrored here as numbered build items <!-- longclaw:item=ck_79c8511c -->
 - [ ] 4. Store listing written for search and conversion: version above 26.1.15, name, short description, icon, screenshots, promo tile, privacy answers; submit the update <!-- longclaw:item=ck_a7dacce3 -->
 - [ ] 5. Point the aibytes.io footer "Chrome Extension" link at the store listing <!-- longclaw:item=ck_f68f9eec -->
@@ -334,4 +336,66 @@ actor:
 ### Claude Code commented
 
 Spec drafted: docs/specs/AIB-76n-capability-map.md. Six modules in build order: ledger-extension-ui, app-core, extension-popup, extension-auth, site-extension, store-listing. Awaiting the publisher's review of the map (assumptions, risks, 3 open questions) before the module specs.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_def30b66
+kind: update
+occurred_at: 2026-11-21T20:12:59.540Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_c4a64b1c.added
+    to: "2.1 Publisher, before extension-auth: add chrome-extension://faamldnehjdjdobapchedpmldfjjfife to Firebase Auth's authorised domains (project ai-bytes-b42d2)"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e9fd5835
+kind: update
+occurred_at: 2026-11-21T20:12:59.568Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_469985f9.added
+    to: "2.2 Publisher, before extension-auth: the web API key is HTTP-referrer restricted to aibytes.io; confirm, and allow the extension (chrome-extension://faamldnehjdjdobapchedpmldfjjfife) so its Auth and Firestore calls are not refused"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_226b5df0
+kind: update
+occurred_at: 2026-11-21T20:12:59.870Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_c4a64b1c.moved
+    from: "6"
+    to: "3"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_15688d51
+kind: update
+occurred_at: 2026-11-21T20:12:59.895Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_469985f9.moved
+    from: "7"
+    to: "4"
+-->
+### Claude Code updated this ticket
 <!-- /longclaw:event -->

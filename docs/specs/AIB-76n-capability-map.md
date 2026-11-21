@@ -286,3 +286,14 @@ Correct any of these now; the module specs are written on them.
    in the store name, so a search for "aibytes" matches; no superlatives, and no
    third-party names in the title (they go in the description).
    `AIB-76n-store-listing.md` writes the rest of the listing around it.
+
+## Answers after the review (22 Nov 2026)
+
+8. **Saved in the popup lists every save,** the same list as `/saved` on
+   aibytes.io (review point 1, confirmed).
+9. **The authorised domain** `chrome-extension://faamldnehjdjdobapchedpmldfjjfife`
+   is a publisher step before `extension-auth`: ticket item 2.1.
+10. **The web API key is HTTP-referrer restricted to aibytes.io.** The
+    extension's Auth and Firestore calls would be refused until the key allows
+    the extension. Confirming and changing that is ticket item 2.2, before
+    `extension-auth`; its spec records how the key is set.
