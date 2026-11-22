@@ -14,10 +14,10 @@ Everything aibytes.io does for the extension:
 2. **The onboarding page** at `aibytes.io/extension-onboarding`, opened once
    when the extension is installed: pin, then an optional sign-in with the
    newsletter box ticked, then done.
-3. **The install box** in the sidebar for desktop Chrome readers without the
+3. **The install box** in the sidebar for desktop Chromium readers without the
    extension, behind a flag until the store update is live.
 
-Who: aibytes.io readers on desktop Chrome, and every new install.
+Who: aibytes.io readers on desktop Chromium browsers, and every new install.
 
 Success looks like:
 
@@ -27,7 +27,8 @@ Success looks like:
 - A new install lands on the onboarding page; step 1 ticks itself within 2
   seconds of the reader pinning; step 2 signs both the site and the extension
   in, and subscribes the reader if the box is ticked.
-- The install box shows only on desktop Chrome, only without the extension,
+- The install box shows only in desktop Chromium browsers that can install
+  from the store, only without the extension,
   only with the flag on, and disappears when the extension is installed.
 
 ### Not in this module
@@ -51,7 +52,10 @@ export async function reconcile(user, { status, mintToken, send }) { … }
   installed".
 - **Reconcile** runs once the site's session has restored (the first `onUser`
   call) and again on every sign-in and sign-out:
-  - site signed in, extension's `uid` missing or different: call the
+  - site signed in, extension's `uid` missing or different, and the
+    extension's `signoutPending` is not set (a popup Sign out is under way;
+    minting now would sign the extension straight back in from another open
+    tab): call the
     `aibytesExtensionToken` callable (`firebase/functions`, imported only then)
     and send `{ type: "signin", token }`;
   - site signed out, extension has a `uid`: send `{ type: "signout" }`;
@@ -103,12 +107,16 @@ one centred column, as the gist page.
   "Use a different account" signs the site out, then opens Google's sign-in
   with `prompt: "select_account"`, and the new account's sign-in reaches the
   extension through the reconcile.
-- `?action=signout` (the popup's Sign out, map assumption 4): the page signs
-  the site out with `signOut()`, the reconcile sends `signout` to the
-  extension (already signed out by the popup; harmless), and the page shows
+- `?action=signout` (the popup's Sign out, map assumption 4) is honoured
+  **only when the extension asked for it**: the page reads `status`, and acts
+  only if `signoutPending` is true. Then it signs the site out with
+  `signOut()`, sends `{ type: "signout" }` (which clears the flag), and shows
   `onb.signedout` "You're signed out of aibytes.io and the extension." above
   step 2's sign-in, whose Google button uses `prompt: "select_account"` so
   the reader can pick another account. No step counter on this view.
+  Without the flag (the extension is absent, the flag expired, or any other
+  site opened the URL), the parameter is ignored and the page shows its
+  normal state: a plain GET never signs anyone out.
 - **Errors (copy approved 22 Nov 2026):** the extension does not answer the
   sign-in: `onb.s2.extfail` "Signed in as {name}. The extension didn't sign
   in; open it and try again." The subscribe fails: AIB-140p's line, "Could not subscribe. Check
@@ -228,9 +236,11 @@ export function onboardingReducer(state, action) {
 
 - **`node --test`:** `extensionBridge.js` against a fake `chrome.runtime`
   (absent, `lastError`, a timeout, each reconcile case, one at a time, the
-  token never in a log or the returned value); `onboarding.js` (every
-  transition, `?step=signin`, already pinned, already signed in, skips);
-  `extension.js` (desktop Chrome detection against sample `userAgentData`
+  token never in a log or the returned value, no mint while
+  `signoutPending`); `onboarding.js` (every transition, `?step=signin`,
+  `?action=signout` with and without `signoutPending`, already pinned,
+  already signed in, skips);
+  `extension.js` (desktop Chromium detection against sample `userAgentData`
   values and user agents; the 30-day window); `route.js`; `pageMeta.js`.
 - **Emulator:** the subscriber source, both values and a refused third.
 - **Build:** `gistBuild.test.js`-style check that
@@ -247,7 +257,8 @@ export function onboardingReducer(state, action) {
   every event listed before it is sent; `EXTENSION_LIVE` off until
   `store-listing`.
 - *Ask first:* any change to the existing newsletter prompt's behaviour; a new
-  event; showing the box outside Google Chrome.
+  event; showing the box outside desktop Chromium browsers (Safari, Firefox,
+  phones).
 - *Never:* deploy the rules (the publisher does, before the merge); log or
   store the token; link publicly to `/extension-onboarding` before the update
   is live.

@@ -101,17 +101,21 @@ The manifest gains:
 
 ```js
 externally_connectable: { matches: ["https://aibytes.io/*"] },   // + "http://localhost:5173/*" in a dev build only
-minimum_chrome_version: "102",                                     // chrome.storage.session (the fallback)
 ```
+
+No `minimum_chrome_version`: the primary session is IndexedDB, and
+`getUserSettings` is Chrome 91+. Only if the gate forces the fallback in
+"Risks" (`chrome.storage.session`, Chrome 102+) is `minimum_chrome_version:
+"102"` added, and recorded with the gate's result.
 
 The packaged build has no localhost entry; a test of the production manifest
 checks it. The background worker answers:
 
 | Message from the site | Reply |
 |---|---|
-| `{ type: "status" }` | `{ installed: true, version, pinned, uid }`: `version` from the manifest; `pinned` from `chrome.action.getUserSettings().isOnToolbar` (Chrome 91+); `uid` after `auth.authStateReady()`, or `null` |
+| `{ type: "status" }` | `{ installed: true, version, pinned, uid, signoutPending }`: `version` from the manifest; `pinned` from `chrome.action.getUserSettings().isOnToolbar` (Chrome 91+); `uid` after `auth.authStateReady()`, or `null`; `signoutPending` true while a popup Sign out is under way (below) |
 | `{ type: "signin", token }` | `{ ok: true, uid, merged }` once signed in (and the merge tried), or `{ ok: false, code }` |
-| `{ type: "signout" }` | `{ ok: true }` once signed out |
+| `{ type: "signout" }` | `{ ok: true }` once signed out; clears `signoutPending` |
 | anything else | `{ ok: false, code: "bad-message" }` |
 
 - **Origin:** `sender.origin` must be in the build's allowed list, or the reply
@@ -145,15 +149,28 @@ it:
 The avatar menu's Sign out (`pop.menu.signout`) does two things at once:
 
 1. sends `chrome.runtime.sendMessage({ type: "signout-by-reader" })` to the
-   worker, which signs the extension out (so the popup shows Sign in even if
-   the next step fails), and
+   worker, and
 2. opens `https://aibytes.io/extension-onboarding?action=signout` with
    `chrome.tabs.create`, where the site signs itself out (`site-extension`).
 
-The reader ends signed out on the web and in the extension, and nothing signs
-the extension back in until they sign in on aibytes.io again. The internal
-message is accepted only from the extension's own pages
-(`sender.id === chrome.runtime.id`, no web `origin`).
+The worker handles the message in **`chrome.runtime.onMessage`** (the
+extension's own pages; not `onMessageExternal`), through
+`handleInternal(message, sender, { chrome, auth, storage })`:
+
+- accepted only when `sender.id === chrome.runtime.id` and the sender has no
+  web `origin` (it is the popup); anything else is ignored;
+- signs the extension out (so the popup shows Sign in even if the tab never
+  loads), and
+- sets **`signoutPending`**: `chrome.storage.local["aibytes-extension-signout"]
+  = { at: Date.now() }`, which expires after 2 minutes. `status` returns
+  `signoutPending: true` while it is set and unexpired.
+
+The site honours `?action=signout` only while `signoutPending` is true, and
+its `{ type: "signout" }` clears the flag. So a page anywhere on the web that
+opens the URL signs nobody out, and the site's reconcile does not mint a token
+while the flag is set (it would otherwise sign the extension back in from
+another open aibytes.io tab). The reader ends signed out on the web and in the
+extension. No token is involved in this path.
 
 ## The merge
 
@@ -190,13 +207,15 @@ npm run test:rules -w @aibytes/app-core    # accountSaves under the rules, as be
 apps/extension/src/
   firebase.js            the one Firebase app (worker and popup)
   external.js            handleExternal + handlePort: pure, with injected chrome/auth/merge
-  background.js          wires onInstalled, onMessageExternal, onConnectExternal
+  internal.js            handleInternal (signout-by-reader, signoutPending): pure
+  background.js          wires onInstalled, onMessage, onMessageExternal, onConnectExternal
   popup/useAccount.js    onAuthStateChanged → the store; the merge retry
   *.test.js
 functions/
   index.js               + aibytesExtensionToken
   extensionToken.js      prepareToken (pure)
   extensionToken.test.js
+  package.json           "test": "node --test *.test.js" (today it runs alert.test.js only)
   README.md              + IAM step, + the deploy list check
 ```
 
@@ -226,9 +245,15 @@ export async function handleExternal(message, sender, { allowed, chrome, auth, m
   clears only after the merge resolves; a failed merge keeps the saves and
   still replies ok; no reply or console call contains the token (a spy on
   `console`); the port posts on a settings change and does nothing where the
-  event is missing; the production manifest has no localhost.
+  event is missing; the production manifest has no localhost and its
+  permissions are exactly the frozen set (`storage`, plus only what the gate
+  named). `handleInternal`: the extension's own id signs out and sets
+  `signoutPending`; a sender with a web `origin` or another id does nothing;
+  `status` reports the flag until it expires or `signout` clears it.
 - **`node --test` in `functions/`:** `prepareToken` refuses no auth and a
-  non-Google provider, and accepts Google.
+  non-Google provider, and accepts Google. `functions/package.json`'s test
+  script becomes `node --test *.test.js`, so the new file runs (CommonJS, as
+  `index.js` and `alert.js`).
 - **The gate** above, by hand, recorded here.
 - **End to end, by hand** (after `site-extension`, or from a dev page that
   calls the callable and sends the message): sign in on aibytes.io; the popup
@@ -238,8 +263,8 @@ export async function handleExternal(message, sender, { allowed, chrome, auth, m
 
 ## Boundaries
 
-- *Always:* check the origin first; feature-detect `onUserSettingsChanged` and
-  `chrome.storage.session`; clear local saves only after the merge commits.
+- *Always:* check the origin first (the sender id for internal messages);
+  feature-detect `onUserSettingsChanged` and `chrome.storage.session`; clear local saves only after the merge commits.
 - *Ask first:* any permission beyond `storage` other than what the gate proves
   necessary; any custom claim; any change to `firestore.rules`.
 - *Never:* log, store or return the token; accept a message from an origin not

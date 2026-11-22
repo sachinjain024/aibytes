@@ -64,8 +64,8 @@ layout already applies below 761px, so the popup renders `ListRow` unchanged
 
 - **`Sidebar`**: `promo?: React.ReactNode`, rendered first inside
   `.sidebar-footer`, above the links, in a wrapper with 14px below it. In the
-  phone drawer it renders too; the app decides when to pass it (desktop Chrome
-  only, per the map). Absent = today's markup.
+  phone drawer it renders too; the app decides when to pass it (desktop Chromium
+  browsers only, per the map). Absent = today's markup.
 - **`Button`**: `size?: "lg"`: 48px tall, 16px semibold, up to 360px wide. Used
   for "Sign in with Google" in step 2. Absent = today's markup. (The prototype
   had to restyle the Google button from outside because `Button` spreads

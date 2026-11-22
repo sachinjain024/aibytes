@@ -170,7 +170,7 @@ apps/web/src/
 3. An existing 26.1.15 install updates without opening anything (and, with no
    warning-bearing permission, without being disabled).
 4. aibytes.io's footer links to the listing; the install box shows to desktop
-   Chrome readers without the extension; the onboarding button is live.
+   Chromium readers without the extension; the onboarding button is live.
 5. `/privacy` describes the extension, and the dashboard's privacy answers
    agree with it.
 

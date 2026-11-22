@@ -66,8 +66,9 @@ differ only where they must:
 - No `host_permissions`: `https://aibytes.io/content/*` sends
   `access-control-allow-origin: *` (checked live on 22 Nov 2026). Images load
   from their CDNs as `<img>`, which needs no permission.
-- `externally_connectable` and `minimum_chrome_version` are added by
-  `extension-auth`.
+- `externally_connectable`, and any host permission its gate proves
+  necessary, are added by `extension-auth`, which owns the frozen permission
+  set.
 - The `key` makes an unpacked build's ID `faamldnehjdjdobapchedpmldfjjfife`, the
   store's.
 
@@ -231,8 +232,9 @@ export async function loadToday({ fetch, base }) {
   an outside change raising a `storage` event), and the `onInstalled` handler
   (opens on `install`, not on `update`).
 - **Built manifest:** a test reads `dist/manifest.json` from a production
-  build and asserts the permission set is exactly `["storage"]`, there are no
-  `host_permissions`, and the `key` is present.
+  build and asserts that **this module** adds only `storage` and no
+  `host_permissions`, and that the `key` is present. Once `extension-auth`
+  lands, its manifest test of the frozen set replaces this one.
 - **By hand, and with Chrome DevTools for agents** (ticket item 2.4) once
   installed: load unpacked; check light and dark; star, close, reopen, restart
   Chrome; Saved against `/saved` with the same saves; a gist and Back; a row
@@ -261,8 +263,9 @@ export async function loadToday({ fetch, base }) {
 4. The Saved list equals `/saved`'s for the same saves (the site's local saves
    copied into the extension by hand for the check).
 5. A star persists across closing the popup and restarting Chrome.
-6. The production manifest asks for `storage` only; Chrome's install dialog
-   shows no permission warning.
+6. At the end of this module, the production manifest asks for `storage` only
+   and Chrome's install dialog shows no permission warning. (`extension-auth`
+   may add a host permission; the set it freezes is checked there.)
 7. A fresh install opens the onboarding URL once; an update opens nothing.
 8. `npm test -w @aibytes/extension` passes.
 
