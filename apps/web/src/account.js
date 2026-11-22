@@ -5,7 +5,7 @@
 import { initializeApp } from "firebase/app";
 import { getAdditionalUserInfo, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut as signOutOf } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { firebaseConfig, FIRESTORE_DATABASE } from "./firebase-config.js";
+import { firebaseConfig, FIRESTORE_DATABASE } from "@aibytes/app-core/firebase-config.js";
 import { signInResult } from "./signInResult.js";
 
 const app = initializeApp(firebaseConfig);

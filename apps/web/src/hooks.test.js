@@ -3,7 +3,7 @@ import { test } from "node:test";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { useSaves } from "./hooks.js";
-import { localSaves, SAVES_KEY } from "./saves.js";
+import { localSaves, SAVES_KEY } from "@aibytes/app-core/saves.js";
 
 const memory = (entries = {}) => ({
   getItem: (key) => (key in entries ? entries[key] : null),

@@ -13,7 +13,7 @@ import { FilterPanel } from "@aibytes/design-system/components/navigation/Filter
 import { Sidebar } from "@aibytes/design-system/components/navigation/Sidebar.jsx";
 import { Toolbar } from "@aibytes/design-system/components/navigation/Toolbar.jsx";
 import { loadEdition, loadGistPage, loadIndex, loadTags, loadWeeklyIndex, loadWeeklyIssue } from "./content.js";
-import { filesToLoad, leftOutNote, savedFeed, savedGroups } from "./saved.js";
+import { filesToLoad, leftOutNote, savedFeed, savedGroups } from "@aibytes/app-core/saved.js";
 import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, SOURCES } from "./filters.js";
 import { inFeed } from "@aibytes/app-core/visibility.js";
 import { FOOTER_LINKS, GITHUB_URL, mailto, SUBSCRIBE_HREF } from "./footer.js";
@@ -25,8 +25,8 @@ import { rankedItems } from "@aibytes/app-core/order.js";
 import { ORDER, PANEL_WIDTH, readWidth, VIEW, writeWidth } from "./prefs.js";
 import { showBanner } from "./banner.js";
 import { headerAccount } from "./header.js";
-import { mergedLine } from "./merge.js";
-import { clearSaves, localSaves, readSaves } from "./saves.js";
+import { mergedLine } from "@aibytes/app-core/merge.js";
+import { clearSaves, localSaves, readSaves } from "@aibytes/app-core/saves.js";
 import { NewsletterPrompt } from "./NewsletterPrompt.jsx";
 import { GistPage } from "./GistPage.jsx";
 import { FeedGistPanel } from "./FeedGistPanel.jsx";
@@ -79,7 +79,7 @@ const AccountContext = React.createContext({
 // is retried by the next Sign in.
 let firebase = null;
 function loadFirebase() {
-  firebase ||= Promise.all([import("./account.js"), import("./accountSaves.js"), import("./subscriber.js"), import("./reactions.js")]).then(
+  firebase ||= Promise.all([import("./account.js"), import("@aibytes/app-core/accountSaves.js"), import("./subscriber.js"), import("./reactions.js")]).then(
     ([account, store, subscribers, gistReactions]) => ({ ...account, ...store, ...subscribers, reactions: gistReactions.reactions }),
     (error) => { firebase = null; throw error; },
   );

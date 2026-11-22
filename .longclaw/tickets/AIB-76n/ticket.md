@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T10:23:17.730Z
-updated_at: 2026-11-22T08:11:48.492Z
+updated_at: 2026-11-22T11:31:12.663Z
 ---
 
 The aiBytes_ Chrome extension, popup first: clicking the toolbar icon shows today's edition as a ranked list, with a star on every row that syncs to the reader's aibytes.io account. It replaces the existing "AI Bytes" listing on the Chrome Web Store. Split out of AIB-8h (phase 7) on 2026-10-08; re-scoped on 2026-11-20 after a requirements interview with the publisher. The new-tab page moved to its own ticket, AIB-151m.
@@ -69,7 +69,7 @@ Same flow as AIB-75v:
 - [ ] 2.5 Publisher, before T13's deploy: grant the functions' runtime service account Service Account Token Creator on itself (command in the extension-auth spec) <!-- longclaw:item=ck_37688461 -->
 - [ ] 3. Plan and todo (docs/plans/AIB-76n-plan.md), mirrored here as numbered build items <!-- longclaw:item=ck_79c8511c -->
 - [x] 3.1 T1 packages/app-core with the display modules (order, visibility, format, storage, dates), importers updated, same test count <!-- longclaw:item=ck_bad9fdf1 -->
-- [ ] 3.2 T2 app-core's account modules (saves, accountData, accountSaves, merge, saved, firebase-config) and its test:rules <!-- longclaw:item=ck_036bc037 -->
+- [x] 3.2 T2 app-core's account modules (saves, accountData, accountSaves, merge, saved, firebase-config) and its test:rules <!-- longclaw:item=ck_036bc037 -->
 - [ ] 3.3 T3 Ledger ExtensionIcon and the Chrome PNGs (16, 32, 48, 128) <!-- longclaw:item=ck_6fb9402f -->
 - [ ] 3.4 T4 Ledger popup components (PopupHeader with avatar menu, footer, gist bars) and kit page 19 <!-- longclaw:item=ck_5c77755c -->
 - [ ] 3.5 T5 Ledger OnboardingStep, PinAnimation, Button size lg, and kit page 20 <!-- longclaw:item=ck_43fd53f4 -->
@@ -1384,6 +1384,22 @@ actor:
   name: Claude Code
 changes:
   - field: checklist.ck_bad9fdf1.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_1ba87edc
+kind: update
+occurred_at: 2026-11-22T11:31:12.663Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_036bc037.checked
     from: "false"
     to: "true"
 -->

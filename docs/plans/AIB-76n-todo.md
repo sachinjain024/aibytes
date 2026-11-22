@@ -64,9 +64,9 @@ emulator, and drop that file from the web's `test:rules` list. Add `firebase`
 as a peer dependency. Update `account.js`, `App.jsx` and the other importers.
 
 **Acceptance criteria:**
-- [ ] The test count is unchanged, including the emulator suites
+- [x] The test count is unchanged, including the emulator suites
 - [ ] Signing in on `npm run dev:web` still merges local saves and syncs stars
-- [ ] `/saved` renders the same list as before
+- [x] `/saved` renders the same list as before
 
 **Verification:** (A), (B), `npm run test:rules -w @aibytes/app-core`, (C).
 
@@ -76,6 +76,15 @@ as a peer dependency. Update `account.js`, `App.jsx` and the other importers.
 `firebase-config.js`; import lines only: `account.js`, `App.jsx` (including
 its dynamic `import("./accountSaves.js")`), `hooks.test.js` (`localSaves`,
 `SAVES_KEY`). Grep for every moved path before the commit. **Scope:** M
+
+**Done 22 Nov 2026.** Unit tests: 201 before and after (web 188 → 161,
+app-core 13 → 40). Emulator: 69 before (web) and 69 after (web 62 + app-core
+7). `analytics.test.js` now reads `saves.js` at its new path, so its "never
+identifies a reader" check still covers the file. `build:web`: 499 files, the
+same as T1's once hashes are normalised, with the lazy account chunk still
+split out. The sign-in criterion was not checked by hand: it needs a real
+Google sign-in. The emulator suite covers `accountSaves` and `mergeInto`
+against the rules, and the code is unchanged apart from import paths.
 
 ## T3 [3.3]: Ledger's `ExtensionIcon` and the Chrome PNGs
 

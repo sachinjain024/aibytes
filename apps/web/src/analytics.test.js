@@ -58,7 +58,8 @@ test("/privacy names Umami and no longer claims no analytics", () => {
 });
 
 test("the app never identifies a reader to the analytics tool", () => {
-  for (const name of ["App.jsx", "analytics.js", "account.js", "saves.js"]) {
+  // saves.js lives in @aibytes/app-core (spec AIB-76n app-core) and is still the site's.
+  for (const name of ["App.jsx", "analytics.js", "account.js", "../../../packages/app-core/src/saves.js"]) {
     const src = readFileSync(new URL("./" + name, import.meta.url), "utf8");
     assert.doesNotMatch(src, /umami\.identify|\.identify\(/, name);
   }

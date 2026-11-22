@@ -8,8 +8,8 @@
 // items included, then filtered to the saved ones. A save whose item is hidden,
 // gone from its file, or whose file is gone from its index is left out and
 // counted for the note; the save itself is kept (D2).
-import { midDate, shortDate } from "@aibytes/app-core/format.js";
-import { rankedItems } from "@aibytes/app-core/order.js";
+import { midDate, shortDate } from "./format.js";
+import { rankedItems } from "./order.js";
 
 const keyOf = (save) => (save.edition_date ? "edition:" + save.edition_date : "issue:" + save.issue_slug);
 
