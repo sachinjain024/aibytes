@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T10:23:17.730Z
-updated_at: 2026-11-22T07:23:21.627Z
+updated_at: 2026-11-22T07:30:37.109Z
 ---
 
 The aiBytes_ Chrome extension, popup first: clicking the toolbar icon shows today's edition as a ranked list, with a star on every row that syncs to the reader's aibytes.io account. It replaces the existing "AI Bytes" listing on the Chrome Web Store. Split out of AIB-8h (phase 7) on 2026-10-08; re-scoped on 2026-11-20 after a requirements interview with the publisher. The new-tab page moved to its own ticket, AIB-151m.
@@ -61,12 +61,36 @@ Same flow as AIB-75v:
 ## Checklist
 
 - [x] 1. Prototype the popup, onboarding and aibytes.io install banner, and record the picks in docs/decisions/product/AIB-76n-extension-design.md <!-- longclaw:item=ck_cc395d9b -->
-- [ ] 2. Capability map (docs/specs/AIB-76n-capability-map.md), then the module specs (docs/specs/AIB-76n-<module-id>.md) <!-- longclaw:item=ck_019d540e -->
+- [x] 2. Capability map (docs/specs/AIB-76n-capability-map.md), then the module specs (docs/specs/AIB-76n-<module-id>.md) <!-- longclaw:item=ck_019d540e -->
 - [ ] 2.1 Publisher, before extension-auth: add chrome-extension://faamldnehjdjdobapchedpmldfjjfife to Firebase Auth's authorised domains (project ai-bytes-b42d2) <!-- longclaw:item=ck_c4a64b1c -->
 - [ ] 2.2 Publisher, before extension-auth: the web API key is HTTP-referrer restricted to aibytes.io; confirm, and allow the extension (chrome-extension://faamldnehjdjdobapchedpmldfjjfife) so its Auth and Firestore calls are not refused <!-- longclaw:item=ck_469985f9 -->
 - [ ] 2.3 Understand what Chrome's "Build with AI" guidance offers (developer.chrome.com/docs/extensions/ai/build-with-ai#modern_web_guidance): the Modern Web Guidance skills (chrome-extensions, modern-web-guidance), Chrome DevTools for agents (chrome-devtools-mcp with --categoryExtensions), and the CHROMEWEBSTORE.md convention; note what applies to this build and what overlaps the repo's own skills and rules <!-- longclaw:item=ck_4fca43a2 -->
 - [ ] 2.4 Before the build: install the Modern Web Guidance skills (npx modern-web-guidance@latest install --choose; pick Claude Code, chrome-extensions and modern-web-guidance), add chrome-devtools-mcp with --categoryExtensions --autoConnect, and add the CHROMEWEBSTORE.md instruction (permission justifications kept with apps/extension); record where each is installed <!-- longclaw:item=ck_cf0be5fd -->
+- [ ] 2.5 Publisher, before T13's deploy: grant the functions' runtime service account Service Account Token Creator on itself (command in the extension-auth spec) <!-- longclaw:item=ck_37688461 -->
 - [ ] 3. Plan and todo (docs/plans/AIB-76n-plan.md), mirrored here as numbered build items <!-- longclaw:item=ck_79c8511c -->
+- [ ] 3.1 T1 packages/app-core with the display modules (order, visibility, format, storage, dates), importers updated, same test count <!-- longclaw:item=ck_bad9fdf1 -->
+- [ ] 3.2 T2 app-core's account modules (saves, accountData, accountSaves, merge, saved, firebase-config) and its test:rules <!-- longclaw:item=ck_036bc037 -->
+- [ ] 3.3 T3 Ledger ExtensionIcon and the Chrome PNGs (16, 32, 48, 128) <!-- longclaw:item=ck_6fb9402f -->
+- [ ] 3.4 T4 Ledger popup components (PopupHeader with avatar menu, footer, gist bars) and kit page 19 <!-- longclaw:item=ck_5c77755c -->
+- [ ] 3.5 T5 Ledger OnboardingStep, PinAnimation, Button size lg, and kit page 20 <!-- longclaw:item=ck_43fd53f4 -->
+- [ ] 3.6 T6 Ledger ExtensionPromo, Sidebar promo, kit page 21, extending-ledger.md <!-- longclaw:item=ck_f3986716 -->
+- [ ] 3.7 T7 apps/extension scaffold: manifest with key and storage, bundled fonts, onboarding on install <!-- longclaw:item=ck_b1dacb52 -->
+- [ ] 3.8 T8 The sign-in gate: custom token in the worker, Firestore read/write, worker restart; record the result and freeze permissions <!-- longclaw:item=ck_e863d797 -->
+- [ ] 3.9 T9 Today's edition in the popup: cache, schema refusal, rank then inFeed, states, View on Web links <!-- longclaw:item=ck_f0f056d4 -->
+- [ ] 3.10 T10 Stars and Saved signed out, through the chrome.storage.local adapter <!-- longclaw:item=ck_c344fc71 -->
+- [ ] 3.11 T11 The gist view in the popup, and every link in a new tab <!-- longclaw:item=ck_384173d2 -->
+- [ ] 3.12 T12 The store zip (package:extension) and CHROMEWEBSTORE.md started <!-- longclaw:item=ck_dfe7be13 -->
+- [ ] 3.13 T13 The aibytesExtensionToken callable (Google sign-ins only), tests and README <!-- longclaw:item=ck_a6f8eeb7 -->
+- [ ] 3.14 T14 The site-to-extension contract, the internal sign-out (signoutPending), externally_connectable <!-- longclaw:item=ck_3e6ddeea -->
+- [ ] 3.15 T15 The popup signed in: account saves, merge retry, avatar menu Sign out <!-- longclaw:item=ck_dc98b79f -->
+- [ ] 3.16 T16 aibytes.io bridge: status and reconcile on every load <!-- longclaw:item=ck_ead04a49 -->
+- [ ] 3.17 T17 Newsletter source extension-onboarding: subscriber.js, firestore.rules, emulator tests <!-- longclaw:item=ck_409040ae -->
+- [ ] 3.18 T18 /extension-onboarding page shell: route, noindex page, reducer, not-installed state <!-- longclaw:item=ck_6abd2a05 -->
+- [ ] 3.19 T19 Onboarding steps: pin, sign in with the newsletter box, sign-out view, done, Umami events <!-- longclaw:item=ck_cb57d0a3 -->
+- [ ] 3.20 T20 The install box: EXTENSION_LIVE flag, desktop Chromium detection, 30-day dismiss <!-- longclaw:item=ck_23986728 -->
+- [ ] 3.21 T21 The five store screenshots from the real popup <!-- longclaw:item=ck_2b704eaf -->
+- [ ] 3.22 Publisher: deploy aibytesExtensionToken (firebase deploy --only functions:aibytes-web --project ai-bytes-b42d2), after 2.5 <!-- longclaw:item=ck_345509a0 -->
+- [ ] 3.23 Publisher: deploy firestore.rules (firebase deploy --only firestore:rules --project ai-bytes-b42d2) before PR #73 merges <!-- longclaw:item=ck_58f51248 -->
 - [ ] 4. Store listing written for search and conversion: version above 26.1.15, name, short description, icon, screenshots, promo tile, privacy answers; submit the update <!-- longclaw:item=ck_a7dacce3 -->
 - [ ] 4.1 Switch the store listing's category from Education to Lifestyle › News & Weather (daily.dev lists under Productivity › Developer Tools, for reference) <!-- longclaw:item=ck_860b789d -->
 - [ ] 4.2 Promo tile (440×280) and marquee (1400×560): run the brief in Claude, Grok, OpenAI and Gemini, shortlist the candidates in a numbered review artifact, publisher picks one of each <!-- longclaw:item=ck_dfe2ae1c -->
@@ -538,6 +562,766 @@ changes:
   - field: checklist.ck_dfe2ae1c.moved
     from: "11"
     to: "10"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f04e1403
+kind: update
+occurred_at: 2026-11-22T07:30:35.415Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_37688461.added
+    to: "2.5 Publisher, before T13's deploy: grant the functions' runtime service account Service Account Token Creator on itself (command in the extension-auth spec)"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_68921367
+kind: update
+occurred_at: 2026-11-22T07:30:35.475Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_37688461.moved
+    from: "12"
+    to: "7"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ce7cd055
+kind: update
+occurred_at: 2026-11-22T07:30:35.521Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_bad9fdf1.added
+    to: 3.1 T1 packages/app-core with the display modules (order, visibility, format, storage, dates), importers updated, same test count
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_6ee122e3
+kind: update
+occurred_at: 2026-11-22T07:30:35.570Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_bad9fdf1.moved
+    from: "13"
+    to: "9"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_81ce2152
+kind: update
+occurred_at: 2026-11-22T07:30:35.592Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_036bc037.added
+    to: 3.2 T2 app-core's account modules (saves, accountData, accountSaves, merge, saved, firebase-config) and its test:rules
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_d40010a1
+kind: update
+occurred_at: 2026-11-22T07:30:35.630Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_036bc037.moved
+    from: "14"
+    to: "10"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_172ce837
+kind: update
+occurred_at: 2026-11-22T07:30:35.653Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_6fb9402f.added
+    to: 3.3 T3 Ledger ExtensionIcon and the Chrome PNGs (16, 32, 48, 128)
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_4d73d178
+kind: update
+occurred_at: 2026-11-22T07:30:35.688Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_6fb9402f.moved
+    from: "15"
+    to: "11"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_3c65e8a6
+kind: update
+occurred_at: 2026-11-22T07:30:35.711Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_5c77755c.added
+    to: 3.4 T4 Ledger popup components (PopupHeader with avatar menu, footer, gist bars) and kit page 19
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_fdd03221
+kind: update
+occurred_at: 2026-11-22T07:30:35.749Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_5c77755c.moved
+    from: "16"
+    to: "12"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f22d16af
+kind: update
+occurred_at: 2026-11-22T07:30:35.775Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_43fd53f4.added
+    to: 3.5 T5 Ledger OnboardingStep, PinAnimation, Button size lg, and kit page 20
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_1886fb69
+kind: update
+occurred_at: 2026-11-22T07:30:35.813Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_43fd53f4.moved
+    from: "17"
+    to: "13"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_263e9791
+kind: update
+occurred_at: 2026-11-22T07:30:35.837Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_f3986716.added
+    to: 3.6 T6 Ledger ExtensionPromo, Sidebar promo, kit page 21, extending-ledger.md
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_f017f907
+kind: update
+occurred_at: 2026-11-22T07:30:35.876Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_f3986716.moved
+    from: "18"
+    to: "14"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_43caff93
+kind: update
+occurred_at: 2026-11-22T07:30:35.902Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_b1dacb52.added
+    to: "3.7 T7 apps/extension scaffold: manifest with key and storage, bundled fonts, onboarding on install"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_1b9620d6
+kind: update
+occurred_at: 2026-11-22T07:30:35.941Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_b1dacb52.moved
+    from: "19"
+    to: "15"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_d8436f14
+kind: update
+occurred_at: 2026-11-22T07:30:35.965Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_e863d797.added
+    to: "3.8 T8 The sign-in gate: custom token in the worker, Firestore read/write, worker restart; record the result and freeze permissions"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_aaf4a157
+kind: update
+occurred_at: 2026-11-22T07:30:36.005Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_e863d797.moved
+    from: "20"
+    to: "16"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_9038a755
+kind: update
+occurred_at: 2026-11-22T07:30:36.028Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_f0f056d4.added
+    to: "3.9 T9 Today's edition in the popup: cache, schema refusal, rank then inFeed, states, View on Web links"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_3fb63bd8
+kind: update
+occurred_at: 2026-11-22T07:30:36.069Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_f0f056d4.moved
+    from: "21"
+    to: "17"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_b5a0772a
+kind: update
+occurred_at: 2026-11-22T07:30:36.094Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_c344fc71.added
+    to: 3.10 T10 Stars and Saved signed out, through the chrome.storage.local adapter
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_0e16a905
+kind: update
+occurred_at: 2026-11-22T07:30:36.135Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_c344fc71.moved
+    from: "22"
+    to: "18"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_a54bdaae
+kind: update
+occurred_at: 2026-11-22T07:30:36.160Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_384173d2.added
+    to: 3.11 T11 The gist view in the popup, and every link in a new tab
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e24bfbfd
+kind: update
+occurred_at: 2026-11-22T07:30:36.200Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_384173d2.moved
+    from: "23"
+    to: "19"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8c8876de
+kind: update
+occurred_at: 2026-11-22T07:30:36.224Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_dfe7be13.added
+    to: 3.12 T12 The store zip (package:extension) and CHROMEWEBSTORE.md started
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_df2e3038
+kind: update
+occurred_at: 2026-11-22T07:30:36.263Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_dfe7be13.moved
+    from: "24"
+    to: "20"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_1ebc3c3d
+kind: update
+occurred_at: 2026-11-22T07:30:36.288Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_a6f8eeb7.added
+    to: 3.13 T13 The aibytesExtensionToken callable (Google sign-ins only), tests and README
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_c392c7a8
+kind: update
+occurred_at: 2026-11-22T07:30:36.329Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_a6f8eeb7.moved
+    from: "25"
+    to: "21"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_88ed3339
+kind: update
+occurred_at: 2026-11-22T07:30:36.353Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_3e6ddeea.added
+    to: 3.14 T14 The site-to-extension contract, the internal sign-out (signoutPending), externally_connectable
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_6fecde2f
+kind: update
+occurred_at: 2026-11-22T07:30:36.394Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_3e6ddeea.moved
+    from: "26"
+    to: "22"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_0bed37b4
+kind: update
+occurred_at: 2026-11-22T07:30:36.419Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_dc98b79f.added
+    to: "3.15 T15 The popup signed in: account saves, merge retry, avatar menu Sign out"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_32f30d53
+kind: update
+occurred_at: 2026-11-22T07:30:36.467Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_dc98b79f.moved
+    from: "27"
+    to: "23"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_60cfcbba
+kind: update
+occurred_at: 2026-11-22T07:30:36.497Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_ead04a49.added
+    to: "3.16 T16 aibytes.io bridge: status and reconcile on every load"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_9fd0721d
+kind: update
+occurred_at: 2026-11-22T07:30:36.540Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_ead04a49.moved
+    from: "28"
+    to: "24"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8ae01792
+kind: update
+occurred_at: 2026-11-22T07:30:36.564Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_409040ae.added
+    to: "3.17 T17 Newsletter source extension-onboarding: subscriber.js, firestore.rules, emulator tests"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_93751d29
+kind: update
+occurred_at: 2026-11-22T07:30:36.604Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_409040ae.moved
+    from: "29"
+    to: "25"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_5b6c4d5d
+kind: update
+occurred_at: 2026-11-22T07:30:36.630Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_6abd2a05.added
+    to: "3.18 T18 /extension-onboarding page shell: route, noindex page, reducer, not-installed state"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_6de89d5d
+kind: update
+occurred_at: 2026-11-22T07:30:36.670Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_6abd2a05.moved
+    from: "30"
+    to: "26"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_38a9dc45
+kind: update
+occurred_at: 2026-11-22T07:30:36.702Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_cb57d0a3.added
+    to: "3.19 T19 Onboarding steps: pin, sign in with the newsletter box, sign-out view, done, Umami events"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_045c6fd6
+kind: update
+occurred_at: 2026-11-22T07:30:36.749Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_cb57d0a3.moved
+    from: "31"
+    to: "27"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_2728e4a1
+kind: update
+occurred_at: 2026-11-22T07:30:36.777Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_23986728.added
+    to: "3.20 T20 The install box: EXTENSION_LIVE flag, desktop Chromium detection, 30-day dismiss"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_3cbfb2d3
+kind: update
+occurred_at: 2026-11-22T07:30:36.827Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_23986728.moved
+    from: "32"
+    to: "28"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_05f8374b
+kind: update
+occurred_at: 2026-11-22T07:30:36.853Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_2b704eaf.added
+    to: 3.21 T21 The five store screenshots from the real popup
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_81310a8e
+kind: update
+occurred_at: 2026-11-22T07:30:36.899Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_2b704eaf.moved
+    from: "33"
+    to: "29"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_afb7ea62
+kind: update
+occurred_at: 2026-11-22T07:30:36.930Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_345509a0.added
+    to: "3.22 Publisher: deploy aibytesExtensionToken (firebase deploy --only functions:aibytes-web --project ai-bytes-b42d2), after 2.5"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_43e91f2a
+kind: update
+occurred_at: 2026-11-22T07:30:36.986Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_345509a0.moved
+    from: "34"
+    to: "30"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_3e889658
+kind: update
+occurred_at: 2026-11-22T07:30:37.017Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_58f51248.added
+    to: "3.23 Publisher: deploy firestore.rules (firebase deploy --only firestore:rules --project ai-bytes-b42d2) before PR #73 merges"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_43d0154b
+kind: update
+occurred_at: 2026-11-22T07:30:37.064Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_58f51248.moved
+    from: "35"
+    to: "31"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_255ae736
+kind: update
+occurred_at: 2026-11-22T07:30:37.109Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_019d540e.checked
+    from: "false"
+    to: "true"
 -->
 ### Claude Code updated this ticket
 <!-- /longclaw:event -->
