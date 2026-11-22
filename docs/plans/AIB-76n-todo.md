@@ -27,9 +27,9 @@ and `X_GROUP` stay in the web), `inFeed` to `visibility.js`, plus `format.js`,
 `tests/test_curate_edition.py` reads the new `order.js` path.
 
 **Acceptance criteria:**
-- [ ] The moved tests run in app-core, and the total test count across web and app-core equals the count before the move
-- [ ] No file in `apps/web/src` re-exports a moved function
-- [ ] `dist/` from `build:web` is the same before and after, apart from hashed names
+- [x] The moved tests run in app-core, and the total test count across web and app-core equals the count before the move
+- [x] No file in `apps/web/src` re-exports a moved function
+- [x] `dist/` from `build:web` is the same before and after, apart from hashed names
 
 **Verification:** (A), (C), (D); `npm run dev:web`, then check a dated edition
 in ranked and grouped views, with filters.
@@ -43,6 +43,17 @@ in ranked and grouped views, with filters.
 `apps/web/src/`, the set found by grepping for every moved name on 22 Nov
 2026; grep again before the commit); `tests/test_curate_edition.py`.
 **Scope:** M (many files, but most changes are moves or one import line)
+
+**Done 22 Nov 2026.** Tests: 201 web before; after, 188 web + 13 app-core =
+201 (8 `rankedItems`/`TIE_ORDER` cases and the `inFeed` case moved, 4
+`format` cases moved whole). There were no direct `browserStorage` or
+`isRealDate` cases to split: `prefs.test.js` and `route.test.js` cover them
+through `readChoice` and `parseRoute`, and stay in the web. `build:web` before
+and after, 499 files each: every HTML, CSS, JSON and XML file is identical once
+hashed asset names are normalised; only the main JS chunk's hash changed. The
+Python suite passes except two `test_gists.TestWeeklyBuild` errors
+(`gh-app-store-compliance.json: updated_at is before created_at`), which fail
+the same way on `81b0d22` without this change.
 
 ## T2 [3.2]: app-core's account modules
 

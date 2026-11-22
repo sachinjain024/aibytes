@@ -2,10 +2,10 @@
 // covers it (spec AIB-145y-app-gist-pages): which gists are shown, the "More
 // from" list, the back link, the sitemap and robots.txt. vite.config.js and
 // buildGistSite.js do the file work.
-import { midDate } from "./format.js";
+import { midDate } from "@aibytes/app-core/format.js";
 import { gistIsShown } from "./gistShown.js";
-import { inFeed } from "./filters.js";
-import { rankedItems } from "./order.js";
+import { inFeed } from "@aibytes/app-core/visibility.js";
+import { rankedItems } from "@aibytes/app-core/order.js";
 import { SITE_ORIGIN } from "./route.js";
 
 export const MORE_FROM = 4;

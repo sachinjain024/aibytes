@@ -14,12 +14,14 @@ import { Sidebar } from "@aibytes/design-system/components/navigation/Sidebar.js
 import { Toolbar } from "@aibytes/design-system/components/navigation/Toolbar.jsx";
 import { loadEdition, loadGistPage, loadIndex, loadTags, loadWeeklyIndex, loadWeeklyIssue } from "./content.js";
 import { filesToLoad, leftOutNote, savedFeed, savedGroups } from "./saved.js";
-import { CATEGORIES, countMatches, describeFilters, filtersToSearch, inFeed, matches, NO_FILTERS, parseFilters, SOURCES } from "./filters.js";
+import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, SOURCES } from "./filters.js";
+import { inFeed } from "@aibytes/app-core/visibility.js";
 import { FOOTER_LINKS, GITHUB_URL, mailto, SUBSCRIBE_HREF } from "./footer.js";
-import { longDate, midDate, shortDate } from "./format.js";
+import { longDate, midDate, shortDate } from "@aibytes/app-core/format.js";
 import { useChoice, useDismiss, useGridColumns, useMedia, useReactions, useReturnFocus, useSaves, useTheme } from "./hooks.js";
 import { shownView } from "./layout.js";
-import { groupedItems, rankedItems } from "./order.js";
+import { groupedItems } from "./order.js";
+import { rankedItems } from "@aibytes/app-core/order.js";
 import { ORDER, PANEL_WIDTH, readWidth, VIEW, writeWidth } from "./prefs.js";
 import { showBanner } from "./banner.js";
 import { headerAccount } from "./header.js";

@@ -8,8 +8,8 @@
 //
 // localSaves() is the interface the account store (app-accounts) implements
 // too, so the app picks a store and components never learn where saves live.
-import { browserStorage } from "./prefs.js";
-import { isRealDate } from "./route.js";
+import { browserStorage } from "@aibytes/app-core/storage.js";
+import { isRealDate } from "@aibytes/app-core/dates.js";
 
 export const SAVES_KEY = "aibytes-saves";
 const SLUG = /^issue-\d+$/;

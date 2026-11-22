@@ -1,0 +1,11 @@
+{
+  "name": "@aibytes/app-core",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Logic aibytes.io and the Chrome extension share: ranking, feed visibility, dates and browser storage. Pure modules; no React.",
+  "type": "module",
+  "exports": { "./*": "./src/*" },
+  "scripts": {
+    "test": "node --test"
+  }
+}

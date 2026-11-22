@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { withBlockedStorage } from "./blocked-storage.js";
+import { withBlockedStorage } from "@aibytes/app-core/blocked-storage.js";
 import { clearSaves, localSaves, readSaves, SAVES_KEY } from "./saves.js";
 
 const memory = (entries = {}) => ({

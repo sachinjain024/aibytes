@@ -10,6 +10,7 @@
 //   /privacy             what signing in and saving keep, and where (a real page)
 //   /p/<slug>            an old newsletter issue link from when aibytes.io was Beehiiv
 //   anything else        not found
+import { isRealDate } from "@aibytes/app-core/dates.js";
 
 export const NEWSLETTER_ORIGIN = "https://newsletter.aibytes.io";
 export const SITE_ORIGIN = "https://aibytes.io";
@@ -108,9 +109,4 @@ export function pickEdition(route, editions) {
 export function olderEdition(editions, date) {
   const at = editions.findIndex((ref) => ref.date === date);
   return at === -1 ? null : editions[at + 1] || null;
-}
-
-export function isRealDate(text) {
-  const date = new Date(text + "T00:00:00Z");
-  return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === text;
 }
