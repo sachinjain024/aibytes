@@ -308,3 +308,16 @@ body.gist-resizing{cursor:col-resize;user-select:none}
 .ldg-pinanim__steps{margin:0;padding-left:20px;line-height:1.6}
 @keyframes ldg-pinanim-pop{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){.ldg-pinanim__icon--new{animation:none}}
+
+/* The extension's install box in aibytes.io's rail (AIB-76n, H3). Tokens only.
+   Sidebar's promo puts it first in .sidebar-footer, whose link, paragraph and
+   icon rules it has to outrank (styles.css loads after this file). */
+.sidebar-promo{margin-bottom:14px}
+.ldg-promo{display:flex;flex-direction:column;gap:8px;padding:12px;background:var(--surface);border:var(--border-w) solid var(--control-border);border-radius:var(--radius-card);font-size:var(--text-13)}
+.ldg-promo p.ldg-promo__name,.ldg-promo p.ldg-promo__body{margin:0;opacity:1;font-size:var(--text-13);line-height:1.4}
+.ldg-promo p.ldg-promo__name{display:flex;align-items:center;gap:8px;color:var(--text);font-weight:600}
+.ldg-promo p.ldg-promo__body{color:var(--text-2)}
+.ldg-promo .ldg-promo__name svg{width:16px;height:16px;flex:none}
+.sidebar .sidebar-footer a.ldg-promo__cta,.sidebar .sidebar-footer a.ldg-promo__cta:hover,.sidebar .sidebar-footer a.ldg-promo__cta:focus-visible,
+.ldg-promo a.ldg-promo__cta,.ldg-promo a.ldg-promo__cta:hover{display:inline-flex;justify-content:center;height:30px;font-size:var(--text-13);color:var(--accent-fg);text-decoration:none}
+.ldg-promo__dismiss{align-self:flex-start;padding:0;border:0;background:none;color:var(--text-2);font:500 var(--text-12) var(--font-body);text-decoration:underline;text-underline-offset:2px;cursor:pointer}

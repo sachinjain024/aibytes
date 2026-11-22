@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T10:23:17.730Z
-updated_at: 2026-11-22T12:05:37.636Z
+updated_at: 2026-11-22T12:14:11.951Z
 ---
 
 The aiBytes_ Chrome extension, popup first: clicking the toolbar icon shows today's edition as a ranked list, with a star on every row that syncs to the reader's aibytes.io account. It replaces the existing "AI Bytes" listing on the Chrome Web Store. Split out of AIB-8h (phase 7) on 2026-10-08; re-scoped on 2026-11-20 after a requirements interview with the publisher. The new-tab page moved to its own ticket, AIB-151m.
@@ -73,7 +73,7 @@ Same flow as AIB-75v:
 - [x] 3.3 T3 Ledger ExtensionIcon and the Chrome PNGs (16, 32, 48, 128) <!-- longclaw:item=ck_6fb9402f -->
 - [x] 3.4 T4 Ledger popup components (PopupHeader with avatar menu, footer, gist bars) and kit page 19 <!-- longclaw:item=ck_5c77755c -->
 - [x] 3.5 T5 Ledger OnboardingStep, PinAnimation, Button size lg, and kit page 20 <!-- longclaw:item=ck_43fd53f4 -->
-- [ ] 3.6 T6 Ledger ExtensionPromo, Sidebar promo, kit page 21, extending-ledger.md <!-- longclaw:item=ck_f3986716 -->
+- [x] 3.6 T6 Ledger ExtensionPromo, Sidebar promo, kit page 21, extending-ledger.md <!-- longclaw:item=ck_f3986716 -->
 - [ ] 3.7 T7 apps/extension scaffold: manifest with key and storage, bundled fonts, onboarding on install <!-- longclaw:item=ck_b1dacb52 -->
 - [ ] 3.8 T8 The sign-in gate: custom token in the worker, Firestore read/write, worker restart; record the result and freeze permissions <!-- longclaw:item=ck_e863d797 -->
 - [ ] 3.9 T9 Today's edition in the popup: cache, schema refusal, rank then inFeed, states, View on Web links <!-- longclaw:item=ck_f0f056d4 -->
@@ -1466,6 +1466,22 @@ actor:
   name: Claude Code
 changes:
   - field: checklist.ck_43fd53f4.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8a6f48d9
+kind: update
+occurred_at: 2026-11-22T12:14:11.951Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_f3986716.checked
     from: "false"
     to: "true"
 -->

@@ -22,5 +22,7 @@ export interface SidebarProps {
   savedCount?: number;
   /** the Saved page is showing: the Saved row is marked current (aria-current="page") and no category is, whatever `active` says */
   savedActive?: boolean;
+  /** AIB-76n: rendered first in the footer, above the links, with 14px below it. The extension's install box (ExtensionPromo); the app passes it only in a desktop Chromium browser without the extension. Absent = the rail's markup is unchanged */
+  promo?: React.ReactNode;
 }
 export declare function Sidebar(props: SidebarProps): JSX.Element;

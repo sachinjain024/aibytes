@@ -251,6 +251,10 @@ render(<Demo />);` },
 const links = [{ label: "X", href: "#" }, { label: "Suggest a link", href: "#" }, { label: "Advertise", href: "#" }, { label: "Chrome Extension (soon)" }];
 render(<div className="pv-static"><L.Sidebar categories={categories} count={15} active="repos" links={links} subscribeUrl="#" onSaved={noop} savedCount={3} /></div>);` },
 
+  ExtensionPromo: { group: "Extension", height: 220, width: 300, jsx: `
+render(<div className="pv-row" style={{ alignItems: "flex-start" }}><div style={{ width: 220 }}><L.ExtensionPromo href="#" onDismiss={noop} /></div>
+  <Label>The install box, for Sidebar's promo: first in the rail's footer.</Label></div>);` },
+
   AccountMenu: { group: "Navigation", height: 260, jsx: `
 render(<div className="pv-static" style={{ display: "flex", justifyContent: "flex-end", width: 260, paddingBottom: 190 }}>
   <L.AccountMenu user={{ name: "Ada Lovelace", email: "ada@example.com" }} onSignOut={noop} />

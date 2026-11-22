@@ -188,13 +188,27 @@ section of `extending-ledger.md` for the popup, and list the new components in
 `readme.md`.
 
 **Acceptance criteria:**
-- [ ] `Sidebar` without `promo` renders the same markup as before (a snapshot test)
-- [ ] The box's link opens in a new tab; "Not now" calls `onDismiss`
-- [ ] Kit page 21 matches H3 in the rail at 1280 px
+- [x] `Sidebar` without `promo` renders the same markup as before (a snapshot test)
+- [x] The box's link opens in a new tab; "Not now" calls `onDismiss`
+- [x] Kit page 21 matches H3 in the rail at 1280 px
 
 **Verification:** (A), (D), (C) unchanged, the kit preview.
 
 **Dependencies:** T3. **Files:** `components/extension/ExtensionPromo.*`, `components/navigation/Sidebar.*`, kit page 21, `guidelines/extending-ledger.md`, `readme.md`. **Scope:** M
+
+**Done 22 Nov 2026.** `Sidebar.test.js`: without `promo` (absent, null or
+undefined) the rail equals the existing `Sidebar.default.json` fixture; with
+it, the box is first in `.sidebar-footer` in `.sidebar-promo`.
+`ExtensionPromo.test.js`: four tests (the layout, the store link with
+`target="_blank"`, Not now calling `onDismiss` and the labels, no Not now
+without `onDismiss`). The box's styles outrank the footer's link, paragraph
+and icon rules, which load after `components.css`. Kit page 21 is the kit app
+seeded with `promo0`; checked at 1280 in both themes, with the link's target
+and Not now driven in headless Chrome. `extending-ledger.md`'s extension
+section now describes the popup, with the new tab under "Later"; `readme.md`
+lists `components/extension/` and screens 19 to 21. Design-system suite
+121/121, `test_design_system` 42/42, web 161 and app-core 40 unchanged, the
+site's HTML unchanged; its CSS gains only the new, unused classes.
 
 ### Checkpoint 1
 - [ ] (A) to (D) pass, and `build:web` is unchanged

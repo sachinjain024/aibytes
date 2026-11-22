@@ -62,3 +62,14 @@ test('an internal link (the Weekly Archive) opens in the same tab, with the arch
   assert.match(archive,/Weekly Archive/);
   assert.match(html,/<a href="https:\/\/x\.com\/aibytes" target="_blank" rel="noreferrer">/);
 });
+
+test('without promo the rail is byte-for-byte the same, with or without the Saved row (AIB-76n)',()=>{
+  assert.equal(render({promo:null}),before.rail);
+  assert.equal(render({promo:undefined}),before.rail);
+  assert.doesNotMatch(render({onSaved:()=>{}}),/sidebar-promo/);
+});
+
+test('promo goes first in the footer, above the links, in its own wrapper',()=>{
+  const html=render({promo:React.createElement('div',{className:'box'},'Install')});
+  assert.match(html,/<div class="sidebar-footer"><div class="sidebar-promo"><div class="box">Install<\/div><\/div><div class="sidebar-links">/);
+});

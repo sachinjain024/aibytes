@@ -14,3 +14,5 @@ Saves: pass `onSaved` to add a LIBRARY section under the categories with one Sav
 ```
 
 On phones it is the drawer the `AppHeader` menu button opens (pass the same open state to both); it renders its own backdrop. Put live links first and not-yet-live ones (no `href`) last. Mark a page of the site itself `internal: true` (the Weekly Archive): it opens in the same tab, with the archive icon and no outward arrow; every other link opens in a new tab. Leave GitHub out when the AppHeader already links it.
+
+`promo` puts a box first in the footer, above the links (AIB-76n): the extension's `ExtensionPromo`, passed only in a desktop Chromium browser that hasn't installed it and hasn't dismissed the box. It shows in the phone drawer too. Without it, the rail renders as before.

@@ -7,8 +7,9 @@ const linkIcon = l => (l.internal ? "archive" : l.label === "X" ? "x" : l.label 
 // drawer, and while open it is a modal dialog behind a backdrop that traps Tab
 // and closes on Esc. A link without href renders as plain text. With onSaved,
 // a LIBRARY section holds the Saved row; savedActive makes it the current page.
+// promo (AIB-76n: the extension's install box) goes first in the footer, above the links.
 export function Sidebar({ categories = [], count, active = "all", onCategory, open = false, onClose, links = [], subscribeUrl,
-  onSaved, savedCount = 0, savedActive = false }) {
+  onSaved, savedCount = 0, savedActive = false, promo }) {
   const current = savedActive && onSaved ? null : active;
   const ref = React.useRef(null);
   React.useEffect(() => {
@@ -62,6 +63,7 @@ export function Sidebar({ categories = [], count, active = "all", onCategory, op
           </div>
         )}
         <div className="sidebar-footer">
+          {promo && <div className="sidebar-promo">{promo}</div>}
           <div className="sidebar-links">
             {links.map(l => l.href && l.internal ? (
               <a key={l.label} href={l.href}>
