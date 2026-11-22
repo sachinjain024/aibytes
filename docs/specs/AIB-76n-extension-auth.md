@@ -34,8 +34,8 @@ Success looks like:
 ### Not in this module
 
 The aibytes.io side of the contract (the bridge, onboarding, the install box):
-`site-extension`. Gist reactions in the extension (out of scope). A sign-out
-control in the popup (map assumption 4).
+`site-extension`. Gist reactions in the extension (out of scope). The avatar menu's look
+(`ledger-extension-ui`).
 
 ## Prerequisites (the publisher's)
 
@@ -109,8 +109,8 @@ checks it. The background worker answers:
 
 | Message from the site | Reply |
 |---|---|
-| `{ type: "status" }` | `{ installed: true, version, pinned, uid }`: `version` from the manifest; `pinned` from `chrome.action.getUserSettings().isOnToolbar` (Chrome 91+); `uid` after `auth.authStateReady()`, or `null` |
-| `{ type: "signin", token }` | `{ ok: true, uid, merged }` once signed in (and the merge tried), or `{ ok: false, code }` |
+| `{ type: "status" }` | `{ installed: true, version, pinned, uid, held }`: `version` from the manifest; `pinned` from `chrome.action.getUserSettings().isOnToolbar` (Chrome 91+); `uid` after `auth.authStateReady()`, or `null`; `held` true while the reader's own sign-out holds the extension signed out |
+| `{ type: "signin", token, explicit? }` | `{ ok: true, uid, merged }` once signed in (and the merge tried), or `{ ok: false, code }`. While `held`, a sign-in without `explicit: true` is refused with `code: "held"`; an explicit one clears the hold |
 | `{ type: "signout" }` | `{ ok: true }` once signed out |
 | anything else | `{ ok: false, code: "bad-message" }` |
 
@@ -139,6 +139,20 @@ it:
   `onAuthStateChanged`, and swaps `localSaves` for
   `accountSaves(db, uid)` while signed in, then back when signed out. The
   header shows the avatar (`PopupHeader`'s `user`) while signed in.
+
+## Signing out from the popup
+
+The avatar menu's Sign out (`pop.menu.signout`) sends
+`chrome.runtime.sendMessage({ type: "signout-by-reader" })` to the worker,
+which signs out and sets `chrome.storage.local["aibytes-extension-held"] =
+true`. The hold stops the site's automatic reconcile from signing the
+extension straight back in as the account the site still has. The popup then
+shows Sign in, which opens the onboarding page's sign-in step, where the reader
+chooses "Continue as {name}" or "Use a different account"; either sends an
+explicit `signin`, which clears the hold. A sign-out mirrored from aibytes.io
+sets no hold (the site is signed out too). The internal message is accepted
+only from the extension's own pages (`sender.id === chrome.runtime.id`, no
+`origin` from a web page).
 
 ## The merge
 
@@ -252,5 +266,4 @@ export async function handleExternal(message, sender, { allowed, chrome, auth, m
 
 ## Open questions
 
-1. **Refuse non-Google callers of the callable?** Spec: yes, Google only, so a
-   custom-token session can't mint tokens. Confirm.
+None. Decided 22 Nov 2026: the callable serves Google sign-ins only.

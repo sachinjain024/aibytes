@@ -51,7 +51,8 @@ export async function reconcile(user, { status, mintToken, send }) { … }
   installed".
 - **Reconcile** runs once the site's session has restored (the first `onUser`
   call) and again on every sign-in and sign-out:
-  - site signed in, extension's `uid` missing or different: call the
+  - site signed in, extension's `uid` missing or different, and not `held`
+    (the reader signed out in the popup): call the
     `aibytesExtensionToken` callable (`firebase/functions`, imported only then)
     and send `{ type: "signin", token }`;
   - site signed out, extension has a `uid`: send `{ type: "signout" }`;
@@ -97,9 +98,15 @@ one centred column, as the gist page.
     `onb.done.after`, then `onb.done.synced` or `onb.done.later`; and
     `onb.done.cta` to `/`.
 - `?step=signin` (the popup's Sign in, map assumption 3) starts at step 2.
-- **Errors (new copy, open question 2):** the extension does not answer the
-  sign-in: "Signed in as {name}. The extension didn't sign in; open it and try
-  again." The subscribe fails: AIB-140p's line, "Could not subscribe. Check
+  If the site is already signed in there, step 2 shows `onb.s2.continue`
+  "Continue as {name}" (primary) and `onb.s2.switch` "Use a different account"
+  instead of the Google button. Continue sends an explicit `signin` with a
+  fresh token. "Use a different account" signs the site out, then opens
+  Google's sign-in with `prompt: "select_account"`, and the new account's
+  sign-in sends an explicit `signin`. Both clear the extension's hold.
+- **Errors (new copy, open question 1):** the extension does not answer the
+  sign-in: `onb.s2.extfail` "Signed in as {name}. The extension didn't sign
+  in; open it and try again." The subscribe fails: AIB-140p's line, "Could not subscribe. Check
   your connection and try again.", with its retry and failure report
   (`page: "extension-onboarding"`).
 - **The AIB-140p newsletter prompt** (which opens for a new account after
@@ -131,10 +138,12 @@ one centred column, as the gist page.
 - `Sidebar`'s `promo` slot gets `ExtensionPromo` (H3) when all hold:
   1. `EXTENSION_LIVE` (a constant in `apps/web/src/extension.js`, `false` until
      `store-listing` turns it on);
-  2. desktop Chrome: `navigator.userAgentData` reports a Google Chrome brand and
-     `mobile: false` (a user-agent fallback where `userAgentData` is missing);
-     never Edge, Brave or other Chromium browsers, which can install Chrome
-     extensions but are not the target (open question 3);
+  2. a desktop Chromium browser that can install from the Chrome Web Store
+     (Chrome, Edge, Brave, Opera, Vivaldi, Arc; map answer 12):
+     `navigator.userAgentData` lists a `Chromium` brand and reports
+     `mobile: false`, with a user-agent fallback (`Chrome/` present, no
+     `Mobile` or `Android`) where `userAgentData` is missing. Never Safari,
+     Firefox or any phone;
   3. the status check has answered "not installed" (nothing renders until it
      answers, so it never flashes for a reader who has the extension);
   4. not dismissed: "Not now" (`site.notnow`) stores the time in
@@ -224,7 +233,7 @@ export function onboardingReducer(state, action) {
 - **By hand, with the dev extension loaded:** a fresh install opens the page;
   pinning ticks step 1; signing in signs the popup in and subscribes; sign out
   on the site signs the popup out; with the flag forced on, the box shows in
-  Chrome without the extension, not in Safari or Firefox, not on a phone, and
+  Chrome and Edge without the extension, not in Safari or Firefox, not on a phone, and
   goes when the extension is installed.
 
 ## Boundaries
@@ -254,9 +263,9 @@ export function onboardingReducer(state, action) {
 
 ## Open questions
 
-1. **Done card's button:** `onb.done.cta`, "Read today's edition on
-   aibytes.io", goes to `/`. Confirm (rather than opening the popup, which a
-   page cannot do).
-2. **The two error lines** above are new copy. Approve or edit.
-3. **Other Chromium browsers** (Edge, Brave, Arc) can install from the Chrome
-   Web Store. Show the box there too, or Google Chrome only (assumed)?
+1. **The new copy** (`onb.s2.extfail`, `onb.s2.continue`, `onb.s2.switch`)
+   was shown to the publisher on 22 Nov 2026; approved wording replaces the
+   drafts above.
+
+Decided 22 Nov 2026: the done card's button goes to `/`; the install box shows
+in every desktop Chromium browser that can install from the store.

@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T10:23:17.730Z
-updated_at: 2026-11-21T20:17:33.957Z
+updated_at: 2026-11-22T04:21:38.471Z
 ---
 
 The aiBytes_ Chrome extension, popup first: clicking the toolbar icon shows today's edition as a ranked list, with a star on every row that syncs to the reader's aibytes.io account. It replaces the existing "AI Bytes" listing on the Chrome Web Store. Split out of AIB-8h (phase 7) on 2026-10-08; re-scoped on 2026-11-20 after a requirements interview with the publisher. The new-tab page moved to its own ticket, AIB-151m.
@@ -68,6 +68,7 @@ Same flow as AIB-75v:
 - [ ] 2.4 Before the build: install the Modern Web Guidance skills (npx modern-web-guidance@latest install --choose; pick Claude Code, chrome-extensions and modern-web-guidance), add chrome-devtools-mcp with --categoryExtensions --autoConnect, and add the CHROMEWEBSTORE.md instruction (permission justifications kept with apps/extension); record where each is installed <!-- longclaw:item=ck_cf0be5fd -->
 - [ ] 3. Plan and todo (docs/plans/AIB-76n-plan.md), mirrored here as numbered build items <!-- longclaw:item=ck_79c8511c -->
 - [ ] 4. Store listing written for search and conversion: version above 26.1.15, name, short description, icon, screenshots, promo tile, privacy answers; submit the update <!-- longclaw:item=ck_a7dacce3 -->
+- [ ] 4.1 Switch the store listing's category from Education to Lifestyle › News & Weather (daily.dev lists under Productivity › Developer Tools, for reference) <!-- longclaw:item=ck_860b789d -->
 - [ ] 5. Point the aibytes.io footer "Chrome Extension" link at the store listing <!-- longclaw:item=ck_f68f9eec -->
 
 ## Activity
@@ -476,4 +477,35 @@ actor:
 ### Claude Code commented
 
 Module specs drafted for review (22 Nov 2026): docs/specs/AIB-76n-ledger-extension-ui.md, -app-core.md, -extension-popup.md, -extension-auth.md, -site-extension.md, -store-listing.md. Item 2 is ticked once they are approved; the plan (item 3) follows.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_82d5c4b3
+kind: update
+occurred_at: 2026-11-22T04:21:38.420Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_860b789d.added
+    to: 4.1 Switch the store listing's category from Education to Lifestyle › News & Weather (daily.dev lists under Productivity › Developer Tools, for reference)
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_785a951c
+kind: update
+occurred_at: 2026-11-22T04:21:38.471Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_860b789d.moved
+    from: "10"
+    to: "9"
+-->
+### Claude Code updated this ticket
 <!-- /longclaw:event -->

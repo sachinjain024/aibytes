@@ -47,7 +47,7 @@ something sensible alone.
 | Component | What it draws | Props |
 |---|---|---|
 | `ExtensionIcon` | The favicon tile: the wordmark's bolt, white on cobalt, `rx` 7 of 32. Fixed brand colours, the same in both themes (it is a logo, like the source marks) | `size` (px, default 20), `title` (omitted = `aria-hidden`) |
-| `PopupHeader` | The compact `Wordmark`, the edition date, then at the right the saved toggle (A2: star + count, `aria-pressed`, `aria-label` "Saved items") and either Sign in (a text button) or the reader's avatar (photo, or their initial; `title` "Signed in as {name}") | `date`, `savedCount`, `savedActive`, `onToggleSaved`, `user` (`{ name, photoUrl? }` or null), `onSignIn`, `labels` |
+| `PopupHeader` | The compact `Wordmark`, the edition date, then at the right the saved toggle (A2: star + count, `aria-pressed`, `aria-label` "Saved items") and either Sign in (a text button) or the reader's avatar (photo, or their initial), which opens a small menu: the name, the email, and Sign out (`pop.menu.signout`). The menu is a popover (a soft shadow is allowed), closes on Esc and outside clicks, and returns focus to the avatar | `date`, `savedCount`, `savedActive`, `onToggleSaved`, `user` (`{ name, email?, photoUrl? }` or null), `onSignIn`, `onSignOut`, `labels` |
 | `PopupFooter` | The sticky footer: `--surface-2`, a top border, 44px; meta at the left in mono, a link at the right | `meta`, `children` (the link) |
 | `PopupGistBar` | The gist view's top bar: one back button ("← Today" / "← Saved") (D2) | `backLabel`, `onBack` |
 | `PopupActionBar` | The gist view's bottom bar (D2): the `SaveStar`, "Save" or "Saved", and the site link at the right | `saved`, `onToggleSave`, `labels`, `children` (the link) |
@@ -189,8 +189,6 @@ window, not a Ledger popover).
 
 ## Open questions
 
-1. **The pin animation as code or as a GIF?** Spec: code (DOM and CSS, like the
-   prototype), so it themes and respects reduced motion. A GIF is lighter to
-   build but fixed to one theme. Recommend code.
-2. **Where the popup's avatar menu goes:** none (map assumption 4: sign out on
-   aibytes.io). Confirm nothing is needed on the avatar beyond its title.
+None. Decided 22 Nov 2026: the pin animation is code (DOM and CSS), so it
+themes and respects reduced motion; the avatar opens a menu with Sign out (map
+answer 12).

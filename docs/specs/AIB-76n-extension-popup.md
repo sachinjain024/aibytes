@@ -140,12 +140,13 @@ section, and `{ issue_slug }` for a weekly section, as on the site.
   (`docs/specs/AIB-145y-gist-analytics.md`: three tags, lower case):
   `utm_source=chrome-extension&utm_medium=extension&utm_campaign=` `today`,
   `saved` or `gist`. This module adds that row to the spec's table.
-- **States, with proposed copy** (not in the prototype, so listed for approval
-  in the open questions): loading with no cache, "Loading today's edition…";
-  failed with no cache, "Couldn't load today's edition." and a Retry button;
-  failed with a cache, the cached list with a line "Showing {date}. Couldn't
-  check for a newer edition."; a refused `schema_version`, "Update aiBytes_ to
-  read this edition." (Chrome updates extensions itself; this should be rare).
+- **States, with proposed copy** (not in the prototype; open question 1):
+  loading with no cache, `pop.loading` "Loading today's edition…"; failed with
+  no cache, `pop.error` "Couldn't load today's edition." and `pop.retry` "Try
+  again"; failed with a cache, the cached list under `pop.stale` "Showing
+  {date}. Couldn't check for a newer edition."; a refused `schema_version`,
+  `pop.refused` "Update aiBytes_ to read this edition." (Chrome updates
+  extensions itself; this should be rare).
 - **Theme:** follows the OS, through Ledger's `prefers-color-scheme` tokens.
   No toggle in v1.
 - **Fonts:** bundled. The build drops `styles.css`'s Google Fonts `@import` and
@@ -267,11 +268,9 @@ export async function loadToday({ fetch, base }) {
 
 ## Open questions
 
-1. **Fonts:** bundle Inter and Bricolage Grotesque from `@fontsource/*` (dev
-   dependencies, OFL), as `extending-ledger.md` asks ("no runtime fonts
-   fetch")? The alternative is letting `styles.css` fetch from Google Fonts in
-   the popup, which works but sends a request to Google on every open.
-2. **The four states' copy** above is new. Approve, or edit it on the
-   prototype's Copy screen?
-3. **Weekly items in Saved:** shown as their own sections, as on `/saved`
-   (assumed). Confirm.
+1. **The four states' copy** (`pop.loading`, `pop.error`, `pop.retry`,
+   `pop.stale`, `pop.refused`) was shown to the publisher on 22 Nov 2026;
+   approved wording replaces the drafts above.
+
+Decided 22 Nov 2026: fonts bundled from `@fontsource/*`; weekly items in Saved
+as their own sections, as on `/saved`.

@@ -233,8 +233,12 @@ Correct any of these now; the module specs are written on them.
 3. **The popup's Sign in opens `aibytes.io/extension-onboarding?step=signin`,**
    which shows step 2 alone. Signing in there sends the token as any sign-in
    does.
-4. **No sign-out in the popup.** The avatar shows who is signed in (its title).
-   Signing out happens on aibytes.io and is mirrored.
+4. **Sign-out in the popup too** (revised 22 Nov 2026, answer 12.10). The
+   avatar opens a small menu: the reader's name and email, and Sign out.
+   Signing out there holds the extension signed out, so the site's reconcile
+   does not sign it straight back in; only an explicit sign-in on aibytes.io
+   clears the hold, and that page offers "Continue as {name}" or "Use a
+   different account". Signing out on aibytes.io is still mirrored.
 5. **"View on Web"** opens `https://aibytes.io/<date>`, or `/gists/<slug>` from
    a gist, with `?utm_source=chrome-extension` so Umami counts the visits.
 6. **The newsletter box** subscribes with `source: "extension-onboarding"`, so
@@ -309,3 +313,14 @@ Correct any of these now; the module specs are written on them.
     (22 Nov 2026), even though the 9 existing users must then accept the
     update's warning before the extension works again. `extension-auth` adds
     only the hosts the gate shows are needed, and `store-listing` justifies it.
+
+12. **Answers on the module specs (22 Nov 2026):** fonts bundled (1); the pin
+    animation in code (3); the callable for Google sign-ins only (4); the done
+    card's button goes to `/` (5); the install box shows in **every desktop
+    Chromium browser that can install from the Chrome Web Store** (Chrome,
+    Edge, Brave, Opera, Vivaldi, Arc), not Google Chrome only (6); the store
+    category becomes Lifestyle › News & Weather, ticket item 4.1 (7); weekly
+    items in Saved as their own sections (9); and **the avatar opens a menu
+    with Sign out**, so a reader can sign out and back in with another account
+    (10, which revises assumption 4). The new copy (2) and the short
+    description (8) were shown to the publisher for approval.
