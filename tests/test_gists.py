@@ -4,6 +4,7 @@ No network: every fetcher the draft calls is replaced. The spec is
 docs/specs/AIB-145y-gist-generate.md.
 """
 
+import datetime
 import json
 import pathlib
 import re
@@ -636,9 +637,23 @@ class WeeklyTree:
         (folder / "gists.json").write_text(json.dumps({"gists": written}))
 
     def build(self, **kw):
-        kw.setdefault("now", "2026-11-16T12:00:00Z")
+        kw.setdefault("now", self.after_content())
         kw.setdefault("log", lambda line: None)
         return build_mod.build(issue=self.issue, content_root=self.content, cache_root=self.cache, **kw)
+
+    def after_content(self):
+        """An hour after the newest timestamp in the copied content tree.
+
+        The tree is the real content/, which the daily run keeps adding to, so
+        a fixed clock eventually falls before a published gist's created_at
+        and the build would write an updated_at that validation rejects.
+        """
+        stamps = ["2026-11-16T12:00:00Z"]
+        for path in (self.content / "gists").glob("*.json"):
+            data = json.loads(path.read_text())
+            stamps += [data[k] for k in ("created_at", "updated_at", "generated_at") if isinstance(data.get(k), str)]
+        latest = datetime.datetime.strptime(max(stamps), "%Y-%m-%dT%H:%M:%SZ")
+        return (latest + datetime.timedelta(hours=1)).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     def gist(self, slug):
         return json.loads((self.content / "gists" / f"{slug}.json").read_text())
