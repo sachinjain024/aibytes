@@ -28,6 +28,11 @@ python3 packages/gists/gists.py draft --issue issue-19
 python3 packages/gists/gists.py build --issue issue-19
 ```
 
+For a real issue, don't run weekly `build` in the issue checkout: the
+newsletter skill's `publish_gists.py` runs both commands on a fresh
+`origin/main` and merges the result as a `content/gists/`-only PR, so the
+gists are live before the newsletter is sent.
+
 Weekly X posts are `preview` gists with no Claude file. The skill wrapper is
 `.claude/skills/write-gists/SKILL.md` — voice and structure, not the code.
 

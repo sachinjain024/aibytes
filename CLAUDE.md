@@ -61,7 +61,7 @@ python3 packages/curate/curate.py rank --date 2026-08-31   # back-fill rank only
 python3 packages/gists/gists.py draft --date 2026-11-11
 python3 packages/gists/gists.py build --date 2026-11-11 --gists .cache/gists/2026-11-11/gists.json
 python3 packages/gists/gists.py draft --issue issue-19
-python3 packages/gists/gists.py build --issue issue-19
+python3 .claude/skills/generate-newsletter-content/scripts/publish_gists.py --issue issue-19 --wait 600
 
 # The daily runner: sync main -> fetch -> curate -> validate -> commit -> push, then Slack.
 # This is what the edition workflow calls at 13:30 IST (08:00 UTC); --date backfills or re-runs a day.
@@ -163,13 +163,18 @@ Newsletter content never lands on `main` directly:
    `newsletter/issues/{yyyy}/week-NN-Issue-{num}/` folder, social posts, thumbnails.
 3. Push and open a PR against `main` with `gh pr create`; merge once reviewed.
 
-Two special cases:
+Three special cases:
 
 - **Tooling changes that come out of an issue** (a template, skill, package or
   test change made because of what the week's issue needed) land on that
   issue's branch and ship in its PR, as their own commits. Keep them out of
   the content commits so they can be reviewed apart. Only tooling work that
   isn't tied to an issue gets its own branch and PR.
+- **The weekly issue's gists** ship first, in their own PR, as soon as the
+  issue's rows are chosen: `generate-newsletter-content/scripts/publish_gists.py`
+  builds them on a fresh `origin/main`, commits only `content/gists/` on
+  `issue-N-gists`, and squash-merges it straight away so Pages has them live
+  before the newsletter is sent. The issue PR then carries everything else.
 - **The daily edition** is automated and cannot open PRs.
   `packages/runner/run.py`, started by the `edition` GitHub Actions workflow at 13:30 IST, pushes
   `content/` and `newsletter/data/` straight to `main`; GitHub Pages deploys on

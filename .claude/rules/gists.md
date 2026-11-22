@@ -65,3 +65,10 @@ reimplement a fetch inside `aibytes_gists` or the skill.
 Missing `items.json` is fatal. A failed gist drops that row only. Item ids
 come from `packages/feed-schema/item_id.py` so the weekly builder cannot
 drift.
+
+Weekly gists are published before the issue: the newsletter skill runs
+`publish_gists.py`, which calls `draft` and `build` on a fresh `origin/main`
+in a temporary worktree and merges a `content/gists/`-only PR. Keep `build`
+deterministic apart from its timestamps (`updated_at`, `stats_as_of`,
+`generated_at`): the script treats a timestamp-only diff as "already
+published", so a rerun opens no PR.
