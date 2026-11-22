@@ -52,6 +52,7 @@ export const COPY = makeCopy([
   { key: "onb.subscribe", where: "Onboarding › Step 2 › Newsletter checkbox", text: "Also subscribe me to the weekly newsletter" },
   { key: "onb.s2.skip", where: "Onboarding › Step 2 › Skip", text: "Skip for now" },
   { key: "onb.s2.signedin", where: "Onboarding › Step 2 › Once signed in", text: "Signed in as {name}. The extension is signed in too." },
+  { key: "onb.signedout", where: "Onboarding › After Sign out in the popup", text: "You're signed out of aibytes.io and the extension." },
   { key: "onb.s2.subscribed", where: "Onboarding › Step 2 › Once subscribed", text: "Subscribed to aiBytes_ weekly." },
   { key: "onb.s2.continue", where: "Onboarding › Step 2 › Already signed in on aibytes.io › Primary button", text: "Continue as {name}" },
   { key: "onb.s2.switch", where: "Onboarding › Step 2 › Already signed in on aibytes.io › Secondary button", text: "Use a different account" },

@@ -328,4 +328,5 @@ Correct any of these now; the module specs are written on them.
     with Sign out**, which signs the reader out on aibytes.io as well as in
     the extension, so they can sign back in with another account (10, which
     revises assumption 4). The new copy (2) is approved and is in the prototype's
-    `copy.js`; `onb.signedout` and the short description (8) are open.
+    `copy.js`; so is `onb.signedout`. The short description (8) keeps Reddit
+    (see store-listing's Risks), and a marquee is made.

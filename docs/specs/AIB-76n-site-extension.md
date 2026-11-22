@@ -279,10 +279,8 @@ export function onboardingReducer(state, action) {
 
 ## Open questions
 
-1. **`onb.signedout`** ("You're signed out of aibytes.io and the
-   extension.") is new with the sign-out change; approve or edit.
-
-Approved 22 Nov 2026: `onb.s2.extfail`, `onb.s2.continue`, `onb.s2.switch`.
+None. Approved 22 Nov 2026: `onb.s2.extfail`, `onb.s2.continue`,
+`onb.s2.switch` and `onb.signedout`.
 
 Decided 22 Nov 2026: the done card's button goes to `/`; the install box shows
 in every desktop Chromium browser that can install from the store.
