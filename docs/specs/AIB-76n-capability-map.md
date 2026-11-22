@@ -305,3 +305,7 @@ Correct any of these now; the module specs are written on them.
     extension's Auth and Firestore calls would be refused until the key allows
     the extension. Confirming and changing that is ticket item 2.2, before
     `extension-auth`; its spec records how the key is set.
+11. **A Google host permission is acceptable if the CORS gate needs it**
+    (22 Nov 2026), even though the 9 existing users must then accept the
+    update's warning before the extension works again. `extension-auth` adds
+    only the hosts the gate shows are needed, and `store-listing` justifies it.
