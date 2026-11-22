@@ -155,13 +155,30 @@ on `Button`. Add kit page `20-extension-onboarding.html` with step 1, step 2
 signed-out view, done, and not installed.
 
 **Acceptance criteria:**
-- [ ] `Button` without `size` renders the same markup as before (a snapshot test)
-- [ ] The step's tick when `done`, "Step 2 of 2", and the reduced-motion list are tested
-- [ ] Kit page 20 matches the prototype at 1280 and 390, in light and dark
+- [x] `Button` without `size` renders the same markup as before (a snapshot test)
+- [x] The step's tick when `done`, "Step 2 of 2", and the reduced-motion list are tested
+- [x] Kit page 20 matches the prototype at 1280 and 390, in light and dark
 
 **Verification:** (A), (D), the kit preview.
 
 **Dependencies:** T3. **Files:** `components/extension/{OnboardingStep,PinAnimation}.*`, `components/forms/Button.*`, `components.css`, kit page 20. **Scope:** M
+
+**Done 22 Nov 2026.** `Button.test.js` (new): every variant without `size`
+renders exactly today's markup, written and passing before the change, and
+`size="lg"` adds `ldg-btn--lg` without leaking a `size` attribute.
+`onboarding.test.js`: six tests (the labelled section, "Step 2 of 2" and its
+label, the Optional tag, the tick when `done`, `OnboardingStatus`, frame one
+and the reduced-motion list). `OnboardingStatus` (a ticked line) ships with
+`OnboardingStep`, because the steps use it three times. `PinAnimation` names
+the drawing once (`role="img"` on the toolbar, not the figure, so the caption
+stays readable), and its caption is not a live region, since it changes every
+1.1s; `reducedMotion` forces either form. The drawn extensions menu is the one
+shadow, as a popover. Kit page 20 has its own `Onboarding.jsx`: the site
+header over `.ldg-onb`, six states with controls for width (1280, 390) and
+theme, checked by screenshot in both themes. Inline icons in a sentence sit
+on the text rather than in a flex row, which had split the Done line at 390.
+Design-system suite 115/115, `test_design_system` 40/40, web 161 and app-core
+40 unchanged, the site's HTML unchanged.
 
 ## T6 [3.6]: Ledger's `ExtensionPromo`, `Sidebar promo`, kit page 21, guideline
 

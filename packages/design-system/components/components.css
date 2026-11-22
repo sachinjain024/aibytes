@@ -252,3 +252,59 @@ body.gist-resizing{cursor:col-resize;user-select:none}
 .ldg-popup-back{border:0;background:none;color:var(--text);font:500 var(--text-13) var(--font-body);padding:6px 8px;border-radius:var(--radius-chip);cursor:pointer}
 .ldg-popup-back:hover{background:var(--hover)}
 .ldg-popup-actions{flex:none;display:flex;align-items:center;gap:6px;min-height:44px;padding:0 14px 0 8px;background:var(--surface-2);border-top:var(--border-w) solid var(--control-border);font-size:var(--text-13)}
+
+/* The extension's onboarding page on aibytes.io (AIB-76n, E2 and F1). Tokens only.
+   .ldg-onb is the page's column; OnboardingStep, OnboardingStatus and PinAnimation go in it. */
+.ldg-btn--lg{width:100%;max-width:360px;height:48px;padding:0 20px;justify-content:center;font-size:var(--text-16);font-weight:600;border-radius:8px}
+.ldg-btn--lg svg{width:20px;height:20px}
+.ldg-onb{max-width:620px;margin:0 auto;padding:40px 20px 120px;display:flex;flex-direction:column;gap:16px}
+.ldg-onb__h1{margin:0;font:800 28px/1.15 var(--font-display);letter-spacing:var(--tracking-heading);color:var(--text)}
+.ldg-onb__h1:has(.ldg-onb__check){display:flex;align-items:flex-start;gap:12px}
+.ldg-onb__check{flex:none;display:inline-grid;place-items:center;width:32px;height:32px;margin-top:1px;border-radius:16px;background:var(--success);color:var(--success-fg)}
+.ldg-onb__sub{margin:0 0 8px;color:var(--text-2);font-size:15px;line-height:1.5}
+.ldg-onb__fine{margin:0;color:var(--text-2);font-size:var(--text-12)}
+.ldg-onb__notice{margin:0;padding:10px 14px;border:var(--border-w) solid var(--control-border);border-radius:var(--radius-card);background:var(--surface-2);color:var(--text);font-size:var(--text-14)}
+.ldg-onb>.ldg-btn{align-self:flex-start}
+.ldg-onb-step{display:flex;flex-direction:column;gap:10px;padding:18px 20px;background:var(--surface);border:var(--border-w) solid var(--control-border);border-radius:var(--radius-card)}
+.ldg-onb-step--done{border-color:var(--success)}
+.ldg-onb-step--end{border-style:dashed}
+.ldg-onb-step--end>.ldg-btn{align-self:flex-start}
+.ldg-onb-step p{margin:0;color:var(--text-2);font-size:var(--text-14);line-height:1.5}
+.ldg-onb-step__head{display:flex;align-items:center;gap:10px}
+.ldg-onb-step h2{margin:0;color:var(--text);font:700 18px/1.3 var(--font-display)}
+.ldg-onb-step__n{flex:none;display:inline-grid;place-items:center;width:24px;height:24px;border:var(--border-w) solid var(--control-border);border-radius:12px;font-size:var(--text-12);font-weight:600;font-variant-numeric:tabular-nums}
+.ldg-onb-step--done .ldg-onb-step__n{border-color:var(--success)}
+.ldg-onb-step__n .ldg-onb-tick{width:24px;height:24px}
+.ldg-onb-step__of{margin-left:auto;color:var(--text-2);font-size:var(--text-12);font-variant-numeric:tabular-nums;white-space:nowrap}
+.ldg-onb-step__opt{margin-left:2px;padding:1px 5px;border:var(--border-w) solid var(--control-border);border-radius:4px;color:var(--text-2);font:500 11px var(--font-body);vertical-align:middle}
+.ldg-onb-step p.ldg-onb-status{display:flex;align-items:flex-start;gap:8px;color:var(--text);font-weight:500}
+.ldg-onb-status>.ldg-onb-tick{margin-top:3px}
+/* The extension's icon inside a sentence sits on the text, not in a flex row of its own. */
+.ldg-onb-step p svg{vertical-align:-3px}
+.ldg-onb-step p.ldg-onb-wait{color:var(--text-2);font-size:var(--text-12)}
+.ldg-onb-tick{flex:none;display:inline-grid;place-items:center;width:16px;height:16px;border-radius:8px;background:var(--success);color:var(--success-fg)}
+.ldg-onb-signin{display:flex;flex-direction:column;align-items:center;gap:12px;padding:8px 0 2px}
+.ldg-onb-signin__row{display:flex;flex-direction:column;align-items:center;gap:8px;width:100%}
+.ldg-onb-check{display:flex;align-items:center;gap:8px;color:var(--text);font-size:var(--text-14);cursor:pointer}
+.ldg-onb-check input{width:16px;height:16px;margin:0;accent-color:var(--accent)}
+.ldg-onb-skip{padding:6px 4px;border:0;background:none;color:var(--text-2);font:500 var(--text-13) var(--font-body);text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.ldg-pinanim{margin:4px 0 0;display:flex;flex-direction:column;gap:8px}
+.ldg-pinanim__bar{position:relative;display:flex;align-items:flex-start;justify-content:flex-end;gap:6px;height:150px;padding:10px 12px;overflow:hidden;background:var(--bg);border:var(--border-w) solid var(--control-border);border-radius:8px}
+.ldg-pinanim__omni{flex:1;height:22px;border-radius:11px;background:var(--surface-2)}
+.ldg-pinanim__icon{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:12px;color:var(--text-2);transition:background var(--transition)}
+.ldg-pinanim__icon--hover{background:var(--hover)}
+.ldg-pinanim__icon--new{animation:ldg-pinanim-pop .4s ease}
+.ldg-pinanim__avatar{width:20px;height:20px;margin-top:2px;border-radius:10px;background:var(--muted)}
+/* A drawn popover (Chrome's extensions menu), so it carries the popover shadow. */
+.ldg-pinanim__menu{position:absolute;top:40px;right:12px;display:flex;flex-direction:column;gap:2px;width:190px;padding:6px;background:var(--surface);border:var(--border-w) solid var(--control-border);border-radius:8px;box-shadow:0 8px 20px var(--shadow)}
+.ldg-pinanim__row{position:relative;display:flex;align-items:center;gap:8px;padding:6px;color:var(--text);font-size:var(--text-12)}
+.ldg-pinanim__row--dim{color:var(--text-2)}
+.ldg-pinanim__dot{width:14px;height:14px;border-radius:4px;background:var(--surface-2)}
+.ldg-pinanim__pin{margin-left:auto;display:inline-grid;place-items:center;width:22px;height:22px;border-radius:11px;color:var(--text-2)}
+.ldg-pinanim__pin--hover{background:var(--hover);color:var(--accent)}
+.ldg-pinanim__cursor{position:absolute;top:22px;right:34px;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:14px solid var(--text);transform:rotate(-25deg)}
+.ldg-pinanim__cursor--pin{top:18px;right:4px}
+.ldg-pinanim figcaption,.ldg-pinanim__steps{color:var(--text-2);font-size:var(--text-12)}
+.ldg-pinanim__steps{margin:0;padding-left:20px;line-height:1.6}
+@keyframes ldg-pinanim-pop{from{transform:scale(.4);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.ldg-pinanim__icon--new{animation:none}}

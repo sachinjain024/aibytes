@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T10:23:17.730Z
-updated_at: 2026-11-22T11:50:22.745Z
+updated_at: 2026-11-22T12:05:37.636Z
 ---
 
 The aiBytes_ Chrome extension, popup first: clicking the toolbar icon shows today's edition as a ranked list, with a star on every row that syncs to the reader's aibytes.io account. It replaces the existing "AI Bytes" listing on the Chrome Web Store. Split out of AIB-8h (phase 7) on 2026-10-08; re-scoped on 2026-11-20 after a requirements interview with the publisher. The new-tab page moved to its own ticket, AIB-151m.
@@ -62,7 +62,7 @@ Same flow as AIB-75v:
 
 - [x] 1. Prototype the popup, onboarding and aibytes.io install banner, and record the picks in docs/decisions/product/AIB-76n-extension-design.md <!-- longclaw:item=ck_cc395d9b -->
 - [x] 2. Capability map (docs/specs/AIB-76n-capability-map.md), then the module specs (docs/specs/AIB-76n-<module-id>.md) <!-- longclaw:item=ck_019d540e -->
-- [ ] 2.1 Publisher, before extension-auth: add chrome-extension://faamldnehjdjdobapchedpmldfjjfife to Firebase Auth's authorised domains (project ai-bytes-b42d2) <!-- longclaw:item=ck_c4a64b1c -->
+- [x] 2.1 Publisher, before extension-auth: add chrome-extension://faamldnehjdjdobapchedpmldfjjfife to Firebase Auth's authorised domains (project ai-bytes-b42d2) <!-- longclaw:item=ck_c4a64b1c -->
 - [ ] 2.2 Publisher, before extension-auth: the web API key is HTTP-referrer restricted to aibytes.io; confirm, and allow the extension (chrome-extension://faamldnehjdjdobapchedpmldfjjfife) so its Auth and Firestore calls are not refused <!-- longclaw:item=ck_469985f9 -->
 - [ ] 2.3 Understand what Chrome's "Build with AI" guidance offers (developer.chrome.com/docs/extensions/ai/build-with-ai#modern_web_guidance): the Modern Web Guidance skills (chrome-extensions, modern-web-guidance), Chrome DevTools for agents (chrome-devtools-mcp with --categoryExtensions), and the CHROMEWEBSTORE.md convention; note what applies to this build and what overlaps the repo's own skills and rules <!-- longclaw:item=ck_4fca43a2 -->
 - [ ] 2.4 Before the build: install the Modern Web Guidance skills (npx modern-web-guidance@latest install --choose; pick Claude Code, chrome-extensions and modern-web-guidance), add chrome-devtools-mcp with --categoryExtensions --autoConnect, and add the CHROMEWEBSTORE.md instruction (permission justifications kept with apps/extension); record where each is installed <!-- longclaw:item=ck_cf0be5fd -->
@@ -72,7 +72,7 @@ Same flow as AIB-75v:
 - [x] 3.2 T2 app-core's account modules (saves, accountData, accountSaves, merge, saved, firebase-config) and its test:rules <!-- longclaw:item=ck_036bc037 -->
 - [x] 3.3 T3 Ledger ExtensionIcon and the Chrome PNGs (16, 32, 48, 128) <!-- longclaw:item=ck_6fb9402f -->
 - [x] 3.4 T4 Ledger popup components (PopupHeader with avatar menu, footer, gist bars) and kit page 19 <!-- longclaw:item=ck_5c77755c -->
-- [ ] 3.5 T5 Ledger OnboardingStep, PinAnimation, Button size lg, and kit page 20 <!-- longclaw:item=ck_43fd53f4 -->
+- [x] 3.5 T5 Ledger OnboardingStep, PinAnimation, Button size lg, and kit page 20 <!-- longclaw:item=ck_43fd53f4 -->
 - [ ] 3.6 T6 Ledger ExtensionPromo, Sidebar promo, kit page 21, extending-ledger.md <!-- longclaw:item=ck_f3986716 -->
 - [ ] 3.7 T7 apps/extension scaffold: manifest with key and storage, bundled fonts, onboarding on install <!-- longclaw:item=ck_b1dacb52 -->
 - [ ] 3.8 T8 The sign-in gate: custom token in the worker, Firestore read/write, worker restart; record the result and freeze permissions <!-- longclaw:item=ck_e863d797 -->
@@ -1432,6 +1432,40 @@ actor:
   name: Claude Code
 changes:
   - field: checklist.ck_5c77755c.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_ebe9d12b
+kind: update
+occurred_at: 2026-11-22T11:58:45.291Z
+actor:
+  type: agent
+  id: grok
+  name: grok
+changes:
+  - field: checklist.ck_c4a64b1c.checked
+    from: "false"
+    to: "true"
+-->
+### grok updated this ticket
+
+Publisher added chrome-extension://faamldnehjdjdobapchedpmldfjjfife to Firebase Auth authorised domains on project ai-bytes-b42d2 (Authentication → Settings). Confirmed in console: Custom row with full scheme, no trailing slash; localhost, aibytes.io, and Firebase defaults unchanged.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_90156525
+kind: update
+occurred_at: 2026-11-22T12:05:37.636Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_43fd53f4.checked
     from: "false"
     to: "true"
 -->

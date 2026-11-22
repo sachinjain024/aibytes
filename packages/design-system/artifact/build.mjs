@@ -222,7 +222,7 @@ const docOf = (dts, name) => {
 
 // Components that share another's source file or have none of their own.
 const SHARED = {
-  CardGrid: "Feed", RowList: "Feed", StatusMessage: "Feed", AccountMenuPanel: "AppHeader", AccountMenu: "AppHeader",
+  CardGrid: "Feed", RowList: "Feed", StatusMessage: "Feed", AccountMenuPanel: "AppHeader", AccountMenu: "AppHeader", OnboardingStatus: "OnboardingStep",
 };
 const OWN_DOCS = {
   Signals: "The mono signal row on a card or list row: ▲ upvotes or points, ★ stars gained, then the comment bubble, each only when present, with tabular numerals.\n\n```jsx\n<Signals signals={{ upvotes: 776, comments: 42 }} />\n```\n\nCard and ListRow render it; use it directly only to show an item's counts elsewhere.",

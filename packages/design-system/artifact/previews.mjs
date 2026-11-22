@@ -193,10 +193,12 @@ render(<div className="pv-row"><L.Signals signals={{ upvotes: 776, comments: 42 
   LangDot: { group: "Content", height: 80, jsx: `
 render(<div className="pv-row">{["Python", "TypeScript", "Rust", "Go", "C++", "Shell", "Jupyter Notebook", "Haskell"].map(l => <span key={l} className="pv-row" style={{ gap: 6 }}><L.LangDot language={l} /><Label>{l}</Label></span>)}</div>);` },
 
-  Button: { group: "Forms", height: 130, jsx: `
+  Button: { group: "Forms", height: 220, jsx: `
 render(<>
   <div className="pv-row"><L.Button variant="primary">Subscribe</L.Button><L.Button variant="secondary">Sign in</L.Button><L.Button variant="ghost">Notify me</L.Button><L.Button variant="google">Sign in with Google</L.Button></div>
   <div className="pv-row"><L.Button variant="primary" disabled>Subscribe</L.Button><L.Button variant="secondary" disabled>Sign in</L.Button></div>
+  <div className="pv-row" style={{ width: 360 }}><L.Button variant="google" size="lg">Sign in with Google</L.Button></div>
+  <Label>size="lg": the one sign-in on a page, 48px, up to 360px wide.</Label>
 </>);` },
 
   Input: { group: "Forms", height: 90, jsx: `
@@ -282,4 +284,28 @@ function Demo() {
   return <div style={{ width: 400 }}><L.PopupActionBar saved={saved} onToggleSave={() => setSaved(s => !s)}><a className="ldg-popup-link" href="#">View on Web →</a></L.PopupActionBar></div>;
 }
 render(<><Demo /><Label>The star toggles Save and Saved.</Label></>);` },
+
+  OnboardingStep: { group: "Extension", height: 420, width: 660, jsx: `
+render(<div className="pv-row" style={{ flexDirection: "column", alignItems: "stretch", width: 620 }}>
+  <L.OnboardingStep n={2} total={2} optional title="Sign in to save & bookmark items">
+    <p>Items you bookmark will be stored in your account and accessible across devices.</p>
+    <div className="ldg-onb-signin"><L.Button variant="google" size="lg">Sign in with Google</L.Button>
+      <label className="ldg-onb-check"><input type="checkbox" defaultChecked /> Also subscribe me to the weekly newsletter</label>
+      <button type="button" className="ldg-onb-skip">Skip for now</button></div>
+  </L.OnboardingStep>
+  <L.OnboardingStep n={1} done title="Pin aiBytes_ to your toolbar">
+    <L.OnboardingStatus>Pinned. Select <L.ExtensionIcon size={16} /> in the toolbar any time.</L.OnboardingStatus>
+  </L.OnboardingStep>
+</div>);` },
+
+  OnboardingStatus: { group: "Extension", height: 90, width: 660, jsx: `
+render(<div className="ldg-onb-step" style={{ width: 580 }}><L.OnboardingStatus>Signed in as Ada Lovelace. The extension is signed in too.</L.OnboardingStatus></div>);` },
+
+  PinAnimation: { group: "Extension", height: 470, width: 660, jsx: `
+const captions = ["Look at the top right of Chrome", "Select the puzzle icon", "Find aiBytes_ in the list", "Select the pin", "aiBytes_ is in your toolbar"];
+render(<div style={{ width: 580, display: "flex", flexDirection: "column", gap: 12 }}>
+  <L.PinAnimation captions={captions} />
+  <Label>Loops every 1.1s. Below, with reduced motion: the last frame and the five captions.</Label>
+  <L.PinAnimation captions={captions} reducedMotion />
+</div>);` },
 };
