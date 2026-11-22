@@ -94,12 +94,23 @@ against the rules, and the code is unchanged apart from import paths.
 `assets/extension/icon-{16,32,48,128}.png`, which are committed.
 
 **Acceptance criteria:**
-- [ ] Four square PNGs, transparent outside the tile
-- [ ] `ExtensionIcon` is `aria-hidden` without `title`, and is the same in both themes
+- [x] Four square PNGs, transparent outside the tile
+- [x] `ExtensionIcon` is `aria-hidden` without `title`, and is the same in both themes
 
 **Verification:** (A), and view the PNGs at 1× and 2×.
 
 **Dependencies:** None. **Files:** `packages/design-system/components/extension/ExtensionIcon.*`, `scripts/extension-icons.mjs`, `assets/extension/*.png`. **Scope:** S
+
+**Done 22 Nov 2026.** `ExtensionIcon.test.js`: seven tests. The markup
+(`aria-hidden` without a title, a named image with one, the favicon's tile, bolt
+and colours with no tokens), plus each PNG's size, 8-bit RGBA and transparent
+top-left corner, read straight from the file. The script drives headless Chrome
+over the DevTools protocol with Node's own `WebSocket`, so it adds no
+dependency. It waits for Chrome to exit before removing the temporary profile.
+Checked by eye: 128 px matches the favicon, and 16 px (enlarged) keeps the bolt
+legible and the corners transparent. Design-system suite 99/99,
+`tests.test_design_system` 32/32. Whether it looks right at 16 px in the real
+toolbar is checked in T7, when the extension loads.
 
 ## T4 [3.4]: Ledger's popup components and kit page 19
 
