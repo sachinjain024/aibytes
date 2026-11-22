@@ -8,7 +8,7 @@ priority: urgent
 type: newsletter
 due: 2026-11-22
 created_at: 2026-11-21T15:28:59.993Z
-updated_at: 2026-11-22T04:38:24.902Z
+updated_at: 2026-11-22T04:59:53.481Z
 ---
 
 Weekly aiBytes_ Issue #19.
@@ -31,7 +31,7 @@ Checklist copied from Issue #18 (AIB-147t).
 - [ ] Update Intro Content <!-- longclaw:item=ck_3ffa7761 -->
 - [x] Generate Thumbnail <!-- longclaw:item=ck_527c3c51 -->
 - [x] Create the Substack draft <!-- longclaw:item=ck_129544bd -->
-- [ ] Send the newsletter <!-- longclaw:item=ck_84af64f0 -->
+- [x] Send the newsletter <!-- longclaw:item=ck_84af64f0 -->
 - [ ] Create the LC Tickets for AI Learning Backlog <!-- longclaw:item=ck_9c5d1da5 -->
 - [x] Commit the issue output and open a PR against main <!-- longclaw:item=ck_25b0e26f -->
 
@@ -160,4 +160,22 @@ changes:
 ### Claude Code updated this ticket
 
 PR: https://github.com/sachinjain024/aibytes/pull/74 (rebased on edition 2026-11-21, gists rebuilt). Substack draft: https://newsletter.aibytes.io/publish/post/226004086 - title, subtitle and body pasted; sections, list counts, pull quote, 4 announcements and 32 gist links checked; is_published false, email not sent.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_b31d8454
+kind: update
+occurred_at: 2026-11-22T04:59:53.481Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_84af64f0.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Published on Substack 2026-11-22 04:58 UTC: https://newsletter.aibytes.io/p/anthropic-goes-public-metas-agent (post 226004086, audience everyone). Publisher picked the Grok hero (better background, closer to the brand guide); repo keeps both as thumbnails/issue-19-hero-{gemini,grok}.jpg.
 <!-- /longclaw:event -->
