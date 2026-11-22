@@ -1,108 +1,126 @@
 ---
 name: generate-followup-thumbnail
-description: Render the 1200x630 thumbnail images for a published aiBytes_ issue - three background variants saved in the issue's thumbnails/ folder, one of which gets uploaded as the Substack post's social image. Use whenever the user wants a thumbnail, cover image, header image, post image, social preview, or OG image for the newsletter - triggers include "make the thumbnail", "generate the cover for issue N", "I need the Substack image", or "/generate-followup-thumbnail".
+description: Make the hero image for an aiBytes_ issue - write the Gemini and Grok CLI prompts from the brand guide, then take the two images the publisher generates, remove Gemini's watermark, move anything outside Substack's crop safe area, compress both to under 200KB, and save them in the issue's thumbnails/ folder for the publisher to pick one. Use whenever the user wants a thumbnail, hero, cover, header image, social preview or OG image for the newsletter, a Gemini or Grok image prompt for an issue, or to prepare, resize or fix a generated hero - triggers include "give me the Gemini prompt", "prompt for Grok", "make the thumbnail for issue N", "prepare the hero", or "/generate-followup-thumbnail".
 ---
 
 # Generate Follow-up Thumbnail (aiBytes_)
 
-Each Substack post carries one social image, and **1200x630** is the size this series is set at. That image is doing two jobs: it is the post's card on the Substack archive and in readers' feeds, and it is the Open Graph preview whenever anyone shares the issue. Both get seen small, so the thumbnail is the issue's headline set large, not a decorated poster.
+Each Substack post carries one hero image: the post's cover on the archive and
+in readers' feeds, and the Open Graph preview whenever the issue is shared.
+From Issue 19 the publisher generates it in **two models, Gemini (web UI) and
+Grok CLI**, from prompts Claude writes. Claude then prepares both, and the
+publisher picks one to upload. Both prepared variants are kept in the repo.
 
-Every run renders the same card with **three background treatments** - dot grid, cobalt wash, graph grid - into the issue's `thumbnails/` folder. Which one ships is decided at upload time, issue by issue; the alternatives cost nothing to keep.
+The 1200x630 HTML card this skill used to render (three backgrounds, Issues
+1-16) is retired.
 
-## Run it
+## Workflow
+
+### 1. Write both prompts
+
+Fill the templates in `references/hero-prompts.md` for the issue and hand both
+to the publisher in chat, as two code blocks. The slots:
+
+- **Headline**: the subject line without its emoji, shortened to two balanced
+  lines.
+- **Stops**: the story of the week and the title's other hooks, each a short
+  label plus a scene drawn as objects.
+- **Issue number**: for Grok's output path.
+
+The two prompts carry the same brand rules. The Grok one also tells Grok CLI to
+read `docs/image-guide/`, not this skill, and to save to
+`.cache/thumbnails/issue-{num}-hero-grok.png`.
+
+The brand guide is `docs/image-guide/AI Bytes Image Generation Style Guide.pdf`:
+flat playful 2D vector, cream background with confetti dots and plus signs,
+navy outlines, the guide's palette, a centre-top title, a winding road
+connecting the story's points, and rounded icon-and-label boxes. Two standing
+overrides of the guide:
+
+- **No character.** The guide's cartoon developer was tried and rejected on
+  Issue 17. The scene carries the story.
+- **The attribution is exactly `aiBytes_`**, small and light gray at the top
+  right. Never "AI Bytes Newsletter".
+
+**Name no real person** in either prompt. Gemini refuses any prompt that names
+a public figure ("I can't depict some public figures"), even with no person in
+the scene. Issue 18's first prompt named Jensen Huang and was refused; "The
+chipmaker loses its CEO" worked. Companies and agencies are fine.
+
+### 2. The publisher generates both
+
+Gemini's file lands in `~/Downloads` (about 2730x1536, 4-5MB, with a sparkle
+watermark in the bottom-right corner). Grok's lands in `.cache/thumbnails/` of
+the checkout the publisher ran it in, which may be the main checkout rather
+than a worktree. Ask for both paths.
+
+### 3. Prepare them
 
 ```bash
-python3 .claude/skills/generate-followup-thumbnail/scripts/generate_thumbnail.py \
-  --issue-dir newsletter/issues/2026/week-33-Issue-4 \
-  --highlight "Oracle said no"
-```
-
-Writes three PNGs, each exactly 1200x630, into the issue's `thumbnails/` folder:
-
-```
-newsletter/issues/2026/week-33-Issue-4/thumbnails/issue-4-thumbnail-dot-grid.png
-newsletter/issues/2026/week-33-Issue-4/thumbnails/issue-4-thumbnail-cobalt-wash.png
-newsletter/issues/2026/week-33-Issue-4/thumbnails/issue-4-thumbnail-graph-grid.png
+python3 .claude/skills/generate-followup-thumbnail/scripts/prepare_hero.py \
+  --issue-dir newsletter/issues/{yyyy}/week-NN-Issue-N \
+  --gemini "~/Downloads/<gemini file>.png" \
+  --grok <checkout>/.cache/thumbnails/issue-N-hero-grok.png \
+  --move-attribution gemini \
+  --previews {scratchpad}/hero-N
 ```
 
 | Flag | What it does |
 |---|---|
-| `--issue-dir` | required, the folder holding `aiBytes-issue-{num}.html` |
-| `--highlight` | the phrase to set in signal yellow, matched case-insensitively; errors if it is not in the headline |
-| `--headline` | override the headline instead of taking it from the issue title |
-| `--output-root` | write the `thumbnails/` folder somewhere else, used by the tests |
-| `--html-only` | emit the three HTML pages and skip rendering, for when Chrome is unavailable |
+| `--issue-dir` | required, the issue folder; the number comes from its `-Issue-N` suffix |
+| `--gemini`, `--grok` | the originals; either or both |
+| `--move-attribution` | providers whose `aiBytes_` should be moved inside the safe area if it sits outside |
+| `--previews` | where the crop previews go (default: a new temp folder). Keep it outside the repo |
+| `--output-root` | write `thumbnails/` somewhere else, used by the tests |
 
-The script reads the issue number, hex tag and date straight out of the issue HTML, so the thumbnail cannot drift from the issue it belongs to. Generate the issue first.
+For each image it:
 
-## Workflow
+1. Fills Gemini's sparkle by blending from the box's four edges (a flat fill
+   leaves a seam).
+2. Moves the attribution, when asked, so its right edge sits 13% in. It
+   refuses a match too big to be the attribution, so it never smears the
+   headline.
+3. Reports margin warnings:
+   - **`cut:`** dark marks fall outside Substack's crop.
+   - **`tight:`** they survive the crop but sit inside the 12% / 8% margin.
+4. Resizes to 1456px wide with Lanczos and saves a progressive JPEG at quality
+   85, stepping down until it is under 200KB.
 
-### 1. Find the issue
+It writes `thumbnails/issue-{num}-hero-gemini.jpg` and `-grok.jpg`, and prints
+a JSON report.
 
-Default to the most recently published folder under `newsletter/issues/{yyyy}/`, unless the user names one. The issue HTML must already exist.
+### 4. Look, fix, report
 
-### 2. Choose the highlight phrase
+Open every preview: both 3:2 crops, both 1.91:1 crops, and the top-right and
+bottom-right corners. The script finds what it can; the eye check is what
+catches the rest.
 
-The headline is the subject line as it ships, **emoji and all** (decided 2026-08-23). The emoji is the same glyph the reader already has in their inbox, it is the card's only colour that is not the highlight, and its width is what tips the headline from two lines onto three. Only a legacy `aiBytes_ 04:` wordmark prefix comes off.
+- **Run `--move-attribution`** for any variant whose `aiBytes_` is cut in the
+  3:2 crop. Gemini put it at the very edge on Issue 19.
+- **Treat a `cut:` warning on the headline or a label as a regenerate.** Moving
+  a headline is not a fix.
+- **Check the spelling** of the headline, the labels and any number ("3h" came
+  out as "3l" in Grok's Issue 19 image). A misspelling means a regenerate.
+- **Look for stray marks** and hard-cut road ends.
 
-Pick **two to four words** to mark in signal yellow. The right choice is the most concrete thing in the headline: a company doing something, a number, a reversal. Not a connective phrase, and not the whole headline, which defeats the point. For "DeepMind's shake-up and the week Oracle said no", `Oracle said no` is the half a reader can act on.
+Then tell the publisher, per variant, what you fixed, what still needs a
+regenerate, and which one you'd upload and why.
 
-Never mark a phrase that breaks awkwardly across the line wrap. Render it and look.
+### 5. Hand over
 
-### 3. Render and look at them
+When the publisher picks one, copy its JPG to `~/Downloads` for the upload.
+They upload it as the post cover or under Settings → Social preview. Tick the
+ticket's thumbnail item and note both files.
 
-Always open the PNGs after generating - all three, since a background can misbehave behind one headline and not another. The check is whether the headline is readable at the size a feed card actually shows, roughly 300px wide. Things that go wrong:
+## Rules
 
-- **Not three lines.** The card wants the headline balanced onto **three lines** - that is the layout the series is set in. At the `19ch` measure an emoji-led subject lands there across the whole compliant range (verified at 50 and 64 characters). Two lines means the subject is unusually short, four means it is too long and the balance collapses; either way fix it with a reworded `--headline`, never by shrinking the type or editing the template.
-- **Headline too long.** The title rule in `generate-newsletter-content` keeps subjects at ~62 characters including the leading emoji, so a compliant subject always fits.
-- **Highlight in the wrong place**, sitting alone on its own line or splitting a phrase.
-- **Fonts not loaded.** Chrome fetches Bricolage Grotesque and JetBrains Mono from Google Fonts at render time. If the machine is offline the image still renders, in Helvetica, and looks wrong. Check the wordmark: the real face has a distinctly tight, high-contrast `a`.
-
-### 4. Hand them over
-
-Report the three paths and the dimensions, and show all three so the user can pick. Exactly one goes in as the Substack social image - in the post editor, **Continue → Social preview → Edit**, not into the body - and the other two stay in `thumbnails/` as the record of what the card could have been.
-
-The 16:9 illustrated banner tried on the Issue 16 backfill (`issue-16-banner.png`) is a separate image. Its provider is still being chosen in AIB-137j.
-
-### 5. Hero banner prompt for an image model
-
-From Issue 17 the publisher also makes an illustrated hero banner in an image model (Gemini for Issue 17) and uses it as the post's thumbnail. Claude writes the prompt; the publisher generates the image and hands it back, and Claude saves a compressed copy as `thumbnails/issue-{num}-hero.jpg` (see "Saving the hero" below).
-
-What worked on Issue 17 (`week-46-Issue-17/thumbnails/issue-17-hero.png`): an **editorial scene of the story's mechanism, with no character**, set on the background from the style guide in `docs/image-guide/AI Bytes Image Generation Style Guide.pdf`. The guide's playful 2D character version was tried and rejected. Build the prompt from these parts:
-
-- **Scene**: the story of the week drawn as its mechanism, in flat vector with thin navy outlines. Issue 17: a terminal window sends an HTTP request card whose `User-Agent: you@…` line is highlighted, under a magnifying glass, with lines fanning out to small browser windows that each receive an envelope.
-- **Background (from the style guide)**: soft cream/beige, sprinkled with colorful confetti dots, small plus signs and stars in orange #FF7A00, teal, purple #8B5CF6, blue #3B82F6 and yellow.
-- **Headline**: the subject line, shortened to fit three lines, in a bold navy sans-serif, top-left ("A Claude Code bug leaked your email to websites").
-- **Attribution**: top-right, small, thin light-gray, written exactly `aiBytes_` (spell out lowercase "ai", capital "B", trailing underscore). Never "AI Bytes Newsletter".
-- **Format**: 16:9 landscape, with nothing important near the top and bottom edges, since Substack's social preview crops to about 1.91:1.
-- **Avoid**: real company logos, readable real email addresses, hoodie hackers, skulls, red alarm colors, photorealism, 3D, neon, and any text besides the headline, the attribution and the scene's one label.
-
-Before saving the result, look at it for model artefacts (stray marks beside the attribution, a provider watermark in a corner) and tell the publisher what to crop or regenerate.
-
-**Name no real person in the prompt.** Gemini refuses any prompt that names a public figure ("I can't depict some public figures"), even with no person in the scene. Issue 18's first prompt named Jensen Huang in the headline and was refused; the one that worked said "The chipmaker loses its CEO and Anthropic files for IPO". Companies are fine.
-
-#### Saving the hero
-
-Never commit the model's original. Gemini returns a PNG of about 5MB at 2752x1536; git keeps every binary forever, and Issue 17's 4.4MB hero is already the largest file in the repo. Substack shows the banner at most 1456px wide and recompresses uploads, so the extra pixels are never seen.
-
-1. **Remove the provider watermark.** Gemini puts a faint four-point sparkle in the bottom-right corner, about 100px across at full size. Crop the corner, look at it, then fill the sparkle's box by blending from its four edges (each pixel the average of the horizontal and vertical interpolations between the box's edge pixels), not with one flat colour, which leaves a visible seam. Keep the box clear of nearby shapes and their shadows, or they smear into it. Look at the corner again afterwards.
-2. **Resize and compress** with Pillow: Lanczos down to 1456px wide, then save as a progressive JPEG, quality 85, `optimize=True`. Issue 18 went from 4.7MB to 122KB with no visible loss on the flat vector art. Keep it under 200KB.
-3. Save it as `thumbnails/issue-{num}-hero.jpg`. Leave the original where the publisher downloaded it, since they upload either one to Substack (Settings → Social preview, or as the post's cover).
-
-## Design
-
-Set by `assets/thumbnail.html`; keep changes there so every issue's thumbnail stays part of the same series.
-
-- **Ink canvas, paper card**, inset 18px, with the issue's signature notch cut from the top-right corner so the ink shows through. That notch is the one shape the newsletter owns, and it is what makes the card recognisable at thumbnail size.
-- **Top row**: `⚡ aiBytes_` wordmark with the cobalt underscore, and `ISSUE 0x{hex} · {date}` in mono on the right.
-- **Headline**: the subject line with its emoji, Bricolage Grotesque 800 at 70px, tight leading, `text-wrap: balance`, measure capped at `19ch` so it balances onto three lines. The highlight phrase sits on signal yellow using `box-decoration-break: clone` so a wrapped phrase keeps its padding on both lines.
-- **No foot.** The card carries the wordmark and the headline, nothing else. The section list and read time that used to sit under a rule at the bottom are gone: they are unreadable at the ~300px a feed card actually renders at, and they spent the card's quietest space on the one thing the reader already gets from the post itself. The headline centres in the space under the top row, which is what lets three lines sit as the standing shape without the card feeling top-heavy.
-- **Three backgrounds, chosen 2026-08-17** (decision record: `newsletter/artifacts/2026-Aug-17-Thumbnail-background-taste.html`). Each is a `.card::before` layer gated by a variant class on `<body>` (`dot-grid`, `cobalt-wash`, `graph-grid`), and each fades to plain paper behind the headline so the texture never competes with the type. Dot grid is slate dots (engineer's notebook, the quietest); graph grid is hairline squares with a stronger rule every fourth line; cobalt wash is a cobalt glow off the notch corner answered by signal yellow bottom-left, the only one that adds colour. A new variant means a new class in the template, its name in the script's `VARIANTS` tuple, and a fresh taste round - not an inline style on one issue.
-
-Palette matches the issue exactly: paper `#FAFAF7`, ink `#191C26`, cobalt `#2B4EF0`, signal `#FFD338`, slate `#6B7080`.
-
-## How the rendering works
-
-Headless Chrome screenshots the page at `--force-device-scale-factor=2`, producing 2400x1260, then `sips` downsamples to exactly 1200x630. The 2x pass is what keeps the type crisp; screenshotting at 1x gives visibly softer edges on the display face. The script verifies the final dimensions by reading the PNG's IHDR chunk and fails loudly if they are not 1200x630.
-
-Chrome is found at the usual macOS app paths, then on `PATH`. With no Chrome, the script tells you to rerun with `--html-only` and screenshot the pages yourself at 1200x630.
+- **Safe area.** Substack's post page crops the 16:9 hero to about 3:2, cutting
+  roughly 8% off each side. The social preview crops to 1.91:1, cutting the top
+  and bottom. Keep the headline, the labels and the attribution inside the
+  central 76% of the width and 84% of the height, with the headline centred.
+  Issue 18's left-aligned headline lost its first letters on the post page.
+- **Never commit the originals.** Git keeps every binary forever; Issue 17's
+  4.4MB PNG is still the largest file in the repo. Only the two prepared JPGs go
+  in, each under 200KB.
+- **Both variants ship in the repo**, as the record of what the cover could
+  have been, the way the card's three backgrounds used to.

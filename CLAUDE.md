@@ -142,7 +142,7 @@ user will call that out explicitly — do not infer the connection yourself.
   pass before committing. Fetch skills: an end-to-end test in
   `tests/test_skill_scripts.py` plus offline unit tests. Other skill scripts:
   their own `tests/test_<skill>.py`, with the external-tool test skipped when
-  the tool is missing (see `tests/test_thumbnail.py`).
+  the tool is missing (see `tests/test_create_substack_draft.py`).
 - Fetch logic belongs in `packages/fetchers`, not in a skill script. See
   `.claude/rules/fetchers.md`. Curation logic belongs in `packages/curate` the
   same way; its skill carries the voice rules, not the code. See

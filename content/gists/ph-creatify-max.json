@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "ph-creatify-max",
+  "kind": "launch",
+  "title": "Creatify Max",
+  "url": "https://www.producthunt.com/products/creatify",
+  "source_url": "https://www.producthunt.com/products/creatify",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Creatify Max is an AI agent for paid advertising that turns a product URL or brief into video ads, sets up Meta and TikTok campaigns, and keeps watching how they perform.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Video ads are generated with Creatify's own video models from a product link or a creative brief.",
+        "It sets up Meta and TikTok campaigns using the team's own naming conventions, budgets and targeting.",
+        "It monitors results around the clock, writes reports on the KPIs a team picks, and turns winning ads into briefs for the next round.",
+        "It keeps a memory of the team's playbook and feedback, so it adapts over time.",
+        "Nothing goes live until a person approves it."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Marketers and paid media teams who spend their week on dashboards, reports and repeated campaign setup across ad platforms."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Creatify Max on Product Hunt",
+      "url": "https://www.producthunt.com/products/creatify"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-creatify-max-issue-19",
+      "issue_slug": "issue-19"
+    }
+  ],
+  "created_at": "2026-11-22T04:36:39Z",
+  "updated_at": "2026-11-22T04:36:39Z",
+  "stats": {
+    "upvotes": 431,
+    "comments": 141
+  },
+  "stats_as_of": "2026-11-22T04:36:39Z"
+}

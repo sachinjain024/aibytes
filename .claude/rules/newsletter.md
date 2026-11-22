@@ -27,11 +27,11 @@ Everything the weekly aiBytes_ issue needs lives under `newsletter/`:
 The newsletter is **deliberately not** a consumer of `packages/design-system`.
 Email HTML cannot load a stylesheet, and the Beehiiv paste flow needs styles
 inline, so the palette is duplicated inside
-`.claude/skills/generate-newsletter-content/assets/template.html` and
-`.claude/skills/generate-followup-thumbnail/assets/thumbnail.html`. That
-duplication is intentional. Do not "fix" it by pointing these templates at
+`.claude/skills/generate-newsletter-content/assets/template.html`. That
+duplication is intentional. Do not "fix" it by pointing the template at
 `packages/design-system` — it would break the email rendering. If a brand colour
-changes, update both places.
+changes, update it there too. The hero image follows the separate brand guide in
+`docs/image-guide/` (see the generate-followup-thumbnail skill).
 
 ## Taste decisions
 

@@ -1,0 +1,350 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-21",
+  "window": {
+    "after": "2026-11-14",
+    "before": "2026-11-22"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 30,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 75,
+  "poolCount": 448,
+  "stories": [
+    {
+      "title": "GPT\u20116.2 Astra and Sol",
+      "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+      "type": "story",
+      "points": 1346,
+      "num_comments": 864,
+      "author": "jasondavies",
+      "created_at": "2026-11-17T17:46:43Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50535230",
+      "front_page": false
+    },
+    {
+      "title": "All AI-generated code should be Open Source",
+      "url": "https://jakub.jankiewicz.org/blog/ai-code-open-source/",
+      "type": "story",
+      "points": 1288,
+      "num_comments": 673,
+      "author": "jcubic",
+      "created_at": "2026-11-15T14:46:58Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50507303",
+      "front_page": false
+    },
+    {
+      "title": "Anthropic\u2019s Nasdaq debut",
+      "url": "https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/",
+      "type": "story",
+      "points": 1136,
+      "num_comments": 2312,
+      "author": "wslh",
+      "created_at": "2026-11-19T17:02:40Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50562754",
+      "front_page": false
+    },
+    {
+      "title": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
+      "url": "https://www.techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus",
+      "type": "story",
+      "points": 1116,
+      "num_comments": 651,
+      "author": "speckx",
+      "created_at": "2026-11-14T02:52:59Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50493251",
+      "front_page": false
+    },
+    {
+      "title": "Gemini 4 Neon",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+      "type": "story",
+      "points": 1056,
+      "num_comments": 778,
+      "author": "yigitdemirag",
+      "created_at": "2026-11-18T21:34:07Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50552424",
+      "front_page": false
+    },
+    {
+      "title": "AI is killing All About Berlin",
+      "url": "https://nicolasbouliane.com/blog/death-by-ai",
+      "type": "story",
+      "points": 814,
+      "num_comments": 712,
+      "author": "grey-area",
+      "created_at": "2026-11-18T06:47:26Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50542705",
+      "front_page": false
+    },
+    {
+      "title": "Google's AI answers reducing search traffic by 40%",
+      "url": "https://revscope.co/blog/search-seo-geo-2026/",
+      "type": "story",
+      "points": 711,
+      "num_comments": 565,
+      "author": "slashdev",
+      "created_at": "2026-11-18T00:17:58Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50540178",
+      "front_page": false
+    },
+    {
+      "title": "Frostbite: A new CPU architecture discovered, designed and verified by AI",
+      "url": "https://architectlabs.com/blog/frostbite",
+      "type": "story",
+      "points": 658,
+      "num_comments": 343,
+      "author": "shioyama",
+      "created_at": "2026-11-20T10:01:41Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50572503",
+      "front_page": false
+    },
+    {
+      "title": "Fuck Your AI Safeguards",
+      "url": "https://ounapuu.ee/posts/2026/11/19/unsafeguards/",
+      "type": "story",
+      "points": 614,
+      "num_comments": 249,
+      "author": "speckx",
+      "created_at": "2026-11-19T16:30:18Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50562262",
+      "front_page": false
+    },
+    {
+      "title": "Claude solves two open problems in the physics of black holes",
+      "url": "https://www.anthropic.com/research/claude-black-hole-physics",
+      "type": "story",
+      "points": 562,
+      "num_comments": 271,
+      "author": "cybermango",
+      "created_at": "2026-11-19T17:30:44Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50563148",
+      "front_page": false
+    },
+    {
+      "title": "Restricting AI agents in mobile operating systems platforms from capturing data",
+      "url": "https://signal.org/blog/protecting-your-privacy/",
+      "type": "story",
+      "points": 560,
+      "num_comments": 329,
+      "author": "dotcoma",
+      "created_at": "2026-11-20T09:42:16Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50572348",
+      "front_page": false
+    },
+    {
+      "title": "AI agents ask better questions than KPMG accountants in audit trial",
+      "url": "https://europeanbusinessmagazine.com/ai-agents-better-questions-kpmg/",
+      "type": "story",
+      "points": 497,
+      "num_comments": 262,
+      "author": "Betelbuddy",
+      "created_at": "2026-11-18T15:49:34Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50547777",
+      "front_page": false
+    },
+    {
+      "title": "Language Models Can Rewrite Their Own Weights",
+      "url": "https://arxiv.org/abs/2611.21885",
+      "type": "story",
+      "points": 453,
+      "num_comments": 137,
+      "author": "lwhsiao",
+      "created_at": "2026-11-20T16:29:06Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50577265",
+      "front_page": true
+    },
+    {
+      "title": "Nasdaq erases all 2026 gains as AI sell-off dampens Anthropic\u2019s second day",
+      "url": "https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off",
+      "type": "story",
+      "points": 425,
+      "num_comments": 755,
+      "author": "cdrnsf",
+      "created_at": "2026-11-20T13:29:59Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50574383",
+      "front_page": true
+    },
+    {
+      "title": "Anthropic prices initial public offering",
+      "url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering",
+      "type": "story",
+      "points": 421,
+      "num_comments": 796,
+      "author": "surprisetalk",
+      "created_at": "2026-11-18T23:30:09Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50553843",
+      "front_page": false
+    },
+    {
+      "title": "Gemini 4 Neon is the new #1 on the Models Engineering Index",
+      "url": "https://git-aarvin.github.io/mei/",
+      "type": "story",
+      "points": 371,
+      "num_comments": 244,
+      "author": "hn-aarvin",
+      "created_at": "2026-11-19T23:35:35Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50568130",
+      "front_page": false
+    },
+    {
+      "title": "Harvard researchers find AI coding agents shifted the bottleneck to code review",
+      "url": "https://complexdiscovery.com/harvard-researchers-find-ai-coding-agents-shifted-the-bottleneck-to-code-review/",
+      "type": "story",
+      "points": 328,
+      "num_comments": 465,
+      "author": "judahmeek",
+      "created_at": "2026-11-17T21:16:12Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50538303",
+      "front_page": false
+    },
+    {
+      "title": "LLM assisted reverse engineering",
+      "url": "https://www.slowchronicle.com/posts/llm-assisted-reverse-engineering",
+      "type": "story",
+      "points": 315,
+      "num_comments": 82,
+      "author": "ioma8",
+      "created_at": "2026-11-18T22:29:13Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50553225",
+      "front_page": false
+    },
+    {
+      "title": "How the Claude Code team thinks about verification",
+      "url": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/",
+      "type": "story",
+      "points": 296,
+      "num_comments": 235,
+      "author": "craigmart",
+      "created_at": "2026-11-17T10:20:40Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50529612",
+      "front_page": false
+    },
+    {
+      "title": "Why is Gemini 4 Carbon taking so long?",
+      "url": "https://kernel.dev/blog/why-is-gemini-4-carbon-taking-so-long/",
+      "type": "story",
+      "points": 284,
+      "num_comments": 140,
+      "author": "deenadz",
+      "created_at": "2026-11-18T04:14:04Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50541790",
+      "front_page": false
+    },
+    {
+      "title": "Google workers tell their employer not to punish schools that don't want AI",
+      "url": "https://www.motherjones.com/politics/2026/11/google-alphabet-union-school-ai-protest-gemini-workers-petition/",
+      "type": "story",
+      "points": 277,
+      "num_comments": 220,
+      "author": "cdrnsf",
+      "created_at": "2026-11-20T16:59:27Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50577901",
+      "front_page": false
+    },
+    {
+      "title": "Show HN: DeepSeek V3 in ~200 lines of pure Jax",
+      "url": "https://github.com/Vaibhaav-Tiwari/deepseek-v3-jax",
+      "type": "show_hn",
+      "points": 276,
+      "num_comments": 30,
+      "author": "VaibhaavTiwari",
+      "created_at": "2026-11-14T15:04:15Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50497589",
+      "front_page": false
+    },
+    {
+      "title": "Pete Warden on local AI, open models, voice interfaces, the future of hardware",
+      "url": "https://thedataexchange.media/pete-warden-moonshine/",
+      "type": "story",
+      "points": 270,
+      "num_comments": 248,
+      "author": "datascientist",
+      "created_at": "2026-11-19T15:38:12Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50561508",
+      "front_page": false
+    },
+    {
+      "title": "Gemini 4 Neon looks like an Opus 5.5 competitor",
+      "url": "https://micjm.com/blog/gemini-4-neon-looks-like-a-top-model/",
+      "type": "story",
+      "points": 255,
+      "num_comments": 78,
+      "author": "seizethecheese",
+      "created_at": "2026-11-19T00:29:45Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50554374",
+      "front_page": false
+    },
+    {
+      "title": "Understanding Positional Embeddings in Modern LLMs",
+      "url": "https://magazine.sebastianraschka.com/p/understanding-positional-embeddings",
+      "type": "story",
+      "points": 246,
+      "num_comments": 27,
+      "author": "vismit2000",
+      "created_at": "2026-11-15T12:14:06Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50506376",
+      "front_page": false
+    },
+    {
+      "title": "Advancing chip design with OpenAI models",
+      "url": "https://openai.com/index/advancing-chip-design-with-our-models/",
+      "type": "story",
+      "points": 224,
+      "num_comments": 170,
+      "author": "vighneshiyer",
+      "created_at": "2026-11-18T17:45:47Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50549493",
+      "front_page": false
+    },
+    {
+      "title": "Baidu, Xiaomi CEOs warn of growing gap between AI hype and returns",
+      "url": "https://www.scmp.com/tech/big-tech/article/3374774/baidu-xiaomi-ceos-warn-growing-gap-between-ai-hype-and-returns",
+      "type": "story",
+      "points": 191,
+      "num_comments": 259,
+      "author": "larrysalibra",
+      "created_at": "2026-11-17T14:19:59Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50531751",
+      "front_page": false
+    },
+    {
+      "title": "Not Everything Needs an LLM",
+      "url": "https://newsletter.posthog.com/p/decision-models",
+      "type": "story",
+      "points": 187,
+      "num_comments": 75,
+      "author": "speckx",
+      "created_at": "2026-11-17T18:16:18Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50535740",
+      "front_page": false
+    },
+    {
+      "title": "Claude was trained on protein sequences at scale",
+      "url": "http://xinmingtu.cn/blog/2026/claude-opus-5-5-protein-sequences/",
+      "type": "story",
+      "points": 181,
+      "num_comments": 76,
+      "author": "gmays",
+      "created_at": "2026-11-18T03:47:43Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50541619",
+      "front_page": false
+    },
+    {
+      "title": "What Comes After AGI?",
+      "url": "https://institute.deepmind.com/essays/what-comes-after-agi/",
+      "type": "story",
+      "points": 170,
+      "num_comments": 330,
+      "author": "jdkee",
+      "created_at": "2026-11-20T02:44:13Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50569519",
+      "front_page": false
+    }
+  ]
+}
