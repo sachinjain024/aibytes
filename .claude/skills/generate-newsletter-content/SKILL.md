@@ -42,10 +42,22 @@ If a bucket has no data at all, omit that section from the output rather than in
 
 1. Write `.cache/gists/issue-{num}/items.json` for the rows that will appear: news, products, GitHub, HN Deep, and (when those sections are in) Official Announcements and Viral on X. `issue_slug` is `issue-{num}`. News / launch / repo / HN rows use `{prefix}-{slugify(title)}-issue-{num}` (`packages/feed-schema/item_id.py`). X rows are `{ "kind": "x_post", "url", "source_url", "post": <snapshot object> }`; `draft` writes their ids.
 2. `python3 packages/gists/gists.py draft --issue issue-{num}`
-3. Run `/write-gists` on the new full/brief rows only. Preview X posts are copied, not written by Claude. A week whose every news/repo/launch/HN row already has a gist writes no Claude file; still run build.
-4. `python3 packages/gists/gists.py build --issue issue-{num}`
+3. Run `/write-gists` on the new full/brief rows only. Preview X posts are copied, not written by Claude. A week whose every news/repo/launch/HN row already has a gist writes no Claude file; still publish.
+4. **Publish the gists to aibytes.io now**, before writing the issue:
 
-Print the build summary (new / updated / failed). Per-gist failures are warnings; the issue is still written. Look up each row's slug in `content/gists/index.json` by `source_key(source_url)`. A row whose gist was written gets this title href (three UTM tags, nothing else):
+   ```bash
+   python3 .claude/skills/generate-newsletter-content/scripts/publish_gists.py --issue issue-{num} --wait 600
+   ```
+
+   GitHub Pages builds from `main` only, so a gist is live only once it is on `main`. Issue 19 went out on Substack with 32 gist links that 404'd until its issue PR merged. The script:
+   - builds the gists on a fresh `origin/main`, in a temporary worktree outside the repo, so a daily edition that landed meanwhile cannot conflict;
+   - commits only `content/gists/` on `issue-{num}-gists`, opens a PR and squash-merges it right away (the merge deploys Pages);
+   - waits for the new gist pages to answer;
+   - merges `origin/main` into the issue branch, so the rest of the issue is written against the published index.
+
+   Don't run `gists build` in the issue checkout. Doing so leaves `content/gists/` changes there that block the sync, and puts gists in the issue PR again. If a row changes during review, write its gist and rerun the script; a rerun publishes only what changed (timestamp-only rebuilds are ignored) and does nothing when the gists are already live. "dropped ...: not in draft.json's new list" on a rerun is expected: that gist is already published. `--dry-run` builds and reports without pushing; `--no-merge` leaves the PR open for review.
+
+Print the publish report (new / updated / the gists PR). Per-gist failures are warnings; the issue is still written. Look up each row's slug in `content/gists/index.json` by `source_key(source_url)`. A row whose gist was written gets this title href (three UTM tags, nothing else):
 
 ```
 https://aibytes.io/gists/<slug>?utm_source=newsletter&utm_medium=email&utm_campaign=issue-{num}
@@ -184,7 +196,7 @@ python3 .claude/skills/generate-newsletter-content/scripts/issue_artifact.py \
 
 Publish that file with the Artifact tool (`icon: "newsletter"`, the subject line in `description`), and put the artifact URL in the issue's LongClaw ticket so a later session can republish to it with `url`. Hand the publisher the artifact link and the Substack export path. Don't present the local issue HTML as the thing to review; it stays in the issue folder as the source of truth, since the Substack export and the aibytes.io/weekly build read it.
 
-**Every edit goes through the issue HTML and updates both outputs together.** When the publisher asks for a change, in a comment on the artifact or in chat, edit `aiBytes-issue-{num}.html` (never the artifact page or the export directly), then rerun `issue_artifact.py`, republish the artifact to the same URL, and rerun `substack_export.py` so the export matches. Rebuild `content/weekly/` too when the change touches the title, description or any row. Reply to the comment once the change is live.
+**Every edit goes through the issue HTML and updates both outputs together.** When the publisher asks for a change, in a comment on the artifact or in chat, edit `aiBytes-issue-{num}.html` (never the artifact page or the export directly), then rerun `issue_artifact.py`, republish the artifact to the same URL, and rerun `substack_export.py` so the export matches. Rebuild `content/weekly/` too when the change touches the title, description or any row, and when a row is swapped, write its gist and rerun `publish_gists.py` (step 3) before republishing. Reply to the comment once the change is live.
 
 ### 7. Publish on aibytes.io/weekly (before the Substack send)
 
@@ -211,7 +223,7 @@ python3 packages/feed-schema/build_weekly_issues.py
 python3 packages/feed-schema/validate.py
 ```
 
-2. Tell the publisher that merging the issue PR (which must include `content/weekly/index.json` and the issue HTML) deploys the page via GitHub Pages. Do not paste into Substack until that URL is live, or until they explicitly choose to send first.
+2. Tell the publisher that merging the issue PR (which must include `content/weekly/index.json` and the issue HTML) deploys the page via GitHub Pages. The gists are already live from step 3, so the email's row links work whatever happens to the issue PR; this PR is for the weekly page. Do not paste into Substack until that URL is live, or until they explicitly choose to send first.
 
 3. Hand them `ISSUE_URL=https://aibytes.io/weekly/issue-{num}` for social and for any follow-up skill run.
 
