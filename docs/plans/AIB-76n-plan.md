@@ -22,18 +22,18 @@ T3 icon ─► T4 popup UI ─┐                                   │
            T6 promo UI ──────┼──────────────────────────┐   │
                              │                          │   │
 T7 extension scaffold ◄──────┴── T3, T4                 │   │
-  ├─► T8 sign-in gate (needs 2.1, 2.2) ──► frozen permissions
-  ├─► T9 Today ◄── T1
-  │    └─► T10 saves + Saved ◄── T2 ─► T11 gist view ─► T12 package
+  └─► T8 sign-in gate (needs 2.1, 2.2) ──► frozen permissions
+       └─► T9 Today ◄── T1
+            └─► T10 saves + Saved ◄── T2 ─► T11 gist view ─► T12 package
   │
 T13 callable (needs 2.5 IAM) ──► publisher deploys (3.22)
 T14 contract + internal sign-out ◄── T8, T10
   └─► T15 popup signed in ◄── T2, T4
         └─► T16 bridge ◄── T13 deployed
               ├─► T17 subscriber source ─► publisher deploys rules (3.23)
-              ├─► T18 onboarding shell ◄── T5 ─► T19 onboarding steps ◄── T17
-              └─► T20 install box ◄── T6
-                    └─► T21 screenshots ─► T22 promo images (4.2) ─► T23 listing + zip (4)
+              ├─► T18 onboarding shell, EXTENSION_LIVE ◄── T5 ─► T19 onboarding steps ◄── T17
+              └─► T20 install box ◄── T6, T18
+T21 screenshots ◄── T5, T15 ─► T22 promo images (4.2) ─► T23 listing, /privacy, zip (4)
                           └─► publisher submits (4, 4.1) ─► T24 flag + footer (5), follow-up PR
 ```
 
@@ -87,7 +87,8 @@ T14 contract + internal sign-out ◄── T8, T10
 - [ ] T12 (3.12): the store zip
 
 ### Checkpoint 2
-- [ ] extension-popup's success criteria 1 to 8, by hand in Chrome stable
+- [ ] extension-popup's success criteria 1 to 5, 7 and 8, by hand in Chrome
+  stable, and the permissions equal T8's frozen set (criterion 6 is T7's)
 - [ ] The gate's result and the frozen permission set are written into extension-auth
 
 ### Phase 3: sign-in
@@ -138,7 +139,9 @@ from `main`.
 
 T1 and T2 are independent of T3 to T6. T13 needs only the IAM grant and can be
 built any time. Everything else is a chain. One session builds them in order;
-no worktrees.
+no worktrees. A task that overflows one session (T4 is the likeliest: header
+and footer, then the gist bars) is split at build time into two commits under
+the same ticket item, and the todo records it.
 
 ## Risks and mitigations
 

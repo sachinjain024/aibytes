@@ -34,7 +34,15 @@ and `X_GROUP` stay in the web), `inFeed` to `visibility.js`, plus `format.js`,
 **Verification:** (A), (C), (D); `npm run dev:web`, then check a dated edition
 in ranked and grouped views, with filters.
 
-**Dependencies:** None. **Files:** `packages/app-core/{package.json,src/*}`, `apps/web/src/{order,filters,prefs,route,gistSite,App}.js(x)`, `tests/test_curate_edition.py`. **Scope:** M
+**Dependencies:** None. **Files:** `packages/app-core/{package.json,src/*}`;
+`apps/web/package.json` (the workspace dependency); moved whole: `format.js`,
+`format.test.js`, `blocked-storage.js`; split (a name leaves, its cases move):
+`order.js`, `order.test.js`, `filters.js`, `filters.test.js`, `prefs.js`,
+`prefs.test.js`, `route.js`, `route.test.js`; import lines only:
+`gistSite.js`, `saves.js`, `saves.test.js`, `saved.js`, `App.jsx` (all under
+`apps/web/src/`, the set found by grepping for every moved name on 22 Nov
+2026; grep again before the commit); `tests/test_curate_edition.py`.
+**Scope:** M (many files, but most changes are moves or one import line)
 
 ## T2 [3.2]: app-core's account modules
 
@@ -51,7 +59,12 @@ as a peer dependency. Update `account.js`, `App.jsx` and the other importers.
 
 **Verification:** (A), (B), `npm run test:rules -w @aibytes/app-core`, (C).
 
-**Dependencies:** T1. **Files:** `packages/app-core/{package.json,src/*}`, `apps/web/{package.json,src/account.js,src/App.jsx}`. **Scope:** M
+**Dependencies:** T1. **Files:** `packages/app-core/{package.json,src/*}`;
+`apps/web/package.json` (`test:rules` list); moved with their tests:
+`saves.js`, `accountData.js`, `accountSaves.js`, `merge.js`, `saved.js`,
+`firebase-config.js`; import lines only: `account.js`, `App.jsx` (including
+its dynamic `import("./accountSaves.js")`), `hooks.test.js` (`localSaves`,
+`SAVES_KEY`). Grep for every moved path before the commit. **Scope:** M
 
 ## T3 [3.3]: Ledger's `ExtensionIcon` and the Chrome PNGs
 
@@ -180,7 +193,8 @@ footer, and the four states with `copy.js`.
 **Verification:** `npm test -w @aibytes/extension`; by hand: online, offline
 with a cache, and offline without one.
 
-**Dependencies:** T1, T7. **Files:** `apps/extension/src/{content,links,copy}.js`, `src/popup/Popup.jsx`, tests, `docs/specs/AIB-145y-gist-analytics.md`. **Scope:** M
+**Dependencies:** T1, T7, T8 (the frozen permission set and the gate's
+outcome come first). **Files:** `apps/extension/src/{content,links,copy}.js`, `src/popup/Popup.jsx`, tests, `docs/specs/AIB-145y-gist-analytics.md`. **Scope:** M
 
 ## T10 [3.10]: stars and Saved, signed out
 
@@ -219,7 +233,8 @@ chrome-devtools-mcp.
 
 **Description:** `npm run package:extension` runs a production build and zips
 `dist` to `aibytes-extension-<version>.zip` (git-ignored). Start
-`CHROMEWEBSTORE.md` with the `storage` justification.
+`CHROMEWEBSTORE.md` with the justification for each permission in T8's
+frozen set (`storage`, and any host permission the gate added).
 
 **Acceptance criteria:**
 - [ ] The zip installs by drag-and-drop in a clean profile with the same ID
@@ -230,7 +245,9 @@ chrome-devtools-mcp.
 **Dependencies:** T11. **Files:** `apps/extension/{package.json,CHROMEWEBSTORE.md}`, `.gitignore`. **Scope:** S
 
 ### Checkpoint 2
-- [ ] extension-popup's success criteria 1 to 8
+- [ ] extension-popup's success criteria 1 to 5, 7 and 8
+- [ ] The production manifest's permissions equal T8's frozen set (criterion 6,
+  "storage only", is T7's check, before the gate can add a host permission)
 - [ ] The gate's result is recorded (T8)
 
 ---
@@ -344,7 +361,9 @@ merges.
 `?action=signout`), `ONBOARDING_HEAD` (noindex), and `vite.config.js` emitting
 `/extension-onboarding/`. The page has a header and no sidebar. Add the
 `onboarding.js` reducer, the not-installed state (the button only with the
-flag on), and suppress the newsletter prompt on this page.
+flag on), and suppress the newsletter prompt on this page. Create
+`extension.js` with `EXTENSION_LIVE = false` and the store URL here; T20 adds
+the rest of that file.
 
 **Acceptance criteria:**
 - [ ] `dist/extension-onboarding/index.html` exists with noindex
@@ -353,7 +372,9 @@ flag on), and suppress the newsletter prompt on this page.
 
 **Verification:** (A), (C), with a build test in the style of `gistBuild.test.js`.
 
-**Dependencies:** T5, T16. **Files:** `apps/web/src/{route.js,pageMeta.js,onboarding.js,ExtensionOnboarding.jsx,copy/extension.js}`, `apps/web/vite.config.js`, tests. **Scope:** M
+**Dependencies:** T5, T16. **Files:** `apps/web/src/{route.js,pageMeta.js,App.jsx,onboarding.js,ExtensionOnboarding.jsx,extension.js,copy/extension.js}`
+(`App.jsx` branches to the page as it does for `PrivacyApp`),
+`apps/web/vite.config.js`, tests. **Scope:** M
 
 ## T19 [3.19]: the onboarding steps
 
@@ -374,13 +395,13 @@ table first, then send them.
 
 ## T20 [3.20]: the install box
 
-**Description:** `extension.js` holds `EXTENSION_LIVE = false`, the store URL,
-`isDesktopChromium` and the 30-day dismiss. Pass `ExtensionPromo` to `Sidebar`
+**Description:** `extension.js` (created in T18 with `EXTENSION_LIVE` and the
+store URL) gains `isDesktopChromium` and the 30-day dismiss. Pass `ExtensionPromo` to `Sidebar`
 only when every condition holds. Re-check the status after the click and when
 the tab becomes visible again. Send the two Umami events.
 
 **Acceptance criteria:**
-- [ ] Detection tests: Chrome, Edge, Brave and Opera are in; Safari, Firefox, Android and iOS are out
+- [ ] Detection tests: Chrome, Edge, Brave, Opera, Vivaldi and Arc are in; Safari, Firefox, Android and iOS are out
 - [ ] With the flag forced on: the box shows in Chrome and Edge without the extension, and goes once it's installed
 - [ ] With the flag off: `build:web` output equals Checkpoint 1's outside the onboarding page
 
@@ -397,9 +418,12 @@ the tab becomes visible again. Send the two Umami events.
 
 ## T21 [3.21]: the five screenshots
 
-**Description:** `store/screenshots.mjs` renders the real popup components on a
-fixed edition fixture, with a caption band, at 1280×800, using headless Chrome.
-Commit the five PNGs.
+**Description:** `store/screenshots.mjs` renders real components on a fixed
+edition fixture, with a caption band, at 1280×800, using headless Chrome.
+Shots 1 to 4 (Today, a gist, Saved, dark) render the popup's own components
+(`Popup.jsx` with the fixture). Shot 5 (onboarding step 1) renders Ledger's
+`OnboardingStep` and `PinAnimation` with the onboarding copy, the same pieces
+the live page uses, so it needs no running site. Commit the five PNGs.
 
 **Acceptance criteria:**
 - [ ] Five PNGs at exactly 1280×800, captions as in the store-listing spec
@@ -408,7 +432,7 @@ Commit the five PNGs.
 **Verification:** `node apps/extension/store/screenshots.mjs`, then check the
 sizes.
 
-**Dependencies:** T15. **Files:** `apps/extension/store/{screenshots.mjs,*.png}`. **Scope:** S
+**Dependencies:** T5, T15. **Files:** `apps/extension/store/{screenshots.mjs,*.png}`. **Scope:** S
 
 ## T22 [4.2]: the promo tile and marquee
 
@@ -430,7 +454,10 @@ commit them.
 
 **Description:** `CHROMEWEBSTORE.md` gets the name, the short description (with
 Reddit), the description, the category, the justifications and the privacy
-answers. Add "The Chrome extension" section to `/privacy`. Set the version to
+answers. Add "The Chrome extension" section to `/privacy`, worded so it doesn't bring
+back the phrase `analytics.test.js` forbids in `App.jsx` (`runs no analytics`;
+the site uses Umami): say that the extension itself sends no analytics events.
+The site's own sections stay as they are. Set the version to
 `YY.M.D`. Freeze-check the permissions, then build the zip.
 
 **Acceptance criteria:**
@@ -440,15 +467,17 @@ answers. Add "The Chrome extension" section to `/privacy`. Set the version to
 
 **Verification:** (A), (C), `npm run package:extension`.
 
-**Dependencies:** T21, T22. **Files:** `apps/extension/{CHROMEWEBSTORE.md,package.json}`, `apps/web/src/App.jsx`. **Scope:** S
+**Dependencies:** T21, T22. **Files:** `apps/extension/{CHROMEWEBSTORE.md,package.json}`, `apps/web/src/{App.jsx,analytics.test.js}`, `docs/specs/AIB-76n-store-listing.md` (the step 2 wording, below). **Scope:** S
 
 **Publisher [4, 4.1]:** upload the zip, set the category to News & Weather,
 fill the listing from `CHROMEWEBSTORE.md`, and submit.
 
 ## T24 [5]: after approval, the flag and the footer link
 
-**Description:** A follow-up PR from `main`: `EXTENSION_LIVE = true`, and
-`footer.js` drops "(soon)" and links the listing.
+**Description:** A follow-up PR from `main` (PR #73 has merged by then; this
+replaces store-listing's "on the same branch", which T23 corrects):
+`EXTENSION_LIVE = true`, and `footer.js` drops "(soon)" and links the
+listing.
 
 **Acceptance criteria:**
 - [ ] The footer test is updated; the box and the onboarding button are live

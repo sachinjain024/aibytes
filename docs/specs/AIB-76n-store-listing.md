@@ -121,7 +121,9 @@ publisher. The screenshots are not: they are always the real build.
 `PrivacyApp`, as its other sections): what the extension keeps on the device
 (saved item ids while signed out, the last edition, the sign-in session); that
 signed in, saves go to the same account store as the site; that it reads
-nothing from the pages the reader visits and runs no analytics; and how to
+nothing from the pages the reader visits and sends no analytics events (the
+wording avoids `runs no analytics`, which `analytics.test.js` forbids in
+`App.jsx`); and how to
 remove it all (remove the extension; delete saves from Saved). The facts are
 checked against the built extension before the page changes.
 
@@ -131,7 +133,8 @@ checked against the built extension before the page changes.
    from `CHROMEWEBSTORE.md`, and submits. Review can take days; a rejection's
    reason goes into `CHROMEWEBSTORE.md` with the change made, and the zip is
    resubmitted with a higher version.
-2. **On approval**, one small PR on the same branch:
+2. **On approval**, one small PR branched from `main` (PR #73 has merged by
+   then, its site code behind the flag):
    - `EXTENSION_LIVE = true` (the install box and the onboarding page's "Add to
      Chrome");
    - `footer.js`: "Chrome Extension (soon)" becomes "Chrome Extension" with

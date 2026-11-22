@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T10:23:17.730Z
-updated_at: 2026-11-22T07:30:37.109Z
+updated_at: 2026-11-22T07:57:13.302Z
 ---
 
 The aiBytes_ Chrome extension, popup first: clicking the toolbar icon shows today's edition as a ranked list, with a star on every row that syncs to the reader's aibytes.io account. It replaces the existing "AI Bytes" listing on the Chrome Web Store. Split out of AIB-8h (phase 7) on 2026-10-08; re-scoped on 2026-11-20 after a requirements interview with the publisher. The new-tab page moved to its own ticket, AIB-151m.
@@ -85,16 +85,16 @@ Same flow as AIB-75v:
 - [ ] 3.15 T15 The popup signed in: account saves, merge retry, avatar menu Sign out <!-- longclaw:item=ck_dc98b79f -->
 - [ ] 3.16 T16 aibytes.io bridge: status and reconcile on every load <!-- longclaw:item=ck_ead04a49 -->
 - [ ] 3.17 T17 Newsletter source extension-onboarding: subscriber.js, firestore.rules, emulator tests <!-- longclaw:item=ck_409040ae -->
-- [ ] 3.18 T18 /extension-onboarding page shell: route, noindex page, reducer, not-installed state <!-- longclaw:item=ck_6abd2a05 -->
+- [ ] 3.18 T18 /extension-onboarding page shell: route, App.jsx branch, noindex page, reducer, not-installed state, EXTENSION_LIVE = false <!-- longclaw:item=ck_6abd2a05 -->
 - [ ] 3.19 T19 Onboarding steps: pin, sign in with the newsletter box, sign-out view, done, Umami events <!-- longclaw:item=ck_cb57d0a3 -->
-- [ ] 3.20 T20 The install box: EXTENSION_LIVE flag, desktop Chromium detection, 30-day dismiss <!-- longclaw:item=ck_23986728 -->
+- [ ] 3.20 T20 The install box: desktop Chromium detection (Chrome, Edge, Brave, Opera, Vivaldi, Arc), 30-day dismiss, behind EXTENSION_LIVE <!-- longclaw:item=ck_23986728 -->
 - [ ] 3.21 T21 The five store screenshots from the real popup <!-- longclaw:item=ck_2b704eaf -->
 - [ ] 3.22 Publisher: deploy aibytesExtensionToken (firebase deploy --only functions:aibytes-web --project ai-bytes-b42d2), after 2.5 <!-- longclaw:item=ck_345509a0 -->
 - [ ] 3.23 Publisher: deploy firestore.rules (firebase deploy --only firestore:rules --project ai-bytes-b42d2) before PR #73 merges <!-- longclaw:item=ck_58f51248 -->
 - [ ] 4. Store listing written for search and conversion: version above 26.1.15, name, short description, icon, screenshots, promo tile, privacy answers; submit the update <!-- longclaw:item=ck_a7dacce3 -->
 - [ ] 4.1 Switch the store listing's category from Education to Lifestyle › News & Weather (daily.dev lists under Productivity › Developer Tools, for reference) <!-- longclaw:item=ck_860b789d -->
 - [ ] 4.2 Promo tile (440×280) and marquee (1400×560): run the brief in Claude, Grok, OpenAI and Gemini, shortlist the candidates in a numbered review artifact, publisher picks one of each <!-- longclaw:item=ck_dfe2ae1c -->
-- [ ] 5. Point the aibytes.io footer "Chrome Extension" link at the store listing <!-- longclaw:item=ck_f68f9eec -->
+- [ ] 5. After the store approves the update (T24, a follow-up PR from main): turn on EXTENSION_LIVE (install box and onboarding "Add to Chrome") and point the aibytes.io footer "Chrome Extension" link at the store listing <!-- longclaw:item=ck_f68f9eec -->
 
 ## Activity
 
@@ -1322,6 +1322,54 @@ changes:
   - field: checklist.ck_019d540e.checked
     from: "false"
     to: "true"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_e2f07193
+kind: update
+occurred_at: 2026-11-22T07:57:03.584Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_f68f9eec.text
+    from: 5. Point the aibytes.io footer "Chrome Extension" link at the store listing
+    to: "5. After the store approves the update (T24, a follow-up PR from main): turn on EXTENSION_LIVE (install box and onboarding \"Add to Chrome\") and point the aibytes.io footer \"Chrome Extension\" link at the store listing"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_8d7b09c2
+kind: update
+occurred_at: 2026-11-22T07:57:13.256Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_6abd2a05.text
+    from: "3.18 T18 /extension-onboarding page shell: route, noindex page, reducer, not-installed state"
+    to: "3.18 T18 /extension-onboarding page shell: route, App.jsx branch, noindex page, reducer, not-installed state, EXTENSION_LIVE = false"
+-->
+### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_92c7703c
+kind: update
+occurred_at: 2026-11-22T07:57:13.302Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_23986728.text
+    from: "3.20 T20 The install box: EXTENSION_LIVE flag, desktop Chromium detection, 30-day dismiss"
+    to: "3.20 T20 The install box: desktop Chromium detection (Chrome, Edge, Brave, Opera, Vivaldi, Arc), 30-day dismiss, behind EXTENSION_LIVE"
 -->
 ### Claude Code updated this ticket
 <!-- /longclaw:event -->

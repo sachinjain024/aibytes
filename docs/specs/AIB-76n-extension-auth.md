@@ -232,7 +232,7 @@ export async function handleExternal(message, sender, { allowed, chrome, auth, m
   switch (message?.type) {
     case "status": return status(chrome, auth);
     case "signin": return signIn(message.token, auth, merge);
-    case "signout": await auth.signOut(); return { ok: true };
+    case "signout": await auth.signOut(); await clearSignoutPending(chrome); return { ok: true };
     default: return { ok: false, code: "bad-message" };
   }
 }
