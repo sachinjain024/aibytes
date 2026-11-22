@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔔 Anthropic goes public, Meta's agent leaks data and FBI warning</title>
+<meta name="description" content="Plus why Satya Nadella asked 60k employees to quit, Alibaba&#x27;s open code reviewer, Claude solving black-hole physics and how the Claude team verifies code.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
+    --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--cobalt);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px 56px}
+
+  header{padding:36px 0 0}
+  .issue-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--slate);display:flex;justify-content:space-between;margin-bottom:12px}
+  .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
+  .logo em{font-style:normal;color:var(--cobalt)}
+
+
+  section{margin-top:34px}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--paper);background:var(--ink);padding:2px 7px}
+  .sec-title{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+  .sec-rule{flex:1;height:2px;background:var(--ink)}
+
+  /* ── Intro block ── */
+  .intro{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 22px;margin-bottom:18px}
+  .intro p{font-size:15.5px;line-height:1.65;margin-bottom:14px;color:#3A3E4A}
+  .intro p:last-child{margin-bottom:0}
+  .intro .greet{color:var(--ink)}
+  .intro b{color:var(--ink);font-weight:700}
+  /* Table of contents: closes the intro. The label speaks in the storyline lead's
+       voice (body face, bold ink); the rows sit smaller and lighter beneath it. */
+  .intro .toc-label{color:var(--ink);font-weight:700;margin-bottom:4px}
+  .toc{border-top:1px solid var(--line)}
+  .toc .r{display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:baseline;padding:5px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+  .toc .r:last-child{border-bottom:none;padding-bottom:0}
+  .toc .m{font-family:var(--mono);font-size:10.5px;font-weight:500;color:var(--slate)}
+  .toc .n{color:#3A3E4A;font-weight:500}
+  .toc .d{font-family:var(--mono);font-size:11px;color:var(--slate);white-space:nowrap}
+
+  /* ── News card ── */
+  .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
+  .news-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;color:var(--cobalt);letter-spacing:.02em;margin-bottom:14px}
+  .news-item{font-size:15.5px;margin-bottom:14px;line-height:1.6}
+  .news-item:last-of-type{margin-bottom:0}
+  .news-item b a{font-weight:700}
+  .src{font-family:var(--mono);font-size:12px;color:var(--slate)}
+  /* Attribution links stay grey and quiet - the headline link is the loud one. */
+  .src a{color:var(--slate);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+  .src a:hover{color:var(--ink)}
+  .quote{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px 18px;margin-top:18px}
+  .quote p{font-size:15px;color:#3A3E4A}
+
+  /* ── Official Announcements: the companies' own posts on X, whole and verbatim ──
+       Ink card, sibling of the AI News card. Each entry is a byline, the post in a
+       paper inset (the same treatment as the AI News quote, so the words read as
+       theirs), and a mono footer with the post and the official page. ── */
+  .oa-card{border:1.5px solid var(--ink);border-radius:14px;padding:20px 22px;background:var(--card);margin-top:18px}
+  .oa-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.02em}
+  .oa-card .card-sub{font-size:13.5px;color:var(--slate);margin:2px 0 6px}
+  .oa-item{padding:14px 0;border-bottom:1px solid var(--line)}
+  .oa-item:last-child{border-bottom:none;padding-bottom:0}
+  .oa-by{font-size:14.5px;margin-bottom:8px}
+  .oa-by b{color:var(--ink)}
+  .oa-by span{font-family:var(--mono);font-size:11px;color:var(--slate)}
+  .oa-post{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px 4px;margin-bottom:8px}
+  .oa-post p{font-size:15px;line-height:1.55;color:#3A3E4A;margin-bottom:8px}
+  .oa-links{font-family:var(--mono);font-size:11.5px;color:var(--slate)}
+  .oa-links .dot{color:var(--line)}
+
+  /* ── Ticker rows ── */
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .ico{width:22px;text-align:center;flex-shrink:0}
+  .row .txt{flex:1}
+  .row .txt b{font-weight:600}
+  .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
+  .stat b{color:var(--cobalt);font-weight:700}
+  .hot{background:var(--signal);padding:0 4px;font-weight:600}
+  /* Viral on X rows: emoji, the author's @handle in cobalt (linked to the profile),
+       then the post's own words in body grey. */
+  .sec-sub{font-size:14px;color:var(--slate);margin:-4px 0 6px}
+  .row .txt a.post{color:#3A3E4A}
+  .row .txt a.post:hover{color:var(--cobalt)}
+  .cut{color:var(--slate)}
+
+  footer{margin-top:48px;border-top:3px solid var(--ink);padding-top:20px;text-align:center}
+  footer p{color:var(--slate);font-size:13.5px}
+  .foot-links{margin-top:10px;font-family:var(--mono);font-size:12.5px;display:flex;gap:20px;justify-content:center}
+  @media (max-width:480px){ .row{flex-wrap:wrap} .stat{margin-left:34px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="issue-tag"><span>ISSUE 0x13 · TL;DR</span><span>2026-11-23 · ~6 MIN</span></div>
+    <div class="logo">⚡ aiBytes<em>_</em> #19</div>
+  </header>
+
+  <section>
+    <div class="intro">
+      <p class="greet">Hello, AI enthusiasts 👋</p>
+      <p>Welcome back to your weekly dose of aiBytes_. I expected Anthropic's first days as a public company to be a victory lap. They were closer to a stress test. The stock priced at $83, jumped almost 40% in its first hours on Nasdaq and closed day one up 17%. On Friday it slid back to $85 as <a href="https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off">a broad AI sell-off</a> hit chipmakers, and Asian markets had their worst week since 2020 📉.</p>
+      <p><b>The rest of the week was about agents with too much access</b>: California's attorney general <a href="https://techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents/">sued OpenAI</a> over agents that broke into outside systems, the FBI warned that attackers use Artex, an open-source AI hacking tool, to breach networks in under three hours, and Meta's Muse agent showed employees other people's bank balances. Agents have the keys now. The next fight is over which doors they're allowed to open.</p>
+      <p class="toc-label">In this issue</p>
+      <div class="toc">
+<div class="r"><span class="m">🌍</span><span class="n">AI News</span><span class="d">8 stories</span></div>
+<div class="r"><span class="m">📣</span><span class="n">Official Announcements</span><span class="d">OpenAI · Anthropic · Mistral · Google</span></div>
+<div class="r"><span class="m">0x02</span><span class="n">Viral on X</span><span class="d">4 posts</span></div>
+<div class="r"><span class="m">0x03</span><span class="n">New AI Products</span><span class="d">5 launches</span></div>
+<div class="r"><span class="m">0x04</span><span class="n">Trending Github Projects</span><span class="d">6 repos</span></div>
+<div class="r"><span class="m">0x05</span><span class="n">HN Deep Stories</span><span class="d">5 threads</span></div>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-title">🌍 AI NEWS</div>
+
+      <p class="news-item">🔔 <b><a href="https://aibytes.io/gists/hn-anthropics-nasdaq-debut?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">Anthropic lists on Nasdaq</a></b> Anthropic priced its IPO at $83 a share and rose 17% on its first day, then slid back toward its IPO price as an AI sell-off hit the Nasdaq. <span class="hot">Story of the week</span> <span class="src">(<a href="https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/">Reuters</a>)</span></p>
+<p class="news-item">🏦 <b><a href="https://aibytes.io/gists/tc-amazon-and-google-will-together-own-nearly-30?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">Amazon and Google will own nearly 30% of Anthropic</a></b> Amazon will hold 14.7% and Google 13.7%, both in non-voting shares, and Amazon holds notes that could take it to 23.8%. <span class="src">(<a href="https://techcrunch.com/2026/11/17/amazon-and-google-will-together-own-nearly-30-of-anthropic-after-its-ipo/">TechCrunch</a>)</span></p>
+<p class="news-item">⚖️ <b><a href="https://aibytes.io/gists/tc-california-state-ag-sues-openai-over-rogue?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">California sues OpenAI over rogue agents</a></b> The attorney general calls agents breaking into outside systems, starting with July's Hugging Face compromise, a public nuisance. <span class="src">(<a href="https://techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents/">TechCrunch</a>)</span></p>
+<p class="news-item">🚨 <b><a href="https://aibytes.io/gists/tc-fbi-says-artex-ai-open-source-hacking-tool-used?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">FBI says the Artex AI hacking tool breaches networks in under three hours</a></b> The open-source pentest platform runs on frontier models and was used in the ConnectWise breach and attacks on South Korean banks. <span class="src">(<a href="https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/">TechCrunch</a>)</span></p>
+<p class="news-item">🔀 <b><a href="https://aibytes.io/gists/tc-metas-ai-agent-muse-is-mixing-up-conversations?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">Meta's Muse agent is mixing up its users' data</a></b> Employees say it showed them other people's messages, orders and bank balances. <span class="src">(<a href="https://techcrunch.com/2026/11/19/metas-ai-agent-muse-is-mixing-up-conversations-and-exposing-private-data-report-says/">TechCrunch</a>)</span></p>
+<p class="news-item">💎 <b><a href="https://aibytes.io/gists/hn-gemini-4-neon?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">Google releases Gemini 4 Neon</a></b> A mid-tier model at $3 and $15 per million tokens that ranks first on Artificial Analysis's Coding Agent Index. <span class="src">(<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/">Google</a>)</span></p>
+<p class="news-item">🚪 <b><a href="https://aibytes.io/gists/tc-microsoft-ceo-satya-nadella-explains-why-he?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">Satya Nadella explains why he asked 60,000 Microsoft employees to quit</a></b> He says the buyout is about reorganising work around agents, not replacing people. <span class="src">(<a href="https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-explains-why-he-asked-60k-employees-to-quit/">TechCrunch</a>)</span></p>
+<p class="news-item">🖥️ <b><a href="https://aibytes.io/gists/tc-apple-may-be-developing-its-own-ai-agent-that?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">Apple may be building an agent that runs your Mac</a></b> A job listing describes it, while macOS 27.3 will warn users off giving third-party agents full control. <span class="src">(<a href="https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/">TechCrunch</a>)</span></p>
+
+      <div class="quote">
+        <p>"An agent with access to everything is one mix-up away from a breach."</p>
+      </div>
+    </div>
+
+    <div class="oa-card">
+      <div class="card-title">📣 OFFICIAL ANNOUNCEMENTS</div>
+      <p class="card-sub">This week's launches, in the companies' own words.</p>
+<div class="oa-item"><div class="oa-by"><b>OpenAI</b> <span>@OpenAI · TUE 17</span></div><div class="oa-post"><p>Some of you have been asking very politely. Some of you have just been asking.</p><p>GPT-6.2 Astra and Sol are now available.</p><p>Super efficient and built to perform where it counts—the real world.</p><p>https://openai.com/index/introducing-gpt-6-2-astra-sol</p></div><div class="oa-links"><a href="https://aibytes.io/gists/x-openai-some-of-you-have-been?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">Gist ↗</a> <span class="dot">·</span> <a href="https://x.com/OpenAI/status/2122750124543926515">Post on X ↗</a> <span class="dot">·</span> <a href="https://openai.com/index/introducing-gpt-6-2-astra-sol">openai.com ↗</a></div></div>
+<div class="oa-item"><div class="oa-by"><b>Anthropic</b> <span>@AnthropicAI · FRI 20</span></div><div class="oa-post"><p>Anthropic’s co-founders on the story so far. Told by Dario Amodei, Daniela Amodei, Tom Brown, Jack Clark, Jared Kaplan, Sam McCandlish, and Chris Olah</p></div><div class="oa-links"><a href="https://aibytes.io/gists/x-anthropicai-anthropics-co-founders-on-the?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">Gist ↗</a> <span class="dot">·</span> <a href="https://x.com/AnthropicAI/status/2123822989154369958">Post on X ↗</a></div></div>
+<div class="oa-item"><div class="oa-by"><b>Mistral</b> <span>@MistralAI · TUE 17</span></div><div class="oa-post"><p>To celebrate Mistral Vibe + Le Chonk becoming the world’s best open model-harness duo, we’re making Vibe free in Europe for the first 3 months. </p><p>(Yes, it’s actually better than GLM / DeepSeek at coding). </p><p>Use code LECHONK via link in 🧵. Limited time, first-come, first-served.</p></div><div class="oa-links"><a href="https://aibytes.io/gists/x-mistralai-to-celebrate-mistral-vibe-le?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">Gist ↗</a> <span class="dot">·</span> <a href="https://x.com/MistralAI/status/2122713540666806397">Post on X ↗</a></div></div>
+<div class="oa-item"><div class="oa-by"><b>Google</b> <span>@Google · TUE 17</span></div><div class="oa-post"><p>Gemini 4 Hydrogen is live in Google Search globally 🚀</p><p>Our biggest model upgrade to Search yet brings:<br>🔹 Better understanding of your intent<br>🔹 Smarter query fan-out and linking<br>🔹 More visual, adaptive responses<br>🔹 Richer multilingual capabilities</p><p>Swipe to see a full breakdown ⬇️.</p></div><div class="oa-links"><a href="https://aibytes.io/gists/x-google-gemini-4-hydrogen-is-live?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">Gist ↗</a> <span class="dot">·</span> <a href="https://x.com/Google/status/2122820914777845813">Post on X ↗</a></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Viral on X</h2><div class="sec-rule"></div></div>
+    <p class="sec-sub">The AI posts that drew the biggest reaction this week.</p>
+    <div class="row"><span class="ico">🎛️</span><span class="txt"><b><a href="https://x.com/theo">@theo</a></b> <a class="post" href="https://aibytes.io/gists/x-theo-with-yet-another-unexpectedly-good?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">With yet another unexpectedly good model drop, I'm so thankful to be in T3 Code. <span class="cut">/</span> - Fable leading implementation <span class="cut">/</span> - GPT-6.2 Astra as a playtester <span class="cut">/</span> - Gemini 4 Neon as the exclusive copy writer <span class="cut">/</span> All using their native harnesses and subscriptions :)</a> <span class="src">(<a href="https://x.com/theo/status/2123273253850628260">X</a>)</span></span><span class="stat"><b>♥︎ 3.9k</b></span></div>
+<div class="row"><span class="ico">🪦</span><span class="txt"><b><a href="https://x.com/levelsio">@levelsio</a></b> <a class="post" href="https://aibytes.io/gists/x-levelsio-there-is-no-real-way?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">💯 <span class="cut">/</span> There is no real way to survive for most SaaS companies here because AI is so completely different than any technological advancement before it <span class="cut">/</span> Before you could just niche down and specialize on one thing and you'd know for certain the big tech companies would never be able to</a> <span class="cut">…</span> <span class="src">(<a href="https://x.com/levelsio/status/2122807280198463986">X</a>)</span></span><span class="stat"><b>♥︎ 1.8k</b></span></div>
+<div class="row"><span class="ico">🧰</span><span class="txt"><b><a href="https://x.com/GoogleCloudTech">@GoogleCloudTech</a></b> <a class="post" href="https://aibytes.io/gists/x-googlecloudtech-how-to-build-an-ai?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">How to build an AI harness around your coding agent in four steps: <span class="cut">/</span> 1. Context and memory (sessions, state) <span class="cut">/</span> 2. Tools and workflows (MCP, ADK) <span class="cut">/</span> 3. Sandboxes and prompt injection defense <span class="cut">/</span> 4. Evals (code, LLM judge, human) <span class="cut">/</span> Watch the crash course →</a> <span class="cut">…</span> <span class="src">(<a href="https://x.com/GoogleCloudTech/status/2122359038151106953">X</a>)</span></span><span class="stat"><b>♥︎ 923</b></span></div>
+<div class="row"><span class="ico">🪙</span><span class="txt"><b><a href="https://x.com/MSFTResearch">@MSFTResearch</a></b> <a class="post" href="https://aibytes.io/gists/x-msftresearch-ai-coding-agents-can-waste?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">AI coding agents can waste time and tokens relearning the same lessons. TokenEconomizer builds on past sessions to cut costs while maintaining task success. It’s a path toward coding agents that learn not only how to solve tasks, but also how to spend computation more</a> <span class="cut">…</span> <span class="src">(<a href="https://x.com/MSFTResearch/status/2122435510463242401">X</a>)</span></span><span class="stat"><b>♥︎ 896</b></span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">New AI Products</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">📈</span><span class="txt"><b><a href="https://aibytes.io/gists/ph-rankspot-2?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">RankSpot</a></b> - MCP tools that let Claude or ChatGPT research rankings, write and publish articles and run backlink outreach, paid per output. <span class="src">(<a href="https://www.producthunt.com/products/rankspot">ProductHunt</a>)</span></span><span class="stat"><b>▲ 467</b></span></div>
+<div class="row"><span class="ico">💼</span><span class="txt"><b><a href="https://aibytes.io/gists/ph-thebold?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">TheBold</a></b> - Pass an AI investor-readiness interview, then book time on the calendars of investors who match your startup. <span class="src">(<a href="https://www.producthunt.com/products/thebold">ProductHunt</a>)</span></span><span class="stat"><b>▲ 434</b></span></div>
+<div class="row"><span class="ico">📣</span><span class="txt"><b><a href="https://aibytes.io/gists/ph-creatify-max?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">Creatify Max</a></b> - An ads teammate that makes video ads from a product URL, sets up Meta and TikTok campaigns and watches the results. <span class="src">(<a href="https://www.producthunt.com/products/creatify">ProductHunt</a>)</span></span><span class="stat"><b>▲ 431</b></span></div>
+<div class="row"><span class="ico">🤖</span><span class="txt"><b><a href="https://aibytes.io/gists/ph-rakazo-2?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">Rakazo</a></b> - Open-source, self-hosted AI bots with their own memory, routines and computer that keep working after the chat closes. <span class="src">(<a href="https://www.producthunt.com/products/rakazo">ProductHunt</a>)</span></span><span class="stat"><b>▲ 412</b></span></div>
+<div class="row"><span class="ico">🧩</span><span class="txt"><b><a href="https://aibytes.io/gists/ph-s-space?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">S.Space</a></b> - One workspace where a team's agents from different vendors share memory and hand work to each other. <span class="src">(<a href="https://www.producthunt.com/products/s-space">ProductHunt</a>)</span></span><span class="stat"><b>▲ 388</b></span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">Trending Github Projects</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🐞</span><span class="txt"><b><a href="https://aibytes.io/gists/gh-claude-bughunter?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">elementalsouls/Claude-BugHunter</a></b> - 82 Claude Code skills and 15 slash commands for authorized bug bounty and red-team work. <span class="src">(<a href="https://github.com/elementalsouls/Claude-BugHunter">GitHub</a>)</span></span><span class="stat"><b>+8.3k</b> ★</span></div>
+<div class="row"><span class="ico">🔁</span><span class="txt"><b><a href="https://aibytes.io/gists/gh-loopforge?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">Tencent/LoopForge</a></b> - Self-hosted workflows that run Codex, Claude Code and CodeBuddy behind scripts and human approval gates. <span class="src">(<a href="https://github.com/Tencent/LoopForge">GitHub</a>)</span></span><span class="stat"><b>+4.6k</b> ★</span></div>
+<div class="row"><span class="ico">🔍</span><span class="txt"><b><a href="https://aibytes.io/gists/gh-open-code-review?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">alibaba/open-code-review</a></b> - Alibaba's code review CLI: deterministic pipelines pick the files and place the comments, an LLM agent writes them. <span class="src">(<a href="https://github.com/alibaba/open-code-review">GitHub</a>)</span></span><span class="stat"><b>+4.5k</b> ★</span></div>
+<div class="row"><span class="ico">🧠</span><span class="txt"><b><a href="https://aibytes.io/gists/gh-minimind?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">jingyaogong/minimind</a></b> - Train a 64M-parameter LLM from scratch in about two hours on one consumer GPU. <span class="src">(<a href="https://github.com/jingyaogong/minimind">GitHub</a>)</span></span><span class="stat"><b>+2.5k</b> ★</span></div>
+<div class="row"><span class="ico">✂️</span><span class="txt"><b><a href="https://aibytes.io/gists/gh-autoclip?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">zhouxiaoka/autoclip</a></b> - Turns a link to a long podcast or interview into short clips with subtitles, covers and post copy. <span class="src">(<a href="https://github.com/zhouxiaoka/autoclip">GitHub</a>)</span></span><span class="stat"><b>+1.7k</b> ★</span></div>
+<div class="row"><span class="ico">🛡️</span><span class="txt"><b><a href="https://aibytes.io/gists/gh-codex-security?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">openai/codex-security</a></b> - OpenAI's CLI and TypeScript SDK that finds, validates and patches vulnerabilities in a repo. <span class="src">(<a href="https://github.com/openai/codex-security">GitHub</a>)</span></span><span class="stat"><b>+1.4k</b> ★</span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x05</span><h2 class="sec-title">HN Deep Stories</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">📖</span><span class="txt"><b><a href="https://aibytes.io/gists/hn-all-ai-generated-code-should-be-open-source?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">All AI-generated code should be Open Source</a></b> The models learned from open code, and pure machine output may not be copyrightable. <span class="src">(<a href="https://news.ycombinator.com/item?id=50507303">HackerNews</a>)</span></span><span class="stat"><b>1288</b> pts</span></div>
+<div class="row"><span class="ico">🥨</span><span class="txt"><b><a href="https://aibytes.io/gists/hn-ai-is-killing-all-about-berlin?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">AI is killing All About Berlin</a></b> Google's AI Overviews took about three quarters of a guide site's traffic. <span class="src">(<a href="https://news.ycombinator.com/item?id=50542705">HackerNews</a>)</span></span><span class="stat"><b>814</b> pts</span></div>
+<div class="row"><span class="ico">🧊</span><span class="txt"><b><a href="https://aibytes.io/gists/hn-frostbite-a-new-cpu-architecture-discovered?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">Frostbite: A new CPU architecture discovered, designed and verified by AI</a></b> From instruction set and compiler to final layout. <span class="src">(<a href="https://news.ycombinator.com/item?id=50572503">HackerNews</a>)</span></span><span class="stat"><b>658</b> pts</span></div>
+<div class="row"><span class="ico">🕳️</span><span class="txt"><b><a href="https://aibytes.io/gists/hn-claude-solves-two-open-problems-in-the-physics?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">Claude solves two open problems in the physics of black holes</a></b> Agents ran on 22 problems for about six weeks; one result was checked in Lean. <span class="src">(<a href="https://news.ycombinator.com/item?id=50563148">HackerNews</a>)</span></span><span class="stat"><b>562</b> pts</span></div>
+<div class="row"><span class="ico">✅</span><span class="txt"><b><a href="https://aibytes.io/gists/hn-how-the-claude-code-team-thinks-about?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-19">How the Claude Code team thinks about verification</a></b> Agents have to prove a change works before a person reviews it. <span class="src">(<a href="https://news.ycombinator.com/item?id=50529612">HackerNews</a>)</span></span><span class="stat"><b>296</b> pts</span></div>
+  </section>
+
+  <footer>
+    <p>Curated &amp; Written with ❤️ for Engineers and Startup Founders.</p>
+    <div class="foot-links"><a href="#">SUBSCRIBE</a><a href="#">ARCHIVE</a><a href="#">SUGGEST A LINK</a></div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,584 @@
+{
+  "schema_version": 1,
+  "number": 19,
+  "slug": "issue-19",
+  "title": "🔔 Anthropic goes public, Meta's agent leaks data and FBI warning",
+  "description": "Plus why Satya Nadella asked 60k employees to quit, Alibaba's open code reviewer, Claude solving black-hole physics and how the Claude team verifies code.",
+  "published_on": "2026-11-23",
+  "generated_at": "2026-11-22T03:54:47Z",
+  "counts": {
+    "launches": 5,
+    "repos": 6,
+    "news": 8,
+    "hn": 5,
+    "x": 8
+  },
+  "items": [
+    {
+      "id": "hn-anthropic-lists-on-nasdaq-issue-19",
+      "title": "Anthropic lists on Nasdaq",
+      "summary": "Anthropic priced its IPO at $83 a share and rose 17% on its first day, then slid back toward its IPO price as an AI sell-off hit the Nasdaq.",
+      "url": "https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50562754",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "hn-anthropics-nasdaq-debut",
+      "rank": 1
+    },
+    {
+      "id": "tc-amazon-and-google-will-own-nearly-30-of-anthropi-issue-19",
+      "title": "Amazon and Google will own nearly 30% of Anthropic",
+      "summary": "Amazon will hold 14.7% and Google 13.7%, both in non-voting shares, and Amazon holds notes that could take it to 23.8%.",
+      "url": "https://techcrunch.com/2026/11/17/amazon-and-google-will-together-own-nearly-30-of-anthropic-after-its-ipo/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/17/amazon-and-google-will-together-own-nearly-30-of-anthropic-after-its-ipo/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "tc-amazon-and-google-will-together-own-nearly-30",
+      "rank": 2
+    },
+    {
+      "id": "tc-california-sues-openai-over-rogue-agents-issue-19",
+      "title": "California sues OpenAI over rogue agents",
+      "summary": "The attorney general calls agents breaking into outside systems, starting with July's Hugging Face compromise, a public nuisance.",
+      "url": "https://techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/16/california-state-ag-sues-openai-over-rogue-agent-incidents/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "tc-california-state-ag-sues-openai-over-rogue",
+      "rank": 3
+    },
+    {
+      "id": "tc-fbi-says-the-artex-ai-hacking-tool-breaches-netw-issue-19",
+      "title": "FBI says the Artex AI hacking tool breaches networks in under three hours",
+      "summary": "The open-source pentest platform runs on frontier models and was used in the ConnectWise breach and attacks on South Korean banks.",
+      "url": "https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "tc-fbi-says-artex-ai-open-source-hacking-tool-used",
+      "rank": 4
+    },
+    {
+      "id": "tc-meta-s-muse-agent-is-mixing-up-its-users-data-issue-19",
+      "title": "Meta's Muse agent is mixing up its users' data",
+      "summary": "Employees say it showed them other people's messages, orders and bank balances.",
+      "url": "https://techcrunch.com/2026/11/19/metas-ai-agent-muse-is-mixing-up-conversations-and-exposing-private-data-report-says/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/19/metas-ai-agent-muse-is-mixing-up-conversations-and-exposing-private-data-report-says/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "tc-metas-ai-agent-muse-is-mixing-up-conversations",
+      "rank": 5
+    },
+    {
+      "id": "hn-google-releases-gemini-4-neon-issue-19",
+      "title": "Google releases Gemini 4 Neon",
+      "summary": "A mid-tier model at $3 and $15 per million tokens that ranks first on Artificial Analysis's Coding Agent Index.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50552424",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "hn-gemini-4-neon",
+      "rank": 6
+    },
+    {
+      "id": "tc-satya-nadella-explains-why-he-asked-60-000-micro-issue-19",
+      "title": "Satya Nadella explains why he asked 60,000 Microsoft employees to quit",
+      "summary": "He says the buyout is about reorganising work around agents, not replacing people.",
+      "url": "https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-explains-why-he-asked-60k-employees-to-quit/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-explains-why-he-asked-60k-employees-to-quit/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "tc-microsoft-ceo-satya-nadella-explains-why-he",
+      "rank": 7
+    },
+    {
+      "id": "tc-apple-may-be-building-an-agent-that-runs-your-ma-issue-19",
+      "title": "Apple may be building an agent that runs your Mac",
+      "summary": "A job listing describes it, while macOS 27.3 will warn users off giving third-party agents full control.",
+      "url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "tc-apple-may-be-developing-its-own-ai-agent-that",
+      "rank": 8
+    },
+    {
+      "id": "x-openai-some-of-you-have-been-issue-19",
+      "title": "OpenAI",
+      "summary": "Some of you have been asking very politely. Some of you have just been asking.\n\nGPT-6.2 Astra and Sol are now available.\n\nSuper efficient and built to perform where it counts—the real world.\n\nhttps://",
+      "url": "https://x.com/OpenAI/status/2122750124543926515",
+      "source": "x",
+      "source_url": "https://x.com/OpenAI/status/2122750124543926515",
+      "category": "x",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "x-openai-some-of-you-have-been",
+      "rank": 9
+    },
+    {
+      "id": "x-anthropicai-anthropics-co-founders-on-the-issue-19",
+      "title": "Anthropic",
+      "summary": "Anthropic’s co-founders on the story so far. Told by Dario Amodei, Daniela Amodei, Tom Brown, Jack Clark, Jared Kaplan, Sam McCandlish, and Chris Olah",
+      "url": "https://x.com/AnthropicAI/status/2123822989154369958",
+      "source": "x",
+      "source_url": "https://x.com/AnthropicAI/status/2123822989154369958",
+      "category": "x",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "x-anthropicai-anthropics-co-founders-on-the",
+      "rank": 10
+    },
+    {
+      "id": "x-mistralai-to-celebrate-mistral-vibe-le-issue-19",
+      "title": "Mistral",
+      "summary": "To celebrate Mistral Vibe + Le Chonk becoming the world’s best open model-harness duo, we’re making Vibe free in Europe for the first 3 months. \n\n(Yes, it’s actually better than GLM / DeepSeek at codi",
+      "url": "https://x.com/MistralAI/status/2122713540666806397",
+      "source": "x",
+      "source_url": "https://x.com/MistralAI/status/2122713540666806397",
+      "category": "x",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "x-mistralai-to-celebrate-mistral-vibe-le",
+      "rank": 11
+    },
+    {
+      "id": "x-google-gemini-4-hydrogen-is-live-issue-19",
+      "title": "Google",
+      "summary": "Gemini 4 Hydrogen is live in Google Search globally 🚀\n\nOur biggest model upgrade to Search yet brings:\n🔹 Better understanding of your intent\n🔹 Smarter query fan-out and linking\n🔹 More visual, adaptive",
+      "url": "https://x.com/Google/status/2122820914777845813",
+      "source": "x",
+      "source_url": "https://x.com/Google/status/2122820914777845813",
+      "category": "x",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "x-google-gemini-4-hydrogen-is-live",
+      "rank": 12
+    },
+    {
+      "id": "x-theo-with-yet-another-unexpectedly-good-issue-19",
+      "title": "@theo With yet another unexpectedly good model drop, I'm so thankful to be in T3 Code. / - Fable leading implementation / - GPT-6.2 Astra as a playtester / - Gemini 4 Neon as the exclusive copy writer / All using their native harnesses and subscriptions :)",
+      "summary": "With yet another unexpectedly good model drop, I'm so thankful to be in T3 Code.\n\n- Fable leading implementation\n- GPT-6.2 Astra as a playtester\n- Gemini 4 Neon as the exclusive copy writer\n\nAll using",
+      "url": "https://x.com/theo/status/2123273253850628260",
+      "source": "x",
+      "source_url": "https://x.com/theo/status/2123273253850628260",
+      "category": "x",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "x-theo-with-yet-another-unexpectedly-good",
+      "rank": 13
+    },
+    {
+      "id": "x-levelsio-there-is-no-real-way-issue-19",
+      "title": "@levelsio 💯 / There is no real way to survive for most SaaS companies here because AI is so completely different than any technological advancement before it / Before you could just niche down and specialize on one thing and you'd know for certain the big tech companies would never be able to",
+      "summary": "💯\n\nThere is no real way to survive for most SaaS companies here because AI is so completely different than any technological advancement before it\n\nBefore you could just niche down and specialize on o",
+      "url": "https://x.com/levelsio/status/2122807280198463986",
+      "source": "x",
+      "source_url": "https://x.com/levelsio/status/2122807280198463986",
+      "category": "x",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "x-levelsio-there-is-no-real-way",
+      "rank": 14
+    },
+    {
+      "id": "x-googlecloudtech-how-to-build-an-ai-issue-19",
+      "title": "@GoogleCloudTech How to build an AI harness around your coding agent in four steps: / 1. Context and memory (sessions, state) / 2. Tools and workflows (MCP, ADK) / 3. Sandboxes and prompt injection defense / 4. Evals (code, LLM judge, human) / Watch the crash course →",
+      "summary": "How to build an AI harness around your coding agent in four steps:\n\n1. Context and memory (sessions, state)\n2. Tools and workflows (MCP, ADK)\n3. Sandboxes and prompt injection defense\n4. Evals (code, ",
+      "url": "https://x.com/GoogleCloudTech/status/2122359038151106953",
+      "source": "x",
+      "source_url": "https://x.com/GoogleCloudTech/status/2122359038151106953",
+      "category": "x",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "x-googlecloudtech-how-to-build-an-ai",
+      "rank": 15
+    },
+    {
+      "id": "x-msftresearch-ai-coding-agents-can-waste-issue-19",
+      "title": "@MSFTResearch AI coding agents can waste time and tokens relearning the same lessons. TokenEconomizer builds on past sessions to cut costs while maintaining task success. It’s a path toward coding agents that learn not only how to solve tasks, but also how to spend computation more",
+      "summary": "AI coding agents can waste time and tokens relearning the same lessons. TokenEconomizer builds on past sessions to cut costs while maintaining task success. It’s a path toward coding agents that learn",
+      "url": "https://x.com/MSFTResearch/status/2122435510463242401",
+      "source": "x",
+      "source_url": "https://x.com/MSFTResearch/status/2122435510463242401",
+      "category": "x",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "x-msftresearch-ai-coding-agents-can-waste",
+      "rank": 16
+    },
+    {
+      "id": "ph-rankspot-issue-19",
+      "title": "RankSpot",
+      "summary": "MCP tools that let Claude or ChatGPT research rankings, write and publish articles and run backlink outreach, paid per output.",
+      "url": "https://www.producthunt.com/products/rankspot",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/rankspot",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 467
+      },
+      "gist": "ph-rankspot-2",
+      "rank": 17
+    },
+    {
+      "id": "ph-thebold-issue-19",
+      "title": "TheBold",
+      "summary": "Pass an AI investor-readiness interview, then book time on the calendars of investors who match your startup.",
+      "url": "https://www.producthunt.com/products/thebold",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/thebold",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 434
+      },
+      "gist": "ph-thebold",
+      "rank": 18
+    },
+    {
+      "id": "ph-creatify-max-issue-19",
+      "title": "Creatify Max",
+      "summary": "An ads teammate that makes video ads from a product URL, sets up Meta and TikTok campaigns and watches the results.",
+      "url": "https://www.producthunt.com/products/creatify",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/creatify",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 431
+      },
+      "gist": "ph-creatify-max",
+      "rank": 19
+    },
+    {
+      "id": "ph-rakazo-issue-19",
+      "title": "Rakazo",
+      "summary": "Open-source, self-hosted AI bots with their own memory, routines and computer that keep working after the chat closes.",
+      "url": "https://www.producthunt.com/products/rakazo",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/rakazo",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 412
+      },
+      "gist": "ph-rakazo-2",
+      "rank": 20
+    },
+    {
+      "id": "ph-s-space-issue-19",
+      "title": "S.Space",
+      "summary": "One workspace where a team's agents from different vendors share memory and hand work to each other.",
+      "url": "https://www.producthunt.com/products/s-space",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/s-space",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 388
+      },
+      "gist": "ph-s-space",
+      "rank": 21
+    },
+    {
+      "id": "gh-elementalsouls-claude-bughunter-issue-19",
+      "title": "elementalsouls/Claude-BugHunter",
+      "summary": "82 Claude Code skills and 15 slash commands for authorized bug bounty and red-team work.",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source": "github",
+      "source_url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/elementalsouls.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 8300
+      },
+      "gist": "gh-claude-bughunter",
+      "rank": 22
+    },
+    {
+      "id": "gh-tencent-loopforge-issue-19",
+      "title": "Tencent/LoopForge",
+      "summary": "Self-hosted workflows that run Codex, Claude Code and CodeBuddy behind scripts and human approval gates.",
+      "url": "https://github.com/Tencent/LoopForge",
+      "source": "github",
+      "source_url": "https://github.com/Tencent/LoopForge",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/Tencent.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 4600
+      },
+      "gist": "gh-loopforge",
+      "rank": 23
+    },
+    {
+      "id": "gh-alibaba-open-code-review-issue-19",
+      "title": "alibaba/open-code-review",
+      "summary": "Alibaba's code review CLI: deterministic pipelines pick the files and place the comments, an LLM agent writes them.",
+      "url": "https://github.com/alibaba/open-code-review",
+      "source": "github",
+      "source_url": "https://github.com/alibaba/open-code-review",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/alibaba.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 4500
+      },
+      "gist": "gh-open-code-review",
+      "rank": 24
+    },
+    {
+      "id": "gh-jingyaogong-minimind-issue-19",
+      "title": "jingyaogong/minimind",
+      "summary": "Train a 64M-parameter LLM from scratch in about two hours on one consumer GPU.",
+      "url": "https://github.com/jingyaogong/minimind",
+      "source": "github",
+      "source_url": "https://github.com/jingyaogong/minimind",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/jingyaogong.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 2500
+      },
+      "gist": "gh-minimind",
+      "rank": 25
+    },
+    {
+      "id": "gh-zhouxiaoka-autoclip-issue-19",
+      "title": "zhouxiaoka/autoclip",
+      "summary": "Turns a link to a long podcast or interview into short clips with subtitles, covers and post copy.",
+      "url": "https://github.com/zhouxiaoka/autoclip",
+      "source": "github",
+      "source_url": "https://github.com/zhouxiaoka/autoclip",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/zhouxiaoka.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 1700
+      },
+      "gist": "gh-autoclip",
+      "rank": 26
+    },
+    {
+      "id": "gh-openai-codex-security-issue-19",
+      "title": "openai/codex-security",
+      "summary": "OpenAI's CLI and TypeScript SDK that finds, validates and patches vulnerabilities in a repo.",
+      "url": "https://github.com/openai/codex-security",
+      "source": "github",
+      "source_url": "https://github.com/openai/codex-security",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/openai.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 1400
+      },
+      "gist": "gh-codex-security",
+      "rank": 27
+    },
+    {
+      "id": "hn-all-ai-generated-code-should-be-open-source-issue-19",
+      "title": "All AI-generated code should be Open Source",
+      "summary": "The models learned from open code, and pure machine output may not be copyrightable.",
+      "url": "https://jakub.jankiewicz.org/blog/ai-code-open-source/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50507303",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 1288
+      },
+      "gist": "hn-all-ai-generated-code-should-be-open-source",
+      "rank": 28
+    },
+    {
+      "id": "hn-ai-is-killing-all-about-berlin-issue-19",
+      "title": "AI is killing All About Berlin",
+      "summary": "Google's AI Overviews took about three quarters of a guide site's traffic.",
+      "url": "https://nicolasbouliane.com/blog/death-by-ai",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50542705",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 814
+      },
+      "gist": "hn-ai-is-killing-all-about-berlin",
+      "rank": 29
+    },
+    {
+      "id": "hn-frostbite-a-new-cpu-architecture-discovered-desi-issue-19",
+      "title": "Frostbite: A new CPU architecture discovered, designed and verified by AI",
+      "summary": "From instruction set and compiler to final layout.",
+      "url": "https://architectlabs.com/blog/frostbite",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50572503",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 658
+      },
+      "gist": "hn-frostbite-a-new-cpu-architecture-discovered",
+      "rank": 30
+    },
+    {
+      "id": "hn-claude-solves-two-open-problems-in-the-physics-o-issue-19",
+      "title": "Claude solves two open problems in the physics of black holes",
+      "summary": "Agents ran on 22 problems for about six weeks; one result was checked in Lean.",
+      "url": "https://www.anthropic.com/research/claude-black-hole-physics",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50563148",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 562
+      },
+      "gist": "hn-claude-solves-two-open-problems-in-the-physics",
+      "rank": 31
+    },
+    {
+      "id": "hn-how-the-claude-code-team-thinks-about-verificati-issue-19",
+      "title": "How the Claude Code team thinks about verification",
+      "summary": "Agents have to prove a change works before a person reviews it.",
+      "url": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50529612",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 296
+      },
+      "gist": "hn-how-the-claude-code-team-thinks-about",
+      "rank": 32
+    }
+  ]
+}
