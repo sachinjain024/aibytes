@@ -21,6 +21,12 @@ export const COPY = makeCopy([
   { key: "pop.back.saved", where: "Popup › Gist view › Back, from Saved", text: "← Saved" },
   { key: "pop.gist.save", where: "Popup › Gist view › Bottom bar, not saved (D2)", text: "Save", when: o => o.gist === "2" },
   { key: "pop.gist.saved", where: "Popup › Gist view › Bottom bar, saved (D2)", text: "Saved", when: o => o.gist === "2" },
+  { key: "pop.menu.signout", where: "Popup › Header › Avatar menu › Sign out (signs out on aibytes.io too)", text: "Sign out" },
+  { key: "pop.loading", where: "Popup › First open, nothing cached", text: "Loading today's edition…" },
+  { key: "pop.error", where: "Popup › Load failed, nothing cached", text: "Couldn't load today's edition." },
+  { key: "pop.retry", where: "Popup › Load failed › Button", text: "Try again" },
+  { key: "pop.stale", where: "Popup › Load failed, older edition cached", text: "Showing {date}. Couldn't check for a newer edition." },
+  { key: "pop.refused", where: "Popup › Edition in a format this version can't read", text: "Update aiBytes_ to read this edition." },
 
   // Onboarding
   { key: "onb.h1", where: "Onboarding › Heading", text: "aiBytes_ extension is successfully installed." },
@@ -47,6 +53,9 @@ export const COPY = makeCopy([
   { key: "onb.s2.skip", where: "Onboarding › Step 2 › Skip", text: "Skip for now" },
   { key: "onb.s2.signedin", where: "Onboarding › Step 2 › Once signed in", text: "Signed in as {name}. The extension is signed in too." },
   { key: "onb.s2.subscribed", where: "Onboarding › Step 2 › Once subscribed", text: "Subscribed to aiBytes_ weekly." },
+  { key: "onb.s2.continue", where: "Onboarding › Step 2 › Already signed in on aibytes.io › Primary button", text: "Continue as {name}" },
+  { key: "onb.s2.switch", where: "Onboarding › Step 2 › Already signed in on aibytes.io › Secondary button", text: "Use a different account" },
+  { key: "onb.s2.extfail", where: "Onboarding › Step 2 › Site signed in, extension didn't answer", text: "Signed in as {name}. The extension didn't sign in; open it and try again." },
   { key: "onb.done.title", where: "Onboarding › Done › Title", text: "You're set." },
   { key: "onb.done.before", where: "Onboarding › Done › Before the icon", text: "Select" },
   { key: "onb.done.after", where: "Onboarding › Done › After the icon", text: "in the toolbar to open today's edition." },
