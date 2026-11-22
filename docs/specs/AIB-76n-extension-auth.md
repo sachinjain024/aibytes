@@ -109,8 +109,8 @@ checks it. The background worker answers:
 
 | Message from the site | Reply |
 |---|---|
-| `{ type: "status" }` | `{ installed: true, version, pinned, uid, held }`: `version` from the manifest; `pinned` from `chrome.action.getUserSettings().isOnToolbar` (Chrome 91+); `uid` after `auth.authStateReady()`, or `null`; `held` true while the reader's own sign-out holds the extension signed out |
-| `{ type: "signin", token, explicit? }` | `{ ok: true, uid, merged }` once signed in (and the merge tried), or `{ ok: false, code }`. While `held`, a sign-in without `explicit: true` is refused with `code: "held"`; an explicit one clears the hold |
+| `{ type: "status" }` | `{ installed: true, version, pinned, uid }`: `version` from the manifest; `pinned` from `chrome.action.getUserSettings().isOnToolbar` (Chrome 91+); `uid` after `auth.authStateReady()`, or `null` |
+| `{ type: "signin", token }` | `{ ok: true, uid, merged }` once signed in (and the merge tried), or `{ ok: false, code }` |
 | `{ type: "signout" }` | `{ ok: true }` once signed out |
 | anything else | `{ ok: false, code: "bad-message" }` |
 
@@ -142,17 +142,18 @@ it:
 
 ## Signing out from the popup
 
-The avatar menu's Sign out (`pop.menu.signout`) sends
-`chrome.runtime.sendMessage({ type: "signout-by-reader" })` to the worker,
-which signs out and sets `chrome.storage.local["aibytes-extension-held"] =
-true`. The hold stops the site's automatic reconcile from signing the
-extension straight back in as the account the site still has. The popup then
-shows Sign in, which opens the onboarding page's sign-in step, where the reader
-chooses "Continue as {name}" or "Use a different account"; either sends an
-explicit `signin`, which clears the hold. A sign-out mirrored from aibytes.io
-sets no hold (the site is signed out too). The internal message is accepted
-only from the extension's own pages (`sender.id === chrome.runtime.id`, no
-`origin` from a web page).
+The avatar menu's Sign out (`pop.menu.signout`) does two things at once:
+
+1. sends `chrome.runtime.sendMessage({ type: "signout-by-reader" })` to the
+   worker, which signs the extension out (so the popup shows Sign in even if
+   the next step fails), and
+2. opens `https://aibytes.io/extension-onboarding?action=signout` with
+   `chrome.tabs.create`, where the site signs itself out (`site-extension`).
+
+The reader ends signed out on the web and in the extension, and nothing signs
+the extension back in until they sign in on aibytes.io again. The internal
+message is accepted only from the extension's own pages
+(`sender.id === chrome.runtime.id`, no web `origin`).
 
 ## The merge
 

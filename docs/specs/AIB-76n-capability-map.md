@@ -233,12 +233,13 @@ Correct any of these now; the module specs are written on them.
 3. **The popup's Sign in opens `aibytes.io/extension-onboarding?step=signin`,**
    which shows step 2 alone. Signing in there sends the token as any sign-in
    does.
-4. **Sign-out in the popup too** (revised 22 Nov 2026, answer 12.10). The
-   avatar opens a small menu: the reader's name and email, and Sign out.
-   Signing out there holds the extension signed out, so the site's reconcile
-   does not sign it straight back in; only an explicit sign-in on aibytes.io
-   clears the hold, and that page offers "Continue as {name}" or "Use a
-   different account". Signing out on aibytes.io is still mirrored.
+4. **Sign-out from the popup signs out everywhere** (revised 22 Nov 2026,
+   answer 12.10). The avatar opens a small menu: the reader's name and email,
+   and Sign out. Sign out signs the extension out at once and opens
+   `aibytes.io/extension-onboarding?action=signout`, which signs the site out
+   too, so the reader is signed out on the web and in the extension. That page
+   then offers sign-in again, with Google's account picker, to come back as
+   another account. Signing out on aibytes.io is mirrored as before.
 5. **"View on Web"** opens `https://aibytes.io/<date>`, or `/gists/<slug>` from
    a gist, with `?utm_source=chrome-extension` so Umami counts the visits.
 6. **The newsletter box** subscribes with `source: "extension-onboarding"`, so
@@ -321,6 +322,7 @@ Correct any of these now; the module specs are written on them.
     Edge, Brave, Opera, Vivaldi, Arc), not Google Chrome only (6); the store
     category becomes Lifestyle › News & Weather, ticket item 4.1 (7); weekly
     items in Saved as their own sections (9); and **the avatar opens a menu
-    with Sign out**, so a reader can sign out and back in with another account
-    (10, which revises assumption 4). The new copy (2) and the short
-    description (8) were shown to the publisher for approval.
+    with Sign out**, which signs the reader out on aibytes.io as well as in
+    the extension, so they can sign back in with another account (10, which
+    revises assumption 4). The new copy (2) is approved; the short description
+    (8) is open.
