@@ -121,7 +121,7 @@ Add `AIBYTES_SKIP_LIVE=1` to skip the tests that hit live APIs.
 ## Weekly newsletter workflow
 
 1. `/generate-newsletter-content` — the issue HTML and the Beehiiv export
-2. `/generate-followup-thumbnail` — the 1200×630 cover
+2. `/generate-followup-thumbnail` — the hero image prompts for Gemini and Grok, then both images prepared for Substack
 3. `/generate-followup-social-content` — the LinkedIn and X follow-ups
 
 ## Status and licence

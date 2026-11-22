@@ -32,9 +32,9 @@ The source brief and product spec are in `docs/aibytes-design-system-brief.md` a
 ## Scope
 
 Ledger is for the **app and the Chrome extension only**. The newsletter keeps its own
-palette inline in the generate-newsletter-content and generate-followup-thumbnail
-templates, because email HTML cannot load a stylesheet. Never point a newsletter
-template at `packages/design-system`.
+palette inline in the generate-newsletter-content template, because email HTML
+cannot load a stylesheet. Never point a newsletter template at
+`packages/design-system`.
 
 If asked to design something visual for review, copy the assets out and produce a
 static HTML file. For production code, read the rules above and build with the tokens.
