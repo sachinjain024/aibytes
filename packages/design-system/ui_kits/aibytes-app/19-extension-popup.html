@@ -1,0 +1,25 @@
+<!-- @dsCard group="aiBytes_ App" viewport="1320x1300" name="19 · Extension popup" subtitle="The Chrome extension's popup: Today, Saved and a gist, signed out and in, light and dark" -->
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>19 · Extension popup</title>
+<link rel="stylesheet" href="../../styles.css"><link rel="stylesheet" href="app.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js?v=17"></script>
+<script src="data.js"></script>
+<script src="gists.js"></script>
+<style>
+  /* The kit's frame around each popup: a stand-in for Chrome's popup window. Not part of the extension. */
+  .kit-popups { display: grid; grid-template-columns: repeat(3, 400px); gap: 32px 24px; padding: 24px; background: var(--surface-2); }
+  .kit-popup { margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  .kit-popup iframe { display: block; border: 1px solid var(--control-border); border-radius: 8px; background: var(--bg); }
+  .kit-popup figcaption { color: var(--text-2); font: 500 13px var(--font-body); }
+  /* Inside a frame (?frame=): the page is the popup, 400px wide, nothing around it. */
+  body:has(.ldg-popup:only-child) .ldg-popup { width: 100%; height: 100vh; max-height: none; }
+</style>
+</head><body style="margin:0;background:var(--surface-2)">
+<div id="root"></div>
+<script type="text/babel" src="Popup.jsx"></script>
+<script type="text/babel">
+ReactDOM.createRoot(document.getElementById("root")).render(<window.AiBytesPopup />);
+</script></body></html>

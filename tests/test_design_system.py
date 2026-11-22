@@ -300,6 +300,47 @@ class GistKitTests(unittest.TestCase):
         self.assertNotRegex(gist, r"box-shadow", "no shadows at rest")
 
 
+class ExtensionKitTests(unittest.TestCase):
+    """Screen 19 shows the Chrome extension popup (AIB-76n ledger-extension-ui)."""
+
+    KIT = DESIGN_SYSTEM / "ui_kits" / "aibytes-app"
+    EXT = DESIGN_SYSTEM / "components" / "extension"
+    SCREENS = {"19-extension-popup.html": ("AiBytesPopup", 'src="Popup.jsx"', 'src="gists.js"')}
+    COMPONENTS = ("PopupHeader", "PopupFooter", "PopupGistBar", "PopupActionBar")
+
+    def test_each_screen_is_a_seeded_kit_page(self):
+        for name, needles in self.SCREENS.items():
+            with self.subTest(name):
+                html = (self.KIT / name).read_text()
+                self.assertTrue(html.startswith("<!-- @dsCard "), "the card marker must be the first line")
+                for needle in needles:
+                    self.assertIn(needle, html)
+
+    def test_the_kit_popup_uses_the_components(self):
+        kit = (self.KIT / "Popup.jsx").read_text()
+        for needle in (*self.COMPONENTS, "ListRow", "GistView", 'starPos="visual"', "ldg-popup__scroll", "data-theme={theme}", 'theme: "dark"', 'src={"?frame=" + k}'):
+            self.assertIn(needle, kit)
+
+    def test_the_readme_lists_it(self):
+        readme = (self.KIT / "README.md").read_text()
+        for name in self.SCREENS:
+            self.assertIn(name, readme)
+
+    def test_the_components_are_documented_alongside_their_code(self):
+        for name in self.COMPONENTS + ("ExtensionIcon",):
+            for ext in ("jsx", "d.ts", "prompt.md"):
+                self.assertTrue((self.EXT / f"{name}.{ext}").exists(), f"{name}.{ext}")
+
+    def test_the_preview_bundles_the_extension_folder(self):
+        self.assertIn('"extension"', (DESIGN_SYSTEM / "scripts" / "preview.mjs").read_text())
+
+    def test_the_popup_styles_use_tokens_only(self):
+        css = (DESIGN_SYSTEM / "components" / "components.css").read_text()
+        popup = css[css.index("The Chrome extension popup (AIB-76n)"):]
+        self.assertNotRegex(popup, r"#[0-9a-fA-F]{3,8}\b", "no literal colours in the popup styles")
+        self.assertNotRegex(popup, r"box-shadow", "no shadows at rest")
+
+
 class RemovedComponentTests(unittest.TestCase):
     """Header, SideNav, Chip and Footer were replaced by the app shell (AIB-133k)."""
 

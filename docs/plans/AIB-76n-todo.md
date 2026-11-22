@@ -121,13 +121,30 @@ with its menu: name, email, Sign out), `PopupFooter`, `PopupGistBar` and
 signed out and signed in.
 
 **Acceptance criteria:**
-- [ ] The tests cover `aria-pressed` on the toggle, avatar vs Sign in, and the menu (Esc, an outside click, focus returning to the avatar)
-- [ ] Kit page 19 matches prototype v14 at 400px, in light and dark
-- [ ] Every control has a visible focus ring
+- [x] The tests cover `aria-pressed` on the toggle, avatar vs Sign in, and the menu (Esc, an outside click, focus returning to the avatar)
+- [x] Kit page 19 matches prototype v14 at 400px, in light and dark
+- [x] Every control has a visible focus ring
 
 **Verification:** (A), (D) (`test_design_system`), `npm run preview:design-system`.
 
 **Dependencies:** T3. **Files:** `components/extension/Popup*.*`, `components/components.css`, `ui_kits/aibytes-app/{19-extension-popup.html,App.jsx,README.md}`. **Scope:** M
+
+**Done 22 Nov 2026.** `popup.test.js`: six tests (the toggle's `aria-pressed`
+and name, Sign in vs the avatar, footer, gist bar, action bar). The avatar is
+`AppHeader`'s own menu, now exported as `AccountMenu`, and the menu shows
+`user.email` when given; two more tests in `AppHeader.test.js`, and the site's
+header markup is unchanged (its fixture test passes). Esc, the outside click
+and focus returning to the avatar have no unit test: the repo has no DOM
+library, and adding jsdom needs the publisher's yes. They were checked in
+headless Chrome on the kit frame instead, with the 2px ring on every control
+tabbed to. Kit page 19 uses its own `Popup.jsx`, not `App.jsx`: six live
+frames, each a 400px iframe so `ListRow` takes its narrow layout as in
+Chrome's popup. `PopupFooter` is a `div`, because `styles.css` styles the
+site's bare `<footer>`. The `extension` folder joined the preview's and the
+Design System Artifact's groups, with previews for `AccountMenu`,
+`ExtensionIcon` and the four components. Design-system suite 107/107,
+`test_design_system` 38/38, web 161 and app-core 40 unchanged, the site's
+HTML unchanged (only its CSS gains the unused `ldg-popup` classes).
 
 ## T5 [3.5]: Ledger's onboarding components, `Button size="lg"`, kit page 20
 

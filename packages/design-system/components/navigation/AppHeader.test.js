@@ -57,3 +57,17 @@ test('the menu names the reader, then Saved (only with onSaved) and Sign out',()
   const bare=renderToStaticMarkup(React.createElement(AccountMenuPanel,{user:ada,onSignOut:()=>{},onClose:()=>{}}));
   assert.doesNotMatch(bare,/>Saved</);assert.equal((bare.match(/role="menuitem"/g)||[]).length,1);
 });
+
+test('AccountMenu is the avatar on its own, for the popup (AIB-76n)',()=>{
+  const { AccountMenu } = mod.exports;
+  const html=renderToStaticMarkup(React.createElement(AccountMenu,{user:{name:'Demo Reader'},onSignOut:()=>{}}));
+  assert.match(html,/^<span class="ldg-menu account__wrap"><button type="button" class="account" aria-label="Account: Demo Reader"/);
+});
+
+test('the menu shows the email under the name only when there is one',()=>{
+  const { AccountMenuPanel } = mod.exports;
+  const without=renderToStaticMarkup(React.createElement(AccountMenuPanel,{user:{name:'Ada'},onSignOut:()=>{}}));
+  assert.doesNotMatch(without,/account__email/);
+  const withEmail=renderToStaticMarkup(React.createElement(AccountMenuPanel,{user:{name:'Ada',email:'ada@example.com'},onSignOut:()=>{}}));
+  assert.match(withEmail,/<span class="account__name">Ada<\/span><span class="account__email">ada@example.com<\/span><span class="account__via">Signed in with Google<\/span>/);
+});

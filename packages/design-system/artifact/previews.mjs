@@ -248,4 +248,38 @@ render(<Demo />);` },
   Sidebar: { group: "Navigation", height: 640, width: 320, jsx: `
 const links = [{ label: "X", href: "#" }, { label: "Suggest a link", href: "#" }, { label: "Advertise", href: "#" }, { label: "Chrome Extension (soon)" }];
 render(<div className="pv-static"><L.Sidebar categories={categories} count={15} active="repos" links={links} subscribeUrl="#" onSaved={noop} savedCount={3} /></div>);` },
+
+  AccountMenu: { group: "Navigation", height: 260, jsx: `
+render(<div className="pv-static" style={{ display: "flex", justifyContent: "flex-end", width: 260, paddingBottom: 190 }}>
+  <L.AccountMenu user={{ name: "Ada Lovelace", email: "ada@example.com" }} onSignOut={noop} />
+</div>);
+setTimeout(() => document.querySelector(".account")?.click(), 50);` },
+
+  // The Chrome extension (AIB-76n). The popup's frame is .ldg-popup, 400px wide.
+  ExtensionIcon: { group: "Extension", height: 90, jsx: `
+render(<div className="pv-row">
+  {[16, 20, 32, 48].map(size => <L.ExtensionIcon key={size} size={size} />)}
+  <Label>The favicon tile, the same in both themes. Chrome's PNGs are in assets/extension/.</Label>
+</div>);` },
+
+  PopupHeader: { group: "Extension", height: 260, width: 440, jsx: `
+render(<div style={{ width: 400, display: "flex", flexDirection: "column", gap: 12 }}>
+  <L.PopupHeader date="Wed, Aug 27" savedCount={3} onToggleSaved={noop} onSignIn={noop} />
+  <Label>Signed out: the saved toggle (star and count), then Sign in.</Label>
+  <L.PopupHeader date="Wed, Aug 27" savedCount={3} savedActive onToggleSaved={noop} user={{ name: "Ada Lovelace", email: "ada@example.com" }} onSignOut={noop} />
+  <Label>Saved showing, signed in: the toggle is pressed; the avatar opens aibytes.io's account menu.</Label>
+</div>);` },
+
+  PopupFooter: { group: "Extension", height: 90, width: 440, jsx: `
+render(<div style={{ width: 400 }}><L.PopupFooter meta="Aug 27 · 28 items"><a className="ldg-popup-link" href="#">View on Web →</a></L.PopupFooter></div>);` },
+
+  PopupGistBar: { group: "Extension", height: 90, width: 440, jsx: `
+render(<div style={{ width: 400 }}><L.PopupGistBar backLabel="← Today" onBack={noop} /></div>);` },
+
+  PopupActionBar: { group: "Extension", height: 150, width: 440, jsx: `
+function Demo() {
+  const [saved, setSaved] = React.useState(false);
+  return <div style={{ width: 400 }}><L.PopupActionBar saved={saved} onToggleSave={() => setSaved(s => !s)}><a className="ldg-popup-link" href="#">View on Web →</a></L.PopupActionBar></div>;
+}
+render(<><Demo /><Label>The star toggles Save and Saved.</Label></>);` },
 };

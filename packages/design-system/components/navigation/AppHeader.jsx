@@ -11,6 +11,7 @@ export function AccountMenuPanel({ user, onSaved, onSignOut, onClose }) {
     <div className="ldg-menu__panel account__panel" role="menu" aria-label="Account">
       <div className="account__who">
         <span className="account__name">{user.name}</span>
+        {user.email && <span className="account__email">{user.email}</span>}
         <span className="account__via">Signed in with Google</span>
       </div>
       {onSaved && <button type="button" role="menuitem" className="account__item" onClick={pick(onSaved)}>Saved</button>}
@@ -21,7 +22,8 @@ export function AccountMenuPanel({ user, onSaved, onSignOut, onClose }) {
 
 // The avatar: the Google profile photo, or the reader's initial when there is none or it fails to load.
 // It opens AccountMenuPanel, which closes like CardMenu: Escape (focus returns here) or a pointer down outside.
-function Account({ user, onSaved, onSignOut }) {
+// Exported for the extension popup's header (AIB-76n), so both surfaces share one menu.
+export function AccountMenu({ user, onSaved, onSignOut }) {
   const [open, setOpen] = React.useState(false);
   const [failed, setFailed] = React.useState(() => failedPhotos.has(user.photoUrl));
   const root = React.useRef(null);
@@ -80,7 +82,7 @@ export function AppHeader({ theme = "light", onToggleTheme, menuOpen = false, on
           </button>
         )}
         {user && onSignOut
-          ? <Account user={user} onSaved={onSaved} onSignOut={onSignOut} />
+          ? <AccountMenu user={user} onSaved={onSaved} onSignOut={onSignOut} />
           : !user && onSignIn && <button type="button" className="control signin" onClick={onSignIn}>Sign in</button>}
       </nav>
     </header>

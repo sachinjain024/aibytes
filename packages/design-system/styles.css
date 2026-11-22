@@ -2247,9 +2247,16 @@ html[data-theme=light] .calendar-days button:disabled {
   white-space: nowrap;
 }
 
+.account__email,
 .account__via {
   color: var(--text-2);
   font-size: 12px;
+}
+
+.account__email {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .account__item {

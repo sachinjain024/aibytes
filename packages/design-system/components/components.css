@@ -222,3 +222,33 @@ body.gist-resizing{cursor:col-resize;user-select:none}
 .gist-save-label{padding:0;border:0;background:none;color:var(--text);font:500 var(--text-13) var(--font-body);cursor:pointer}
 .gist-linkbtn{padding:0;border:0;background:none;color:var(--link);font:inherit;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
 .gist-react-note{margin:0;color:var(--text-2);font:400 var(--text-12) var(--font-body)}
+
+/* The Chrome extension popup (AIB-76n). Tokens only; no shadow at rest (the popup is Chrome's window).
+   .ldg-popup is the 400px frame: header, a scrolling body, then the footer or the action bar. */
+.ldg-popup{position:relative;display:flex;flex-direction:column;width:400px;height:580px;max-height:600px;overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--font-body)}
+.ldg-popup__scroll{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain}
+.ldg-popup__scroll .story{padding-left:12px;padding-right:12px}
+.ldg-popup__end{margin:0;padding:16px 14px 20px;color:var(--text-2);font-size:var(--text-13)}
+.ldg-popup__empty{padding:32px 20px;color:var(--text-2);font-size:var(--text-13);line-height:1.5}
+.ldg-popup__empty p{margin:0}
+.ldg-popup__empty-title{margin:0 0 6px!important;color:var(--text);font-size:var(--text-14);font-weight:600}
+.ldg-popup__gist{padding:4px 16px 24px}
+.ldg-popup-link{display:inline-flex;align-items:center;gap:4px;margin-left:auto;color:var(--link);font-size:var(--text-13);font-weight:500;text-decoration:none}
+.ldg-popup-link:hover{text-decoration:underline;text-underline-offset:2px}
+.ldg-popup-head{flex:none;display:flex;align-items:center;gap:10px;height:48px;padding:0 12px 0 14px;background:var(--surface);border-bottom:var(--border-w) solid var(--control-border)}
+.ldg-popup-head .ldg-wordmark{text-decoration:none}
+.ldg-popup-head__date{color:var(--text-2);font-size:var(--text-12);font-variant-numeric:tabular-nums}
+.ldg-popup-head__end{margin-left:auto;display:flex;align-items:center;gap:6px}
+.ldg-popup-saved{display:inline-flex;align-items:center;gap:4px;height:28px;padding:0 8px;border:var(--border-w) solid var(--control-border);border-radius:var(--radius-chip);background:none;color:var(--text);font:500 var(--text-12) var(--font-body);cursor:pointer}
+.ldg-popup-saved:hover{background:var(--hover)}
+.ldg-popup-saved__n{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.ldg-popup-saved--on,.ldg-popup-saved--on:hover{border-color:var(--text);background:var(--text);color:var(--bg)}
+.ldg-popup-signin{border:0;background:none;color:var(--link);font:500 var(--text-13) var(--font-body);padding:6px;border-radius:var(--radius-chip);cursor:pointer}
+.ldg-popup-signin:hover{text-decoration:underline;text-underline-offset:2px}
+.ldg-popup-head .account__panel{right:0}
+.ldg-popup-foot{flex:none;display:flex;align-items:center;gap:6px;height:44px;padding:0 14px;background:var(--surface-2);border-top:var(--border-w) solid var(--control-border)}
+.ldg-popup-foot__meta{color:var(--text-2);font-family:var(--font-mono);font-size:var(--text-12);font-variant-numeric:tabular-nums}
+.ldg-popup-gistbar{flex:none;display:flex;align-items:center;height:46px;padding:0 10px 0 6px;background:var(--surface);border-bottom:var(--border-w) solid var(--control-border)}
+.ldg-popup-back{border:0;background:none;color:var(--text);font:500 var(--text-13) var(--font-body);padding:6px 8px;border-radius:var(--radius-chip);cursor:pointer}
+.ldg-popup-back:hover{background:var(--hover)}
+.ldg-popup-actions{flex:none;display:flex;align-items:center;gap:6px;min-height:44px;padding:0 14px 0 8px;background:var(--surface-2);border-top:var(--border-w) solid var(--control-border);font-size:var(--text-13)}
