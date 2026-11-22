@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "slug": "hn-harsher-on-male-evaluating-llms-on-gender",
+  "kind": "hn",
+  "title": "Harsher on Male? Evaluating LLMs on Gender-Asymmetric Moral Framing in Conflicts",
+  "url": "https://arxiv.org/abs/2606.14068",
+  "source_url": "https://news.ycombinator.com/item?id=50597743",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Paper",
+    "Eval",
+    "Safety"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "An arXiv paper introduces GAMA-Bench, 1,298 gender-mirrored conflict scenarios, and finds that 10 LLMs frame the same misconduct more punitively when the person at fault is a man.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Each scenario starts as a gender-neutral misconduct template, then becomes paired first-person prompts that swap only the actor's gender and role references.",
+        "The scenarios cover intimate relationships and public social conflicts.",
+        "Responses are scored on how they distribute punishment, empathy, escalation, instruction and blame.",
+        "Male actors draw more blame and escalation; female actors get more therapeutic, empathetic framing for the same behaviour.",
+        "The gap holds across model families, model sizes, scenario types and explicit reasoning modes, and the code is published."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "Most commenters are unsurprised and read the result as a mirror of training data and current social norms.",
+          "url": "https://news.ycombinator.com/item?id=50598688"
+        },
+        {
+          "stance": "disputed",
+          "text": "Others doubt data is the whole story and point to the alignment phase as a likely source of the skew.",
+          "url": "https://news.ycombinator.com/item?id=50598840"
+        },
+        {
+          "stance": "theme",
+          "text": "One commenter wonders whether men are also praised more for good outcomes, or whether the gap shows only in negative cases.",
+          "url": "https://news.ycombinator.com/item?id=50599118"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Harsher on Male? Evaluating LLMs on Gender-Asymmetric Moral Framing Across Diverse Conflict Scenarios",
+      "url": "https://arxiv.org/abs/2606.14068"
+    },
+    {
+      "role": "discussion",
+      "title": "Harsher on Male? Evaluating LLMs on Gender-Asymmetric Moral Framing in Conflicts",
+      "url": "https://news.ycombinator.com/item?id=50597743"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-harsher-on-male-evaluating-llms-on-gender-2026-11-22",
+      "edition_date": "2026-11-22"
+    }
+  ],
+  "created_at": "2026-11-22T16:15:19Z",
+  "updated_at": "2026-11-22T16:15:19Z",
+  "stats": {
+    "points": 86,
+    "comments": 73,
+    "submitted_by": "rzk",
+    "posted_at": "2026-11-22T09:18:36Z"
+  },
+  "stats_as_of": "2026-11-22T16:13:03Z"
+}

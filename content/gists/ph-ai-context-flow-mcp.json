@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "ph-ai-context-flow-mcp",
+  "kind": "launch",
+  "title": "AI Context Flow MCP",
+  "url": "https://www.producthunt.com/products/ai-context-flow",
+  "source_url": "https://www.producthunt.com/products/ai-context-flow",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "MCP",
+    "Agents",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/4a36951e-d17a-4da4-9569-c87e9b3c7c8f.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "AI Context Flow 2.0 runs one memory store as an MCP server, so Claude, ChatGPT, Cursor and other clients read and write the same context, sorted into per-project buckets with a full edit history.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Version 2.0 adds an MCP server: connect once and any MCP client works from the same saved context, so a brief saved in Claude is there in ChatGPT.",
+        "Buckets group memory by project, client or brand, and each bucket has its own access list.",
+        "Every edit is kept in version history, so a change made by an agent or a teammate can be rolled back.",
+        "Memory Studio is a single view for browsing, sorting, filtering and editing everything stored.",
+        "A commenter asks whether bucket permissions bind agents as well as people; the material does not answer it."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "The launch comment names heavy users of several AI tools, consultants and agencies working across multiple clients, and marketing teams running AI through shared workflows."
+    },
+    {
+      "key": "pricing",
+      "text": "Every signup starts with a 7-day free trial, and the launch comment offers 20% off an annual plan until 30 November 2026. Plan prices are not given."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "AI Context Flow MCP on Product Hunt",
+      "url": "https://www.producthunt.com/products/ai-context-flow"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-ai-context-flow-mcp-2026-11-22",
+      "edition_date": "2026-11-22"
+    }
+  ],
+  "created_at": "2026-11-22T16:15:19Z",
+  "updated_at": "2026-11-22T16:15:19Z",
+  "stats": {
+    "upvotes": 238,
+    "comments": 45
+  },
+  "stats_as_of": "2026-11-22T16:13:03Z"
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "tc-signal-restricts-mobile-screenshots-as-it",
+  "kind": "news",
+  "title": "Signal restricts mobile screenshots as it confronts ‘existential threat’ of AI surveillance",
+  "url": "https://techcrunch.com/2026/11/21/signal-restricts-mobile-screenshots-as-it-confronts-existential-threat-of-ai-surveillance/",
+  "source_url": "https://techcrunch.com/2026/11/21/signal-restricts-mobile-screenshots-as-it-confronts-existential-threat-of-ai-surveillance/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Privacy",
+    "Security"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/05/signal-app-icon-phone.jpg?resize=1200,800"
+  },
+  "depth": "full",
+  "lede": "Signal is extending its Windows screenshot block to Android and iOS, arguing that operating systems with built-in AI agents can read the screen and move private chats beyond the app's control.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "President Meredith Whittaker called OS-level agentic AI an existential threat to Signal's privacy promise.",
+        "Her case: when Windows, Android, macOS or iOS let an agent scan the screen, captured messages can land in whatever database or server that agent uses.",
+        "Signal already blocked screenshots in its Windows app by default; the mobile apps now get a similar restriction.",
+        "Users can turn the setting off, which Whittaker says breaks Signal's privacy guarantees.",
+        "She calls it an incomplete fix, since agents may reach app data in less visible ways."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "Assistants that work by reading the screen depend on apps letting them see it. Signal opting out signals that privacy-focused apps may treat OS agents as a threat, leaving those agents blind in exactly the conversations users care most about."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Signal restricts mobile screenshots as it confronts ‘existential threat’ of AI surveillance",
+      "url": "https://techcrunch.com/2026/11/21/signal-restricts-mobile-screenshots-as-it-confronts-existential-threat-of-ai-surveillance/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-signal-restricts-mobile-screenshots-as-it-2026-11-22",
+      "edition_date": "2026-11-22"
+    }
+  ],
+  "created_at": "2026-11-22T16:15:19Z",
+  "updated_at": "2026-11-22T16:15:19Z"
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "hn-the-mythology-of-conscious-ai",
+  "kind": "hn",
+  "title": "The Mythology of Conscious AI",
+  "url": "https://www.noemamag.com/the-mythology-of-conscious-ai/",
+  "source_url": "https://news.ycombinator.com/item?id=50595537",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "LLM",
+    "Deep Dive"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Neuroscientist Anil Seth's prize-winning Noema essay argues that consciousness probably depends on being alive rather than on computation, and that making AI which even seems conscious is a mistake.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Seth separates intelligence, which is about doing, from consciousness, which is about there being something it is like to be a system.",
+        "He traces the urge to see minds in AI to three biases: anthropocentrism, human exceptionalism and anthropomorphism.",
+        "Language makes LLMs unusually persuasive; nobody calls AlphaFold conscious, though it is built from similar parts.",
+        "He suggests saying models confabulate rather than hallucinate, since hallucination implies experience.",
+        "Believing AI feels things has costs either way: exploited vulnerabilities, distorted ethics, and machines granted rights we cannot switch off."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "Many commenters say the debate is premature, since nobody can define consciousness or verify it from the outside.",
+          "url": "https://news.ycombinator.com/item?id=50598978"
+        },
+        {
+          "stance": "disputed",
+          "text": "Commenters split on substrate; some say ruling out silicon consciousness is hasty when no one knows what causes it in brains.",
+          "url": "https://news.ycombinator.com/item?id=50599776"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One commenter calls the life-versus-computation framing a false dichotomy and says Seth's arguments have been rebutted many times.",
+          "url": "https://news.ycombinator.com/item?id=50596024"
+        },
+        {
+          "stance": "theme",
+          "text": "Another thread asks why believers in conscious agents skip the ethics: if a swarm is conscious, putting it to work looks like slavery.",
+          "url": "https://news.ycombinator.com/item?id=50600306"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "The Mythology Of Conscious AI | NOEMA",
+      "url": "https://www.noemamag.com/the-mythology-of-conscious-ai/"
+    },
+    {
+      "role": "discussion",
+      "title": "The Mythology of Conscious AI",
+      "url": "https://news.ycombinator.com/item?id=50595537"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-the-mythology-of-conscious-ai-2026-11-22",
+      "edition_date": "2026-11-22"
+    }
+  ],
+  "created_at": "2026-11-22T16:15:19Z",
+  "updated_at": "2026-11-22T16:15:19Z",
+  "stats": {
+    "points": 119,
+    "comments": 314,
+    "submitted_by": "Anon84",
+    "posted_at": "2026-11-22T02:10:02Z"
+  },
+  "stats_as_of": "2026-11-22T16:13:03Z",
+  "front_page": true
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "hn-87-of-the-anthropic-power-will-come-from-gas",
+  "kind": "hn",
+  "title": "87% of the Anthropic power will come from gas and 11% from coal in 2028",
+  "url": "https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/",
+  "source_url": "https://news.ycombinator.com/item?id=50597612",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Anthropic",
+    "Deep Dive"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "A case study estimates that Anthropic's contracted U.S. data centers will draw about 87% of their power from gas and 11% from coal in 2028, emitting around 32 million tonnes of CO2 in its mid case.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Anthropic's only disclosed renewable commitments are in Norway and Canada, while it has bought commitments for 1.7 GW of gas generators.",
+        "Of 15 GW of contracted compute, 5.9 to 9.6 GW is tied to named sites, mostly on grids where new load is met by marginal gas and coal plants.",
+        "The 2028 range of 17 to 38 million tonnes could exceed the emissions of all power generation in California, the authors say.",
+        "About a quarter of the power is on-site gas, and 80% of that runs on simple cycle turbines and engines that pollute more than combined cycle plants.",
+        "Air pollution damages are put at $2 to 3 billion a year, and the study notes Colossus 2 still runs largely on unpermitted turbines."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "Calls for regulation recur across the thread: without rules, commenters say, the pollution costs fall on communities far from the people deciding.",
+          "url": "https://news.ycombinator.com/item?id=50599167"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One commenter argues that gas produced alongside US shale oil would otherwise be flared, so generating power from it can make sense.",
+          "url": "https://news.ycombinator.com/item?id=50599751"
+        },
+        {
+          "stance": "theme",
+          "text": "Some point to small local models on rooftop solar as a way to opt out of the large providers' energy choices.",
+          "url": "https://news.ycombinator.com/item?id=50598386"
+        },
+        {
+          "stance": "theme",
+          "text": "Others expect cost pressure to help, since providers pay directly for power and inference is already getting much cheaper.",
+          "url": "https://news.ycombinator.com/item?id=50599958"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "How AI is powered: a breakdown of BYOP and grid power",
+      "url": "https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/"
+    },
+    {
+      "role": "discussion",
+      "title": "87% of the Anthropic power will come from gas and 11% from coal in 2028",
+      "url": "https://news.ycombinator.com/item?id=50597612"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-87-of-the-anthropic-power-will-come-from-gas-2026-11-22",
+      "edition_date": "2026-11-22"
+    }
+  ],
+  "created_at": "2026-11-22T16:15:19Z",
+  "updated_at": "2026-11-22T16:15:19Z",
+  "stats": {
+    "points": 419,
+    "comments": 519,
+    "submitted_by": "happosai",
+    "posted_at": "2026-11-22T08:57:34Z"
+  },
+  "stats_as_of": "2026-11-22T16:13:03Z",
+  "front_page": true
+}

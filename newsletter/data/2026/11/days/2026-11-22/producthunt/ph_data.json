@@ -1,0 +1,602 @@
+{
+  "source": "producthunt",
+  "fetched_at": "2026-11-22",
+  "window": {
+    "postedAfter": "2026-11-21T00:00:00Z",
+    "postedBefore": "2026-11-23T00:00:00Z"
+  },
+  "query_params": {
+    "first": 5,
+    "order": "VOTES",
+    "featured": true
+  },
+  "totalCount": 45,
+  "posts": [
+    {
+      "id": "1320128",
+      "name": "AlterContacts",
+      "tagline": "AI client relationship assistant that thinks and does ahead",
+      "description": "AlterContacts is a voice-first AI assistant that helps you remember every client and never miss an important follow-up. Just talk about your meeting, and Alter organizes the details, updates the client's profile, and remembers what you promised. It notices upcoming renewals, personal milestones, and relationships that need attention, then prepares your next message for approval. Built for financial advisors, brokers, and consultants who care about relationships, not CRM data entry.",
+      "slug": "altercontacts",
+      "votesCount": 305,
+      "commentsCount": 65,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 1,
+      "weeklyRank": 11,
+      "url": "https://www.producthunt.com/products/alter-contacts-ai-client-relationships?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/P3PTYNAORNS7UV?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-21T08:01:00Z",
+      "createdAt": "2026-11-21T08:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/046485e6-d8fe-4168-8047-978bd2b33c83.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/72b0236c-d52d-4cf1-8265-44a19196099c.jpeg?auto=format",
+          "videoUrl": "https://youtu.be/Mc81lnNy3I8"
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/f40341f7-809a-4331-98db-02ec54b21b85.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/772c9b81-b62a-44f7-861c-dc757efca87e.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/d0f936e4-6abe-46ff-b24a-cfd5b6155620.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/eaa78e85-cdf8-4684-8078-dd9ae6f3592d.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/1a930041-d603-4d38-b6ab-2702ecb8730d.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/3d739476-11af-4bad-ba1e-7e927d16b5f8.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/efc1c7c8-405f-4ca4-b3f8-8419202fdf67.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/b0d4c3ed-32c4-4990-8ccc-786663c153b4.png?auto=format",
+          "videoUrl": null
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/P3PTYNAORNS7UV?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          },
+          {
+            "name": "Virtual Assistants",
+            "slug": "virtual-assistants"
+          },
+          {
+            "name": "CRM",
+            "slug": "crm"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "Jonas Tan",
+          "username": "makewithjonas",
+          "headline": "Co-Founder @ AlterContacts",
+          "url": "https://www.producthunt.com/@makewithjonas?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": "JonasAtAlter"
+        },
+        {
+          "name": "FourierWang",
+          "username": "fourierwang",
+          "headline": "Building AlterContacts",
+          "url": "https://www.producthunt.com/@fourierwang?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": "fourier89673"
+        },
+        {
+          "name": "Ben Xu",
+          "username": "hungrydog",
+          "headline": "Co-Founder @ AlterContacts",
+          "url": "https://www.producthunt.com/@hungrydog?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        },
+        {
+          "name": "Oliver Liu",
+          "username": "oliverliu98",
+          "headline": "Engineer Building AlterContacts",
+          "url": "https://www.producthunt.com/@oliverliu98?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": "oliverliu0221"
+        },
+        {
+          "name": "diz",
+          "username": "dizzzzzz",
+          "headline": "Building AlterContacts@Sensebeing",
+          "url": "https://www.producthunt.com/@dizzzzzz?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        },
+        {
+          "name": "Hom Yang",
+          "username": "lioil",
+          "headline": "Builder&Designer\u4e28Co-founded SenseBeing ",
+          "url": "https://www.producthunt.com/@lioil?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Zac Zuo",
+        "username": "zaczuo",
+        "headline": "Flowtica & AI Frontiers",
+        "url": "https://www.producthunt.com/@zaczuo?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1310144",
+      "name": "AI Context Flow MCP",
+      "tagline": "Memory you control, synced to every agent, tool and team",
+      "description": "Ten AI tools, ten partial memories, all drifting apart, with no record of who changed what. AI Context Flow fixes that with one shared memory over MCP. Save a client brief in Claude, and tomorrow your ChatGPT, Grok Bot and your teammate\u2019s Cursor all work from the same version. Organize memory into buckets by project or client, choose who can access each one, and see every edit in full version history. If an agent overwrites something, roll it back.",
+      "slug": "ai-context-flow-mcp",
+      "votesCount": 238,
+      "commentsCount": 45,
+      "reviewsRating": 5.0,
+      "reviewsCount": 3,
+      "dailyRank": 2,
+      "weeklyRank": 21,
+      "url": "https://www.producthunt.com/products/ai-context-flow?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/62GR7ZBTBONXEL?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-21T08:01:00Z",
+      "createdAt": "2026-11-21T08:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/4a36951e-d17a-4da4-9569-c87e9b3c7c8f.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/29c2a0ef-dd89-450e-be48-a5f06885f481.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/9ca61fbf-de03-4978-b15e-0d958e5171f4.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/4308b5b9-1b41-490d-be5e-5a513116b2e1.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/2b26c0f1-bb79-4961-a2af-1833c1de924c.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/f1b462e3-7685-484e-9ecb-be8e0c7507da.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/ea4a7179-9553-41ee-9d07-ca4037af4b6f.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/364db598-4d62-41ff-836e-9e3d50de9e31.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/ae5e1911-90d6-45ea-85b4-449e0a2b91bf.jpeg?auto=format",
+          "videoUrl": "https://www.youtube.com/watch?v=QeuWL3HgPzY"
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/62GR7ZBTBONXEL?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/45QRF4OUL2TU3U?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/VGZL3N6BSWYM3H?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "MCP server",
+          "url": "https://www.producthunt.com/r/44CVQVH5GYORBC?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Chrome",
+          "url": "https://www.producthunt.com/r/BQNQNPUW2227GW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Productivity",
+            "slug": "productivity"
+          },
+          {
+            "name": "Storage",
+            "slug": "storage"
+          },
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "[REDACTED]",
+          "username": "[REDACTED]",
+          "headline": null,
+          "url": "[REDACTED]",
+          "twitterUsername": null
+        },
+        {
+          "name": "Mujtaba Idrees",
+          "username": "mujtabaidrees94",
+          "headline": "Plurality Network, AI Context Flow",
+          "url": "https://www.producthunt.com/@mujtabaidrees94?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": "mujtabaidrees94"
+        }
+      ],
+      "user": {
+        "name": "Zac Zuo",
+        "username": "zaczuo",
+        "headline": "Flowtica & AI Frontiers",
+        "url": "https://www.producthunt.com/@zaczuo?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1316806",
+      "name": "Codemany",
+      "tagline": "Run GitHub Actions 3x faster",
+      "description": "Run GitHub Actions on your own infra. Codemany orchestrates the runners: a fresh VM for each job. 3x faster, and NO per-minute bill. Our CI bill went from $215 in October to $4 so far in November. Free 14 days, no card.",
+      "slug": "codemany-2",
+      "votesCount": 197,
+      "commentsCount": 19,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 3,
+      "weeklyRank": 30,
+      "url": "https://www.producthunt.com/products/codemany?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/7PYDLDRHJO2VXR?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-21T08:01:00Z",
+      "createdAt": "2026-11-21T08:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/3e50a01b-e3db-4b0b-a49f-703cc6f0790a.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/mcp-draft-media/1cab2c86-fc49-4e7b-bfc9-15f11f0899a9.jpeg?auto=format",
+          "videoUrl": "https://youtu.be/cg3oyoVvdKc"
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/f7a00b52-fa8d-478e-8644-bdc7ec088672/74293c6b2b10297d97d3b4c756bc0d0f4fc5071afbe409df16c3ddbabe3f4be4.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/899d423f-ade4-4914-81c0-f421144bd44b/5b09ca9ea0a659b99902f73c55a2ef8f1120c5c438aa7780ec4c49c6c84e9da7.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/68ae4863-083c-4701-9cfb-be20297b55f6/bfc6e77dddccbd8e8f3427503f76b8e9fd1ec516800cc0590649424dae1836b2.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/d3e13b6a-04fe-4e0d-ba4b-655233fafbdd/a97f2b4450729812103466bd78a2b43eea09357e538e215da21b77dc7ad48369.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/dc03111d-0e92-454f-9154-ae240df4f14d/7b9eceb70679bfd46fd9c2b6f722b851eda1187e4116631655666c987a1b66f7.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/6d714487-74ec-475c-8ac1-8f507b2e8d19/c0bec524cf633d1ba2b7154de3de8c08dde0aeeb4495b062f41d7e361c794a47.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/36169888-15c8-44af-9895-cf4c62a5b60f/3c6a32df968e0a4e5d05a9418efc9d723b769829146e4fa5bf36037b88626576.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/95c51f2f-9925-4776-a9eb-901355c584dc/d62e977496a6d5111fb890164308e71394e18a669c788971cf436445c312e310.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/5e089e50-db6a-4357-af7d-f78b24fd4864/2c336dae0d8959bb194dcc4a899a115864e53815cc533830b9656773a48b81e9.png?auto=format",
+          "videoUrl": null
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Github",
+          "url": "https://www.producthunt.com/r/6MJCHLVUG75MMZ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Github",
+          "url": "https://www.producthunt.com/r/T4VUBXPXRHY2SW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/JJQKNVXKQ343MA?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/7PYDLDRHJO2VXR?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Mac",
+            "slug": "mac"
+          },
+          {
+            "name": "Developer Tools",
+            "slug": "developer-tools"
+          },
+          {
+            "name": "GitHub",
+            "slug": "github"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "Arpit Agarwal",
+          "username": "arpwal",
+          "headline": "Building stuff people love! \ud83c\udf89",
+          "url": "https://www.producthunt.com/@arpwal?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": "arpwal"
+        }
+      ],
+      "user": {
+        "name": "fmerian",
+        "username": "fmerian",
+        "headline": "hunting devtools - kilo.ai, mastra.ai",
+        "url": "https://www.producthunt.com/@fmerian?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1323002",
+      "name": "Rankhog",
+      "tagline": "Get customers from Reddit on autopilot",
+      "description": "Rankhog finds people on Reddit asking for what you sell. It reads each subreddit's rules, writes a reply that helps, and posts it from your own account at a human pace. Say yes to each reply, or turn on autopilot. No Reddit account? Rankhog warms up a new one, and you own it. Run it from the app, or from Claude, ChatGPT, Cursor and any MCP client. 7 days free.",
+      "slug": "rankhog",
+      "votesCount": 191,
+      "commentsCount": 19,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 1,
+      "weeklyRank": 33,
+      "url": "https://www.producthunt.com/products/rankhog?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/HVFQNHONLRBAJZ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-22T08:00:00Z",
+      "createdAt": "2026-11-22T08:00:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/launch-image-uploads/b5eca185-268a-48d1-9cd4-a0d061891a10/bb44cb44f4b48ec1daccb69e7f364dd0d0a4f8895e69b015774c178fbdbc309d.png?auto=format"
+      },
+      "media": [
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/mcp-draft-media/e9e750f2-a006-4464-82f9-b7b4c44693c4.jpeg?auto=format",
+          "videoUrl": "https://www.youtube.com/watch?v=V8EnCVoLamY"
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/9305a66e-573e-4c8c-b12c-7ca0e5359b3e/f85c8edfc814a74420a3b4c393959378883eaf50e5883c627b836c6f95cf5817.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/b423e643-2ef8-4632-aa33-b1dace30316d/a1e3722066d7f9c60a7b7cf2483bf343a3f8bec5f62d125ac71e4e1a052b28df.png?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/launch-image-uploads/d2d266e6-fd76-4ebb-a97b-ff5bf1d42e7a/e39e394dc4144e9420d7ca29d3bdb9ec7ffe270eebbe8314d1698e4ae713d3ed.png?auto=format",
+          "videoUrl": null
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/HVFQNHONLRBAJZ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "MCP server",
+          "url": "https://www.producthunt.com/r/INGZU6IH6QKPYC?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Marketing",
+            "slug": "marketing"
+          },
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          },
+          {
+            "name": "reddit",
+            "slug": "reddit"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "Anthony Riera",
+          "username": "anthony_riera1",
+          "headline": "Coding bugs for a living",
+          "url": "https://www.producthunt.com/@anthony_riera1?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": "anthonyriera20"
+        }
+      ],
+      "user": {
+        "name": "fmerian",
+        "username": "fmerian",
+        "headline": "hunting devtools - kilo.ai, mastra.ai",
+        "url": "https://www.producthunt.com/@fmerian?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    },
+    {
+      "id": "1306148",
+      "name": "Yoroll",
+      "tagline": "Build playable stories without a game engine",
+      "description": "Yoroll lets anyone turn stories into playable, cinematic games without coding or a game engine. Start with a script, image, or video clip, then direct the scenes, add player choices, and create branching storylines with different outcomes. AI helps bring everything together into an interactive experience you can share. It's more like directing your own interactive movie than programming a game.",
+      "slug": "yoroll",
+      "votesCount": 181,
+      "commentsCount": 16,
+      "reviewsRating": 0.0,
+      "reviewsCount": 0,
+      "dailyRank": 2,
+      "weeklyRank": 36,
+      "url": "https://www.producthunt.com/products/yoroll?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "website": "https://www.producthunt.com/r/XKLWN5SDJ5RSLW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+      "featuredAt": "2026-11-22T08:01:00Z",
+      "createdAt": "2026-11-22T08:01:00Z",
+      "thumbnail": {
+        "type": "image",
+        "url": "https://ph-files.imgix.net/61792e90-6f7d-4d6e-bcc2-b0c885011149.jpeg?auto=format"
+      },
+      "media": [
+        {
+          "type": "video",
+          "url": "https://ph-files.imgix.net/e3de00d0-b549-4e7e-b8f9-34222a09983e.jpeg?auto=format",
+          "videoUrl": "https://www.youtube.com/watch?v=d7rqpHVGSxo"
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/3d469be2-e07d-47d8-80f4-aa0cee7b9ff5.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/1dfec21f-e24d-44b8-b828-a9a7fbf6456a.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/26e8f9ac-a1d2-4bef-9360-9e80a33295a8.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/8606463e-eddb-4a1b-a52c-79893498d737.jpeg?auto=format",
+          "videoUrl": null
+        },
+        {
+          "type": "image",
+          "url": "https://ph-files.imgix.net/da4ae19d-dd4b-4d7f-93a2-cc1d2ac324f5.jpeg?auto=format",
+          "videoUrl": null
+        }
+      ],
+      "productLinks": [
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/IDGFUKGKLQN7ZW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/OU4NT2OHKMIBRJ?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/NYQRFVVPGY5D2U?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/IZHCGM7VJARH3K?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Twitter",
+          "url": "https://www.producthunt.com/r/2SZELJE3USKFV3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        },
+        {
+          "type": "Website",
+          "url": "https://www.producthunt.com/r/XKLWN5SDJ5RSLW?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+        }
+      ],
+      "topics": {
+        "nodes": [
+          {
+            "name": "Artificial Intelligence",
+            "slug": "artificial-intelligence"
+          },
+          {
+            "name": "Games",
+            "slug": "games"
+          },
+          {
+            "name": "No-Code",
+            "slug": "no-code"
+          }
+        ]
+      },
+      "makers": [
+        {
+          "name": "The LinearGame Team",
+          "username": "yang_yang65",
+          "headline": "",
+          "url": "https://www.producthunt.com/@yang_yang65?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29",
+          "twitterUsername": null
+        }
+      ],
+      "user": {
+        "name": "Justin Jincaid",
+        "username": "justin2025",
+        "headline": "Maker of GNGM & Forget",
+        "url": "https://www.producthunt.com/@justin2025?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+AI+Bytes+%28ID%3A+225737%29"
+      }
+    }
+  ]
+}

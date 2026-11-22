@@ -1,0 +1,105 @@
+{
+  "date": "2026-11-22",
+  "items": {
+    "ph-altercontacts-2026-11-22": {
+      "summary": "Voice-first client memory for advisors and brokers: talk through a meeting and it updates the profile, tracks promises and renewals, and drafts the next message for approval.",
+      "tags": ["Agents", "Voice / Speech", "Launch"]
+    },
+    "ph-ai-context-flow-mcp-2026-11-22": {
+      "summary": "One shared memory served over MCP to Claude, ChatGPT, Grok and Cursor, split into per-project buckets with access control, version history and rollback of agent edits.",
+      "tags": ["MCP", "Agents", "Launch"]
+    },
+    "ph-rankhog-2026-11-22": {
+      "summary": "Finds Reddit threads asking for what you sell, checks subreddit rules, and posts replies from your account, approved one by one or on autopilot, also from MCP clients.",
+      "tags": ["Agents", "MCP", "Launch"]
+    },
+    "ph-yoroll-2026-11-22": {
+      "summary": "No-code tool that turns a script, image or video clip into a branching interactive story, with directed scenes and player choices assembled by AI.",
+      "tags": ["Video", "Launch"]
+    },
+    "hn-show-hn-i-built-a-game-where-you-are-an-llm-s-2026-11-22": {
+      "summary": "A game on GitHub (gulivan/worker755) that puts the player in the subagent role an LLM normally delegates work to.",
+      "tags": ["Show HN", "Agents"]
+    },
+    "gh-claude-bughunter-2026-11-22": {
+      "summary": "Claude Code skill bundle for bug bounty and red-team work: 82 skills, 15 slash commands and 681 disclosed-report patterns across 24 vulnerability classes.",
+      "tags": ["Open Source", "Claude Code", "Security"]
+    },
+    "gh-firecrawl-2026-11-22": {
+      "summary": "TypeScript API for agents that puts web search, scraping and access to 550+ data providers behind one interface.",
+      "tags": ["Open Source", "Agents", "API"]
+    },
+    "gh-superpowers-2026-11-22": {
+      "summary": "Shell-based agentic skills framework that pairs a library of agent skills with a software development methodology for coding agents.",
+      "tags": ["Framework", "Agents", "Code Gen"]
+    },
+    "gh-last30days-skill-2026-11-22": {
+      "summary": "Python agent skill that researches a topic across Reddit, X, YouTube, HN, Polymarket and the web, then synthesizes a grounded summary.",
+      "tags": ["Open Source", "Agents"]
+    },
+    "gh-autoclip-2026-11-22": {
+      "summary": "Open-source Python desktop tool that cuts podcasts, interviews and courses into short clips with subtitles, covers and post copy for Douyin, TikTok, Reels and Shorts.",
+      "tags": ["Open Source", "Video"]
+    },
+    "gh-app-store-compliance-2026-11-22": {
+      "summary": "Pre-submission guard for App Store and Google Play: 124 rejection patterns with fixes, privacy manifest and Data safety checks, 112 tracked deadlines, and an agent skill.",
+      "tags": ["Dev Tool", "Policy"]
+    },
+    "gh-stitch-skills-2026-11-22": {
+      "summary": "Google Labs library of Agent Skills for the Stitch MCP server, written to the open standard so Antigravity, Gemini CLI, Claude Code and Cursor can load them.",
+      "tags": ["Open Source", "Google", "MCP"]
+    },
+    "gh-diagram-design-2026-11-22": {
+      "summary": "Skill that has Claude Code, Codex, Copilot, Cursor and other agents draw 45 diagram types as self-contained HTML and SVG in an editorial style, not Mermaid.",
+      "tags": ["Open Source", "Dev Tool"]
+    },
+    "gh-minimind-2026-11-22": {
+      "summary": "Python project for training a 64M-parameter LLM from scratch in about two hours, documented in Chinese and English.",
+      "tags": ["Open Source", "LLM"]
+    },
+    "gh-plugins-2026-11-22": {
+      "summary": "The Cursor editor's plugin specification alongside the official plugins built on it, in TypeScript.",
+      "tags": ["Cursor", "Dev Tool"]
+    },
+    "tc-signal-restricts-mobile-screenshots-as-it-2026-11-22": {
+      "summary": "Signal is limiting screenshots in both its Android and iOS apps, a change it ties to AI surveillance of private conversations.",
+      "tags": ["Privacy", "Security"]
+    },
+    "tc-a-tale-of-two-nvidias-2026-11-22": {
+      "summary": "Contrasts Nvidia's latest earnings report with tech executives loudly calling for Jensen Huang's return.",
+      "tags": ["Nvidia"]
+    },
+    "tc-here-are-the-top-ai-agents-that-can-live-in-2026-11-22": {
+      "summary": "TechCrunch roundup of agents that work over text message, from general assistants to ones built for families, travel and work.",
+      "tags": ["Agents"]
+    },
+    "tc-is-selling-an-ai-version-of-your-face-to-this-2026-11-22": {
+      "summary": "An actor has licensed his face to a microdrama startup, a practice already popular in China, and experts question the long-term effects if Hollywood follows.",
+      "tags": ["Video"]
+    },
+    "hn-87-of-the-anthropic-power-will-come-from-gas-2026-11-22": {
+      "summary": "Better Datacenter Project breakdown of bring-your-own-power versus grid supply for AI data centers, putting Anthropic's projected 2028 mix almost entirely on fossil fuels.",
+      "tags": ["Anthropic", "Deep Dive"]
+    },
+    "hn-clawdos-an-ai-coding-agent-for-dos-2026-11-22": {
+      "summary": "Project page on ricapar.net for a coding agent built to run on MS-DOS.",
+      "tags": ["Agents", "Code Gen"]
+    },
+    "hn-pandex-official-european-law-for-ai-agents-over-2026-11-22": {
+      "summary": "Service at pandex.io that exposes official European legislation to AI agents through an MCP server.",
+      "tags": ["MCP", "Agents", "Legal"]
+    },
+    "hn-the-mythology-of-conscious-ai-2026-11-22": {
+      "summary": "Noema Magazine essay arguing that belief in conscious AI rests more on myth than on what current systems are.",
+      "tags": ["LLM", "Deep Dive"]
+    },
+    "hn-ai-supply-chain-security-what-canary-tokens-2026-11-22": {
+      "summary": "Dragos blog post reporting what canary tokens planted across the AI software supply chain turned up.",
+      "tags": ["Security"]
+    },
+    "hn-harsher-on-male-evaluating-llms-on-gender-2026-11-22": {
+      "summary": "arXiv paper testing whether LLMs assign moral blame differently when the same interpersonal conflict is framed with the genders swapped.",
+      "tags": ["Paper", "Eval", "Safety"]
+    }
+  }
+}

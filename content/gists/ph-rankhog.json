@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "ph-rankhog",
+  "kind": "launch",
+  "title": "Rankhog",
+  "url": "https://www.producthunt.com/products/rankhog",
+  "source_url": "https://www.producthunt.com/products/rankhog",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Agents",
+    "MCP",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/launch-image-uploads/b5eca185-268a-48d1-9cd4-a0d061891a10/bb44cb44f4b48ec1daccb69e7f364dd0d0a4f8895e69b015774c178fbdbc309d.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "Rankhog watches subreddits for posts asking for products like yours, drafts a reply shaped to each community's rules, and posts it from your own Reddit account after your approval or on autopilot.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "A radar scans the subreddits your buyers use and flags fresh threads where someone asks for a recommendation.",
+        "Each draft follows the subreddit's rules and style and is checked against them before it goes out; the product is named only when it fits.",
+        "Replies post from the user's account at a human pace, approved one at a time or sent automatically.",
+        "Users without a Reddit account can have a new one built up with helpful comments, and they own it.",
+        "It runs from the app or from Claude, ChatGPT, Cursor and other MCP clients."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Founders and small teams who want customers from Reddit threads but lack the time to learn each subreddit's rules. Commenters mostly ask how it avoids bans and shadowbans."
+    },
+    {
+      "key": "pricing",
+      "text": "The launch comment puts the plan at $99 a month per product with a 7-day free trial, plus a free Reddit audit and free tools such as a shadowban checker."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Rankhog on Product Hunt",
+      "url": "https://www.producthunt.com/products/rankhog"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-rankhog-2026-11-22",
+      "edition_date": "2026-11-22"
+    }
+  ],
+  "created_at": "2026-11-22T16:15:19Z",
+  "updated_at": "2026-11-22T16:15:19Z",
+  "stats": {
+    "upvotes": 191,
+    "comments": 19
+  },
+  "stats_as_of": "2026-11-22T16:13:03Z"
+}

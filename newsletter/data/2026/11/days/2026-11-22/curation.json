@@ -1,0 +1,631 @@
+{
+  "date": "2026-11-22",
+  "generated_at": "2026-11-22T16:12:05Z",
+  "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
+  "tags": [
+    {
+      "name": "What it is",
+      "tags": [
+        {
+          "name": "Model Release",
+          "slug": "model-release"
+        },
+        {
+          "name": "Open Source",
+          "slug": "open-source"
+        },
+        {
+          "name": "Paper",
+          "slug": "paper"
+        },
+        {
+          "name": "Benchmark",
+          "slug": "benchmark"
+        },
+        {
+          "name": "Dataset",
+          "slug": "dataset"
+        },
+        {
+          "name": "Framework",
+          "slug": "framework"
+        },
+        {
+          "name": "Dev Tool",
+          "slug": "dev-tool"
+        },
+        {
+          "name": "API",
+          "slug": "api"
+        }
+      ]
+    },
+    {
+      "name": "Domain",
+      "tags": [
+        {
+          "name": "LLM",
+          "slug": "llm"
+        },
+        {
+          "name": "Agents",
+          "slug": "agents"
+        },
+        {
+          "name": "RAG",
+          "slug": "rag"
+        },
+        {
+          "name": "Fine-tuning",
+          "slug": "fine-tuning"
+        },
+        {
+          "name": "Inference",
+          "slug": "inference"
+        },
+        {
+          "name": "Local LLM",
+          "slug": "local-llm"
+        },
+        {
+          "name": "Vision",
+          "slug": "vision"
+        },
+        {
+          "name": "Voice / Speech",
+          "slug": "voice-speech"
+        },
+        {
+          "name": "Video",
+          "slug": "video"
+        },
+        {
+          "name": "Image Gen",
+          "slug": "image-gen"
+        },
+        {
+          "name": "Code Gen",
+          "slug": "code-gen"
+        },
+        {
+          "name": "Embeddings",
+          "slug": "embeddings"
+        },
+        {
+          "name": "Eval",
+          "slug": "eval"
+        },
+        {
+          "name": "Reasoning",
+          "slug": "reasoning"
+        },
+        {
+          "name": "Multimodal",
+          "slug": "multimodal"
+        },
+        {
+          "name": "Robotics",
+          "slug": "robotics"
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem",
+      "tags": [
+        {
+          "name": "OpenAI",
+          "slug": "openai"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic"
+        },
+        {
+          "name": "Google",
+          "slug": "google"
+        },
+        {
+          "name": "Meta",
+          "slug": "meta"
+        },
+        {
+          "name": "Nvidia",
+          "slug": "nvidia"
+        },
+        {
+          "name": "Hugging Face",
+          "slug": "hugging-face"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft"
+        },
+        {
+          "name": "Claude Code",
+          "slug": "claude-code"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor"
+        },
+        {
+          "name": "MCP",
+          "slug": "mcp"
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "tags": [
+        {
+          "name": "Funding",
+          "slug": "funding"
+        },
+        {
+          "name": "Acquisition",
+          "slug": "acquisition"
+        },
+        {
+          "name": "Launch",
+          "slug": "launch"
+        },
+        {
+          "name": "Pricing",
+          "slug": "pricing"
+        },
+        {
+          "name": "Policy",
+          "slug": "policy"
+        },
+        {
+          "name": "Legal",
+          "slug": "legal"
+        },
+        {
+          "name": "Security",
+          "slug": "security"
+        },
+        {
+          "name": "Privacy",
+          "slug": "privacy"
+        },
+        {
+          "name": "Safety",
+          "slug": "safety"
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "tags": [
+        {
+          "name": "Show HN",
+          "slug": "show-hn"
+        },
+        {
+          "name": "Tutorial",
+          "slug": "tutorial"
+        },
+        {
+          "name": "Deep Dive",
+          "slug": "deep-dive"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ph-altercontacts-2026-11-22",
+      "title": "AlterContacts",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/alter-contacts-ai-client-relationships",
+      "source_url": "https://www.producthunt.com/products/alter-contacts-ai-client-relationships",
+      "source_text": "AlterContacts AI client relationship assistant that thinks and does ahead AlterContacts is a voice-first AI assistant that helps you remember every client and never miss an important follow-up. Just talk about your meeting, and Alter organizes the details, updates the client's profile, and remembers what you promised. It notices upcoming renewals, personal milestones, and relationships that need attention, then prepares your next message for approval. Built for financial advisors, brokers, and consultants who care about relationships, not CRM data entry. Artificial Intelligence Virtual Assistants CRM",
+      "signals": {
+        "upvotes": 305,
+        "comments": 65
+      },
+      "published_at": "2026-11-21T08:01:00Z"
+    },
+    {
+      "id": "ph-ai-context-flow-mcp-2026-11-22",
+      "title": "AI Context Flow MCP",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/ai-context-flow",
+      "source_url": "https://www.producthunt.com/products/ai-context-flow",
+      "source_text": "AI Context Flow MCP Memory you control, synced to every agent, tool and team Ten AI tools, ten partial memories, all drifting apart, with no record of who changed what. AI Context Flow fixes that with one shared memory over MCP. Save a client brief in Claude, and tomorrow your ChatGPT, Grok Bot and your teammate’s Cursor all work from the same version. Organize memory into buckets by project or client, choose who can access each one, and see every edit in full version history. If an agent overwrites something, roll it back. Productivity Storage Artificial Intelligence",
+      "signals": {
+        "upvotes": 238,
+        "comments": 45
+      },
+      "published_at": "2026-11-21T08:01:00Z"
+    },
+    {
+      "id": "ph-rankhog-2026-11-22",
+      "title": "Rankhog",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/rankhog",
+      "source_url": "https://www.producthunt.com/products/rankhog",
+      "source_text": "Rankhog Get customers from Reddit on autopilot Rankhog finds people on Reddit asking for what you sell. It reads each subreddit's rules, writes a reply that helps, and posts it from your own account at a human pace. Say yes to each reply, or turn on autopilot. No Reddit account? Rankhog warms up a new one, and you own it. Run it from the app, or from Claude, ChatGPT, Cursor and any MCP client. 7 days free. Marketing Artificial Intelligence reddit",
+      "signals": {
+        "upvotes": 191,
+        "comments": 19
+      },
+      "published_at": "2026-11-22T08:00:00Z"
+    },
+    {
+      "id": "ph-yoroll-2026-11-22",
+      "title": "Yoroll",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/yoroll",
+      "source_url": "https://www.producthunt.com/products/yoroll",
+      "source_text": "Yoroll Build playable stories without a game engine Yoroll lets anyone turn stories into playable, cinematic games without coding or a game engine. Start with a script, image, or video clip, then direct the scenes, add player choices, and create branching storylines with different outcomes. AI helps bring everything together into an interactive experience you can share. It's more like directing your own interactive movie than programming a game. Artificial Intelligence Games No-Code",
+      "signals": {
+        "upvotes": 181,
+        "comments": 16
+      },
+      "published_at": "2026-11-22T08:01:00Z"
+    },
+    {
+      "id": "hn-show-hn-i-built-a-game-where-you-are-an-llm-s-2026-11-22",
+      "title": "Show HN: I built a game where you are an LLM's subagent",
+      "category": "launches",
+      "source": "hackernews",
+      "url": "https://github.com/gulivan/worker755",
+      "source_url": "https://news.ycombinator.com/item?id=50599762",
+      "source_text": "Show HN: I built a game where you are an LLM's subagent",
+      "signals": {
+        "points": 76,
+        "comments": 17
+      },
+      "meta": {
+        "author": "ivantgam"
+      },
+      "published_at": "2026-11-22T13:56:58Z"
+    },
+    {
+      "id": "gh-claude-bughunter-2026-11-22",
+      "title": "elementalsouls/Claude-BugHunter",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_text": "elementalsouls/Claude-BugHunter A Claude Code skill bundle for bug hunting and external red-team work - 82 skills, 15 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices. Python",
+      "signals": {
+        "stars": 17177,
+        "stars_gained": 1721,
+        "forks": 1925
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-firecrawl-2026-11-22",
+      "title": "firecrawl/firecrawl",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "source_url": "https://github.com/firecrawl/firecrawl",
+      "source_text": "firecrawl/firecrawl Knowledge infrastructure to make your agents smarter. Search, scrape and access 550+ data providers through one API. TypeScript",
+      "signals": {
+        "stars": 206740,
+        "stars_gained": 910,
+        "forks": 10802
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-superpowers-2026-11-22",
+      "title": "obra/superpowers",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/obra/superpowers",
+      "source_url": "https://github.com/obra/superpowers",
+      "source_text": "obra/superpowers An agentic skills framework & software development methodology that works. Shell",
+      "signals": {
+        "stars": 323946,
+        "stars_gained": 785,
+        "forks": 28743
+      },
+      "meta": {
+        "language": "Shell"
+      }
+    },
+    {
+      "id": "gh-last30days-skill-2026-11-22",
+      "title": "mvanhorn/last30days-skill",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "source_url": "https://github.com/mvanhorn/last30days-skill",
+      "source_text": "mvanhorn/last30days-skill AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary Python",
+      "signals": {
+        "stars": 72523,
+        "stars_gained": 673,
+        "forks": 6414
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-autoclip-2026-11-22",
+      "title": "zhouxiaoka/autoclip",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/zhouxiaoka/autoclip",
+      "source_url": "https://github.com/zhouxiaoka/autoclip",
+      "source_text": "zhouxiaoka/autoclip AutoClip｜一个链接，一键出片。开源 AI 视频剪辑桌面工具，将播客、访谈、课程等长视频自动剪成短视频，生成字幕、封面和发布文案，适配抖音、小红书、TikTok、Reels 与 YouTube Shorts。Open-source AI video clipping & content repurposing. Python",
+      "signals": {
+        "stars": 13277,
+        "stars_gained": 640,
+        "forks": 2109
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-app-store-compliance-2026-11-22",
+      "title": "mjmirza/app-store-compliance",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/mjmirza/app-store-compliance",
+      "source_url": "https://github.com/mjmirza/app-store-compliance",
+      "source_text": "mjmirza/app-store-compliance Avoid common App Store and Google Play rejections. Open playbook and pre-submission guard with 124 documented rejection patterns and fixes, privacy manifest and Data safety checks, 112 tracked deadlines (EU AI Act, DSA, COPPA, age laws), and a skill for AI coding agents. Shell",
+      "signals": {
+        "stars": 3782,
+        "stars_gained": 617,
+        "forks": 228
+      },
+      "meta": {
+        "language": "Shell"
+      }
+    },
+    {
+      "id": "gh-stitch-skills-2026-11-22",
+      "title": "google-labs-code/stitch-skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "source_url": "https://github.com/google-labs-code/stitch-skills",
+      "source_text": "google-labs-code/stitch-skills A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor. TypeScript",
+      "signals": {
+        "stars": 11801,
+        "stars_gained": 516,
+        "forks": 1470
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-diagram-design-2026-11-22",
+      "title": "cathrynlavery/diagram-design",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "source_url": "https://github.com/cathrynlavery/diagram-design",
+      "source_text": "cathrynlavery/diagram-design Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory Droid, Qoder, and Pi. 45 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop. HTML",
+      "signals": {
+        "stars": 70147,
+        "stars_gained": 513,
+        "forks": 4703
+      },
+      "meta": {
+        "language": "HTML"
+      }
+    },
+    {
+      "id": "gh-minimind-2026-11-22",
+      "title": "jingyaogong/minimind",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/jingyaogong/minimind",
+      "source_url": "https://github.com/jingyaogong/minimind",
+      "source_text": "jingyaogong/minimind 🧠 两小时从 0 训出你的 64M 大模型。Train your own 64M LLM from scratch in 2 hours. Python",
+      "signals": {
+        "stars": 68499,
+        "stars_gained": 473,
+        "forks": 8961
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-plugins-2026-11-22",
+      "title": "cursor/plugins",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/cursor/plugins",
+      "source_url": "https://github.com/cursor/plugins",
+      "source_text": "cursor/plugins Cursor plugin specification and official plugins TypeScript",
+      "signals": {
+        "stars": 18332,
+        "stars_gained": 301,
+        "forks": 1995
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "tc-signal-restricts-mobile-screenshots-as-it-2026-11-22",
+      "title": "Signal restricts mobile screenshots as it confronts ‘existential threat’ of AI surveillance",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/21/signal-restricts-mobile-screenshots-as-it-confronts-existential-threat-of-ai-surveillance/",
+      "source_url": "https://techcrunch.com/2026/11/21/signal-restricts-mobile-screenshots-as-it-confronts-existential-threat-of-ai-surveillance/",
+      "source_text": "Signal restricts mobile screenshots as it confronts ‘existential threat’ of AI surveillance Signal is limiting users' ability to take screenshots in both its Android and iOS apps.",
+      "meta": {
+        "author": "Anthony Ha",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-21T21:37:10Z"
+    },
+    {
+      "id": "tc-a-tale-of-two-nvidias-2026-11-22",
+      "title": "A tale of two Nvidias",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/21/a-tale-of-two-nvidias/",
+      "source_url": "https://techcrunch.com/2026/11/21/a-tale-of-two-nvidias/",
+      "source_text": "A tale of two Nvidias We got two very different pictures of Nvidia — the company’s latest earnings report vs. the tech executives loudly calling for Jensen Huang’s return.",
+      "meta": {
+        "author": "Anthony Ha",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-11-21T21:07:42Z"
+    },
+    {
+      "id": "tc-here-are-the-top-ai-agents-that-can-live-in-2026-11-22",
+      "title": "Here are the top AI agents that can live in your text messages",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/21/all-the-ai-agents-that-can-live-in-your-text-messages/",
+      "source_url": "https://techcrunch.com/2026/11/21/all-the-ai-agents-that-can-live-in-your-text-messages/",
+      "source_text": "Here are the top AI agents that can live in your text messages We created a list of the most notable AI agents that can live in your text messages, from general assistants to agents designed for families, travel, and work.",
+      "meta": {
+        "author": "Lauren Forristal",
+        "reading_time": "16 minutes"
+      },
+      "published_at": "2026-11-21T17:00:00Z"
+    },
+    {
+      "id": "tc-is-selling-an-ai-version-of-your-face-to-this-2026-11-22",
+      "title": "Is selling an AI version of your face to this microdrama startup the future of Hollywood?",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/21/is-selling-an-ai-version-of-your-face-to-this-microdrama-startup-the-future-of-hollywood/",
+      "source_url": "https://techcrunch.com/2026/11/21/is-selling-an-ai-version-of-your-face-to-this-microdrama-startup-the-future-of-hollywood/",
+      "source_text": "Is selling an AI version of your face to this microdrama startup the future of Hollywood? An actor has licensed his face to a microdrama startup — in a trend that's already popular in China. Experts question the long-term consequences if this becomes a trend in Hollywood, too.",
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "6 minutes"
+      },
+      "published_at": "2026-11-21T16:00:00Z"
+    },
+    {
+      "id": "hn-87-of-the-anthropic-power-will-come-from-gas-2026-11-22",
+      "title": "87% of the Anthropic power will come from gas and 11% from coal in 2028",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/",
+      "source_url": "https://news.ycombinator.com/item?id=50597612",
+      "source_text": "87% of the Anthropic power will come from gas and 11% from coal in 2028",
+      "signals": {
+        "points": 419,
+        "comments": 519
+      },
+      "meta": {
+        "author": "happosai"
+      },
+      "published_at": "2026-11-22T08:57:34Z"
+    },
+    {
+      "id": "hn-clawdos-an-ai-coding-agent-for-dos-2026-11-22",
+      "title": "ClawDOS – An AI coding agent for DOS",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "http://ricapar.net/ClawDOS/",
+      "source_url": "https://news.ycombinator.com/item?id=50586292",
+      "source_text": "ClawDOS – An AI coding agent for DOS",
+      "signals": {
+        "points": 167,
+        "comments": 52
+      },
+      "meta": {
+        "author": "Ricapar"
+      },
+      "published_at": "2026-11-21T05:38:01Z"
+    },
+    {
+      "id": "hn-pandex-official-european-law-for-ai-agents-over-2026-11-22",
+      "title": "Pandex – Official European Law for AI Agents, over MCP",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.pandex.io",
+      "source_url": "https://news.ycombinator.com/item?id=50593481",
+      "source_text": "Pandex – Official European Law for AI Agents, over MCP",
+      "signals": {
+        "points": 123,
+        "comments": 29
+      },
+      "meta": {
+        "author": "vasie"
+      },
+      "published_at": "2026-11-21T20:47:41Z"
+    },
+    {
+      "id": "hn-the-mythology-of-conscious-ai-2026-11-22",
+      "title": "The Mythology of Conscious AI",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.noemamag.com/the-mythology-of-conscious-ai/",
+      "source_url": "https://news.ycombinator.com/item?id=50595537",
+      "source_text": "The Mythology of Conscious AI",
+      "signals": {
+        "points": 119,
+        "comments": 314
+      },
+      "meta": {
+        "author": "Anon84"
+      },
+      "published_at": "2026-11-22T02:10:02Z"
+    },
+    {
+      "id": "hn-ai-supply-chain-security-what-canary-tokens-2026-11-22",
+      "title": "AI Supply Chain Security: What Canary Tokens Found",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
+      "source_url": "https://news.ycombinator.com/item?id=50596511",
+      "source_text": "AI Supply Chain Security: What Canary Tokens Found",
+      "signals": {
+        "points": 91,
+        "comments": 21
+      },
+      "meta": {
+        "author": "kristianp"
+      },
+      "published_at": "2026-11-22T05:11:43Z"
+    },
+    {
+      "id": "hn-harsher-on-male-evaluating-llms-on-gender-2026-11-22",
+      "title": "Harsher on Male? Evaluating LLMs on Gender-Asymmetric Moral Framing in Conflicts",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://arxiv.org/abs/2606.14068",
+      "source_url": "https://news.ycombinator.com/item?id=50597743",
+      "source_text": "Harsher on Male? Evaluating LLMs on Gender-Asymmetric Moral Framing in Conflicts",
+      "signals": {
+        "points": 86,
+        "comments": 73
+      },
+      "meta": {
+        "author": "rzk"
+      },
+      "published_at": "2026-11-22T09:18:36Z"
+    }
+  ]
+}

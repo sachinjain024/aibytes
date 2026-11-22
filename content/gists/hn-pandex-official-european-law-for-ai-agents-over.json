@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "slug": "hn-pandex-official-european-law-for-ai-agents-over",
+  "kind": "hn",
+  "title": "Pandex – Official European Law for AI Agents, over MCP",
+  "url": "https://www.pandex.io",
+  "source_url": "https://news.ycombinator.com/item?id=50593481",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "MCP",
+    "Agents",
+    "Legal"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Pandex serves legislation and top-court decisions from the EU and several European countries, with every past version of each law, to AI agents through one API and an MCP server.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Coverage spans the EU, Germany, France, the Netherlands, the UK, Austria, Switzerland, Luxembourg and ECHR case law, refreshed nightly.",
+        "Each article keeps its earlier versions and the date each took effect, so an agent can cite the text that was in force.",
+        "A coverage page marks each court as complete or partial and explains the gaps, such as sources behind Cloudflare challenges.",
+        "The maker's post gives a keyless setup: claude mcp add --transport http pandex https://api.pandex.io/mcp",
+        "In beta it is free up to 1,000 requests a day, then €1 per 1,000 requests, with a bulk data feed from €1,000 a month."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "counterpoint",
+          "text": "The top comment argues raw statute text is not enough: legal AI needs retrieval that ties every claim to an exact paragraph, and it names European competitors.",
+          "url": "https://news.ycombinator.com/item?id=50597567"
+        },
+        {
+          "stance": "agreed",
+          "text": "Several commenters say statutes alone miss how law is applied; court rulings, and even permit refusals and waiting times, matter too.",
+          "url": "https://news.ycombinator.com/item?id=50595323"
+        },
+        {
+          "stance": "theme",
+          "text": "One commenter raises timing edge cases, such as a law published after its stated start date, which Switzerland and Austria resolve differently.",
+          "url": "https://news.ycombinator.com/item?id=50597806"
+        },
+        {
+          "stance": "disputed",
+          "text": "A suggestion to hunt for legal loopholes with Lean drew a sharp reply that courts interpret laws, so they cannot be checked like programs.",
+          "url": "https://news.ycombinator.com/item?id=50595005"
+        },
+        {
+          "stance": "theme",
+          "text": "Readers ask for more countries, with one pointing to a repo that already holds all Spanish law as markdown.",
+          "url": "https://news.ycombinator.com/item?id=50598586"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Pandex: Europe's law, in one API.",
+      "url": "https://www.pandex.io"
+    },
+    {
+      "role": "discussion",
+      "title": "Pandex – Official European Law for AI Agents, over MCP",
+      "url": "https://news.ycombinator.com/item?id=50593481"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-pandex-official-european-law-for-ai-agents-over-2026-11-22",
+      "edition_date": "2026-11-22"
+    }
+  ],
+  "created_at": "2026-11-22T16:15:19Z",
+  "updated_at": "2026-11-22T16:15:19Z",
+  "stats": {
+    "points": 123,
+    "comments": 29,
+    "submitted_by": "vasie",
+    "posted_at": "2026-11-21T20:47:41Z"
+  },
+  "stats_as_of": "2026-11-22T16:13:03Z",
+  "front_page": true
+}
