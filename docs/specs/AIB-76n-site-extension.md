@@ -51,8 +51,7 @@ export async function reconcile(user, { status, mintToken, send }) { … }
   installed".
 - **Reconcile** runs once the site's session has restored (the first `onUser`
   call) and again on every sign-in and sign-out:
-  - site signed in, extension's `uid` missing or different, and not `held`
-    (the reader signed out in the popup): call the
+  - site signed in, extension's `uid` missing or different: call the
     `aibytesExtensionToken` callable (`firebase/functions`, imported only then)
     and send `{ type: "signin", token }`;
   - site signed out, extension has a `uid`: send `{ type: "signout" }`;
@@ -100,11 +99,17 @@ one centred column, as the gist page.
 - `?step=signin` (the popup's Sign in, map assumption 3) starts at step 2.
   If the site is already signed in there, step 2 shows `onb.s2.continue`
   "Continue as {name}" (primary) and `onb.s2.switch` "Use a different account"
-  instead of the Google button. Continue sends an explicit `signin` with a
-  fresh token. "Use a different account" signs the site out, then opens
-  Google's sign-in with `prompt: "select_account"`, and the new account's
-  sign-in sends an explicit `signin`. Both clear the extension's hold.
-- **Errors (new copy, open question 1):** the extension does not answer the
+  instead of the Google button. Continue sends `signin` with a fresh token.
+  "Use a different account" signs the site out, then opens Google's sign-in
+  with `prompt: "select_account"`, and the new account's sign-in reaches the
+  extension through the reconcile.
+- `?action=signout` (the popup's Sign out, map assumption 4): the page signs
+  the site out with `signOut()`, the reconcile sends `signout` to the
+  extension (already signed out by the popup; harmless), and the page shows
+  `onb.signedout` "You're signed out of aibytes.io and the extension." above
+  step 2's sign-in, whose Google button uses `prompt: "select_account"` so
+  the reader can pick another account. No step counter on this view.
+- **Errors (copy approved 22 Nov 2026):** the extension does not answer the
   sign-in: `onb.s2.extfail` "Signed in as {name}. The extension didn't sign
   in; open it and try again." The subscribe fails: AIB-140p's line, "Could not subscribe. Check
   your connection and try again.", with its retry and failure report
@@ -263,9 +268,10 @@ export function onboardingReducer(state, action) {
 
 ## Open questions
 
-1. **The new copy** (`onb.s2.extfail`, `onb.s2.continue`, `onb.s2.switch`)
-   was shown to the publisher on 22 Nov 2026; approved wording replaces the
-   drafts above.
+1. **`onb.signedout`** ("You're signed out of aibytes.io and the
+   extension.") is new with the sign-out change; approve or edit.
+
+Approved 22 Nov 2026: `onb.s2.extfail`, `onb.s2.continue`, `onb.s2.switch`.
 
 Decided 22 Nov 2026: the done card's button goes to `/`; the install box shows
 in every desktop Chromium browser that can install from the store.

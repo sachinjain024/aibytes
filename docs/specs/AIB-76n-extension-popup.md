@@ -140,7 +140,7 @@ section, and `{ issue_slug }` for a weekly section, as on the site.
   (`docs/specs/AIB-145y-gist-analytics.md`: three tags, lower case):
   `utm_source=chrome-extension&utm_medium=extension&utm_campaign=` `today`,
   `saved` or `gist`. This module adds that row to the spec's table.
-- **States, with proposed copy** (not in the prototype; open question 1):
+- **States** (copy approved 22 Nov 2026):
   loading with no cache, `pop.loading` "Loading today's edition…"; failed with
   no cache, `pop.error` "Couldn't load today's edition." and `pop.retry` "Try
   again"; failed with a cache, the cached list under `pop.stale` "Showing
@@ -268,9 +268,6 @@ export async function loadToday({ fetch, base }) {
 
 ## Open questions
 
-1. **The four states' copy** (`pop.loading`, `pop.error`, `pop.retry`,
-   `pop.stale`, `pop.refused`) was shown to the publisher on 22 Nov 2026;
-   approved wording replaces the drafts above.
-
-Decided 22 Nov 2026: fonts bundled from `@fontsource/*`; weekly items in Saved
+None. Approved 22 Nov 2026: the states' copy (`pop.loading`, `pop.error`,
+`pop.retry`, `pop.stale`, `pop.refused`) as drafted above. Decided 22 Nov 2026: fonts bundled from `@fontsource/*`; weekly items in Saved
 as their own sections, as on `/saved`.
