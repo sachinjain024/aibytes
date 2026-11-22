@@ -463,3 +463,17 @@ changes:
 -->
 ### Claude Code updated this ticket
 <!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_5e05220a
+kind: comment
+occurred_at: 2026-11-22T03:47:43.832Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+-->
+### Claude Code commented
+
+Module specs drafted for review (22 Nov 2026): docs/specs/AIB-76n-ledger-extension-ui.md, -app-core.md, -extension-popup.md, -extension-auth.md, -site-extension.md, -store-listing.md. Item 2 is ticked once they are approved; the plan (item 3) follows.
+<!-- /longclaw:event -->
