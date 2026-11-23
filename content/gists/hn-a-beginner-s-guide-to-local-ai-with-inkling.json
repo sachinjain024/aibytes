@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "slug": "hn-a-beginner-s-guide-to-local-ai-with-inkling",
+  "kind": "hn",
+  "title": "A Beginner's Guide to Local AI with Inkling, Qwen, and Unsloth",
+  "url": "https://www.gpupartner.com/blog/beginners-guide-local-ai-inkling-qwen-unsloth",
+  "source_url": "https://news.ycombinator.com/item?id=50603845",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Tutorial",
+    "Local LLM"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "A GPU Partner tutorial walks Windows users through running Qwen or Inkling 2 Mini locally in Unsloth Desktop, then sharing the model with everyone on a home network.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The recipe: install Unsloth Desktop, download a quantized model sized to the GPU's VRAM, set the context length, and turn on LAN access.",
+        "The author runs Qwen3.8-27B at 4-bit (UD-Q4_K_XL) with a 128K context on a 32GB RTX 5090.",
+        "A table maps VRAM tiers from 8GB to 32GB+ to suggested models, quants and context sizes, with MoE models spilling into system RAM.",
+        "Inkling 2 Mini fits the same 32GB card; Inkling 2 Small, at 594B parameters, needs a large unified-memory machine."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "Even enthusiasts concede that, for now, a subscription is the practical route unless privacy or a narrow use case demands local.",
+          "url": "https://news.ycombinator.com/item?id=50604818"
+        },
+        {
+          "stance": "theme",
+          "text": "Many share cheaper rigs than an RTX 5090, such as a used workstation with a Tesla P100 for under $1k running a capable model at 30 tok/s.",
+          "url": "https://news.ycombinator.com/item?id=50606773"
+        },
+        {
+          "stance": "theme",
+          "text": "Some skip guides entirely and have a coding agent choose, install and benchmark local models for their hardware.",
+          "url": "https://news.ycombinator.com/item?id=50614126"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "Commenters reject the claim that you need a Windows PC with a GPU, and a reply reads the post as advertising given who published it.",
+          "url": "https://news.ycombinator.com/item?id=50608935"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "A beginner's guide to Local AI with Inkling, Qwen, and Unsloth",
+      "url": "https://www.gpupartner.com/blog/beginners-guide-local-ai-inkling-qwen-unsloth"
+    },
+    {
+      "role": "discussion",
+      "title": "A Beginner's Guide to Local AI with Inkling, Qwen, and Unsloth",
+      "url": "https://news.ycombinator.com/item?id=50603845"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-a-beginner-s-guide-to-local-ai-with-inkling-2026-11-23",
+      "edition_date": "2026-11-23"
+    }
+  ],
+  "created_at": "2026-11-23T20:08:36Z",
+  "updated_at": "2026-11-23T20:08:36Z",
+  "stats": {
+    "points": 710,
+    "comments": 286,
+    "submitted_by": "Retell15",
+    "posted_at": "2026-11-22T21:01:16Z"
+  },
+  "stats_as_of": "2026-11-23T20:05:54Z",
+  "front_page": true
+}

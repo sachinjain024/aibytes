@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "slug": "hn-muru-ai-assisted-rust-server-for-python-apps-by",
+  "kind": "hn",
+  "title": "Muru – AI-assisted Rust server for Python apps by mod_WSGI's creator",
+  "url": "https://simonwillison.net/2026/Nov/21/muru/",
+  "source_url": "https://news.ycombinator.com/item?id=50597959",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Open Source",
+    "Code Gen"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Simon Willison points to Muru, an AI-assisted Rust server for ASGI and WSGI Python apps from Graham Dumpleton, who started mod_wsgi 20 years ago.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Muru aims to run Python web apps well in both development and production.",
+        "Dumpleton has published about twenty posts in three weeks documenting the build as he goes, as he did with wrapture.",
+        "Topics include importing once and forking workers, HTTPS in development, canary releases, Kubernetes, scaling to zero and an in-page tracing toolbar.",
+        "In a post on AI as a lifestyle choice, he says the model does much of the visible work, but judging when something is good enough stays with him."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "Commenters respect Dumpleton's mod_wsgi record but find the largely AI-written posts tedious and lifeless.",
+          "url": "https://news.ycombinator.com/item?id=50600725"
+        },
+        {
+          "stance": "theme",
+          "text": "The design draws interest: preload the app, freeze the garbage collector, then fork workers, which one commenter likens to Android's Zygote.",
+          "url": "https://news.ycombinator.com/item?id=50600505"
+        },
+        {
+          "stance": "disputed",
+          "text": "One commenter questions why authors lean on pre-AI credentials; a reply notes the rewrite orphans a codebase built over 15 years.",
+          "url": "https://news.ycombinator.com/item?id=50600137"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "A reply pushes back on a mocking reading of Dumpleton's quote, pointing to his line that AI clears the grunt work and leaves him the ideas.",
+          "url": "https://news.ycombinator.com/item?id=50600162"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Muru",
+      "url": "https://simonwillison.net/2026/Nov/21/muru/"
+    },
+    {
+      "role": "discussion",
+      "title": "Muru – AI-assisted Rust server for Python apps by mod_WSGI's creator",
+      "url": "https://news.ycombinator.com/item?id=50597959"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-muru-ai-assisted-rust-server-for-python-apps-by-2026-11-23",
+      "edition_date": "2026-11-23"
+    }
+  ],
+  "created_at": "2026-11-23T20:08:36Z",
+  "updated_at": "2026-11-23T20:08:36Z",
+  "stats": {
+    "points": 78,
+    "comments": 11,
+    "submitted_by": "joshcsimmons",
+    "posted_at": "2026-11-22T09:57:01Z"
+  },
+  "stats_as_of": "2026-11-23T20:05:54Z"
+}

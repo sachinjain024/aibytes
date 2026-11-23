@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "tc-amazon-snaps-up-decarts-ai-optimization-tech",
+  "kind": "news",
+  "title": "Amazon snaps up Decart’s AI optimization tech for $7.5B as it prepares to sell Trainium chips",
+  "url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/",
+  "source_url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Acquisition",
+    "Inference"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2024/12/Decart-Founders-Dean-Leitersdorf-CEO-and-Moshe-Shalev-CPO.jpg?resize=1200,800"
+  },
+  "depth": "full",
+  "lede": "Amazon is paying a reported $7.5 billion for Decart's optimization technology plus its founders and research team, as it gets ready to sell Trainium chips to outside customers.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Bloomberg reported the price; Amazon described the deal in a blog post.",
+        "Decart, an Israeli startup, is known for real-time interactive world models, most recently Oasis 3, and for AI video generation tools.",
+        "Its Decart Optimization Stack (DOS) helps models run efficiently on Nvidia, Amazon and Google hardware.",
+        "Amazon gets the DOS technology, the founding team and Decart's AI researchers and engineers, not the whole company.",
+        "Amazon has so far run Trainium only in its own data centers and now plans to sell the chips as an alternative to Nvidia."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "Software that makes models run well on non-Nvidia silicon is what makes moving a workload to Trainium practical. With DOS in house, Amazon aims to lower the cost of switching for teams tuned to Nvidia."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Amazon snaps up Decart’s AI optimization tech for $7.5B as it prepares to sell Trainium chips",
+      "url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-amazon-snaps-up-decarts-ai-optimization-tech-2026-11-23",
+      "edition_date": "2026-11-23"
+    }
+  ],
+  "created_at": "2026-11-23T20:08:36Z",
+  "updated_at": "2026-11-23T20:08:36Z"
+}

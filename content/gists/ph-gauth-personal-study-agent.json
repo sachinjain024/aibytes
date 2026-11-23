@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "slug": "ph-gauth-personal-study-agent",
+  "kind": "launch",
+  "title": "Gauth Personal Study Agent",
+  "url": "https://www.producthunt.com/products/gauth-ai-course",
+  "source_url": "https://www.producthunt.com/products/gauth-ai-course",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Launch",
+    "Agents"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/0e3a807b-2476-4308-beba-1f6651625f5a.jpeg?auto=format"
+  },
+  "depth": "full",
+  "lede": "Gauth's Personal Study Agent joins the questions a student snaps, their quiz results and their study topics into one record, then uses it to decide what to review each day.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Keeps a running memory of how a student learns instead of starting each session from zero, which the team says its earlier tools did.",
+        "Traces a mistake to the underlying gap; the launch comment's example is confusing sine and cosine, which adds a short drill before the next quiz.",
+        "Produces a short list of what to study today and re-plans when a review is missed or a topic is mastered early, without moving the exam date.",
+        "Practice mixes flashcards, quizzes and guided walkthroughs; per-topic mastery levels and streaks make progress visible.",
+        "Lives inside the existing Gauth app on iOS and Android, so questions students already ask there feed the agent."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Students who study in scattered sessions and are otherwise left to diagnose their own weak spots before an exam. The team also invites parents to say what would make it useful."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Gauth Personal Study Agent on Product Hunt",
+      "url": "https://www.producthunt.com/products/gauth-ai-course"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-gauth-personal-study-agent-2026-11-23",
+      "edition_date": "2026-11-23"
+    }
+  ],
+  "created_at": "2026-11-23T20:08:36Z",
+  "updated_at": "2026-11-23T20:08:36Z",
+  "stats": {
+    "upvotes": 226,
+    "comments": 42
+  },
+  "stats_as_of": "2026-11-23T20:05:54Z"
+}

@@ -1,0 +1,944 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-23",
+  "generated_at": "2026-11-23T20:05:54Z",
+  "counts": {
+    "launches": 6,
+    "repos": 10,
+    "news": 10,
+    "hn": 9
+  },
+  "items": [
+    {
+      "id": "ph-yoroll-2026-11-23",
+      "title": "Yoroll",
+      "summary": "Turns a script, image or video clip into a cinematic interactive story with directed scenes, player choices and branching endings, without code or a game engine.",
+      "url": "https://www.producthunt.com/products/yoroll",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/yoroll",
+      "category": "launches",
+      "tags": [
+        "Launch",
+        "Video"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/61792e90-6f7d-4d6e-bcc2-b0c885011149.jpeg?auto=format"
+      },
+      "signals": {
+        "upvotes": 359,
+        "comments": 34
+      },
+      "published_at": "2026-11-22T08:01:00Z",
+      "hidden": false,
+      "rank": 4,
+      "gist": "ph-yoroll"
+    },
+    {
+      "id": "ph-rankhog-2026-11-23",
+      "title": "Rankhog",
+      "summary": "Finds Reddit threads asking for what you sell, writes replies that follow each subreddit's rules and posts them from your account at a human pace, approved per reply or on autopilot.",
+      "url": "https://www.producthunt.com/products/rankhog",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/rankhog",
+      "category": "launches",
+      "tags": [
+        "Launch",
+        "Agents"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/launch-image-uploads/b5eca185-268a-48d1-9cd4-a0d061891a10/bb44cb44f4b48ec1daccb69e7f364dd0d0a4f8895e69b015774c178fbdbc309d.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 344,
+        "comments": 39
+      },
+      "published_at": "2026-11-22T08:00:00Z",
+      "hidden": false,
+      "rank": 11,
+      "gist": "ph-rankhog"
+    },
+    {
+      "id": "ph-letter-visitors-2026-11-23",
+      "title": "Letter Visitors",
+      "summary": "Identifies the people, companies and AI agents reading your pages, displays them on the site itself, and replays their sessions.",
+      "url": "https://www.producthunt.com/products/visitors",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/visitors",
+      "category": "launches",
+      "tags": [
+        "Launch",
+        "Dev Tool"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/launch-image-uploads/22ce08b5-2542-43b5-bfeb-c1f777286e02/e94d096ce934bfef672b2468f913403532378e63bbc47ba26cf1b0c8213fe657.gif?auto=format"
+      },
+      "signals": {
+        "upvotes": 288,
+        "comments": 47
+      },
+      "published_at": "2026-11-23T08:01:00Z",
+      "hidden": false,
+      "rank": 18,
+      "gist": "ph-letter-visitors"
+    },
+    {
+      "id": "ph-gauth-personal-study-agent-2026-11-23",
+      "title": "Gauth Personal Study Agent",
+      "summary": "Study agent in the Gauth app that links snapped questions, quizzes and topics, finds the gap behind a mistake, and builds a daily plan that adjusts as you review or master topics.",
+      "url": "https://www.producthunt.com/products/gauth-ai-course",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/gauth-ai-course",
+      "category": "launches",
+      "tags": [
+        "Launch",
+        "Agents"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/0e3a807b-2476-4308-beba-1f6651625f5a.jpeg?auto=format"
+      },
+      "signals": {
+        "upvotes": 226,
+        "comments": 42
+      },
+      "published_at": "2026-11-23T08:01:00Z",
+      "hidden": false,
+      "rank": 25,
+      "gist": "ph-gauth-personal-study-agent"
+    },
+    {
+      "id": "ph-motionflare-2026-11-23",
+      "title": "Motionflare",
+      "summary": "Paste a URL and it builds a branded motion-graphics video from your real screenshots, logo, colors and copy, with music, optional narration, chat edits and 4K export.",
+      "url": "https://www.producthunt.com/products/motionflare",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/motionflare",
+      "category": "launches",
+      "tags": [
+        "Launch",
+        "Video"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/be704f67-75ef-4318-a7c0-2d3ee37a2a33.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 208,
+        "comments": 36
+      },
+      "published_at": "2026-11-23T08:01:00Z",
+      "hidden": false,
+      "rank": 32,
+      "gist": "ph-motionflare"
+    },
+    {
+      "id": "hn-show-hn-i-built-a-game-where-you-are-an-llm-s-2026-11-23",
+      "title": "Show HN: I built a game where you are an LLM's subagent",
+      "summary": "Open-source game on GitHub, worker755, that casts the player as a subagent working for an LLM.",
+      "url": "https://github.com/gulivan/worker755",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50599762",
+      "category": "launches",
+      "tags": [
+        "Show HN",
+        "Agents",
+        "Open Source"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 356,
+        "comments": 86
+      },
+      "meta": {
+        "author": "ivantgam"
+      },
+      "published_at": "2026-11-22T13:56:58Z",
+      "hidden": false,
+      "rank": 16,
+      "gist": "hn-show-hn-i-built-a-game-where-you-are-an-llm-s"
+    },
+    {
+      "id": "gh-claude-bughunter-2026-11-23",
+      "title": "elementalsouls/Claude-BugHunter",
+      "summary": "Claude Code skill bundle for bug hunting and external red-team work: 82 skills, 15 slash commands and 681 disclosed-report patterns across 24 vulnerability classes.",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source": "github",
+      "source_url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "category": "repos",
+      "tags": [
+        "Claude Code",
+        "Security",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/elementalsouls.png?size=80"
+      },
+      "signals": {
+        "stars": 19481,
+        "stars_gained": 2037,
+        "forks": 2084
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 1,
+      "gist": "gh-claude-bughunter"
+    },
+    {
+      "id": "gh-firecrawl-2026-11-23",
+      "title": "firecrawl/firecrawl",
+      "summary": "TypeScript service that gives agents search, scraping and access to 550+ data providers through a single API.",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "source": "github",
+      "source_url": "https://github.com/firecrawl/firecrawl",
+      "category": "repos",
+      "tags": [
+        "API",
+        "Agents",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/firecrawl.png?size=80"
+      },
+      "signals": {
+        "stars": 207753,
+        "stars_gained": 920,
+        "forks": 10859
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 5,
+      "gist": "gh-firecrawl"
+    },
+    {
+      "id": "gh-autoclip-2026-11-23",
+      "title": "zhouxiaoka/autoclip",
+      "summary": "Python desktop tool that cuts podcasts, interviews and courses into short clips with subtitles, covers and post copy for TikTok, Reels, YouTube Shorts, Douyin and Xiaohongshu.",
+      "url": "https://github.com/zhouxiaoka/autoclip",
+      "source": "github",
+      "source_url": "https://github.com/zhouxiaoka/autoclip",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Video"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/zhouxiaoka.png?size=80"
+      },
+      "signals": {
+        "stars": 14307,
+        "stars_gained": 908,
+        "forks": 2202
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 8,
+      "gist": "gh-autoclip"
+    },
+    {
+      "id": "gh-superpowers-2026-11-23",
+      "title": "obra/superpowers",
+      "summary": "Shell-based framework of reusable skills for coding agents, paired with a software development methodology for how the agent should work.",
+      "url": "https://github.com/obra/superpowers",
+      "source": "github",
+      "source_url": "https://github.com/obra/superpowers",
+      "category": "repos",
+      "tags": [
+        "Framework",
+        "Agents",
+        "Code Gen"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/obra.png?size=80"
+      },
+      "signals": {
+        "stars": 324921,
+        "stars_gained": 838,
+        "forks": 28823
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 12,
+      "gist": "gh-superpowers"
+    },
+    {
+      "id": "gh-minimind-2026-11-23",
+      "title": "jingyaogong/minimind",
+      "summary": "Python project that trains a 64M-parameter language model from scratch in about two hours.",
+      "url": "https://github.com/jingyaogong/minimind",
+      "source": "github",
+      "source_url": "https://github.com/jingyaogong/minimind",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "LLM"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/jingyaogong.png?size=80"
+      },
+      "signals": {
+        "stars": 69377,
+        "stars_gained": 828,
+        "forks": 9059
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 15,
+      "gist": "gh-minimind"
+    },
+    {
+      "id": "gh-last30days-skill-2026-11-23",
+      "title": "mvanhorn/last30days-skill",
+      "summary": "Agent skill that researches a topic across Reddit, X, YouTube, HN, Polymarket and the web, then writes a summary grounded in what it found.",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "source": "github",
+      "source_url": "https://github.com/mvanhorn/last30days-skill",
+      "category": "repos",
+      "tags": [
+        "Agents",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mvanhorn.png?size=80"
+      },
+      "signals": {
+        "stars": 73335,
+        "stars_gained": 790,
+        "forks": 6477
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 19,
+      "gist": "gh-last30days-skill"
+    },
+    {
+      "id": "gh-app-store-compliance-2026-11-23",
+      "title": "mjmirza/app-store-compliance",
+      "summary": "Pre-submission guard with 124 App Store and Google Play rejection patterns, privacy manifest checks, 112 tracked deadlines like the EU AI Act, and a skill for coding agents.",
+      "url": "https://github.com/mjmirza/app-store-compliance",
+      "source": "github",
+      "source_url": "https://github.com/mjmirza/app-store-compliance",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Policy"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mjmirza.png?size=80"
+      },
+      "signals": {
+        "stars": 4806,
+        "stars_gained": 755,
+        "forks": 309
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 22,
+      "gist": "gh-app-store-compliance"
+    },
+    {
+      "id": "gh-diagram-design-2026-11-23",
+      "title": "cathrynlavery/diagram-design",
+      "summary": "Skill for Claude Code, Codex, Copilot, Cursor and other agents that draws 52 diagram types as self-contained HTML and SVG instead of Mermaid.",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "source": "github",
+      "source_url": "https://github.com/cathrynlavery/diagram-design",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/cathrynlavery.png?size=80"
+      },
+      "signals": {
+        "stars": 70871,
+        "stars_gained": 624,
+        "forks": 4744
+      },
+      "meta": {
+        "language": "HTML"
+      },
+      "hidden": false,
+      "rank": 26,
+      "gist": "gh-diagram-design"
+    },
+    {
+      "id": "gh-stitch-skills-2026-11-23",
+      "title": "google-labs-code/stitch-skills",
+      "summary": "Google Labs library of Agent Skills for the Stitch MCP server, built to the open standard so Gemini CLI, Antigravity, Claude Code and Cursor can use them.",
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "source": "github",
+      "source_url": "https://github.com/google-labs-code/stitch-skills",
+      "category": "repos",
+      "tags": [
+        "Google",
+        "MCP",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/google-labs-code.png?size=80"
+      },
+      "signals": {
+        "stars": 12214,
+        "stars_gained": 425,
+        "forks": 1509
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 29,
+      "gist": "gh-stitch-skills"
+    },
+    {
+      "id": "gh-plugins-2026-11-23",
+      "title": "cursor/plugins",
+      "summary": "The Cursor plugin specification plus the official plugins built on it, in TypeScript.",
+      "url": "https://github.com/cursor/plugins",
+      "source": "github",
+      "source_url": "https://github.com/cursor/plugins",
+      "category": "repos",
+      "tags": [
+        "Cursor",
+        "Dev Tool"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/cursor.png?size=80"
+      },
+      "signals": {
+        "stars": 18761,
+        "stars_gained": 395,
+        "forks": 2040
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 33,
+      "gist": "gh-plugins"
+    },
+    {
+      "id": "tc-google-searchs-ai-mode-can-now-tap-into-drive-2026-11-23",
+      "title": "Google Search’s AI Mode can now tap into Drive and Wallet for more personalized responses",
+      "summary": "Personal Intelligence now reaches Drive, Wallet and the Gemini app, so answers draw on user data already sitting inside Google's ecosystem.",
+      "url": "https://techcrunch.com/2026/11/23/google-searchs-ai-mode-can-now-tap-into-drive-and-wallet-for-more-personalized-responses/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/23/google-searchs-ai-mode-can-now-tap-into-drive-and-wallet-for-more-personalized-responses/",
+      "category": "news",
+      "tags": [
+        "Google",
+        "Privacy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/01/ai-mode-google.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Aisha Malik",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-23T19:14:46Z",
+      "hidden": false,
+      "rank": 3,
+      "gist": "tc-google-searchs-ai-mode-can-now-tap-into-drive"
+    },
+    {
+      "id": "tc-jensen-huang-scheduled-to-testify-next-week-in-2026-11-23",
+      "title": "Jensen Huang scheduled to testify next week in Senate following reinstatement as Nvidia CEO",
+      "summary": "The public hearing follows bipartisan calls for Huang to answer questions about his affair with a suspected Chinese spy.",
+      "url": "https://techcrunch.com/2026/11/23/jensen-huang-scheduled-to-testify-next-week-in-senate-following-reinstatement-as-nvidia-ceo/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/23/jensen-huang-scheduled-to-testify-next-week-in-senate-following-reinstatement-as-nvidia-ceo/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/01/GettyImages-2256813240.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Aisha Malik",
+        "reading_time": "1 minute"
+      },
+      "published_at": "2026-11-23T18:12:22Z",
+      "hidden": false,
+      "rank": 7,
+      "gist": "tc-jensen-huang-scheduled-to-testify-next-week-in"
+    },
+    {
+      "id": "tc-amazon-snaps-up-decarts-ai-optimization-tech-2026-11-23",
+      "title": "Amazon snaps up Decart’s AI optimization tech for $7.5B as it prepares to sell Trainium chips",
+      "summary": "Amazon takes both Decart's optimization technology and its research team in the reported deal, as it gets ready to sell its Trainium chips.",
+      "url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/",
+      "category": "news",
+      "tags": [
+        "Acquisition",
+        "Inference"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2024/12/Decart-Founders-Dean-Leitersdorf-CEO-and-Moshe-Shalev-CPO.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-23T17:14:23Z",
+      "hidden": false,
+      "rank": 10,
+      "gist": "tc-amazon-snaps-up-decarts-ai-optimization-tech"
+    },
+    {
+      "id": "tc-jensen-huang-isnt-out-of-the-woods-yet-2026-11-23",
+      "title": "Jensen Huang isn’t out of the woods yet",
+      "summary": "TechCrunch analysis arguing tech leaders should be clear-eyed about the problems likely to follow Huang's reinstatement at Nvidia.",
+      "url": "https://techcrunch.com/2026/11/23/jensen-huang-isnt-out-of-the-woods-yet/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/23/jensen-huang-isnt-out-of-the-woods-yet/",
+      "category": "news",
+      "tags": [
+        "Nvidia"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/09/Jensen-Huang.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Russell Brandom",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-23T16:57:40Z",
+      "hidden": false,
+      "rank": 14,
+      "gist": "tc-jensen-huang-isnt-out-of-the-woods-yet"
+    },
+    {
+      "id": "tc-trump-reportedly-called-into-nvidia-board-2026-11-23",
+      "title": "Trump reportedly called into Nvidia board meeting to advocate for Huang’s return",
+      "summary": "Trump told CNBC he spoke to Nvidia's board and convinced them to reinstate Huang.",
+      "url": "https://techcrunch.com/2026/11/23/trump-reportedly-called-into-nvidia-board-meeting-to-advocate-for-huangs-return/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/23/trump-reportedly-called-into-nvidia-board-meeting-to-advocate-for-huangs-return/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2277839095.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-23T16:39:10Z",
+      "hidden": false,
+      "rank": 17,
+      "gist": "tc-trump-reportedly-called-into-nvidia-board"
+    },
+    {
+      "id": "tc-trump-endorses-jensen-huangs-return-to-nvidia-2026-11-23",
+      "title": "Trump endorses Jensen Huang’s return to Nvidia, says US has no evidence of wrongdoing",
+      "summary": "Trump cited the US attorney general in defending Huang's return, while urging Nvidia to keep its export-control investigation going.",
+      "url": "https://techcrunch.com/2026/11/23/trump-endorses-jensen-huangs-return-to-nvidia-says-us-has-no-evidence-of-wrongdoing/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/23/trump-endorses-jensen-huangs-return-to-nvidia-says-us-has-no-evidence-of-wrongdoing/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-2297572109.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-23T15:04:01Z",
+      "hidden": false,
+      "rank": 21,
+      "gist": "tc-trump-endorses-jensen-huangs-return-to-nvidia"
+    },
+    {
+      "id": "tc-sierra-doubles-valuation-to-30b-within-six-2026-11-23",
+      "title": "Sierra doubles valuation to $30B within six months as demand for AI in CX takes off",
+      "summary": "Bret Taylor's enterprise customer experience company raised $1.75B in a Series F round.",
+      "url": "https://techcrunch.com/2026/11/23/sierra-doubles-valuation-to-30b-within-six-months-as-demand-for-ai-in-cx-takes-off/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/23/sierra-doubles-valuation-to-30b-within-six-months-as-demand-for-ai-in-cx-takes-off/",
+      "category": "news",
+      "tags": [
+        "Funding",
+        "Agents"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2022/10/AP22166762816752.jpg?w=1200"
+      },
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-23T14:43:03Z",
+      "hidden": false,
+      "rank": 24,
+      "gist": "tc-sierra-doubles-valuation-to-30b-within-six"
+    },
+    {
+      "id": "tc-nvidia-reverses-course-and-brings-jensen-huang-2026-11-23",
+      "title": "Nvidia reverses course and brings Jensen Huang back as CEO",
+      "summary": "The reversal was backed by senior US government officials; Huang now faces a Senate hearing next week over his affair with a suspected Chinese spy.",
+      "url": "https://techcrunch.com/2026/11/23/nvidia-reverses-course-and-brings-jensen-huang-back-as-ceo/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/23/nvidia-reverses-course-and-brings-jensen-huang-back-as-ceo/",
+      "category": "news",
+      "tags": [
+        "Nvidia"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2025/04/GettyImages-2205754389.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Kirsten Korosec",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-23T14:21:59Z",
+      "hidden": false,
+      "rank": 28,
+      "gist": "tc-nvidia-reverses-course-and-brings-jensen-huang"
+    },
+    {
+      "id": "tc-how-notable-capital-gic-and-baillie-gifford-bet-2026-11-23",
+      "title": "How Notable Capital, GIC, and Baillie Gifford bet big on Anthropic before its IPO",
+      "summary": "Three major Anthropic backers explain what gave them the conviction to put billions into the company ahead of its IPO.",
+      "url": "https://techcrunch.com/2026/11/22/how-notable-capital-gic-and-baillie-gifford-bet-big-on-anthropic-before-its-ipo/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/22/how-notable-capital-gic-and-baillie-gifford-bet-big-on-anthropic-before-its-ipo/",
+      "category": "news",
+      "tags": [
+        "Anthropic",
+        "Funding"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/antrhopic-openingday-getty.jpg?resize=1200,801"
+      },
+      "meta": {
+        "author": "Marina Temkin",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-23T01:25:53Z",
+      "hidden": false,
+      "rank": 31,
+      "gist": "tc-how-notable-capital-gic-and-baillie-gifford-bet"
+    },
+    {
+      "id": "tc-openais-chief-scientist-has-thoughts-on-how-to-2026-11-23",
+      "title": "OpenAI’s chief scientist has thoughts on how to limit AI development",
+      "summary": "His argument: any speed limit on AI development first needs an agreed way to measure that speed.",
+      "url": "https://techcrunch.com/2026/11/22/openais-chief-scientist-has-thoughts-on-how-to-limit-ai-development/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/22/openais-chief-scientist-has-thoughts-on-how-to-limit-ai-development/",
+      "category": "news",
+      "tags": [
+        "OpenAI",
+        "Safety",
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/05/openai-logo-code-background.jpg?resize=1200,798"
+      },
+      "meta": {
+        "author": "Anthony Ha",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-22T21:14:07Z",
+      "hidden": false,
+      "rank": 35,
+      "gist": "tc-openais-chief-scientist-has-thoughts-on-how-to"
+    },
+    {
+      "id": "hn-87-of-the-anthropic-power-will-come-from-gas-2026-11-23",
+      "title": "87% of the Anthropic power will come from gas and 11% from coal in 2028",
+      "summary": "Better Data Center Project breakdown of how AI data centers are powered, comparing bring-your-own-power setups with grid supply.",
+      "url": "https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50597612",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 1019,
+        "comments": 997
+      },
+      "meta": {
+        "author": "happosai"
+      },
+      "published_at": "2026-11-22T08:57:34Z",
+      "hidden": false,
+      "rank": 2,
+      "gist": "hn-87-of-the-anthropic-power-will-come-from-gas"
+    },
+    {
+      "id": "hn-glm-5-4-toward-generalized-coding-with-our-2026-11-23",
+      "title": "GLM-5.4: Toward generalized coding with our first loop transformer",
+      "summary": "Z.ai release post for GLM-5.4, a coding model and the lab's first built on a loop transformer architecture.",
+      "url": "https://z.ai/blog/glm-5.4",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50609685",
+      "category": "hn",
+      "tags": [
+        "Model Release",
+        "Code Gen",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 908,
+        "comments": 308
+      },
+      "meta": {
+        "author": "foohis"
+      },
+      "published_at": "2026-11-23T10:06:43Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 6,
+      "gist": "hn-glm-5-4-toward-generalized-coding-with-our"
+    },
+    {
+      "id": "hn-a-beginner-s-guide-to-local-ai-with-inkling-2026-11-23",
+      "title": "A Beginner's Guide to Local AI with Inkling, Qwen, and Unsloth",
+      "summary": "GPU Partner tutorial on running models locally with Inkling, Qwen and Unsloth.",
+      "url": "https://www.gpupartner.com/blog/beginners-guide-local-ai-inkling-qwen-unsloth",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50603845",
+      "category": "hn",
+      "tags": [
+        "Tutorial",
+        "Local LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 710,
+        "comments": 286
+      },
+      "meta": {
+        "author": "Retell15"
+      },
+      "published_at": "2026-11-22T21:01:16Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 9,
+      "gist": "hn-a-beginner-s-guide-to-local-ai-with-inkling"
+    },
+    {
+      "id": "hn-perplexity-and-intelligence-2026-11-23",
+      "title": "Perplexity and Intelligence",
+      "summary": "A post on OpenAI's own site examining perplexity and intelligence.",
+      "url": "https://openai.com/index/perplexity-and-intelligence/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50601525",
+      "category": "hn",
+      "tags": [
+        "OpenAI",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 678,
+        "comments": 438
+      },
+      "meta": {
+        "author": "acossta"
+      },
+      "published_at": "2026-11-22T17:06:27Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 13,
+      "gist": "hn-perplexity-and-intelligence"
+    },
+    {
+      "id": "hn-the-mythology-of-conscious-ai-2026-11-23",
+      "title": "The Mythology of Conscious AI",
+      "summary": "Noema Magazine essay questioning the assumptions behind the idea of conscious AI.",
+      "url": "https://www.noemamag.com/the-mythology-of-conscious-ai/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50595537",
+      "category": "hn",
+      "tags": [
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 180,
+        "comments": 539
+      },
+      "meta": {
+        "author": "Anon84"
+      },
+      "published_at": "2026-11-22T02:10:02Z",
+      "hidden": false,
+      "rank": 20,
+      "gist": "hn-the-mythology-of-conscious-ai"
+    },
+    {
+      "id": "hn-ai-is-becoming-a-disaster-for-the-climate-2026-11-23",
+      "title": "AI is becoming a disaster for the climate",
+      "summary": "Blood in the Machine essay on AI's climate cost; another item in this edition puts Anthropic's 2028 power at 87% gas and 11% coal.",
+      "url": "https://www.bloodinthemachine.com/p/ai-is-becoming-a-disaster-for-the",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50598961",
+      "category": "hn",
+      "tags": [
+        "Policy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 134,
+        "comments": 63
+      },
+      "meta": {
+        "author": "Brajeshwar"
+      },
+      "published_at": "2026-11-22T12:19:46Z",
+      "hidden": false,
+      "rank": 23,
+      "gist": "hn-ai-is-becoming-a-disaster-for-the-climate"
+    },
+    {
+      "id": "hn-ai-supply-chain-security-what-canary-tokens-2026-11-23",
+      "title": "AI Supply Chain Security: What Canary Tokens Found",
+      "summary": "Dragos blog post on AI supply chain security, reporting what its canary tokens turned up.",
+      "url": "https://www.dragos.com/blog/ai-supply-chain-security-canary-tokens",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50596511",
+      "category": "hn",
+      "tags": [
+        "Security"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 104,
+        "comments": 22
+      },
+      "meta": {
+        "author": "kristianp"
+      },
+      "published_at": "2026-11-22T05:11:43Z",
+      "hidden": false,
+      "rank": 27,
+      "gist": "hn-ai-supply-chain-security-what-canary-tokens"
+    },
+    {
+      "id": "hn-harsher-on-male-evaluating-llms-on-gender-2026-11-23",
+      "title": "Harsher on Male? Evaluating LLMs on Gender-Asymmetric Moral Framing in Conflicts",
+      "summary": "arXiv paper testing whether LLMs judge one side of a conflict more harshly depending on whether it is framed as male or female.",
+      "url": "https://arxiv.org/abs/2606.14068",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50597743",
+      "category": "hn",
+      "tags": [
+        "Paper",
+        "Eval",
+        "Safety"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 94,
+        "comments": 78
+      },
+      "meta": {
+        "author": "rzk"
+      },
+      "published_at": "2026-11-22T09:18:36Z",
+      "hidden": false,
+      "rank": 30,
+      "gist": "hn-harsher-on-male-evaluating-llms-on-gender"
+    },
+    {
+      "id": "hn-muru-ai-assisted-rust-server-for-python-apps-by-2026-11-23",
+      "title": "Muru – AI-assisted Rust server for Python apps by mod_WSGI's creator",
+      "summary": "Simon Willison writes up Muru, a Rust server for Python web apps built with AI assistance by the creator of mod_wsgi.",
+      "url": "https://simonwillison.net/2026/Nov/21/muru/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50597959",
+      "category": "hn",
+      "tags": [
+        "Open Source",
+        "Code Gen"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 78,
+        "comments": 11
+      },
+      "meta": {
+        "author": "joshcsimmons"
+      },
+      "published_at": "2026-11-22T09:57:01Z",
+      "hidden": false,
+      "rank": 34,
+      "gist": "hn-muru-ai-assisted-rust-server-for-python-apps-by"
+    }
+  ]
+}

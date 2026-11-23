@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "tc-openais-chief-scientist-has-thoughts-on-how-to",
+  "kind": "news",
+  "title": "OpenAI’s chief scientist has thoughts on how to limit AI development",
+  "url": "https://techcrunch.com/2026/11/22/openais-chief-scientist-has-thoughts-on-how-to-limit-ai-development/",
+  "source_url": "https://techcrunch.com/2026/11/22/openais-chief-scientist-has-thoughts-on-how-to-limit-ai-development/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "OpenAI",
+    "Safety",
+    "Policy"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/05/openai-logo-code-background.jpg?resize=1200,798"
+  },
+  "depth": "full",
+  "lede": "OpenAI chief scientist Jakub Pachocki proposes perplexity, a measure of how well a model predicts the next token, as the shared yardstick labs could use to cap AI development.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The post follows Dario Amodei's plan to pace the frontier, which called for common safety standards and limits on the rate of AI progress.",
+        "Pachocki argues that capability benchmarks go stale quickly as models improve, while perplexity keeps telling you something.",
+        "His chart shows perplexity falling across OpenAI models since GPT-3.5, with GPT-4 near 0.91.",
+        "He ties losses below 0.8 to the arrival of transformative capabilities in cybersecurity and mathematics.",
+        "Under the proposal, labs would not pass an agreed threshold until monitoring and understanding of AI behaviour reach a concrete milestone."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "If labs adopted it, limits would attach to a training metric every lab already tracks, rather than to task benchmarks that keep being outgrown."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "OpenAI’s chief scientist has thoughts on how to limit AI development",
+      "url": "https://techcrunch.com/2026/11/22/openais-chief-scientist-has-thoughts-on-how-to-limit-ai-development/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-openais-chief-scientist-has-thoughts-on-how-to-2026-11-23",
+      "edition_date": "2026-11-23"
+    }
+  ],
+  "created_at": "2026-11-23T20:08:36Z",
+  "updated_at": "2026-11-23T20:08:36Z"
+}

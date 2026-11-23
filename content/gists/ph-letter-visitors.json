@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "slug": "ph-letter-visitors",
+  "kind": "launch",
+  "title": "Letter Visitors",
+  "url": "https://www.producthunt.com/products/visitors",
+  "source_url": "https://www.producthunt.com/products/visitors",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Launch",
+    "Dev Tool"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/launch-image-uploads/22ce08b5-2542-43b5-bfeb-c1f777286e02/e94d096ce934bfef672b2468f913403532378e63bbc47ba26cf1b0c8213fe657.gif?auto=format"
+  },
+  "depth": "full",
+  "lede": "Letter Visitors names the people, companies and AI agents browsing a website, overlays that information on the site itself, and records sessions so they can be replayed.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Identifies individual visitors and the companies they belong to, rather than only counting sessions and referrers.",
+        "Flags AI agents that read your pages, listed alongside human visitors.",
+        "Shows visitor details as a layer on your own site, so there is no separate analytics dashboard to switch to.",
+        "Session replay shows how each visitor moved through a page and what they interacted with.",
+        "Early commenters ask about WordPress support, GDPR compliance, VPN traffic and how it compares with Clarity and PostHog."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Growth and marketing teams who already bring in traffic through SEO and campaigns, and want to know which people and companies are showing interest, a question the launch comment says Google Analytics leaves open."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Letter Visitors on Product Hunt",
+      "url": "https://www.producthunt.com/products/visitors"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-letter-visitors-2026-11-23",
+      "edition_date": "2026-11-23"
+    }
+  ],
+  "created_at": "2026-11-23T20:08:36Z",
+  "updated_at": "2026-11-23T20:08:36Z",
+  "stats": {
+    "upvotes": 288,
+    "comments": 47
+  },
+  "stats_as_of": "2026-11-23T20:05:54Z"
+}

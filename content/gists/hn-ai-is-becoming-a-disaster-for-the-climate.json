@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "slug": "hn-ai-is-becoming-a-disaster-for-the-climate",
+  "kind": "hn",
+  "title": "AI is becoming a disaster for the climate",
+  "url": "https://www.bloodinthemachine.com/p/ai-is-becoming-a-disaster-for-the",
+  "source_url": "https://news.ycombinator.com/item?id=50598961",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Policy"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Brian Merchant's Blood in the Machine essay draws on two recent studies of AI's carbon footprint and singles out Anthropic's turn to natural gas for its data centers.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "A Harvard-led study of 403 large US data centers found 54% of their power came from fossil fuels, about 25.7 million tonnes of CO2 a year.",
+        "Citing HEATED, Merchant calls that a floor: it misses on-site gas turbines such as xAI's Colossus, refrigerant leaks and methane losses.",
+        "Ketan Joshi's State of AI Climate Impact 2026 report says AI may already rival international aviation over its lifecycle.",
+        "Joshi notes Anthropic has never disclosed emissions data and recently bought 1.7 GW of gas generators in a $3.4bn deal.",
+        "The essay also attacks the BAAJA permitting bill, which passed the Senate, for weakening local tools to fight data centers."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "counterpoint",
+          "text": "The leading pushback sets the cited 20 megatons against about 6,200 from animal agriculture and says the climate case falls flat.",
+          "url": "https://news.ycombinator.com/item?id=50602010"
+        },
+        {
+          "stance": "theme",
+          "text": "Even a self-described harsh AI critic faults the essay for leaving out baselines such as emissions from existing cloud data centers.",
+          "url": "https://news.ycombinator.com/item?id=50606954"
+        },
+        {
+          "stance": "disputed",
+          "text": "One commenter says AI at least has a chance of helping reverse climate change; a reply flatly rejects that.",
+          "url": "https://news.ycombinator.com/item?id=50602093"
+        },
+        {
+          "stance": "theme",
+          "text": "Others want data centers to disclose their energy use whatever one thinks of them, and point to Spain's 80% renewables mandate.",
+          "url": "https://news.ycombinator.com/item?id=50601688"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "AI is becoming a disaster for the climate",
+      "url": "https://www.bloodinthemachine.com/p/ai-is-becoming-a-disaster-for-the"
+    },
+    {
+      "role": "discussion",
+      "title": "AI is becoming a disaster for the climate",
+      "url": "https://news.ycombinator.com/item?id=50598961"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-ai-is-becoming-a-disaster-for-the-climate-2026-11-23",
+      "edition_date": "2026-11-23"
+    }
+  ],
+  "created_at": "2026-11-23T20:08:36Z",
+  "updated_at": "2026-11-23T20:08:36Z",
+  "stats": {
+    "points": 134,
+    "comments": 63,
+    "submitted_by": "Brajeshwar",
+    "posted_at": "2026-11-22T12:19:46Z"
+  },
+  "stats_as_of": "2026-11-23T20:05:54Z"
+}
