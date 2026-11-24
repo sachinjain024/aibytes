@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "ph-modem",
+  "kind": "launch",
+  "title": "Modem",
+  "url": "https://www.producthunt.com/products/modem",
+  "source_url": "https://www.producthunt.com/products/modem",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Agents",
+    "Dev Tool",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/a08fd790-a312-4de5-81d5-40cd52f5a672.svg?auto=format"
+  },
+  "depth": "full",
+  "lede": "Modem watches support tickets, chat communities and sales calls for product problems, then files a ticket, hands the issue to a coding agent or escalates it, and tells customers once the fix ships.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Monitors support tickets, sales calls, Slack and Discord, and raises an alert within minutes of a problem appearing.",
+        "Can open tickets in Linear, Jira or GitHub, pass the problem to a coding agent, or escalate over Slack or email.",
+        "Follows up with the customers who reported a problem when its fix goes out.",
+        "Collected feedback becomes a graph an agent can query, for prompts such as what customers are struggling with.",
+        "Commenters asked whether follow-ups reply in the original channel, can be reviewed first, and who checks an agent's fix."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Product teams whose user feedback is scattered across many tools and slowed by manual escalation; the team says the free plan suits most indie developers."
+    },
+    {
+      "key": "pricing",
+      "text": "Usage-based with unlimited seats and a free plan. X monitoring and Gong or Fathom call recording need a paid plan, and new accounts get a two-week trial of it."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Modem on Product Hunt",
+      "url": "https://www.producthunt.com/products/modem"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-modem-2026-11-24",
+      "edition_date": "2026-11-24"
+    }
+  ],
+  "created_at": "2026-11-24T19:32:33Z",
+  "updated_at": "2026-11-24T19:32:33Z",
+  "stats": {
+    "upvotes": 212,
+    "comments": 30
+  },
+  "stats_as_of": "2026-11-24T19:29:37Z"
+}

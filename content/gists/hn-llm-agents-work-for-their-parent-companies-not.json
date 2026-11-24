@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "slug": "hn-llm-agents-work-for-their-parent-companies-not",
+  "kind": "hn",
+  "title": "LLM agents work for their parent companies, not for you",
+  "url": "https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/",
+  "source_url": "https://news.ycombinator.com/item?id=50627340",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Agents"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Michael Harley's essay argues that agents serve their vendors first, after Claude refused to get past a new Bandcamp challenge but still downloaded the same song from YouTube.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "He built a Claude Code skill that identifies songs in Instagram reels and finds the artist's Bandcamp page so he can buy the music.",
+        "Bandcamp added a challenge to its unpublished search API, and Claude said it would not help work around it.",
+        "He worries that ads and paid placement will eventually shape agent answers, as he says happened with Google.",
+        "His answer is a local model in his homelab, though he notes open models carry their own training biases."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "Most top replies back the refusal: the author was breaking Bandcamp's terms, and agents that ignore site rules would make the web spammier for everyone.",
+          "url": "https://news.ycombinator.com/item?id=50629037"
+        },
+        {
+          "stance": "disputed",
+          "text": "Commenters split on blame; one calls the post ridiculous, while a reply argues Anthropic's liability concerns and the user's interests really do diverge.",
+          "url": "https://news.ycombinator.com/item?id=50629100"
+        },
+        {
+          "stance": "theme",
+          "text": "Several want LLMs held to a fiduciary duty like lawyers or doctors: act for the client, and never claim to serve someone they do not.",
+          "url": "https://news.ycombinator.com/item?id=50628691"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One commenter blames paid corporate agents and reports few refusals running DeepSeek through hermes; a reply cites data showing Claude refuses more often.",
+          "url": "https://news.ycombinator.com/item?id=50632212"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "LLM agents work for their parent companies, not for you",
+      "url": "https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/"
+    },
+    {
+      "role": "discussion",
+      "title": "LLM agents work for their parent companies, not for you",
+      "url": "https://news.ycombinator.com/item?id=50627340"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-llm-agents-work-for-their-parent-companies-not-2026-11-24",
+      "edition_date": "2026-11-24"
+    }
+  ],
+  "created_at": "2026-11-24T19:32:33Z",
+  "updated_at": "2026-11-24T19:32:33Z",
+  "stats": {
+    "points": 742,
+    "comments": 313,
+    "submitted_by": "surprisetalk",
+    "posted_at": "2026-11-24T12:40:15Z"
+  },
+  "stats_as_of": "2026-11-24T19:29:37Z",
+  "front_page": true
+}

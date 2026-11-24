@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "tc-amazons-decart-acquisition-is-a-bet-on-using",
+  "kind": "news",
+  "title": "Amazon’s Decart acquisition is a bet on using software to narrow the silicon gap with Nvidia",
+  "url": "https://techcrunch.com/2026/11/24/amazons-decart-acquisition-is-a-bet-on-using-software-to-narrow-the-gap-with-nvidia-in-the-ai-chip-race/",
+  "source_url": "https://techcrunch.com/2026/11/24/amazons-decart-acquisition-is-a-bet-on-using-software-to-narrow-the-gap-with-nvidia-in-the-ai-chip-race/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Acquisition",
+    "Inference"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2022/07/AP22104515656433.jpg?resize=1200,754"
+  },
+  "depth": "full",
+  "lede": "Amazon is buying Decart's technology and team for a reported $7.5 billion, aiming its model optimization stack at Trainium chips rather than the world models Decart had been building.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The Decart Optimization Stack (DOS) makes AI models run better on many kinds of chips, not just Nvidia's.",
+        "Amazon says it has worked with Decart on Trainium since 2025; the deal is meant to speed that work up.",
+        "Anthropic reportedly tried to buy Decart at a similar price, and Nvidia, an investor at a $4 billion valuation, was rumored as a buyer.",
+        "Co-founders Dean Leitersdorf, Orian Leitersdorf and Moshe Shalev join Amazon with their team.",
+        "TechCrunch compares it to Nvidia's $6.9 billion Mellanox purchase and Amazon's 2015 Annapurna Labs deal."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "Software that narrows the efficiency gap on non-Nvidia silicon could make Trainium, already used by Anthropic, a practical option for more AWS customers training and serving models."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Amazon’s Decart acquisition is a bet on using software to narrow the silicon gap with Nvidia",
+      "url": "https://techcrunch.com/2026/11/24/amazons-decart-acquisition-is-a-bet-on-using-software-to-narrow-the-gap-with-nvidia-in-the-ai-chip-race/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-amazons-decart-acquisition-is-a-bet-on-using-2026-11-24",
+      "edition_date": "2026-11-24"
+    }
+  ],
+  "created_at": "2026-11-24T19:32:33Z",
+  "updated_at": "2026-11-24T19:32:33Z"
+}

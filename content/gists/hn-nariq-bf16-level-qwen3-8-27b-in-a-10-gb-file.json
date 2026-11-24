@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "hn-nariq-bf16-level-qwen3-8-27b-in-a-10-gb-file",
+  "kind": "hn",
+  "title": "NariQ: BF16-level Qwen3.8-27B in a 10 GB file",
+  "url": "https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF",
+  "source_url": "https://news.ycombinator.com/item?id=50611402",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Local LLM",
+    "Inference",
+    "Open Source"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Nari Labs released NariQ quantizations of Qwen3.8-27B at 3, 2.5 and 2 bits per weight, and reports that the 3-bit and 2.5-bit files hold BF16 quality on agent tasks, math and vision.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "NariQ is a trellis-coded post-training quantization, calibrated on real coding-agent traces and building on QTIP.",
+        "On DeepSWE, BF16 scores 39.8 against 41.0 at 3 bits and 41.9 at 2.5 bits; the 2-bit file falls to 28.6.",
+        "The files need Nari's llama.cpp fork; stock llama.cpp, Ollama and LM Studio cannot load them yet.",
+        "The fork targets SM120 cards like the RTX PRO 6000; an M3 Pro decodes about 3.8 tokens a second, and pre-Ampere GPUs fall back to CPU.",
+        "Only the language model is quantized; KV-cache and activation quantization come next. The files are Apache-2.0."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "A skeptic of benchmark-tuned quants credits the release for testing held-out, long-horizon tasks beyond coding.",
+          "url": "https://news.ycombinator.com/item?id=50618333"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "Some suspect the harness explains the gains; the author replies that BF16 in their harness lands close to Unsloth's reported DeepSWE figure.",
+          "url": "https://news.ycombinator.com/item?id=50619545"
+        },
+        {
+          "stance": "theme",
+          "text": "Mac users ask whether it fits a 16 GB machine, and a reply says 3.8 tokens a second is too slow to iterate with.",
+          "url": "https://news.ycombinator.com/item?id=50617193"
+        },
+        {
+          "stance": "theme",
+          "text": "One commenter reads NariQ as a derivative of exl3's codebook and wants that lineage stated up front.",
+          "url": "https://news.ycombinator.com/item?id=50617252"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "nari-labs/Qwen3.8-27B-NariQ-GGUF · Hugging Face",
+      "url": "https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF"
+    },
+    {
+      "role": "discussion",
+      "title": "NariQ: BF16-level Qwen3.8-27B in a 10 GB file",
+      "url": "https://news.ycombinator.com/item?id=50611402"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-nariq-bf16-level-qwen3-8-27b-in-a-10-gb-file-2026-11-24",
+      "edition_date": "2026-11-24"
+    }
+  ],
+  "created_at": "2026-11-24T19:32:33Z",
+  "updated_at": "2026-11-24T19:32:33Z",
+  "stats": {
+    "points": 189,
+    "comments": 36,
+    "submitted_by": "toebee",
+    "posted_at": "2026-11-23T13:42:38Z"
+  },
+  "stats_as_of": "2026-11-24T19:29:37Z"
+}

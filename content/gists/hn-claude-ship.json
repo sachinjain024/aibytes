@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "hn-claude-ship",
+  "kind": "hn",
+  "title": "Claude Ship",
+  "url": "https://claude.com/resources/articles/introducing-claude-ship",
+  "source_url": "https://news.ycombinator.com/item?id=50618513",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Dev Tool",
+    "Anthropic",
+    "Launch"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Anthropic's post introducing Claude Ship lays out how Code Review, PR Steward and Claude Approvals carry a pull request from review through fixes to a policy-based approval.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Code Review checks PRs from several angles, verifies findings adversarially, and offers Quick, Standard or Deep levels per repository.",
+        "PR Steward fixes failing checks, conflicts and review feedback but is built not to approve or merge; @claude stop makes it step back.",
+        "Claude Approvals reads a policy file on the default branch, working like a smarter CODEOWNERS, and can run in observe mode first.",
+        "A new /ship command in Claude Code pushes a change, opens the PR and works it toward merge.",
+        "Usage is billed on tokens, and it is unavailable to organizations on Zero Data Retention, HIPAA or customer-managed keys."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "theme",
+          "text": "Several commenters already run similar pipelines by hand, often pairing models from different vendors so one reviews what the other wrote.",
+          "url": "https://news.ycombinator.com/item?id=50624827"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One commenter walks through each step of human review being handed to Claude and asks how merging got automated so fast.",
+          "url": "https://news.ycombinator.com/item?id=50621263"
+        },
+        {
+          "stance": "disputed",
+          "text": "Some say open-source tools can build the same flow with any model, and question betting on the product surviving.",
+          "url": "https://news.ycombinator.com/item?id=50626035"
+        },
+        {
+          "stance": "theme",
+          "text": "Practical snags surface, such as the bundled /ship command overriding teams' own /ship skills with no way to disable just it.",
+          "url": "https://news.ycombinator.com/item?id=50625808"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Introducing Claude Ship",
+      "url": "https://claude.com/resources/articles/introducing-claude-ship"
+    },
+    {
+      "role": "discussion",
+      "title": "Claude Ship",
+      "url": "https://news.ycombinator.com/item?id=50618513"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-claude-ship-2026-11-24",
+      "edition_date": "2026-11-24"
+    }
+  ],
+  "created_at": "2026-11-24T19:32:33Z",
+  "updated_at": "2026-11-24T19:32:33Z",
+  "stats": {
+    "points": 84,
+    "comments": 31,
+    "submitted_by": "matthieu_bl",
+    "posted_at": "2026-11-23T20:14:18Z"
+  },
+  "stats_as_of": "2026-11-24T19:29:37Z"
+}

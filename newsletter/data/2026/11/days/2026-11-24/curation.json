@@ -1,0 +1,780 @@
+{
+  "date": "2026-11-24",
+  "generated_at": "2026-11-24T19:28:38Z",
+  "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
+  "tags": [
+    {
+      "name": "What it is",
+      "tags": [
+        {
+          "name": "Model Release",
+          "slug": "model-release"
+        },
+        {
+          "name": "Open Source",
+          "slug": "open-source"
+        },
+        {
+          "name": "Paper",
+          "slug": "paper"
+        },
+        {
+          "name": "Benchmark",
+          "slug": "benchmark"
+        },
+        {
+          "name": "Dataset",
+          "slug": "dataset"
+        },
+        {
+          "name": "Framework",
+          "slug": "framework"
+        },
+        {
+          "name": "Dev Tool",
+          "slug": "dev-tool"
+        },
+        {
+          "name": "API",
+          "slug": "api"
+        }
+      ]
+    },
+    {
+      "name": "Domain",
+      "tags": [
+        {
+          "name": "LLM",
+          "slug": "llm"
+        },
+        {
+          "name": "Agents",
+          "slug": "agents"
+        },
+        {
+          "name": "RAG",
+          "slug": "rag"
+        },
+        {
+          "name": "Fine-tuning",
+          "slug": "fine-tuning"
+        },
+        {
+          "name": "Inference",
+          "slug": "inference"
+        },
+        {
+          "name": "Local LLM",
+          "slug": "local-llm"
+        },
+        {
+          "name": "Vision",
+          "slug": "vision"
+        },
+        {
+          "name": "Voice / Speech",
+          "slug": "voice-speech"
+        },
+        {
+          "name": "Video",
+          "slug": "video"
+        },
+        {
+          "name": "Image Gen",
+          "slug": "image-gen"
+        },
+        {
+          "name": "Code Gen",
+          "slug": "code-gen"
+        },
+        {
+          "name": "Embeddings",
+          "slug": "embeddings"
+        },
+        {
+          "name": "Eval",
+          "slug": "eval"
+        },
+        {
+          "name": "Reasoning",
+          "slug": "reasoning"
+        },
+        {
+          "name": "Multimodal",
+          "slug": "multimodal"
+        },
+        {
+          "name": "Robotics",
+          "slug": "robotics"
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem",
+      "tags": [
+        {
+          "name": "OpenAI",
+          "slug": "openai"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic"
+        },
+        {
+          "name": "Google",
+          "slug": "google"
+        },
+        {
+          "name": "Meta",
+          "slug": "meta"
+        },
+        {
+          "name": "Nvidia",
+          "slug": "nvidia"
+        },
+        {
+          "name": "Hugging Face",
+          "slug": "hugging-face"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft"
+        },
+        {
+          "name": "Claude Code",
+          "slug": "claude-code"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor"
+        },
+        {
+          "name": "MCP",
+          "slug": "mcp"
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "tags": [
+        {
+          "name": "Funding",
+          "slug": "funding"
+        },
+        {
+          "name": "Acquisition",
+          "slug": "acquisition"
+        },
+        {
+          "name": "Launch",
+          "slug": "launch"
+        },
+        {
+          "name": "Pricing",
+          "slug": "pricing"
+        },
+        {
+          "name": "Policy",
+          "slug": "policy"
+        },
+        {
+          "name": "Legal",
+          "slug": "legal"
+        },
+        {
+          "name": "Security",
+          "slug": "security"
+        },
+        {
+          "name": "Privacy",
+          "slug": "privacy"
+        },
+        {
+          "name": "Safety",
+          "slug": "safety"
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "tags": [
+        {
+          "name": "Show HN",
+          "slug": "show-hn"
+        },
+        {
+          "name": "Tutorial",
+          "slug": "tutorial"
+        },
+        {
+          "name": "Deep Dive",
+          "slug": "deep-dive"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ph-letter-visitors-2026-11-24",
+      "title": "Letter Visitors",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/visitors",
+      "source_url": "https://www.producthunt.com/products/visitors",
+      "source_text": "Letter Visitors See website visitors on your website itself Know who’s on your website: the people, their companies, and the AI agents reading your pages. See them on your own site, and replay their sessions. Marketing Developer Tools",
+      "signals": {
+        "upvotes": 403,
+        "comments": 63
+      },
+      "published_at": "2026-11-23T08:01:00Z"
+    },
+    {
+      "id": "ph-motionflare-2026-11-24",
+      "title": "Motionflare",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/motionflare",
+      "source_url": "https://www.producthunt.com/products/motionflare",
+      "source_text": "Motionflare Turn your website into a stunning launch video in minutes Motionflare turns your website into a ready-to-share marketing video and brand film in minutes. Paste a URL and it uses your real product screenshots, logo, colors, and copy to create branded motion graphics with music and optional narration. Or switch to Film mode to generate a live-action commercial. Refine the result by chat and export in up to 4K. Marketing Artificial Intelligence Video",
+      "signals": {
+        "upvotes": 339,
+        "comments": 47
+      },
+      "published_at": "2026-11-23T08:01:00Z"
+    },
+    {
+      "id": "ph-gauth-personal-study-agent-2026-11-24",
+      "title": "Gauth Personal Study Agent",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/gauth-ai-course",
+      "source_url": "https://www.producthunt.com/products/gauth-ai-course",
+      "source_text": "Gauth Personal Study Agent An AI study agent that remembers where you struggle Gauth Personal Study Agent connects the questions you snap, the quizzes you take, and the topics you study into one ongoing picture of how you learn. Instead of starting from scratch each session, it spots the gap behind a mistake, builds a short daily plan around it, and adjusts that plan when you miss a review or master a topic early. Practice comes as flashcards, guided step-by-step walkthroughs, and quizzes, with topic mastery and streaks to show progress. Built into the Gauth app. Android Education Artificial Intelligence Online Learning",
+      "signals": {
+        "upvotes": 310,
+        "comments": 53
+      },
+      "published_at": "2026-11-23T08:01:00Z"
+    },
+    {
+      "id": "ph-dog-translator-supertranslator-2026-11-24",
+      "title": "Dog Translator SuperTranslator",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/dog-translator-supertranslator",
+      "source_url": "https://www.producthunt.com/products/dog-translator-supertranslator",
+      "source_text": "Dog Translator SuperTranslator Dogs talking in English (real) What if your dog could tell you what they're feeling? SuperTranslator uses AI to read your dog's body language, vocalizations and interactions with their surroundings, and turns those signals into plain English. Instead of random phrases from barks, it looks at several behavioral cues at once to help you understand what your dog might be communicating. According to our benchmarks, this is the most accurate dog translation in history. Pets Artificial Intelligence Science",
+      "signals": {
+        "upvotes": 221,
+        "comments": 30
+      },
+      "published_at": "2026-11-23T08:01:00Z"
+    },
+    {
+      "id": "ph-modem-2026-11-24",
+      "title": "Modem",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/modem",
+      "source_url": "https://www.producthunt.com/products/modem",
+      "source_text": "Modem Find, fix, and follow up on every customer concern Modem monitors your customer channels (support tickets, group chat, sales calls) and alerts you to problems within minutes. It can automatically open an issue, spin up a coding agent, or escalate to the right team. When the fix ships, it closes the loop with your customers. Never lose track of a request again. Customer Success Developer Tools Artificial Intelligence",
+      "signals": {
+        "upvotes": 212,
+        "comments": 30
+      },
+      "published_at": "2026-11-23T08:01:00Z"
+    },
+    {
+      "id": "gh-claude-bughunter-2026-11-24",
+      "title": "elementalsouls/Claude-BugHunter",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_text": "elementalsouls/Claude-BugHunter A Claude Code skill bundle for bug hunting and external red-team work - 84 skills, 15 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices. Python",
+      "signals": {
+        "stars": 21166,
+        "stars_gained": 1833,
+        "forks": 2211
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-superpowers-2026-11-24",
+      "title": "obra/superpowers",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/obra/superpowers",
+      "source_url": "https://github.com/obra/superpowers",
+      "source_text": "obra/superpowers An agentic skills framework & software development methodology that works. Shell",
+      "signals": {
+        "stars": 325815,
+        "stars_gained": 1006,
+        "forks": 28892
+      },
+      "meta": {
+        "language": "Shell"
+      }
+    },
+    {
+      "id": "gh-firecrawl-2026-11-24",
+      "title": "firecrawl/firecrawl",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "source_url": "https://github.com/firecrawl/firecrawl",
+      "source_text": "firecrawl/firecrawl Knowledge infrastructure to make your agents smarter. Search, scrape and access 550+ data providers through one API. TypeScript",
+      "signals": {
+        "stars": 208735,
+        "stars_gained": 990,
+        "forks": 10906
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-autoclip-2026-11-24",
+      "title": "zhouxiaoka/autoclip",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/zhouxiaoka/autoclip",
+      "source_url": "https://github.com/zhouxiaoka/autoclip",
+      "source_text": "zhouxiaoka/autoclip AutoClip｜一个链接，一键出片。开源 AI 视频剪辑桌面工具，将播客、访谈、课程等长视频自动剪成短视频，生成字幕、封面和发布文案，适配抖音、小红书、TikTok、Reels 与 YouTube Shorts。Open-source AI video clipping & content repurposing. Python",
+      "signals": {
+        "stars": 15241,
+        "stars_gained": 981,
+        "forks": 2259
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-app-store-compliance-2026-11-24",
+      "title": "mjmirza/app-store-compliance",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/mjmirza/app-store-compliance",
+      "source_url": "https://github.com/mjmirza/app-store-compliance",
+      "source_text": "mjmirza/app-store-compliance Avoid common App Store and Google Play rejections. Open playbook and pre-submission guard with 124 documented rejection patterns and fixes, privacy manifest and Data safety checks, 112 tracked deadlines (EU AI Act, DSA, COPPA, age laws), and a skill for AI coding agents. Shell",
+      "signals": {
+        "stars": 5701,
+        "stars_gained": 936,
+        "forks": 369
+      },
+      "meta": {
+        "language": "Shell"
+      }
+    },
+    {
+      "id": "gh-diagram-design-2026-11-24",
+      "title": "cathrynlavery/diagram-design",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "source_url": "https://github.com/cathrynlavery/diagram-design",
+      "source_text": "cathrynlavery/diagram-design Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory Droid, Qoder, and Pi. 52 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop. HTML",
+      "signals": {
+        "stars": 71834,
+        "stars_gained": 794,
+        "forks": 4793
+      },
+      "meta": {
+        "language": "HTML"
+      }
+    },
+    {
+      "id": "gh-minimind-2026-11-24",
+      "title": "jingyaogong/minimind",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/jingyaogong/minimind",
+      "source_url": "https://github.com/jingyaogong/minimind",
+      "source_text": "jingyaogong/minimind 🧠 两小时从 0 训出你的 64M 大模型。Train your own 64M LLM from scratch in 2 hours. Python",
+      "signals": {
+        "stars": 70086,
+        "stars_gained": 727,
+        "forks": 9126
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-last30days-skill-2026-11-24",
+      "title": "mvanhorn/last30days-skill",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "source_url": "https://github.com/mvanhorn/last30days-skill",
+      "source_text": "mvanhorn/last30days-skill AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary Python",
+      "signals": {
+        "stars": 74058,
+        "stars_gained": 695,
+        "forks": 6531
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-stitch-skills-2026-11-24",
+      "title": "google-labs-code/stitch-skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "source_url": "https://github.com/google-labs-code/stitch-skills",
+      "source_text": "google-labs-code/stitch-skills A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor. TypeScript",
+      "signals": {
+        "stars": 12582,
+        "stars_gained": 401,
+        "forks": 1524
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-plugins-2026-11-24",
+      "title": "cursor/plugins",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/cursor/plugins",
+      "source_url": "https://github.com/cursor/plugins",
+      "source_text": "cursor/plugins Cursor plugin specification and official plugins TypeScript",
+      "signals": {
+        "stars": 19128,
+        "stars_gained": 359,
+        "forks": 2067
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "tc-anthropic-launches-claude-ship-letting-ai-2026-11-24",
+      "title": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+      "source_url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+      "source_text": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes As AI-generated code piles up, Anthropic's new developer tools aim to eliminate another bottleneck by letting agents handle routine approvals.",
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-23T22:05:50Z"
+    },
+    {
+      "id": "tc-anthropic-shares-fall-below-ipo-price-a-2026-11-24",
+      "title": "Anthropic shares fall below IPO price, a worrying sign for AI startups",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/24/anthropic-shares-fall-below-ipo-price-a-worrying-sign-for-ai-startups/",
+      "source_url": "https://techcrunch.com/2026/11/24/anthropic-shares-fall-below-ipo-price-a-worrying-sign-for-ai-startups/",
+      "source_text": "Anthropic shares fall below IPO price, a worrying sign for AI startups Anthropic’s post-IPO slump could put pressure on AI startup valuations.",
+      "meta": {
+        "author": "Marina Temkin",
+        "reading_time": "1 minute"
+      },
+      "published_at": "2026-11-24T18:30:42Z"
+    },
+    {
+      "id": "tc-uk-warns-ai-driven-cyberattacks-are-exposing-2026-11-24",
+      "title": "UK warns AI-driven cyberattacks are exposing years of weak security",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/24/uk-warns-ai-driven-cyberattacks-are-exposing-years-of-weak-security/",
+      "source_url": "https://techcrunch.com/2026/11/24/uk-warns-ai-driven-cyberattacks-are-exposing-years-of-weak-security/",
+      "source_text": "UK warns AI-driven cyberattacks are exposing years of weak security The British cyber agency says that \"building strong foundations has never mattered more\" as AI hacking tools rely on exploiting simple security flaws.",
+      "meta": {
+        "author": "Zack Whittaker",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-24T18:02:59Z"
+    },
+    {
+      "id": "tc-meta-brings-its-muse-ai-assistant-directly-into-2026-11-24",
+      "title": "Meta brings its Muse AI assistant directly into Instagram DMs",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/24/meta-brings-its-muse-ai-assistant-directly-into-instagram-dms/",
+      "source_url": "https://techcrunch.com/2026/11/24/meta-brings-its-muse-ai-assistant-directly-into-instagram-dms/",
+      "source_text": "Meta brings its Muse AI assistant directly into Instagram DMs The new integration gets rid of the need for users to toggle between Instagram and the Muse app when they want to interact with the AI agent.",
+      "meta": {
+        "author": "Aisha Malik",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-24T17:00:00Z"
+    },
+    {
+      "id": "tc-tidal-to-ban-and-remove-millions-of-ai-2026-11-24",
+      "title": "Tidal to ban and remove millions of AI-generated tracks as AI slop inundates music streaming",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/24/tidal-to-ban-and-remove-millions-of-ai-generated-tracks-as-ai-slop-inundates-music-streaming/",
+      "source_url": "https://techcrunch.com/2026/11/24/tidal-to-ban-and-remove-millions-of-ai-generated-tracks-as-ai-slop-inundates-music-streaming/",
+      "source_text": "Tidal to ban and remove millions of AI-generated tracks as AI slop inundates music streaming The company said it will still accept songs that were made with AI assistance, but not fully generated.",
+      "meta": {
+        "author": "Ivan Mehta",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-24T16:46:00Z"
+    },
+    {
+      "id": "tc-why-a-crusoe-investor-is-betting-on-solar-and-2026-11-24",
+      "title": "Why a Crusoe investor is betting on solar and batteries to power future AI data centers",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/24/why-a-crusoe-investor-is-betting-on-solar-and-batteries-to-power-future-ai-data-centers/",
+      "source_url": "https://techcrunch.com/2026/11/24/why-a-crusoe-investor-is-betting-on-solar-and-batteries-to-power-future-ai-data-centers/",
+      "source_text": "Why a Crusoe investor is betting on solar and batteries to power future AI data centers Next-generation data centers will need tens of gigawatts of power every year. One of Crusoe's investors thinks solar and energy storage are the obvious choice.",
+      "meta": {
+        "author": "Tim De Chant",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-24T16:10:00Z"
+    },
+    {
+      "id": "tc-pinterest-will-now-let-parents-limit-the-ai-2026-11-24",
+      "title": "Pinterest will now let parents limit the AI-generated content their teens see",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/24/pinterest-will-now-let-parents-limit-the-ai-generated-content-their-teens-see/",
+      "source_url": "https://techcrunch.com/2026/11/24/pinterest-will-now-let-parents-limit-the-ai-generated-content-their-teens-see/",
+      "source_text": "Pinterest will now let parents limit the AI-generated content their teens see While other social platforms have focused on restricting teens' access to AI chatbots, Pinterest is addressing the AI content filling their feeds.",
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-24T16:02:37Z"
+    },
+    {
+      "id": "tc-amazons-decart-acquisition-is-a-bet-on-using-2026-11-24",
+      "title": "Amazon’s Decart acquisition is a bet on using software to narrow the silicon gap with Nvidia",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/24/amazons-decart-acquisition-is-a-bet-on-using-software-to-narrow-the-gap-with-nvidia-in-the-ai-chip-race/",
+      "source_url": "https://techcrunch.com/2026/11/24/amazons-decart-acquisition-is-a-bet-on-using-software-to-narrow-the-gap-with-nvidia-in-the-ai-chip-race/",
+      "source_text": "Amazon’s Decart acquisition is a bet on using software to narrow the silicon gap with Nvidia Amazon’s decision to acquire Decart for a reported $7.5 billion is part of its efforts to improve the efficiency of its Trainium chips.",
+      "meta": {
+        "author": "Anna Heim",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-24T15:51:07Z"
+    },
+    {
+      "id": "tc-supertake-raises-20m-to-let-ai-agents-turn-your-2026-11-24",
+      "title": "Supertake raises $20M to let AI agents turn your market predictions into stock portfolios",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/23/supertake-raises-20m-to-let-ai-agents-turn-your-market-predictions-into-stock-portfolios/",
+      "source_url": "https://techcrunch.com/2026/11/23/supertake-raises-20m-to-let-ai-agents-turn-your-market-predictions-into-stock-portfolios/",
+      "source_text": "Supertake raises $20M to let AI agents turn your market predictions into stock portfolios Think you know where the market is headed? A startup called Supertake lets you put money behind your ideas without having to pick the stocks yourself.",
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "6 minutes"
+      },
+      "published_at": "2026-11-23T22:02:05Z"
+    },
+    {
+      "id": "tc-elon-musk-and-others-rejoice-as-jensen-huang-is-2026-11-24",
+      "title": "Elon Musk and others rejoice as Jensen Huang is reinstated at Nvidia amid scandal",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/23/elon-musk-and-others-rejoice-as-jensen-huang-is-reinstated-at-nvidia-amid-scandal/",
+      "source_url": "https://techcrunch.com/2026/11/23/elon-musk-and-others-rejoice-as-jensen-huang-is-reinstated-at-nvidia-amid-scandal/",
+      "source_text": "Elon Musk and others rejoice as Jensen Huang is reinstated at Nvidia amid scandal \"The mistake has been corrected,\" Elon Musk chimed in.",
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-23T21:47:41Z"
+    },
+    {
+      "id": "hn-glm-5-4-toward-generalized-coding-with-our-2026-11-24",
+      "title": "GLM-5.4: Toward generalized coding with our first loop transformer",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://z.ai/blog/glm-5.4",
+      "source_url": "https://news.ycombinator.com/item?id=50609685",
+      "source_text": "GLM-5.4: Toward generalized coding with our first loop transformer",
+      "signals": {
+        "points": 1159,
+        "comments": 380
+      },
+      "meta": {
+        "author": "foohis"
+      },
+      "published_at": "2026-11-23T10:06:43Z"
+    },
+    {
+      "id": "hn-llm-agents-work-for-their-parent-companies-not-2026-11-24",
+      "title": "LLM agents work for their parent companies, not for you",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/",
+      "source_url": "https://news.ycombinator.com/item?id=50627340",
+      "source_text": "LLM agents work for their parent companies, not for you",
+      "signals": {
+        "points": 742,
+        "comments": 313
+      },
+      "meta": {
+        "author": "surprisetalk"
+      },
+      "published_at": "2026-11-24T12:40:15Z"
+    },
+    {
+      "id": "hn-tidal-bans-ai-generated-music-2026-11-24",
+      "title": "Tidal bans AI-generated music",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://variety.com/2026/music/news/tidal-bans-ai-generated-music-1236956924/",
+      "source_url": "https://news.ycombinator.com/item?id=50630309",
+      "source_text": "Tidal bans AI-generated music",
+      "signals": {
+        "points": 287,
+        "comments": 257
+      },
+      "meta": {
+        "author": "theanonymousone"
+      },
+      "published_at": "2026-11-24T16:12:38Z"
+    },
+    {
+      "id": "hn-nariq-bf16-level-qwen3-8-27b-in-a-10-gb-file-2026-11-24",
+      "title": "NariQ: BF16-level Qwen3.8-27B in a 10 GB file",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF",
+      "source_url": "https://news.ycombinator.com/item?id=50611402",
+      "source_text": "NariQ: BF16-level Qwen3.8-27B in a 10 GB file",
+      "signals": {
+        "points": 189,
+        "comments": 36
+      },
+      "meta": {
+        "author": "toebee"
+      },
+      "published_at": "2026-11-23T13:42:38Z"
+    },
+    {
+      "id": "hn-anthropic-staff-openly-talk-about-taking-over-2026-11-24",
+      "title": "Anthropic Staff Openly Talk About ‘Taking Over the World’, Claims Max Tegmark",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://novaramedia.com/2026/11/24/anthropic-staff-openly-talk-about-taking-over-the-world-claims-top-mit-physicist/",
+      "source_url": "https://news.ycombinator.com/item?id=50631210",
+      "source_text": "Anthropic Staff Openly Talk About ‘Taking Over the World’, Claims Max Tegmark",
+      "signals": {
+        "points": 166,
+        "comments": 88
+      },
+      "meta": {
+        "author": "mikhael"
+      },
+      "published_at": "2026-11-24T17:10:45Z"
+    },
+    {
+      "id": "hn-anthropic-breaks-below-83-ipo-price-2026-11-24",
+      "title": "Anthropic breaks below $83 IPO price",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-24/anthropic-breaks-below-83-ipo-price-in-premarket-trading",
+      "source_url": "https://news.ycombinator.com/item?id=50627836",
+      "source_text": "Anthropic breaks below $83 IPO price",
+      "signals": {
+        "points": 158,
+        "comments": 392
+      },
+      "meta": {
+        "author": "Betelbuddy"
+      },
+      "published_at": "2026-11-24T13:23:47Z"
+    },
+    {
+      "id": "hn-anthropic-is-below-its-ipo-price-2026-11-24",
+      "title": "Anthropic is below its IPO price",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.msn.com/en-us/money/top-stocks/anthropic-stock-sinks-below-ipo-price-why-that-s-happened-so-fast/ar-AA2i7rqa",
+      "source_url": "https://news.ycombinator.com/item?id=50628932",
+      "source_text": "Anthropic is below its IPO price",
+      "signals": {
+        "points": 128,
+        "comments": 2
+      },
+      "meta": {
+        "author": "novaRom"
+      },
+      "published_at": "2026-11-24T14:41:15Z"
+    },
+    {
+      "id": "hn-declare-is-a-ui-language-for-you-and-your-ai-2026-11-24",
+      "title": "Declare is a UI language for you and your AI",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://davidtemkin.github.io/declarelang/",
+      "source_url": "https://news.ycombinator.com/item?id=50622854",
+      "source_text": "Declare is a UI language for you and your AI",
+      "signals": {
+        "points": 97,
+        "comments": 83
+      },
+      "meta": {
+        "author": "ilamont"
+      },
+      "published_at": "2026-11-24T02:36:56Z"
+    },
+    {
+      "id": "hn-claude-ship-2026-11-24",
+      "title": "Claude Ship",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://claude.com/resources/articles/introducing-claude-ship",
+      "source_url": "https://news.ycombinator.com/item?id=50618513",
+      "source_text": "Claude Ship",
+      "signals": {
+        "points": 84,
+        "comments": 31
+      },
+      "meta": {
+        "author": "matthieu_bl"
+      },
+      "published_at": "2026-11-23T20:14:18Z"
+    },
+    {
+      "id": "hn-shirudo-openai-and-cisco-s-open-source-runtime-2026-11-24",
+      "title": "Shirudo: OpenAI and Cisco's open-source runtime for shielding unpatched Linux",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://openai.com/index/introducing-shirudo/",
+      "source_url": "https://news.ycombinator.com/item?id=50619630",
+      "source_text": "Shirudo: OpenAI and Cisco's open-source runtime for shielding unpatched Linux",
+      "signals": {
+        "points": 83,
+        "comments": 25
+      },
+      "meta": {
+        "author": "acossta"
+      },
+      "published_at": "2026-11-23T21:30:41Z"
+    }
+  ]
+}

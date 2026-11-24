@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "tc-supertake-raises-20m-to-let-ai-agents-turn-your",
+  "kind": "news",
+  "title": "Supertake raises $20M to let AI agents turn your market predictions into stock portfolios",
+  "url": "https://techcrunch.com/2026/11/23/supertake-raises-20m-to-let-ai-agents-turn-your-market-predictions-into-stock-portfolios/",
+  "source_url": "https://techcrunch.com/2026/11/23/supertake-raises-20m-to-let-ai-agents-turn-your-market-predictions-into-stock-portfolios/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Funding",
+    "Agents"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/11/supertake-header.jpg?resize=1200,675"
+  },
+  "depth": "full",
+  "lede": "Supertake lets users describe a market view in plain language, then has agents refine it with them into a stock portfolio held at Coinbase or Robinhood. It raised a $20 million seed round.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Adjacent led the round, with Coinbase Ventures, Union Square Ventures and angels including Nat Friedman and Guillermo Rauch; it follows a $2 million pre-seed.",
+        "Anchor co-founder Michael Mignano incubated it at USV; former Coinbase AI leads Lincoln Murr (CEO) and John Peterson (CTO) run it.",
+        "Frontier models sit behind proprietary software that directs and limits what the agents may do.",
+        "Guardrails include no deposits or withdrawals without consent, drift limits, allow and deny lists, trade size caps, anomaly monitoring and no credential access.",
+        "A public leaderboard lets others invest alongside a take; shorts, derivatives and prediction markets may follow. Access is waitlisted in beta."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "The guardrail list is a concrete pattern for agents that move money: scoped permissions, hard limits, live monitoring, and brokerage credentials kept out of the model's reach."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Supertake raises $20M to let AI agents turn your market predictions into stock portfolios",
+      "url": "https://techcrunch.com/2026/11/23/supertake-raises-20m-to-let-ai-agents-turn-your-market-predictions-into-stock-portfolios/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-supertake-raises-20m-to-let-ai-agents-turn-your-2026-11-24",
+      "edition_date": "2026-11-24"
+    }
+  ],
+  "created_at": "2026-11-24T19:32:33Z",
+  "updated_at": "2026-11-24T19:32:33Z"
+}

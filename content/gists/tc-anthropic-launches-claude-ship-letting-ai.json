@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "slug": "tc-anthropic-launches-claude-ship-letting-ai",
+  "kind": "news",
+  "title": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes",
+  "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+  "source_url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Dev Tool",
+    "Code Gen",
+    "Anthropic",
+    "Launch"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-2295579000.jpg?resize=1200,800"
+  },
+  "depth": "full",
+  "lede": "Anthropic's Claude Ship bundles agents that review pull requests, repair them and, under a policy the team writes, approve routine changes without waiting on a human.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Code Review is already generally available; PR Steward and Claude Approvals launch in beta.",
+        "PR Steward handles failing CI, merge conflicts and review feedback, and comments after each push on what it changed and how to roll it back.",
+        "Claude Approvals applies a natural-language policy stored as a file in the repo, and can weigh Code Review findings or a team's own classifiers.",
+        "Anthropic suggests running approvals in observe-only mode first, on one repository, with a monthly spend limit.",
+        "It is rolling out to Claude Team and Enterprise plans for GitHub repositories."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "As agents produce more code, review and approval become the bottleneck. Claude Ship moves merge authority into a policy file a team can read, version and tighten, with escalation to a person for changes it names."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes",
+      "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-anthropic-launches-claude-ship-letting-ai-2026-11-24",
+      "edition_date": "2026-11-24"
+    }
+  ],
+  "created_at": "2026-11-24T19:32:33Z",
+  "updated_at": "2026-11-24T19:32:33Z"
+}
