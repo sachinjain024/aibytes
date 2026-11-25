@@ -49,6 +49,20 @@ The aibytes.io side of the contract (the bridge, onboarding, the install box):
    aibytes.io, also allows the extension's origin. The exact restriction, as
    set, is recorded in this spec's "As set" note when it is done.
 
+   **As set (25 Nov 2026):** the key `…JYejxYDo` (project ai-bytes-b42d2)
+   keeps Application restrictions → Websites, with five entries:
+   `chrome-extension://faamldnehjdjdobapchedpmldfjjfife/*` (added for this
+   item), `http://localhost:4173/*`, `http://localhost:5173/*`,
+   `https://ai-bytes-b42d2.firebaseapp.com/*` and `https://aibytes.io/*`. API
+   restrictions are unchanged. Checked the same day with
+   `identitytoolkit/v3/relyingparty/getProjectConfig`: the extension's referrer
+   (the root and `background.js`) and aibytes.io are accepted, while no
+   referrer and an unknown site get `ACCESS_DENIED`. A `fetch` from the unpacked
+   dev build's own page in Chrome, with the permissions still `["storage"]`,
+   returned 200, so Chrome sends the `chrome-extension://` referrer and CORS
+   lets it through with no host permission. The same response lists the
+   extension's origin among Auth's authorised domains (item 2.1).
+
 ## The gate (the first task)
 
 Before any other code, from an unpacked dev build with the manifest's
