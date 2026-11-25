@@ -10,7 +10,7 @@ labels:
   - app
 type: feature
 created_at: 2026-10-08T10:23:17.730Z
-updated_at: 2026-11-22T12:14:11.951Z
+updated_at: 2026-11-25T03:55:14.333Z
 ---
 
 The aiBytes_ Chrome extension, popup first: clicking the toolbar icon shows today's edition as a ranked list, with a star on every row that syncs to the reader's aibytes.io account. It replaces the existing "AI Bytes" listing on the Chrome Web Store. Split out of AIB-8h (phase 7) on 2026-10-08; re-scoped on 2026-11-20 after a requirements interview with the publisher. The new-tab page moved to its own ticket, AIB-151m.
@@ -64,8 +64,8 @@ Same flow as AIB-75v:
 - [x] 2. Capability map (docs/specs/AIB-76n-capability-map.md), then the module specs (docs/specs/AIB-76n-<module-id>.md) <!-- longclaw:item=ck_019d540e -->
 - [x] 2.1 Publisher, before extension-auth: add chrome-extension://faamldnehjdjdobapchedpmldfjjfife to Firebase Auth's authorised domains (project ai-bytes-b42d2) <!-- longclaw:item=ck_c4a64b1c -->
 - [ ] 2.2 Publisher, before extension-auth: the web API key is HTTP-referrer restricted to aibytes.io; confirm, and allow the extension (chrome-extension://faamldnehjdjdobapchedpmldfjjfife) so its Auth and Firestore calls are not refused <!-- longclaw:item=ck_469985f9 -->
-- [ ] 2.3 Understand what Chrome's "Build with AI" guidance offers (developer.chrome.com/docs/extensions/ai/build-with-ai#modern_web_guidance): the Modern Web Guidance skills (chrome-extensions, modern-web-guidance), Chrome DevTools for agents (chrome-devtools-mcp with --categoryExtensions), and the CHROMEWEBSTORE.md convention; note what applies to this build and what overlaps the repo's own skills and rules <!-- longclaw:item=ck_4fca43a2 -->
-- [ ] 2.4 Before the build: install the Modern Web Guidance skills (npx modern-web-guidance@latest install --choose; pick Claude Code, chrome-extensions and modern-web-guidance), add chrome-devtools-mcp with --categoryExtensions --autoConnect, and add the CHROMEWEBSTORE.md instruction (permission justifications kept with apps/extension); record where each is installed <!-- longclaw:item=ck_cf0be5fd -->
+- [x] 2.3 Understand what Chrome's "Build with AI" guidance offers (developer.chrome.com/docs/extensions/ai/build-with-ai#modern_web_guidance): the Modern Web Guidance skills (chrome-extensions, modern-web-guidance), Chrome DevTools for agents (chrome-devtools-mcp with --categoryExtensions), and the CHROMEWEBSTORE.md convention; note what applies to this build and what overlaps the repo's own skills and rules <!-- longclaw:item=ck_4fca43a2 -->
+- [x] 2.4 Before the build: install the Modern Web Guidance skills (npx modern-web-guidance@latest install --choose; pick Claude Code, chrome-extensions and modern-web-guidance), add chrome-devtools-mcp with --categoryExtensions --autoConnect, and add the CHROMEWEBSTORE.md instruction (permission justifications kept with apps/extension); record where each is installed <!-- longclaw:item=ck_cf0be5fd -->
 - [ ] 2.5 Publisher, before T13's deploy: grant the functions' runtime service account Service Account Token Creator on itself (command in the extension-auth spec) <!-- longclaw:item=ck_37688461 -->
 - [ ] 3. Plan and todo (docs/plans/AIB-76n-plan.md), mirrored here as numbered build items <!-- longclaw:item=ck_79c8511c -->
 - [x] 3.1 T1 packages/app-core with the display modules (order, visibility, format, storage, dates), importers updated, same test count <!-- longclaw:item=ck_bad9fdf1 -->
@@ -1486,4 +1486,25 @@ changes:
     to: "true"
 -->
 ### Claude Code updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_03131833
+kind: update
+occurred_at: 2026-11-25T03:55:14.333Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_4fca43a2.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_cf0be5fd.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+2.3 and 2.4 done (25 Nov 2026). Installed: the Modern Web Guidance skills chrome-extensions and modern-web-guidance at project scope in .claude/skills/ (pinned in skills-lock.json; .agents/skills still the symlink, so Codex sees them); chrome-devtools-mcp with --categoryExtensions --autoConnect at project scope in .mcp.json, overriding the user-level chrome-devtools server in this repo (allow remote debugging at chrome://inspect/#remote-debugging each browser session); the CHROMEWEBSTORE.md instruction as .claude/rules/extension.md, scoped to apps/extension/**, which puts the file at apps/extension/CHROMEWEBSTORE.md (the skill's default is the repo root) and out of the zip. Overlaps: modern-web-guidance picks platform features, but Ledger still decides styling; the skill's store-listing and privacy guidance yields to docs/specs/AIB-76n-store-listing.md. The installer also put find-skills at user scope (~/.agents/skills), outside the repo.
 <!-- /longclaw:event -->
