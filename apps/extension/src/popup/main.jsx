@@ -1,5 +1,9 @@
 // The popup (spec AIB-76n extension-popup): mounts <Popup/> with the browser's
 // storage, fetch and the site this build points at.
+// Imports are hoisted, so this marks the moment the bundle has loaded and run
+// its modules: with data-first-render-ms below, it splits an open into
+// Chrome's start-up, our script, and React's first render.
+performance.mark("popup:script");
 import React from "react";
 import { createRoot } from "react-dom/client";
 import "@aibytes/design-system/styles.css";
