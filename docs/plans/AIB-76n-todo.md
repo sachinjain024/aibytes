@@ -306,15 +306,34 @@ row to AIB-145y's tag table. Render the header, `ListRow`s, the end line, the
 footer, and the four states with `copy.js`.
 
 **Acceptance criteria:**
-- [ ] Today equals aibytes.io's ranked feed for the same date
+- [x] Today equals aibytes.io's ranked feed for the same date
 - [ ] The cache paints within 100 ms (`performance.now()` at first render)
-- [ ] Tests cover refusing schema 2 for each file type, rank-before-filter, the cache validation, and the links
+- [x] Tests cover refusing schema 2 for each file type, rank-before-filter, the cache validation, and the links
 
 **Verification:** `npm test -w @aibytes/extension`; by hand: online, offline
 with a cache, and offline without one.
 
 **Dependencies:** T1, T7, T8 (the frozen permission set and the gate's
 outcome come first). **Files:** `apps/extension/src/{content,links,copy}.js`, `src/popup/Popup.jsx`, tests, `docs/specs/AIB-145y-gist-analytics.md`. **Scope:** M
+
+Done 25 Nov 2026, apart from the 100 ms criterion. Extension 25/25 (14 new:
+content, links, copy). By hand, in the publisher's dev profile:
+- **Online:** the production build read the live Nov 24 edition, 35 items, the
+  same items in the same order as aibytes.io/2026-11-24 in Ranked view
+  (compared link by link). The footer's link carries
+  `utm_source=chrome-extension&utm_medium=extension&utm_campaign=today`.
+- **Offline with a cache:** Chrome's HTTP cache (`max-age=600`) still answers,
+  so the list stays current. With `fetch` failing outright, the cached list
+  shows under `pop.stale`.
+- **Offline without a cache:** `pop.error` and `pop.retry`. An index at
+  `schema_version: 2`: `pop.refused`, with no rows, date or footer.
+- **The cache paint** (`data-first-render-ms` on `<html>`, production build):
+  30–79 ms on a reload or a later open, 132 ms on the first open after
+  install. The dev build is slower (118 ms), being unminified with React's
+  development build.
+- The site's dev server now sends `access-control-allow-origin: *` on
+  `/content/`, as GitHub Pages does, so a dev build can read
+  `localhost:5173`; it could not before.
 
 ## T10 [3.10]: stars and Saved, signed out
 

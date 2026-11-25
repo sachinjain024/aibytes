@@ -49,6 +49,9 @@ function content() {
         try {
           if (!(await stat(file)).isFile()) return next();
           res.setHeader("Content-Type", "application/json; charset=utf-8");
+          // As GitHub Pages serves /content/, so a dev build of the extension
+          // reads it the way the store build reads aibytes.io (AIB-76n).
+          res.setHeader("Access-Control-Allow-Origin", "*");
           res.end(await readFile(file));
         } catch {
           next();
