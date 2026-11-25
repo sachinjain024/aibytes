@@ -424,7 +424,7 @@ stubbed to record what it opens:
 frozen set (`storage`, and any host permission the gate added).
 
 **Acceptance criteria:**
-- [ ] The zip installs by drag-and-drop in a clean profile with the same ID
+- [x] The zip installs by drag-and-drop in a clean profile with the same ID
 - [x] The zip has no source maps, no localhost, and no dev-only files
 
 **Verification:** `npm run package:extension`, then `unzip -l`.
@@ -439,8 +439,8 @@ naming `localhost` or a source map, and any file outside an allow-list
 `.gitignore` already had `*.zip`. Extension 46/46 (3 new). By hand:
 `aibytes-extension-0.1.0.zip` is 19 files, manifest at the root, the key
 giving `faamldnehjdjdobapchedpmldfjjfife`, permissions `["storage"]`. The
-clean-profile install is the publisher's check: installing it here would
-replace the dev build in the publisher's own Chrome.
+clean-profile install was the publisher's check, 25 Nov 2026: the zip loaded
+in a fresh profile and showed today's edition from aibytes.io.
 
 ### Checkpoint 2
 - [ ] extension-popup's success criteria 1 to 5, 7 and 8
