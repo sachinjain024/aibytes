@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "slug": "ph-myclaw-3-0",
+  "kind": "launch",
+  "title": "MyClaw 3.0",
+  "url": "https://www.producthunt.com/products/myclaw-3-0",
+  "source_url": "https://www.producthunt.com/products/myclaw-3-0",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Agents",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/28fd2484-882a-4dbe-a782-fa034197fa78.gif?auto=format"
+  },
+  "depth": "full",
+  "lede": "MyClaw 3.0 runs a team of agents on always-on cloud machines, each with its own role, tools and model, all drawing on one memory the whole team shares.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Teammates can be built on OpenClaw, Claude Code, Codex, Hermes Agent, Pi and other agents, each picking from more than 50 models.",
+        "Each agent gets a role, tools and skills; the launch comment suggests starting from presets such as Researcher or Content Creator.",
+        "Agents keep working on cloud computers while you are offline, using your apps and data for recurring jobs.",
+        "Work is assigned from the web, Slack, Telegram or WhatsApp, with no servers to manage and no tie to one model provider.",
+        "Several commenters asked how conflicting writes to the shared memory are resolved; the launch material does not say."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "People who want to brief an agent the way they would brief a colleague, step away, and come back to finished work to review, without running their own servers."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "MyClaw 3.0 on Product Hunt",
+      "url": "https://www.producthunt.com/products/myclaw-3-0"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-myclaw-3-0-2026-11-25",
+      "edition_date": "2026-11-25"
+    }
+  ],
+  "created_at": "2026-11-25T18:40:47Z",
+  "updated_at": "2026-11-25T18:40:47Z",
+  "stats": {
+    "upvotes": 236,
+    "comments": 36
+  },
+  "stats_as_of": "2026-11-25T18:38:20Z"
+}

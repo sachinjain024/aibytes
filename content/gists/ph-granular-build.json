@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "slug": "ph-granular-build",
+  "kind": "launch",
+  "title": "Granular.Build",
+  "url": "https://www.producthunt.com/products/granular-build",
+  "source_url": "https://www.producthunt.com/products/granular-build",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Agents",
+    "Dev Tool",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/e171c526-c3db-4c20-b658-3c88d11873a0.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "Granular is a visual workspace where a lead agent breaks a goal into parallel jobs for specialist agents, with models, files, terminals and project memory kept in one place.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "A boss agent takes the goal and coordinates specialist agents running in parallel.",
+        "Apps, designs and videos show up as live previews while the agents work on them.",
+        "Users bring their own models, with built-in terminals and plugins available when a task needs them.",
+        "Each project keeps its own memory and files together; the launch comment says you can point it at an existing folder.",
+        "The founder says the site, gallery images and promo video were all made inside Granular itself."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "People without a programming background who want several agents on one project, and builders tired of juggling terminals, IDEs and single-agent chat apps."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Granular.Build on Product Hunt",
+      "url": "https://www.producthunt.com/products/granular-build"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-granular-build-2026-11-25",
+      "edition_date": "2026-11-25"
+    }
+  ],
+  "created_at": "2026-11-25T18:40:47Z",
+  "updated_at": "2026-11-25T18:40:47Z",
+  "stats": {
+    "upvotes": 230,
+    "comments": 34
+  },
+  "stats_as_of": "2026-11-25T18:38:20Z"
+}

@@ -1,0 +1,914 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-25",
+  "generated_at": "2026-11-25T18:38:20Z",
+  "counts": {
+    "launches": 4,
+    "repos": 10,
+    "news": 10,
+    "hn": 10
+  },
+  "items": [
+    {
+      "id": "ph-myclaw-3-0-2026-11-25",
+      "title": "MyClaw 3.0",
+      "summary": "Runs agents like OpenClaw, Claude Code, Codex and Hermes on always-on cloud machines, each with its own role and model from 50+, sharing memory and tasked from Slack, Telegram or WhatsApp.",
+      "url": "https://www.producthunt.com/products/myclaw-3-0",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/myclaw-3-0",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/28fd2484-882a-4dbe-a782-fa034197fa78.gif?auto=format"
+      },
+      "signals": {
+        "upvotes": 236,
+        "comments": 36
+      },
+      "published_at": "2026-11-25T08:01:00Z",
+      "hidden": false,
+      "rank": 4,
+      "gist": "ph-myclaw-3-0"
+    },
+    {
+      "id": "ph-granular-build-2026-11-25",
+      "title": "Granular.Build",
+      "summary": "Visual workspace where a lead agent splits a goal across specialist agents in parallel, with live previews, bring-your-own models, built-in terminals and per-project memory.",
+      "url": "https://www.producthunt.com/products/granular-build",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/granular-build",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Dev Tool",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/e171c526-c3db-4c20-b658-3c88d11873a0.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 230,
+        "comments": 34
+      },
+      "published_at": "2026-11-24T08:01:00Z",
+      "hidden": false,
+      "rank": 11,
+      "gist": "ph-granular-build"
+    },
+    {
+      "id": "ph-airbots-2026-11-25",
+      "title": "Airbot",
+      "summary": "Scans email, Slack, calendar and CRM, then messages you priorities with a drafted reply, meeting brief, booking or CRM edit ready to approve in WhatsApp or iMessage.",
+      "url": "https://www.producthunt.com/products/airbots",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/airbots",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/7c7d25c7-eb92-4e83-8f25-67b78db12372.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 201,
+        "comments": 43
+      },
+      "published_at": "2026-11-25T08:01:00Z",
+      "hidden": false,
+      "rank": 21,
+      "gist": "ph-airbots"
+    },
+    {
+      "id": "ph-viktor-code-2026-11-25",
+      "title": "Viktor Code",
+      "summary": "Takes a business outcome instead of a ticket, splits it into technical and non-technical work using company context, and opens PRs on GitHub, GitLab or Bitbucket for review.",
+      "url": "https://www.producthunt.com/products/viktor",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/viktor",
+      "category": "launches",
+      "tags": [
+        "Code Gen",
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/launch-image-uploads/2bfe1778-633c-4765-8e09-bc023871dfcf/10e27f21dc4ab6544dd2d740e5d26c3839ff4e199af371fdc23a098beeaca07d.gif?auto=format"
+      },
+      "signals": {
+        "upvotes": 187,
+        "comments": 18
+      },
+      "published_at": "2026-11-24T08:01:00Z",
+      "hidden": false,
+      "rank": 28,
+      "gist": "ph-viktor-code"
+    },
+    {
+      "id": "gh-claude-bughunter-2026-11-25",
+      "title": "elementalsouls/Claude-BugHunter",
+      "summary": "Claude Code skill bundle for bug bounty and external red-team work: 84 skills, 15 slash commands and 681 disclosed-report patterns across 24 vulnerability classes.",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source": "github",
+      "source_url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "category": "repos",
+      "tags": [
+        "Claude Code",
+        "Security",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/elementalsouls.png?size=80"
+      },
+      "signals": {
+        "stars": 22684,
+        "stars_gained": 1644,
+        "forks": 2329
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 1,
+      "gist": "gh-claude-bughunter"
+    },
+    {
+      "id": "gh-diagram-design-2026-11-25",
+      "title": "cathrynlavery/diagram-design",
+      "summary": "Agent skill that produces self-contained HTML and SVG diagrams in 52 types for Claude Code, Codex, Copilot, Cursor and others, as an alternative to Mermaid output.",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "source": "github",
+      "source_url": "https://github.com/cathrynlavery/diagram-design",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/cathrynlavery.png?size=80"
+      },
+      "signals": {
+        "stars": 72833,
+        "stars_gained": 1133,
+        "forks": 4843
+      },
+      "meta": {
+        "language": "HTML"
+      },
+      "hidden": false,
+      "rank": 5,
+      "gist": "gh-diagram-design"
+    },
+    {
+      "id": "gh-firecrawl-2026-11-25",
+      "title": "firecrawl/firecrawl",
+      "summary": "TypeScript service that gives agents web search, scraping and access to 550+ data providers through a single API.",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "source": "github",
+      "source_url": "https://github.com/firecrawl/firecrawl",
+      "category": "repos",
+      "tags": [
+        "Agents",
+        "API",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/firecrawl.png?size=80"
+      },
+      "signals": {
+        "stars": 209817,
+        "stars_gained": 1131,
+        "forks": 10971
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 8,
+      "gist": "gh-firecrawl"
+    },
+    {
+      "id": "gh-last30days-skill-2026-11-25",
+      "title": "mvanhorn/last30days-skill",
+      "summary": "Python agent skill that researches a topic across Reddit, X, YouTube, HN, Polymarket and the web, then writes a summary grounded in what it found.",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "source": "github",
+      "source_url": "https://github.com/mvanhorn/last30days-skill",
+      "category": "repos",
+      "tags": [
+        "Agents",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mvanhorn.png?size=80"
+      },
+      "signals": {
+        "stars": 74956,
+        "stars_gained": 950,
+        "forks": 6601
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 12,
+      "gist": "gh-last30days-skill"
+    },
+    {
+      "id": "gh-superpowers-2026-11-25",
+      "title": "obra/superpowers",
+      "summary": "Shell-based framework that packages agentic skills for coding agents together with a software development methodology for using them.",
+      "url": "https://github.com/obra/superpowers",
+      "source": "github",
+      "source_url": "https://github.com/obra/superpowers",
+      "category": "repos",
+      "tags": [
+        "Framework",
+        "Code Gen",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/obra.png?size=80"
+      },
+      "signals": {
+        "stars": 326453,
+        "stars_gained": 902,
+        "forks": 28968
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 15,
+      "gist": "gh-superpowers"
+    },
+    {
+      "id": "gh-autoclip-2026-11-25",
+      "title": "zhouxiaoka/autoclip",
+      "summary": "Python desktop app that cuts long podcasts, interviews and lectures into short clips with subtitles, covers and post copy for Douyin, Xiaohongshu, TikTok, Reels and Shorts.",
+      "url": "https://github.com/zhouxiaoka/autoclip",
+      "source": "github",
+      "source_url": "https://github.com/zhouxiaoka/autoclip",
+      "category": "repos",
+      "tags": [
+        "Video",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/zhouxiaoka.png?size=80"
+      },
+      "signals": {
+        "stars": 16061,
+        "stars_gained": 868,
+        "forks": 2320
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 18,
+      "gist": "gh-autoclip"
+    },
+    {
+      "id": "gh-app-store-compliance-2026-11-25",
+      "title": "mjmirza/app-store-compliance",
+      "summary": "Pre-submission guard covering 124 App Store and Google Play rejection patterns, privacy manifest checks and 114 regulatory deadlines, with a skill for coding agents.",
+      "url": "https://github.com/mjmirza/app-store-compliance",
+      "source": "github",
+      "source_url": "https://github.com/mjmirza/app-store-compliance",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mjmirza.png?size=80"
+      },
+      "signals": {
+        "stars": 6370,
+        "stars_gained": 853,
+        "forks": 409
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 22,
+      "gist": "gh-app-store-compliance"
+    },
+    {
+      "id": "gh-minimind-2026-11-25",
+      "title": "jingyaogong/minimind",
+      "summary": "Python project for training a 64M-parameter language model from scratch in roughly two hours.",
+      "url": "https://github.com/jingyaogong/minimind",
+      "source": "github",
+      "source_url": "https://github.com/jingyaogong/minimind",
+      "category": "repos",
+      "tags": [
+        "LLM",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/jingyaogong.png?size=80"
+      },
+      "signals": {
+        "stars": 70862,
+        "stars_gained": 828,
+        "forks": 9206
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 25,
+      "gist": "gh-minimind"
+    },
+    {
+      "id": "gh-plugins-2026-11-25",
+      "title": "cursor/plugins",
+      "summary": "Cursor's specification for editor plugins, published alongside the official plugins built against it, in TypeScript.",
+      "url": "https://github.com/cursor/plugins",
+      "source": "github",
+      "source_url": "https://github.com/cursor/plugins",
+      "category": "repos",
+      "tags": [
+        "Cursor",
+        "Dev Tool",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/cursor.png?size=80"
+      },
+      "signals": {
+        "stars": 19489,
+        "stars_gained": 408,
+        "forks": 2101
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 29,
+      "gist": "gh-plugins"
+    },
+    {
+      "id": "gh-stitch-skills-2026-11-25",
+      "title": "google-labs-code/stitch-skills",
+      "summary": "Google Labs library of agent skills for the Stitch MCP server, written to the Agent Skills standard so Gemini CLI, Antigravity, Claude Code and Cursor can load them.",
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "source": "github",
+      "source_url": "https://github.com/google-labs-code/stitch-skills",
+      "category": "repos",
+      "tags": [
+        "Google",
+        "MCP",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/google-labs-code.png?size=80"
+      },
+      "signals": {
+        "stars": 12921,
+        "stars_gained": 352,
+        "forks": 1535
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 32,
+      "gist": "gh-stitch-skills"
+    },
+    {
+      "id": "tc-want-to-buy-your-kid-an-ai-toy-this-christmas-2026-11-25",
+      "title": "Want to buy your kid an AI toy this Christmas? Not in New York",
+      "summary": "The state's five-year ban on AI chatbot toys lands alongside Common Sense Media research finding exposure to inappropriate content and risks to emotional development.",
+      "url": "https://techcrunch.com/2026/11/25/want-to-buy-your-kid-an-ai-toy-this-christmas-not-in-new-york/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/25/want-to-buy-your-kid-an-ai-toy-this-christmas-not-in-new-york/",
+      "category": "news",
+      "tags": [
+        "Policy",
+        "Safety"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2237660127.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-25T18:11:46Z",
+      "hidden": false,
+      "rank": 3,
+      "gist": "tc-want-to-buy-your-kid-an-ai-toy-this-christmas"
+    },
+    {
+      "id": "tc-state-ags-fight-character-ais-plan-to-auction-2026-11-25",
+      "title": "State AGs fight Character AI’s plan to auction off users’ private chats",
+      "summary": "The proposed bankruptcy sale covers personal data from more than 21 million US accounts, 2.1 million of them registered to minors, according to the attorneys general.",
+      "url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/",
+      "category": "news",
+      "tags": [
+        "Privacy",
+        "Legal"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2024/06/Character-Calls-Image-feat.jpg?resize=1200,675"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-25T17:35:58Z",
+      "hidden": false,
+      "rank": 7,
+      "gist": "tc-state-ags-fight-character-ais-plan-to-auction"
+    },
+    {
+      "id": "tc-ai-data-centers-are-becoming-harder-to-build-2026-11-25",
+      "title": "AI data centers are becoming harder to build, and neoclouds are feeling it",
+      "summary": "Equity podcast with Arizona Land Consulting's CEO on finding sites with power, zoning and community buy-in, and what a pickier Nvidia means for neoclouds.",
+      "url": "https://techcrunch.com/podcast/ai-data-centers-are-becoming-harder-to-build-and-neoclouds-are-feeling-it/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/podcast/ai-data-centers-are-becoming-harder-to-build-and-neoclouds-are-feeling-it/",
+      "category": "news",
+      "tags": [
+        "Nvidia"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Anita-Verma-Lallian-2.jpg?w=1024"
+      },
+      "meta": {
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-25T15:41:43Z",
+      "hidden": false,
+      "rank": 10,
+      "gist": "tc-ai-data-centers-are-becoming-harder-to-build"
+    },
+    {
+      "id": "tc-amazon-and-meta-reportedly-in-talks-to-lift-2026-11-25",
+      "title": "Amazon and Meta reportedly in talks to lift blockade on AI agent Muse",
+      "summary": "A potential deal would end a two-month blockade of Muse, Meta's AI agent, which Walmart has just opened to Black Friday shopping.",
+      "url": "https://techcrunch.com/2026/11/25/amazon-and-meta-reportedly-in-talks-to-lift-blockade-on-ai-agent-muse/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/25/amazon-and-meta-reportedly-in-talks-to-lift-blockade-on-ai-agent-muse/",
+      "category": "news",
+      "tags": [
+        "Meta",
+        "Agents"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/09/muse-ai-meta.jpg?w=1200"
+      },
+      "meta": {
+        "author": "Lauren Forristal",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-25T14:10:18Z",
+      "hidden": false,
+      "rank": 14,
+      "gist": "tc-amazon-and-meta-reportedly-in-talks-to-lift"
+    },
+    {
+      "id": "tc-the-questions-jensen-huang-and-nvidia-will-2026-11-25",
+      "title": "The questions Jensen Huang and Nvidia will still have to answer about Megaspeed",
+      "summary": "Investigators want to know what Nvidia knew about where the chips ended up, and whether Huang's affair with a Megaspeed executive gave it reason to doubt Megaspeed's assurances.",
+      "url": "https://techcrunch.com/2026/11/25/the-questions-jensen-huang-and-nvidia-will-still-have-to-answer-about-megaspeed/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/25/the-questions-jensen-huang-and-nvidia-will-still-have-to-answer-about-megaspeed/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Legal"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2249127237.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-11-25T13:00:00Z",
+      "hidden": false,
+      "rank": 17,
+      "gist": "tc-the-questions-jensen-huang-and-nvidia-will"
+    },
+    {
+      "id": "tc-yales-sonnenfeld-nvidia-is-a-detriment-to-us-2026-11-25",
+      "title": "Yale’s Sonnenfeld: Nvidia is a ‘detriment’ to US industrial might — not a champion",
+      "summary": "Jeffrey Sonnenfeld says Huang's White House-backed return exposes Nvidia's directors to historic personal liability, and faults the company for advanced chips reaching adversaries.",
+      "url": "https://techcrunch.com/2026/11/24/yales-sonnenfeld-nvidia-is-a-detriment-to-u-s-industrial-might-not-a-champion/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/24/yales-sonnenfeld-nvidia-is-a-detriment-to-u-s-industrial-might-not-a-champion/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Legal"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Jensen-ChatGPT.png?resize=1200,675"
+      },
+      "meta": {
+        "author": "Connie Loizos",
+        "reading_time": "7 minutes"
+      },
+      "published_at": "2026-11-25T00:12:02Z",
+      "hidden": false,
+      "rank": 20,
+      "gist": "tc-yales-sonnenfeld-nvidia-is-a-detriment-to-us"
+    },
+    {
+      "id": "tc-jensen-huang-still-thinks-a-succession-plan-2026-11-25",
+      "title": "Jensen Huang still thinks a succession plan creates unnecessary hierarchy",
+      "summary": "Huang restates his opposition to a formal succession plan after Nvidia spent two weeks operating without its founder.",
+      "url": "https://techcrunch.com/2026/11/24/jensen-huang-still-thinks-a-succession-plan-creates-unnecessary-hierarchy/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/24/jensen-huang-still-thinks-a-succession-plan-creates-unnecessary-hierarchy/",
+      "category": "news",
+      "tags": [
+        "Nvidia"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2025/01/GettyImages-2192215566.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Kirsten Korosec",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-24T22:27:52Z",
+      "hidden": false,
+      "rank": 24,
+      "gist": "tc-jensen-huang-still-thinks-a-succession-plan"
+    },
+    {
+      "id": "tc-in-all-hands-meeting-jensen-huang-thanks-white-2026-11-25",
+      "title": "In all-hands meeting, Jensen Huang thanks White House and says he’s in therapy",
+      "summary": "Huang apologized to Nvidia staff on Tuesday and said he was grateful for a second chance to lead the company.",
+      "url": "https://techcrunch.com/2026/11/24/in-all-hands-meeting-jensen-huang-thanks-white-house-and-says-hes-in-therapy/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/24/in-all-hands-meeting-jensen-huang-thanks-white-house-and-says-hes-in-therapy/",
+      "category": "news",
+      "tags": [
+        "Nvidia"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/09/GettyImages-2294936867.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Lucas Ropek",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-24T21:48:27Z",
+      "hidden": false,
+      "rank": 27,
+      "gist": "tc-in-all-hands-meeting-jensen-huang-thanks-white"
+    },
+    {
+      "id": "tc-even-the-best-ai-agents-struggle-with-everyday-2026-11-25",
+      "title": "Even the best AI agents struggle with everyday life",
+      "summary": "A new benchmark finds the most advanced models cannot complete everyday personal-assistant tasks reliably and safely, and can introduce new problems along the way.",
+      "url": "https://techcrunch.com/2026/11/24/even-the-best-ai-agents-struggle-with-everyday-life/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/24/even-the-best-ai-agents-struggle-with-everyday-life/",
+      "category": "news",
+      "tags": [
+        "Benchmark",
+        "Agents",
+        "Eval"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2296543552.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-24T21:33:29Z",
+      "hidden": false,
+      "rank": 31,
+      "gist": "tc-even-the-best-ai-agents-struggle-with-everyday"
+    },
+    {
+      "id": "tc-walmart-teams-up-with-meta-to-bring-black-2026-11-25",
+      "title": "Walmart teams up with Meta to bring Black Friday deals to AI agent Muse",
+      "summary": "Walmart's Black Friday deals are now shoppable inside Muse, even as Amazon and Meta reportedly negotiate an end to the agent's two-month blockade.",
+      "url": "https://techcrunch.com/2026/11/24/walmart-teams-up-with-meta-to-bring-black-friday-deals-to-ai-agent-muse/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/24/walmart-teams-up-with-meta-to-bring-black-friday-deals-to-ai-agent-muse/",
+      "category": "news",
+      "tags": [
+        "Meta",
+        "Agents"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/muse-walmart.png?w=1200"
+      },
+      "meta": {
+        "author": "Lauren Forristal",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-24T21:32:38Z",
+      "hidden": false,
+      "rank": 34,
+      "gist": "tc-walmart-teams-up-with-meta-to-bring-black"
+    },
+    {
+      "id": "hn-llm-agents-work-for-their-parent-companies-not-2026-11-25",
+      "title": "LLM agents work for their parent companies, not for you",
+      "summary": "Personal essay on michaelharley.net arguing that LLM agents serve the interests of the companies that build them rather than the users who run them.",
+      "url": "https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50627340",
+      "category": "hn",
+      "tags": [
+        "Agents",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 994,
+        "comments": 409
+      },
+      "meta": {
+        "author": "surprisetalk"
+      },
+      "published_at": "2026-11-24T12:40:15Z",
+      "hidden": false,
+      "rank": 2,
+      "gist": "hn-llm-agents-work-for-their-parent-companies-not"
+    },
+    {
+      "id": "hn-ask-hn-anthropic-is-accusing-my-company-of-2026-11-25",
+      "title": "Ask HN: Anthropic is accusing my company of distilling. How can I prove I'm not?",
+      "summary": "Ask HN thread from a founder whose company Anthropic has accused of distillation, asking how to demonstrate the accusation is false.",
+      "url": "https://news.ycombinator.com/item?id=50630809",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50630809",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 424,
+        "comments": 321
+      },
+      "meta": {
+        "author": "weli"
+      },
+      "published_at": "2026-11-24T16:45:44Z",
+      "hidden": false,
+      "rank": 6,
+      "gist": "hn-ask-hn-anthropic-is-accusing-my-company-of"
+    },
+    {
+      "id": "hn-anthropic-breaks-below-83-ipo-price-2026-11-25",
+      "title": "Anthropic breaks below $83 IPO price",
+      "summary": "Bloomberg report on Anthropic shares dipping under their $83 listing price in premarket trading.",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-24/anthropic-breaks-below-83-ipo-price-in-premarket-trading",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50627836",
+      "category": "hn",
+      "tags": [
+        "Anthropic"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 416,
+        "comments": 787
+      },
+      "meta": {
+        "author": "Betelbuddy"
+      },
+      "published_at": "2026-11-24T13:23:47Z",
+      "hidden": false,
+      "rank": 9,
+      "gist": "hn-anthropic-breaks-below-83-ipo-price"
+    },
+    {
+      "id": "hn-pengpt-a-generative-transformer-for-handwriting-2026-11-25",
+      "title": "PenGPT: A Generative Transformer for Handwriting and Sketches",
+      "summary": "Research write-up on greydanus.github.io describing a transformer model that generates handwriting and sketches.",
+      "url": "https://greydanus.github.io/2026/11/12/pengpt/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50637056",
+      "category": "hn",
+      "tags": [
+        "Image Gen",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 372,
+        "comments": 72
+      },
+      "meta": {
+        "author": "smusamashah"
+      },
+      "published_at": "2026-11-25T00:54:49Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 13,
+      "gist": "hn-pengpt-a-generative-transformer-for-handwriting"
+    },
+    {
+      "id": "hn-gpt-6-models-demonstrate-intrinsic-protein-2026-11-25",
+      "title": "GPT-6 models demonstrate intrinsic protein-design capabilities",
+      "summary": "OpenAI research post on protein-design capabilities it says are intrinsic to its GPT-6 models.",
+      "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50634658",
+      "category": "hn",
+      "tags": [
+        "OpenAI",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 342,
+        "comments": 94
+      },
+      "meta": {
+        "author": "acossta"
+      },
+      "published_at": "2026-11-24T21:02:22Z",
+      "hidden": false,
+      "rank": 16,
+      "gist": "hn-gpt-6-models-demonstrate-intrinsic-protein"
+    },
+    {
+      "id": "hn-tidal-bans-ai-generated-music-2026-11-25",
+      "title": "Tidal bans AI-generated music",
+      "summary": "Variety reports that the music streaming service Tidal is banning AI-generated music.",
+      "url": "https://variety.com/2026/music/news/tidal-bans-ai-generated-music-1236956924/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50630309",
+      "category": "hn",
+      "tags": [
+        "Policy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 334,
+        "comments": 325
+      },
+      "meta": {
+        "author": "theanonymousone"
+      },
+      "published_at": "2026-11-24T16:12:38Z",
+      "hidden": false,
+      "rank": 19,
+      "gist": "hn-tidal-bans-ai-generated-music"
+    },
+    {
+      "id": "hn-anthropic-staff-openly-talk-about-taking-over-2026-11-25",
+      "title": "Anthropic Staff Openly Talk About ‘Taking Over the World’, Claims Max Tegmark",
+      "summary": "Novara Media piece relaying MIT physicist Max Tegmark's claim that Anthropic employees openly discuss taking over the world.",
+      "url": "https://novaramedia.com/2026/11/24/anthropic-staff-openly-talk-about-taking-over-the-world-claims-top-mit-physicist/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50631210",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "Safety"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 222,
+        "comments": 133
+      },
+      "meta": {
+        "author": "mikhael"
+      },
+      "published_at": "2026-11-24T17:10:45Z",
+      "hidden": false,
+      "rank": 23,
+      "gist": "hn-anthropic-staff-openly-talk-about-taking-over"
+    },
+    {
+      "id": "hn-gemini-refused-to-give-me-the-lyrics-to-twinkle-2026-11-25",
+      "title": "Gemini refused to give me the lyrics to Twinkle Twinkle Little Star",
+      "summary": "User post on Comentr describing Google's Gemini declining a request for the nursery rhyme's lyrics.",
+      "url": "https://www.comentr.com/technology/01M88DWQ0R4NCMYR17AFEWRG1F",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50638320",
+      "category": "hn",
+      "tags": [
+        "Google",
+        "Safety"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 207,
+        "comments": 162
+      },
+      "meta": {
+        "author": "hoodied"
+      },
+      "published_at": "2026-11-25T04:03:33Z",
+      "hidden": false,
+      "rank": 26,
+      "gist": "hn-gemini-refused-to-give-me-the-lyrics-to-twinkle"
+    },
+    {
+      "id": "hn-marginalia-search-money-c-rust-ai-stuff-2026-11-25",
+      "title": "Marginalia Search, Money, C++, Rust, AI, Stuff",
+      "summary": "Project log from the developer of Marginalia, the independent search engine, covering its finances, C++ and Rust work, and AI.",
+      "url": "https://www.marginalia.nu/log/a_141_marginalia_update/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50638220",
+      "category": "hn",
+      "tags": [
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 207,
+        "comments": 78
+      },
+      "meta": {
+        "author": "Curiositry"
+      },
+      "published_at": "2026-11-25T03:47:42Z",
+      "hidden": false,
+      "rank": 30,
+      "gist": "hn-marginalia-search-money-c-rust-ai-stuff"
+    },
+    {
+      "id": "hn-anthropic-is-below-its-ipo-price-2026-11-25",
+      "title": "Anthropic is below its IPO price",
+      "summary": "MSN explainer on why Anthropic stock slid below its IPO price so soon after listing.",
+      "url": "https://www.msn.com/en-us/money/top-stocks/anthropic-stock-sinks-below-ipo-price-why-that-s-happened-so-fast/ar-AA2i7rqa",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50628932",
+      "category": "hn",
+      "tags": [
+        "Anthropic"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 129,
+        "comments": 3
+      },
+      "meta": {
+        "author": "novaRom"
+      },
+      "published_at": "2026-11-24T14:41:15Z",
+      "hidden": false,
+      "rank": 33,
+      "gist": "hn-anthropic-is-below-its-ipo-price"
+    }
+  ]
+}

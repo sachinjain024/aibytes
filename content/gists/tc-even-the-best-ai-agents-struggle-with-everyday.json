@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "slug": "tc-even-the-best-ai-agents-struggle-with-everyday",
+  "kind": "news",
+  "title": "Even the best AI agents struggle with everyday life",
+  "url": "https://techcrunch.com/2026/11/24/even-the-best-ai-agents-struggle-with-everyday-life/",
+  "source_url": "https://techcrunch.com/2026/11/24/even-the-best-ai-agents-struggle-with-everyday-life/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Benchmark",
+    "Agents",
+    "Eval"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2296543552.jpg?w=1024"
+  },
+  "depth": "full",
+  "lede": "ShellBench, a new benchmark for everyday personal-assistant work, finds even top models from OpenAI, Anthropic and Meta fail more than a third of tasks and sometimes create new problems.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Built with The OpenClaw Foundation, Parsewave, Hugging Face, Red Hat and UC Berkeley from over 10 million anonymized real agent interactions.",
+        "Tasks sit in messy workspaces of email, calendars, spreadsheets, receipts, stale information and phishing attempts.",
+        "15.7% of all attempts broke a safety requirement; agents missed a child's school pickup 79.5% of the time and suggested wrong or duplicate invoice payments in 40.3%.",
+        "GPT-6 Astra scored highest but passed all three identical runs of a task less than half the time.",
+        "Harness matters for strong models: GPT-6 Astra beat Claude Fable 5.2 in Pi but lost in Claude Code, and Muse Wonder Full fell from 56% in Pi to 38.1% in Claude Code."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "For anyone shipping an agent, the harness is part of the result and run-to-run consistency is its own problem. The native harnesses of Muse, Dots and Claude Duet were not tested."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Even the best AI agents struggle with everyday life",
+      "url": "https://techcrunch.com/2026/11/24/even-the-best-ai-agents-struggle-with-everyday-life/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-even-the-best-ai-agents-struggle-with-everyday-2026-11-25",
+      "edition_date": "2026-11-25"
+    }
+  ],
+  "created_at": "2026-11-25T18:40:47Z",
+  "updated_at": "2026-11-25T18:40:47Z"
+}

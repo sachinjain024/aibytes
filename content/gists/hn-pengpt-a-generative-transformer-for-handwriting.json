@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "hn-pengpt-a-generative-transformer-for-handwriting",
+  "kind": "hn",
+  "title": "PenGPT: A Generative Transformer for Handwriting and Sketches",
+  "url": "https://greydanus.github.io/2026/11/12/pengpt/",
+  "source_url": "https://news.ycombinator.com/item?id=50637056",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Image Gen",
+    "Deep Dive"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Sam Greydanus describes PenGPT, two small transformers that write in many people's handwriting and draw sketches from text, and argues the gains came almost entirely from data work.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "A 6M-parameter model writes print and cursive and imitates a new writer from a few sample words; a 54M-parameter model draws from a text prompt.",
+        "Handwriting data came from scans: about 496,000 words by 1,255 writers, traced back into strokes with InkSight and filtered.",
+        "Ablations show data and augmentation dominate; BPE merges, pen-position hints, a bigger vocabulary and a doubled model barely moved scores.",
+        "Style transfer needs no encoder: training sequences hold up to four words by one writer, so the model continues whatever hand it is shown.",
+        "The drawing model blends concepts but cannot bind attributes, and the author says Claude wrote most of the post's text."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "Commenters latched onto the Bitter Lesson framing, with several admitting they over-invest in clever methods when cleaner data would do more.",
+          "url": "https://news.ycombinator.com/item?id=50637580"
+        },
+        {
+          "stance": "theme",
+          "text": "A recurring critique is a visible tell: straight strokes wobble unnaturally, which one reply puts down to quantizing points to a grid.",
+          "url": "https://news.ycombinator.com/item?id=50640115"
+        },
+        {
+          "stance": "theme",
+          "text": "Many tried odd prompts and got hybrid creatures, such as a lion fused with a mushroom, and enjoyed the throwback to early-model weirdness.",
+          "url": "https://news.ycombinator.com/item?id=50642859"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One commenter objected to the AI-written write-up, pointing to a figure that refers to colours with no key.",
+          "url": "https://news.ycombinator.com/item?id=50643554"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "PenGPT: A Generative Transformer for Handwriting and Sketches",
+      "url": "https://greydanus.github.io/2026/11/12/pengpt/"
+    },
+    {
+      "role": "discussion",
+      "title": "PenGPT: A Generative Transformer for Handwriting and Sketches",
+      "url": "https://news.ycombinator.com/item?id=50637056"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-pengpt-a-generative-transformer-for-handwriting-2026-11-25",
+      "edition_date": "2026-11-25"
+    }
+  ],
+  "created_at": "2026-11-25T18:40:47Z",
+  "updated_at": "2026-11-25T18:40:47Z",
+  "stats": {
+    "points": 372,
+    "comments": 72,
+    "submitted_by": "smusamashah",
+    "posted_at": "2026-11-25T00:54:49Z"
+  },
+  "stats_as_of": "2026-11-25T18:38:20Z",
+  "front_page": true
+}

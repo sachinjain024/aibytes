@@ -1,0 +1,130 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-25",
+  "window": {
+    "after": "2026-11-24",
+    "before": "2026-11-26"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 18,
+  "poolCount": 88,
+  "stories": [
+    {
+      "title": "LLM agents work for their parent companies, not for you",
+      "url": "https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/",
+      "type": "story",
+      "points": 994,
+      "num_comments": 409,
+      "author": "surprisetalk",
+      "created_at": "2026-11-24T12:40:15Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50627340",
+      "front_page": false
+    },
+    {
+      "title": "Ask HN: Anthropic is accusing my company of distilling. How can I prove I'm not?",
+      "url": "https://news.ycombinator.com/item?id=50630809",
+      "type": "ask_hn",
+      "points": 424,
+      "num_comments": 321,
+      "author": "weli",
+      "created_at": "2026-11-24T16:45:44Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50630809",
+      "front_page": false
+    },
+    {
+      "title": "Anthropic breaks below $83 IPO price",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-24/anthropic-breaks-below-83-ipo-price-in-premarket-trading",
+      "type": "story",
+      "points": 416,
+      "num_comments": 787,
+      "author": "Betelbuddy",
+      "created_at": "2026-11-24T13:23:47Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50627836",
+      "front_page": false
+    },
+    {
+      "title": "PenGPT: A Generative Transformer for Handwriting and Sketches",
+      "url": "https://greydanus.github.io/2026/11/12/pengpt/",
+      "type": "story",
+      "points": 372,
+      "num_comments": 72,
+      "author": "smusamashah",
+      "created_at": "2026-11-25T00:54:49Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50637056",
+      "front_page": true
+    },
+    {
+      "title": "GPT-6 models demonstrate intrinsic protein-design capabilities",
+      "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/",
+      "type": "story",
+      "points": 342,
+      "num_comments": 94,
+      "author": "acossta",
+      "created_at": "2026-11-24T21:02:22Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50634658",
+      "front_page": false
+    },
+    {
+      "title": "Tidal bans AI-generated music",
+      "url": "https://variety.com/2026/music/news/tidal-bans-ai-generated-music-1236956924/",
+      "type": "story",
+      "points": 334,
+      "num_comments": 325,
+      "author": "theanonymousone",
+      "created_at": "2026-11-24T16:12:38Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50630309",
+      "front_page": false
+    },
+    {
+      "title": "Anthropic Staff Openly Talk About \u2018Taking Over the World\u2019, Claims Max Tegmark",
+      "url": "https://novaramedia.com/2026/11/24/anthropic-staff-openly-talk-about-taking-over-the-world-claims-top-mit-physicist/",
+      "type": "story",
+      "points": 222,
+      "num_comments": 133,
+      "author": "mikhael",
+      "created_at": "2026-11-24T17:10:45Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50631210",
+      "front_page": false
+    },
+    {
+      "title": "Gemini refused to give me the lyrics to Twinkle Twinkle Little Star",
+      "url": "https://www.comentr.com/technology/01M88DWQ0R4NCMYR17AFEWRG1F",
+      "type": "story",
+      "points": 207,
+      "num_comments": 162,
+      "author": "hoodied",
+      "created_at": "2026-11-25T04:03:33Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50638320",
+      "front_page": false
+    },
+    {
+      "title": "Marginalia Search, Money, C++, Rust, AI, Stuff",
+      "url": "https://www.marginalia.nu/log/a_141_marginalia_update/",
+      "type": "story",
+      "points": 207,
+      "num_comments": 78,
+      "author": "Curiositry",
+      "created_at": "2026-11-25T03:47:42Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50638220",
+      "front_page": false
+    },
+    {
+      "title": "Anthropic is below its IPO price",
+      "url": "https://www.msn.com/en-us/money/top-stocks/anthropic-stock-sinks-below-ipo-price-why-that-s-happened-so-fast/ar-AA2i7rqa",
+      "type": "story",
+      "points": 129,
+      "num_comments": 3,
+      "author": "novaRom",
+      "created_at": "2026-11-24T14:41:15Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50628932",
+      "front_page": false
+    }
+  ]
+}

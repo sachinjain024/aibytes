@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "slug": "ph-airbots",
+  "kind": "launch",
+  "title": "Airbot",
+  "url": "https://www.producthunt.com/products/airbots",
+  "source_url": "https://www.producthunt.com/products/airbots",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Agents",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/7c7d25c7-eb92-4e83-8f25-67b78db12372.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "Airbot is an assistant inside WhatsApp and iMessage that works through your inbox, calendar, Slack and CRM overnight, then messages you first with the few things that need you.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Connects to Gmail or Outlook, a calendar, Slack, and Salesforce or HubSpot, among other tools.",
+        "Each message arrives with the work already started: a drafted reply, a meeting brief, a booking or a CRM update.",
+        "Nothing is sent until you approve it in the chat thread.",
+        "The team says it learns from your replies and writing style, and claims SOC 2 Type II, GDPR and HIPAA compliance.",
+        "Several commenters asked how it decides what deserves an interruption; the launch material does not explain."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Founders, lean startup teams and salespeople whose day runs through an inbox, a calendar or a CRM."
+    },
+    {
+      "key": "pricing",
+      "text": "The launch comment says Airbot is free to start; paid plans are not described."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Airbot on Product Hunt",
+      "url": "https://www.producthunt.com/products/airbots"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-airbots-2026-11-25",
+      "edition_date": "2026-11-25"
+    }
+  ],
+  "created_at": "2026-11-25T18:40:47Z",
+  "updated_at": "2026-11-25T18:40:47Z",
+  "stats": {
+    "upvotes": 201,
+    "comments": 43
+  },
+  "stats_as_of": "2026-11-25T18:38:20Z"
+}

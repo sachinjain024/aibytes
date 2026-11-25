@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "ph-viktor-code",
+  "kind": "launch",
+  "title": "Viktor Code",
+  "url": "https://www.producthunt.com/products/viktor",
+  "source_url": "https://www.producthunt.com/products/viktor",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Code Gen",
+    "Agents",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/launch-image-uploads/2bfe1778-633c-4765-8e09-bc023871dfcf/10e27f21dc4ab6544dd2d740e5d26c3839ff4e199af371fdc23a098beeaca07d.gif?auto=format"
+  },
+  "depth": "full",
+  "lede": "Viktor Code is a coding agent that takes a business goal instead of a ticket, draws on company context from chat, support, analytics and billing tools, and returns pull requests for review.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "It splits a goal into the engineering work and the non-code work around it, such as a pricing page or a note to customers.",
+        "Connects to repos on GitHub, GitLab or Bitbucket, and to Slack, Teams or Discord.",
+        "Projects belong to the whole team, so anyone can follow what is being built, see the reasoning, and take it over.",
+        "The team says one engineer merged 228 PRs from about two hours of coding time spread over two days.",
+        "It is built for work that runs hours or days; the team warns it will feel slow on quick edits."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Teams that want non-engineers to ship changes, and engineers handing off multi-day work that depends on business context."
+    },
+    {
+      "key": "pricing",
+      "text": "Free to start, with up to $100 in credits, according to the launch description."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Viktor Code on Product Hunt",
+      "url": "https://www.producthunt.com/products/viktor"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-viktor-code-2026-11-25",
+      "edition_date": "2026-11-25"
+    }
+  ],
+  "created_at": "2026-11-25T18:40:47Z",
+  "updated_at": "2026-11-25T18:40:47Z",
+  "stats": {
+    "upvotes": 187,
+    "comments": 18
+  },
+  "stats_as_of": "2026-11-25T18:38:20Z"
+}

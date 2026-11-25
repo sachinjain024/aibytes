@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "slug": "hn-marginalia-search-money-c-rust-ai-stuff",
+  "kind": "hn",
+  "title": "Marginalia Search, Money, C++, Rust, AI, Stuff",
+  "url": "https://www.marginalia.nu/log/a_141_marginalia_update/",
+  "source_url": "https://news.ycombinator.com/item?id=50638220",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Deep Dive"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "The developer of Marginalia Search reports rising donations and API-key sales, a slow experimental port of the index from Java to C++, and why they will not let AI write it.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "SerpApi sponsored the project with $10k, and other donations and key sales have grown monthly since summer; it is not yet self-sustaining.",
+        "Free API keys can take a week or two, because every request is handled by hand.",
+        "The index is CPU-bound, and Java's off-heap handling forces duplicate sorting and searching code; the buffer pool and part of the inverted index are now in C++.",
+        "The author chose C++ over Rust out of experience rather than language merit, and may still drop the port.",
+        "They decline AI translation because they could not maintain the result and will not depend on a subscription whose prices could rise."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "Many backed the independence argument, treating a permanent AI subscription like renting from a landlord.",
+          "url": "https://news.ycombinator.com/item?id=50638406"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "A reply argues the author overrates the difficulty, since you can ask a model to simplify and explain its code until it is maintainable.",
+          "url": "https://news.ycombinator.com/item?id=50639359"
+        },
+        {
+          "stance": "theme",
+          "text": "Several suggested modern C# as an alternative with good native-memory support, one citing 30% to 300% speedups after porting.",
+          "url": "https://news.ycombinator.com/item?id=50638627"
+        },
+        {
+          "stance": "disputed",
+          "text": "Commenters split on whether the JVM is really the bottleneck, with one reply arguing Java is fast enough once the JIT warms up.",
+          "url": "https://news.ycombinator.com/item?id=50639099"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Marginalia Search, Money, C++, Rust, AI, stuff",
+      "url": "https://www.marginalia.nu/log/a_141_marginalia_update/"
+    },
+    {
+      "role": "discussion",
+      "title": "Marginalia Search, Money, C++, Rust, AI, Stuff",
+      "url": "https://news.ycombinator.com/item?id=50638220"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-marginalia-search-money-c-rust-ai-stuff-2026-11-25",
+      "edition_date": "2026-11-25"
+    }
+  ],
+  "created_at": "2026-11-25T18:40:47Z",
+  "updated_at": "2026-11-25T18:40:47Z",
+  "stats": {
+    "points": 207,
+    "comments": 78,
+    "submitted_by": "Curiositry",
+    "posted_at": "2026-11-25T03:47:42Z"
+  },
+  "stats_as_of": "2026-11-25T18:38:20Z"
+}

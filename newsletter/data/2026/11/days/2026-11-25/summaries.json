@@ -1,0 +1,141 @@
+{
+  "date": "2026-11-25",
+  "items": {
+    "ph-myclaw-3-0-2026-11-25": {
+      "summary": "Runs agents like OpenClaw, Claude Code, Codex and Hermes on always-on cloud machines, each with its own role and model from 50+, sharing memory and tasked from Slack, Telegram or WhatsApp.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-granular-build-2026-11-25": {
+      "summary": "Visual workspace where a lead agent splits a goal across specialist agents in parallel, with live previews, bring-your-own models, built-in terminals and per-project memory.",
+      "tags": ["Agents", "Dev Tool", "Launch"]
+    },
+    "ph-airbots-2026-11-25": {
+      "summary": "Scans email, Slack, calendar and CRM, then messages you priorities with a drafted reply, meeting brief, booking or CRM edit ready to approve in WhatsApp or iMessage.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-viktor-code-2026-11-25": {
+      "summary": "Takes a business outcome instead of a ticket, splits it into technical and non-technical work using company context, and opens PRs on GitHub, GitLab or Bitbucket for review.",
+      "tags": ["Code Gen", "Agents", "Launch"]
+    },
+    "gh-claude-bughunter-2026-11-25": {
+      "summary": "Claude Code skill bundle for bug bounty and external red-team work: 84 skills, 15 slash commands and 681 disclosed-report patterns across 24 vulnerability classes.",
+      "tags": ["Claude Code", "Security", "Open Source"]
+    },
+    "gh-diagram-design-2026-11-25": {
+      "summary": "Agent skill that produces self-contained HTML and SVG diagrams in 52 types for Claude Code, Codex, Copilot, Cursor and others, as an alternative to Mermaid output.",
+      "tags": ["Dev Tool", "Open Source"]
+    },
+    "gh-firecrawl-2026-11-25": {
+      "summary": "TypeScript service that gives agents web search, scraping and access to 550+ data providers through a single API.",
+      "tags": ["Agents", "API", "Open Source"]
+    },
+    "gh-last30days-skill-2026-11-25": {
+      "summary": "Python agent skill that researches a topic across Reddit, X, YouTube, HN, Polymarket and the web, then writes a summary grounded in what it found.",
+      "tags": ["Agents", "Open Source"]
+    },
+    "gh-superpowers-2026-11-25": {
+      "summary": "Shell-based framework that packages agentic skills for coding agents together with a software development methodology for using them.",
+      "tags": ["Framework", "Code Gen", "Agents"]
+    },
+    "gh-autoclip-2026-11-25": {
+      "summary": "Python desktop app that cuts long podcasts, interviews and lectures into short clips with subtitles, covers and post copy for Douyin, Xiaohongshu, TikTok, Reels and Shorts.",
+      "tags": ["Video", "Open Source"]
+    },
+    "gh-app-store-compliance-2026-11-25": {
+      "summary": "Pre-submission guard covering 124 App Store and Google Play rejection patterns, privacy manifest checks and 114 regulatory deadlines, with a skill for coding agents.",
+      "tags": ["Dev Tool", "Open Source"]
+    },
+    "gh-minimind-2026-11-25": {
+      "summary": "Python project for training a 64M-parameter language model from scratch in roughly two hours.",
+      "tags": ["LLM", "Open Source"]
+    },
+    "gh-plugins-2026-11-25": {
+      "summary": "Cursor's specification for editor plugins, published alongside the official plugins built against it, in TypeScript.",
+      "tags": ["Cursor", "Dev Tool", "Open Source"]
+    },
+    "gh-stitch-skills-2026-11-25": {
+      "summary": "Google Labs library of agent skills for the Stitch MCP server, written to the Agent Skills standard so Gemini CLI, Antigravity, Claude Code and Cursor can load them.",
+      "tags": ["Google", "MCP", "Agents"]
+    },
+    "tc-want-to-buy-your-kid-an-ai-toy-this-christmas-2026-11-25": {
+      "summary": "The state's five-year ban on AI chatbot toys lands alongside Common Sense Media research finding exposure to inappropriate content and risks to emotional development.",
+      "tags": ["Policy", "Safety"]
+    },
+    "tc-state-ags-fight-character-ais-plan-to-auction-2026-11-25": {
+      "summary": "The proposed bankruptcy sale covers personal data from more than 21 million US accounts, 2.1 million of them registered to minors, according to the attorneys general.",
+      "tags": ["Privacy", "Legal"]
+    },
+    "tc-ai-data-centers-are-becoming-harder-to-build-2026-11-25": {
+      "summary": "Equity podcast with Arizona Land Consulting's CEO on finding sites with power, zoning and community buy-in, and what a pickier Nvidia means for neoclouds.",
+      "tags": ["Nvidia"]
+    },
+    "tc-amazon-and-meta-reportedly-in-talks-to-lift-2026-11-25": {
+      "summary": "A potential deal would end a two-month blockade of Muse, Meta's AI agent, which Walmart has just opened to Black Friday shopping.",
+      "tags": ["Meta", "Agents"]
+    },
+    "tc-the-questions-jensen-huang-and-nvidia-will-2026-11-25": {
+      "summary": "Investigators want to know what Nvidia knew about where the chips ended up, and whether Huang's affair with a Megaspeed executive gave it reason to doubt Megaspeed's assurances.",
+      "tags": ["Nvidia", "Legal"]
+    },
+    "tc-yales-sonnenfeld-nvidia-is-a-detriment-to-us-2026-11-25": {
+      "summary": "Jeffrey Sonnenfeld says Huang's White House-backed return exposes Nvidia's directors to historic personal liability, and faults the company for advanced chips reaching adversaries.",
+      "tags": ["Nvidia", "Legal"]
+    },
+    "tc-jensen-huang-still-thinks-a-succession-plan-2026-11-25": {
+      "summary": "Huang restates his opposition to a formal succession plan after Nvidia spent two weeks operating without its founder.",
+      "tags": ["Nvidia"]
+    },
+    "tc-in-all-hands-meeting-jensen-huang-thanks-white-2026-11-25": {
+      "summary": "Huang apologized to Nvidia staff on Tuesday and said he was grateful for a second chance to lead the company.",
+      "tags": ["Nvidia"]
+    },
+    "tc-even-the-best-ai-agents-struggle-with-everyday-2026-11-25": {
+      "summary": "A new benchmark finds the most advanced models cannot complete everyday personal-assistant tasks reliably and safely, and can introduce new problems along the way.",
+      "tags": ["Benchmark", "Agents", "Eval"]
+    },
+    "tc-walmart-teams-up-with-meta-to-bring-black-2026-11-25": {
+      "summary": "Walmart's Black Friday deals are now shoppable inside Muse, even as Amazon and Meta reportedly negotiate an end to the agent's two-month blockade.",
+      "tags": ["Meta", "Agents"]
+    },
+    "hn-llm-agents-work-for-their-parent-companies-not-2026-11-25": {
+      "summary": "Personal essay on michaelharley.net arguing that LLM agents serve the interests of the companies that build them rather than the users who run them.",
+      "tags": ["Agents", "LLM"]
+    },
+    "hn-ask-hn-anthropic-is-accusing-my-company-of-2026-11-25": {
+      "summary": "Ask HN thread from a founder whose company Anthropic has accused of distillation, asking how to demonstrate the accusation is false.",
+      "tags": ["Anthropic", "LLM"]
+    },
+    "hn-anthropic-breaks-below-83-ipo-price-2026-11-25": {
+      "summary": "Bloomberg report on Anthropic shares dipping under their $83 listing price in premarket trading.",
+      "tags": ["Anthropic"]
+    },
+    "hn-pengpt-a-generative-transformer-for-handwriting-2026-11-25": {
+      "summary": "Research write-up on greydanus.github.io describing a transformer model that generates handwriting and sketches.",
+      "tags": ["Image Gen", "Deep Dive"]
+    },
+    "hn-gpt-6-models-demonstrate-intrinsic-protein-2026-11-25": {
+      "summary": "OpenAI research post on protein-design capabilities it says are intrinsic to its GPT-6 models.",
+      "tags": ["OpenAI", "LLM"]
+    },
+    "hn-tidal-bans-ai-generated-music-2026-11-25": {
+      "summary": "Variety reports that the music streaming service Tidal is banning AI-generated music.",
+      "tags": ["Policy"]
+    },
+    "hn-anthropic-staff-openly-talk-about-taking-over-2026-11-25": {
+      "summary": "Novara Media piece relaying MIT physicist Max Tegmark's claim that Anthropic employees openly discuss taking over the world.",
+      "tags": ["Anthropic", "Safety"]
+    },
+    "hn-gemini-refused-to-give-me-the-lyrics-to-twinkle-2026-11-25": {
+      "summary": "User post on Comentr describing Google's Gemini declining a request for the nursery rhyme's lyrics.",
+      "tags": ["Google", "Safety"]
+    },
+    "hn-marginalia-search-money-c-rust-ai-stuff-2026-11-25": {
+      "summary": "Project log from the developer of Marginalia, the independent search engine, covering its finances, C++ and Rust work, and AI.",
+      "tags": ["Deep Dive"]
+    },
+    "hn-anthropic-is-below-its-ipo-price-2026-11-25": {
+      "summary": "MSN explainer on why Anthropic stock slid below its IPO price so soon after listing.",
+      "tags": ["Anthropic"]
+    }
+  }
+}
