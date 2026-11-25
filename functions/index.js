@@ -6,7 +6,9 @@ const { onCall, HttpsError } = require("firebase-functions/v2/https");
 const { defineSecret } = require("firebase-functions/params");
 const { initializeApp } = require("firebase-admin/app");
 const { getFirestore } = require("firebase-admin/firestore");
+const { getAuth } = require("firebase-admin/auth");
 const { prepareReport } = require("./alert.js");
+const { prepareToken } = require("./extensionToken.js");
 
 initializeApp();
 const webhook = defineSecret("AIBYTES_SLACK_WEBHOOK");
@@ -31,4 +33,13 @@ exports.aibytesReportSubscribeFailure = onCall({ secrets: [webhook] }, async (re
   });
   if (!response.ok) throw new HttpsError("internal", "Could not send the alert.");
   return { reported: true };
+});
+
+// aibytesExtensionToken (spec AIB-76n extension-auth). A reader signed in with
+// Google on aibytes.io gets a Firebase custom token for their own uid, to hand
+// to the Chrome extension. No claims. The token is returned, never logged.
+exports.aibytesExtensionToken = onCall(async (request) => {
+  const decision = prepareToken(request.auth);
+  if (!decision.ok) throw new HttpsError(decision.code, decision.message);
+  return { token: await getAuth().createCustomToken(decision.uid) };
 });

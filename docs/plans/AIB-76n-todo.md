@@ -481,13 +481,22 @@ the callable in `index.js`. Change the test script to `node --test *.test.js`.
 Add the IAM step and the deploy-list check to `README.md`.
 
 **Acceptance criteria:**
-- [ ] `prepareToken` tests: no auth, custom-token provider and Google
-- [ ] The callable never logs the token
-- [ ] `npm test --prefix functions` runs both test files
+- [x] `prepareToken` tests: no auth, custom-token provider and Google
+- [x] The callable never logs the token
+- [x] `npm test --prefix functions` runs both test files
 
 **Verification:** `npm test --prefix functions`.
 
 **Dependencies:** none (the deploy needs 2.5). **Files:** `functions/{index.js,extensionToken.js,extensionToken.test.js,package.json,README.md}`. **Scope:** S
+
+Built 25 Nov 2026. `prepareToken` refuses no auth (`unauthenticated`) and
+every provider but `google.com`, a missing one included (`permission-denied`),
+and returns only the caller's uid. `extensionToken.test.js` also loads the
+real `index.js` with Firebase stubbed: the callable mints for the caller's uid
+(a `data.uid` is ignored), refuses the other two cases without minting, and no
+console or logger line carries the token. Adding a `console.info` of the token
+makes that test fail. Functions 10/10 (4 new). `README.md` has the IAM grant
+(2.5) and the deploy check (3.22); both are the publisher's. Not deployed.
 
 **Ticket 3.22 (publisher):** deploy with
 `firebase deploy --only functions:aibytes-web --project ai-bytes-b42d2`, check
