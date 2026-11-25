@@ -10,6 +10,9 @@ export const KEY =
 
 export const EXTENSION_ID = "faamldnehjdjdobapchedpmldfjjfife";
 
+const SITE_MATCH = "https://aibytes.io/*";
+const DEV_MATCH = "http://localhost:5173/*";
+
 // Ledger's PNGs (T3), emitted by the build under icons/.
 export const ICON_SIZES = [16, 32, 48, 128];
 const icon = (size) => `icons/icon-${size}.png`;
@@ -32,5 +35,9 @@ export function manifest({ mode, version }) {
     icons: Object.fromEntries(ICON_SIZES.map((s) => [s, icon(s)])),
     background: { service_worker: "background.js", type: "module" },
     permissions: ["storage"],
+    // aibytes.io may message the worker (extension-auth, "The contract"). A
+    // manifest key, not a permission: no install warning. The dev server only
+    // in a dev build; the worker's origin check reads this same list.
+    externally_connectable: { matches: dev ? [SITE_MATCH, DEV_MATCH] : [SITE_MATCH] },
   };
 }

@@ -4,7 +4,7 @@
 // The permission set was frozen by extension-auth's gate on 25 Nov 2026:
 // `storage`, no host permissions. A new permission with a warning disables the
 // extension for its existing users, so this test changes only with the
-// publisher's yes. T14 adds externally_connectable, a manifest key that brings no warning.
+// publisher's yes. externally_connectable (T14) is a manifest key and brings no warning.
 import test from "node:test";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
@@ -55,7 +55,10 @@ test("the production build", async (t) => {
     assert.deepEqual(manifest.permissions, ["storage"]);
     assert.equal(manifest.host_permissions, undefined);
     assert.equal(manifest.optional_permissions, undefined);
-    assert.equal(manifest.externally_connectable, undefined);
+  });
+
+  await t.test("lets aibytes.io, and only aibytes.io, message the worker", () => {
+    assert.deepEqual(manifest.externally_connectable, { matches: ["https://aibytes.io/*"] });
   });
 
   await t.test("carries the key that gives the store's ID", () => {
@@ -92,6 +95,7 @@ test("the dev build points at the dev server and keeps the same ID", async (t) =
   const manifest = JSON.parse(await readFile(path.join(dist, "manifest.json"), "utf8"));
   assert.equal(idFromKey(manifest.key), EXTENSION_ID);
   assert.deepEqual(manifest.permissions, ["storage"]);
+  assert.deepEqual(manifest.externally_connectable, { matches: ["https://aibytes.io/*", "http://localhost:5173/*"] });
   const js = (await files(dist)).filter((f) => f.endsWith(".js"));
   const text = (await Promise.all(js.map((f) => readFile(f, "utf8")))).join("\n");
   assert.match(text, /http:\/\/localhost:5173/);

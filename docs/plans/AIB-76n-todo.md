@@ -519,13 +519,31 @@ Wire `onMessage`, `onMessageExternal` and `onConnectExternal`. Add
 the signed-out saves, then clears them.
 
 **Acceptance criteria:**
-- [ ] Every row of the contract table is tested; a wrong origin runs nothing; no reply or console call contains the token
-- [ ] The production manifest has no localhost, and its permissions equal T8's frozen set
-- [ ] Saves are cleared only after the merge resolves; a failed merge keeps them
+- [x] Every row of the contract table is tested; a wrong origin runs nothing; no reply or console call contains the token
+- [x] The production manifest has no localhost, and its permissions equal T8's frozen set
+- [x] Saves are cleared only after the merge resolves; a failed merge keeps them
 
 **Verification:** `npm test -w @aibytes/extension`.
 
 **Dependencies:** T8, T10. **Files:** `apps/extension/src/{external,internal,background}.js`, `manifest.config.js`, tests. **Scope:** M
+
+Built 25 Nov 2026. The worker reads its allowed origins from its own
+manifest, so the check and `externally_connectable` cannot drift. Production
+lists `https://aibytes.io/*` only; the dev build adds `http://localhost:5173/*`.
+Permissions are still `storage`. A token must be a non-empty string under
+4096 characters; a failed sign-in replies with Firebase's code only. The merge
+clears the saves only if they are unchanged after `mergeInto` resolves, so a
+star added mid-merge waits for the next try. `signout-by-reader` is heard only
+from the extension's own pages, and sets the flag before signing out.
+Extension 70/70 (24 new: 21 in `external.test.js`, 3 in `internal.test.js`).
+Live, in the dev profile from `localhost:5173`: `status` answered
+`{installed, version, pinned: true, uid, signoutPending: false}`; an unknown
+type, a non-object, a non-string token and a 5000-character token each got
+`bad-message`; a made-up token got `auth/invalid-custom-token`; a port not named
+`pin` was disconnected and the `pin` port stayed open; `example.com` has no
+`chrome.runtime.sendMessage` at all. The worker that `install_extension`
+started had none of the new listeners until the extension was reloaded; a
+fresh start registers them all.
 
 ## T15 [3.15]: the popup signed in
 
