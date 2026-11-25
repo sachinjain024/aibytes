@@ -5,5 +5,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   variant?: "primary" | "secondary" | "ghost" | "google";
   /** "lg": 48px tall, 16px semibold, full width up to 360px (the Google sign-in on the extension's onboarding, AIB-76n). Absent = the regular size, markup unchanged. */
   size?: "lg";
+  /** Joins Ledger's classes (`ldg-btn ldg-btn--<variant>`, and `ldg-btn--lg`); it never replaces them. */
+  className?: string;
 }
 export declare function Button(props: ButtonProps): JSX.Element;

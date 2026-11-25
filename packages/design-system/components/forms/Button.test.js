@@ -22,6 +22,11 @@ test('without size, every variant renders exactly as before', () => {
   assert.match(h({ variant: 'google' }, 'Sign in with Google'), /^<button class="ldg-btn ldg-btn--google" type="button"><svg width="16" height="16" viewBox="0 0 48 48" aria-hidden="true">/);
 });
 
+test('a className joins Ledger\'s classes rather than replacing them', () => {
+  assert.match(h({ size: 'lg', className: 'extra' }, 'Go'), /^<button class="ldg-btn ldg-btn--primary ldg-btn--lg extra" type="button">/);
+  assert.match(h({ variant: 'secondary', className: 'extra' }, 'Go'), /^<button class="ldg-btn ldg-btn--secondary extra" type="button">/);
+});
+
 test('size="lg" adds the large class and never reaches the DOM as an attribute', () => {
   const html = h({ variant: 'google', size: 'lg' }, 'Sign in with Google');
   assert.match(html, /^<button class="ldg-btn ldg-btn--google ldg-btn--lg" type="button">/);
