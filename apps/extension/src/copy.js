@@ -19,6 +19,12 @@ const POP = {
   "pop.retry": "Try again",
   "pop.stale": "Showing {date}. Couldn't check for a newer edition.",
   "pop.refused": "Update aiBytes_ to read this edition.",
+  // Not in the prototype: the Saved list's loading and failure lines, worded as
+  // aibytes.io's /saved words them (App.jsx SavedApp), until copy is agreed.
+  "pop.saved.loading": "Loading your saves…",
+  "pop.saved.error": "Couldn't load your saves.",
+  "pop.saved.edition.error": "Couldn't load the {label} edition.",
+  "pop.saved.issue.error": "Couldn't load {label}.",
 };
 
 /** The string for `key`, with each {name} filled from `vars`. An unknown key throws. */

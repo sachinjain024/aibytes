@@ -350,12 +350,33 @@ for `localSaves`. Stars on rows. Saved through `filesToLoad`, `savedGroups` and
 
 **Acceptance criteria:**
 - [ ] A star survives closing the popup and restarting Chrome
-- [ ] Saved equals `/saved` for the same saves
-- [ ] Adapter tests: load, write-through, and an outside change raising `storage`
+- [x] Saved equals `/saved` for the same saves
+- [x] Adapter tests: load, write-through, and an outside change raising `storage`
 
 **Verification:** `npm test -w @aibytes/extension`; by hand.
 
 **Dependencies:** T2, T9. **Files:** `apps/extension/src/{extensionStorage.js,popup/Popup.jsx}`, tests. **Scope:** M
+
+Built 25 Nov 2026; the Chrome restart is the publisher's check. Extension
+37/37 (12 new: 8 for the adapter, 4 for `loadSaved`). By hand, dev build:
+- **Saved against `/saved`:** the same eight saves were written to the signed-out
+  `localhost:5173` and to `chrome.storage.local`. Two editions, a weekly issue
+  and an item gone from its edition. Both showed the same seven items in the
+  same order (Nov 19, Nov 16, Issue #18), with the same "1 saved item was
+  removed from its edition" note. The test saves were removed afterwards.
+- **A star:** filled at once, counted in the header, written to
+  `chrome.storage.local`, and still filled after closing and reopening the
+  popup. The Chrome restart is not checked yet: one star (obra/superpowers)
+  is left for it.
+- **An outside change** (a write or a removal in `chrome.storage.local`, as the
+  background's merge will make) updates an open popup at once, down to the
+  empty Saved copy.
+- The stars load after the first render, so the cache paint is unchanged.
+- Saved's loading and failure lines have no agreed copy; they use `/saved`'s
+  wording (`pop.saved.*` in `copy.js`) until the publisher picks some. The
+  footer's meta on Saved is today's, as in the UI kit.
+- Ledger: section headings inside the popup's scroll area get the rows' side
+  padding (`components.css`), which they lacked.
 
 ## T11 [3.11]: the gist view and new-tab links
 

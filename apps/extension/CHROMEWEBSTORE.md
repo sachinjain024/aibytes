@@ -65,7 +65,7 @@ These map to the Chrome Web Store data-use form. T23 checks them against
 | Version | Date | Changes | Status |
 |---|---|---|---|
 | 26.1.15 | existing listing | Placeholder "AI Bytes" | Published |
-| 0.1.0 | 2026-11-25 | Scaffold: popup placeholder, `storage` only, onboarding on install | Draft |
+| 0.1.0 | 2026-11-25 | Scaffold: popup placeholder, `storage` only, onboarding on install. Then today's edition (T9), and stars and Saved signed out, kept in `chrome.storage.local` (T10) | Draft |
 
 The store version is set to `YY.M.D` of the submission day at T23, and must
 be above `26.1.15`.

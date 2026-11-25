@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { inFeed } from "@aibytes/app-core/visibility.js";
 import { rankedItems } from "@aibytes/app-core/order.js";
-import { CACHE_KEY, Refused, loadJson, loadToday, readCache, todayItems, writeCache } from "./content.js";
+import { CACHE_KEY, Refused, loadJson, loadSaved, loadToday, readCache, todayItems, writeCache } from "./content.js";
 
 const BASE = "https://aibytes.io/content/";
 const item = (id, source, extra = {}) => ({ id, source, category: "news", hidden: false, ...extra });
@@ -122,4 +122,55 @@ test("readCache treats missing, corrupt and unknown entries as empty", () => {
 test("writeCache survives a storage that refuses the write", () => {
   assert.doesNotThrow(() => writeCache({ setItem() { throw new Error("QuotaExceededError"); } }, edition("2026-11-19", [])));
   assert.doesNotThrow(() => writeCache(null, edition("2026-11-19", [])));
+});
+
+// The Saved list's files (T10): both indexes, then only the files the saves name.
+const weekly = (...slugs) => ({ schema_version: 1, issues: slugs.map((slug, i) => ({ number: Number(slug.split("-")[1]), slug, title: "", description: "", published_on: `2026-11-${String(23 - 7 * i).padStart(2, "0")}`, source: "", path: `weekly/issues/${slug}.json` })) });
+const issue = (slug, items, extra = {}) => ({ schema_version: 1, slug, items, ...extra });
+const saveOf = (item_id, from) => ({ item_id, ...from, created_at: "2026-11-24T10:00:00.000Z" });
+
+test("loadSaved loads both indexes and only the files the saves name", async () => {
+  const { fetch, asked } = fakeFetch({
+    [BASE + "index.json"]: index("2026-11-24", "2026-11-23", "2026-11-22"),
+    [BASE + "weekly/index.json"]: weekly("issue-19", "issue-18"),
+    [BASE + "editions/2026-11-23.json"]: edition("2026-11-23", [item("a", "github")]),
+    [BASE + "weekly/issues/issue-18.json"]: issue("issue-18", [item("w", "github")]),
+  });
+  const saves = [saveOf("a", { edition_date: "2026-11-23" }), saveOf("w", { issue_slug: "issue-18" }), saveOf("b", { edition_date: "2026-11-23" })];
+  const got = await loadSaved({ fetch, base: BASE, saves });
+  assert.deepEqual(got.editions.map((r) => r.date), ["2026-11-24", "2026-11-23", "2026-11-22"]);
+  assert.deepEqual(got.issues.map((r) => r.slug), ["issue-19", "issue-18"]);
+  assert.deepEqual(Object.keys(got.files).sort(), ["edition:2026-11-23", "issue:issue-18"]);
+  assert.equal(got.files["edition:2026-11-23"].status, "ready");
+  assert.equal(got.files["issue:issue-18"].data.items[0].id, "w");
+  assert.equal(asked.length, 4, "each named file once, nothing else");
+});
+
+test("loadSaved with no saves still reads the indexes and no file", async () => {
+  const { fetch, asked } = fakeFetch({ [BASE + "index.json"]: index("2026-11-24"), [BASE + "weekly/index.json"]: weekly() });
+  const got = await loadSaved({ fetch, base: BASE, saves: [] });
+  assert.deepEqual(got.files, {});
+  assert.equal(asked.length, 2);
+});
+
+test("loadSaved refuses a weekly index at schema_version 2, as it does the edition index", async () => {
+  const base = { [BASE + "index.json"]: index("2026-11-24"), [BASE + "weekly/index.json"]: weekly() };
+  await assert.rejects(loadSaved({ fetch: fakeFetch({ ...base, [BASE + "weekly/index.json"]: { ...weekly(), schema_version: 2 } }).fetch, base: BASE, saves: [] }), Refused);
+  await assert.rejects(loadSaved({ fetch: fakeFetch({ ...base, [BASE + "index.json"]: { ...index(), schema_version: 2 } }).fetch, base: BASE, saves: [] }), Refused);
+});
+
+test("a named file that fails or is refused is an error for its section only", async () => {
+  const { fetch } = fakeFetch({
+    [BASE + "index.json"]: index("2026-11-24", "2026-11-23"),
+    [BASE + "weekly/index.json"]: weekly("issue-18"),
+    [BASE + "editions/2026-11-24.json"]: edition("2026-11-24", [item("a", "github")]),
+    [BASE + "weekly/issues/issue-18.json"]: issue("issue-18", [], { schema_version: 2 }),
+    // editions/2026-11-23.json is missing: a 404
+  });
+  const saves = [saveOf("a", { edition_date: "2026-11-24" }), saveOf("b", { edition_date: "2026-11-23" }), saveOf("w", { issue_slug: "issue-18" })];
+  const { files } = await loadSaved({ fetch, base: BASE, saves });
+  assert.equal(files["edition:2026-11-24"].status, "ready");
+  assert.equal(files["edition:2026-11-23"].status, "error");
+  assert.equal(files["issue:issue-18"].status, "error");
+  assert.ok(files["issue:issue-18"].error instanceof Refused);
 });

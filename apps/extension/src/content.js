@@ -6,6 +6,7 @@
 import { rankedItems } from "@aibytes/app-core/order.js";
 import { inFeed } from "@aibytes/app-core/visibility.js";
 import { isRealDate } from "@aibytes/app-core/dates.js";
+import { filesToLoad } from "@aibytes/app-core/saved.js";
 
 export const CACHE_KEY = "aibytes-extension-edition";
 
@@ -41,6 +42,33 @@ export async function loadToday({ fetch, base }) {
   const edition = await loadJson(fetch, new URL(ref.path, indexUrl));
   if (!usable(edition)) throw new Error(`${ref.path}: not an edition`);
   return edition;
+}
+
+/**
+ * What the Saved list needs, as /saved loads it: index.json and
+ * weekly/index.json (either refused or failing rejects), then only the editions
+ * and issues the saves name. `files` maps each file's key to
+ * { status: "ready", data } or { status: "error", error }, the shape
+ * savedGroups takes; one file failing leaves the others.
+ */
+export async function loadSaved({ fetch, base, saves }) {
+  const [index, weekly] = await Promise.all([
+    loadJson(fetch, new URL("index.json", base)),
+    loadJson(fetch, new URL("weekly/index.json", base)),
+  ]);
+  const editions = Array.isArray(index.editions) ? index.editions : [];
+  const issues = Array.isArray(weekly.issues) ? weekly.issues : [];
+  const files = {};
+  await Promise.all(filesToLoad(saves, editions, issues).map(async (file) => {
+    try {
+      const data = await loadJson(fetch, new URL(file.ref.path, base));
+      if (!Array.isArray(data.items)) throw new Error(`${file.ref.path}: no items`);
+      files[file.key] = { status: "ready", data };
+    } catch (error) {
+      files[file.key] = { status: "error", error };
+    }
+  }));
+  return { editions, issues, files };
 }
 
 const usable = (edition) =>
