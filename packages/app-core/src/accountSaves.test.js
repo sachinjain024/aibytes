@@ -1,6 +1,6 @@
 // The account store and the sign-in merge against the Firestore emulator, with
 // firestore.rules in force, so every read and write here is one the deployed
-// rules allow. Run by `npm run test:rules -w @aibytes/web`; under a plain
+// rules allow. Run by `npm run test:rules -w @aibytes/app-core`; under a plain
 // `npm test` there is no emulator, and these skip.
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
@@ -10,7 +10,7 @@ import { doc, getDoc, setDoc, Timestamp, waitForPendingWrites } from "firebase/f
 import { accountSaves, mergeInto } from "./accountSaves.js";
 
 const host = process.env.FIRESTORE_EMULATOR_HOST;
-const skip = host ? false : "needs the Firestore emulator: npm run test:rules -w @aibytes/web";
+const skip = host ? false : "needs the Firestore emulator: npm run test:rules -w @aibytes/app-core";
 
 const iso = (day) => `2026-11-0${day}T09:30:00.000Z`;
 const local = (item_id, day, from = { edition_date: "2026-11-06" }) => ({ item_id, ...from, created_at: iso(day) });
