@@ -496,7 +496,12 @@ real `index.js` with Firebase stubbed: the callable mints for the caller's uid
 (a `data.uid` is ignored), refuses the other two cases without minting, and no
 console or logger line carries the token. Adding a `console.info` of the token
 makes that test fail. Functions 10/10 (4 new). `README.md` has the IAM grant
-(2.5) and the deploy check (3.22); both are the publisher's. Not deployed.
+(2.5) and the deploy check (3.22); both are the publisher's. Both done
+25 Nov 2026: the runtime account is the default compute account, which now
+holds Token Creator on itself. The deploy created `aibytesExtensionToken` and
+updated `aibytesReportSubscribeFailure`, offered no deletion, and the function
+list went from 14 to 15 with nothing lost. A call with no sign-in gets 401
+`UNAUTHENTICATED`, "Sign in required."
 
 **Ticket 3.22 (publisher):** deploy with
 `firebase deploy --only functions:aibytes-web --project ai-bytes-b42d2`, check
