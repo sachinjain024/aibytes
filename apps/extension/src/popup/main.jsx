@@ -34,6 +34,7 @@ createRoot(document.getElementById("root")).render(
       fetch={fetchJson}
       site={site}
       openSaves={openSaves}
+      openTab={(url) => chrome.tabs.create({ url })}
       onSignIn={() => chrome.tabs.create({ url: site + ONBOARDING_PATH + "?step=signin" })}
       onFirstRender={onFirstRender}
     />

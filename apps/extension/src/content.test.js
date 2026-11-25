@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { inFeed } from "@aibytes/app-core/visibility.js";
 import { rankedItems } from "@aibytes/app-core/order.js";
-import { CACHE_KEY, Refused, loadJson, loadSaved, loadToday, readCache, todayItems, writeCache } from "./content.js";
+import { CACHE_KEY, Refused, loadGist, loadJson, loadSaved, loadToday, readCache, todayItems, writeCache } from "./content.js";
 
 const BASE = "https://aibytes.io/content/";
 const item = (id, source, extra = {}) => ({ id, source, category: "news", hidden: false, ...extra });
@@ -173,4 +173,27 @@ test("a named file that fails or is refused is an error for its section only", a
   assert.equal(files["edition:2026-11-23"].status, "error");
   assert.equal(files["issue:issue-18"].status, "error");
   assert.ok(files["issue:issue-18"].error instanceof Refused);
+});
+
+// A gist (T11): the file, or a reason to open the source instead.
+const gist = (slug, extra = {}) => ({ schema_version: 1, slug, kind: "repo", title: "T", sections: [], links: [], appearances: [], ...extra });
+
+test("loadGist reads gists/<slug>.json", async () => {
+  const { fetch, asked } = fakeFetch({ [BASE + "gists/gh-x.json"]: gist("gh-x") });
+  assert.equal((await loadGist({ fetch, base: BASE, slug: "gh-x" })).slug, "gh-x");
+  assert.deepEqual(asked, [BASE + "gists/gh-x.json"]);
+});
+
+test("loadGist rejects a missing file, an unknown schema_version, a file that is not JSON, and another gist's file", async () => {
+  await assert.rejects(loadGist({ fetch: fakeFetch({}).fetch, base: BASE, slug: "gh-x" }), /404/);
+  await assert.rejects(loadGist({ fetch: fakeFetch({ [BASE + "gists/gh-x.json"]: gist("gh-x", { schema_version: 2 }) }).fetch, base: BASE, slug: "gh-x" }), Refused);
+  const html = async () => ({ ok: true, status: 200, json: async () => { throw new SyntaxError("Unexpected token <"); } });
+  await assert.rejects(loadGist({ fetch: html, base: BASE, slug: "gh-x" }), SyntaxError);
+  await assert.rejects(loadGist({ fetch: fakeFetch({ [BASE + "gists/gh-x.json"]: gist("gh-y") }).fetch, base: BASE, slug: "gh-x" }), /not the gist/);
+});
+
+test("loadGist refuses a slug that would leave gists/", async () => {
+  const { fetch, asked } = fakeFetch({});
+  await assert.rejects(loadGist({ fetch, base: BASE, slug: "../index" }), /slug/);
+  assert.equal(asked.length, 0);
 });

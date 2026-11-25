@@ -387,14 +387,34 @@ and keep the list's scroll position for Back. One click handler opens every
 http(s) link with `chrome.tabs.create`.
 
 **Acceptance criteria:**
-- [ ] Back returns to Today or Saved at the same scroll position
-- [ ] A row without a gist, or with a missing gist file, opens its source in a new tab
-- [ ] No click (plain, modified, or on an appearance link) navigates the popup itself
+- [x] Back returns to Today or Saved at the same scroll position
+- [x] A row without a gist, or with a missing gist file, opens its source in a new tab
+- [x] No click (plain, modified, or on an appearance link) navigates the popup itself
 
 **Verification:** `npm test -w @aibytes/extension`; by hand, with
 chrome-devtools-mcp.
 
 **Dependencies:** T10. **Files:** `apps/extension/src/popup/{Popup,GistPanel}.jsx`, `src/content.js`, tests. **Scope:** M
+
+Done 25 Nov 2026. Extension 43/43 (6 new: `loadGist` and its refusals,
+`appearanceUrl`, `tabHref`). By hand, dev build, with `chrome.tabs.create`
+stubbed to record what it opens:
+- **A gist** opens once its file loads, with "← Today" or "← Saved", and the
+  action bar's Save/Saved follows the star. Back returns to Today at the same
+  `scrollTop` (900 before and after) and to Saved. The list stays mounted
+  under the gist, so Saved does not reload.
+- **A gist file that 404s** (forced for `hn-gemini-4-neon`) opens the item's
+  source in a tab, with `ref=aiBytes_` as the row's own link has, and the
+  popup stays on the list. Every row in the local editions has a gist, so a
+  row without one was not clicked; its title is a plain `target=_blank` link,
+  which the same handler opens.
+- **No click navigates the popup:** a Cmd-, Ctrl- and middle click on a gist
+  title, a row's source name, the wordmark, the footer's and the gist's View
+  on Web, the gist's Source and discussion links, and an "Appeared in" link
+  (no `target`) each became one `chrome.tabs.create`, with the default
+  prevented; the popup stayed on `popup.html`.
+- Reinstalling the unpacked build clears `chrome.storage.local`; the T10
+  restart check's star was put back.
 
 ## T12 [3.12]: the store zip
 

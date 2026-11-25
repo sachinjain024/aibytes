@@ -71,6 +71,18 @@ export async function loadSaved({ fetch, base, saves }) {
   return { editions, issues, files };
 }
 
+const SLUG = /^[a-z0-9][a-z0-9-]*$/;
+
+/** A gist file, gists/<slug>.json. Rejects on a 404, a body that is not JSON,
+ * an unknown schema_version, or a file for another slug: the popup then opens
+ * the item's source instead. */
+export async function loadGist({ fetch, base, slug }) {
+  if (typeof slug !== "string" || !SLUG.test(slug)) throw new Error(`not a gist slug: ${slug}`);
+  const gist = await loadJson(fetch, new URL(`gists/${slug}.json`, base));
+  if (gist.slug !== slug) throw new Error(`gists/${slug}.json: not the gist ${slug}`);
+  return gist;
+}
+
 const usable = (edition) =>
   Boolean(edition) && typeof edition === "object" && edition.schema_version === 1 &&
   typeof edition.date === "string" && isRealDate(edition.date) && Array.isArray(edition.items);
