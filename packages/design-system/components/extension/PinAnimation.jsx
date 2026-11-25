@@ -15,7 +15,9 @@ function prefersReduced() {
 }
 
 export function PinAnimation({ captions, reducedMotion, label = "Animation: select the puzzle icon, then the pin next to aiBytes_" }) {
-  const [reduce, setReduce] = React.useState(reducedMotion ?? false);
+  // Read the media query on the first render, so a reader who asked for reduced
+  // motion never sees one animated paint; the effect keeps it in step after.
+  const [reduce, setReduce] = React.useState(() => reducedMotion ?? prefersReduced());
   React.useEffect(() => { if (reducedMotion === undefined) setReduce(prefersReduced()); }, [reducedMotion]);
   const [tick, setTick] = React.useState(0);
   React.useEffect(() => {

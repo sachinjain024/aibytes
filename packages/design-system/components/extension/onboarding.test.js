@@ -51,6 +51,21 @@ test('the animation starts on frame one, with its caption', () => {
   assert.doesNotMatch(html, /<ol/);
 });
 
+test('without the prop, the first paint already follows prefers-reduced-motion', (t) => {
+  // renderToStaticMarkup runs no effects: what it renders is the first paint.
+  const had = Object.getOwnPropertyDescriptor(globalThis, 'matchMedia');
+  t.after(() => (had ? Object.defineProperty(globalThis, 'matchMedia', had) : delete globalThis.matchMedia));
+  const media = (matches) => Object.defineProperty(globalThis, 'matchMedia', { configurable: true, writable: true,
+    value: (q) => ({ matches: matches && q === '(prefers-reduced-motion: reduce)', media: q }) });
+  media(true);
+  const reduced = h(PinAnimation, { captions: CAPTIONS });
+  assert.match(reduced, /<ol class="ldg-pinanim__steps">/);
+  assert.match(reduced, /ldg-pinanim__icon--new/);
+  media(false);
+  assert.doesNotMatch(h(PinAnimation, { captions: CAPTIONS }), /<ol/);
+  assert.doesNotMatch(h(PinAnimation, { captions: CAPTIONS, reducedMotion: false }), /<ol/, 'the prop still wins');
+});
+
 test('under reduced motion it shows the last frame still and every caption as a numbered list', () => {
   const html = h(PinAnimation, { captions: CAPTIONS, reducedMotion: true });
   assert.match(html, /ldg-pinanim__icon--new/, 'the pinned icon of the last frame');
