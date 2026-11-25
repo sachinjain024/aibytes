@@ -228,14 +228,37 @@ and `src/background.js`, plus `manifest.config.js` (mode-aware: the `key`,
 `install` only. The popup shows a placeholder header.
 
 **Acceptance criteria:**
-- [ ] Loaded unpacked, the ID is `faamldnehjdjdobapchedpmldfjjfife`
-- [ ] The manifest test passes: `storage` only, no `host_permissions`, `key` present
-- [ ] `onInstalled` opens the URL on `install` and not on `update` (fake `chrome`); no request goes to Google Fonts
+- [x] Loaded unpacked, the ID is `faamldnehjdjdobapchedpmldfjjfife`
+- [x] The manifest test passes: `storage` only, no `host_permissions`, `key` present
+- [x] `onInstalled` opens the URL on `install` and not on `update` (fake `chrome`); no request goes to Google Fonts
 
 **Verification:** `npm test -w @aibytes/extension`, `npm run dev:extension`,
 then load it in `chrome://extensions`.
 
 **Dependencies:** T3, T4. **Files:** `apps/extension/{package.json,vite.config.js,manifest.config.js,popup.html,src/popup/main.jsx,src/background.js,*.test.js}`, `.gitignore`. **Scope:** M
+
+**Done 25 Nov 2026.** `build.test.js` builds into a temp dir in both modes: in
+production, the permissions are `storage` only, with no `host_permissions` or
+`externally_connectable`. The ID derived from the `key` (SHA-256 of the DER
+key, mapped to a–p) is the store's. Every file the manifest names is in the
+build, with seven woff2 files, no Google Fonts or localhost reference and no
+source maps. The dev build points at `localhost:5173` with the same ID.
+`install.test.js`: `install` opens onboarding; `update`, `chrome_update` and
+`shared_module_update` open nothing. The plugins are in `build-plugins.js` so
+the tests can drive them: `bundledFonts` (`enforce: "pre"`, before Vite
+inlines `@import`) strips Ledger's Google Fonts line, `src/fonts.css` declares
+the seven Latin faces from `@fontsource`, and `extensionManifest` emits
+`manifest.json` and Ledger's PNGs. The dev build is named "aiBytes (dev)".
+`.gitignore` already covers `dist/` and `*.zip`. Version 0.1.0 until T23 sets
+`YY.M.D`. In Chrome, through chrome-devtools-mcp: the unpacked dev build
+installed as `faamldnehjdjdobapchedpmldfjjfife` and opened
+`localhost:5173/extension-onboarding` once; the popup renders the header with
+the bundled fonts, follows the OS theme (dark), and logs nothing to the console.
+The publisher's second profile keeps the store's 26.1.15, and one DevTools
+connection sees both profiles, so a reload or the action can land on the store
+copy. Open `chrome-extension://<id>/popup.html` directly to reach the dev
+build. `CHROMEWEBSTORE.md` is started. Suites: extension 11/11, app-core 40,
+web 161 and design-system 121, all unchanged.
 
 ## T8 [3.8]: the sign-in gate
 
