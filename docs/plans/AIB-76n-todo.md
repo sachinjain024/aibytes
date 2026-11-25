@@ -443,10 +443,28 @@ clean-profile install was the publisher's check, 25 Nov 2026: the zip loaded
 in a fresh profile and showed today's edition from aibytes.io.
 
 ### Checkpoint 2
-- [ ] extension-popup's success criteria 1 to 5, 7 and 8
-- [ ] The production manifest's permissions equal T8's frozen set (criterion 6,
+- [x] extension-popup's success criteria 1 to 5, 7 and 8
+- [x] The production manifest's permissions equal T8's frozen set (criterion 6,
   "storage only", is T7's check, before the gate can add a host permission)
-- [ ] The gate's result is recorded (T8)
+- [x] The gate's result is recorded (T8)
+
+Passed 25 Nov 2026:
+- 1, the ID: T7, and the clean-profile zip at T12.
+- 2, the cache paint: T9, within 100 ms except on the first open after an
+  install or update (132–141 ms).
+- 3, Today against aibytes.io: T9.
+- 4, Saved against `/saved`: T10.
+- 5, a star across a Chrome restart: T10.
+- 7, onboarding: the fresh install opened it once (T7). For the update,
+  `chrome.runtime.reload()` from the dev build's worker opened no
+  `extension-onboarding` tab in any window; the new worker went idle, as
+  Chrome's extensions page showed. `install.test.js` covers `update`,
+  `chrome_update` and `shared_module_update`.
+- 8: extension 46/46.
+- The permissions: `build.test.js` asserts `["storage"]` with no host
+  permissions, and the T12 zip's manifest carries the same.
+- The gate: extension-auth's "The gate's result (25 Nov 2026): pass, no host
+  permission".
 
 ---
 
