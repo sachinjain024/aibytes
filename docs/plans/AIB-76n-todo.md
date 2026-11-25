@@ -425,11 +425,22 @@ frozen set (`storage`, and any host permission the gate added).
 
 **Acceptance criteria:**
 - [ ] The zip installs by drag-and-drop in a clean profile with the same ID
-- [ ] The zip has no source maps, no localhost, and no dev-only files
+- [x] The zip has no source maps, no localhost, and no dev-only files
 
 **Verification:** `npm run package:extension`, then `unzip -l`.
 
 **Dependencies:** T11. **Files:** `apps/extension/{package.json,CHROMEWEBSTORE.md}`, `.gitignore`. **Scope:** S
+
+Built 25 Nov 2026. `apps/extension/package.js` builds in a temp folder, not in
+`dist/`: the dev profile loads `dist/` unpacked, and a production build there
+would point it at aibytes.io. Before zipping it refuses a source map, any file
+naming `localhost` or a source map, and any file outside an allow-list
+(manifest, `popup.html`, `background.js`, icons, built js/css/woff2).
+`.gitignore` already had `*.zip`. Extension 46/46 (3 new). By hand:
+`aibytes-extension-0.1.0.zip` is 19 files, manifest at the root, the key
+giving `faamldnehjdjdobapchedpmldfjjfife`, permissions `["storage"]`. The
+clean-profile install is the publisher's check: installing it here would
+replace the dev build in the publisher's own Chrome.
 
 ### Checkpoint 2
 - [ ] extension-popup's success criteria 1 to 5, 7 and 8
