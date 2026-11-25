@@ -82,6 +82,42 @@ existing users must accept it). If step 1 fails in the worker for any other
 reason, use the fallback in "Risks". The result is written into this spec
 before the module goes on.
 
+### The gate's result (25 Nov 2026): pass, no host permission
+
+Run in Chrome stable on the macOS dev machine, from the unpacked dev build
+(`aiBytes (dev)`, ID `faamldnehjdjdobapchedpmldfjjfife`, permissions
+`["storage"]`, no `host_permissions`). The wiring was a throwaway
+`src/gate.js`, driven through chrome-devtools-mcp and never committed; only
+`src/firebase.js` stays.
+
+| Step | Result |
+|---|---|
+| 1. `signInWithCustomToken` in the worker | **Pass.** Signed in as the publisher's uid (a Google account) |
+| 2. Firestore read and write at `users/{uid}/saves` (database `aibytes`) | **Pass.** Read the 14 saves, wrote a test save, read it back, deleted it |
+| 3. Worker stopped (the extension reloaded, a new worker), then the popup | **Pass.** The popup's and the new worker's `onAuthStateChanged` both report the same uid with no new token, and the restarted worker reads and writes again |
+| 4. `displayName` and `photoURL` | **Pass.** Both present: a custom-token sign-in keeps the Google profile already on the account |
+
+There was no CORS failure, so no host permission was needed and there is no
+install warning. `chrome.storage.local` and `chrome.storage.session` were empty
+afterwards: the session lives in Firebase's IndexedDB, as intended. The
+fallback in "Risks" is **not** needed: the worker signs in, and the merge
+runs in the worker.
+
+**The token for the gate** was minted on the dev machine by IAM `signJwt` as
+`firebase-adminsdk-fbsvc@ai-bytes-b42d2.iam.gserviceaccount.com`, using the
+publisher's gcloud application-default login. The publisher was granted *Service
+Account Token Creator* on that account for the gate and removed again
+afterwards. The token went from a mode-600 file under the git-ignored `.cache/`
+straight into the worker, and was deleted after use. It never reached a
+terminal, a log, the repo or `chrome.storage`.
+
+**The frozen permission set:** `permissions: ["storage"]`, no
+`host_permissions` and no `optional_permissions`. T14 adds
+`externally_connectable` (`https://aibytes.io/*`, plus `http://localhost:5173/*`
+in the dev build only). That is a manifest key, not a permission, and it brings
+no warning. `apps/extension/build.test.js` asserts the set, and T14 changes
+its `externally_connectable` check to expect exactly those matches.
+
 ## The callable
 
 `functions/index.js`, beside `aibytesReportSubscribeFailure`:

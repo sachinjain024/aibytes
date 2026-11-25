@@ -1,8 +1,10 @@
 // The built extension (spec AIB-76n extension-popup, testing strategy): a
 // production build's manifest asks for `storage` only, carries the key that
 // gives the store's ID, and nothing in dist/ reaches for Google Fonts.
-// extension-auth's test of the frozen permission set replaces the permission
-// check once it lands (T14).
+// The permission set was frozen by extension-auth's gate on 25 Nov 2026:
+// `storage`, no host permissions. A new permission with a warning disables the
+// extension for its existing users, so this test changes only with the
+// publisher's yes. T14 adds externally_connectable, a manifest key that brings no warning.
 import test from "node:test";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";

@@ -15,7 +15,9 @@ never enters this repo.
 
 Every permission in the production manifest, with a specific reason. A
 permission with an install warning disables the extension for the existing
-users; none of these show one. The set is frozen at T8 (extension-auth). Do
+users; none of these show one. The set was frozen at T8 on 25 Nov 2026 as
+`storage` alone: the sign-in gate passed with no host permission
+(extension-auth, "The gate's result"). Do
 not add another without the publisher's yes.
 
 | Permission | Type | Warning | Why |

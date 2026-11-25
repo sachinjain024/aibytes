@@ -270,14 +270,32 @@ Check that the profile fields are there. This is throwaway wiring: only
 `firebase.js` stays.
 
 **Acceptance criteria:**
-- [ ] The result is recorded in extension-auth's gate section: pass or fail per step, and any host permission with its warning
-- [ ] The frozen permission set is written into the spec and the manifest test
-- [ ] If the worker can't sign in, the spec states that the fallback is in force
+- [x] The result is recorded in extension-auth's gate section: pass or fail per step, and any host permission with its warning
+- [x] The frozen permission set is written into the spec and the manifest test
+- [x] If the worker can't sign in, the spec states that the fallback is in force (it can; the spec says the fallback is not needed)
 
 **Verification:** by hand in Chrome stable; no token in the repo, a log or
 `chrome.storage.local`.
 
 **Dependencies:** T7, ticket items 2.1 and 2.2. **Files:** `apps/extension/{package.json,src/firebase.js}`, `docs/specs/AIB-76n-extension-auth.md`. **Scope:** S
+
+**Done 25 Nov 2026.** All four steps pass with `storage` alone, so the set is
+frozen as `storage` with no host permissions, and the merge stays in the
+worker. The result table is in extension-auth's "The gate's result".
+Item 2.2 came first (the key's restriction is in the spec's "As set" note).
+The token was minted with IAM `signJwt` as the Firebase Admin service account,
+from the publisher's gcloud login (the Google Cloud CLI installed from Google's
+arm64 archive into `~/google-cloud-sdk`, since Homebrew's cask failed to build
+Python's OpenSSL under Rosetta). A Token Creator grant to the publisher on that
+account was added for the gate and removed after it. The token passed from a
+mode-600 file in `.cache/` to the worker through chrome-devtools-mcp, and was
+deleted after use. The gate's own wiring (`src/gate.js`, exposed on
+`self.aibytesGate`) is removed; `src/firebase.js` (Auth from
+`firebase/auth/web-extension`, the `aibytes` database) and the `firebase` and
+`@aibytes/app-core` dependencies stay. Nothing imports `firebase.js` yet, so
+the build is unchanged until T15. The dev build in the publisher's dev profile
+stays signed in as the publisher, which T15 can use. `build.test.js` now
+states the frozen set; extension 11/11.
 
 ## T9 [3.9]: Today's edition in the popup
 
