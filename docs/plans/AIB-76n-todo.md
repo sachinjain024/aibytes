@@ -349,7 +349,7 @@ for `localSaves`. Stars on rows. Saved through `filesToLoad`, `savedGroups` and
 `leftOutNote`, with `weekly/index.json`, weekly sections, and the empty copy.
 
 **Acceptance criteria:**
-- [ ] A star survives closing the popup and restarting Chrome
+- [x] A star survives closing the popup and restarting Chrome
 - [x] Saved equals `/saved` for the same saves
 - [x] Adapter tests: load, write-through, and an outside change raising `storage`
 
@@ -357,7 +357,7 @@ for `localSaves`. Stars on rows. Saved through `filesToLoad`, `savedGroups` and
 
 **Dependencies:** T2, T9. **Files:** `apps/extension/src/{extensionStorage.js,popup/Popup.jsx}`, tests. **Scope:** M
 
-Built 25 Nov 2026; the Chrome restart is the publisher's check. Extension
+Built 25 Nov 2026. Extension
 37/37 (12 new: 8 for the adapter, 4 for `loadSaved`). By hand, dev build:
 - **Saved against `/saved`:** the same eight saves were written to the signed-out
   `localhost:5173` and to `chrome.storage.local`. Two editions, a weekly issue
@@ -366,8 +366,8 @@ Built 25 Nov 2026; the Chrome restart is the publisher's check. Extension
   removed from its edition" note. The test saves were removed afterwards.
 - **A star:** filled at once, counted in the header, written to
   `chrome.storage.local`, and still filled after closing and reopening the
-  popup. The Chrome restart is not checked yet: one star (obra/superpowers)
-  is left for it.
+  popup. After the publisher restarted Chrome, the obra/superpowers star was
+  still in `chrome.storage.local` with its original `created_at`.
 - **An outside change** (a write or a removal in `chrome.storage.local`, as the
   background's merge will make) updates an open popup at once, down to the
   empty Saved copy.
