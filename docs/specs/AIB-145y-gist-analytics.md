@@ -124,11 +124,17 @@ export function track(name, data) {
 }
 ```
 
-**Events (only one in release 1):**
+**Events:**
 
 | Event | Data | Sent by | Task |
 |---|---|---|---|
+| `extension-promo-click` | none | "Add to Chrome" in the sidebar's install box (AIB-76n site-extension) | AIB-76n T20 |
+| `extension-promo-dismiss` | none | "Not now" in the install box | AIB-76n T20 |
+| `extension-onboarding-step` | `{ step, outcome }`: `step` is `pin` or `signin`, `outcome` is `done` or `skipped` | each step of /extension-onboarding finishing | AIB-76n T19 |
+| `extension-onboarding-subscribe` | `{ outcome }`: `ok` or `failed` | the onboarding page's newsletter subscribe settling | AIB-76n T19 |
 | `gist-panel-open` | `{ slug, page }`, where `page` is `daily` or `weekly` | the panel opening from a card | T29 |
+
+None of the AIB-76n events carries an email, a uid or a token.
 
 Event names are kebab-case and listed in this table before they are sent.
 

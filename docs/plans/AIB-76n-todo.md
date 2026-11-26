@@ -718,13 +718,38 @@ error lines. The sign-out view. Done. Add the four Umami events to AIB-145y's
 table first, then send them.
 
 **Acceptance criteria:**
-- [ ] A fresh dev install: pinning ticks step 1 within 2 s; signing in signs the popup in and subscribes
-- [ ] Sign out in the popup leads to the site signed out, the extension signed out, and the signed-out view; opening the URL by hand does nothing
-- [ ] Light and dark, 1280 and 390, keyboard only
+- [x] A fresh dev install: pinning ticks step 1 within 2 s; signing in signs the popup in and subscribes
+- [x] Sign out in the popup leads to the site signed out, the extension signed out, and the signed-out view; opening the URL by hand does nothing
+- [x] Light and dark, 1280 and 390, keyboard only
 
 **Verification:** (A), (B); by hand with chrome-devtools-mcp.
 
 **Dependencies:** T15, T17, T18. **Files:** `apps/web/src/{ExtensionOnboarding.jsx,onboarding.js,analytics.js}`, `docs/specs/AIB-145y-gist-analytics.md`, tests. **Scope:** M
+
+Built 26 Nov 2026. The four events are in AIB-145y's table first;
+`onboardingEvents(prev, next)` (pure) sends a step's `done` or `skipped` and
+the subscribe's `ok` or `failed`, never the reader. `useOnboardingEffects`: the
+`pin` port plus a 2 s status poll on step 1; after any reconcile for the
+site's reader, one `status` read decides whether the extension is signed in
+as them; the subscribe with `source: "extension-onboarding"` when the box was
+ticked at sign-in (a failure reported with `page: "extension-onboarding"`);
+the popup's sign-out (site `signOut()`, then `{ type: "signout" }`). The
+site's account gained `signIn({ selectAccount })` (returns its result),
+`extensionSync`/`syncExtension` and `subscribeWith`. "Continue as" and "Use a
+different account" never subscribe: no box is on screen there. A step change
+puts focus on the column, not the body. Web 216/216 (6 new). Live: the
+popup's Sign out opened `?action=signout`, which signed the site out and
+cleared the flag (`uid: null, signoutPending: false`) and showed the
+signed-out view; light and dark at 1280 and 390 match the kit (dark's grey
+checkbox is Ledger's dark `--accent`); keyboard only, every control has the
+2px ring, Space toggles the box and Enter skips. A fresh install, unpinned:
+pinning ticked step 1 by itself, and the Google sign-in with the box ticked
+signed the extension in and wrote `subscribers/{uid}` with
+`source: "extension-onboarding"` (The Infin8y, now a subscriber). The rules
+were deployed first (3.23). The tab reloaded mid-run, so the pin-to-tick time
+and the events were not captured live: Chrome 158 has
+`onUserSettingsChanged`, so the port posts at once, and the poll bounds it at
+2 s; the events are unit-tested.
 
 ## T20 [3.20]: the install box
 

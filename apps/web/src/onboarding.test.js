@@ -142,6 +142,13 @@ test("the extension's failure stays on step 2 with the error", () => {
   assert.equal(s.next, null);
 });
 
+test("Continue as and a different account never subscribe: no box was on screen", () => {
+  const s = run(loaded("?step=signin", STATUS, ADA), { type: "signin", newsletter: false });
+  assert.equal(s.box, true);
+  assert.equal(s.wantsNewsletter, false);
+  assert.equal(reduce(s, { type: "extension", ok: true }).next, 3);
+});
+
 test("a sign-in that was cancelled leaves the button", () => {
   const s = run(loaded("?step=signin"), { type: "signin" }, { type: "signinFailed" });
   assert.equal(s.wantsNewsletter, false);
@@ -181,4 +188,49 @@ test("loaded only once; unknown actions change nothing", () => {
   const s = loaded("");
   assert.equal(reduce(s, { type: "loaded", status: null, user: null }), s);
   assert.equal(reduce(s, { type: "nope" }), s);
+});
+
+// Analytics (spec site-extension, "Analytics"): one event per step finishing,
+// and the subscribe's outcome. No email, uid or token in any of them.
+import { onboardingEvents } from "./onboarding.js";
+
+test("events: pinning, then sign-in, each step done", () => {
+  let s = loaded("");
+  const pinned = reduce(s, { type: "pinned" });
+  assert.deepEqual(onboardingEvents(s, pinned), []);
+  s = reduce(pinned, { type: "advance" });
+  assert.deepEqual(onboardingEvents(pinned, s), [["extension-onboarding-step", { step: "pin", outcome: "done" }]]);
+  const signedIn = run(s, { type: "box" }, { type: "signin" }, { type: "user", user: ADA }, { type: "extension", ok: true });
+  const done = reduce(signedIn, { type: "advance" });
+  assert.deepEqual(onboardingEvents(signedIn, done), [["extension-onboarding-step", { step: "signin", outcome: "done" }]]);
+});
+
+test("events: skips are reported as skipped", () => {
+  const s = loaded("");
+  const two = reduce(s, { type: "skip" });
+  assert.deepEqual(onboardingEvents(s, two), [["extension-onboarding-step", { step: "pin", outcome: "skipped" }]]);
+  const three = reduce(two, { type: "skip" });
+  assert.deepEqual(onboardingEvents(two, three), [["extension-onboarding-step", { step: "signin", outcome: "skipped" }]]);
+});
+
+test("events: the subscribe's outcome, each time it settles", () => {
+  const saving = run(loaded("?step=signin"), { type: "signin" }, { type: "user", user: ADA }, { type: "subscribing" });
+  const failed = reduce(saving, { type: "subscribed", ok: false });
+  assert.deepEqual(onboardingEvents(saving, failed), [["extension-onboarding-subscribe", { outcome: "failed" }]]);
+  const again = reduce(failed, { type: "subscribing" });
+  assert.deepEqual(onboardingEvents(again, reduce(again, { type: "subscribed", ok: true })), [["extension-onboarding-subscribe", { outcome: "ok" }]]);
+});
+
+test("events: arriving at a step, or the page loading, reports nothing", () => {
+  const start = initialOnboarding("?step=signin");
+  assert.deepEqual(onboardingEvents(start, reduce(start, { type: "loaded", status: STATUS, user: null })), []);
+  const both = loaded("", { ...STATUS, pinned: true, uid: "u1" }, ADA);
+  assert.deepEqual(onboardingEvents(initialOnboarding(""), both), []);
+});
+
+test("events never carry the reader", () => {
+  const s = run(loaded("?step=signin"), { type: "signin" }, { type: "user", user: { uid: "u-secret", name: "Ada", email: "ada@example.com" } }, { type: "extension", ok: true }, { type: "subscribing" });
+  const end = run(s, { type: "subscribed", ok: true }, { type: "advance" });
+  const sent = JSON.stringify([...onboardingEvents(s, reduce(s, { type: "subscribed", ok: true })), ...onboardingEvents(reduce(s, { type: "subscribed", ok: true }), end)]);
+  assert.doesNotMatch(sent, /u-secret|ada@example\.com|Ada/);
 });

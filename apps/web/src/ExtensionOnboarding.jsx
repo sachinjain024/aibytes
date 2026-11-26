@@ -3,17 +3,18 @@
 // centred column, no sidebar. onboarding.js holds the steps; this file draws
 // them, as Ledger's kit (ui_kits/aibytes-app/Onboarding.jsx) does.
 //
-// Effects here: the extension's status and the site's reader, read once, and
-// the 900 ms pause before the next step. The handlers (`on`) are given by the
-// caller: pinning, signing in, subscribing and signing out are T19's.
+// useOnboarding reads the extension's status and the site's reader once, and
+// runs the 900 ms pause before the next step; useOnboardingEffects does the
+// rest: the pin, the sign-in, the subscribe, the sign-out and the events.
 import React from "react";
 import { AppHeader } from "@aibytes/design-system/components/navigation/AppHeader.jsx";
 import { Button } from "@aibytes/design-system/components/forms/Button.jsx";
 import { ExtensionIcon } from "@aibytes/design-system/components/extension/ExtensionIcon.jsx";
 import { OnboardingStatus, OnboardingStep } from "@aibytes/design-system/components/extension/OnboardingStep.jsx";
 import { PinAnimation } from "@aibytes/design-system/components/extension/PinAnimation.jsx";
-import { initialOnboarding, onboardingReducer } from "./onboarding.js";
-import { extensionStatus } from "./extensionBridge.js";
+import { initialOnboarding, onboardingEvents, onboardingReducer } from "./onboarding.js";
+import { EXTENSION_ID, extensionStatus, sendToExtension } from "./extensionBridge.js";
+import { track } from "./analytics.js";
 import { EXTENSION_LIVE, STORE_URL } from "./extension.js";
 import { t } from "./copy/extension.js";
 import { PROMPT_COPY } from "./newsletterPrompt.js";
@@ -34,7 +35,7 @@ export function useOnboarding(user, { search = globalThis.location?.search ?? ""
   React.useEffect(() => {
     if (!known) return undefined;
     let live = true;
-    status().then((s) => { if (live) dispatch({ type: "loaded", status: s, user: user ?? null }); });
+    status().then((s) => { if (live) dispatch({ type: "loaded", status: s, user: readerOf(user) }); });
     return () => { live = false; };
   }, [known]); // eslint-disable-line react-hooks/exhaustive-deps
   React.useEffect(() => {
@@ -45,15 +46,118 @@ export function useOnboarding(user, { search = globalThis.location?.search ?? ""
   return [state, dispatch];
 }
 
+export const PIN_POLL_MS = 2000;
+
+/** The site's reader as the steps need it, or null: never the email. */
+const readerOf = (user) => (user ? { uid: user.uid, name: user.name } : null);
+
+/**
+ * What the page does (T19), given the site's account (AccountContext):
+ * listens for the pin, follows the site's reader and the extension's sign-in,
+ * subscribes when the box was ticked, carries out a sign-out the popup asked
+ * for, and sends the analytics events. Returns the handlers for `on`.
+ */
+export function useOnboardingEffects(state, dispatch, account, {
+  runtime = globalThis.chrome?.runtime,
+  status = extensionStatus,
+  send = sendToExtension,
+  track: send_event = track,
+} = {}) {
+  const { user, extensionSync, syncExtension, subscribeWith, signIn, signOut } = account;
+
+  // Step 1: the extension's "pin" port posts each toolbar change (Chrome 130+);
+  // a status poll every 2 s covers a Chrome whose port stays quiet.
+  const waitingForPin = state.view === "steps" && state.step === 1 && !state.pinned;
+  React.useEffect(() => {
+    if (!waitingForPin) return undefined;
+    let port = null;
+    try {
+      port = runtime?.connect?.(EXTENSION_ID, { name: "pin" }) ?? null;
+      port?.onMessage.addListener((message) => { if (message?.pinned === true) dispatch({ type: "pinned" }); });
+    } catch {
+      port = null;
+    }
+    const id = setInterval(() => status().then((s) => { if (s?.pinned === true) dispatch({ type: "pinned" }); }), PIN_POLL_MS);
+    return () => {
+      clearInterval(id);
+      try { port?.disconnect(); } catch { /* already gone */ }
+    };
+  }, [waitingForPin]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // The site's reader, after the page has loaded with the first one.
+  const reader = readerOf(user);
+  const readerUid = reader?.uid ?? null;
+  React.useEffect(() => {
+    if (state.view === "loading" || state.view === "signingout" || user === undefined) return;
+    if ((state.user?.uid ?? null) !== readerUid) dispatch({ type: "user", user: reader });
+  }, [readerUid, state.view]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // After any reconcile for this reader, ask the extension who it is signed in as.
+  React.useEffect(() => {
+    if (!readerUid || extensionSync?.uid !== readerUid || extensionSync.action === "absent") return undefined;
+    let live = true;
+    status().then((s) => { if (live) dispatch({ type: "extension", ok: s?.uid === readerUid }); });
+    return () => { live = false; };
+  }, [extensionSync]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // The newsletter, when the box was ticked at sign-in.
+  const subscribe = React.useCallback(() => {
+    dispatch({ type: "subscribing" });
+    subscribeWith("extension-onboarding", "extension-onboarding").then((result) => dispatch({ type: "subscribed", ok: result === "ok" }));
+  }, [subscribeWith, dispatch]);
+  React.useEffect(() => {
+    if (state.wantsNewsletter && state.user && state.newsletter === null) subscribe();
+  }, [state.wantsNewsletter, state.user?.uid, state.newsletter]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // The popup's Sign out (only with signoutPending, see onboarding.js): the
+  // site signs out, then { type: "signout" } clears the extension's flag.
+  React.useEffect(() => {
+    if (state.view !== "signingout") return;
+    Promise.resolve(signOut()).catch(() => {}).then(() => send({ type: "signout" })).then(() => dispatch({ type: "signedOut" }));
+  }, [state.view]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Analytics: each step finishing, and the subscribe settling.
+  const previous = React.useRef(state);
+  React.useEffect(() => {
+    for (const [name, data] of onboardingEvents(previous.current, state)) send_event(name, data);
+    previous.current = state;
+  }, [state]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const startSignIn = React.useCallback((options, newsletter) => {
+    dispatch({ type: "signin", newsletter });
+    signIn(options).then((r) => { if (r?.status !== "ok") dispatch({ type: "signinFailed" }); });
+  }, [signIn, dispatch]);
+
+  return {
+    // After a sign-out the reader may want another account: Google shows its picker.
+    signIn: () => startSignIn({ selectAccount: state.view === "signedout" }),
+    // Signed in on the site already: a fresh token for this reader.
+    continueAs: () => { dispatch({ type: "signin", newsletter: false }); syncExtension(readerUid); },
+    // Both in the click, so the popup is not blocked; the reconcile follows the new reader.
+    switchAccount: () => { signOut(); startSignIn({ selectAccount: true }, false); },
+    retrySubscribe: subscribe,
+  };
+}
+
 /**
  * state/dispatch: useOnboarding. headerProps: the site header's account props.
  * on: { signIn, continueAs, switchAccount, retrySubscribe }, the effects T19 wires.
  */
 export function ExtensionOnboarding({ state, dispatch, theme, onToggleTheme, githubUrl, headerProps = {}, on = {} }) {
+  // A step change removes the control that had focus; keyboard focus would fall
+  // to the body. Put it on the column, so the next Tab reaches the new step.
+  const main = React.useRef(null);
+  const shown = `${state.view}:${state.step}`;
+  const first = React.useRef(shown);
+  React.useEffect(() => {
+    if (shown === first.current) return;
+    const active = document.activeElement;
+    if (!active || active === document.body) main.current?.focus({ preventScroll: true });
+  }, [shown]);
   return (
     <div className="app-shell redesign" data-theme={theme}>
       <AppHeader theme={theme} onToggleTheme={onToggleTheme} githubUrl={githubUrl} {...headerProps} />
-      <main id="main" className="ldg-onb" tabIndex={-1}>
+      <main id="main" className="ldg-onb" tabIndex={-1} ref={main}>
         <Body state={state} dispatch={dispatch} on={on} />
       </main>
     </div>

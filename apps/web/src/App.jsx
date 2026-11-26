@@ -36,7 +36,7 @@ import { gistHead, ONBOARDING_HEAD } from "./pageMeta.js";
 import { failureReport, initialPrompt, promptReducer, shouldOpenPrompt } from "./newsletterPrompt.js";
 import { NEWSLETTER_PRIVACY, showSubscribeOptions } from "./subscribeOptions.js";
 import { oneAtATime, reconcile } from "./extensionBridge.js";
-import { ExtensionOnboarding, useOnboarding } from "./ExtensionOnboarding.jsx";
+import { ExtensionOnboarding, useOnboarding, useOnboardingEffects } from "./ExtensionOnboarding.jsx";
 import { editionPath, gistParam, gistPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, savedPath, weeklyPath } from "./route.js";
 
 // The sidebar's links: live ones first, then those not live yet. GitHub is
@@ -71,7 +71,7 @@ function useLocation() {
 // sign-in added, shown once on /saved; `signInFailed` shows the error line until
 // the next try or page.
 const AccountContext = React.createContext({
-  user: null, merged: 0, signInFailed: false, subscribed: undefined, prompt: null, reactionStore: null,
+  user: null, extensionSync: null, syncExtension: async () => ({ action: "absent" }), subscribeWith: async () => ({ failed: "unauthenticated" }), merged: 0, signInFailed: false, subscribed: undefined, prompt: null, reactionStore: null,
   signIn() {}, signOut() {}, dismiss() {}, clearMerged() {}, subscribe() {}, closePrompt() {},
 });
 
@@ -116,6 +116,8 @@ function useAccount() {
   // Set when this click's sign-in is a new account. The prompt opens once that
   // reader's email is known. A session restored on load never sets it.
   const [pendingNew, setPendingNew] = React.useState(false);
+  // The last reconcile with the extension: { uid, action, ok?, code? } (AIB-76n).
+  const [extensionSync, setExtensionSync] = React.useState(null);
   React.useEffect(() => afterPaint(() => loadFirebase().then(setFb, (e) => {
     console.warn("Could not load sign-in:", e);
     setUser(null);
@@ -150,10 +152,14 @@ function useAccount() {
   // sign-in and sign-out. Only with Firebase loaded: a failed load sets user to
   // null meaning "unknown", which must never sign the extension out.
   const restoring = user === undefined;
+  const syncExtension = React.useCallback((forUid) => reconcileExtension(forUid ? { uid: forUid } : null).then((result) => {
+    setExtensionSync({ uid: forUid ?? null, ...result });
+    return result;
+  }), []);
   React.useEffect(() => {
     if (!fb || restoring) return;
-    reconcileExtension(uid ? { uid } : null);
-  }, [fb, uid, restoring]);
+    syncExtension(uid);
+  }, [fb, uid, restoring, syncExtension]);
   // One read of subscribers/{uid} per signed-in session. Success sets it true
   // without waiting for another read.
   React.useEffect(() => {
@@ -189,29 +195,45 @@ function useAccount() {
       if (report) import("./reportFailure.js").then(({ reportFailure }) => reportFailure(report.code, report.page)).catch(() => {});
     });
   }, [fb, user]);
+  // A subscribe from somewhere other than the prompt (the extension's onboarding):
+  // resolves to "ok" or { failed }, and reports a failure as the prompt does.
+  const subscribeWith = React.useCallback((source, page) => {
+    if (!fb || !user?.uid) return Promise.resolve({ failed: "unauthenticated" });
+    return fb.subscribe(fb.db, user, { source }).then((result) => {
+      if (result === "ok") setSubscribed(true);
+      const report = failureReport(result, page);
+      if (report) import("./reportFailure.js").then(({ reportFailure }) => reportFailure(report.code, report.page)).catch(() => {});
+      return result;
+    });
+  }, [fb, user]);
   const account = React.useMemo(() => ({
     user,
+    extensionSync,
+    syncExtension,
+    subscribeWith,
     merged,
     signInFailed: failed,
     subscribed,
     prompt,
     reactionStore,
-    signIn() {
+    // Resolves to the sign-in's { status, isNew }. options: { selectAccount }.
+    signIn(options) {
       setFailed(false);
       // Loaded already, the popup opens within the click; a load that failed
       // earlier is retried, and the popup may then be blocked, which shows the error.
-      const result = fb ? fb.signIn() : loadFirebase().then((loaded) => { setFb(loaded); return loaded.signIn(); }, () => ({ status: "failed", isNew: false }));
-      result.then((r) => {
+      const result = fb ? fb.signIn(options) : loadFirebase().then((loaded) => { setFb(loaded); return loaded.signIn(options); }, () => ({ status: "failed", isNew: false }));
+      return result.then((r) => {
         setFailed(r.status === "failed");
         if (r.status === "ok" && r.isNew) setPendingNew(true);
+        return r;
       });
     },
-    signOut() { setMerged(0); setPendingNew(false); setPrompt(null); fb?.signOut(); },
+    signOut() { setMerged(0); setPendingNew(false); setPrompt(null); return fb ? fb.signOut() : Promise.resolve(); },
     dismiss,
     clearMerged,
     subscribe,
     closePrompt,
-  }), [fb, user, merged, failed, subscribed, prompt, reactionStore, dismiss, clearMerged, subscribe, closePrompt]);
+  }), [fb, user, extensionSync, syncExtension, subscribeWith, merged, failed, subscribed, prompt, reactionStore, dismiss, clearMerged, subscribe, closePrompt]);
   return [saves, account];
 }
 
@@ -739,12 +761,14 @@ const PRIVACY_EMAIL = "contact@aibytes.io";
 // steps. The extension's status is read once the site's session is known.
 function OnboardingApp({ navigate, theme, onToggleTheme }) {
   React.useEffect(() => { document.title = ONBOARDING_HEAD.title; }, []);
-  const { user, prompt, closePrompt } = React.useContext(AccountContext);
+  const account = React.useContext(AccountContext);
+  const { prompt, closePrompt } = account;
   const headerProps = useHeaderAccount(navigate);
-  const [state, dispatch] = useOnboarding(user);
+  const [state, dispatch] = useOnboarding(account.user);
+  const on = useOnboardingEffects(state, dispatch, account);
   // A new account's newsletter prompt never opens here: the checkbox has asked.
   React.useEffect(() => { if (prompt && prompt.status !== "closed") closePrompt(); }, [prompt, closePrompt]);
-  return <ExtensionOnboarding state={state} dispatch={dispatch} theme={theme} onToggleTheme={onToggleTheme} githubUrl={GITHUB_URL} headerProps={headerProps} />;
+  return <ExtensionOnboarding state={state} dispatch={dispatch} on={on} theme={theme} onToggleTheme={onToggleTheme} githubUrl={GITHUB_URL} headerProps={headerProps} />;
 }
 
 function PrivacyApp({ saves, location, navigate, theme, onToggleTheme }) {

@@ -55,7 +55,8 @@ export function onboardingReducer(state, action) {
     case "box":
       return state.pressed ? state : { ...state, box: !state.box };
     case "signin":
-      return { ...state, pressed: true, wantsNewsletter: state.box };
+      // `newsletter: false` where no box was on screen (Continue as, a different account).
+      return { ...state, pressed: true, wantsNewsletter: action.newsletter === false ? false : state.box };
     case "signinFailed":
       return { ...state, pressed: false, wantsNewsletter: false };
     case "user":
@@ -69,4 +70,22 @@ export function onboardingReducer(state, action) {
     default:
       return state;
   }
+}
+
+const STEP_NAMES = { 1: "pin", 2: "signin" };
+
+/**
+ * The analytics events one state change sends (listed in
+ * docs/specs/AIB-145y-gist-analytics.md): a step finishing, done or skipped,
+ * and the newsletter subscribe settling. Never the reader's name, email or uid.
+ */
+export function onboardingEvents(prev, next) {
+  const events = [];
+  if (prev.view !== "loading" && next.step === prev.step + 1 && STEP_NAMES[prev.step]) {
+    events.push(["extension-onboarding-step", { step: STEP_NAMES[prev.step], outcome: next.skipped.includes(prev.step) ? "skipped" : "done" }]);
+  }
+  if (prev.newsletter === "saving" && (next.newsletter === "ok" || next.newsletter === "failed")) {
+    events.push(["extension-onboarding-subscribe", { outcome: next.newsletter }]);
+  }
+  return events;
 }
