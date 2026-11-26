@@ -553,14 +553,35 @@ fresh start registers them all.
 `?action=signout`.
 
 **Acceptance criteria:**
-- [ ] Signed in from a dev page, the popup shows the avatar, and stars write to `users/{uid}/saves`
-- [ ] Still signed in after the worker stops, without visiting aibytes.io
-- [ ] Sign out shows Sign in at once and opens the sign-out URL
+- [x] Signed in from a dev page, the popup shows the avatar, and stars write to `users/{uid}/saves`
+- [x] Still signed in after the worker stops, without visiting aibytes.io
+- [x] Sign out shows Sign in at once and opens the sign-out URL
 
 **Verification:** `npm test -w @aibytes/extension`; by hand from a dev page
 that calls the deployed callable.
 
 **Dependencies:** T2, T4, T14, 3.22. **Files:** `apps/extension/src/popup/{useAccount.js,Popup.jsx}`, tests. **Scope:** M
+
+Built 26 Nov 2026. `popup/session.js` holds the popup's Firebase (the
+session, `accountSaves`, the merge retry through the worker's
+`mergeSignedOut`) and loads with `import()` after the first paint: its own
+chunk, and the popup's entry imports only `install`. `useAccount.js` keeps
+the stars local until a uid arrives, then the account's; the merge retry runs
+once per uid per open; the header shows neither Sign in nor the avatar while
+the session restores. Sign out shows Sign in at once, then awaits the
+worker's `signout-by-reader` (flag, then sign-out), then signs the popup's own
+Auth out, then opens `?action=signout`; a failed step is logged and the next
+still runs. The live check found that `internal.js` dropped the popup opened
+as a tab (`sender.tab`, a check the spec never asked for): it now accepts the
+extension's own origin, or its url where Chrome gives no origin, and still
+refuses a content script. Extension 76/76 (6 new). Live: after an extension
+reload, with no aibytes.io visit, the header showed the account; a star
+reached the server (a second popup's own Firestore client counted it; nothing
+in `chrome.storage.local`) and was unstarred after. From `localhost:5173`, the
+site's ID token, the deployed `aibytesExtensionToken` and `signin` signed the
+extension in end to end. Sign out: Sign in on the next frame, the flag set,
+`/extension-onboarding?action=signout` opened, and `status` then read
+`uid: null, signoutPending: true`. The dev build was signed back in after.
 
 ### Checkpoint 3
 - [ ] extension-auth's success criteria 1 to 4

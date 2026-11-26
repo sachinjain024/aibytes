@@ -1,4 +1,5 @@
-// The popup (spec AIB-76n extension-popup): Today, Saved and a gist, signed out.
+// The popup (spec AIB-76n extension-popup): Today, Saved and a gist; signed in
+// (extension-auth), the header shows the avatar and the stars are the account's.
 // Today: the cached edition paints on the first render, then the fetched one
 // replaces it; its states are loading and failed with nothing cached, failed
 // with a cache (the cached list under a note), and refused (an unknown
@@ -61,9 +62,11 @@ const Message = ({ role = "status", title, children }) => (
 /**
  * storage: the popup's localStorage (or null); fetch: window.fetch; site: the
  * aibytes.io origin; openSaves: resolves to the saves store; openTab(url):
- * chrome.tabs.create; onSignIn: opens onboarding; onFirstRender(ms, fromCache).
+ * chrome.tabs.create; onSignIn: opens onboarding; user: the signed-in reader
+ * or null (useAccount); onSignOut: the avatar menu's Sign out;
+ * onFirstRender(ms, fromCache).
  */
-export function Popup({ storage, fetch, site, openSaves, openTab, onSignIn, onFirstRender }) {
+export function Popup({ storage, fetch, site, openSaves, openTab, onSignIn, user, onSignOut, onFirstRender }) {
   const base = React.useMemo(() => new URL("/content/", site), [site]);
   const [today, setToday] = React.useState(() => {
     const cached = readCache(storage);
@@ -142,7 +145,10 @@ export function Popup({ storage, fetch, site, openSaves, openTab, onSignIn, onFi
       )}
       {/* The list stays mounted under a gist, so Back finds it as it was. */}
       <div style={{ display: open ? "none" : "contents" }}>
-        <PopupHeader date={shown ? midDate(shown.date) : undefined} onSignIn={onSignIn}
+        {/* Neither Sign in nor the avatar while the session restores (user undefined). */}
+        <PopupHeader date={shown ? midDate(shown.date) : undefined}
+          onSignIn={user === undefined ? undefined : onSignIn}
+          user={user ?? null} onSignOut={onSignOut}
           savedCount={saves.length} savedActive={onSaved}
           onToggleSaved={store ? toggleView : undefined}
           labels={{ signIn: t("pop.signin"), saved: t("pop.savedbtn") }} />
