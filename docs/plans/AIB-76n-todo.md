@@ -651,12 +651,20 @@ production numbers if it shows.
 allows `signin-prompt` or `extension-onboarding`.
 
 **Acceptance criteria:**
-- [ ] Emulator tests: both values are allowed and a third is refused
-- [ ] The existing prompt still writes `signin-prompt`
+- [x] Emulator tests: both values are allowed and a third is refused
+- [x] The existing prompt still writes `signin-prompt`
 
 **Verification:** (A), (B).
 
 **Dependencies:** None. **Files:** `apps/web/src/{subscriber.js,subscriber.test.js,subscriberStore.test.js}`, `firestore.rules`, `apps/web/rules.test.js`. **Scope:** S
+
+Built 26 Nov 2026. `SOURCES` is `signin-prompt` and `extension-onboarding`;
+`toSubscriberDoc` throws on anything else, so `subscribe` fails as
+`invalid-argument` without writing. `isSubscriber` takes either value. The
+prompt passes no source and still writes `signin-prompt`. Web 181/181 (2
+new); emulator 65/65 (3 new: the rules allow the onboarding source, and
+`subscribe` writes it and refuses a third before the write). The rules are
+not deployed: that is 3.23, the publisher's, before PR #73 merges.
 
 **Ticket 3.23 (publisher):** deploy with
 `firebase deploy --only firestore:rules --project ai-bytes-b42d2` before PR #73

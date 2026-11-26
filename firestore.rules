@@ -40,7 +40,7 @@ service cloud.firestore {
     function isSubscriber(d) {
       return d.keys().hasOnly(['email', 'source', 'created_at'])
         && d.email == request.auth.token.email && request.auth.token.email_verified == true
-        && d.source == 'signin-prompt'
+        && d.source in ['signin-prompt', 'extension-onboarding']
         && d.created_at == request.time;
     }
 

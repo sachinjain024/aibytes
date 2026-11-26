@@ -52,6 +52,16 @@ describe("subscriber store", { skip }, () => {
     assert.equal(second.source, first.source);
   });
 
+  test("the onboarding page subscribes with its own source", async () => {
+    assert.equal(await subscribe(db, { uid, email }, { source: "extension-onboarding" }), "ok");
+    assert.equal((await stored()).source, "extension-onboarding");
+  });
+
+  test("a third source is refused before the write", async () => {
+    assert.deepEqual(await subscribe(db, { uid, email }, { source: "sidebar" }), { failed: "invalid-argument" });
+    assert.equal(await isSubscribed(db, uid), false);
+  });
+
   test("a write that never settles resolves timeout without waiting", async () => {
     let fire;
     const pending = subscribe(db, { uid, email }, {
