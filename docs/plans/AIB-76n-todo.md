@@ -759,9 +759,23 @@ only when every condition holds. Re-check the status after the click and when
 the tab becomes visible again. Send the two Umami events.
 
 **Acceptance criteria:**
-- [ ] Detection tests: Chrome, Edge, Brave, Opera, Vivaldi and Arc are in; Safari, Firefox, Android and iOS are out
-- [ ] With the flag forced on: the box shows in Chrome and Edge without the extension, and goes once it's installed
-- [ ] With the flag off: `build:web` output equals Checkpoint 1's outside the onboarding page
+- [x] Detection tests: Chrome, Edge, Brave, Opera, Vivaldi and Arc are in; Safari, Firefox, Android and iOS are out
+- [x] With the flag forced on: the box shows in Chrome and Edge without the extension, and goes once it's installed
+- [x] With the flag off: `build:web` output equals Checkpoint 1's outside the onboarding page
+
+**Built:** `isDesktopChromium`, `promoDismissed` and `dismissPromo` in
+`extension.js`, with 7 new tests (userAgentData and UA fallback; junk, future
+or blocked storage never hides the box for good). `useExtensionPromo` in
+`App.jsx` does nothing while the flag is off; the build's 239 pages outside
+onboarding are byte-identical to the build before T20 once the bundle hash is
+normalised. By hand in Chrome with the flag forced on (not committed): no box
+with the extension installed; the box without it; after "Add to Chrome" it
+went 3.5 s after the install, on the first poll; "Not now" stored the time,
+sent `extension-promo-dismiss`, stayed hidden on reload, and now moves focus to
+the rail's next link rather than `<body>`; a `visibilitychange` re-check
+removed it (the extension's answer stubbed on the page, as the DevTools
+browser's reinstalled worker would not start). Edge was not run by hand; its
+brands are in the detection tests.
 
 **Verification:** (A), (C); by hand.
 

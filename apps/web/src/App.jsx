@@ -35,7 +35,10 @@ import { focusMainAfterClose, isOpenCard, keepGist, planClose, planOpen, without
 import { gistHead, ONBOARDING_HEAD } from "./pageMeta.js";
 import { failureReport, initialPrompt, promptReducer, shouldOpenPrompt } from "./newsletterPrompt.js";
 import { NEWSLETTER_PRIVACY, showSubscribeOptions } from "./subscribeOptions.js";
-import { oneAtATime, reconcile } from "./extensionBridge.js";
+import { extensionStatus, oneAtATime, reconcile } from "./extensionBridge.js";
+import { dismissPromo, EXTENSION_LIVE, isDesktopChromium, promoDismissed, STORE_URL } from "./extension.js";
+import { ExtensionPromo } from "@aibytes/design-system/components/extension/ExtensionPromo.jsx";
+import { t as extensionCopy } from "./copy/extension.js";
 import { ExtensionOnboarding, useOnboarding, useOnboardingEffects } from "./ExtensionOnboarding.jsx";
 import { editionPath, gistParam, gistPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, savedPath, weeklyPath } from "./route.js";
 
@@ -369,10 +372,81 @@ export function App({ initialGist = null }) {
 // "privacy" (/privacy) have no toolbar, filters or tags; a category opens the
 // latest edition filtered to it; and the page draws its own visible h1, so
 // `heading` is left out. On "saved", Saved is the current entry.
+// The install box (AIB-76n site-extension, H3): in the rail, only while the
+// flag is on, in a desktop Chromium browser, not dismissed in the last 30
+// days, and once the status check has answered "not installed" - nothing
+// renders before it answers, so a reader with the extension never sees it
+// flash. After "Add to Chrome" the status is checked every 3 s for up to
+// 2 minutes, and again whenever the tab becomes visible; once installed it goes.
+const PROMO_POLL_MS = 3000;
+const PROMO_POLL_FOR_MS = 2 * 60 * 1000;
+const PROMO_LABELS = { name: extensionCopy("site.name"), body: extensionCopy("site.h3.body"), cta: extensionCopy("site.cta"), notNow: extensionCopy("site.notnow") };
+
+function useExtensionPromo(live = EXTENSION_LIVE) {
+  // Read once, after mount: the prerender has no navigator or storage.
+  const [eligible, setEligible] = React.useState(false);
+  const [installed, setInstalled] = React.useState(undefined);
+  const [dismissed, setDismissed] = React.useState(false);
+  const alive = React.useRef(true);
+  const poll = React.useRef(null);
+  const stopPolling = React.useCallback(() => {
+    clearInterval(poll.current);
+    poll.current = null;
+  }, []);
+  const check = React.useCallback(() => extensionStatus().then((status) => {
+    if (!alive.current) return;
+    setInstalled(status !== null);
+    if (status !== null) stopPolling();
+  }), [stopPolling]);
+
+  React.useEffect(() => {
+    if (!live || !isDesktopChromium() || promoDismissed()) return undefined;
+    alive.current = true;
+    setEligible(true);
+    check();
+    const onVisible = () => document.visibilityState === "visible" && check();
+    document.addEventListener("visibilitychange", onVisible);
+    return () => {
+      alive.current = false;
+      document.removeEventListener("visibilitychange", onVisible);
+      stopPolling();
+    };
+  }, [live, check, stopPolling]);
+
+  if (!eligible || installed !== false || dismissed) return undefined;
+  // The CTA is a plain link to the store in a new tab; its click bubbles here.
+  const onClick = (event) => {
+    if (!event.target.closest || !event.target.closest("a")) return;
+    track("extension-promo-click");
+    stopPolling();
+    const started = Date.now();
+    poll.current = setInterval(() => {
+      if (Date.now() - started >= PROMO_POLL_FOR_MS) stopPolling();
+      else check();
+    }, PROMO_POLL_MS);
+  };
+  const onDismiss = (event) => {
+    // The focused button is about to go: focus the rail's next link, not <body>.
+    const box = event?.currentTarget?.closest?.(".extension-promo");
+    const next = box?.closest(".sidebar-footer")?.querySelector(".sidebar-links a, .sidebar-links button") || document.getElementById("main");
+    if (box && box.contains(document.activeElement)) next?.focus();
+    dismissPromo();
+    setDismissed(true);
+    stopPolling();
+    track("extension-promo-dismiss");
+  };
+  return (
+    <div className="extension-promo" onClick={onClick}>
+      <ExtensionPromo href={STORE_URL} onDismiss={onDismiss} labels={PROMO_LABELS} />
+    </div>
+  );
+}
+
 function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location, navigate, skipLabel, heading, date, all, children }) {
   const { saves } = useSaves(store);
   const { subscribed } = React.useContext(AccountContext);
   const headerProps = useHeaderAccount(navigate);
+  const promo = useExtensionPromo();
   const feedPage = page === "feed";
   const savedPage = page === "saved";
   // The feed and /saved filter their items with the Toolbar; /privacy has none.
@@ -490,7 +564,7 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
           else if (filterable) setCategory(key);
           setMenuOpen(false);
         }}
-        onSaved={() => { if (!savedPage) navigate(savedPath()); setMenuOpen(false); }} savedCount={saves.length} savedActive={savedPage} />
+        onSaved={() => { if (!savedPage) navigate(savedPath()); setMenuOpen(false); }} savedCount={saves.length} savedActive={savedPage} promo={promo} />
       <main id="main" className="redesign-main" tabIndex={-1}>
         {/* No visible heading: the toolbar is the first row of the content, and its
             date control already shows the edition or issue. Screen readers still get an h1. */}
