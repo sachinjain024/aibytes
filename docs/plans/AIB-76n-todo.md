@@ -782,7 +782,33 @@ brands are in the detection tests.
 **Dependencies:** T6, T16. **Files:** `apps/web/src/{extension.js,extension.test.js,App.jsx}`. **Scope:** S
 
 ### Checkpoint 4
-- [ ] site-extension's success criteria 1 to 5; (A) to (D) pass
+- [x] site-extension's success criteria 1 to 5; (A) to (D) pass
+
+Passed 26 Nov 2026, against `dev:web`, the dev build and the deployed
+callable, as The Infin8y.
+1. Sign-out on `/saved` reached the extension 111 ms after the site's avatar
+   went (polled every 100 ms). Sign-in on `/privacy` took 3.5 s after the
+   callable had idled 28 minutes; two warm sign-ins (the extension signed out
+   alone, then the page reloaded) took 1.36 s and 1.34 s: the mint 0.67 s, the
+   extension's Firebase sign-in and merge 0.68 s. **Accepted 26 Nov 2026:**
+   the 1 s target holds for sign-out; sign-in is about 1.3 s warm and 3 to 5 s
+   cold, as at T16, with no `minInstances`. Nothing on screen waits on it.
+   Checkpoint 3's criterion 4, rechecked through the site: with the popup
+   open, the site's Sign out switched it to Sign in within 2 s.
+2. The manual run passed in T19: light and dark at 1280 and 390, keyboard
+   only, a fresh install, the popup's Sign out.
+3. T19 wrote `subscribers/{uid}` with `source: "extension-onboarding"`; the
+   prompt's `"signin-prompt"` is covered by the web tests and the rules suite.
+4. With the flag off, the sidebar shows no box (the extension present or
+   absent) and the not-installed view has no store link; the 239 built pages
+   outside onboarding match the pre-T20 build. The unlinked "Chrome Extension
+   (soon)" footer label was already on `main` (AIB-75v); T24 changes it.
+5. (A) app-core 40, web 223, design-system 123, extension 76, functions 10;
+   (B) 65; (C) builds and emits `extension-onboarding/index.html`.
+   (D) 727 pass, 10 skipped, 2 errors, neither from this branch:
+   `test_gists.TestWeeklyBuild` builds at a fixed 16 Nov against the live
+   content tree, which now holds a gist created 19 Nov, so validation reports
+   "updated_at is before created_at". The branch touches no gist code.
 
 ---
 
