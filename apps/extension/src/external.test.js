@@ -120,6 +120,18 @@ test("signin: a failed sign-in replies with Firebase's code only, and merges not
   assert.deepEqual(lines.filter((l) => l.includes(TOKEN)), []);
 });
 
+test("signin: refused while signoutPending is fresh, allowed once it expires", async () => {
+  const now = Date.now();
+  const chrome = fakeChrome({ local: { [SIGNOUT_KEY]: { at: now } } });
+  const account = fakeAccount();
+  let merged = false;
+  const deps = { allowed, chrome, account, merge: async () => { merged = true; return 0; } };
+  assert.deepEqual(await handleExternal({ type: "signin", token: TOKEN }, SITE, { ...deps, now: () => now + 1000 }), { ok: false, code: "signout-pending" });
+  assert.deepEqual(account.calls, []);
+  assert.equal(merged, false);
+  assert.equal((await handleExternal({ type: "signin", token: TOKEN }, SITE, { ...deps, now: () => now + SIGNOUT_TTL_MS })).ok, true);
+});
+
 test("signin: an error without a string code replies auth/failed", async () => {
   const account = fakeAccount();
   account.signIn = async () => { throw new Error(`no ${TOKEN}`); };

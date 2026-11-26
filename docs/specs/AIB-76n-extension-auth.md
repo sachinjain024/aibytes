@@ -164,7 +164,7 @@ checks it. The background worker answers:
 | Message from the site | Reply |
 |---|---|
 | `{ type: "status" }` | `{ installed: true, version, pinned, uid, signoutPending }`: `version` from the manifest; `pinned` from `chrome.action.getUserSettings().isOnToolbar` (Chrome 91+); `uid` after `auth.authStateReady()`, or `null`; `signoutPending` true while a popup Sign out is under way (below) |
-| `{ type: "signin", token }` | `{ ok: true, uid, merged }` once signed in (and the merge tried), or `{ ok: false, code }` |
+| `{ type: "signin", token }` | `{ ok: true, uid, merged }` once signed in (and the merge tried), or `{ ok: false, code }`; `code: "signout-pending"`, and no sign-in, while `signoutPending` is set (a mint already in flight when the popup signed out) |
 | `{ type: "signout" }` | `{ ok: true }` once signed out; clears `signoutPending` |
 | anything else | `{ ok: false, code: "bad-message" }` |
 

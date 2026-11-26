@@ -68,6 +68,10 @@ export async function handleExternal(message, sender, { allowed, chrome, account
   if (type === "signin") {
     const { token } = message;
     if (typeof token !== "string" || !token || token.length >= TOKEN_MAX) return { ok: false, code: "bad-message" };
+    // A popup Sign out is under way: a token minted before it began must not
+    // sign the extension back in. The site's reconcile holds too; this is the
+    // extension's own check, for a mint already in flight.
+    if (await signoutPending(chrome, now())) return { ok: false, code: "signout-pending" };
     return signIn(token, { account, merge });
   }
   if (type === "signout") {
