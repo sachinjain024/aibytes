@@ -32,10 +32,11 @@ import { GistPage } from "./GistPage.jsx";
 import { FeedGistPanel } from "./FeedGistPanel.jsx";
 import { track } from "./analytics.js";
 import { focusMainAfterClose, isOpenCard, keepGist, planClose, planOpen, withoutGist } from "./gistPanel.js";
-import { gistHead } from "./pageMeta.js";
+import { gistHead, ONBOARDING_HEAD } from "./pageMeta.js";
 import { failureReport, initialPrompt, promptReducer, shouldOpenPrompt } from "./newsletterPrompt.js";
 import { NEWSLETTER_PRIVACY, showSubscribeOptions } from "./subscribeOptions.js";
 import { oneAtATime, reconcile } from "./extensionBridge.js";
+import { ExtensionOnboarding, useOnboarding } from "./ExtensionOnboarding.jsx";
 import { editionPath, gistParam, gistPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, savedPath, weeklyPath } from "./route.js";
 
 // The sidebar's links: live ones first, then those not live yet. GitHub is
@@ -284,7 +285,8 @@ export function App({ initialGist = null }) {
   return (
     <AccountContext.Provider value={account}>
       {page()}
-      {account.prompt && account.prompt.status !== "closed" && (
+      {/* The onboarding page asks about the newsletter itself, with its checkbox. */}
+      {account.prompt && account.prompt.status !== "closed" && route.kind !== "extension_onboarding" && (
         <NewsletterPrompt state={account.prompt} email={account.user?.email} onSubscribe={account.subscribe} onClose={account.closePrompt} />
       )}
     </AccountContext.Provider>
@@ -296,6 +298,9 @@ export function App({ initialGist = null }) {
   // from the issue JSON for now.
   if (route.kind === "weekly_index") {
     return <WeeklyArchive saves={saves} theme={theme} onToggleTheme={toggleTheme} navigate={navigate} />;
+  }
+  if (route.kind === "extension_onboarding") {
+    return <OnboardingApp navigate={navigate} theme={theme} onToggleTheme={toggleTheme} />;
   }
   if (route.kind === "privacy") {
     return <PrivacyApp saves={saves} location={location} navigate={navigate} theme={theme} onToggleTheme={toggleTheme} />;
@@ -729,6 +734,18 @@ function SavedApp({ saves: store, location, navigate, theme, onToggleTheme }) {
 // definitions" and privacy pages on 12 Nov 2026. Change them only with the
 // site; Google's sign-in consent screen links here.
 const PRIVACY_EMAIL = "contact@aibytes.io";
+
+// /extension-onboarding (AIB-76n site-extension): the header, no sidebar, the
+// steps. The extension's status is read once the site's session is known.
+function OnboardingApp({ navigate, theme, onToggleTheme }) {
+  React.useEffect(() => { document.title = ONBOARDING_HEAD.title; }, []);
+  const { user, prompt, closePrompt } = React.useContext(AccountContext);
+  const headerProps = useHeaderAccount(navigate);
+  const [state, dispatch] = useOnboarding(user);
+  // A new account's newsletter prompt never opens here: the checkbox has asked.
+  React.useEffect(() => { if (prompt && prompt.status !== "closed") closePrompt(); }, [prompt, closePrompt]);
+  return <ExtensionOnboarding state={state} dispatch={dispatch} theme={theme} onToggleTheme={onToggleTheme} githubUrl={GITHUB_URL} headerProps={headerProps} />;
+}
 
 function PrivacyApp({ saves, location, navigate, theme, onToggleTheme }) {
   React.useEffect(() => { document.title = "aiBytes_ · Privacy"; }, []);

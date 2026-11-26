@@ -12,6 +12,7 @@ import {
   pickEdition,
   pickWeeklyIssue,
   privacyPath,
+  onboardingPath,
   savedPath,
   weeklyPath,
   weeklyUrl,
@@ -113,6 +114,14 @@ test("the privacy page route, with or without a trailing slash", () => {
   }
   assert.equal(privacyPath(), "/privacy");
   assert.deepEqual(parseRoute("/privacy/policy"), { kind: "notfound" });
+});
+
+test("the extension's onboarding page route, with or without a trailing slash", () => {
+  for (const path of ["/extension-onboarding", "/extension-onboarding/"]) {
+    assert.deepEqual(parseRoute(path), { kind: "extension_onboarding" });
+  }
+  assert.equal(onboardingPath(), "/extension-onboarding");
+  assert.deepEqual(parseRoute("/extension-onboarding/step-2"), { kind: "notfound" });
 });
 
 test("a gist route carries its slug", () => {

@@ -681,15 +681,33 @@ flag on), and suppress the newsletter prompt on this page. Create
 the rest of that file.
 
 **Acceptance criteria:**
-- [ ] `dist/extension-onboarding/index.html` exists with noindex
-- [ ] The reducer's tests cover every transition, including `?action=signout` with and without `signoutPending`
-- [ ] Not installed with the flag off: no "Add to Chrome"
+- [x] `dist/extension-onboarding/index.html` exists with noindex
+- [x] The reducer's tests cover every transition, including `?action=signout` with and without `signoutPending`
+- [x] Not installed with the flag off: no "Add to Chrome"
 
 **Verification:** (A), (C), with a build test in the style of `gistBuild.test.js`.
 
 **Dependencies:** T5, T16. **Files:** `apps/web/src/{route.js,pageMeta.js,App.jsx,onboarding.js,ExtensionOnboarding.jsx,extension.js,copy/extension.js}`
 (`App.jsx` branches to the page as it does for `PrivacyApp`),
 `apps/web/vite.config.js`, tests. **Scope:** M
+
+Built 26 Nov 2026. `onboarding.js` is the whole flow as a pure reducer
+(loading, not installed, steps 1 to 3, signing out, signed out; pinned, skip,
+the box, sign-in pressed, the reader, the extension's answer, the subscribe):
+step 2 finishes whenever the extension is signed in as the site's reader and,
+if the box was ticked at sign-in, the subscribe worked, so arriving signed in
+on both goes straight to done. `ExtensionOnboarding.jsx` draws every state from
+Ledger's kit markup; its effects here are the status and reader read once and
+the 900 ms advance. T19 wires `on` (sign-in, Continue as, Use a different
+account, the subscribe retry), the pin port and poll, and the sign-out flow.
+`extension.js` holds `EXTENSION_LIVE = false` and `STORE_URL`;
+`copy/extension.js` the agreed `onb.*` and `site.*` strings (E2, H3); the
+subscribe failure reuses AIB-140p's line. The newsletter prompt never opens on
+this page. Web 210/210 (32 new, the build test included). Live with
+`dev:web`: installed, pinned and signed in, the page ticked through to Done;
+in a context without the extension, the not-installed view with no Add to
+Chrome; `?action=signout` with no pending sign-out signed nobody out; no
+console messages.
 
 ## T19 [3.19]: the onboarding steps
 

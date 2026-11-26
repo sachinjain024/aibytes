@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { gistHead, PRIVACY_HEAD, SAVED_HEAD, WEEKLY_ARCHIVE_HEAD, weeklyIssueHead, withHead } from "./pageMeta.js";
+import { gistHead, ONBOARDING_HEAD, PRIVACY_HEAD, SAVED_HEAD, WEEKLY_ARCHIVE_HEAD, weeklyIssueHead, withHead } from "./pageMeta.js";
 
 const SHELL = `<!doctype html>
 <html lang="en">
@@ -57,6 +57,13 @@ test("the Saved page is titled and kept out of search engines", () => {
 test("a page without robots gets no robots tag", () => {
   assert.doesNotMatch(withHead(SHELL, weeklyIssueHead(ENTRY)), /name="robots"/);
   assert.doesNotMatch(withHead(SHELL, WEEKLY_ARCHIVE_HEAD), /name="robots"/);
+});
+
+test("the onboarding page is titled, canonical at /extension-onboarding, and noindex", () => {
+  const html = withHead(SHELL, ONBOARDING_HEAD);
+  assert.match(html, /<title>aiBytes_ · Chrome extension<\/title>/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/aibytes\.io\/extension-onboarding" \/>/);
+  assert.match(html, /<meta name="robots" content="noindex" \/>/);
 });
 
 test("the privacy page is titled, canonical at /privacy, and indexable", () => {
