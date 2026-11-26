@@ -29,7 +29,7 @@ matching files — this file stays a map.
 | `.claude/skills/` | Claude Code skills. Stays at the repo root — nested skill dirs are not in autocomplete until a file in them is touched |
 | `.claude/rules/` | Path-scoped conventions, loaded on demand |
 | `apps/web/` | The aibytes.io daily-edition app: Vite + React, a static build for GitHub Pages served from the root, with `content/` at `/content/` *(scaffold; AIB-8h phase 4)* |
-| `functions/` | The `aibytes-web` Cloud Functions codebase. One callable, `aibytesReportSubscribeFailure`. Its own `package.json`, outside the npm workspaces |
+| `functions/` | The `aibytes-web` Cloud Functions codebase. Two callables: `aibytesReportSubscribeFailure`, and `aibytesExtensionToken` (AIB-76n), which mints the extension's sign-in token. Its own `package.json`, outside the npm workspaces |
 | `packages/app-core/` | Logic the site and the extension share: ranking (`order.js`), feed visibility, dates, browser storage, saves, the Saved list, the account store and merge. Pure modules, no React. Look here, not in `apps/web/src`, for ranking and saves |
 | `apps/extension/` | The aiBytes_ Chrome extension (AIB-76n): an MV3 popup and module service worker on the same edition JSON, built with Vite. Load `apps/extension/dist` unpacked. Its permissions are frozen; see `.claude/rules/extension.md` |
 | `tests/` | stdlib `unittest` suite for the Python side |
