@@ -35,6 +35,7 @@ import { focusMainAfterClose, isOpenCard, keepGist, planClose, planOpen, without
 import { gistHead } from "./pageMeta.js";
 import { failureReport, initialPrompt, promptReducer, shouldOpenPrompt } from "./newsletterPrompt.js";
 import { NEWSLETTER_PRIVACY, showSubscribeOptions } from "./subscribeOptions.js";
+import { oneAtATime, reconcile } from "./extensionBridge.js";
 import { editionPath, gistParam, gistPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, savedPath, weeklyPath } from "./route.js";
 
 // The sidebar's links: live ones first, then those not live yet. GitHub is
@@ -85,6 +86,10 @@ function loadFirebase() {
   );
   return firebase;
 }
+
+// The extension's sign-in follows the site's (AIB-76n site-extension), one
+// reconcile at a time. Without the extension it asks for status and stops.
+const reconcileExtension = oneAtATime((user) => reconcile(user));
 
 // After the browser has painted and gone idle, or at most a second later.
 function afterPaint(callback) {
@@ -140,6 +145,14 @@ function useAccount() {
     merging.current.done.then((count) => { if (live && count) setMerged(count); });
     return () => { live = false; };
   }, [uid, fb]);
+  // The extension follows the session: once it has restored, then on every
+  // sign-in and sign-out. Only with Firebase loaded: a failed load sets user to
+  // null meaning "unknown", which must never sign the extension out.
+  const restoring = user === undefined;
+  React.useEffect(() => {
+    if (!fb || restoring) return;
+    reconcileExtension(uid ? { uid } : null);
+  }, [fb, uid, restoring]);
   // One read of subscribers/{uid} per signed-in session. Success sets it true
   // without waiting for another read.
   React.useEffect(() => {

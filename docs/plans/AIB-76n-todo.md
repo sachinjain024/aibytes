@@ -615,13 +615,34 @@ mint while `signoutPending`, the token kept only in memory). Wire it in
 `App.jsx` on the first `onUser` call and on every sign-in and sign-out.
 
 **Acceptance criteria:**
-- [ ] Tests cover every reconcile case, absent, timeout, `signoutPending`, and the token never logged or returned
-- [ ] With the dev extension: signing in and out on any page is mirrored within a second
-- [ ] Without the extension: no error and no callable call
+- [x] Tests cover every reconcile case, absent, timeout, `signoutPending`, and the token never logged or returned
+- [x] With the dev extension: signing in and out on any page is mirrored within a second
+- [x] Without the extension: no error and no callable call
 
 **Verification:** (A), (C); by hand with `dev:web` and the dev extension.
 
 **Dependencies:** T14, 3.22. **Files:** `apps/web/src/{extensionBridge.js,extensionBridge.test.js,App.jsx}`. **Scope:** S
+
+Built 26 Nov 2026. `extensionStatus` answers null with no runtime, a
+`lastError`, a throw, a non-object reply or 1.5 s of silence;
+`sendToExtension` is the same with 10 s, since a `signin` includes the
+extension's Firebase sign-in and merge. `reconcile` returns
+`{ action, ok?, code? }` (never the token; a failed mint is `code: "mint"`),
+never throws, and `oneAtATime` queues a second run behind the first.
+`mintToken` imports `firebase/functions` only when it mints. App.jsx runs it
+once Firebase has loaded and the session is known, then on every uid change;
+not on a failed Firebase load, whose `null` means "unknown". Web 179/179
+(18 new). Live with `dev:web` and the dev extension, as The Infin8y: the
+extension signed out behind the site's back was signed back in by the next
+page load; the header's Sign out reached the extension in 49 ms; a Google
+sign-in reached it 3.6 s after the avatar showed; with the extension
+uninstalled, a signed-in load had no `chrome.runtime`, no console warning or
+error and no callable request; reinstalled, the next load signed it in 593 ms
+after navigation. **Timing, accepted 26 Nov 2026:** sign-out is immediate and
+a sign-in is about 0.6 s with the callable warm, but a cold Cloud Function
+adds 3 to 5 s (status 7 ms, mint 0.4 s warm / 1 s or more cold, the
+extension's `signin` 0.7 s). No `minInstances`; revisit at Checkpoint 4 with
+production numbers if it shows.
 
 ## T17 [3.17]: the newsletter source
 
