@@ -584,7 +584,24 @@ extension in end to end. Sign out: Sign in on the next frame, the flag set,
 `uid: null, signoutPending: true`. The dev build was signed back in after.
 
 ### Checkpoint 3
-- [ ] extension-auth's success criteria 1 to 4
+- [x] extension-auth's success criteria 1 to 4
+
+Passed 26 Nov 2026, in the dev build against the deployed callable, as The
+Infin8y. The site's side was played from a `localhost:5173` tab (its ID token,
+`aibytesExtensionToken`, then the message), since the bridge is T16.
+1. Signed in, the popup's Saved listed exactly the account's items: the same
+   two the site's `/saved` showed (after 0 and 0 before them).
+2. Signed out, two stars in the popup went to `chrome.storage.local`; the popup
+   was closed; `signin` replied `merged: 2`; the extension's storage was empty
+   and the site's `/saved` showed both, with no popup open.
+3. After an extension reload (a new worker) and no site visit, the popup showed
+   the avatar and a third star reached the account (the site read 3 items).
+4. The site's `{ type: "signout" }` replied `{ ok: true }`, `status` went to
+   `uid: null`, and an open popup switched to Sign in by itself. The site
+   sending it on its own sign-out is T16/T17; recheck criterion 4 there.
+
+The three test saves were removed afterwards (the site reads 0 items), and
+the dev build stays signed in.
 
 ---
 
