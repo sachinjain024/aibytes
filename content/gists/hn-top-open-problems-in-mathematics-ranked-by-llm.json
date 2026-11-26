@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "slug": "hn-top-open-problems-in-mathematics-ranked-by-llm",
+  "kind": "hn",
+  "title": "Top open problems in mathematics ranked by LLM-assessed importance",
+  "url": "https://www.proofatlas.ai/open-problems/",
+  "source_url": "https://news.ycombinator.com/item?id=50637871",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Reasoning",
+    "Eval"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "ProofAtlas ranks 500 open mathematics problems by importance, combining pairwise LLM comparisons in a reliability-weighted model, with P versus NP first and the Riemann Hypothesis second.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Importance weighs a resolution's significance, centrality in its field, reach across fields, fame and practical impact.",
+        "Judgments from OpenAI, Claude, GLM and DeepSeek models are weighted 1.00, 1.00, 0.95 and 0.90, which the site calls modelling choices.",
+        "Each entry gives the exact statement, why it matters, a sourced status note, related problems and a bootstrap rank range.",
+        "Dated status notes cover only 176 of the 500 entries, so the list is not a fresh review of the literature."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "counterpoint",
+          "text": "The top comment says the list mirrors press coverage, leading with Millennium Prize problems when Langlands matters more.",
+          "url": "https://news.ycombinator.com/item?id=50642095"
+        },
+        {
+          "stance": "disputed",
+          "text": "Commenters argue over whether an LLM ranking only echoes human consensus or adds any judgement of its own.",
+          "url": "https://news.ycombinator.com/item?id=50640665"
+        },
+        {
+          "stance": "theme",
+          "text": "Asked which results would matter in practice, replies point to P versus NP and to one-way functions for cryptography.",
+          "url": "https://news.ycombinator.com/item?id=50639620"
+        },
+        {
+          "stance": "theme",
+          "text": "Others flag gaps, such as status notes not updated since October and a missing elliptic-curve discrete log problem.",
+          "url": "https://news.ycombinator.com/item?id=50638421"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Top 500 Open Math Problems: LLM-assessed Importance — ProofAtlas",
+      "url": "https://www.proofatlas.ai/open-problems/"
+    },
+    {
+      "role": "discussion",
+      "title": "Top open problems in mathematics ranked by LLM-assessed importance",
+      "url": "https://news.ycombinator.com/item?id=50637871"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-top-open-problems-in-mathematics-ranked-by-llm-2026-11-26",
+      "edition_date": "2026-11-26"
+    }
+  ],
+  "created_at": "2026-11-26T18:25:28Z",
+  "updated_at": "2026-11-26T18:25:28Z",
+  "stats": {
+    "points": 104,
+    "comments": 53,
+    "submitted_by": "ijidak",
+    "posted_at": "2026-11-25T03:01:36Z"
+  },
+  "stats_as_of": "2026-11-26T18:23:17Z"
+}

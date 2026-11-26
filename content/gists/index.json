@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-25T18:40:47Z",
+  "generated_at": "2026-11-26T18:25:28Z",
   "gists": [
     {
       "slug": "gh-app-store-compliance",
@@ -375,6 +375,12 @@
       "created_at": "2026-11-17T17:37:40Z"
     },
     {
+      "slug": "hn-bare-metal-qwen",
+      "source_key": "news.ycombinator.com/item?id=50648365",
+      "path": "gists/hn-bare-metal-qwen.json",
+      "created_at": "2026-11-26T18:25:28Z"
+    },
+    {
       "slug": "hn-chatgpt-for-snes",
       "source_key": "news.ycombinator.com/item?id=50568548",
       "path": "gists/hn-chatgpt-for-snes.json",
@@ -615,6 +621,12 @@
       "created_at": "2026-11-25T18:40:47Z"
     },
     {
+      "slug": "hn-much-shorter-version-of-grh-lean-verification",
+      "source_key": "news.ycombinator.com/item?id=50648050",
+      "path": "gists/hn-much-shorter-version-of-grh-lean-verification.json",
+      "created_at": "2026-11-26T18:25:28Z"
+    },
+    {
       "slug": "hn-muru-ai-assisted-rust-server-for-python-apps-by",
       "source_key": "news.ycombinator.com/item?id=50597959",
       "path": "gists/hn-muru-ai-assisted-rust-server-for-python-apps-by.json",
@@ -649,6 +661,12 @@
       "source_key": "news.ycombinator.com/item?id=50493251",
       "path": "gists/hn-nvidia-allegedly-engineered-scarcity-by-funding.json",
       "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
+      "slug": "hn-openai-cuts-gpt-6-2-usage-astra-hits-limits-40",
+      "source_key": "news.ycombinator.com/item?id=50651117",
+      "path": "gists/hn-openai-cuts-gpt-6-2-usage-astra-hits-limits-40.json",
+      "created_at": "2026-11-26T18:25:28Z"
     },
     {
       "slug": "hn-openai-disbands-its-robotics-team-as-its",
@@ -705,6 +723,12 @@
       "created_at": "2026-11-15T15:41:02Z"
     },
     {
+      "slug": "hn-serving-qwen-via-aws-lambdas-for-fun-and-80x",
+      "source_key": "news.ycombinator.com/item?id=50638070",
+      "path": "gists/hn-serving-qwen-via-aws-lambdas-for-fun-and-80x.json",
+      "created_at": "2026-11-26T18:25:28Z"
+    },
+    {
       "slug": "hn-shirudo-openai-and-cisco-s-open-source-runtime",
       "source_key": "news.ycombinator.com/item?id=50619630",
       "path": "gists/hn-shirudo-openai-and-cisco-s-open-source-runtime.json",
@@ -747,10 +771,28 @@
       "created_at": "2026-11-22T16:15:19Z"
     },
     {
+      "slug": "hn-the-new-york-times-warns-photographers-not-to",
+      "source_key": "news.ycombinator.com/item?id=50647673",
+      "path": "gists/hn-the-new-york-times-warns-photographers-not-to.json",
+      "created_at": "2026-11-26T18:25:28Z"
+    },
+    {
       "slug": "hn-tidal-bans-ai-generated-music",
       "source_key": "news.ycombinator.com/item?id=50630309",
       "path": "gists/hn-tidal-bans-ai-generated-music.json",
       "created_at": "2026-11-24T19:32:33Z"
+    },
+    {
+      "slug": "hn-top-open-problems-in-mathematics-ranked-by-llm",
+      "source_key": "news.ycombinator.com/item?id=50637871",
+      "path": "gists/hn-top-open-problems-in-mathematics-ranked-by-llm.json",
+      "created_at": "2026-11-26T18:25:28Z"
+    },
+    {
+      "slug": "hn-tracking-diseases-cured-by-ai",
+      "source_key": "news.ycombinator.com/item?id=50657307",
+      "path": "gists/hn-tracking-diseases-cured-by-ai.json",
+      "created_at": "2026-11-26T18:25:28Z"
     },
     {
       "slug": "hn-understanding-positional-embeddings-in-modern",
@@ -843,6 +885,12 @@
       "created_at": "2026-11-15T15:41:02Z"
     },
     {
+      "slug": "ph-canva-mcp-2",
+      "source_key": "producthunt.com/products/canva",
+      "path": "gists/ph-canva-mcp-2.json",
+      "created_at": "2026-11-26T18:25:28Z"
+    },
+    {
       "slug": "ph-claude-meetings",
       "source_key": "producthunt.com/products/claude",
       "path": "gists/ph-claude-meetings.json",
@@ -909,10 +957,22 @@
       "created_at": "2026-11-25T18:40:47Z"
     },
     {
+      "slug": "ph-hiring-right-now",
+      "source_key": "producthunt.com/products/hiring-right-now",
+      "path": "gists/ph-hiring-right-now.json",
+      "created_at": "2026-11-26T18:25:28Z"
+    },
+    {
       "slug": "ph-hiringnow-3",
       "source_key": "producthunt.com/products/hiringnow",
       "path": "gists/ph-hiringnow-3.json",
       "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
+      "slug": "ph-hub-d3d2bb55-5f42-4355-98fe-d7e0b636a030",
+      "source_key": "producthunt.com/products/hub-20",
+      "path": "gists/ph-hub-d3d2bb55-5f42-4355-98fe-d7e0b636a030.json",
+      "created_at": "2026-11-26T18:25:28Z"
     },
     {
       "slug": "ph-l-3db3f332-bfc0-4c05-a7b9-3cda7e7608e3",
@@ -1173,6 +1233,12 @@
       "created_at": "2026-11-20T16:59:26Z"
     },
     {
+      "slug": "tc-anthropics-dario-amodei-calls-accusations-of",
+      "source_key": "techcrunch.com/2026/11/25/anthropics-dario-amodei-calls-accusations-of-surrendering-human-control-to-ai-absurd",
+      "path": "gists/tc-anthropics-dario-amodei-calls-accusations-of.json",
+      "created_at": "2026-11-26T18:25:28Z"
+    },
+    {
       "slug": "tc-anthropics-ipo-could-deliver-156b-to-charity",
       "source_key": "techcrunch.com/2026/11/19/anthropics-ipo-could-deliver-156-billion-to-charity",
       "path": "gists/tc-anthropics-ipo-could-deliver-156b-to-charity.json",
@@ -1189,6 +1255,12 @@
       "source_key": "techcrunch.com/2026/11/19/apple-may-be-developing-its-own-ai-agent-that-runs-your-mac",
       "path": "gists/tc-apple-may-be-developing-its-own-ai-agent-that.json",
       "created_at": "2026-11-20T16:59:26Z"
+    },
+    {
+      "slug": "tc-as-anthropic-ipos-grand-theft-auto-vi-proves",
+      "source_key": "techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue",
+      "path": "gists/tc-as-anthropic-ipos-grand-theft-auto-vi-proves.json",
+      "created_at": "2026-11-26T18:25:28Z"
     },
     {
       "slug": "tc-asian-governments-react-to-nvidia-ceo-jensen",
@@ -1365,6 +1437,12 @@
       "created_at": "2026-11-13T16:15:14Z"
     },
     {
+      "slug": "tc-jensen-huang-broke-nvidias-code-of-conduct-and",
+      "source_key": "techcrunch.com/2026/11/25/jensen-huang-broke-nvidias-code-of-conduct-and-his-employees-may-not-forget-it",
+      "path": "gists/tc-jensen-huang-broke-nvidias-code-of-conduct-and.json",
+      "created_at": "2026-11-26T18:25:28Z"
+    },
+    {
       "slug": "tc-jensen-huang-didnt-show-confidence-in-his",
       "source_key": "techcrunch.com/2026/11/13/jensen-huang-didnt-show-confidence-in-his-successor-report-says",
       "path": "gists/tc-jensen-huang-didnt-show-confidence-in-his.json",
@@ -1497,6 +1575,12 @@
       "created_at": "2026-11-17T05:59:03Z"
     },
     {
+      "slug": "tc-openai-says-heavy-chatgpt-users-may-hit-limits",
+      "source_key": "techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work",
+      "path": "gists/tc-openai-says-heavy-chatgpt-users-may-hit-limits.json",
+      "created_at": "2026-11-26T18:25:28Z"
+    },
+    {
       "slug": "tc-openai-will-embed-safety-researchers-to",
       "source_key": "techcrunch.com/2026/11/16/openai-will-embed-apollo-researchers-to-investigate-ai-subversion",
       "path": "gists/tc-openai-will-embed-safety-researchers-to.json",
@@ -1519,6 +1603,12 @@
       "source_key": "techcrunch.com/2026/11/17/protons-lumo-a-privacy-focused-alternative-to-chatgpt-and-claude-arrives-on-desktop",
       "path": "gists/tc-protons-lumo-a-privacy-focused-alternative-to.json",
       "created_at": "2026-11-17T17:37:40Z"
+    },
+    {
+      "slug": "tc-s-p-considers-nvidia-credit-downgrade-over",
+      "source_key": "techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks",
+      "path": "gists/tc-s-p-considers-nvidia-credit-downgrade-over.json",
+      "created_at": "2026-11-26T18:25:28Z"
     },
     {
       "slug": "tc-sam-altman-on-nvidia-without-jensen-huang-the",

@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "hn-much-shorter-version-of-grh-lean-verification",
+  "kind": "hn",
+  "title": "Much shorter version of GRH Lean verification from Anthropic",
+  "url": "https://github.com/lsernau/grh-lean",
+  "source_url": "https://news.ycombinator.com/item?id=50648050",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Reasoning",
+    "Anthropic",
+    "Open Source"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "A repo from Anthropic researchers condenses the Lean 4 proof of the Generalized Riemann Hypothesis for Dirichlet L-functions into a 300,000-line readable edition and a 76,000-line compact one.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The proof builds on Mathlib and relies only on Lean's standard axioms propext, Classical.choice and Quot.sound.",
+        "It follows Levent Alpöge's proof made with Claude; this shorter version came from colleagues at Anthropic working with Claude.",
+        "Commenters note the original ran to about 17 million lines; grh-compact proves the same five theorems as the readable edition.",
+        "A build needs Lean v4.35.0 and takes one to two hours on 12 cores with 24 GB of memory.",
+        "So far it has passed machine checks only: no mathematician has read it through, and no paper accompanies it."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "Commenters welcome the readable edition's split between known and new math, and a volunteer effort modelled on SETI@home is already re-verifying it.",
+          "url": "https://news.ycombinator.com/item?id=50648688"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One reader doubts any human could read the Lean by hand; the reply steers them to the readable edition, since the compact one is deliberately minimised.",
+          "url": "https://news.ycombinator.com/item?id=50648814"
+        },
+        {
+          "stance": "disputed",
+          "text": "Commenters split on whether shorter, LLM-explained proofs answer Terence Tao's worry about huge proofs that give no insight.",
+          "url": "https://news.ycombinator.com/item?id=50648682"
+        },
+        {
+          "stance": "theme",
+          "text": "Others probe the trust chain, such as whether Main.lean really points at Mathlib's statement of the hypothesis.",
+          "url": "https://news.ycombinator.com/item?id=50652645"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "GitHub - lsernau/grh-lean: A short Lean 4 proof of the Generalized Riemann Hypothesis",
+      "url": "https://github.com/lsernau/grh-lean"
+    },
+    {
+      "role": "discussion",
+      "title": "Much shorter version of GRH Lean verification from Anthropic",
+      "url": "https://news.ycombinator.com/item?id=50648050"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-much-shorter-version-of-grh-lean-verification-2026-11-26",
+      "edition_date": "2026-11-26"
+    }
+  ],
+  "created_at": "2026-11-26T18:25:28Z",
+  "updated_at": "2026-11-26T18:25:28Z",
+  "stats": {
+    "points": 522,
+    "comments": 335,
+    "submitted_by": "nb-t",
+    "posted_at": "2026-11-25T21:48:10Z"
+  },
+  "stats_as_of": "2026-11-26T18:23:17Z"
+}

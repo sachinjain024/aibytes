@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "hn-bare-metal-qwen",
+  "kind": "hn",
+  "title": "Bare Metal Qwen",
+  "url": "https://github.com/alesha-pro/llm.asm/tree/main/02-baremetal-os",
+  "source_url": "https://news.ycombinator.com/item?id=50648365",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Local LLM",
+    "Inference",
+    "Open Source"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Phase 2 of the llm.asm project boots Qwen3-0.6B as its own x86-64 operating system, written in assembly with no Linux, C, Rust or libc, straight into a chat prompt.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The kernel is a 24 KB static Multiboot image that reaches a multi-turn chat in under 100 ms and keeps the KV-cache between turns.",
+        "Weights are bound zero-copy from RAM on 2 MiB huge pages, and inference is spread over every CPU core.",
+        "The author reports 134.9 tokens per second decode on 16 vCPUs under QEMU KVM, ahead of llama.cpp CPU Q8_0 in the project's own benchmarks.",
+        "It ships as a hybrid BIOS and UEFI ISO that runs on a diskless Proxmox VM, and needs a CPU with AVX2, FMA and F16C.",
+        "Output matches the Linux assembly build token for token on five parity prompts."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "disputed",
+          "text": "One commenter says the OS layer is negligible next to a large model's needs; a reply argues dropping it shrinks the attack surface and adds reliability.",
+          "url": "https://news.ycombinator.com/item?id=50650693"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "A commenter questions whether the quoted throughput is actually good for a 0.6B model.",
+          "url": "https://news.ycombinator.com/item?id=50657095"
+        },
+        {
+          "stance": "theme",
+          "text": "Several see it as a step toward the model as the operating system, fronted only by a chat interface.",
+          "url": "https://news.ycombinator.com/item?id=50650802"
+        },
+        {
+          "stance": "theme",
+          "text": "Others wonder about serving models this way in data centres, though isolation might bring a hypervisor or OS back.",
+          "url": "https://news.ycombinator.com/item?id=50650948"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "llm.asm/02-baremetal-os at main · alesha-pro/llm.asm",
+      "url": "https://github.com/alesha-pro/llm.asm/tree/main/02-baremetal-os"
+    },
+    {
+      "role": "discussion",
+      "title": "Bare Metal Qwen",
+      "url": "https://news.ycombinator.com/item?id=50648365"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-bare-metal-qwen-2026-11-26",
+      "edition_date": "2026-11-26"
+    }
+  ],
+  "created_at": "2026-11-26T18:25:28Z",
+  "updated_at": "2026-11-26T18:25:28Z",
+  "stats": {
+    "points": 223,
+    "comments": 54,
+    "submitted_by": "miohtama",
+    "posted_at": "2026-11-25T22:15:34Z"
+  },
+  "stats_as_of": "2026-11-26T18:23:17Z"
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "slug": "hn-serving-qwen-via-aws-lambdas-for-fun-and-80x",
+  "kind": "hn",
+  "title": "Serving Qwen via AWS Lambdas for fun and 80x negative profit",
+  "url": "https://noahbuilt.it/writing/qwen-on-5600-lambdas",
+  "source_url": "https://news.ycombinator.com/item?id=50638070",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Inference",
+    "Deep Dive"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "brief",
+  "lede": "A write-up of running Qwen inference across roughly 5,600 AWS Lambda functions, and of the costs that left the experiment deeply unprofitable.",
+  "sections": [],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Serving Qwen via AWS Lambdas for fun and 80x negative profit",
+      "url": "https://noahbuilt.it/writing/qwen-on-5600-lambdas"
+    },
+    {
+      "role": "discussion",
+      "title": "Serving Qwen via AWS Lambdas for fun and 80x negative profit",
+      "url": "https://news.ycombinator.com/item?id=50638070"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-serving-qwen-via-aws-lambdas-for-fun-and-80x-2026-11-26",
+      "edition_date": "2026-11-26"
+    }
+  ],
+  "created_at": "2026-11-26T18:25:28Z",
+  "updated_at": "2026-11-26T18:25:28Z",
+  "stats": {
+    "points": 132,
+    "comments": 20,
+    "submitted_by": "octember",
+    "posted_at": "2026-11-25T03:28:06Z"
+  },
+  "stats_as_of": "2026-11-26T18:23:17Z"
+}

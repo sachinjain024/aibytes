@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "ph-hiring-right-now",
+  "kind": "launch",
+  "title": "Hiring Right Now",
+  "url": "https://www.producthunt.com/products/hiring-right-now",
+  "source_url": "https://www.producthunt.com/products/hiring-right-now",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/b7ded7ec-8309-48d6-a8d8-0931c7c2085a.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "Hiring Right Now, from the Backdoor team, reads a public LinkedIn profile and returns growing startups that fit the work you have done, the founder to contact and a drafted first email.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "You paste a public LinkedIn URL; the tool searches growing startups and shows your ten best fits.",
+        "Each match names the founder to write to, and the top match comes with a drafted email.",
+        "The team says the draft ties something you have built to what that startup is working on.",
+        "The paid Backdoor service keeps finding matches and runs follow-ups; you approve each first email, and approved mail goes out from your own Gmail."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Job seekers who want to approach startup founders directly instead of applying through job boards and waiting."
+    },
+    {
+      "key": "pricing",
+      "text": "Matches and the first draft are free, with no signup or card. The ongoing Backdoor outreach is paid, with 50% off a 90-day plan during launch week."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Hiring Right Now on Product Hunt",
+      "url": "https://www.producthunt.com/products/hiring-right-now"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-hiring-right-now-2026-11-26",
+      "edition_date": "2026-11-26"
+    }
+  ],
+  "created_at": "2026-11-26T18:25:28Z",
+  "updated_at": "2026-11-26T18:25:28Z",
+  "stats": {
+    "upvotes": 200,
+    "comments": 29
+  },
+  "stats_as_of": "2026-11-26T18:23:17Z"
+}

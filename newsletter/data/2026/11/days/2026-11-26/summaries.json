@@ -1,0 +1,145 @@
+{
+  "date": "2026-11-26",
+  "items": {
+    "ph-myclaw-3-0-2026-11-26": {
+      "summary": "Runs agents like OpenClaw, Claude Code and Codex on always-on cloud machines with per-agent roles, 50+ models and shared memory; assign work from Slack, Telegram or WhatsApp.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-hub-d3d2bb55-5f42-4355-98fe-d7e0b636a030-2026-11-26": {
+      "summary": "Self-hosted Apache-2.0 coordinator that hands a goal to Claude Code and Codex sessions on your own subscription and returns only the decisions; agents run without permission prompts.",
+      "tags": ["Open Source", "Agents", "Claude Code", "Launch"]
+    },
+    "ph-airbots-2026-11-26": {
+      "summary": "Watches email, Slack, calendar and CRM, then messages you first on WhatsApp or iMessage with drafted replies, meeting briefs or CRM changes to approve.",
+      "tags": ["Agents", "Launch"]
+    },
+    "ph-hiring-right-now-2026-11-26": {
+      "summary": "Paste a LinkedIn profile and it matches you to growing startups, names the founder to contact and drafts the email to send; free, no signup.",
+      "tags": ["Launch"]
+    },
+    "ph-canva-mcp-2-2026-11-26": {
+      "summary": "Exposes Canva's design generation, background removal, resizing and image and video tools to agents through an MCP server, REST APIs and a CLI.",
+      "tags": ["MCP", "API", "Image Gen", "Launch"]
+    },
+    "gh-claude-bughunter-2026-11-26": {
+      "summary": "Claude Code skill bundle for bug bounty and red-team work: 85 skills, 16 slash commands and 681 disclosed-report patterns across 24 vulnerability classes.",
+      "tags": ["Security", "Claude Code", "Dev Tool"]
+    },
+    "gh-firecrawl-2026-11-26": {
+      "summary": "TypeScript service that gives agents search, scraping and access to 550+ data providers behind a single API.",
+      "tags": ["API", "Agents", "Open Source"]
+    },
+    "gh-diagram-design-2026-11-26": {
+      "summary": "Skill for coding agents including Claude Code, Codex, Copilot and Cursor that draws 52 diagram types as self-contained HTML and SVG instead of Mermaid.",
+      "tags": ["Dev Tool", "Agents"]
+    },
+    "gh-superpowers-2026-11-26": {
+      "summary": "Shell-based library of agent skills paired with a software development methodology for coding agents to follow.",
+      "tags": ["Framework", "Agents", "Code Gen"]
+    },
+    "gh-autoclip-2026-11-26": {
+      "summary": "Local-first Python desktop app and MCP server that cuts podcasts, interviews and lectures into short clips with subtitles, covers and post copy; an open OpusClip alternative.",
+      "tags": ["Video", "Open Source", "MCP"]
+    },
+    "gh-last30days-skill-2026-11-26": {
+      "summary": "Python agent skill that searches Reddit, X, YouTube, HN, Polymarket and the web on a topic, then writes a grounded summary of what it found.",
+      "tags": ["Agents", "Dev Tool"]
+    },
+    "gh-minimind-2026-11-26": {
+      "summary": "Python code to pretrain a 64M-parameter language model from scratch, with the full training run taking about two hours.",
+      "tags": ["LLM", "Open Source"]
+    },
+    "gh-app-store-compliance-2026-11-26": {
+      "summary": "Pre-submission guard with 125 App Store and Google Play rejection patterns, privacy manifest checks, 117 regulatory deadlines incl. the EU AI Act, and a coding-agent skill.",
+      "tags": ["Dev Tool", "Policy"]
+    },
+    "gh-stitch-skills-2026-11-26": {
+      "summary": "Google Labs' Agent Skills for the Stitch MCP server, packaged to the open standard so Antigravity, Gemini CLI, Claude Code and Cursor can use them.",
+      "tags": ["MCP", "Google", "Agents"]
+    },
+    "gh-plugins-2026-11-26": {
+      "summary": "The specification for Cursor's plugin format plus the official plugins built on it, in TypeScript.",
+      "tags": ["Cursor", "Dev Tool"]
+    },
+    "tc-as-anthropic-ipos-grand-theft-auto-vi-proves-2026-11-26": {
+      "summary": "Column contrasting Anthropic's public market debut with GTA VI, a painstakingly human game that became one of the biggest entertainment launches ever on the same day.",
+      "tags": ["Anthropic"]
+    },
+    "tc-s-p-considers-nvidia-credit-downgrade-over-2026-11-26": {
+      "summary": "The agency may cut Nvidia's rating to AA-, the fourth-highest grade.",
+      "tags": ["Nvidia"]
+    },
+    "tc-openai-says-heavy-chatgpt-users-may-hit-limits-2026-11-26": {
+      "summary": "A single usage meter will span all of ChatGPT once the Chat and Work experiences combine, so heavy users may run into caps earlier.",
+      "tags": ["OpenAI", "Pricing"]
+    },
+    "tc-jensen-huang-broke-nvidias-code-of-conduct-and-2026-11-26": {
+      "summary": "Analysis arguing that Huang's breach of Nvidia's own code of conduct could have lasting consequences for the company's culture and staff.",
+      "tags": ["Nvidia"]
+    },
+    "tc-anthropics-dario-amodei-calls-accusations-of-2026-11-26": {
+      "summary": "Amodei rejects rivals' claims that he favours ceding human agency to AI, as leading labs increasingly automate their own research and model development.",
+      "tags": ["Anthropic", "Safety"]
+    },
+    "tc-want-to-buy-your-kid-an-ai-toy-this-christmas-2026-11-26": {
+      "summary": "New York bans AI chatbot toys for five years, as Common Sense Media research finds exposure to inappropriate content and risks to children's emotional development.",
+      "tags": ["Policy", "Safety"]
+    },
+    "tc-character-ais-plan-to-auction-off-users-private-2026-11-26": {
+      "summary": "The proposed bankruptcy sale covers data from over 21 million US accounts, 2.1 million of them registered to minors, according to the objecting attorneys general.",
+      "tags": ["Privacy", "Legal"]
+    },
+    "tc-ai-data-centers-are-becoming-harder-to-build-2026-11-26": {
+      "summary": "Equity podcast with Arizona Land Consulting's CEO on finding sites with power, zoning and community buy-in, and what a pickier Nvidia means for neoclouds.",
+      "tags": ["Nvidia", "Inference"]
+    },
+    "tc-amazon-and-meta-reportedly-in-talks-to-lift-2026-11-26": {
+      "summary": "The two companies are discussing a deal that would end a two-month-long blockade of the Muse agent.",
+      "tags": ["Agents", "Meta"]
+    },
+    "tc-the-questions-jensen-huang-and-nvidia-will-2026-11-26": {
+      "summary": "Investigators want to know what Nvidia knew about where its chips ended up, and whether Huang's affair with a Megaspeed executive gave reason to doubt Megaspeed's assurances.",
+      "tags": ["Nvidia", "Legal"]
+    },
+    "hn-the-new-york-times-warns-photographers-not-to-2026-11-26": {
+      "summary": "The Verge reports on the Times telling its photographers to hold off on Photoshop updates because of newly added AI features.",
+      "tags": ["Image Gen", "Policy"]
+    },
+    "hn-much-shorter-version-of-grh-lean-verification-2026-11-26": {
+      "summary": "GitHub repo holding a condensed rewrite of Anthropic's Lean verification work on the Generalized Riemann Hypothesis.",
+      "tags": ["Reasoning", "Anthropic", "Open Source"]
+    },
+    "hn-openai-cuts-gpt-6-2-usage-astra-hits-limits-40-2026-11-26": {
+      "summary": "An X post detailing the cut, landing as OpenAI moves ChatGPT to a single usage meter across the merged Chat and Work experiences.",
+      "tags": ["OpenAI", "Pricing"]
+    },
+    "hn-pengpt-a-generative-transformer-for-handwriting-2026-11-26": {
+      "summary": "Blog post on greydanus.github.io describing a generative transformer trained to produce handwriting and sketches.",
+      "tags": ["Image Gen", "Deep Dive"]
+    },
+    "hn-bare-metal-qwen-2026-11-26": {
+      "summary": "Stage of the llm.asm GitHub project that runs a Qwen model as a bare-metal OS, with no host operating system underneath.",
+      "tags": ["Local LLM", "Inference", "Open Source"]
+    },
+    "hn-marginalia-search-money-c-rust-ai-stuff-2026-11-26": {
+      "summary": "Status update on marginalia.nu from the independent Marginalia Search engine, covering money, its C++ and Rust code, and AI.",
+      "tags": ["Deep Dive"]
+    },
+    "hn-gemini-refused-to-give-me-the-lyrics-to-twinkle-2026-11-26": {
+      "summary": "Post on comentr.com about Gemini declining to supply the words to a public-domain nursery rhyme.",
+      "tags": ["Google", "Safety"]
+    },
+    "hn-serving-qwen-via-aws-lambdas-for-fun-and-80x-2026-11-26": {
+      "summary": "Write-up of running Qwen inference across about 5,600 AWS Lambda functions, and the costs that left it far from profitable.",
+      "tags": ["Inference", "Deep Dive"]
+    },
+    "hn-tracking-diseases-cured-by-ai-2026-11-26": {
+      "summary": "Standalone site at diseasescuredbyai.com that catalogues diseases claimed to have been cured with the help of AI.",
+      "tags": ["Dataset"]
+    },
+    "hn-top-open-problems-in-mathematics-ranked-by-llm-2026-11-26": {
+      "summary": "ProofAtlas page listing open problems in mathematics, ordered by how important an LLM judges each one to be.",
+      "tags": ["Reasoning", "Eval"]
+    }
+  }
+}

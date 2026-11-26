@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "slug": "ph-hub-d3d2bb55-5f42-4355-98fe-d7e0b636a030",
+  "kind": "launch",
+  "title": "Hub",
+  "url": "https://www.producthunt.com/products/hub-20",
+  "source_url": "https://www.producthunt.com/products/hub-20",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Open Source",
+    "Agents",
+    "Claude Code",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/bb93b891-9106-4e73-a7f5-3b6c3d67a5b3.png?auto=format"
+  },
+  "depth": "full",
+  "lede": "Hub is a self-hosted coordinator for many Claude Code and Codex sessions: you state a goal in a browser or Telegram, it hands the work to agents, and only the decisions come back to you.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "A coordinator takes plain-language goals and dispatches them to Claude Code or Codex sessions running on your own Claude or ChatGPT subscription.",
+        "Every event lands in a journal, so the state of each session is recorded rather than guessed, one of the builders explains.",
+        "Agents run without permission prompts; the team calls Hub an experiment and asks users to treat it like a terminal and read SECURITY.md first.",
+        "The team says Hub produced 546 merged merge requests since 20 September while rewriting its legacy backend.",
+        "Apache-2.0, self-hosted, one-line install, and not affiliated with Anthropic or OpenAI."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Developers already running many Claude Code or Codex sessions at once who lose track of which ones are stuck or waiting on them."
+    },
+    {
+      "key": "pricing",
+      "text": "The launch comment says Hub is free and open source; model usage runs on your existing Claude or ChatGPT subscription."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Hub on Product Hunt",
+      "url": "https://www.producthunt.com/products/hub-20"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-hub-d3d2bb55-5f42-4355-98fe-d7e0b636a030-2026-11-26",
+      "edition_date": "2026-11-26"
+    }
+  ],
+  "created_at": "2026-11-26T18:25:28Z",
+  "updated_at": "2026-11-26T18:25:28Z",
+  "stats": {
+    "upvotes": 297,
+    "comments": 154
+  },
+  "stats_as_of": "2026-11-26T18:23:17Z"
+}

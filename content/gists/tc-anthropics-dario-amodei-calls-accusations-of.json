@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "slug": "tc-anthropics-dario-amodei-calls-accusations-of",
+  "kind": "news",
+  "title": "Anthropic’s Dario Amodei calls accusations of surrendering human control to AI ‘absurd’",
+  "url": "https://techcrunch.com/2026/11/25/anthropics-dario-amodei-calls-accusations-of-surrendering-human-control-to-ai-absurd/",
+  "source_url": "https://techcrunch.com/2026/11/25/anthropics-dario-amodei-calls-accusations-of-surrendering-human-control-to-ai-absurd/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Anthropic",
+    "Safety"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/03/Dario-Amodei-Anthropic-viva-tech.jpg?w=1024"
+  },
+  "depth": "full",
+  "lede": "Dario Amodei called claims that Anthropic would hand human free will to AI absurd, and proposed limits on recursive self-improvement even as Anthropic automates more of its own research.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "In a long X post, Amodei said governance by AI is a bad idea for the same reasons he opposes autocracy.",
+        "He separates automating specific tasks, like driving, drug design or end-to-end software, from giving up human agency.",
+        "He suggested limits on recursive self-improvement and said Claude should not build successive frontier models without meaningful human supervision.",
+        "Claude wrote over 80% of code merged at Anthropic as of June, and METR found its models improving at about twice their historical rate.",
+        "He accused rivals of vibes-based positioning, noting every lab ships models built to automate ever more tasks."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "Developers building on Claude get a stated line from its maker: broad task automation is fine, but fully autonomous model development still needs human oversight."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Anthropic’s Dario Amodei calls accusations of surrendering human control to AI ‘absurd’",
+      "url": "https://techcrunch.com/2026/11/25/anthropics-dario-amodei-calls-accusations-of-surrendering-human-control-to-ai-absurd/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-anthropics-dario-amodei-calls-accusations-of-2026-11-26",
+      "edition_date": "2026-11-26"
+    }
+  ],
+  "created_at": "2026-11-26T18:25:28Z",
+  "updated_at": "2026-11-26T18:25:28Z"
+}

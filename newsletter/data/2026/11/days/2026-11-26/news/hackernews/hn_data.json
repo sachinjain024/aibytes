@@ -1,0 +1,130 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-26",
+  "window": {
+    "after": "2026-11-25",
+    "before": "2026-11-27"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 13,
+  "poolCount": 71,
+  "stories": [
+    {
+      "title": "The New York Times warns photographers not to update Photoshop over AI features",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features",
+      "type": "story",
+      "points": 571,
+      "num_comments": 474,
+      "author": "rmason",
+      "created_at": "2026-11-25T21:18:02Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50647673",
+      "front_page": true
+    },
+    {
+      "title": "Much shorter version of GRH Lean verification from Anthropic",
+      "url": "https://github.com/lsernau/grh-lean",
+      "type": "story",
+      "points": 522,
+      "num_comments": 335,
+      "author": "nb-t",
+      "created_at": "2026-11-25T21:48:10Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50648050",
+      "front_page": false
+    },
+    {
+      "title": "OpenAI cuts GPT-6.2 usage: Astra hits limits 40% faster, Sol 25% faster",
+      "url": "https://twitter.com/thsottiaux/status/2125784147889393806",
+      "type": "story",
+      "points": 429,
+      "num_comments": 245,
+      "author": "Herrera",
+      "created_at": "2026-11-26T03:36:58Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50651117",
+      "front_page": false
+    },
+    {
+      "title": "PenGPT: A Generative Transformer for Handwriting and Sketches",
+      "url": "https://greydanus.github.io/2026/11/12/pengpt/",
+      "type": "story",
+      "points": 401,
+      "num_comments": 78,
+      "author": "smusamashah",
+      "created_at": "2026-11-25T00:54:49Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50637056",
+      "front_page": false
+    },
+    {
+      "title": "Bare Metal Qwen",
+      "url": "https://github.com/alesha-pro/llm.asm/tree/main/02-baremetal-os",
+      "type": "story",
+      "points": 223,
+      "num_comments": 54,
+      "author": "miohtama",
+      "created_at": "2026-11-25T22:15:34Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50648365",
+      "front_page": false
+    },
+    {
+      "title": "Marginalia Search, Money, C++, Rust, AI, Stuff",
+      "url": "https://www.marginalia.nu/log/a_141_marginalia_update/",
+      "type": "story",
+      "points": 222,
+      "num_comments": 85,
+      "author": "Curiositry",
+      "created_at": "2026-11-25T03:47:42Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50638220",
+      "front_page": false
+    },
+    {
+      "title": "Gemini refused to give me the lyrics to Twinkle Twinkle Little Star",
+      "url": "https://www.comentr.com/technology/01M88DWQ0R4NCMYR17AFEWRG1F",
+      "type": "story",
+      "points": 219,
+      "num_comments": 174,
+      "author": "hoodied",
+      "created_at": "2026-11-25T04:03:33Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50638320",
+      "front_page": false
+    },
+    {
+      "title": "Serving Qwen via AWS Lambdas for fun and 80x negative profit",
+      "url": "https://noahbuilt.it/writing/qwen-on-5600-lambdas",
+      "type": "story",
+      "points": 132,
+      "num_comments": 20,
+      "author": "octember",
+      "created_at": "2026-11-25T03:28:06Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50638070",
+      "front_page": false
+    },
+    {
+      "title": "Tracking Diseases Cured by AI",
+      "url": "https://diseasescuredbyai.com/",
+      "type": "story",
+      "points": 109,
+      "num_comments": 44,
+      "author": "spoofyroot",
+      "created_at": "2026-11-26T17:16:41Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50657307",
+      "front_page": true
+    },
+    {
+      "title": "Top open problems in mathematics ranked by LLM-assessed importance",
+      "url": "https://www.proofatlas.ai/open-problems/",
+      "type": "story",
+      "points": 104,
+      "num_comments": 53,
+      "author": "ijidak",
+      "created_at": "2026-11-25T03:01:36Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50637871",
+      "front_page": false
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "slug": "hn-tracking-diseases-cured-by-ai",
+  "kind": "hn",
+  "title": "Tracking Diseases Cured by AI",
+  "url": "https://diseasescuredbyai.com/",
+  "source_url": "https://news.ycombinator.com/item?id=50657307",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Dataset"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "A single-page tracker counts diseases cured with AI's help, following the AI-derived drug candidates nearest approval and separating treatments from cures.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Insilico Medicine's rentosertib for idiopathic pulmonary fibrosis leads: AI chose both its target and molecule, and a 320-patient Phase III began in 2026.",
+        "Takeda and Nimbus's zasocitinib for psoriasis has an FDA decision due in Q1 2027, though the site notes it came from older physics-based modelling of a known target.",
+        "Isomorphic Labs raised $2.1B in May 2026 but had dosed no molecule in a human by November.",
+        "The site counts managing a disease, as with psoriasis, as distinct from curing it."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "A commenter who works in the field says AI does speed up science, but measuring what happens inside cells, not crunching data, is the real bottleneck.",
+          "url": "https://news.ycombinator.com/item?id=50657944"
+        },
+        {
+          "stance": "theme",
+          "text": "Several ask how many diseases medicine has ever cured, with antibiotics and a hepatitis C drug offered as examples.",
+          "url": "https://news.ycombinator.com/item?id=50657831"
+        },
+        {
+          "stance": "disputed",
+          "text": "Readers split on whether this is serious tracking or a sneer, since it gives AI no credit for partial progress.",
+          "url": "https://news.ycombinator.com/item?id=50657704"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One commenter finds the tone bitter, reading it as assuming that what has not happened yet will not happen.",
+          "url": "https://news.ycombinator.com/item?id=50657924"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Number of Diseases Cured by AI",
+      "url": "https://diseasescuredbyai.com/"
+    },
+    {
+      "role": "discussion",
+      "title": "Tracking Diseases Cured by AI",
+      "url": "https://news.ycombinator.com/item?id=50657307"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-tracking-diseases-cured-by-ai-2026-11-26",
+      "edition_date": "2026-11-26"
+    }
+  ],
+  "created_at": "2026-11-26T18:25:28Z",
+  "updated_at": "2026-11-26T18:25:28Z",
+  "stats": {
+    "points": 109,
+    "comments": 44,
+    "submitted_by": "spoofyroot",
+    "posted_at": "2026-11-26T17:16:41Z"
+  },
+  "stats_as_of": "2026-11-26T18:23:17Z",
+  "front_page": true
+}

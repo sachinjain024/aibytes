@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "slug": "ph-canva-mcp-2",
+  "kind": "launch",
+  "title": "Canva MCP",
+  "url": "https://www.producthunt.com/products/canva",
+  "source_url": "https://www.producthunt.com/products/canva",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "MCP",
+    "API",
+    "Image Gen",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/d7c5e3c2-fab2-42e4-afe3-e525a4c8a953.jpeg?auto=format"
+  },
+  "depth": "full",
+  "lede": "Canva has made its MCP server generally available, letting AI agents create editable designs, images and videos and call Canva tools such as background removal and resizing.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The MCP server is generally available, with no waitlist.",
+        "Agents produce designs, images and videos that stay editable in Canva rather than arriving as flat files.",
+        "Exposed tools include Magic Layers, background removal and creative resizing.",
+        "New REST APIs and an expanded CLI give developers the same capabilities, and Canva Craft image generation is reachable through both API and MCP.",
+        "The launch comment says close to 500,000 people signed up for Canva through MCP in the past month."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Marketing teams and solo developers who turn out many on-brand graphics and want an agent to generate and resize them while keeping every file editable."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "Canva MCP on Product Hunt",
+      "url": "https://www.producthunt.com/products/canva"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-canva-mcp-2-2026-11-26",
+      "edition_date": "2026-11-26"
+    }
+  ],
+  "created_at": "2026-11-26T18:25:28Z",
+  "updated_at": "2026-11-26T18:25:28Z",
+  "stats": {
+    "upvotes": 183,
+    "comments": 5
+  },
+  "stats_as_of": "2026-11-26T18:23:17Z"
+}

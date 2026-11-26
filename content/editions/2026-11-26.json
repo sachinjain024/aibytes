@@ -1,0 +1,944 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-26",
+  "generated_at": "2026-11-26T18:23:17Z",
+  "counts": {
+    "launches": 5,
+    "repos": 10,
+    "news": 10,
+    "hn": 10
+  },
+  "items": [
+    {
+      "id": "ph-myclaw-3-0-2026-11-26",
+      "title": "MyClaw 3.0",
+      "summary": "Runs agents like OpenClaw, Claude Code and Codex on always-on cloud machines with per-agent roles, 50+ models and shared memory; assign work from Slack, Telegram or WhatsApp.",
+      "url": "https://www.producthunt.com/products/myclaw-3-0",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/myclaw-3-0",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/28fd2484-882a-4dbe-a782-fa034197fa78.gif?auto=format"
+      },
+      "signals": {
+        "upvotes": 334,
+        "comments": 61
+      },
+      "published_at": "2026-11-25T08:01:00Z",
+      "hidden": false,
+      "rank": 4,
+      "gist": "ph-myclaw-3-0"
+    },
+    {
+      "id": "ph-hub-d3d2bb55-5f42-4355-98fe-d7e0b636a030-2026-11-26",
+      "title": "Hub",
+      "summary": "Self-hosted Apache-2.0 coordinator that hands a goal to Claude Code and Codex sessions on your own subscription and returns only the decisions; agents run without permission prompts.",
+      "url": "https://www.producthunt.com/products/hub-20",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/hub-20",
+      "category": "launches",
+      "tags": [
+        "Open Source",
+        "Agents",
+        "Claude Code",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/bb93b891-9106-4e73-a7f5-3b6c3d67a5b3.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 297,
+        "comments": 154
+      },
+      "published_at": "2026-11-26T08:01:00Z",
+      "hidden": false,
+      "rank": 11,
+      "gist": "ph-hub-d3d2bb55-5f42-4355-98fe-d7e0b636a030"
+    },
+    {
+      "id": "ph-airbots-2026-11-26",
+      "title": "Airbot",
+      "summary": "Watches email, Slack, calendar and CRM, then messages you first on WhatsApp or iMessage with drafted replies, meeting briefs or CRM changes to approve.",
+      "url": "https://www.producthunt.com/products/airbots",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/airbots",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/7c7d25c7-eb92-4e83-8f25-67b78db12372.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 294,
+        "comments": 64
+      },
+      "published_at": "2026-11-25T08:01:00Z",
+      "hidden": false,
+      "rank": 18,
+      "gist": "ph-airbots"
+    },
+    {
+      "id": "ph-hiring-right-now-2026-11-26",
+      "title": "Hiring Right Now",
+      "summary": "Paste a LinkedIn profile and it matches you to growing startups, names the founder to contact and drafts the email to send; free, no signup.",
+      "url": "https://www.producthunt.com/products/hiring-right-now",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/hiring-right-now",
+      "category": "launches",
+      "tags": [
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/b7ded7ec-8309-48d6-a8d8-0931c7c2085a.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 200,
+        "comments": 29
+      },
+      "published_at": "2026-11-25T08:01:00Z",
+      "hidden": false,
+      "rank": 25,
+      "gist": "ph-hiring-right-now"
+    },
+    {
+      "id": "ph-canva-mcp-2-2026-11-26",
+      "title": "Canva MCP",
+      "summary": "Exposes Canva's design generation, background removal, resizing and image and video tools to agents through an MCP server, REST APIs and a CLI.",
+      "url": "https://www.producthunt.com/products/canva",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/canva",
+      "category": "launches",
+      "tags": [
+        "MCP",
+        "API",
+        "Image Gen",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/d7c5e3c2-fab2-42e4-afe3-e525a4c8a953.jpeg?auto=format"
+      },
+      "signals": {
+        "upvotes": 183,
+        "comments": 5
+      },
+      "published_at": "2026-11-25T08:01:00Z",
+      "hidden": false,
+      "rank": 32,
+      "gist": "ph-canva-mcp-2"
+    },
+    {
+      "id": "gh-claude-bughunter-2026-11-26",
+      "title": "elementalsouls/Claude-BugHunter",
+      "summary": "Claude Code skill bundle for bug bounty and red-team work: 85 skills, 16 slash commands and 681 disclosed-report patterns across 24 vulnerability classes.",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source": "github",
+      "source_url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "category": "repos",
+      "tags": [
+        "Security",
+        "Claude Code",
+        "Dev Tool"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/elementalsouls.png?size=80"
+      },
+      "signals": {
+        "stars": 24230,
+        "stars_gained": 1600,
+        "forks": 2466
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 1,
+      "gist": "gh-claude-bughunter"
+    },
+    {
+      "id": "gh-firecrawl-2026-11-26",
+      "title": "firecrawl/firecrawl",
+      "summary": "TypeScript service that gives agents search, scraping and access to 550+ data providers behind a single API.",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "source": "github",
+      "source_url": "https://github.com/firecrawl/firecrawl",
+      "category": "repos",
+      "tags": [
+        "API",
+        "Agents",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/firecrawl.png?size=80"
+      },
+      "signals": {
+        "stars": 210759,
+        "stars_gained": 1042,
+        "forks": 11031
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 5,
+      "gist": "gh-firecrawl"
+    },
+    {
+      "id": "gh-diagram-design-2026-11-26",
+      "title": "cathrynlavery/diagram-design",
+      "summary": "Skill for coding agents including Claude Code, Codex, Copilot and Cursor that draws 52 diagram types as self-contained HTML and SVG instead of Mermaid.",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "source": "github",
+      "source_url": "https://github.com/cathrynlavery/diagram-design",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/cathrynlavery.png?size=80"
+      },
+      "signals": {
+        "stars": 73703,
+        "stars_gained": 951,
+        "forks": 4913
+      },
+      "meta": {
+        "language": "HTML"
+      },
+      "hidden": false,
+      "rank": 8,
+      "gist": "gh-diagram-design"
+    },
+    {
+      "id": "gh-superpowers-2026-11-26",
+      "title": "obra/superpowers",
+      "summary": "Shell-based library of agent skills paired with a software development methodology for coding agents to follow.",
+      "url": "https://github.com/obra/superpowers",
+      "source": "github",
+      "source_url": "https://github.com/obra/superpowers",
+      "category": "repos",
+      "tags": [
+        "Framework",
+        "Agents",
+        "Code Gen"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/obra.png?size=80"
+      },
+      "signals": {
+        "stars": 327289,
+        "stars_gained": 853,
+        "forks": 29023
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 12,
+      "gist": "gh-superpowers"
+    },
+    {
+      "id": "gh-autoclip-2026-11-26",
+      "title": "zhouxiaoka/autoclip",
+      "summary": "Local-first Python desktop app and MCP server that cuts podcasts, interviews and lectures into short clips with subtitles, covers and post copy; an open OpusClip alternative.",
+      "url": "https://github.com/zhouxiaoka/autoclip",
+      "source": "github",
+      "source_url": "https://github.com/zhouxiaoka/autoclip",
+      "category": "repos",
+      "tags": [
+        "Video",
+        "Open Source",
+        "MCP"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/zhouxiaoka.png?size=80"
+      },
+      "signals": {
+        "stars": 16819,
+        "stars_gained": 770,
+        "forks": 2369
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 15,
+      "gist": "gh-autoclip"
+    },
+    {
+      "id": "gh-last30days-skill-2026-11-26",
+      "title": "mvanhorn/last30days-skill",
+      "summary": "Python agent skill that searches Reddit, X, YouTube, HN, Polymarket and the web on a topic, then writes a grounded summary of what it found.",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "source": "github",
+      "source_url": "https://github.com/mvanhorn/last30days-skill",
+      "category": "repos",
+      "tags": [
+        "Agents",
+        "Dev Tool"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mvanhorn.png?size=80"
+      },
+      "signals": {
+        "stars": 75617,
+        "stars_gained": 755,
+        "forks": 6662
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 19,
+      "gist": "gh-last30days-skill"
+    },
+    {
+      "id": "gh-minimind-2026-11-26",
+      "title": "jingyaogong/minimind",
+      "summary": "Python code to pretrain a 64M-parameter language model from scratch, with the full training run taking about two hours.",
+      "url": "https://github.com/jingyaogong/minimind",
+      "source": "github",
+      "source_url": "https://github.com/jingyaogong/minimind",
+      "category": "repos",
+      "tags": [
+        "LLM",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/jingyaogong.png?size=80"
+      },
+      "signals": {
+        "stars": 71542,
+        "stars_gained": 701,
+        "forks": 9282
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 22,
+      "gist": "gh-minimind"
+    },
+    {
+      "id": "gh-app-store-compliance-2026-11-26",
+      "title": "mjmirza/app-store-compliance",
+      "summary": "Pre-submission guard with 125 App Store and Google Play rejection patterns, privacy manifest checks, 117 regulatory deadlines incl. the EU AI Act, and a coding-agent skill.",
+      "url": "https://github.com/mjmirza/app-store-compliance",
+      "source": "github",
+      "source_url": "https://github.com/mjmirza/app-store-compliance",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Policy"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mjmirza.png?size=80"
+      },
+      "signals": {
+        "stars": 6911,
+        "stars_gained": 561,
+        "forks": 454
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 26,
+      "gist": "gh-app-store-compliance"
+    },
+    {
+      "id": "gh-stitch-skills-2026-11-26",
+      "title": "google-labs-code/stitch-skills",
+      "summary": "Google Labs' Agent Skills for the Stitch MCP server, packaged to the open standard so Antigravity, Gemini CLI, Claude Code and Cursor can use them.",
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "source": "github",
+      "source_url": "https://github.com/google-labs-code/stitch-skills",
+      "category": "repos",
+      "tags": [
+        "MCP",
+        "Google",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/google-labs-code.png?size=80"
+      },
+      "signals": {
+        "stars": 13224,
+        "stars_gained": 308,
+        "forks": 1553
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 29,
+      "gist": "gh-stitch-skills"
+    },
+    {
+      "id": "gh-plugins-2026-11-26",
+      "title": "cursor/plugins",
+      "summary": "The specification for Cursor's plugin format plus the official plugins built on it, in TypeScript.",
+      "url": "https://github.com/cursor/plugins",
+      "source": "github",
+      "source_url": "https://github.com/cursor/plugins",
+      "category": "repos",
+      "tags": [
+        "Cursor",
+        "Dev Tool"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/cursor.png?size=80"
+      },
+      "signals": {
+        "stars": 19733,
+        "stars_gained": 268,
+        "forks": 2129
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 33,
+      "gist": "gh-plugins"
+    },
+    {
+      "id": "tc-as-anthropic-ipos-grand-theft-auto-vi-proves-2026-11-26",
+      "title": "As Anthropic IPOs, Grand Theft Auto VI proves why efficiency isn’t a virtue",
+      "summary": "Column contrasting Anthropic's public market debut with GTA VI, a painstakingly human game that became one of the biggest entertainment launches ever on the same day.",
+      "url": "https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/",
+      "category": "news",
+      "tags": [
+        "Anthropic"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Jason_and_Lucia_17.117_b11r13mg5.jpg?resize=1200,675"
+      },
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-11-26T16:00:00Z",
+      "hidden": false,
+      "rank": 3,
+      "gist": "tc-as-anthropic-ipos-grand-theft-auto-vi-proves"
+    },
+    {
+      "id": "tc-s-p-considers-nvidia-credit-downgrade-over-2026-11-26",
+      "title": "S&P considers Nvidia credit downgrade over governance and ‘key man’ risks",
+      "summary": "The agency may cut Nvidia's rating to AA-, the fourth-highest grade.",
+      "url": "https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/",
+      "category": "news",
+      "tags": [
+        "Nvidia"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/01/GettyImages-2256813240.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Marina Temkin",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-25T22:44:32Z",
+      "hidden": false,
+      "rank": 7,
+      "gist": "tc-s-p-considers-nvidia-credit-downgrade-over"
+    },
+    {
+      "id": "tc-openai-says-heavy-chatgpt-users-may-hit-limits-2026-11-26",
+      "title": "OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work",
+      "summary": "A single usage meter will span all of ChatGPT once the Chat and Work experiences combine, so heavy users may run into caps earlier.",
+      "url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
+      "category": "news",
+      "tags": [
+        "OpenAI",
+        "Pricing"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/openai-chatgpt.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Jagmeet Singh",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-25T20:03:27Z",
+      "hidden": false,
+      "rank": 10,
+      "gist": "tc-openai-says-heavy-chatgpt-users-may-hit-limits"
+    },
+    {
+      "id": "tc-jensen-huang-broke-nvidias-code-of-conduct-and-2026-11-26",
+      "title": "Jensen Huang broke Nvidia’s code of conduct, and his employees may not forget it",
+      "summary": "Analysis arguing that Huang's breach of Nvidia's own code of conduct could have lasting consequences for the company's culture and staff.",
+      "url": "https://techcrunch.com/2026/11/25/jensen-huang-broke-nvidias-code-of-conduct-and-his-employees-may-not-forget-it/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/25/jensen-huang-broke-nvidias-code-of-conduct-and-his-employees-may-not-forget-it/",
+      "category": "news",
+      "tags": [
+        "Nvidia"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2025/08/GettyImages-2227140868.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Russell Brandom",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-25T19:54:57Z",
+      "hidden": false,
+      "rank": 14,
+      "gist": "tc-jensen-huang-broke-nvidias-code-of-conduct-and"
+    },
+    {
+      "id": "tc-anthropics-dario-amodei-calls-accusations-of-2026-11-26",
+      "title": "Anthropic’s Dario Amodei calls accusations of surrendering human control to AI ‘absurd’",
+      "summary": "Amodei rejects rivals' claims that he favours ceding human agency to AI, as leading labs increasingly automate their own research and model development.",
+      "url": "https://techcrunch.com/2026/11/25/anthropics-dario-amodei-calls-accusations-of-surrendering-human-control-to-ai-absurd/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/25/anthropics-dario-amodei-calls-accusations-of-surrendering-human-control-to-ai-absurd/",
+      "category": "news",
+      "tags": [
+        "Anthropic",
+        "Safety"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/03/Dario-Amodei-Anthropic-viva-tech.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-25T19:44:24Z",
+      "hidden": false,
+      "rank": 17,
+      "gist": "tc-anthropics-dario-amodei-calls-accusations-of"
+    },
+    {
+      "id": "tc-want-to-buy-your-kid-an-ai-toy-this-christmas-2026-11-26",
+      "title": "Want to buy your kid an AI toy this Christmas? Not in New York",
+      "summary": "New York bans AI chatbot toys for five years, as Common Sense Media research finds exposure to inappropriate content and risks to children's emotional development.",
+      "url": "https://techcrunch.com/2026/11/25/want-to-buy-your-kid-an-ai-toy-this-christmas-not-in-new-york/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/25/want-to-buy-your-kid-an-ai-toy-this-christmas-not-in-new-york/",
+      "category": "news",
+      "tags": [
+        "Policy",
+        "Safety"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2237660127.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-25T18:11:46Z",
+      "hidden": false,
+      "rank": 21,
+      "gist": "tc-want-to-buy-your-kid-an-ai-toy-this-christmas"
+    },
+    {
+      "id": "tc-character-ais-plan-to-auction-off-users-private-2026-11-26",
+      "title": "Character.AI’s plan to auction off users’ private chats challenged by state AGs",
+      "summary": "The proposed bankruptcy sale covers data from over 21 million US accounts, 2.1 million of them registered to minors, according to the objecting attorneys general.",
+      "url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/",
+      "category": "news",
+      "tags": [
+        "Privacy",
+        "Legal"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2024/06/Character-Calls-Image-feat.jpg?resize=1200,675"
+      },
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-25T17:35:58Z",
+      "hidden": false,
+      "rank": 24,
+      "gist": "tc-state-ags-fight-character-ais-plan-to-auction"
+    },
+    {
+      "id": "tc-ai-data-centers-are-becoming-harder-to-build-2026-11-26",
+      "title": "AI data centers are becoming harder to build, and neoclouds are feeling it",
+      "summary": "Equity podcast with Arizona Land Consulting's CEO on finding sites with power, zoning and community buy-in, and what a pickier Nvidia means for neoclouds.",
+      "url": "https://techcrunch.com/podcast/ai-data-centers-are-becoming-harder-to-build-and-neoclouds-are-feeling-it/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/podcast/ai-data-centers-are-becoming-harder-to-build-and-neoclouds-are-feeling-it/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Inference"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Anita-Verma-Lallian-2.jpg?w=1024"
+      },
+      "meta": {
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-25T15:41:43Z",
+      "hidden": false,
+      "rank": 28,
+      "gist": "tc-ai-data-centers-are-becoming-harder-to-build"
+    },
+    {
+      "id": "tc-amazon-and-meta-reportedly-in-talks-to-lift-2026-11-26",
+      "title": "Amazon and Meta reportedly in talks to lift blockade on AI agent Muse",
+      "summary": "The two companies are discussing a deal that would end a two-month-long blockade of the Muse agent.",
+      "url": "https://techcrunch.com/2026/11/25/amazon-and-meta-reportedly-in-talks-to-lift-blockade-on-ai-agent-muse/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/25/amazon-and-meta-reportedly-in-talks-to-lift-blockade-on-ai-agent-muse/",
+      "category": "news",
+      "tags": [
+        "Agents",
+        "Meta"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/09/muse-ai-meta.jpg?w=1200"
+      },
+      "meta": {
+        "author": "Lauren Forristal",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-25T14:10:18Z",
+      "hidden": false,
+      "rank": 31,
+      "gist": "tc-amazon-and-meta-reportedly-in-talks-to-lift"
+    },
+    {
+      "id": "tc-the-questions-jensen-huang-and-nvidia-will-2026-11-26",
+      "title": "The questions Jensen Huang and Nvidia will still have to answer about Megaspeed",
+      "summary": "Investigators want to know what Nvidia knew about where its chips ended up, and whether Huang's affair with a Megaspeed executive gave reason to doubt Megaspeed's assurances.",
+      "url": "https://techcrunch.com/2026/11/25/the-questions-jensen-huang-and-nvidia-will-still-have-to-answer-about-megaspeed/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/25/the-questions-jensen-huang-and-nvidia-will-still-have-to-answer-about-megaspeed/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Legal"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/GettyImages-2249127237.jpg?resize=1200,800"
+      },
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-11-25T13:00:00Z",
+      "hidden": false,
+      "rank": 35,
+      "gist": "tc-the-questions-jensen-huang-and-nvidia-will"
+    },
+    {
+      "id": "hn-the-new-york-times-warns-photographers-not-to-2026-11-26",
+      "title": "The New York Times warns photographers not to update Photoshop over AI features",
+      "summary": "The Verge reports on the Times telling its photographers to hold off on Photoshop updates because of newly added AI features.",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50647673",
+      "category": "hn",
+      "tags": [
+        "Image Gen",
+        "Policy"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 571,
+        "comments": 474
+      },
+      "meta": {
+        "author": "rmason"
+      },
+      "published_at": "2026-11-25T21:18:02Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 2,
+      "gist": "hn-the-new-york-times-warns-photographers-not-to"
+    },
+    {
+      "id": "hn-much-shorter-version-of-grh-lean-verification-2026-11-26",
+      "title": "Much shorter version of GRH Lean verification from Anthropic",
+      "summary": "GitHub repo holding a condensed rewrite of Anthropic's Lean verification work on the Generalized Riemann Hypothesis.",
+      "url": "https://github.com/lsernau/grh-lean",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50648050",
+      "category": "hn",
+      "tags": [
+        "Reasoning",
+        "Anthropic",
+        "Open Source"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 522,
+        "comments": 335
+      },
+      "meta": {
+        "author": "nb-t"
+      },
+      "published_at": "2026-11-25T21:48:10Z",
+      "hidden": false,
+      "rank": 6,
+      "gist": "hn-much-shorter-version-of-grh-lean-verification"
+    },
+    {
+      "id": "hn-openai-cuts-gpt-6-2-usage-astra-hits-limits-40-2026-11-26",
+      "title": "OpenAI cuts GPT-6.2 usage: Astra hits limits 40% faster, Sol 25% faster",
+      "summary": "An X post detailing the cut, landing as OpenAI moves ChatGPT to a single usage meter across the merged Chat and Work experiences.",
+      "url": "https://twitter.com/thsottiaux/status/2125784147889393806",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50651117",
+      "category": "hn",
+      "tags": [
+        "OpenAI",
+        "Pricing"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 429,
+        "comments": 245
+      },
+      "meta": {
+        "author": "Herrera"
+      },
+      "published_at": "2026-11-26T03:36:58Z",
+      "hidden": false,
+      "rank": 9,
+      "gist": "hn-openai-cuts-gpt-6-2-usage-astra-hits-limits-40"
+    },
+    {
+      "id": "hn-pengpt-a-generative-transformer-for-handwriting-2026-11-26",
+      "title": "PenGPT: A Generative Transformer for Handwriting and Sketches",
+      "summary": "Blog post on greydanus.github.io describing a generative transformer trained to produce handwriting and sketches.",
+      "url": "https://greydanus.github.io/2026/11/12/pengpt/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50637056",
+      "category": "hn",
+      "tags": [
+        "Image Gen",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 401,
+        "comments": 78
+      },
+      "meta": {
+        "author": "smusamashah"
+      },
+      "published_at": "2026-11-25T00:54:49Z",
+      "hidden": false,
+      "rank": 13,
+      "gist": "hn-pengpt-a-generative-transformer-for-handwriting"
+    },
+    {
+      "id": "hn-bare-metal-qwen-2026-11-26",
+      "title": "Bare Metal Qwen",
+      "summary": "Stage of the llm.asm GitHub project that runs a Qwen model as a bare-metal OS, with no host operating system underneath.",
+      "url": "https://github.com/alesha-pro/llm.asm/tree/main/02-baremetal-os",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50648365",
+      "category": "hn",
+      "tags": [
+        "Local LLM",
+        "Inference",
+        "Open Source"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 223,
+        "comments": 54
+      },
+      "meta": {
+        "author": "miohtama"
+      },
+      "published_at": "2026-11-25T22:15:34Z",
+      "hidden": false,
+      "rank": 16,
+      "gist": "hn-bare-metal-qwen"
+    },
+    {
+      "id": "hn-marginalia-search-money-c-rust-ai-stuff-2026-11-26",
+      "title": "Marginalia Search, Money, C++, Rust, AI, Stuff",
+      "summary": "Status update on marginalia.nu from the independent Marginalia Search engine, covering money, its C++ and Rust code, and AI.",
+      "url": "https://www.marginalia.nu/log/a_141_marginalia_update/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50638220",
+      "category": "hn",
+      "tags": [
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 222,
+        "comments": 85
+      },
+      "meta": {
+        "author": "Curiositry"
+      },
+      "published_at": "2026-11-25T03:47:42Z",
+      "hidden": false,
+      "rank": 20,
+      "gist": "hn-marginalia-search-money-c-rust-ai-stuff"
+    },
+    {
+      "id": "hn-gemini-refused-to-give-me-the-lyrics-to-twinkle-2026-11-26",
+      "title": "Gemini refused to give me the lyrics to Twinkle Twinkle Little Star",
+      "summary": "Post on comentr.com about Gemini declining to supply the words to a public-domain nursery rhyme.",
+      "url": "https://www.comentr.com/technology/01M88DWQ0R4NCMYR17AFEWRG1F",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50638320",
+      "category": "hn",
+      "tags": [
+        "Google",
+        "Safety"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 219,
+        "comments": 174
+      },
+      "meta": {
+        "author": "hoodied"
+      },
+      "published_at": "2026-11-25T04:03:33Z",
+      "hidden": false,
+      "rank": 23,
+      "gist": "hn-gemini-refused-to-give-me-the-lyrics-to-twinkle"
+    },
+    {
+      "id": "hn-serving-qwen-via-aws-lambdas-for-fun-and-80x-2026-11-26",
+      "title": "Serving Qwen via AWS Lambdas for fun and 80x negative profit",
+      "summary": "Write-up of running Qwen inference across about 5,600 AWS Lambda functions, and the costs that left it far from profitable.",
+      "url": "https://noahbuilt.it/writing/qwen-on-5600-lambdas",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50638070",
+      "category": "hn",
+      "tags": [
+        "Inference",
+        "Deep Dive"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 132,
+        "comments": 20
+      },
+      "meta": {
+        "author": "octember"
+      },
+      "published_at": "2026-11-25T03:28:06Z",
+      "hidden": false,
+      "rank": 27,
+      "gist": "hn-serving-qwen-via-aws-lambdas-for-fun-and-80x"
+    },
+    {
+      "id": "hn-tracking-diseases-cured-by-ai-2026-11-26",
+      "title": "Tracking Diseases Cured by AI",
+      "summary": "Standalone site at diseasescuredbyai.com that catalogues diseases claimed to have been cured with the help of AI.",
+      "url": "https://diseasescuredbyai.com/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50657307",
+      "category": "hn",
+      "tags": [
+        "Dataset"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 109,
+        "comments": 44
+      },
+      "meta": {
+        "author": "spoofyroot"
+      },
+      "published_at": "2026-11-26T17:16:41Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 30,
+      "gist": "hn-tracking-diseases-cured-by-ai"
+    },
+    {
+      "id": "hn-top-open-problems-in-mathematics-ranked-by-llm-2026-11-26",
+      "title": "Top open problems in mathematics ranked by LLM-assessed importance",
+      "summary": "ProofAtlas page listing open problems in mathematics, ordered by how important an LLM judges each one to be.",
+      "url": "https://www.proofatlas.ai/open-problems/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50637871",
+      "category": "hn",
+      "tags": [
+        "Reasoning",
+        "Eval"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 104,
+        "comments": 53
+      },
+      "meta": {
+        "author": "ijidak"
+      },
+      "published_at": "2026-11-25T03:01:36Z",
+      "hidden": false,
+      "rank": 34,
+      "gist": "hn-top-open-problems-in-mathematics-ranked-by-llm"
+    }
+  ]
+}

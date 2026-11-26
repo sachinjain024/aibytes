@@ -1,0 +1,779 @@
+{
+  "date": "2026-11-26",
+  "generated_at": "2026-11-26T18:22:09Z",
+  "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
+  "tags": [
+    {
+      "name": "What it is",
+      "tags": [
+        {
+          "name": "Model Release",
+          "slug": "model-release"
+        },
+        {
+          "name": "Open Source",
+          "slug": "open-source"
+        },
+        {
+          "name": "Paper",
+          "slug": "paper"
+        },
+        {
+          "name": "Benchmark",
+          "slug": "benchmark"
+        },
+        {
+          "name": "Dataset",
+          "slug": "dataset"
+        },
+        {
+          "name": "Framework",
+          "slug": "framework"
+        },
+        {
+          "name": "Dev Tool",
+          "slug": "dev-tool"
+        },
+        {
+          "name": "API",
+          "slug": "api"
+        }
+      ]
+    },
+    {
+      "name": "Domain",
+      "tags": [
+        {
+          "name": "LLM",
+          "slug": "llm"
+        },
+        {
+          "name": "Agents",
+          "slug": "agents"
+        },
+        {
+          "name": "RAG",
+          "slug": "rag"
+        },
+        {
+          "name": "Fine-tuning",
+          "slug": "fine-tuning"
+        },
+        {
+          "name": "Inference",
+          "slug": "inference"
+        },
+        {
+          "name": "Local LLM",
+          "slug": "local-llm"
+        },
+        {
+          "name": "Vision",
+          "slug": "vision"
+        },
+        {
+          "name": "Voice / Speech",
+          "slug": "voice-speech"
+        },
+        {
+          "name": "Video",
+          "slug": "video"
+        },
+        {
+          "name": "Image Gen",
+          "slug": "image-gen"
+        },
+        {
+          "name": "Code Gen",
+          "slug": "code-gen"
+        },
+        {
+          "name": "Embeddings",
+          "slug": "embeddings"
+        },
+        {
+          "name": "Eval",
+          "slug": "eval"
+        },
+        {
+          "name": "Reasoning",
+          "slug": "reasoning"
+        },
+        {
+          "name": "Multimodal",
+          "slug": "multimodal"
+        },
+        {
+          "name": "Robotics",
+          "slug": "robotics"
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem",
+      "tags": [
+        {
+          "name": "OpenAI",
+          "slug": "openai"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic"
+        },
+        {
+          "name": "Google",
+          "slug": "google"
+        },
+        {
+          "name": "Meta",
+          "slug": "meta"
+        },
+        {
+          "name": "Nvidia",
+          "slug": "nvidia"
+        },
+        {
+          "name": "Hugging Face",
+          "slug": "hugging-face"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft"
+        },
+        {
+          "name": "Claude Code",
+          "slug": "claude-code"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor"
+        },
+        {
+          "name": "MCP",
+          "slug": "mcp"
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "tags": [
+        {
+          "name": "Funding",
+          "slug": "funding"
+        },
+        {
+          "name": "Acquisition",
+          "slug": "acquisition"
+        },
+        {
+          "name": "Launch",
+          "slug": "launch"
+        },
+        {
+          "name": "Pricing",
+          "slug": "pricing"
+        },
+        {
+          "name": "Policy",
+          "slug": "policy"
+        },
+        {
+          "name": "Legal",
+          "slug": "legal"
+        },
+        {
+          "name": "Security",
+          "slug": "security"
+        },
+        {
+          "name": "Privacy",
+          "slug": "privacy"
+        },
+        {
+          "name": "Safety",
+          "slug": "safety"
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "tags": [
+        {
+          "name": "Show HN",
+          "slug": "show-hn"
+        },
+        {
+          "name": "Tutorial",
+          "slug": "tutorial"
+        },
+        {
+          "name": "Deep Dive",
+          "slug": "deep-dive"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ph-myclaw-3-0-2026-11-26",
+      "title": "MyClaw 3.0",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/myclaw-3-0",
+      "source_url": "https://www.producthunt.com/products/myclaw-3-0",
+      "source_text": "MyClaw 3.0 Build an always-on AI team with shared memory MyClaw lets you build your own AI team with OpenClaw, Claude Code, Codex, Hermes Agent, Pi, and more. Give each teammate its own role, tools, skills, and choice of 50+ models, with shared memory across your team. Your agents run on always-on cloud computers, use your apps, access data, and handle recurring tasks even when you're offline. Assign work from the web, Slack, Telegram, or WhatsApp. No server setup or lock-in to a single AI provider. Productivity Artificial Intelligence Business",
+      "signals": {
+        "upvotes": 334,
+        "comments": 61
+      },
+      "published_at": "2026-11-25T08:01:00Z"
+    },
+    {
+      "id": "ph-hub-d3d2bb55-5f42-4355-98fe-d7e0b636a030-2026-11-26",
+      "title": "Hub",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/hub-20",
+      "source_url": "https://www.producthunt.com/products/hub-20",
+      "source_text": "Hub Run 100 Claude Code or Codex sessions like 5 Open-source dispatcher for Claude Code and Codex sessions. Write a goal in your browser or Telegram, a coordinator hands it to agents, and only the decisions come back. Self-hosted, Apache-2.0, on your own Claude or ChatGPT subscription. One-line install. Experimental: agents run without permission prompts. Open Source Developer Tools Artificial Intelligence",
+      "signals": {
+        "upvotes": 297,
+        "comments": 154
+      },
+      "published_at": "2026-11-26T08:01:00Z"
+    },
+    {
+      "id": "ph-airbots-2026-11-26",
+      "title": "Airbot",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/airbots",
+      "source_url": "https://www.producthunt.com/products/airbots",
+      "source_text": "Airbot The AI chief of staff that texts you first Most AI assistants wait for you to ask. Airbot texts you first. It checks the conversations, meetings, and customer updates spread across email, Slack, your calendar, and CRM, then brings you only the priorities that matter. Behind every message is work already prepared: a drafted response, a meeting brief, a booking, or a CRM change. Approve what should happen directly in WhatsApp or iMessage. Airbot helps founders and lean teams stay on top of work without living in their notifications. Productivity Sales Artificial Intelligence",
+      "signals": {
+        "upvotes": 294,
+        "comments": 64
+      },
+      "published_at": "2026-11-25T08:01:00Z"
+    },
+    {
+      "id": "ph-hiring-right-now-2026-11-26",
+      "title": "Hiring Right Now",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/hiring-right-now",
+      "source_url": "https://www.producthunt.com/products/hiring-right-now",
+      "source_text": "Hiring Right Now Which startups would hire you? Paste your LinkedIn. Backdoor reads your work, searches growing startups and shows you the ones that fit, the founder to write to, and the email to send them. Free, no signup required, takes about two minutes. Hiring Artificial Intelligence Career",
+      "signals": {
+        "upvotes": 200,
+        "comments": 29
+      },
+      "published_at": "2026-11-25T08:01:00Z"
+    },
+    {
+      "id": "ph-canva-mcp-2-2026-11-26",
+      "title": "Canva MCP",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/canva",
+      "source_url": "https://www.producthunt.com/products/canva",
+      "source_text": "Canva MCP Turn any AI agent into a creative powerhouse Canva MCP opens Canva's creative tools to AI agents and developers. Generate editable designs, images and videos, remove backgrounds, resize assets and automate on-brand creative workflows with MCP, REST APIs and CLI. Design Tools",
+      "signals": {
+        "upvotes": 183,
+        "comments": 5
+      },
+      "published_at": "2026-11-25T08:01:00Z"
+    },
+    {
+      "id": "gh-claude-bughunter-2026-11-26",
+      "title": "elementalsouls/Claude-BugHunter",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_text": "elementalsouls/Claude-BugHunter A Claude Code skill bundle for bug hunting and external red-team work - 85 skills, 16 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices. Python",
+      "signals": {
+        "stars": 24230,
+        "stars_gained": 1600,
+        "forks": 2466
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-firecrawl-2026-11-26",
+      "title": "firecrawl/firecrawl",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "source_url": "https://github.com/firecrawl/firecrawl",
+      "source_text": "firecrawl/firecrawl Knowledge infrastructure to make your agents smarter. Search, scrape and access 550+ data providers through one API. TypeScript",
+      "signals": {
+        "stars": 210759,
+        "stars_gained": 1042,
+        "forks": 11031
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-diagram-design-2026-11-26",
+      "title": "cathrynlavery/diagram-design",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "source_url": "https://github.com/cathrynlavery/diagram-design",
+      "source_text": "cathrynlavery/diagram-design Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory Droid, Qoder, and Pi. 52 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop. HTML",
+      "signals": {
+        "stars": 73703,
+        "stars_gained": 951,
+        "forks": 4913
+      },
+      "meta": {
+        "language": "HTML"
+      }
+    },
+    {
+      "id": "gh-superpowers-2026-11-26",
+      "title": "obra/superpowers",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/obra/superpowers",
+      "source_url": "https://github.com/obra/superpowers",
+      "source_text": "obra/superpowers An agentic skills framework & software development methodology that works. Shell",
+      "signals": {
+        "stars": 327289,
+        "stars_gained": 853,
+        "forks": 29023
+      },
+      "meta": {
+        "language": "Shell"
+      }
+    },
+    {
+      "id": "gh-autoclip-2026-11-26",
+      "title": "zhouxiaoka/autoclip",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/zhouxiaoka/autoclip",
+      "source_url": "https://github.com/zhouxiaoka/autoclip",
+      "source_text": "zhouxiaoka/autoclip AutoClip｜The open-source OpusClip alternative — local-first AI clipping & MCP server, zero subscriptions. 一个链接，一键出片。开源 AI 视频剪辑桌面工具，将播客、访谈、课程等长视频自动剪成短视频，生成字幕、封面和发布文案，适配抖音、小红书、TikTok、Reels 与 YouTube Shorts。 Python",
+      "signals": {
+        "stars": 16819,
+        "stars_gained": 770,
+        "forks": 2369
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-last30days-skill-2026-11-26",
+      "title": "mvanhorn/last30days-skill",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "source_url": "https://github.com/mvanhorn/last30days-skill",
+      "source_text": "mvanhorn/last30days-skill AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary Python",
+      "signals": {
+        "stars": 75617,
+        "stars_gained": 755,
+        "forks": 6662
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-minimind-2026-11-26",
+      "title": "jingyaogong/minimind",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/jingyaogong/minimind",
+      "source_url": "https://github.com/jingyaogong/minimind",
+      "source_text": "jingyaogong/minimind 🧠 两小时从 0 训出你的 64M 大模型。Train your own 64M LLM from scratch in 2 hours. Python",
+      "signals": {
+        "stars": 71542,
+        "stars_gained": 701,
+        "forks": 9282
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-app-store-compliance-2026-11-26",
+      "title": "mjmirza/app-store-compliance",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/mjmirza/app-store-compliance",
+      "source_url": "https://github.com/mjmirza/app-store-compliance",
+      "source_text": "mjmirza/app-store-compliance Avoid common App Store and Google Play rejections. Open playbook and pre-submission guard with 125 documented rejection patterns and fixes, privacy manifest and Data safety checks, 117 tracked deadlines (EU AI Act, DSA, COPPA, age laws), and a skill for AI coding agents. Shell",
+      "signals": {
+        "stars": 6911,
+        "stars_gained": 561,
+        "forks": 454
+      },
+      "meta": {
+        "language": "Shell"
+      }
+    },
+    {
+      "id": "gh-stitch-skills-2026-11-26",
+      "title": "google-labs-code/stitch-skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "source_url": "https://github.com/google-labs-code/stitch-skills",
+      "source_text": "google-labs-code/stitch-skills A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor. TypeScript",
+      "signals": {
+        "stars": 13224,
+        "stars_gained": 308,
+        "forks": 1553
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-plugins-2026-11-26",
+      "title": "cursor/plugins",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/cursor/plugins",
+      "source_url": "https://github.com/cursor/plugins",
+      "source_text": "cursor/plugins Cursor plugin specification and official plugins TypeScript",
+      "signals": {
+        "stars": 19733,
+        "stars_gained": 268,
+        "forks": 2129
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "tc-as-anthropic-ipos-grand-theft-auto-vi-proves-2026-11-26",
+      "title": "As Anthropic IPOs, Grand Theft Auto VI proves why efficiency isn’t a virtue",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/",
+      "source_url": "https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/",
+      "source_text": "As Anthropic IPOs, Grand Theft Auto VI proves why efficiency isn’t a virtue On the same day that Anthropic entered the public market, a painstakingly human video game became one of most successful entertainment launches of all time.",
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-11-26T16:00:00Z"
+    },
+    {
+      "id": "tc-s-p-considers-nvidia-credit-downgrade-over-2026-11-26",
+      "title": "S&P considers Nvidia credit downgrade over governance and ‘key man’ risks",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/",
+      "source_url": "https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/",
+      "source_text": "S&P considers Nvidia credit downgrade over governance and ‘key man’ risks The credit rating agency may lower Nvidia's credit rating to AA-, the fourth-highest rating.",
+      "meta": {
+        "author": "Marina Temkin",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-25T22:44:32Z"
+    },
+    {
+      "id": "tc-openai-says-heavy-chatgpt-users-may-hit-limits-2026-11-26",
+      "title": "OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
+      "source_url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
+      "source_text": "OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work OpenAI will introduce a single usage meter across ChatGPT as it combines the Chat and Work experiences.",
+      "meta": {
+        "author": "Jagmeet Singh",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-25T20:03:27Z"
+    },
+    {
+      "id": "tc-jensen-huang-broke-nvidias-code-of-conduct-and-2026-11-26",
+      "title": "Jensen Huang broke Nvidia’s code of conduct, and his employees may not forget it",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/25/jensen-huang-broke-nvidias-code-of-conduct-and-his-employees-may-not-forget-it/",
+      "source_url": "https://techcrunch.com/2026/11/25/jensen-huang-broke-nvidias-code-of-conduct-and-his-employees-may-not-forget-it/",
+      "source_text": "Jensen Huang broke Nvidia’s code of conduct, and his employees may not forget it Most codes of conduct serve as a reflection of corporate culture. In Nvidia's case, that could have consequences.",
+      "meta": {
+        "author": "Russell Brandom",
+        "reading_time": "3 minutes"
+      },
+      "published_at": "2026-11-25T19:54:57Z"
+    },
+    {
+      "id": "tc-anthropics-dario-amodei-calls-accusations-of-2026-11-26",
+      "title": "Anthropic’s Dario Amodei calls accusations of surrendering human control to AI ‘absurd’",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/25/anthropics-dario-amodei-calls-accusations-of-surrendering-human-control-to-ai-absurd/",
+      "source_url": "https://techcrunch.com/2026/11/25/anthropics-dario-amodei-calls-accusations-of-surrendering-human-control-to-ai-absurd/",
+      "source_text": "Anthropic’s Dario Amodei calls accusations of surrendering human control to AI ‘absurd’ Anthropic CEO Dario Amodei pushes back against rivals’ accusations that he favors surrendering human agency to AI, even as leading AI companies increasingly automate their own research and model development.",
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-25T19:44:24Z"
+    },
+    {
+      "id": "tc-want-to-buy-your-kid-an-ai-toy-this-christmas-2026-11-26",
+      "title": "Want to buy your kid an AI toy this Christmas? Not in New York",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/25/want-to-buy-your-kid-an-ai-toy-this-christmas-not-in-new-york/",
+      "source_url": "https://techcrunch.com/2026/11/25/want-to-buy-your-kid-an-ai-toy-this-christmas-not-in-new-york/",
+      "source_text": "Want to buy your kid an AI toy this Christmas? Not in New York New York has banned AI chatbot toys for five years as new research from Common Sense Media reveals troubling safety failures, including exposure to inappropriate content and risks to emotional development.",
+      "meta": {
+        "author": "Rebecca Bellan",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-25T18:11:46Z"
+    },
+    {
+      "id": "tc-character-ais-plan-to-auction-off-users-private-2026-11-26",
+      "title": "Character.AI’s plan to auction off users’ private chats challenged by state AGs",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/",
+      "source_url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/",
+      "source_text": "Character.AI’s plan to auction off users’ private chats challenged by state AGs The proposed Character.ai bankruptcy sale includes sensitive personal data from more than 21 million U.S. accounts, including 2.1 million registered to minors, the state AGs said.",
+      "meta": {
+        "author": "Sarah Perez",
+        "reading_time": "4 minutes"
+      },
+      "published_at": "2026-11-25T17:35:58Z"
+    },
+    {
+      "id": "tc-ai-data-centers-are-becoming-harder-to-build-2026-11-26",
+      "title": "AI data centers are becoming harder to build, and neoclouds are feeling it",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/podcast/ai-data-centers-are-becoming-harder-to-build-and-neoclouds-are-feeling-it/",
+      "source_url": "https://techcrunch.com/podcast/ai-data-centers-are-becoming-harder-to-build-and-neoclouds-are-feeling-it/",
+      "source_text": "AI data centers are becoming harder to build, and neoclouds are feeling it Arizona Land Consulting’s CEO joins Equity to talk about the land behind the AI boom, what it takes to find a data center site with power, zoning, and community buy-in, and what Nvidia getting pickier means for neoclouds.",
+      "meta": {
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-25T15:41:43Z"
+    },
+    {
+      "id": "tc-amazon-and-meta-reportedly-in-talks-to-lift-2026-11-26",
+      "title": "Amazon and Meta reportedly in talks to lift blockade on AI agent Muse",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/25/amazon-and-meta-reportedly-in-talks-to-lift-blockade-on-ai-agent-muse/",
+      "source_url": "https://techcrunch.com/2026/11/25/amazon-and-meta-reportedly-in-talks-to-lift-blockade-on-ai-agent-muse/",
+      "source_text": "Amazon and Meta reportedly in talks to lift blockade on AI agent Muse Amazon and Meta are discussing a potential deal that would end a two-month-long blockade of Muse.",
+      "meta": {
+        "author": "Lauren Forristal",
+        "reading_time": "2 minutes"
+      },
+      "published_at": "2026-11-25T14:10:18Z"
+    },
+    {
+      "id": "tc-the-questions-jensen-huang-and-nvidia-will-2026-11-26",
+      "title": "The questions Jensen Huang and Nvidia will still have to answer about Megaspeed",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/25/the-questions-jensen-huang-and-nvidia-will-still-have-to-answer-about-megaspeed/",
+      "source_url": "https://techcrunch.com/2026/11/25/the-questions-jensen-huang-and-nvidia-will-still-have-to-answer-about-megaspeed/",
+      "source_text": "The questions Jensen Huang and Nvidia will still have to answer about Megaspeed The central question for investigators is what Nvidia knew about where those chips ended up and whether Huang's affair with a Megaspeed executive gave the company reason to doubt Megaspeed's assurances.",
+      "meta": {
+        "author": "Tim Fernholz",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-11-25T13:00:00Z"
+    },
+    {
+      "id": "hn-the-new-york-times-warns-photographers-not-to-2026-11-26",
+      "title": "The New York Times warns photographers not to update Photoshop over AI features",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features",
+      "source_url": "https://news.ycombinator.com/item?id=50647673",
+      "source_text": "The New York Times warns photographers not to update Photoshop over AI features",
+      "signals": {
+        "points": 571,
+        "comments": 474
+      },
+      "meta": {
+        "author": "rmason"
+      },
+      "published_at": "2026-11-25T21:18:02Z"
+    },
+    {
+      "id": "hn-much-shorter-version-of-grh-lean-verification-2026-11-26",
+      "title": "Much shorter version of GRH Lean verification from Anthropic",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://github.com/lsernau/grh-lean",
+      "source_url": "https://news.ycombinator.com/item?id=50648050",
+      "source_text": "Much shorter version of GRH Lean verification from Anthropic",
+      "signals": {
+        "points": 522,
+        "comments": 335
+      },
+      "meta": {
+        "author": "nb-t"
+      },
+      "published_at": "2026-11-25T21:48:10Z"
+    },
+    {
+      "id": "hn-openai-cuts-gpt-6-2-usage-astra-hits-limits-40-2026-11-26",
+      "title": "OpenAI cuts GPT-6.2 usage: Astra hits limits 40% faster, Sol 25% faster",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://twitter.com/thsottiaux/status/2125784147889393806",
+      "source_url": "https://news.ycombinator.com/item?id=50651117",
+      "source_text": "OpenAI cuts GPT-6.2 usage: Astra hits limits 40% faster, Sol 25% faster",
+      "signals": {
+        "points": 429,
+        "comments": 245
+      },
+      "meta": {
+        "author": "Herrera"
+      },
+      "published_at": "2026-11-26T03:36:58Z"
+    },
+    {
+      "id": "hn-pengpt-a-generative-transformer-for-handwriting-2026-11-26",
+      "title": "PenGPT: A Generative Transformer for Handwriting and Sketches",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://greydanus.github.io/2026/11/12/pengpt/",
+      "source_url": "https://news.ycombinator.com/item?id=50637056",
+      "source_text": "PenGPT: A Generative Transformer for Handwriting and Sketches",
+      "signals": {
+        "points": 401,
+        "comments": 78
+      },
+      "meta": {
+        "author": "smusamashah"
+      },
+      "published_at": "2026-11-25T00:54:49Z"
+    },
+    {
+      "id": "hn-bare-metal-qwen-2026-11-26",
+      "title": "Bare Metal Qwen",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://github.com/alesha-pro/llm.asm/tree/main/02-baremetal-os",
+      "source_url": "https://news.ycombinator.com/item?id=50648365",
+      "source_text": "Bare Metal Qwen",
+      "signals": {
+        "points": 223,
+        "comments": 54
+      },
+      "meta": {
+        "author": "miohtama"
+      },
+      "published_at": "2026-11-25T22:15:34Z"
+    },
+    {
+      "id": "hn-marginalia-search-money-c-rust-ai-stuff-2026-11-26",
+      "title": "Marginalia Search, Money, C++, Rust, AI, Stuff",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.marginalia.nu/log/a_141_marginalia_update/",
+      "source_url": "https://news.ycombinator.com/item?id=50638220",
+      "source_text": "Marginalia Search, Money, C++, Rust, AI, Stuff",
+      "signals": {
+        "points": 222,
+        "comments": 85
+      },
+      "meta": {
+        "author": "Curiositry"
+      },
+      "published_at": "2026-11-25T03:47:42Z"
+    },
+    {
+      "id": "hn-gemini-refused-to-give-me-the-lyrics-to-twinkle-2026-11-26",
+      "title": "Gemini refused to give me the lyrics to Twinkle Twinkle Little Star",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.comentr.com/technology/01M88DWQ0R4NCMYR17AFEWRG1F",
+      "source_url": "https://news.ycombinator.com/item?id=50638320",
+      "source_text": "Gemini refused to give me the lyrics to Twinkle Twinkle Little Star",
+      "signals": {
+        "points": 219,
+        "comments": 174
+      },
+      "meta": {
+        "author": "hoodied"
+      },
+      "published_at": "2026-11-25T04:03:33Z"
+    },
+    {
+      "id": "hn-serving-qwen-via-aws-lambdas-for-fun-and-80x-2026-11-26",
+      "title": "Serving Qwen via AWS Lambdas for fun and 80x negative profit",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://noahbuilt.it/writing/qwen-on-5600-lambdas",
+      "source_url": "https://news.ycombinator.com/item?id=50638070",
+      "source_text": "Serving Qwen via AWS Lambdas for fun and 80x negative profit",
+      "signals": {
+        "points": 132,
+        "comments": 20
+      },
+      "meta": {
+        "author": "octember"
+      },
+      "published_at": "2026-11-25T03:28:06Z"
+    },
+    {
+      "id": "hn-tracking-diseases-cured-by-ai-2026-11-26",
+      "title": "Tracking Diseases Cured by AI",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://diseasescuredbyai.com/",
+      "source_url": "https://news.ycombinator.com/item?id=50657307",
+      "source_text": "Tracking Diseases Cured by AI",
+      "signals": {
+        "points": 109,
+        "comments": 44
+      },
+      "meta": {
+        "author": "spoofyroot"
+      },
+      "published_at": "2026-11-26T17:16:41Z"
+    },
+    {
+      "id": "hn-top-open-problems-in-mathematics-ranked-by-llm-2026-11-26",
+      "title": "Top open problems in mathematics ranked by LLM-assessed importance",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://www.proofatlas.ai/open-problems/",
+      "source_url": "https://news.ycombinator.com/item?id=50637871",
+      "source_text": "Top open problems in mathematics ranked by LLM-assessed importance",
+      "signals": {
+        "points": 104,
+        "comments": 53
+      },
+      "meta": {
+        "author": "ijidak"
+      },
+      "published_at": "2026-11-25T03:01:36Z"
+    }
+  ]
+}

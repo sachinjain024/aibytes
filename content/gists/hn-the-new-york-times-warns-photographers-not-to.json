@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "slug": "hn-the-new-york-times-warns-photographers-not-to",
+  "kind": "hn",
+  "title": "The New York Times warns photographers not to update Photoshop over AI features",
+  "url": "https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features",
+  "source_url": "https://news.ycombinator.com/item?id=50647673",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Image Gen",
+    "Policy"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "The New York Times told freelance photographers to avoid Photoshop 2027 because its AI features can attach C2PA metadata marking photos as AI-edited, even after minimal edits.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The email from photo leads Meaghan Looram and Josh Haner covers release 28.0.0 and all later updates for Times assignments.",
+        "Adobe's November update adds an AI Assisted Editor toolbar, prompt-based edits, AI upscaling and AI recomposition for new canvas sizes.",
+        "It is unclear which tools count as AI; even older automated selection may now be labelled that way.",
+        "Adobe started adding C2PA metadata across its apps in August, and the Times wants those labels kept off its photos."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "A creative-tools worker says metadata cannot tell a small AI touch-up from a fully generated image, and an AI label can sink an authoritative brand's credibility.",
+          "url": "https://news.ycombinator.com/item?id=50648319"
+        },
+        {
+          "stance": "theme",
+          "text": "Several describe a wider stigma: many people actively dislike AI imagery, so any link to it is a liability.",
+          "url": "https://news.ycombinator.com/item?id=50649893"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One commenter asks how healing brush or content-aware fill differ from generative models, since all of them invent pixels.",
+          "url": "https://news.ycombinator.com/item?id=50653081"
+        },
+        {
+          "stance": "disputed",
+          "text": "Some say the Times could screen metadata in its own CMS instead of banning a tool; a reply says it wants to avoid rejecting whole photo sets.",
+          "url": "https://news.ycombinator.com/item?id=50656944"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "The New York Times warns photographers not to update Photoshop over AI features",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features"
+    },
+    {
+      "role": "discussion",
+      "title": "The New York Times warns photographers not to update Photoshop over AI features",
+      "url": "https://news.ycombinator.com/item?id=50647673"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-the-new-york-times-warns-photographers-not-to-2026-11-26",
+      "edition_date": "2026-11-26"
+    }
+  ],
+  "created_at": "2026-11-26T18:25:28Z",
+  "updated_at": "2026-11-26T18:25:28Z",
+  "stats": {
+    "points": 571,
+    "comments": 474,
+    "submitted_by": "rmason",
+    "posted_at": "2026-11-25T21:18:02Z"
+  },
+  "stats_as_of": "2026-11-26T18:23:17Z",
+  "front_page": true
+}
