@@ -214,10 +214,10 @@ function Body({ state, dispatch, on }) {
     );
   }
   if (state.step === 2) return <>{head}<SignInStep state={state} dispatch={dispatch} on={on} counter /></>;
-  return <>{head}<Done state={state} /></>;
+  return <>{head}<Done state={state} on={on} /></>;
 }
 
-function SignedInLines({ state }) {
+function SignedInLines({ state, on }) {
   const name = state.user?.name;
   return (
     <>
@@ -248,7 +248,7 @@ function SignInStep({ state, dispatch, on, counter }) {
         </>
       )}
       {signedInHere ? (
-        <SignedInLines state={state} />
+        <SignedInLines state={state} on={on} />
       ) : offerContinue ? (
         <div className="ldg-onb-signin">
           <div className="ldg-onb-signin__row">
@@ -270,7 +270,7 @@ function SignInStep({ state, dispatch, on, counter }) {
   );
 }
 
-function Done({ state }) {
+function Done({ state, on }) {
   const synced = state.extension === "ok";
   return (
     <>
@@ -279,7 +279,7 @@ function Done({ state }) {
       </OnboardingStep>
       {synced && (
         <OnboardingStep n={2} done optional title={t("onb.s2.title")} labels={LABELS}>
-          <SignedInLines state={state} />
+          <SignedInLines state={state} on={on} />
         </OnboardingStep>
       )}
       <section className="ldg-onb-step ldg-onb-step--end">
