@@ -17,10 +17,15 @@ never enters this repo.
 |---|---|
 | Name | aiBytes – AI News Feed for Developers |
 | Short description | AI feed for developers: latest AI news, trending GitHub projects, Hacker News threads, Reddit discussions and Product Hunt launches. |
-| Category | Lifestyle › News & Weather |
+| Category | Productivity › Developer Tools |
 | Language | English |
 | Website | https://aibytes.io |
 | Support | the publisher's support email, set in the dashboard (never committed) |
+
+The category moved from News & Weather to Developer Tools on 27 Nov 2026, by
+the publisher's choice: the readers are developers, as the name says, and
+daily.dev, the nearest neighbour, lists there. It is a dashboard setting, so
+it can change again without a new version.
 
 The short description keeps Reddit by the publisher's choice (22 Nov 2026);
 if review calls it misleading, use the fallback in the spec's "Risks".

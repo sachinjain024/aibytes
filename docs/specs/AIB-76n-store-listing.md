@@ -51,7 +51,7 @@ up), so it is reviewed in a PR and copied into the dashboard.
 | Name (75 max) | **aiBytes – AI News Feed for Developers** |
 | Short description (132 max) | **"AI feed for developers: latest AI news, trending GitHub projects, Hacker News threads, Reddit discussions and Product Hunt launches."** (132 characters; approved 22 Nov 2026). The source names live here, not in the title (Chrome's keyword-spam policy). See "Risks" on Reddit |
 | Description | Opens with one line on what it is; then what's in the edition (the four categories), how ranking works, the gist view, saving and syncing with aibytes.io, the newsletter; then privacy in one paragraph and a link to `/privacy`. No superlatives, no keyword lists, no unattributed reviews. Under 1,000 words |
-| Category | **Lifestyle › News & Weather** (ticket item 4.1), moved from Education. For reference, daily.dev, the closest competitor, lists under Productivity › Developer Tools |
+| Category | **Productivity › Developer Tools** (ticket item 4.1), moved from Education. First decided as Lifestyle › News & Weather (22 Nov 2026), changed by the publisher on 27 Nov: the readers are developers, and daily.dev, the closest competitor, lists here |
 | Language | English |
 | Icon | `packages/design-system/assets/extension/icon-128.png` |
 | Screenshots | Five, 1280×800, below |
@@ -244,6 +244,7 @@ apps/web/src/
 
 ## Open questions
 
-None. Decided 22 Nov 2026: the category is News & Weather (ticket item 4.1);
+None. Decided 22 Nov 2026: the category (ticket item 4.1), changed on 27 Nov
+from News & Weather to Productivity › Developer Tools;
 the short description above, with Reddit; the marquee is made, with the promo
 tile, by the method in "The promo images"; `onb.signedout` is approved.

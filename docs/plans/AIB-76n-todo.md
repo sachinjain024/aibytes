@@ -892,7 +892,7 @@ before the upload, since the dashboard links to it.
 
 **Dependencies:** T21, T22. **Files:** `apps/extension/{CHROMEWEBSTORE.md,package.json}`, `apps/web/src/{App.jsx,analytics.test.js}`, `docs/specs/AIB-76n-store-listing.md` (the step 2 wording, below). **Scope:** S
 
-**Publisher [4, 4.1]:** upload the zip, set the category to News & Weather,
+**Publisher [4, 4.1]:** upload the zip, set the category to Productivity › Developer Tools,
 fill the listing from `CHROMEWEBSTORE.md`, and submit.
 
 ## T24 [5]: after approval, the flag and the footer link
