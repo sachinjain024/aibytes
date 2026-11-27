@@ -159,7 +159,7 @@ above.
 | Version | Date | Changes | Status |
 |---|---|---|---|
 | 26.1.15 | existing listing | Placeholder "AI Bytes" | Published |
-| 26.11.27 | 2026-11-27 | The first full release (T23): this listing, version `YY.M.D`, `/privacy`'s extension section. Includes everything under 0.1.0 | Ready to submit |
+| 26.11.27 | 2026-11-27 | The first full release (T23): this listing, version `YY.M.D`, `/privacy`'s extension section. Includes everything under 0.1.0 | Submitted for review, 27 Nov 2026 |
 | 0.1.0 | 2026-11-25 | Scaffold: popup placeholder, `storage` only, onboarding on install. Then today's edition (T9), stars and Saved signed out, kept in `chrome.storage.local` (T10), and gists in the popup (T11). Store zip: 19 files, 422 KB unpacked (T12). Popup review (27 Nov): 550px wide, stacked rows, a light/dark toggle (light by default) and the signed-out save banner; the theme and the banner's dismissal stay in the popup's own localStorage, on the device, and no permission changes | Draft |
 
 The store version is `YY.M.D` of the submission day and must be above
