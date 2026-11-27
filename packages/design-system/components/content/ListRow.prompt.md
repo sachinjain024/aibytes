@@ -8,6 +8,12 @@ List-view row, two text lines: title over a one-line summary, the source image a
 <ListRow item={item} saved={saved.has(item.id)} onToggleSave={toggle} />
 ```
 
+`stacked` is for narrow frames such as the extension popup: the title (up to two lines) with the ⋮ menu beside it, then the summary (up to two lines, 13px rather than the site's 14px), then the source and its counts on a smaller line at the bottom, so neither the source nor the counts take width from the title.
+
+```jsx
+<ListRow item={item} stacked starPos="visual" />
+```
+
 `starPos="visual"` puts the save star under the source image instead of after the ⋮ menu, as on `Card`; the default is `"actions"`.
 
 Both lines truncate with ellipsis. Wrap consecutive rows in a bordered, rounded container.

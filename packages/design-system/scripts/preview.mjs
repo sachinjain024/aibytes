@@ -15,7 +15,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const PORT = Number(process.env.PORT) || 4300;
 const NAMESPACE = "LedgerAiBytesDesignSystem_b1be4f";
-const GROUPS = ["brand", "content", "forms", "navigation"];
+const GROUPS = ["brand", "content", "extension", "forms", "navigation"];
 const TYPES = {
   ".html": "text/html; charset=utf-8", ".css": "text/css; charset=utf-8", ".js": "text/javascript; charset=utf-8",
   ".jsx": "text/babel; charset=utf-8", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png",

@@ -281,7 +281,7 @@ Cobalt survives from Bitmark as the accent because it already reads as aiBytes_ 
 
 - Newsletter moves under the brand domain: **`aibytes.io/newsletter`** (recommended; keeps one domain, better SEO) or `newsletter.aibytes.io`. Beehiiv supports custom domains and subdirectory hosting varies by plan, so check the plan before choosing; subdomain is the safe fallback.
 - Weekly newsletter is generated from the last 7 edition JSONs (section 5). Each issue links back to the app editions it drew from.
-- Chrome extension (later): new-tab page rendering the latest edition from the same `content/` JSON. Zero additional backend.
+- Chrome extension: a toolbar popup with today's edition, ranked, a star on every row synced to the reader's aibytes.io account, and gists read inside the popup. Sign-in happens on aibytes.io, which hands the extension a token; onboarding is at `aibytes.io/extension-onboarding`. *(Changed 21 Nov 2026, AIB-76n: popup first; the new tab moved to AIB-151m. Design: `docs/decisions/product/AIB-76n-extension-design.md`; map: `docs/specs/AIB-76n-capability-map.md`.)*
 
 ## 10. Hosting and stack
 
@@ -312,7 +312,7 @@ Firebase Google sign-in, saves sync and merge, Saved view, admin hide script.
 Reddit source, company blogs, more news sites, YC tag, search and cross-edition filtering, RSS of the daily edition.
 
 **Phase 4 - Extension**
-New-tab Chrome extension on the same JSON.
+Popup-first Chrome extension on the same JSON, with saves synced to the account (AIB-76n); a new-tab page later (AIB-151m).
 
 ## 13. Decisions log
 

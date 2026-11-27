@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { ORDER, PANEL_WIDTH, readChoice, readWidth, THEME, VIEW, writeChoice, writeWidth } from "./prefs.js";
-import { withBlockedStorage } from "./blocked-storage.js";
+import { withBlockedStorage } from "@aibytes/app-core/blocked-storage.js";
 
 const memory = (entries = {}) => ({
   getItem: (key) => (key in entries ? entries[key] : null),

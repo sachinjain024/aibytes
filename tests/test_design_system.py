@@ -295,9 +295,83 @@ class GistKitTests(unittest.TestCase):
 
     def test_the_gist_styles_use_tokens_only(self):
         css = (DESIGN_SYSTEM / "components" / "components.css").read_text()
-        gist = css[css.index("The gist view (AIB-145y)"):]
+        gist = css[css.index("The gist view (AIB-145y)"):css.index("The Chrome extension popup (AIB-76n)")]
         self.assertNotRegex(gist, r"#[0-9a-fA-F]{3,8}\b", "no literal colours in the gist styles")
         self.assertNotRegex(gist, r"box-shadow", "no shadows at rest")
+
+
+class ExtensionKitTests(unittest.TestCase):
+    """Screen 19 shows the Chrome extension popup (AIB-76n ledger-extension-ui)."""
+
+    KIT = DESIGN_SYSTEM / "ui_kits" / "aibytes-app"
+    EXT = DESIGN_SYSTEM / "components" / "extension"
+    SCREENS = {
+        "19-extension-popup.html": ("AiBytesPopup", 'src="Popup.jsx"', 'src="gists.js"'),
+        "20-extension-onboarding.html": ("AiBytesOnboarding", 'src="Onboarding.jsx"'),
+        "21-install-box.html": ("<App promo0 />", 'src="App.jsx"'),
+    }
+    COMPONENTS = ("PopupHeader", "PopupFooter", "PopupGistBar", "PopupActionBar", "OnboardingStep", "PinAnimation", "ExtensionPromo")
+
+    def test_each_screen_is_a_seeded_kit_page(self):
+        for name, needles in self.SCREENS.items():
+            with self.subTest(name):
+                html = (self.KIT / name).read_text()
+                self.assertTrue(html.startswith("<!-- @dsCard "), "the card marker must be the first line")
+                for needle in needles:
+                    self.assertIn(needle, html)
+
+    def test_the_kit_popup_uses_the_components(self):
+        kit = (self.KIT / "Popup.jsx").read_text()
+        for needle in (*self.COMPONENTS[:4], "ListRow", "GistView", 'starPos="visual"', "ldg-popup__scroll", "data-theme={theme}", 'theme: "dark"', 'src={"?frame=" + k}'):
+            self.assertIn(needle, kit)
+
+    def test_the_kit_onboarding_uses_the_components(self):
+        kit = (self.KIT / "Onboarding.jsx").read_text()
+        for needle in ("OnboardingStep", "OnboardingStatus", "PinAnimation", 'size="lg"', "ldg-onb", "Continue as", "Use a different account",
+                       "You're signed out of aibytes.io and the extension.", "[1280,", "[390,"):
+            self.assertIn(needle, kit)
+
+    def test_the_kit_app_puts_the_install_box_in_the_rail(self):
+        kit = (self.KIT / "App.jsx").read_text()
+        self.assertIn("promo={promo && ExtensionPromo && <ExtensionPromo", kit)
+        self.assertIn("props.promo0", kit)
+
+    def test_the_guideline_and_readme_describe_the_popup(self):
+        guide = (DESIGN_SYSTEM / "guidelines" / "extending-ledger.md").read_text()
+        self.assertIn("## Chrome extension (the popup, AIB-76n)", guide)
+        self.assertIn("Later: the new tab (AIB-151m)", guide)
+        self.assertNotIn("**no new components**", guide)
+        readme = (DESIGN_SYSTEM / "readme.md").read_text()
+        for name in self.COMPONENTS + ("ExtensionIcon", "OnboardingStatus"):
+            self.assertIn(name, readme)
+
+    def test_the_readme_lists_it(self):
+        readme = (self.KIT / "README.md").read_text()
+        for name in self.SCREENS:
+            self.assertIn(name, readme)
+
+    def test_the_components_are_documented_alongside_their_code(self):
+        for name in self.COMPONENTS + ("ExtensionIcon",):
+            for ext in ("jsx", "d.ts", "prompt.md"):
+                self.assertTrue((self.EXT / f"{name}.{ext}").exists(), f"{name}.{ext}")
+
+    def test_the_preview_bundles_the_extension_folder(self):
+        self.assertIn('"extension"', (DESIGN_SYSTEM / "scripts" / "preview.mjs").read_text())
+
+    def test_the_popup_styles_use_tokens_only(self):
+        css = (DESIGN_SYSTEM / "components" / "components.css").read_text()
+        start = css.index("The Chrome extension popup (AIB-76n)")
+        popup = css[start:css.index("The extension's onboarding page on aibytes.io (AIB-76n")]
+        self.assertNotRegex(popup, r"#[0-9a-fA-F]{3,8}\b", "no literal colours in the popup styles")
+        self.assertNotRegex(popup, r"box-shadow", "no shadows at rest")
+
+    def test_the_onboarding_styles_use_tokens_only(self):
+        css = (DESIGN_SYSTEM / "components" / "components.css").read_text()
+        onb = css[css.index("The extension's onboarding page on aibytes.io (AIB-76n"):]
+        self.assertIn("The extension's install box in aibytes.io's rail (AIB-76n", onb)
+        self.assertNotRegex(onb, r"#[0-9a-fA-F]{3,8}\b", "no literal colours")
+        shadows = [rule.split("{")[0].strip() for rule in onb.split("\n") if "box-shadow" in rule]
+        self.assertEqual(shadows, [".ldg-pinanim__menu"], "only the drawn popover carries a shadow")
 
 
 class RemovedComponentTests(unittest.TestCase):

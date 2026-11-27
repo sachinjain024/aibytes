@@ -1,0 +1,21 @@
+{
+  "name": "@aibytes/app-core",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Logic aibytes.io and the Chrome extension share: ranking, feed visibility, dates, browser storage, saves, the Saved list, the account store and merge. Pure modules; no React.",
+  "type": "module",
+  "exports": {
+    "./*": "./src/*"
+  },
+  "scripts": {
+    "test": "node --test",
+    "test:rules": "if command -v firebase >/dev/null && command -v java >/dev/null; then firebase emulators:exec --only firestore --project demo-aibytes \"node --test --test-concurrency=1 src/accountSaves.test.js\"; else echo \"test:rules skipped: needs the Firebase CLI and Java\"; fi"
+  },
+  "peerDependencies": {
+    "firebase": "^13.2.0"
+  },
+  "devDependencies": {
+    "@firebase/rules-unit-testing": "^6.0.0",
+    "firebase": "^13.2.0"
+  }
+}

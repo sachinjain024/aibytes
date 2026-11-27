@@ -124,11 +124,17 @@ export function track(name, data) {
 }
 ```
 
-**Events (only one in release 1):**
+**Events:**
 
 | Event | Data | Sent by | Task |
 |---|---|---|---|
+| `extension-promo-click` | none | "Add to Chrome" in the sidebar's install box (AIB-76n site-extension) | AIB-76n T20 |
+| `extension-promo-dismiss` | none | "Not now" in the install box | AIB-76n T20 |
+| `extension-onboarding-step` | `{ step, outcome }`: `step` is `pin` or `signin`, `outcome` is `done` or `skipped` | each step of /extension-onboarding finishing | AIB-76n T19 |
+| `extension-onboarding-subscribe` | `{ outcome }`: `ok` or `failed` | the onboarding page's newsletter subscribe settling | AIB-76n T19 |
 | `gist-panel-open` | `{ slug, page }`, where `page` is `daily` or `weekly` | the panel opening from a card | T29 |
+
+None of the AIB-76n events carries an email, a uid or a token.
 
 Event names are kebab-case and listed in this table before they are sent.
 
@@ -141,12 +147,14 @@ Every link the publisher posts to aibytes.io carries three tags:
 | The weekly newsletter | `newsletter` | `email` | `issue-<N>`, e.g. `issue-19` |
 | X | `x` | `social` | the gist slug, or `issue-<N>` for an issue link |
 | LinkedIn | `linkedin` | `social` | as for X |
+| The Chrome extension's "View on Web" (AIB-76n) | `chrome-extension` | `extension` | the page it opens: `today`, `saved` or `gist` |
 
 Example: `https://aibytes.io/gists/hn-tinyeval?utm_source=newsletter&utm_medium=email&utm_campaign=issue-19`.
 
 Values are lower case with no spaces, so the report does not split one source
 into two. `newsletter-gist-links` (T35) builds the newsletter's links from
-this table. Social links are tagged by hand until a skill writes them.
+this table. Social links are tagged by hand until a skill writes them. The
+extension's are built by `apps/extension/src/links.js`.
 
 ## What `/privacy` says (for P2)
 

@@ -19,7 +19,7 @@ const ROOT = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const HERE = join(ROOT, "artifact");
 const NAMESPACE = "LedgerAiBytesDesignSystem_b1be4f";
 const TITLE = "aiBytes_ App Design System";
-const GROUPS = ["brand", "content", "forms", "navigation"];
+const GROUPS = ["brand", "content", "forms", "navigation", "extension"];
 // Exports that are helpers, not components: no card.
 const NOT_COMPONENTS = new Set(["SOURCE_NAMES", "fmtNum", "bubble", "sizedImageUrl", "FeedItem", "Icon", "REACTIONS"]);
 
@@ -46,7 +46,7 @@ export async function componentNames() {
     loader: { ".jsx": "jsx", ".js": "jsx" }, plugins: [globalReact],
   });
   const exports = Object.values(result.metafile.outputs)[0].exports;
-  // In preview order, which groups them: brand, content, forms, navigation.
+  // In preview order, which groups them: brand, content, forms, navigation, extension.
   const order = Object.keys(PREVIEWS);
   const rank = (name) => (order.includes(name) ? order.indexOf(name) : order.length);
   return exports.filter((name) => /^[A-Z]/.test(name) && !NOT_COMPONENTS.has(name)).sort((x, y) => rank(x) - rank(y));
@@ -222,7 +222,7 @@ const docOf = (dts, name) => {
 
 // Components that share another's source file or have none of their own.
 const SHARED = {
-  CardGrid: "Feed", RowList: "Feed", StatusMessage: "Feed", AccountMenuPanel: "AppHeader",
+  CardGrid: "Feed", RowList: "Feed", StatusMessage: "Feed", AccountMenuPanel: "AppHeader", AccountMenu: "AppHeader", OnboardingStatus: "OnboardingStep",
 };
 const OWN_DOCS = {
   Signals: "The mono signal row on a card or list row: ▲ upvotes or points, ★ stars gained, then the comment bubble, each only when present, with tabular numerals.\n\n```jsx\n<Signals signals={{ upvotes: 776, comments: 42 }} />\n```\n\nCard and ListRow render it; use it directly only to show an item's counts elsewhere.",

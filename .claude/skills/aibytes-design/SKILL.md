@@ -38,3 +38,16 @@ cannot load a stylesheet. Never point a newsletter template at
 
 If asked to design something visual for review, copy the assets out and produce a
 static HTML file. For production code, read the rules above and build with the tokens.
+
+## Review prototypes
+
+A design choice goes to the publisher as a clickable prototype in
+`docs/ux/prototypes/<KEY>-<slug>/`, built on the live Ledger components with the
+shared kit in `docs/ux/prototypes/_kit/`. Every prototype has:
+
+- **Lettered choices** (A1, A2, B1 ...) in the options panel. A choice the
+  publisher confirms is marked decided and shows as "A1 ✓".
+- **A Copy screen** listing every string the selected choices show and where it
+  appears, with a box for new text, "Copy changes" and "Send to Claude".
+
+Read `review-prototypes.md` (next to this file) before building or changing one.

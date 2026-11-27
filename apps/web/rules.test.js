@@ -122,6 +122,12 @@ describe("firestore.rules", { skip }, () => {
     assert.equal(typeof got.data().created_at.toDate, "function");
   });
 
+  test("the onboarding page's source is allowed too", async () => {
+    const db = owner();
+    await assertSucceeds(setDoc(sub(db), docOf({ source: "extension-onboarding" })));
+    assert.equal((await getDoc(sub(db))).data().source, "extension-onboarding");
+  });
+
   test("a create that is not their own verified subscription is refused", async () => {
     const db = owner();
     const refused = {

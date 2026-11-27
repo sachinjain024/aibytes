@@ -5,16 +5,22 @@
 import { initializeApp } from "firebase/app";
 import { getAdditionalUserInfo, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut as signOutOf } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { firebaseConfig, FIRESTORE_DATABASE } from "./firebase-config.js";
+import { firebaseConfig, FIRESTORE_DATABASE } from "@aibytes/app-core/firebase-config.js";
 import { signInResult } from "./signInResult.js";
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 export const db = getFirestore(app, FIRESTORE_DATABASE);
 
-/** Opens Google's sign-in. Resolves to { status, isNew }; never rejects. */
-export function signIn() {
-  return signInWithPopup(auth, new GoogleAuthProvider()).then(
+/**
+ * Opens Google's sign-in. Resolves to { status, isNew }; never rejects.
+ * selectAccount: always show Google's account picker (the extension's
+ * onboarding, after a sign-out or "Use a different account").
+ */
+export function signIn({ selectAccount = false } = {}) {
+  const provider = new GoogleAuthProvider();
+  if (selectAccount) provider.setCustomParameters({ prompt: "select_account" });
+  return signInWithPopup(auth, provider).then(
     (result) => signInResult({ isNewUser: getAdditionalUserInfo(result)?.isNewUser }),
     (error) => {
       const outcome = signInResult(null, error);

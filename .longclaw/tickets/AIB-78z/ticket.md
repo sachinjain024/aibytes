@@ -7,9 +7,9 @@ status: backlog
 priority: p2
 labels:
   - app
-type: feature
+type: bug
 created_at: 2026-10-09T08:44:13.828Z
-updated_at: 2026-10-09T08:44:13.828Z
+updated_at: 2026-11-21T16:25:51.204Z
 ---
 
 Phone-width navigation for the side-nav layout. Split out of AIB-77u on 2026-10-09.
@@ -78,4 +78,19 @@ actor:
 ### Claude Code commented
 
 From the app-feed-order spec (docs/specs/AIB-77u-app-feed-order.md), decided 2026-10-09: the Ranked | Grouped control is hidden below 700px because the compact header has no room (about 418px needed at 375px). Phone readers get their stored order, Ranked by default. A phone home for that control is part of this ticket.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_366ae7e7
+kind: update
+occurred_at: 2026-11-21T16:25:51.204Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: type
+    from: feature
+    to: bug
+-->
+### You updated this ticket
 <!-- /longclaw:event -->

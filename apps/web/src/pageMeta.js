@@ -2,7 +2,7 @@
 // Graph tags, so a weekly issue is indexable and shares with a real preview
 // before any script runs. Pure string work, so `node --test` can check it;
 // vite.config.js applies it when it writes each page.
-import { gistUrl, privacyPath, savedPath, SITE_ORIGIN, weeklyUrl } from "./route.js";
+import { gistUrl, onboardingPath, privacyPath, savedPath, SITE_ORIGIN, weeklyUrl } from "./route.js";
 
 const escape = (text) => String(text)
   .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -63,6 +63,14 @@ export const PRIVACY_HEAD = {
   title: "aiBytes_ · Privacy",
   description: "What aiBytes_ keeps when you save items or sign in with Google, where it is kept, and how to delete it.",
   url: SITE_ORIGIN + privacyPath(),
+};
+
+/** The head for /extension-onboarding (AIB-76n): opened by the extension on install, so noindex. */
+export const ONBOARDING_HEAD = {
+  title: "aiBytes_ · Chrome extension",
+  description: "Set up the aiBytes_ Chrome extension: pin it to your toolbar, then sign in to sync your stars.",
+  url: SITE_ORIGIN + onboardingPath(),
+  robots: "noindex",
 };
 
 const DESCRIPTION_MAX = 155;

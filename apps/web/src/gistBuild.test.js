@@ -131,6 +131,13 @@ test("the sitemap lists the full gist and the edition, not the brief or hidden o
   assert.doesNotMatch(xml, /brief-one|hidden-one|saved|privacy/);
 });
 
+test("the extension's onboarding page is a real page that says noindex, and is not in the sitemap", () => {
+  const page = read("extension-onboarding", "index.html");
+  assert.match(page, /<meta name="robots" content="noindex" \/>/);
+  assert.match(page, /<link rel="canonical" href="https:\/\/aibytes\.io\/extension-onboarding" \/>/);
+  assert.doesNotMatch(read("sitemap.xml"), /extension-onboarding/);
+});
+
 test("robots.txt allows everything and names the sitemap", () => {
   assert.equal(read("robots.txt"), "User-agent: *\nAllow: /\n\nSitemap: https://aibytes.io/sitemap.xml\n");
 });

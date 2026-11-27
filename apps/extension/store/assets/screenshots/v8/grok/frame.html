@@ -1,0 +1,254 @@
+<!doctype html>
+<!-- Grok's store-screenshot frame (AIB-76n T21), layout from
+     assets/references/r2: pale canvas, a large rounded colour panel, words on
+     the left, a white product card on the right, a looping arrow between them.
+     Palette from the image style guide. The UI is always the real capture. -->
+<html lang="en" data-theme="{{THEME}}">
+<head>
+<meta charset="utf-8">
+<style>
+  :root{
+    --canvas:#e8e6f4;
+    --navy:#1a1a2e;
+    --navy-2:#252544;
+    --ink-2:#4a4a62;
+    --orange:#ff7a00;
+    --blue:#3b82f6;
+    --purple:#8b5cf6;
+    --teal:#14b8a6;
+    --yellow:#ffc83d;
+    --pink:#ff8fb1;
+    --sky:#8ec5ff;
+    --white:#fff;
+    --muted:rgba(255,255,255,.82);
+    --pop-left:668px;--pop-top:109px;--pop-scale:1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;width:1280px;height:800px;overflow:hidden;background:var(--canvas);color:var(--white)}
+  body{position:relative;font-family:Inter,system-ui,sans-serif}
+
+  .stage{
+    position:absolute;left:32px;top:32px;width:1216px;height:736px;
+    background:var(--navy);border-radius:36px;
+    box-shadow:0 28px 56px -18px rgba(26,26,46,.42);
+  }
+  .stripes{
+    position:absolute;inset:0;border-radius:36px;pointer-events:none;overflow:hidden;
+    background:repeating-linear-gradient(-18deg,transparent 0 22px,rgba(255,255,255,.035) 22px 24px);
+  }
+  .confetti{position:absolute;inset:0;pointer-events:none}
+
+  .copy{
+    position:absolute;left:84px;top:32px;height:736px;width:500px;
+    display:flex;flex-direction:column;justify-content:center;gap:22px;z-index:2;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font:700 20px/1 'Bricolage Grotesque',system-ui,sans-serif;letter-spacing:-.01em}
+  .brand img{width:32px;height:32px;border-radius:8px}
+  .brand b{color:var(--sky)}
+  h1{margin:0;font:800 52px/1.08 'Bricolage Grotesque',system-ui,sans-serif;letter-spacing:-.03em;color:var(--white);text-wrap:pretty}
+  h1 em{
+    font-style:normal;color:var(--orange);white-space:nowrap;
+    background:rgba(255,255,255,.16);
+    padding:0 .12em .04em;border-radius:5px;
+    box-decoration-break:clone;-webkit-box-decoration-break:clone;
+  }
+  .sub{margin:0;max-width:460px;font:500 22px/1.4 'Bricolage Grotesque',system-ui,sans-serif;color:var(--muted)}
+  .swoosh{display:block;width:280px;height:72px;margin-top:4px}
+
+  .pop{
+    position:absolute;left:var(--pop-left);top:var(--pop-top);
+    border-radius:20px;overflow:hidden;background:var(--white);
+    box-shadow:0 22px 48px rgba(8,8,20,.32);
+  }
+  .pop img{display:block;width:calc({{SHOT1_W}}px * var(--pop-scale));height:calc({{SHOT1_H}}px * var(--pop-scale))}
+  .doodle{position:absolute;pointer-events:none}
+
+  .only{display:none}
+  [data-layout="sources"] .only-sources,
+  [data-layout="single"] .only-single,
+  [data-layout="annotated"] .only-annotated,
+  [data-layout="art"] .only-art{display:block}
+  [data-layout="art"] .pop{display:none}
+
+  /* S1: source chips as overlapping cards feeding the popup, per r2's stacked cards. */
+  [data-layout="sources"]{--pop-left:768px;--pop-top:154px;--pop-scale:.86}
+  [data-layout="sources"] .copy{width:420px}
+  [data-layout="sources"] .sub{max-width:400px}
+  [data-layout="sources"] h1{font-size:44px}
+  [data-layout="sources"] .swoosh{display:none}
+  .chip{
+    position:absolute;display:flex;align-items:center;gap:10px;
+    padding:10px 16px 10px 10px;background:var(--white);color:var(--navy);
+    border-radius:14px;font:700 16px/1 'Bricolage Grotesque',system-ui,sans-serif;
+    box-shadow:0 10px 22px rgba(8,8,20,.22);
+    white-space:nowrap;z-index:3;
+  }
+  .chip img{width:26px;height:26px;border-radius:7px}
+
+  [data-layout="single"]{--pop-left:668px;--pop-top:109px;--pop-scale:1}
+  [data-layout="single"] .copy{width:540px}
+  [data-layout="single"] h1{font-size:42px}
+
+  /* S4: tags sit on the navy, to the right of the capture, never over the UI text. */
+  [data-layout="annotated"]{--pop-left:412px;--pop-top:109px;--pop-scale:1}
+  [data-layout="annotated"] .copy{width:300px}
+  [data-layout="annotated"] h1{font-size:40px}
+  [data-layout="annotated"] .sub{font-size:19px;max-width:280px}
+  [data-layout="annotated"] .swoosh{display:none}
+  .ring{position:absolute;border:3px solid var(--c);border-radius:12px;pointer-events:none;
+    left:calc(var(--pop-left) + var(--x) + 8px);top:calc(var(--pop-top) + var(--y) + 4px);
+    width:calc(var(--w) - 16px);height:calc(var(--h) - 8px)}
+  .tag{
+    position:absolute;
+    left:calc(var(--pop-left) + var(--x) + var(--w) + 14px);
+    top:calc(var(--pop-top) + var(--y) + var(--h) / 2 - 18px);
+    padding:8px 14px;border-radius:999px;background:var(--c);color:var(--white);
+    font:700 16px/1.15 'Bricolage Grotesque',system-ui,sans-serif;white-space:nowrap;
+    box-shadow:0 8px 18px rgba(8,8,20,.28);transform:rotate(var(--r));
+  }
+  .hn{--c:var(--orange);--r:-3deg;--x:var(--row-hacker-news-x);--y:var(--row-hacker-news-y);--w:var(--row-hacker-news-w);--h:var(--row-hacker-news-h)}
+  .tc{--c:var(--blue);--r:2deg;--x:var(--row-techcrunch-x);--y:var(--row-techcrunch-y);--w:var(--row-techcrunch-w);--h:var(--row-techcrunch-h)}
+  .ph{--c:var(--purple);--r:-2deg;--x:var(--row-product-hunt-x);--y:var(--row-product-hunt-y);--w:var(--row-product-hunt-w);--h:var(--row-product-hunt-h)}
+
+  [data-layout="art"] .copy{width:460px}
+  [data-layout="art"] h1{font-size:48px}
+  .scene-card{
+    position:absolute;left:640px;top:70px;width:540px;height:628px;
+    background:var(--white);border-radius:20px;overflow:hidden;
+    box-shadow:0 22px 48px rgba(8,8,20,.32);
+  }
+  .scene{display:block;width:540px;height:628px}
+</style>
+</head>
+<body data-layout="{{LAYOUT}}" data-n="{{N}}">
+  <div class="stage">
+    <div class="stripes"></div>
+  </div>
+
+  <svg class="confetti" viewBox="0 0 1280 800" aria-hidden="true">
+    <g stroke-width="4" stroke-linecap="round" fill="none">
+      <path d="M18 86v14M11 93h14" stroke="var(--purple)"/>
+      <path d="M1248 64v14M1241 71h14" stroke="var(--orange)"/>
+      <path d="M22 720v14M15 727h14" stroke="var(--blue)"/>
+      <path d="M1254 742v12M1248 748h12" stroke="var(--teal)"/>
+    </g>
+    <circle cx="48" cy="40" r="5" fill="var(--yellow)"/>
+    <circle cx="1234" cy="28" r="6" fill="var(--pink)"/>
+    <circle cx="16" cy="400" r="4" fill="var(--sky)"/>
+    <circle cx="1264" cy="390" r="5" fill="var(--purple)"/>
+    <circle cx="640" cy="16" r="4" fill="var(--orange)"/>
+    <circle cx="90" cy="784" r="5" fill="var(--yellow)"/>
+    <circle cx="1188" cy="788" r="4" fill="var(--blue)"/>
+  </svg>
+
+  <section class="copy">
+    <div class="brand"><img src="{{ICON}}" alt=""><span>aiBytes<b>_</b></span></div>
+    <h1>{{TITLE_HTML}}</h1>
+    <p class="sub">{{SUBTITLE}}</p>
+    <svg class="swoosh" viewBox="0 0 280 72" aria-hidden="true">
+      <path d="M8 48C64 48 86 18 118 28C150 38 96 62 148 58C196 54 228 28 268 18"
+            fill="none" stroke="rgba(255,255,255,.88)" stroke-width="3" stroke-linecap="round"/>
+      <path d="M248 8l22 8-12 16" fill="none" stroke="rgba(255,255,255,.88)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </section>
+
+  <div class="pop"><img src="{{SHOT1}}" alt=""></div>
+
+  <div class="only only-sources">
+    <svg class="doodle" style="left:0;top:0" width="1280" height="800" viewBox="0 0 1280 800" aria-hidden="true">
+      <g fill="none" stroke="rgba(255,255,255,.8)" stroke-width="2.5" stroke-linecap="round">
+        <path d="M710 176C740 184 754 206 768 228"/>
+        <path d="M720 318C746 326 758 340 768 352"/>
+        <path d="M720 458C746 448 758 430 768 418"/>
+        <path d="M710 592C746 568 758 528 768 500"/>
+      </g>
+    </svg>
+    <div class="chip" style="left:544px;top:148px;transform:rotate(-7deg)"><img src="/marks/github.svg" alt="">GitHub</div>
+    <div class="chip" style="left:528px;top:292px;transform:rotate(4deg)"><img src="/marks/hackernews.svg" alt="">Hacker News</div>
+    <div class="chip" style="left:540px;top:432px;transform:rotate(-3deg)"><img src="/marks/techcrunch.svg" alt="">TechCrunch</div>
+    <div class="chip" style="left:520px;top:568px;transform:rotate(5deg)"><img src="/marks/producthunt.svg" alt="">Product Hunt</div>
+  </div>
+
+  <div class="only only-annotated">
+    <div class="ring hn"></div><div class="tag hn">Hacker News threads</div>
+    <div class="ring tc"></div><div class="tag tc">AI news</div>
+    <div class="ring ph"></div><div class="tag ph">Product launches</div>
+  </div>
+
+  <div class="scene-card only only-art">
+    <svg class="scene" viewBox="0 0 540 628" aria-hidden="true">
+      <defs>
+        <style>
+          .l{font:700 16px 'Bricolage Grotesque',system-ui,sans-serif;fill:#1a1a2e}
+          .s{font:500 13px Inter,system-ui,sans-serif;fill:#4a4a62}
+        </style>
+      </defs>
+      <rect width="540" height="628" fill="#fff"/>
+      <g stroke="#1a1a2e" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+        <path d="M-20 590C80 548 180 600 300 560S460 530 560 568" fill="none" stroke="#3a3a48" stroke-width="22"/>
+        <path d="M-20 590C80 548 180 600 300 560S460 530 560 568" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="12 10"/>
+
+        <rect x="96" y="448" width="400" height="18" rx="5" fill="#e6c79c"/>
+        <path d="M128 466v86M464 466v86" fill="none"/>
+
+        <rect x="168" y="28" width="332" height="256" rx="18" fill="#1a1a2e"/>
+        <rect x="182" y="42" width="304" height="208" rx="8" fill="#fff" stroke="none"/>
+        <path d="M318 284l-10 86h52l-10-86" fill="#c9cbd8"/>
+        <rect x="278" y="368" width="110" height="14" rx="7" fill="#c9cbd8"/>
+
+        <g stroke="none">
+          <rect x="182" y="42" width="304" height="38" rx="8" fill="#f6f8fc"/>
+          <rect x="182" y="70" width="304" height="8" fill="#f6f8fc"/>
+          <path d="M200 52l-6 11h6l-2 9 8-12h-6l3-8z" fill="#3b82f6"/>
+          <text x="216" y="70" class="l" style="font-size:16px">aiBytes<tspan fill="#3b82f6">_</tspan></text>
+        </g>
+        <g>
+          <rect x="196" y="92" width="88" height="142" rx="12" fill="#fff6ec" stroke="#ff7a00" stroke-width="3"/>
+          <rect x="290" y="92" width="88" height="142" rx="12" fill="#eef4ff" stroke="#3b82f6" stroke-width="3"/>
+          <rect x="384" y="92" width="88" height="142" rx="12" fill="#f4efff" stroke="#8b5cf6" stroke-width="3"/>
+          <circle cx="240" cy="132" r="18" fill="#fff" stroke="#ff7a00" stroke-width="3"/>
+          <path d="M222 132h36M240 114c-8 10-8 26 0 36M240 114c8 10 8 26 0 36" fill="none" stroke="#ff7a00" stroke-width="3"/>
+          <path d="M316 118h10a6 6 0 1 1 12 0h10v10a6 6 0 1 1 0 12v10h-32z" fill="#fff" stroke="#3b82f6" stroke-width="3"/>
+          <rect x="406" y="120" width="44" height="30" rx="5" fill="#fff" stroke="#8b5cf6" stroke-width="3"/>
+          <path d="M408 123l20 15 20-15" fill="none" stroke="#8b5cf6" stroke-width="3"/>
+        </g>
+        <g stroke="none">
+          <text x="240" y="178" text-anchor="middle" class="l">Daily feed</text>
+          <text x="240" y="198" text-anchor="middle" class="s">aibytes.io</text>
+          <text x="334" y="178" text-anchor="middle" class="l">Extension</text>
+          <text x="334" y="198" text-anchor="middle" class="s">In Chrome</text>
+          <text x="428" y="178" text-anchor="middle" class="l">Newsletter</text>
+          <text x="428" y="198" text-anchor="middle" class="s">Every week</text>
+        </g>
+
+        <g transform="translate(-20 8)">
+          <path d="M48 348h78v108H48z" fill="#c4a47a"/>
+          <path d="M54 456v88M118 456v88" fill="none"/>
+          <path d="M78 404h88v30h-22v104h-32V434H78z" fill="#3b82f6"/>
+          <path d="M112 534h42a8 8 0 0 1 0 16h-46z" fill="#ff7a00"/>
+          <path d="M64 300c0-46 30-74 70-74s66 30 66 74v112H64z" fill="#ff7a00"/>
+          <path d="M164 304c22 22 54 52 96 90l-16 16c-40-30-78-62-94-84z" fill="#ff7a00"/>
+          <circle cx="256" cy="406" r="12" fill="#f2c29b"/>
+          <path d="M116 216v18h30v-18" fill="#f2c29b"/>
+          <circle cx="132" cy="168" r="48" fill="#f2c29b"/>
+          <g fill="#2b2b33" stroke="none">
+            <circle cx="98" cy="142" r="18"/><circle cx="116" cy="124" r="18"/>
+            <circle cx="140" cy="118" r="18"/><circle cx="162" cy="130" r="16"/>
+            <circle cx="90" cy="166" r="15"/><circle cx="96" cy="190" r="12"/>
+          </g>
+          <g fill="#fff" fill-opacity=".55" stroke="none">
+            <circle cx="154" cy="166" r="12"/><circle cx="180" cy="166" r="11"/>
+          </g>
+          <path d="M166 166h4M140 164l-14-3" fill="none"/>
+          <circle cx="156" cy="168" r="2.8" fill="#1a1a2e" stroke="none"/>
+          <circle cx="182" cy="168" r="2.8" fill="#1a1a2e" stroke="none"/>
+          <path d="M150 192c8 6 18 6 24-2" fill="none"/>
+        </g>
+      </g>
+      <g stroke="#ffc83d" stroke-width="3.5" stroke-linecap="round">
+        <path d="M176 16l-8-12M154 24l-12-8M198 12l2-14"/>
+      </g>
+    </svg>
+  </div>
+</body>
+</html>

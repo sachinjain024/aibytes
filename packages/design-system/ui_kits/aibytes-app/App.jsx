@@ -3,7 +3,7 @@
    the sample editions in data.js instead of content/. */
 const NS = window.LedgerAiBytesDesignSystem_b1be4f || {};
 if (!NS.AppHeader) document.body.insertAdjacentHTML("afterbegin", '<p style="font-family:monospace;font-size:13px;padding:16px">Ledger bundle not compiled yet — reload in a moment (_ds_bundle.js missing).</p>');
-const { AppHeader, Sidebar, Toolbar, FilterPanel, ActiveFilters, EditionBar, CardGrid, RowList, Card, ListRow, SectionHeading, EmptyState, EndCard, SaveBanner, StatusMessage, Dialog, Button, GistPanel, GistView, ReactionBar, SavedNote, SaveStar } = NS;
+const { AppHeader, Sidebar, Toolbar, FilterPanel, ActiveFilters, EditionBar, CardGrid, RowList, Card, ListRow, SectionHeading, EmptyState, EndCard, SaveBanner, StatusMessage, Dialog, Button, GistPanel, GistView, ReactionBar, SavedNote, SaveStar, ExtensionPromo } = NS;
 // The gists (AIB-145y): sample files in the shape of content/gists/<slug>.json, by the id of the item they belong to.
 const GISTS = window.LEDGER_GISTS || {};
 const SAMPLE_REACTIONS = { "👍": 12, "🎉": 3, "🚀": 1200 };
@@ -58,6 +58,11 @@ function AiBytesApp(props) {
   const [panel, setPanel] = React.useState(!!props.tagsOpen0);
   const [calOpen, setCalOpen] = React.useState(!!props.calOpen0);
   const [menuOpen, setMenuOpen] = React.useState(!!props.menuOpen0);
+  // The extension's install box in the rail (AIB-76n, H3): promo0 shows it, as
+  // aibytes.io will in a desktop Chromium browser without the extension.
+  const [promo, setPromo] = React.useState(!!props.promo0);
+  const STORE_URL = "https://chromewebstore.google.com/detail/faamldnehjdjdobapchedpmldfjjfife";
+  const links = props.promo0 ? D.links.map(l => l.label.startsWith("Chrome") ? { label: "Chrome Extension", href: STORE_URL } : l) : D.links;
   // Saves and sign-in (AIB-75v): ids saved in this browser, the Saved page, and
   // the banner, which shows signed out once anything is saved until dismissed.
   const [saved, setSaved] = React.useState(() => new Set(props.saved0 || []));
@@ -198,8 +203,9 @@ function AiBytesApp(props) {
       {showBanner && <SaveBanner sticky onSignIn={() => setSignedIn(true)} onDismiss={() => setBannerDismissed(true)} />}
       <Sidebar categories={categories} count={ed.items.length} active={filters.category} open={menuOpen} onClose={() => setMenuOpen(false)}
         onCategory={key => { setFilters({ ...filters, category: key }); setSavedPage(false); setMenuOpen(false); }}
-        links={D.links} subscribeUrl={D.subscribeUrl}
-        onSaved={openSaved} savedCount={saved.size} savedActive={savedPage} />
+        links={links} subscribeUrl={D.subscribeUrl}
+        onSaved={openSaved} savedCount={saved.size} savedActive={savedPage}
+        promo={promo && ExtensionPromo && <ExtensionPromo href={STORE_URL} onDismiss={() => setPromo(false)} />} />
       <main id="main" className="redesign-main" tabIndex={-1} onClick={onFeedClick}>
         <h1 className="app-sr">aiBytes_ edition, {ed.label}</h1>
         <div className="workspace"><section className="feed">

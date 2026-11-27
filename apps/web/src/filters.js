@@ -56,13 +56,6 @@ export function filtersToSearch(filters, tagGroups) {
   return search ? "?" + search : "";
 }
 
-/** Weekly Viral on X / Official Announcements rows (`category: "x"`) live in
- * the issue file so a gist page can star them. They are not feed cards and
- * have no chip (spec AIB-145y-newsletter-gist-links). Hidden items never are. */
-export function inFeed(item) {
-  return Boolean(item) && item.hidden !== true && item.category !== "x";
-}
-
 /** Whether an item passes: its category, any chosen tag, any chosen source,
  * and the search text anywhere in its title or summary, ignoring case. */
 export function matches(item, filters) {

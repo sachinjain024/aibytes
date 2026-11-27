@@ -1241,10 +1241,10 @@ class DriftTests(unittest.TestCase):
         self.assertEqual(summaries_mod.MAX_TAGS, contract.MAX_TAGS)
 
     def test_the_apps_fallback_breaks_ties_as_curate_does(self):
-        # apps/web/src/order.js recomputes rank for editions written before it
+        # packages/app-core/src/order.js recomputes rank for editions written before it
         # existed; if its TIE_ORDER drifts, Ranked reorders when AIB-79t
         # backfills those editions.
-        source = (REPO_ROOT / "apps" / "web" / "src" / "order.js").read_text()
+        source = (REPO_ROOT / "packages" / "app-core" / "src" / "order.js").read_text()
         found = re.search(r"export const TIE_ORDER = \[([^\]]*)\];", source)
         self.assertIsNotNone(found, "order.js no longer declares TIE_ORDER")
         self.assertEqual(tuple(re.findall(r'"([a-z]+)"', found.group(1))), rank.TIE_ORDER)

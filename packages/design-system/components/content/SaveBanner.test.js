@@ -33,3 +33,8 @@ test('only a sticky banner carries the sticky class',()=>{
   assert.match(render({sticky:true}),/^<div class="ldg-banner ldg-banner--sticky"/);
   assert.match(render({}),/^<div class="ldg-banner"/);
 });
+test('copy rewords the message around the link; the site copy is the default',()=>{
+  const html=render({copy:{before:'Saved items are kept in this extension.',link:'Sign in with Google',after:'to sync them to your account.'}});
+  assert.match(html,/Saved items are kept in this extension\. <a href="#signin">Sign in with Google<\/a> to sync them to your account\./);
+  assert.doesNotMatch(html,/local storage/);
+});

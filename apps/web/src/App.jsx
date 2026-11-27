@@ -13,26 +13,33 @@ import { FilterPanel } from "@aibytes/design-system/components/navigation/Filter
 import { Sidebar } from "@aibytes/design-system/components/navigation/Sidebar.jsx";
 import { Toolbar } from "@aibytes/design-system/components/navigation/Toolbar.jsx";
 import { loadEdition, loadGistPage, loadIndex, loadTags, loadWeeklyIndex, loadWeeklyIssue } from "./content.js";
-import { filesToLoad, leftOutNote, savedFeed, savedGroups } from "./saved.js";
-import { CATEGORIES, countMatches, describeFilters, filtersToSearch, inFeed, matches, NO_FILTERS, parseFilters, SOURCES } from "./filters.js";
+import { filesToLoad, leftOutNote, savedFeed, savedGroups } from "@aibytes/app-core/saved.js";
+import { CATEGORIES, countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters, SOURCES } from "./filters.js";
+import { inFeed } from "@aibytes/app-core/visibility.js";
 import { FOOTER_LINKS, GITHUB_URL, mailto, SUBSCRIBE_HREF } from "./footer.js";
-import { longDate, midDate, shortDate } from "./format.js";
+import { longDate, midDate, shortDate } from "@aibytes/app-core/format.js";
 import { useChoice, useDismiss, useGridColumns, useMedia, useReactions, useReturnFocus, useSaves, useTheme } from "./hooks.js";
 import { shownView } from "./layout.js";
-import { groupedItems, rankedItems } from "./order.js";
+import { groupedItems } from "./order.js";
+import { rankedItems } from "@aibytes/app-core/order.js";
 import { ORDER, PANEL_WIDTH, readWidth, VIEW, writeWidth } from "./prefs.js";
 import { showBanner } from "./banner.js";
 import { headerAccount } from "./header.js";
-import { mergedLine } from "./merge.js";
-import { clearSaves, localSaves, readSaves } from "./saves.js";
+import { mergedLine } from "@aibytes/app-core/merge.js";
+import { clearSaves, localSaves, readSaves } from "@aibytes/app-core/saves.js";
 import { NewsletterPrompt } from "./NewsletterPrompt.jsx";
 import { GistPage } from "./GistPage.jsx";
 import { FeedGistPanel } from "./FeedGistPanel.jsx";
 import { track } from "./analytics.js";
 import { focusMainAfterClose, isOpenCard, keepGist, planClose, planOpen, withoutGist } from "./gistPanel.js";
-import { gistHead } from "./pageMeta.js";
+import { gistHead, ONBOARDING_HEAD } from "./pageMeta.js";
 import { failureReport, initialPrompt, promptReducer, shouldOpenPrompt } from "./newsletterPrompt.js";
 import { NEWSLETTER_PRIVACY, showSubscribeOptions } from "./subscribeOptions.js";
+import { extensionStatus, oneAtATime, reconcile } from "./extensionBridge.js";
+import { dismissPromo, EXTENSION_LIVE, isDesktopChromium, promoDismissed, STORE_URL } from "./extension.js";
+import { ExtensionPromo } from "@aibytes/design-system/components/extension/ExtensionPromo.jsx";
+import { t as extensionCopy } from "./copy/extension.js";
+import { ExtensionOnboarding, useOnboarding, useOnboardingEffects } from "./ExtensionOnboarding.jsx";
 import { editionPath, gistParam, gistPath, olderEdition, olderWeeklyIssue, parseRoute, pickEdition, pickWeeklyIssue, savedPath, weeklyPath } from "./route.js";
 
 // The sidebar's links: live ones first, then those not live yet. GitHub is
@@ -67,7 +74,7 @@ function useLocation() {
 // sign-in added, shown once on /saved; `signInFailed` shows the error line until
 // the next try or page.
 const AccountContext = React.createContext({
-  user: null, merged: 0, signInFailed: false, subscribed: undefined, prompt: null, reactionStore: null,
+  user: null, extensionSync: null, syncExtension: async () => ({ action: "absent" }), subscribeWith: async () => ({ failed: "unauthenticated" }), merged: 0, signInFailed: false, subscribed: undefined, prompt: null, reactionStore: null,
   signIn() {}, signOut() {}, dismiss() {}, clearMerged() {}, subscribe() {}, closePrompt() {},
 });
 
@@ -77,12 +84,16 @@ const AccountContext = React.createContext({
 // is retried by the next Sign in.
 let firebase = null;
 function loadFirebase() {
-  firebase ||= Promise.all([import("./account.js"), import("./accountSaves.js"), import("./subscriber.js"), import("./reactions.js")]).then(
+  firebase ||= Promise.all([import("./account.js"), import("@aibytes/app-core/accountSaves.js"), import("./subscriber.js"), import("./reactions.js")]).then(
     ([account, store, subscribers, gistReactions]) => ({ ...account, ...store, ...subscribers, reactions: gistReactions.reactions }),
     (error) => { firebase = null; throw error; },
   );
   return firebase;
 }
+
+// The extension's sign-in follows the site's (AIB-76n site-extension), one
+// reconcile at a time. Without the extension it asks for status and stops.
+const reconcileExtension = oneAtATime((user) => reconcile(user));
 
 // After the browser has painted and gone idle, or at most a second later.
 function afterPaint(callback) {
@@ -108,6 +119,8 @@ function useAccount() {
   // Set when this click's sign-in is a new account. The prompt opens once that
   // reader's email is known. A session restored on load never sets it.
   const [pendingNew, setPendingNew] = React.useState(false);
+  // The last reconcile with the extension: { uid, action, ok?, code? } (AIB-76n).
+  const [extensionSync, setExtensionSync] = React.useState(null);
   React.useEffect(() => afterPaint(() => loadFirebase().then(setFb, (e) => {
     console.warn("Could not load sign-in:", e);
     setUser(null);
@@ -138,6 +151,18 @@ function useAccount() {
     merging.current.done.then((count) => { if (live && count) setMerged(count); });
     return () => { live = false; };
   }, [uid, fb]);
+  // The extension follows the session: once it has restored, then on every
+  // sign-in and sign-out. Only with Firebase loaded: a failed load sets user to
+  // null meaning "unknown", which must never sign the extension out.
+  const restoring = user === undefined;
+  const syncExtension = React.useCallback((forUid) => reconcileExtension(forUid ? { uid: forUid } : null).then((result) => {
+    setExtensionSync({ uid: forUid ?? null, ...result });
+    return result;
+  }), []);
+  React.useEffect(() => {
+    if (!fb || restoring) return;
+    syncExtension(uid);
+  }, [fb, uid, restoring, syncExtension]);
   // One read of subscribers/{uid} per signed-in session. Success sets it true
   // without waiting for another read.
   React.useEffect(() => {
@@ -173,29 +198,45 @@ function useAccount() {
       if (report) import("./reportFailure.js").then(({ reportFailure }) => reportFailure(report.code, report.page)).catch(() => {});
     });
   }, [fb, user]);
+  // A subscribe from somewhere other than the prompt (the extension's onboarding):
+  // resolves to "ok" or { failed }, and reports a failure as the prompt does.
+  const subscribeWith = React.useCallback((source, page) => {
+    if (!fb || !user?.uid) return Promise.resolve({ failed: "unauthenticated" });
+    return fb.subscribe(fb.db, user, { source }).then((result) => {
+      if (result === "ok") setSubscribed(true);
+      const report = failureReport(result, page);
+      if (report) import("./reportFailure.js").then(({ reportFailure }) => reportFailure(report.code, report.page)).catch(() => {});
+      return result;
+    });
+  }, [fb, user]);
   const account = React.useMemo(() => ({
     user,
+    extensionSync,
+    syncExtension,
+    subscribeWith,
     merged,
     signInFailed: failed,
     subscribed,
     prompt,
     reactionStore,
-    signIn() {
+    // Resolves to the sign-in's { status, isNew }. options: { selectAccount }.
+    signIn(options) {
       setFailed(false);
       // Loaded already, the popup opens within the click; a load that failed
       // earlier is retried, and the popup may then be blocked, which shows the error.
-      const result = fb ? fb.signIn() : loadFirebase().then((loaded) => { setFb(loaded); return loaded.signIn(); }, () => ({ status: "failed", isNew: false }));
-      result.then((r) => {
+      const result = fb ? fb.signIn(options) : loadFirebase().then((loaded) => { setFb(loaded); return loaded.signIn(options); }, () => ({ status: "failed", isNew: false }));
+      return result.then((r) => {
         setFailed(r.status === "failed");
         if (r.status === "ok" && r.isNew) setPendingNew(true);
+        return r;
       });
     },
-    signOut() { setMerged(0); setPendingNew(false); setPrompt(null); fb?.signOut(); },
+    signOut() { setMerged(0); setPendingNew(false); setPrompt(null); return fb ? fb.signOut() : Promise.resolve(); },
     dismiss,
     clearMerged,
     subscribe,
     closePrompt,
-  }), [fb, user, merged, failed, subscribed, prompt, reactionStore, dismiss, clearMerged, subscribe, closePrompt]);
+  }), [fb, user, extensionSync, syncExtension, subscribeWith, merged, failed, subscribed, prompt, reactionStore, dismiss, clearMerged, subscribe, closePrompt]);
   return [saves, account];
 }
 
@@ -269,7 +310,8 @@ export function App({ initialGist = null }) {
   return (
     <AccountContext.Provider value={account}>
       {page()}
-      {account.prompt && account.prompt.status !== "closed" && (
+      {/* The onboarding page asks about the newsletter itself, with its checkbox. */}
+      {account.prompt && account.prompt.status !== "closed" && route.kind !== "extension_onboarding" && (
         <NewsletterPrompt state={account.prompt} email={account.user?.email} onSubscribe={account.subscribe} onClose={account.closePrompt} />
       )}
     </AccountContext.Provider>
@@ -281,6 +323,9 @@ export function App({ initialGist = null }) {
   // from the issue JSON for now.
   if (route.kind === "weekly_index") {
     return <WeeklyArchive saves={saves} theme={theme} onToggleTheme={toggleTheme} navigate={navigate} />;
+  }
+  if (route.kind === "extension_onboarding") {
+    return <OnboardingApp navigate={navigate} theme={theme} onToggleTheme={toggleTheme} />;
   }
   if (route.kind === "privacy") {
     return <PrivacyApp saves={saves} location={location} navigate={navigate} theme={theme} onToggleTheme={toggleTheme} />;
@@ -327,10 +372,81 @@ export function App({ initialGist = null }) {
 // "privacy" (/privacy) have no toolbar, filters or tags; a category opens the
 // latest edition filtered to it; and the page draws its own visible h1, so
 // `heading` is left out. On "saved", Saved is the current entry.
+// The install box (AIB-76n site-extension, H3): in the rail, only while the
+// flag is on, in a desktop Chromium browser, not dismissed in the last 30
+// days, and once the status check has answered "not installed" - nothing
+// renders before it answers, so a reader with the extension never sees it
+// flash. After "Add to Chrome" the status is checked every 3 s for up to
+// 2 minutes, and again whenever the tab becomes visible; once installed it goes.
+const PROMO_POLL_MS = 3000;
+const PROMO_POLL_FOR_MS = 2 * 60 * 1000;
+const PROMO_LABELS = { name: extensionCopy("site.name"), body: extensionCopy("site.h3.body"), cta: extensionCopy("site.cta"), notNow: extensionCopy("site.notnow") };
+
+function useExtensionPromo(live = EXTENSION_LIVE) {
+  // Read once, after mount: the prerender has no navigator or storage.
+  const [eligible, setEligible] = React.useState(false);
+  const [installed, setInstalled] = React.useState(undefined);
+  const [dismissed, setDismissed] = React.useState(false);
+  const alive = React.useRef(true);
+  const poll = React.useRef(null);
+  const stopPolling = React.useCallback(() => {
+    clearInterval(poll.current);
+    poll.current = null;
+  }, []);
+  const check = React.useCallback(() => extensionStatus().then((status) => {
+    if (!alive.current) return;
+    setInstalled(status !== null);
+    if (status !== null) stopPolling();
+  }), [stopPolling]);
+
+  React.useEffect(() => {
+    if (!live || !isDesktopChromium() || promoDismissed()) return undefined;
+    alive.current = true;
+    setEligible(true);
+    check();
+    const onVisible = () => document.visibilityState === "visible" && check();
+    document.addEventListener("visibilitychange", onVisible);
+    return () => {
+      alive.current = false;
+      document.removeEventListener("visibilitychange", onVisible);
+      stopPolling();
+    };
+  }, [live, check, stopPolling]);
+
+  if (!eligible || installed !== false || dismissed) return undefined;
+  // The CTA is a plain link to the store in a new tab; its click bubbles here.
+  const onClick = (event) => {
+    if (!event.target.closest || !event.target.closest("a")) return;
+    track("extension-promo-click");
+    stopPolling();
+    const started = Date.now();
+    poll.current = setInterval(() => {
+      if (Date.now() - started >= PROMO_POLL_FOR_MS) stopPolling();
+      else check();
+    }, PROMO_POLL_MS);
+  };
+  const onDismiss = (event) => {
+    // The focused button is about to go: focus the rail's next link, not <body>.
+    const box = event?.currentTarget?.closest?.(".extension-promo");
+    const next = box?.closest(".sidebar-footer")?.querySelector(".sidebar-links a, .sidebar-links button") || document.getElementById("main");
+    if (box && box.contains(document.activeElement)) next?.focus();
+    dismissPromo();
+    setDismissed(true);
+    stopPolling();
+    track("extension-promo-dismiss");
+  };
+  return (
+    <div className="extension-promo" onClick={onClick}>
+      <ExtensionPromo href={STORE_URL} onDismiss={onDismiss} labels={PROMO_LABELS} />
+    </div>
+  );
+}
+
 function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location, navigate, skipLabel, heading, date, all, children }) {
   const { saves } = useSaves(store);
   const { subscribed } = React.useContext(AccountContext);
   const headerProps = useHeaderAccount(navigate);
+  const promo = useExtensionPromo();
   const feedPage = page === "feed";
   const savedPage = page === "saved";
   // The feed and /saved filter their items with the Toolbar; /privacy has none.
@@ -448,7 +564,7 @@ function FeedShell({ saves: store, page = "feed", theme, onToggleTheme, location
           else if (filterable) setCategory(key);
           setMenuOpen(false);
         }}
-        onSaved={() => { if (!savedPage) navigate(savedPath()); setMenuOpen(false); }} savedCount={saves.length} savedActive={savedPage} />
+        onSaved={() => { if (!savedPage) navigate(savedPath()); setMenuOpen(false); }} savedCount={saves.length} savedActive={savedPage} promo={promo} />
       <main id="main" className="redesign-main" tabIndex={-1}>
         {/* No visible heading: the toolbar is the first row of the content, and its
             date control already shows the edition or issue. Screen readers still get an h1. */}
@@ -715,6 +831,20 @@ function SavedApp({ saves: store, location, navigate, theme, onToggleTheme }) {
 // site; Google's sign-in consent screen links here.
 const PRIVACY_EMAIL = "contact@aibytes.io";
 
+// /extension-onboarding (AIB-76n site-extension): the header, no sidebar, the
+// steps. The extension's status is read once the site's session is known.
+function OnboardingApp({ navigate, theme, onToggleTheme }) {
+  React.useEffect(() => { document.title = ONBOARDING_HEAD.title; }, []);
+  const account = React.useContext(AccountContext);
+  const { prompt, closePrompt } = account;
+  const headerProps = useHeaderAccount(navigate);
+  const [state, dispatch] = useOnboarding(account.user);
+  const on = useOnboardingEffects(state, dispatch, account);
+  // A new account's newsletter prompt never opens here: the checkbox has asked.
+  React.useEffect(() => { if (prompt && prompt.status !== "closed") closePrompt(); }, [prompt, closePrompt]);
+  return <ExtensionOnboarding state={state} dispatch={dispatch} on={on} theme={theme} onToggleTheme={onToggleTheme} githubUrl={GITHUB_URL} headerProps={headerProps} />;
+}
+
 function PrivacyApp({ saves, location, navigate, theme, onToggleTheme }) {
   React.useEffect(() => { document.title = "aiBytes_ · Privacy"; }, []);
   const contact = <a href={mailto(PRIVACY_EMAIL, "Privacy: aiBytes_")}>{PRIVACY_EMAIL}</a>;
@@ -723,7 +853,7 @@ function PrivacyApp({ saves, location, navigate, theme, onToggleTheme }) {
       skipLabel="Skip to the privacy page" date={null} all={null}>
       {() => <article className="app-privacy">
         <h1 className="ldg-section-h">Privacy</h1>
-        <p>Last changed 12 November 2026.</p>
+        <p>Last changed 27 November 2026.</p>
 
         <h2 className="ldg-section-h">Reading</h2>
         <p>aiBytes_ sets no cookies. The site is hosted on GitHub Pages; its fonts come from Google Fonts, and item
@@ -755,6 +885,19 @@ function PrivacyApp({ saves, location, navigate, theme, onToggleTheme }) {
 
         <h2 className="ldg-section-h">Deleting</h2>
         <p>Unstar an item to delete its save. To delete your account and all its saves, email {contact}.</p>
+
+        <h2 className="ldg-section-h">The Chrome extension</h2>
+        <p>The aiBytes_ extension shows the same daily edition in Chrome. It reads nothing from the pages you visit
+          and sends no analytics events. It loads the edition from aibytes.io, and item images from the sites they
+          belong to.</p>
+        <p>Items you star while signed out stay in the extension&apos;s storage on this device. When you sign in with
+          Google on aibytes.io, the extension signs in to the same account: it receives your name, email address and
+          profile photo to show in its header, and your saves, including the ones you made before signing in, are
+          stored in your account in Cloud Firestore, as on the site. Firebase keeps the extension signed in using the
+          extension&apos;s own storage.</p>
+        <p>On your device the extension also keeps the last edition it showed, your light or dark theme, and whether
+          you closed its sign-in banner. None of that leaves your device. Removing the extension from Chrome deletes
+          everything it keeps there; to delete your saves or your account, see Deleting above.</p>
 
         <h2 className="ldg-section-h">The newsletter</h2>
         <p>{NEWSLETTER_PRIVACY}</p>

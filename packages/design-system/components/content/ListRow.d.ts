@@ -15,5 +15,7 @@ export interface ListRowProps {
   onToggleSave?: (id: string) => void;
   /** Where the save star sits: "actions" = after the ⋮ menu (default); "visual" = under the source image, in its column. */
   starPos?: "actions" | "visual";
+  /** Narrow frames (the extension popup): the title (up to two lines) with the ⋮ menu beside it, the summary (up to two lines), then the source and its counts on a smaller line at the bottom. Default off: the source sits on the title line as before. */
+  stacked?: boolean;
 }
 export declare function ListRow(props: ListRowProps): JSX.Element;

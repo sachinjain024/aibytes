@@ -18,13 +18,17 @@ One page for future surfaces and sources. The rule underneath everything: **text
 - Empty categories don't render; the chip shows only when the edition has items (same "no fake editions" rule as the calendar).
 - Reddit items: subreddit is the source link label (`r/LocalLLaMA`), points + comments as signals, no image → Reddit mark tile.
 
-## Chrome extension (new-tab surface)
+## Chrome extension (the popup, AIB-76n)
 
-- Same `content/editions/*.json`, same components, **no new components**: `AppHeader` (no menu button: there is no Sidebar), EditionBar, CardGrid of Cards, EndCard. No footer, no filters in v1 — the new tab is a read-only glance surface.
-- Respect the OS theme by default (`prefers-color-scheme`); the manual toggle persists to extension storage.
-- The wordmark `icon` variant is the extension/action icon.
-- Keep the edition bar: a new tab should still answer "which day am I looking at."
-- Budget: no runtime fonts fetch — package the three .woff2 files with the extension.
+- **The popup** is a 400 × 580 `.ldg-popup` frame: `PopupHeader` (compact wordmark, the date, the saved toggle, Sign in or the avatar), then `.ldg-popup__scroll` holding a `RowList` of `ListRow` with `starPos="visual"` and the `.ldg-popup__end` line, then `PopupFooter`. A gist swaps the header for `PopupGistBar`, renders `GistView as="panel"` in `.ldg-popup__gist`, and ends with `PopupActionBar`. Same `content/editions/*.json`, same ranking. No filters, no theme toggle.
+- **Under 761px `ListRow` takes its narrow layout**, which is what the popup needs; don't restyle rows in the extension.
+- **The avatar is aibytes.io's**: `PopupHeader` uses `AppHeader`'s `AccountMenu`, so the menu, Escape and the outside click behave as on the site.
+- **The icon is the favicon**, `ExtensionIcon` (the bolt on the cobalt tile), not the wordmark's `icon` variant. Chrome's PNGs are `assets/extension/icon-{16,32,48,128}.png`, drawn by `scripts/extension-icons.mjs`.
+- **The onboarding page and the install box live on aibytes.io**: `OnboardingStep`, `OnboardingStatus`, `PinAnimation` and `Button size="lg"` in `.ldg-onb`; `ExtensionPromo` in Sidebar's `promo`.
+- Respect the OS theme (`prefers-color-scheme`); there is no manual toggle in the popup.
+- Budget: no runtime fonts fetch. Package the .woff2 files with the extension.
+
+Later: the new tab (AIB-151m) reuses the same edition with `AppHeader` (no menu button), the edition bar, and a `CardGrid` of `Card`s and `EndCard`; it keeps the edition bar so a new tab still says which day it shows.
 
 ## Newsletter
 

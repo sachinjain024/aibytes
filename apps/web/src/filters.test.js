@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { countMatches, describeFilters, filtersToSearch, inFeed, matches, NO_FILTERS, parseFilters } from "./filters.js";
+import { countMatches, describeFilters, filtersToSearch, matches, NO_FILTERS, parseFilters } from "./filters.js";
 
 const GROUPS = [
   { name: "What it is", tags: [{ name: "Open Source", slug: "open-source" }, { name: "Dev Tool", slug: "dev-tool" }] },
@@ -61,16 +61,6 @@ test("the empty state names what was filtered, category first", () => {
   assert.equal(describeFilters({ ...NO_FILTERS, tags: ["Agents"] }), "items tagged Agents");
   assert.equal(describeFilters({ category: "launches", tags: ["Agents", "Dev Tool"], sources: ["github", "hackernews"] }),
     "New Products tagged Agents or Dev Tool from Hacker News or GitHub");
-});
-
-test("weekly x items are not feed cards", () => {
-  const x = { category: "x", source: "x", hidden: false, title: "@lab five words here" };
-  const news = { category: "news", source: "techcrunch", hidden: false };
-  assert.equal(inFeed(x), false);
-  assert.equal(inFeed(news), true);
-  assert.equal(inFeed({ ...news, hidden: true }), false);
-  const issue = [news, x, { ...news, category: "hn", id: "hn-a-issue-19" }];
-  assert.deepEqual(issue.filter(inFeed).map((item) => item.category), ["news", "hn"]);
 });
 
 test("counting matches skips hidden items", () => {

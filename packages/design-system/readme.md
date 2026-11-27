@@ -26,7 +26,7 @@ Regression checks cover rendered card options, effective theme/alias contrast, t
 
 # Ledger — the aiBytes_ design system
 
-Design system for **aiBytes_** (`aibytes.io`): a curated daily feed of AI resources for developers. Each day is an **edition** — a dated snapshot of launches, repos, news, and HN threads. Ledger serves three surfaces on the same content: the daily app, the weekly Beehiiv newsletter, and a later Chrome new-tab extension.
+Design system for **aiBytes_** (`aibytes.io`): a curated daily feed of AI resources for developers. Each day is an **edition** — a dated snapshot of launches, repos, news, and HN threads. Ledger serves three surfaces on the same content: the daily app, the weekly Beehiiv newsletter, and the Chrome extension (a popup today, a new tab later).
 
 **Sources given:** `uploads/aibytes-app-product-spec.md` (App Product Spec v0.2.2) and `uploads/aibytes-design-system-brief.md` (design brief — wins on conflicts). No codebase, Figma, or font binaries were provided.
 
@@ -84,8 +84,9 @@ Design system for **aiBytes_** (`aibytes.io`): a curated daily feed of AI resour
 - `components/brand/` — Wordmark, SourceMark
 - `components/navigation/` — the app shell: AppHeader, Sidebar, Toolbar, FilterPanel, ActiveFilters; and EditionBar (the toolbar's date picker), CalendarPopover. The app (`apps/web`) is built from these, so what ships and what Claude Design shows are the same components.
 - `components/content/` — Card, ListRow, CardGrid / RowList / StatusMessage (`Feed.jsx`), ItemImage, SectionHeading, Tag, SaveStar, CardMenu, SaveBanner, EmptyState, EndCard, Dialog
-- `components/forms/` — Button, Input
-- `ui_kits/aibytes-app/` — the screens + interactive `index.html`, shared `data.js`; 12–14 show saves and sign-in; 15 shows the newsletter prompt in `Dialog`; 16–18 show the gists (`GistPanel` beside the feed, the gist page, the phone sheet), with sample gists in `gists.js`
+- `components/forms/` — Button (`size="lg"` for the one sign-in on a page), Input
+- `components/extension/` — the Chrome extension (AIB-76n): ExtensionIcon; the popup's PopupHeader, PopupFooter, PopupGistBar, PopupActionBar; the onboarding page's OnboardingStep (with OnboardingStatus) and PinAnimation; ExtensionPromo, the install box for Sidebar's `promo`. See `guidelines/extending-ledger.md`
+- `ui_kits/aibytes-app/` — the screens + interactive `index.html`, shared `data.js`; 12–14 show saves and sign-in; 15 shows the newsletter prompt in `Dialog`; 16–18 show the gists (`GistPanel` beside the feed, the gist page, the phone sheet), with sample gists in `gists.js`; 19–21 show the Chrome extension (the popup, the onboarding page, the install box in the rail)
 
 ### Saves and sign-in (AIB-75v)
 

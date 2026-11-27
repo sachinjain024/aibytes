@@ -4,7 +4,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { build as viteBuild, defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { writeGistSite } from "./src/buildGistSite.js";
-import { PRIVACY_HEAD, SAVED_HEAD, WEEKLY_ARCHIVE_HEAD, weeklyIssueHead, withHead } from "./src/pageMeta.js";
+import { ONBOARDING_HEAD, PRIVACY_HEAD, SAVED_HEAD, WEEKLY_ARCHIVE_HEAD, weeklyIssueHead, withHead } from "./src/pageMeta.js";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 // AIBYTES_CONTENT points the build at another content tree (the build test uses a fixture).
@@ -49,6 +49,9 @@ function content() {
         try {
           if (!(await stat(file)).isFile()) return next();
           res.setHeader("Content-Type", "application/json; charset=utf-8");
+          // As GitHub Pages serves /content/, so a dev build of the extension
+          // reads it the way the store build reads aibytes.io (AIB-76n).
+          res.setHeader("Access-Control-Allow-Origin", "*");
           res.end(await readFile(file));
         } catch {
           next();
@@ -68,7 +71,8 @@ function content() {
 // One real page per edition and weekly issue, so /2026-10-07 and
 // /weekly/issue-16 are 200s on GitHub Pages rather than a 404 that happens to
 // render. Each is index.html: the app reads the path from the URL. /saved is
-// one too, noindex since it is the reader's own, and so is /privacy. Weekly pages
+// one too, noindex since it is the reader's own, and so is /privacy; so is
+// /extension-onboarding (AIB-76n), noindex since only the extension opens it. Weekly pages
 // also get their own title, description, canonical URL and OG tags, since they
 // are meant to be indexed and shared. Assets are absolute (/assets/...), so the
 // copy works one directory down. 404.html catches everything else, including
@@ -88,6 +92,8 @@ function editionPages() {
       await writeFile(path.join(options.dir, "saved", "index.html"), withHead(html, SAVED_HEAD));
       await mkdir(path.join(options.dir, "privacy"), { recursive: true });
       await writeFile(path.join(options.dir, "privacy", "index.html"), withHead(html, PRIVACY_HEAD));
+      await mkdir(path.join(options.dir, "extension-onboarding"), { recursive: true });
+      await writeFile(path.join(options.dir, "extension-onboarding", "index.html"), withHead(html, ONBOARDING_HEAD));
 
       await mkdir(path.join(options.dir, "weekly"), { recursive: true });
       await writeFile(path.join(options.dir, "weekly", "index.html"), withHead(html, WEEKLY_ARCHIVE_HEAD));

@@ -4,9 +4,13 @@ import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore";
 
 const LIMIT_MS = 10_000;
 
-export function toSubscriberDoc(user, now) {
+/** Where a subscription came from: the sign-in prompt, or the extension's onboarding page (AIB-76n). */
+export const SOURCES = ["signin-prompt", "extension-onboarding"];
+
+export function toSubscriberDoc(user, now, source = "signin-prompt") {
   if (!user?.email) throw new Error("A subscriber needs an email");
-  return { email: user.email, source: "signin-prompt", created_at: now };
+  if (!SOURCES.includes(source)) throw new Error(`Unknown subscriber source: ${source}`);
+  return { email: user.email, source, created_at: now };
 }
 
 const refOf = (db, uid) => doc(db, "subscribers", uid);
@@ -27,9 +31,11 @@ export async function isSubscribed(db, uid) {
  * { failed: code }. Never rejects. A write that does not settle within
  * limitMs resolves { failed: "timeout" }; one that lands later is harmless.
  * A refused create is read back, and an existing document counts as success,
- * so a retry after a late commit does not change it.
+ * so a retry after a late commit does not change it. `source` is one of
+ * SOURCES; any other fails as invalid-argument, without a write.
  */
 export async function subscribe(db, user, {
+  source = "signin-prompt",
   limitMs = LIMIT_MS,
   setTimer = setTimeout,
   clearTimer = clearTimeout,
@@ -38,7 +44,7 @@ export async function subscribe(db, user, {
 } = {}) {
   let data;
   try {
-    data = toSubscriberDoc(user, serverTimestamp());
+    data = toSubscriberDoc(user, serverTimestamp(), source);
   } catch (error) {
     return { failed: "invalid-argument" };
   }

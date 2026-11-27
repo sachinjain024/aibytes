@@ -2247,9 +2247,16 @@ html[data-theme=light] .calendar-days button:disabled {
   white-space: nowrap;
 }
 
+.account__email,
 .account__via {
   color: var(--text-2);
   font-size: 12px;
+}
+
+.account__email {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .account__item {
@@ -2703,4 +2710,74 @@ html:not([data-input-modality="keyboard"]) .app-shell :focus,.app-shell :focus:n
 /* The panel's loading and error line, spaced like the gist's own text. */
 .gist-panel-status {
   padding: 20px;
+}
+
+/* ListRow stacked (the extension popup): title and ⋮ menu, the summary, then
+   the source and counts on a small line at the bottom. Two lines at most for
+   the title and the summary, so a long one never pushes the row out. */
+.story.story--stacked .story-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2px;
+}
+.story--stacked .story-top {
+  gap: 8px;
+}
+.story--stacked .story-top h3 {
+  flex: 1;
+  min-width: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.story--stacked .story-top .item-actions {
+  flex: none;
+  margin-top: 2px;
+}
+.story.story--stacked .story-content .summary {
+  font-size: 13px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  white-space: normal;
+  overflow: hidden;
+  margin: 0;
+}
+/* The order is fixed here: the narrow-window rules (max-width:760px, which
+   the 550px popup window always matches) give the summary order 1. */
+.story.story--stacked .story-content .story-top { order: 0; }
+.story.story--stacked .story-content .summary { order: 1; }
+/* The row's container query (from 560px) makes the source line a two-column
+   grid; a stacked row keeps it one line, whatever its width. */
+.story.story--stacked .story-content .metadata {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  justify-self: auto;
+  grid-column: auto;
+  grid-row: auto;
+  order: 2;
+  margin-top: 4px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  white-space: normal;
+  width: auto;
+  font-size: 11px;
+  line-height: 1.5;
+  gap: 10px;
+}
+.story.story--stacked .story-content .metadata .discussion,
+.story.story--stacked .story-content .metadata .ldg-signals {
+  grid-column: auto;
+  grid-row: auto;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.story--stacked .ldg-signals svg {
+  width: 12px;
+  height: 12px;
 }

@@ -6,5 +6,7 @@ export interface SaveBannerProps {
   onDismiss?: () => void;
   /** stick under the AppHeader at full width, over the Sidebar. Render it straight after AppHeader. While mounted it writes its height to --redesign-banner on the root, so everything offset by --redesign-top (the rail, the phone drawer and its backdrop, the sticky toolbar) clears it, and moves back up when it unmounts */
   sticky?: boolean;
+  /** the message's words around the link, for a surface other than aibytes.io (the extension popup). Left out: the site's copy above */
+  copy?: { before: string; link: string; after: string };
 }
 export declare function SaveBanner(props: SaveBannerProps): JSX.Element;

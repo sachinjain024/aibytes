@@ -8,8 +8,11 @@
 //   /saved               the reader's saved items (a real page too, noindex)
 //   /gists/<slug>        a gist: the summary page for one item (a real page at build time)
 //   /privacy             what signing in and saving keep, and where (a real page)
+//   /extension-onboarding  the page the Chrome extension opens on install (a real page, noindex);
+//                        ?step=signin and ?action=signout are read by the page itself
 //   /p/<slug>            an old newsletter issue link from when aibytes.io was Beehiiv
 //   anything else        not found
+import { isRealDate } from "@aibytes/app-core/dates.js";
 
 export const NEWSLETTER_ORIGIN = "https://newsletter.aibytes.io";
 export const SITE_ORIGIN = "https://aibytes.io";
@@ -20,6 +23,7 @@ const WEEKLY_ISSUE = /^\/weekly\/(issue-\d+)\/?$/;
 const ISSUE = /^\/p\/([^/]+)\/?$/;
 const SAVED = /^\/saved\/?$/;
 const PRIVACY = /^\/privacy\/?$/;
+const ONBOARDING = /^\/extension-onboarding\/?$/;
 const GIST = /^\/gists\/([a-z0-9][a-z0-9-]*)\/?$/;
 
 export function parseRoute(pathname) {
@@ -27,6 +31,7 @@ export function parseRoute(pathname) {
   if (WEEKLY_INDEX.test(pathname)) return { kind: "weekly_index" };
   if (SAVED.test(pathname)) return { kind: "saved" };
   if (PRIVACY.test(pathname)) return { kind: "privacy" };
+  if (ONBOARDING.test(pathname)) return { kind: "extension_onboarding" };
   const gist = GIST.exec(pathname);
   if (gist) return { kind: "gist", slug: gist[1] };
   const weekly = WEEKLY_ISSUE.exec(pathname);
@@ -57,6 +62,10 @@ export function editionPath(date) {
 
 export function privacyPath() {
   return "/privacy";
+}
+
+export function onboardingPath() {
+  return "/extension-onboarding";
 }
 
 export function savedPath() {
@@ -108,9 +117,4 @@ export function pickEdition(route, editions) {
 export function olderEdition(editions, date) {
   const at = editions.findIndex((ref) => ref.date === date);
   return at === -1 ? null : editions[at + 1] || null;
-}
-
-export function isRealDate(text) {
-  const date = new Date(text + "T00:00:00Z");
-  return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === text;
 }
