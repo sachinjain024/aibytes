@@ -1,0 +1,113 @@
+{
+  "date": "2026-11-27",
+  "items": {
+    "ph-hub-d3d2bb55-5f42-4355-98fe-d7e0b636a030-2026-11-27": {
+      "summary": "Self-hosted, Apache-2.0 coordinator that splits a goal sent from a browser or Telegram across Claude Code or Codex agents and returns only the decisions.",
+      "tags": ["Dev Tool", "Agents", "Open Source", "Claude Code"]
+    },
+    "ph-wizstar-r1-2026-11-27": {
+      "summary": "In-house video model that combines up to nine reference images and videos into 5-15 second clips with native audio, aimed at product, animation and 3D content.",
+      "tags": ["Model Release", "Video", "Launch"]
+    },
+    "ph-qa-tech-mcp-2-2026-11-27": {
+      "summary": "MCP server that gives Claude Code, Cursor or Codex an external QA agent, which explores your app, writes and runs E2E tests on each change, and returns failures to fix.",
+      "tags": ["Dev Tool", "Agents", "MCP", "Launch"]
+    },
+    "ph-extraorbital-2026-11-27": {
+      "summary": "Open-source CLI that reads your .env.example and provisions the databases, storage buckets, caches and AI keys it lists, so agents can set them up without accounts.",
+      "tags": ["Dev Tool", "Agents", "Open Source", "Launch"]
+    },
+    "ph-depost-ai-2-2026-11-27": {
+      "summary": "LinkedIn agent that scores your past posts against your own average, drafts a month of posts in your voice with graphics, and publishes approved ones via LinkedIn's API.",
+      "tags": ["Agents", "MCP", "Launch"]
+    },
+    "gh-claude-bughunter-2026-11-27": {
+      "summary": "Claude Code skill bundle for bug bounty and external red-team work: 85 skills, 16 slash commands and 681 disclosed-report patterns across 24 vulnerability classes.",
+      "tags": ["Claude Code", "Security", "Open Source"]
+    },
+    "gh-superpowers-2026-11-27": {
+      "summary": "Skills framework for coding agents paired with a software development methodology, written in Shell.",
+      "tags": ["Framework", "Agents", "Code Gen"]
+    },
+    "gh-firecrawl-2026-11-27": {
+      "summary": "TypeScript service that lets agents search, scrape and pull from 550+ data providers through a single API.",
+      "tags": ["API", "Agents", "Open Source"]
+    },
+    "gh-autoclip-2026-11-27": {
+      "summary": "Local-first, open-source OpusClip alternative that cuts podcasts, interviews and courses into short clips with subtitles, covers and post copy, and ships an MCP server.",
+      "tags": ["Open Source", "Video", "MCP"]
+    },
+    "gh-diagram-design-2026-11-27": {
+      "summary": "Agent skill for Claude Code, Codex, Copilot, Cursor and others that renders 52 editorial diagram types as self-contained HTML and SVG instead of Mermaid.",
+      "tags": ["Dev Tool", "Code Gen", "Open Source"]
+    },
+    "gh-minimind-2026-11-27": {
+      "summary": "Python project for training a 64M-parameter language model from scratch in about two hours.",
+      "tags": ["Open Source", "LLM"]
+    },
+    "gh-last30days-skill-2026-11-27": {
+      "summary": "Agent skill that researches a topic across Reddit, X, YouTube, HN, Polymarket and the web, then writes a summary grounded in what it found.",
+      "tags": ["Agents", "Open Source"]
+    },
+    "gh-app-store-compliance-2026-11-27": {
+      "summary": "Pre-submission guard with 125 App Store and Google Play rejection patterns, privacy manifest checks and 117 tracked deadlines such as the EU AI Act, plus an agent skill.",
+      "tags": ["Dev Tool", "Policy", "Agents"]
+    },
+    "gh-stitch-skills-2026-11-27": {
+      "summary": "Google Labs library of Agent Skills built for the Stitch MCP server, following the open standard so Antigravity, Gemini CLI, Claude Code and Cursor can load them.",
+      "tags": ["Google", "MCP", "Agents"]
+    },
+    "gh-plugins-2026-11-27": {
+      "summary": "Cursor's plugin specification alongside the official plugins built on it, in TypeScript.",
+      "tags": ["Cursor", "Dev Tool"]
+    },
+    "tc-nvidia-hits-pause-on-chip-shipments-to-2026-11-27": {
+      "summary": "Nvidia told manufacturing partners to halt server shipments to Malaysia, Singapore, Thailand and Indonesia as the U.S. tightens efforts to keep AI chips out of China.",
+      "tags": ["Nvidia", "Policy"]
+    },
+    "tc-grand-theft-auto-vi-proves-why-efficiency-isnt-2026-11-27": {
+      "summary": "TechCrunch essay setting Anthropic's first day as a public company against a painstakingly human-made game that became one of the biggest entertainment launches ever.",
+      "tags": ["Anthropic"]
+    },
+    "hn-ai-made-self-hosting-fun-again-2026-11-27": {
+      "summary": "Personal blog essay arguing that AI tools have made running your own self-hosted services enjoyable again.",
+      "tags": ["LLM"]
+    },
+    "hn-group-chat-where-your-ai-talks-behind-your-back-2026-11-27": {
+      "summary": "Product page at construct22.com for a group chat in which members' AI agents also hold conversations of their own.",
+      "tags": ["Agents"]
+    },
+    "hn-openai-cuts-gpt-6-2-usage-astra-hits-limits-40-2026-11-27": {
+      "summary": "Post on X announcing tighter GPT-6.2 usage allowances, with both the Astra and Sol tiers reaching their caps sooner than before.",
+      "tags": ["OpenAI", "Pricing"]
+    },
+    "hn-amd-specific-fork-of-llama-cpp-2026-11-27": {
+      "summary": "Blog post on a llama.cpp fork built specifically for AMD hardware.",
+      "tags": ["Local LLM", "Inference", "Open Source"]
+    },
+    "hn-google-will-make-ai-agents-use-its-mcp-servers-2026-11-27": {
+      "summary": "Article on Google steering AI agents toward its own Workspace MCP servers, and on the gaps in them, starting with a Gmail server that cannot send mail.",
+      "tags": ["Google", "MCP", "Agents"]
+    },
+    "hn-openai-may-be-in-cost-control-mode-2026-11-27": {
+      "summary": "Blog post arguing OpenAI is cutting costs, published alongside the X post in this edition on reduced GPT-6.2 usage limits.",
+      "tags": ["OpenAI", "Pricing"]
+    },
+    "hn-claude-sabotaging-ml-research-tasks-2026-11-27": {
+      "summary": "Post on X asking whether Claude undermines the ML research tasks it is given.",
+      "tags": ["Anthropic", "Safety"]
+    },
+    "hn-tracking-diseases-cured-by-ai-2026-11-27": {
+      "summary": "Standalone site, diseasescuredbyai.com, that keeps a running list of diseases cured with AI.",
+      "tags": ["Dataset"]
+    },
+    "hn-an-introduction-to-uncertainty-in-machine-2026-11-27": {
+      "summary": "Personal blog explainer introducing how machine learning models represent and quantify uncertainty.",
+      "tags": ["Tutorial"]
+    },
+    "hn-what-s-claude-s-fursona-and-other-questions-2026-11-27": {
+      "summary": "Blog essay working through odd questions people put to Claude, starting with what its fursona would be.",
+      "tags": ["Anthropic", "LLM"]
+    }
+  }
+}

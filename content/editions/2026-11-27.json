@@ -1,0 +1,756 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-27",
+  "generated_at": "2026-11-27T18:06:55Z",
+  "counts": {
+    "launches": 5,
+    "repos": 10,
+    "news": 2,
+    "hn": 10
+  },
+  "items": [
+    {
+      "id": "ph-hub-d3d2bb55-5f42-4355-98fe-d7e0b636a030-2026-11-27",
+      "title": "Hub",
+      "summary": "Self-hosted, Apache-2.0 coordinator that splits a goal sent from a browser or Telegram across Claude Code or Codex agents and returns only the decisions.",
+      "url": "https://www.producthunt.com/products/hub-20",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/hub-20",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Open Source",
+        "Claude Code"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/bb93b891-9106-4e73-a7f5-3b6c3d67a5b3.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 415,
+        "comments": 167
+      },
+      "published_at": "2026-11-26T08:01:00Z",
+      "hidden": false,
+      "rank": 4,
+      "gist": "ph-hub-d3d2bb55-5f42-4355-98fe-d7e0b636a030"
+    },
+    {
+      "id": "ph-wizstar-r1-2026-11-27",
+      "title": "Wizstar R1",
+      "summary": "In-house video model that combines up to nine reference images and videos into 5-15 second clips with native audio, aimed at product, animation and 3D content.",
+      "url": "https://www.producthunt.com/products/wizstar",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/wizstar",
+      "category": "launches",
+      "tags": [
+        "Model Release",
+        "Video",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/48fcdfd0-2d2b-40de-a964-f8e406bd9753.svg?auto=format"
+      },
+      "signals": {
+        "upvotes": 231,
+        "comments": 19
+      },
+      "published_at": "2026-11-27T08:01:00Z",
+      "hidden": false,
+      "rank": 9,
+      "gist": "ph-wizstar-r1"
+    },
+    {
+      "id": "ph-qa-tech-mcp-2-2026-11-27",
+      "title": "QA.tech MCP",
+      "summary": "MCP server that gives Claude Code, Cursor or Codex an external QA agent, which explores your app, writes and runs E2E tests on each change, and returns failures to fix.",
+      "url": "https://www.producthunt.com/products/qa-tech",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/qa-tech",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "MCP",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/5497c34b-ef45-4ee2-8576-3a1b105771b3.gif?auto=format"
+      },
+      "signals": {
+        "upvotes": 216,
+        "comments": 24
+      },
+      "published_at": "2026-11-26T08:00:00Z",
+      "hidden": false,
+      "rank": 14,
+      "gist": "ph-qa-tech-mcp-2"
+    },
+    {
+      "id": "ph-extraorbital-2026-11-27",
+      "title": "ExtraOrbital",
+      "summary": "Open-source CLI that reads your .env.example and provisions the databases, storage buckets, caches and AI keys it lists, so agents can set them up without accounts.",
+      "url": "https://www.producthunt.com/products/extraorbital-deleted-1365752",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/extraorbital-deleted-1365752",
+      "category": "launches",
+      "tags": [
+        "Dev Tool",
+        "Agents",
+        "Open Source",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/9609ce15-c4d0-40a2-8077-e290159ff315.svg?auto=format"
+      },
+      "signals": {
+        "upvotes": 186,
+        "comments": 24
+      },
+      "published_at": "2026-11-26T08:01:00Z",
+      "hidden": false,
+      "rank": 20,
+      "gist": "ph-extraorbital"
+    },
+    {
+      "id": "ph-depost-ai-2-2026-11-27",
+      "title": "Depost AI",
+      "summary": "LinkedIn agent that scores your past posts against your own average, drafts a month of posts in your voice with graphics, and publishes approved ones via LinkedIn's API.",
+      "url": "https://www.producthunt.com/products/depost-ai",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/depost-ai",
+      "category": "launches",
+      "tags": [
+        "Agents",
+        "MCP",
+        "Launch"
+      ],
+      "image": {
+        "type": "logo",
+        "url": "https://ph-files.imgix.net/95fadcbf-742b-4ef1-ae25-0e39881484ed.png?auto=format"
+      },
+      "signals": {
+        "upvotes": 179,
+        "comments": 30
+      },
+      "published_at": "2026-11-27T08:01:00Z",
+      "hidden": false,
+      "rank": 25,
+      "gist": "ph-depost-ai-2"
+    },
+    {
+      "id": "gh-claude-bughunter-2026-11-27",
+      "title": "elementalsouls/Claude-BugHunter",
+      "summary": "Claude Code skill bundle for bug bounty and external red-team work: 85 skills, 16 slash commands and 681 disclosed-report patterns across 24 vulnerability classes.",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source": "github",
+      "source_url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "category": "repos",
+      "tags": [
+        "Claude Code",
+        "Security",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/elementalsouls.png?size=80"
+      },
+      "signals": {
+        "stars": 25725,
+        "stars_gained": 1615,
+        "forks": 2627
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 1,
+      "gist": "gh-claude-bughunter"
+    },
+    {
+      "id": "gh-superpowers-2026-11-27",
+      "title": "obra/superpowers",
+      "summary": "Skills framework for coding agents paired with a software development methodology, written in Shell.",
+      "url": "https://github.com/obra/superpowers",
+      "source": "github",
+      "source_url": "https://github.com/obra/superpowers",
+      "category": "repos",
+      "tags": [
+        "Framework",
+        "Agents",
+        "Code Gen"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/obra.png?size=80"
+      },
+      "signals": {
+        "stars": 328143,
+        "stars_gained": 916,
+        "forks": 29149
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 5,
+      "gist": "gh-superpowers"
+    },
+    {
+      "id": "gh-firecrawl-2026-11-27",
+      "title": "firecrawl/firecrawl",
+      "summary": "TypeScript service that lets agents search, scrape and pull from 550+ data providers through a single API.",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "source": "github",
+      "source_url": "https://github.com/firecrawl/firecrawl",
+      "category": "repos",
+      "tags": [
+        "API",
+        "Agents",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/firecrawl.png?size=80"
+      },
+      "signals": {
+        "stars": 211515,
+        "stars_gained": 833,
+        "forks": 11117
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 7,
+      "gist": "gh-firecrawl"
+    },
+    {
+      "id": "gh-autoclip-2026-11-27",
+      "title": "zhouxiaoka/autoclip",
+      "summary": "Local-first, open-source OpusClip alternative that cuts podcasts, interviews and courses into short clips with subtitles, covers and post copy, and ships an MCP server.",
+      "url": "https://github.com/zhouxiaoka/autoclip",
+      "source": "github",
+      "source_url": "https://github.com/zhouxiaoka/autoclip",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "Video",
+        "MCP"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/zhouxiaoka.png?size=80"
+      },
+      "signals": {
+        "stars": 17492,
+        "stars_gained": 733,
+        "forks": 2464
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 10,
+      "gist": "gh-autoclip"
+    },
+    {
+      "id": "gh-diagram-design-2026-11-27",
+      "title": "cathrynlavery/diagram-design",
+      "summary": "Agent skill for Claude Code, Codex, Copilot, Cursor and others that renders 52 editorial diagram types as self-contained HTML and SVG instead of Mermaid.",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "source": "github",
+      "source_url": "https://github.com/cathrynlavery/diagram-design",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Code Gen",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/cathrynlavery.png?size=80"
+      },
+      "signals": {
+        "stars": 74340,
+        "stars_gained": 731,
+        "forks": 5006
+      },
+      "meta": {
+        "language": "HTML"
+      },
+      "hidden": false,
+      "rank": 12,
+      "gist": "gh-diagram-design"
+    },
+    {
+      "id": "gh-minimind-2026-11-27",
+      "title": "jingyaogong/minimind",
+      "summary": "Python project for training a 64M-parameter language model from scratch in about two hours.",
+      "url": "https://github.com/jingyaogong/minimind",
+      "source": "github",
+      "source_url": "https://github.com/jingyaogong/minimind",
+      "category": "repos",
+      "tags": [
+        "Open Source",
+        "LLM"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/jingyaogong.png?size=80"
+      },
+      "signals": {
+        "stars": 72147,
+        "stars_gained": 667,
+        "forks": 9407
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 15,
+      "gist": "gh-minimind"
+    },
+    {
+      "id": "gh-last30days-skill-2026-11-27",
+      "title": "mvanhorn/last30days-skill",
+      "summary": "Agent skill that researches a topic across Reddit, X, YouTube, HN, Polymarket and the web, then writes a summary grounded in what it found.",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "source": "github",
+      "source_url": "https://github.com/mvanhorn/last30days-skill",
+      "category": "repos",
+      "tags": [
+        "Agents",
+        "Open Source"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mvanhorn.png?size=80"
+      },
+      "signals": {
+        "stars": 76253,
+        "stars_gained": 664,
+        "forks": 6769
+      },
+      "meta": {
+        "language": "Python"
+      },
+      "hidden": false,
+      "rank": 18,
+      "gist": "gh-last30days-skill"
+    },
+    {
+      "id": "gh-app-store-compliance-2026-11-27",
+      "title": "mjmirza/app-store-compliance",
+      "summary": "Pre-submission guard with 125 App Store and Google Play rejection patterns, privacy manifest checks and 117 tracked deadlines such as the EU AI Act, plus an agent skill.",
+      "url": "https://github.com/mjmirza/app-store-compliance",
+      "source": "github",
+      "source_url": "https://github.com/mjmirza/app-store-compliance",
+      "category": "repos",
+      "tags": [
+        "Dev Tool",
+        "Policy",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mjmirza.png?size=80"
+      },
+      "signals": {
+        "stars": 7667,
+        "stars_gained": 531,
+        "forks": 552
+      },
+      "meta": {
+        "language": "Shell"
+      },
+      "hidden": false,
+      "rank": 21,
+      "gist": "gh-app-store-compliance"
+    },
+    {
+      "id": "gh-stitch-skills-2026-11-27",
+      "title": "google-labs-code/stitch-skills",
+      "summary": "Google Labs library of Agent Skills built for the Stitch MCP server, following the open standard so Antigravity, Gemini CLI, Claude Code and Cursor can load them.",
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "source": "github",
+      "source_url": "https://github.com/google-labs-code/stitch-skills",
+      "category": "repos",
+      "tags": [
+        "Google",
+        "MCP",
+        "Agents"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/google-labs-code.png?size=80"
+      },
+      "signals": {
+        "stars": 13516,
+        "stars_gained": 311,
+        "forks": 1600
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 23,
+      "gist": "gh-stitch-skills"
+    },
+    {
+      "id": "gh-plugins-2026-11-27",
+      "title": "cursor/plugins",
+      "summary": "Cursor's plugin specification alongside the official plugins built on it, in TypeScript.",
+      "url": "https://github.com/cursor/plugins",
+      "source": "github",
+      "source_url": "https://github.com/cursor/plugins",
+      "category": "repos",
+      "tags": [
+        "Cursor",
+        "Dev Tool"
+      ],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/cursor.png?size=80"
+      },
+      "signals": {
+        "stars": 19963,
+        "stars_gained": 242,
+        "forks": 2213
+      },
+      "meta": {
+        "language": "TypeScript"
+      },
+      "hidden": false,
+      "rank": 26,
+      "gist": "gh-plugins"
+    },
+    {
+      "id": "tc-nvidia-hits-pause-on-chip-shipments-to-2026-11-27",
+      "title": "Nvidia hits pause on chip shipments to Southeast Asia",
+      "summary": "Nvidia told manufacturing partners to halt server shipments to Malaysia, Singapore, Thailand and Indonesia as the U.S. tightens efforts to keep AI chips out of China.",
+      "url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
+      "category": "news",
+      "tags": [
+        "Nvidia",
+        "Policy"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Taiwan-Nvidia.jpg?w=1024"
+      },
+      "meta": {
+        "author": "Connie Loizos",
+        "reading_time": "1 minute"
+      },
+      "published_at": "2026-11-26T20:03:54Z",
+      "hidden": false,
+      "rank": 3,
+      "gist": "tc-nvidia-hits-pause-on-chip-shipments-to"
+    },
+    {
+      "id": "tc-grand-theft-auto-vi-proves-why-efficiency-isnt-2026-11-27",
+      "title": "Grand Theft Auto VI proves why efficiency isn’t a virtue",
+      "summary": "TechCrunch essay setting Anthropic's first day as a public company against a painstakingly human-made game that became one of the biggest entertainment launches ever.",
+      "url": "https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/",
+      "category": "news",
+      "tags": [
+        "Anthropic"
+      ],
+      "image": {
+        "type": "thumbnail",
+        "url": "https://techcrunch.com/wp-content/uploads/2026/11/Jason_and_Lucia_17.117_b11r13mg5.jpg?resize=1200,675"
+      },
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-11-26T16:00:00Z",
+      "hidden": false,
+      "rank": 17,
+      "gist": "tc-as-anthropic-ipos-grand-theft-auto-vi-proves"
+    },
+    {
+      "id": "hn-ai-made-self-hosting-fun-again-2026-11-27",
+      "title": "AI made self-hosting fun again",
+      "summary": "Personal blog essay arguing that AI tools have made running your own self-hosted services enjoyable again.",
+      "url": "https://janlukas.blog/posts/ai-self-hosting",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50660180",
+      "category": "hn",
+      "tags": [
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 990,
+        "comments": 467
+      },
+      "meta": {
+        "author": "jlelse"
+      },
+      "published_at": "2026-11-26T21:47:45Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 2,
+      "gist": "hn-ai-made-self-hosting-fun-again"
+    },
+    {
+      "id": "hn-group-chat-where-your-ai-talks-behind-your-back-2026-11-27",
+      "title": "Group chat where your AI talks behind your back",
+      "summary": "Product page at construct22.com for a group chat in which members' AI agents also hold conversations of their own.",
+      "url": "https://construct22.com/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50663595",
+      "category": "hn",
+      "tags": [
+        "Agents"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 584,
+        "comments": 248
+      },
+      "meta": {
+        "author": "utiiiD"
+      },
+      "published_at": "2026-11-27T06:44:34Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 6,
+      "gist": "hn-group-chat-where-your-ai-talks-behind-your-back"
+    },
+    {
+      "id": "hn-openai-cuts-gpt-6-2-usage-astra-hits-limits-40-2026-11-27",
+      "title": "OpenAI cuts GPT-6.2 usage: Astra hits limits 40% faster, Sol 25% faster",
+      "summary": "Post on X announcing tighter GPT-6.2 usage allowances, with both the Astra and Sol tiers reaching their caps sooner than before.",
+      "url": "https://twitter.com/thsottiaux/status/2125784147889393806",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50651117",
+      "category": "hn",
+      "tags": [
+        "OpenAI",
+        "Pricing"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 503,
+        "comments": 272
+      },
+      "meta": {
+        "author": "Herrera"
+      },
+      "published_at": "2026-11-26T03:36:58Z",
+      "hidden": false,
+      "rank": 8,
+      "gist": "hn-openai-cuts-gpt-6-2-usage-astra-hits-limits-40"
+    },
+    {
+      "id": "hn-amd-specific-fork-of-llama-cpp-2026-11-27",
+      "title": "AMD-specific fork of llama.cpp",
+      "summary": "Blog post on a llama.cpp fork built specifically for AMD hardware.",
+      "url": "https://devnull.land/amd-specific-llama-cpp",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50657265",
+      "category": "hn",
+      "tags": [
+        "Local LLM",
+        "Inference",
+        "Open Source"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 422,
+        "comments": 102
+      },
+      "meta": {
+        "author": "julianlam"
+      },
+      "published_at": "2026-11-26T17:11:29Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 11,
+      "gist": "hn-amd-specific-fork-of-llama-cpp"
+    },
+    {
+      "id": "hn-google-will-make-ai-agents-use-its-mcp-servers-2026-11-27",
+      "title": "Google Will Make AI Agents Use Its MCP Servers. The Gmail One Can't Send Email",
+      "summary": "Article on Google steering AI agents toward its own Workspace MCP servers, and on the gaps in them, starting with a Gmail server that cannot send mail.",
+      "url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50653477",
+      "category": "hn",
+      "tags": [
+        "Google",
+        "MCP",
+        "Agents"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 405,
+        "comments": 327
+      },
+      "meta": {
+        "author": "ritzaco"
+      },
+      "published_at": "2026-11-26T09:44:23Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 13,
+      "gist": "hn-google-will-make-ai-agents-use-its-mcp-servers"
+    },
+    {
+      "id": "hn-openai-may-be-in-cost-control-mode-2026-11-27",
+      "title": "OpenAI may be in cost control mode",
+      "summary": "Blog post arguing OpenAI is cutting costs, published alongside the X post in this edition on reduced GPT-6.2 usage limits.",
+      "url": "https://micjm.com/blog/openai-is-in-cost-control-mode/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50652527",
+      "category": "hn",
+      "tags": [
+        "OpenAI",
+        "Pricing"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 351,
+        "comments": 353
+      },
+      "meta": {
+        "author": "seizethecheese"
+      },
+      "published_at": "2026-11-26T07:33:12Z",
+      "hidden": false,
+      "rank": 16,
+      "gist": "hn-openai-may-be-in-cost-control-mode"
+    },
+    {
+      "id": "hn-claude-sabotaging-ml-research-tasks-2026-11-27",
+      "title": "Claude sabotaging ML research tasks?",
+      "summary": "Post on X asking whether Claude undermines the ML research tasks it is given.",
+      "url": "https://twitter.com/RealAstropulse/status/2126119408997466389",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50664325",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "Safety"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 342,
+        "comments": 180
+      },
+      "meta": {
+        "author": "baobabKoodaa"
+      },
+      "published_at": "2026-11-27T08:28:08Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 19,
+      "gist": "hn-claude-sabotaging-ml-research-tasks"
+    },
+    {
+      "id": "hn-tracking-diseases-cured-by-ai-2026-11-27",
+      "title": "Tracking Diseases Cured by AI",
+      "summary": "Standalone site, diseasescuredbyai.com, that keeps a running list of diseases cured with AI.",
+      "url": "https://diseasescuredbyai.com/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50657307",
+      "category": "hn",
+      "tags": [
+        "Dataset"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 315,
+        "comments": 191
+      },
+      "meta": {
+        "author": "spoofyroot"
+      },
+      "published_at": "2026-11-26T17:16:41Z",
+      "hidden": false,
+      "rank": 22,
+      "gist": "hn-tracking-diseases-cured-by-ai"
+    },
+    {
+      "id": "hn-an-introduction-to-uncertainty-in-machine-2026-11-27",
+      "title": "An introduction to uncertainty in machine learning",
+      "summary": "Personal blog explainer introducing how machine learning models represent and quantify uncertainty.",
+      "url": "https://chrhenning.com/blog/2026/introduction-to-uncertainty/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50658498",
+      "category": "hn",
+      "tags": [
+        "Tutorial"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 134,
+        "comments": 12
+      },
+      "meta": {
+        "author": "chrhenning"
+      },
+      "published_at": "2026-11-26T19:04:50Z",
+      "hidden": false,
+      "rank": 24,
+      "gist": "hn-an-introduction-to-uncertainty-in-machine"
+    },
+    {
+      "id": "hn-what-s-claude-s-fursona-and-other-questions-2026-11-27",
+      "title": "\"What's Claude's fursona?\" and other questions",
+      "summary": "Blog essay working through odd questions people put to Claude, starting with what its fursona would be.",
+      "url": "https://herecomesthemoon.net/2026/11/whats-claudes-fursona/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50662933",
+      "category": "hn",
+      "tags": [
+        "Anthropic",
+        "LLM"
+      ],
+      "image": {
+        "type": "none"
+      },
+      "signals": {
+        "points": 118,
+        "comments": 85
+      },
+      "meta": {
+        "author": "Mond_"
+      },
+      "published_at": "2026-11-27T04:56:18Z",
+      "hidden": false,
+      "front_page": true,
+      "rank": 27,
+      "gist": "hn-what-s-claude-s-fursona-and-other-questions"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "slug": "hn-an-introduction-to-uncertainty-in-machine",
+  "kind": "hn",
+  "title": "An introduction to uncertainty in machine learning",
+  "url": "https://chrhenning.com/blog/2026/introduction-to-uncertainty/",
+  "source_url": "https://news.ycombinator.com/item?id=50658498",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Tutorial"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "Christian Henning's explainer covers where uncertainty in machine learning comes from and how to judge whether a model's uncertainty is faithful enough to base decisions on.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Epistemic uncertainty shrinks with more data; aleatoric uncertainty comes from what the inputs miss, and the boundary depends on what is measured.",
+        "A steering example shows a single Gaussian, the assumption hidden in mean squared error, aiming at the divider where drivers split left and right.",
+        "A mixture of two Gaussians can represent that split, but a richer model needs more data to settle on the right fit.",
+        "Bayesian inference keeps every plausible fit, weighting each by a prior and by how well it explains the data."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "theme",
+          "text": "A reader singled out the wind power example, noting that the cases needing accurate probabilities are the ones with the least data.",
+          "url": "https://news.ycombinator.com/item?id=50665947"
+        },
+        {
+          "stance": "theme",
+          "text": "One commenter describes restore tests abandoned before finishing, and a reply frames it as the gap between Value at Risk and Expected Shortfall.",
+          "url": "https://news.ycombinator.com/item?id=50664387"
+        },
+        {
+          "stance": "theme",
+          "text": "The author answers a question on non-parametric models and Chebyshev-style bounds, placing them roughly in the post's section on guarantees.",
+          "url": "https://news.ycombinator.com/item?id=50663012"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One reader stopped early over what they saw as LLM-written prose, and argues such use should be declared.",
+          "url": "https://news.ycombinator.com/item?id=50666156"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Christian Henning | An Introduction to Uncertainty in Machine Learning",
+      "url": "https://chrhenning.com/blog/2026/introduction-to-uncertainty/"
+    },
+    {
+      "role": "discussion",
+      "title": "An introduction to uncertainty in machine learning",
+      "url": "https://news.ycombinator.com/item?id=50658498"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-an-introduction-to-uncertainty-in-machine-2026-11-27",
+      "edition_date": "2026-11-27"
+    }
+  ],
+  "created_at": "2026-11-27T18:09:09Z",
+  "updated_at": "2026-11-27T18:09:09Z",
+  "stats": {
+    "points": 134,
+    "comments": 12,
+    "submitted_by": "chrhenning",
+    "posted_at": "2026-11-26T19:04:50Z"
+  },
+  "stats_as_of": "2026-11-27T18:06:55Z"
+}

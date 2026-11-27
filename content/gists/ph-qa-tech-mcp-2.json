@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "slug": "ph-qa-tech-mcp-2",
+  "kind": "launch",
+  "title": "QA.tech MCP",
+  "url": "https://www.producthunt.com/products/qa-tech",
+  "source_url": "https://www.producthunt.com/products/qa-tech",
+  "source": "producthunt",
+  "category": "launches",
+  "tags": [
+    "Dev Tool",
+    "Agents",
+    "MCP",
+    "Launch"
+  ],
+  "image": {
+    "type": "logo",
+    "url": "https://ph-files.imgix.net/5497c34b-ef45-4ee2-8576-3a1b105771b3.gif?auto=format"
+  },
+  "depth": "full",
+  "lede": "QA.tech MCP lets a coding agent in Claude Code, Cursor or Codex hand testing to an outside QA agent that explores the app, writes end-to-end tests and reports what broke.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Works with any MCP client; the team names Claude Code, Cursor and Codex.",
+        "QA.tech maps the app, writes tests and runs them in a real browser against a preview or staging URL.",
+        "Failures go back to the coding agent with the cause, so it can fix and rerun before the PR reaches review.",
+        "Setup is a single prompt, and everything in the QA.tech product is also exposed over MCP."
+      ]
+    },
+    {
+      "key": "who_its_for",
+      "text": "Developers working with coding agents who otherwise click through the app themselves to check that a task the agent called done actually works."
+    },
+    {
+      "key": "pricing",
+      "text": "Usage is credit-based; the launch comment offers Product Hunt users 50 extra credits, about a month of use, with code PHMCP until 9 December."
+    }
+  ],
+  "links": [
+    {
+      "role": "discussion",
+      "title": "QA.tech MCP on Product Hunt",
+      "url": "https://www.producthunt.com/products/qa-tech"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "ph-qa-tech-mcp-2-2026-11-27",
+      "edition_date": "2026-11-27"
+    }
+  ],
+  "created_at": "2026-11-27T18:09:09Z",
+  "updated_at": "2026-11-27T18:09:09Z",
+  "stats": {
+    "upvotes": 216,
+    "comments": 24
+  },
+  "stats_as_of": "2026-11-27T18:06:55Z"
+}

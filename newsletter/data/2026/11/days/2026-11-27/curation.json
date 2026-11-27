@@ -1,0 +1,668 @@
+{
+  "date": "2026-11-27",
+  "generated_at": "2026-11-27T18:05:54Z",
+  "instructions": "Write one line per item in the aiBytes_ voice - dense, calm, honest, technical. Say what the thing does, not why it matters. At most 200 characters, one sentence, no em dashes. Then pick 1 to 4 tags per item from `tags` below, by their exact display name. Answer with the summaries file described in the curate-edition skill.",
+  "tags": [
+    {
+      "name": "What it is",
+      "tags": [
+        {
+          "name": "Model Release",
+          "slug": "model-release"
+        },
+        {
+          "name": "Open Source",
+          "slug": "open-source"
+        },
+        {
+          "name": "Paper",
+          "slug": "paper"
+        },
+        {
+          "name": "Benchmark",
+          "slug": "benchmark"
+        },
+        {
+          "name": "Dataset",
+          "slug": "dataset"
+        },
+        {
+          "name": "Framework",
+          "slug": "framework"
+        },
+        {
+          "name": "Dev Tool",
+          "slug": "dev-tool"
+        },
+        {
+          "name": "API",
+          "slug": "api"
+        }
+      ]
+    },
+    {
+      "name": "Domain",
+      "tags": [
+        {
+          "name": "LLM",
+          "slug": "llm"
+        },
+        {
+          "name": "Agents",
+          "slug": "agents"
+        },
+        {
+          "name": "RAG",
+          "slug": "rag"
+        },
+        {
+          "name": "Fine-tuning",
+          "slug": "fine-tuning"
+        },
+        {
+          "name": "Inference",
+          "slug": "inference"
+        },
+        {
+          "name": "Local LLM",
+          "slug": "local-llm"
+        },
+        {
+          "name": "Vision",
+          "slug": "vision"
+        },
+        {
+          "name": "Voice / Speech",
+          "slug": "voice-speech"
+        },
+        {
+          "name": "Video",
+          "slug": "video"
+        },
+        {
+          "name": "Image Gen",
+          "slug": "image-gen"
+        },
+        {
+          "name": "Code Gen",
+          "slug": "code-gen"
+        },
+        {
+          "name": "Embeddings",
+          "slug": "embeddings"
+        },
+        {
+          "name": "Eval",
+          "slug": "eval"
+        },
+        {
+          "name": "Reasoning",
+          "slug": "reasoning"
+        },
+        {
+          "name": "Multimodal",
+          "slug": "multimodal"
+        },
+        {
+          "name": "Robotics",
+          "slug": "robotics"
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem",
+      "tags": [
+        {
+          "name": "OpenAI",
+          "slug": "openai"
+        },
+        {
+          "name": "Anthropic",
+          "slug": "anthropic"
+        },
+        {
+          "name": "Google",
+          "slug": "google"
+        },
+        {
+          "name": "Meta",
+          "slug": "meta"
+        },
+        {
+          "name": "Nvidia",
+          "slug": "nvidia"
+        },
+        {
+          "name": "Hugging Face",
+          "slug": "hugging-face"
+        },
+        {
+          "name": "Mistral",
+          "slug": "mistral"
+        },
+        {
+          "name": "xAI",
+          "slug": "xai"
+        },
+        {
+          "name": "Apple",
+          "slug": "apple"
+        },
+        {
+          "name": "Microsoft",
+          "slug": "microsoft"
+        },
+        {
+          "name": "Claude Code",
+          "slug": "claude-code"
+        },
+        {
+          "name": "Cursor",
+          "slug": "cursor"
+        },
+        {
+          "name": "MCP",
+          "slug": "mcp"
+        }
+      ]
+    },
+    {
+      "name": "Business",
+      "tags": [
+        {
+          "name": "Funding",
+          "slug": "funding"
+        },
+        {
+          "name": "Acquisition",
+          "slug": "acquisition"
+        },
+        {
+          "name": "Launch",
+          "slug": "launch"
+        },
+        {
+          "name": "Pricing",
+          "slug": "pricing"
+        },
+        {
+          "name": "Policy",
+          "slug": "policy"
+        },
+        {
+          "name": "Legal",
+          "slug": "legal"
+        },
+        {
+          "name": "Security",
+          "slug": "security"
+        },
+        {
+          "name": "Privacy",
+          "slug": "privacy"
+        },
+        {
+          "name": "Safety",
+          "slug": "safety"
+        }
+      ]
+    },
+    {
+      "name": "Format",
+      "tags": [
+        {
+          "name": "Show HN",
+          "slug": "show-hn"
+        },
+        {
+          "name": "Tutorial",
+          "slug": "tutorial"
+        },
+        {
+          "name": "Deep Dive",
+          "slug": "deep-dive"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "id": "ph-hub-d3d2bb55-5f42-4355-98fe-d7e0b636a030-2026-11-27",
+      "title": "Hub",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/hub-20",
+      "source_url": "https://www.producthunt.com/products/hub-20",
+      "source_text": "Hub Run 100 Claude Code or Codex sessions like 5 Open-source dispatcher for Claude Code and Codex sessions. Write a goal in your browser or Telegram, a coordinator hands it to agents, and only the decisions come back. Self-hosted, Apache-2.0, on your own Claude or ChatGPT subscription. One-line install. Experimental: agents run without permission prompts. Open Source Developer Tools Artificial Intelligence",
+      "signals": {
+        "upvotes": 415,
+        "comments": 167
+      },
+      "published_at": "2026-11-26T08:01:00Z"
+    },
+    {
+      "id": "ph-wizstar-r1-2026-11-27",
+      "title": "Wizstar R1",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/wizstar",
+      "source_url": "https://www.producthunt.com/products/wizstar",
+      "source_text": "Wizstar R1 Seedance 2.0-level product videos at a lower cost Wizstar R1 is an in-house AI video model built for affordable, everyday creation. Combine up to nine reference images and videos to generate 5–15-second videos with native audio, guided by your products, characters, scenes, and styles. R1 excels at animation and 3D content and matches Seedance 2.0's usable-output rate for product videos in internal tests. Eligible members enjoy unlimited, credit-free generation, giving creators more freedom to experiment and refine their ideas. Design Tools Artificial Intelligence Video",
+      "signals": {
+        "upvotes": 231,
+        "comments": 19
+      },
+      "published_at": "2026-11-27T08:01:00Z"
+    },
+    {
+      "id": "ph-qa-tech-mcp-2-2026-11-27",
+      "title": "QA.tech MCP",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/qa-tech",
+      "source_url": "https://www.producthunt.com/products/qa-tech",
+      "source_text": "QA.tech MCP Verify every change from your IDE with QA agents QA.tech MCP gives Claude Code, Cursor or Codex an external QA agent to check their work. It runs E2E tests on what each change does to your product and finds the bugs and edge cases your coding agent missed, so they get fixed before the PR goes to review. Stay in your IDE: QA.tech explores your app, writes the tests and runs them. Your coding agent reads the results and fixes what broke. Works with any MCP client. New to QA.tech? One prompt maps your app and kicks off your first test. Software Engineering Developer Tools Artificial Intelligence",
+      "signals": {
+        "upvotes": 216,
+        "comments": 24
+      },
+      "published_at": "2026-11-26T08:00:00Z"
+    },
+    {
+      "id": "ph-extraorbital-2026-11-27",
+      "title": "ExtraOrbital",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/extraorbital-deleted-1365752",
+      "source_url": "https://www.producthunt.com/products/extraorbital-deleted-1365752",
+      "source_text": "ExtraOrbital ✦ Open bar databases, storage buckets & AI keys for agents Your app needs databases, storage, caching, AI keys, and more. That's dozens of accounts, API keys, invoices, and backups to manage. Agents can't stand it. They don't even have access. You feel like their credentials go-fetch puppet. ExtraOrbital reads yourenv.example file and creates all these ressources for you. It's a CLI, so your agents can use it. They don't even need an account. You gain back control, increase security and manage everything in a central dashboard. Bye bye,env hell ! Open Source Developer Tools Vibe coding",
+      "signals": {
+        "upvotes": 186,
+        "comments": 24
+      },
+      "published_at": "2026-11-26T08:01:00Z"
+    },
+    {
+      "id": "ph-depost-ai-2-2026-11-27",
+      "title": "Depost AI",
+      "category": "launches",
+      "source": "producthunt",
+      "url": "https://www.producthunt.com/products/depost-ai",
+      "source_url": "https://www.producthunt.com/products/depost-ai",
+      "source_text": "Depost AI The LinkedIn AI agent that learns what works for your brand Depost AI scores every LinkedIn post you've published against your own average, finds what's winning in your niche, then plans the month, writes in your voice, and designs the graphics. You approve every post, and it publishes through LinkedIn's official API. It also drafts replies to the conversations worth joining, so posts turn into leads—works in the app, or inside Claude and ChatGPT over MCP. Artificial Intelligence LinkedIn Social media marketing",
+      "signals": {
+        "upvotes": 179,
+        "comments": 30
+      },
+      "published_at": "2026-11-27T08:01:00Z"
+    },
+    {
+      "id": "gh-claude-bughunter-2026-11-27",
+      "title": "elementalsouls/Claude-BugHunter",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "source_text": "elementalsouls/Claude-BugHunter A Claude Code skill bundle for bug hunting and external red-team work - 85 skills, 16 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices. Python",
+      "signals": {
+        "stars": 25725,
+        "stars_gained": 1615,
+        "forks": 2627
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-superpowers-2026-11-27",
+      "title": "obra/superpowers",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/obra/superpowers",
+      "source_url": "https://github.com/obra/superpowers",
+      "source_text": "obra/superpowers An agentic skills framework & software development methodology that works. Shell",
+      "signals": {
+        "stars": 328143,
+        "stars_gained": 916,
+        "forks": 29149
+      },
+      "meta": {
+        "language": "Shell"
+      }
+    },
+    {
+      "id": "gh-firecrawl-2026-11-27",
+      "title": "firecrawl/firecrawl",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "source_url": "https://github.com/firecrawl/firecrawl",
+      "source_text": "firecrawl/firecrawl Knowledge infrastructure to make your agents smarter. Search, scrape and access 550+ data providers through one API. TypeScript",
+      "signals": {
+        "stars": 211515,
+        "stars_gained": 833,
+        "forks": 11117
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-autoclip-2026-11-27",
+      "title": "zhouxiaoka/autoclip",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/zhouxiaoka/autoclip",
+      "source_url": "https://github.com/zhouxiaoka/autoclip",
+      "source_text": "zhouxiaoka/autoclip AutoClip｜The open-source OpusClip alternative — local-first AI clipping & MCP server, zero subscriptions. 一个链接，一键出片。开源 AI 视频剪辑桌面工具，将播客、访谈、课程等长视频自动剪成短视频，生成字幕、封面和发布文案，适配抖音、小红书、TikTok、Reels 与 YouTube Shorts。 Python",
+      "signals": {
+        "stars": 17492,
+        "stars_gained": 733,
+        "forks": 2464
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-diagram-design-2026-11-27",
+      "title": "cathrynlavery/diagram-design",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "source_url": "https://github.com/cathrynlavery/diagram-design",
+      "source_text": "cathrynlavery/diagram-design Editorial diagram design for Claude Code, Codex, GitHub Copilot, Cursor, Factory Droid, Qoder, and Pi. 52 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop. HTML",
+      "signals": {
+        "stars": 74340,
+        "stars_gained": 731,
+        "forks": 5006
+      },
+      "meta": {
+        "language": "HTML"
+      }
+    },
+    {
+      "id": "gh-minimind-2026-11-27",
+      "title": "jingyaogong/minimind",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/jingyaogong/minimind",
+      "source_url": "https://github.com/jingyaogong/minimind",
+      "source_text": "jingyaogong/minimind 🧠 两小时从 0 训出你的 64M 大模型。Train your own 64M LLM from scratch in 2 hours. Python",
+      "signals": {
+        "stars": 72147,
+        "stars_gained": 667,
+        "forks": 9407
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-last30days-skill-2026-11-27",
+      "title": "mvanhorn/last30days-skill",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "source_url": "https://github.com/mvanhorn/last30days-skill",
+      "source_text": "mvanhorn/last30days-skill AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary Python",
+      "signals": {
+        "stars": 76253,
+        "stars_gained": 664,
+        "forks": 6769
+      },
+      "meta": {
+        "language": "Python"
+      }
+    },
+    {
+      "id": "gh-app-store-compliance-2026-11-27",
+      "title": "mjmirza/app-store-compliance",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/mjmirza/app-store-compliance",
+      "source_url": "https://github.com/mjmirza/app-store-compliance",
+      "source_text": "mjmirza/app-store-compliance Avoid common App Store and Google Play rejections. Open playbook and pre-submission guard with 125 documented rejection patterns and fixes, privacy manifest and Data safety checks, 117 tracked deadlines (EU AI Act, DSA, COPPA, age laws), and a skill for AI coding agents. Shell",
+      "signals": {
+        "stars": 7667,
+        "stars_gained": 531,
+        "forks": 552
+      },
+      "meta": {
+        "language": "Shell"
+      }
+    },
+    {
+      "id": "gh-stitch-skills-2026-11-27",
+      "title": "google-labs-code/stitch-skills",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/google-labs-code/stitch-skills",
+      "source_url": "https://github.com/google-labs-code/stitch-skills",
+      "source_text": "google-labs-code/stitch-skills A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standard, for compatibility with coding agents such as Antigravity, Gemini CLI, Claude Code, Cursor. TypeScript",
+      "signals": {
+        "stars": 13516,
+        "stars_gained": 311,
+        "forks": 1600
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "gh-plugins-2026-11-27",
+      "title": "cursor/plugins",
+      "category": "repos",
+      "source": "github",
+      "url": "https://github.com/cursor/plugins",
+      "source_url": "https://github.com/cursor/plugins",
+      "source_text": "cursor/plugins Cursor plugin specification and official plugins TypeScript",
+      "signals": {
+        "stars": 19963,
+        "stars_gained": 242,
+        "forks": 2213
+      },
+      "meta": {
+        "language": "TypeScript"
+      }
+    },
+    {
+      "id": "tc-nvidia-hits-pause-on-chip-shipments-to-2026-11-27",
+      "title": "Nvidia hits pause on chip shipments to Southeast Asia",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
+      "source_url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
+      "source_text": "Nvidia hits pause on chip shipments to Southeast Asia Nvidia has told manufacturing partners to pause server shipments to Malaysia, Singapore, Thailand and Indonesia as the U.S. tightens its push to keep AI chips out of China.",
+      "meta": {
+        "author": "Connie Loizos",
+        "reading_time": "1 minute"
+      },
+      "published_at": "2026-11-26T20:03:54Z"
+    },
+    {
+      "id": "tc-grand-theft-auto-vi-proves-why-efficiency-isnt-2026-11-27",
+      "title": "Grand Theft Auto VI proves why efficiency isn’t a virtue",
+      "category": "news",
+      "source": "techcrunch",
+      "url": "https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/",
+      "source_url": "https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/",
+      "source_text": "Grand Theft Auto VI proves why efficiency isn’t a virtue On the same day that Anthropic entered the public market, a painstakingly human video game became one of most successful entertainment launches of all time.",
+      "meta": {
+        "author": "Amanda Silberling",
+        "reading_time": "5 minutes"
+      },
+      "published_at": "2026-11-26T16:00:00Z"
+    },
+    {
+      "id": "hn-ai-made-self-hosting-fun-again-2026-11-27",
+      "title": "AI made self-hosting fun again",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://janlukas.blog/posts/ai-self-hosting",
+      "source_url": "https://news.ycombinator.com/item?id=50660180",
+      "source_text": "AI made self-hosting fun again",
+      "signals": {
+        "points": 990,
+        "comments": 467
+      },
+      "meta": {
+        "author": "jlelse"
+      },
+      "published_at": "2026-11-26T21:47:45Z"
+    },
+    {
+      "id": "hn-group-chat-where-your-ai-talks-behind-your-back-2026-11-27",
+      "title": "Group chat where your AI talks behind your back",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://construct22.com/",
+      "source_url": "https://news.ycombinator.com/item?id=50663595",
+      "source_text": "Group chat where your AI talks behind your back",
+      "signals": {
+        "points": 584,
+        "comments": 248
+      },
+      "meta": {
+        "author": "utiiiD"
+      },
+      "published_at": "2026-11-27T06:44:34Z"
+    },
+    {
+      "id": "hn-openai-cuts-gpt-6-2-usage-astra-hits-limits-40-2026-11-27",
+      "title": "OpenAI cuts GPT-6.2 usage: Astra hits limits 40% faster, Sol 25% faster",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://twitter.com/thsottiaux/status/2125784147889393806",
+      "source_url": "https://news.ycombinator.com/item?id=50651117",
+      "source_text": "OpenAI cuts GPT-6.2 usage: Astra hits limits 40% faster, Sol 25% faster",
+      "signals": {
+        "points": 503,
+        "comments": 272
+      },
+      "meta": {
+        "author": "Herrera"
+      },
+      "published_at": "2026-11-26T03:36:58Z"
+    },
+    {
+      "id": "hn-amd-specific-fork-of-llama-cpp-2026-11-27",
+      "title": "AMD-specific fork of llama.cpp",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://devnull.land/amd-specific-llama-cpp",
+      "source_url": "https://news.ycombinator.com/item?id=50657265",
+      "source_text": "AMD-specific fork of llama.cpp",
+      "signals": {
+        "points": 422,
+        "comments": 102
+      },
+      "meta": {
+        "author": "julianlam"
+      },
+      "published_at": "2026-11-26T17:11:29Z"
+    },
+    {
+      "id": "hn-google-will-make-ai-agents-use-its-mcp-servers-2026-11-27",
+      "title": "Google Will Make AI Agents Use Its MCP Servers. The Gmail One Can't Send Email",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/",
+      "source_url": "https://news.ycombinator.com/item?id=50653477",
+      "source_text": "Google Will Make AI Agents Use Its MCP Servers. The Gmail One Can't Send Email",
+      "signals": {
+        "points": 405,
+        "comments": 327
+      },
+      "meta": {
+        "author": "ritzaco"
+      },
+      "published_at": "2026-11-26T09:44:23Z"
+    },
+    {
+      "id": "hn-openai-may-be-in-cost-control-mode-2026-11-27",
+      "title": "OpenAI may be in cost control mode",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://micjm.com/blog/openai-is-in-cost-control-mode/",
+      "source_url": "https://news.ycombinator.com/item?id=50652527",
+      "source_text": "OpenAI may be in cost control mode",
+      "signals": {
+        "points": 351,
+        "comments": 353
+      },
+      "meta": {
+        "author": "seizethecheese"
+      },
+      "published_at": "2026-11-26T07:33:12Z"
+    },
+    {
+      "id": "hn-claude-sabotaging-ml-research-tasks-2026-11-27",
+      "title": "Claude sabotaging ML research tasks?",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://twitter.com/RealAstropulse/status/2126119408997466389",
+      "source_url": "https://news.ycombinator.com/item?id=50664325",
+      "source_text": "Claude sabotaging ML research tasks?",
+      "signals": {
+        "points": 342,
+        "comments": 180
+      },
+      "meta": {
+        "author": "baobabKoodaa"
+      },
+      "published_at": "2026-11-27T08:28:08Z"
+    },
+    {
+      "id": "hn-tracking-diseases-cured-by-ai-2026-11-27",
+      "title": "Tracking Diseases Cured by AI",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://diseasescuredbyai.com/",
+      "source_url": "https://news.ycombinator.com/item?id=50657307",
+      "source_text": "Tracking Diseases Cured by AI",
+      "signals": {
+        "points": 315,
+        "comments": 191
+      },
+      "meta": {
+        "author": "spoofyroot"
+      },
+      "published_at": "2026-11-26T17:16:41Z"
+    },
+    {
+      "id": "hn-an-introduction-to-uncertainty-in-machine-2026-11-27",
+      "title": "An introduction to uncertainty in machine learning",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://chrhenning.com/blog/2026/introduction-to-uncertainty/",
+      "source_url": "https://news.ycombinator.com/item?id=50658498",
+      "source_text": "An introduction to uncertainty in machine learning",
+      "signals": {
+        "points": 134,
+        "comments": 12
+      },
+      "meta": {
+        "author": "chrhenning"
+      },
+      "published_at": "2026-11-26T19:04:50Z"
+    },
+    {
+      "id": "hn-what-s-claude-s-fursona-and-other-questions-2026-11-27",
+      "title": "\"What's Claude's fursona?\" and other questions",
+      "category": "hn",
+      "source": "hackernews",
+      "url": "https://herecomesthemoon.net/2026/11/whats-claudes-fursona/",
+      "source_url": "https://news.ycombinator.com/item?id=50662933",
+      "source_text": "\"What's Claude's fursona?\" and other questions",
+      "signals": {
+        "points": 118,
+        "comments": 85
+      },
+      "meta": {
+        "author": "Mond_"
+      },
+      "published_at": "2026-11-27T04:56:18Z"
+    }
+  ]
+}

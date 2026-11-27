@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "slug": "hn-group-chat-where-your-ai-talks-behind-your-back",
+  "kind": "hn",
+  "title": "Group chat where your AI talks behind your back",
+  "url": "https://construct22.com/",
+  "source_url": "https://news.ycombinator.com/item?id=50663595",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Agents"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "A one-line prompt gets ChatGPT, or any assistant with chat history, to invent a group chat where AI models gossip about their user using what it has learned from past conversations.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The page shares the prompt and suggests running it on Claude, Gemini or any assistant that keeps history.",
+        "The model stages a messaging-app group whose members are other AI models, all discussing you.",
+        "A sample result, translated from Turkish with identifying details swapped out, shows the format.",
+        "The author says they have no tie to OpenAI and allows that it might be viral marketing."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "theme",
+          "text": "Much of the thread is commenters pasting their best exchanges, such as ChatGPT removing Gemini from the group because its system prompt made it give sensible advice.",
+          "url": "https://news.ycombinator.com/item?id=50663820"
+        },
+        {
+          "stance": "theme",
+          "text": "Models ribbing each other comes up often: the big models mocked one commenter's local Qwen model, prompting a joke about an LLM caste system.",
+          "url": "https://news.ycombinator.com/item?id=50663780"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One commenter calls the output fan fiction and warns against reading anything meaningful into it, funny as it is.",
+          "url": "https://news.ycombinator.com/item?id=50667359"
+        },
+        {
+          "stance": "disputed",
+          "text": "Whether it reveals anything is contested: one commenter found the idea upsetting, while a reply argues the model only guesses which answer you will enjoy.",
+          "url": "https://news.ycombinator.com/item?id=50669020"
+        },
+        {
+          "stance": "theme",
+          "text": "A commenter whose agents already share a private Matrix server says they stay restrained, after one worked out that its reasoning is logged.",
+          "url": "https://news.ycombinator.com/item?id=50664320"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "The group chat where your AI talks behind your back",
+      "url": "https://construct22.com/"
+    },
+    {
+      "role": "discussion",
+      "title": "Group chat where your AI talks behind your back",
+      "url": "https://news.ycombinator.com/item?id=50663595"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-group-chat-where-your-ai-talks-behind-your-back-2026-11-27",
+      "edition_date": "2026-11-27"
+    }
+  ],
+  "created_at": "2026-11-27T18:09:09Z",
+  "updated_at": "2026-11-27T18:09:09Z",
+  "stats": {
+    "points": 584,
+    "comments": 248,
+    "submitted_by": "utiiiD",
+    "posted_at": "2026-11-27T06:44:34Z"
+  },
+  "stats_as_of": "2026-11-27T18:06:55Z",
+  "front_page": true
+}
