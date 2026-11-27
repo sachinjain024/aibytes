@@ -3,14 +3,14 @@ format: longclaw.ticket/v1
 id: 47295eb2-ad1d-4023-895a-a972bd8061e2
 key: AIB-76n
 title: "Chrome extension: popup with the ranked daily edition, stars and sign-in"
-status: in_progress
+status: done
 priority: p2
 rank: a0
 labels:
   - app
 type: feature
 created_at: 2026-10-08T10:23:17.730Z
-updated_at: 2026-11-27T10:23:37.874Z
+updated_at: 2026-11-27T11:03:44.945Z
 ---
 
 The aiBytes_ Chrome extension, popup first: clicking the toolbar icon shows today's edition as a ranked list, with a star on every row that syncs to the reader's aibytes.io account. It replaces the existing "AI Bytes" listing on the Chrome Web Store. Split out of AIB-8h (phase 7) on 2026-10-08; re-scoped on 2026-11-20 after a requirements interview with the publisher. The new-tab page moved to its own ticket, AIB-151m.
@@ -106,7 +106,7 @@ Same flow as AIB-75v:
 - [x] 4. Store listing written for search and conversion: version above 26.1.15, name, short description, icon, screenshots, promo tile, privacy answers; submit the update <!-- longclaw:item=ck_a7dacce3 -->
 - [x] 4.1 Switch the store listing's category from Education to Productivity › Developer Tools (first decided as Lifestyle › News & Weather on 22 Nov; changed 27 Nov to sit with daily.dev, for a developer audience) <!-- longclaw:item=ck_860b789d -->
 - [x] 4.2 Promo tile (440×280) and marquee (1400×560): run the brief in Claude, Grok, OpenAI and Gemini, shortlist the candidates in a numbered review artifact, publisher picks one of each <!-- longclaw:item=ck_dfe2ae1c -->
-- [ ] 5. After the store approves the update (T24, a follow-up PR from main): turn on EXTENSION_LIVE (install box and onboarding "Add to Chrome") and point the aibytes.io footer "Chrome Extension" link at the store listing <!-- longclaw:item=ck_f68f9eec -->
+- [x] 5. After the store approves the update (T24, a follow-up PR from main): turn on EXTENSION_LIVE (install box and onboarding "Add to Chrome") and point the aibytes.io footer "Chrome Extension" link at the store listing <!-- longclaw:item=ck_f68f9eec -->
 
 ## Activity
 
@@ -2519,4 +2519,34 @@ actor:
 ### You commented
 
 T24 done on PR #73 (publisher's ask, 27 Nov 2026, before store approval): EXTENSION_LIVE = true, so the install box and onboarding's Add to Chrome show; the footer's 'Chrome Extension' (no '(soon)') links the store listing. Web tests 226/226, build:web passes, checked on the dev server. Left for item 5: after approval, a clean store install opens onboarding once and a 26.1.15 install updates silently.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_5788a284
+kind: update
+occurred_at: 2026-11-27T11:03:37.861Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: checklist.ck_f68f9eec.checked
+    from: "false"
+    to: "true"
+-->
+### You updated this ticket
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_bc09f7c3
+kind: update
+occurred_at: 2026-11-27T11:03:44.945Z
+actor:
+  type: human
+  id: local
+changes:
+  - field: status
+    from: in_progress
+    to: done
+-->
+### You updated this ticket
 <!-- /longclaw:event -->
