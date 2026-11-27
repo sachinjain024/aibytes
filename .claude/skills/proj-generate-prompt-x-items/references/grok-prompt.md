@@ -2,9 +2,10 @@
 
 Paste the block below into Grok. Replace `{{AFTER}}` and `{{BEFORE}}` with the
 week's window (`after` inclusive, `before` exclusive, both `YYYY-MM-DD`).
-`/x-fetch-items` fills them in when it hands the prompt over. Grok returns two
-lists of posts, and the skill flattens them into `posts` and adds the
-envelope. The post shape must stay in sync with `x-data.md`.
+`/proj-generate-prompt-x-items` fills them in when it hands the prompt over.
+`/proj-fetch-from-x` uses the same window and shape while searching X itself.
+Grok returns two lists of posts, and the skill flattens them into `posts`
+and adds the envelope. The post shape must stay in sync with `x-data.md`.
 
 ````text
 Search X for posts about AI posted from {{AFTER}} up to (not including) {{BEFORE}}, and return them in two separate lists.

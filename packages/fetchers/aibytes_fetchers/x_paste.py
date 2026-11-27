@@ -1,13 +1,14 @@
-"""X posts, pasted in from Grok rather than fetched.
+"""X posts gathered in Grok, then saved as a weekly snapshot.
 
-X has no API this project can call, so the publisher runs a prompt in Grok and
-pastes the JSON back. This module is the non-network half of that: fill the
-prompt's window, check a paste against the contract, save it as a weekly
-snapshot, and record the shortlist. The contract itself lives in
-.claude/skills/x-fetch-items/references/x-data.md.
+Grok has native X search (`/proj-fetch-from-x`). Other agents print the prompt
+(`/proj-generate-prompt-x-items`) and wait for a paste. This module is the
+non-network half of both: fill the prompt's window, check JSON against the
+contract, save the weekly snapshot, write the publisher's review markdown, and
+record the shortlist. The contract lives in
+.claude/skills/proj-generate-prompt-x-items/references/x-data.md.
 
-Not a `sources/` module: there is no fetch() to run, so the shared runner and
-envelope don't apply. The snapshot path does, via layout.
+Not a `sources/` module: there is no fetch() the shared runner can call, so
+the envelope doesn't apply. The snapshot path does, via layout.
 """
 
 import datetime as dt
@@ -20,13 +21,19 @@ from .paths import REPO_ROOT
 
 SUBPATH = ("x",)
 FILENAME = "x_data.json"
+REVIEW_FILENAME = "x_review.md"
 WINDOW_DAYS = 7
 MIN_LIKES = 500
 LONG_TEXT = 600
+NEWSLETTER_TITLE_MAX = 200
+NEWSLETTER_TITLE_LINES = 2
 SHORTLIST_SIZE = {"insight": (5, 5), "announcement": (3, 5)}
 MAX_COMPANY_INSIGHTS = 2
 
-PROMPT_FILE = REPO_ROOT / ".claude" / "skills" / "x-fetch-items" / "references" / "grok-prompt.md"
+PROMPT_FILE = (
+    REPO_ROOT / ".claude" / "skills" / "proj-generate-prompt-x-items"
+    / "references" / "grok-prompt.md"
+)
 
 # Grok returns these two lists; the snapshot flattens them into `posts`.
 LISTS = {"announcements": "announcement", "insights": "insight"}
@@ -62,6 +69,10 @@ def snapshot_path(as_of, output_root="newsletter/data"):
     return layout.snapshot_path(
         output_root, as_of, "weekly", SUBPATH, FILENAME, repo_root=REPO_ROOT,
     )
+
+
+def review_path(as_of, output_root="newsletter/data"):
+    return snapshot_path(as_of, output_root).with_name(REVIEW_FILENAME)
 
 
 def prompt(as_of, prompt_file=PROMPT_FILE):
@@ -143,6 +154,27 @@ def check(paste, as_of):
                 warnings.append(f"{where}: text ends in ':' with no link_url (link or reply missing?)")
             if len(post["text"]) > LONG_TEXT:
                 warnings.append(f"{where}: long post, {len(post['text'])} characters")
+            title = post.get("newsletter_title")
+            if title is not None:
+                if not isinstance(title, str) or not title.strip():
+                    errors.append(f"{where}: newsletter_title must be a non-empty string")
+                else:
+                    lines = [ln.strip() for ln in title.splitlines() if ln.strip()]
+                    if len(lines) > NEWSLETTER_TITLE_LINES:
+                        warnings.append(
+                            f"{where}: newsletter_title has {len(lines)} lines, "
+                            f"expected at most {NEWSLETTER_TITLE_LINES}"
+                        )
+                    if len(title.strip()) > NEWSLETTER_TITLE_MAX:
+                        warnings.append(
+                            f"{where}: newsletter_title is {len(title.strip())} characters, "
+                            f"expected at most {NEWSLETTER_TITLE_MAX}"
+                        )
+            elif len(post["text"]) > LONG_TEXT:
+                warnings.append(
+                    f"{where}: long post needs a 2-line newsletter_title "
+                    f"(x_items.py title URL \"...\")"
+                )
         likes = [p.get("likes") for p in posts if isinstance(p.get("likes"), int)]
         if likes != sorted(likes, reverse=True):
             warnings.append(f"{list_key}: not in likes order")
@@ -251,6 +283,149 @@ def set_emoji(snapshot, pairs):
     by_url = {p["url"]: p for p in snapshot["posts"]}
     for url, emoji in pairs:
         by_url[url]["emoji"] = emoji
+
+
+def set_newsletter_title(snapshot, url, title):
+    """Set the 2-line newsletter title for a long post. Never edits `text`."""
+    if not isinstance(title, str) or not title.strip():
+        raise ValueError("newsletter_title must be a non-empty string")
+    by_url = {p["url"]: p for p in snapshot["posts"]}
+    if url not in by_url:
+        raise ValueError(f"not in the snapshot: {url}")
+    by_url[url]["newsletter_title"] = title.strip()
+    return snapshot
+
+
+def _md_cell(text):
+    """One markdown-table cell: line breaks as <br>, pipes escaped."""
+    text = str(text).replace("\r\n", "\n").replace("\r", "\n")
+    text = text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    text = text.replace("|", "\\|")
+    return text.replace("\n", "<br>")
+
+
+def _likes_label(n):
+    if n >= 1_000_000:
+        return f"{n / 1_000_000:.1f}M"
+    if n >= 100_000:
+        return f"{n // 1000}k"
+    if n >= 1000:
+        return f"{n / 1000:.1f}k"
+    return str(n)
+
+
+def review_picks(snapshot, insight=None, announcement=None):
+    """URLs to tick in the review tables.
+
+    Explicit lists win. Otherwise use a recorded shortlist. Either side may
+    be empty: the publisher often confirms insights before announcements.
+    """
+    recorded = snapshot.get("shortlist") or {}
+    return {
+        "insight": list(insight) if insight is not None else list(recorded.get("insight") or []),
+        "announcement": list(announcement) if announcement is not None else list(recorded.get("announcement") or []),
+    }
+
+
+def review_markdown(snapshot, insight=None, announcement=None):
+    """Publisher-facing Insights and Announcements tables for picking."""
+    picks = review_picks(snapshot, insight, announcement)
+    win = snapshot["window"]
+    posts = snapshot.get("posts") or []
+    insights = [p for p in posts if p["bucket"] == "insight"]
+    announcements = [p for p in posts if p["bucket"] == "announcement"]
+    lines = [
+        f"# X review — {snapshot['fetched_at']}",
+        "",
+        f"Window: `{win['after']}` inclusive to `{win['before']}` exclusive. "
+        f"{len(insights)} insights, {len(announcements)} announcements.",
+        "",
+        "Tick the rows you want, then reply with ranks (or URLs). "
+        "Insights: **5**, one per account, at most 2 company. "
+        "Announcements: **3–5**, one launch per company. "
+        "Long posts (`text` over 600 characters) ship in the newsletter as "
+        "their `newsletter_title` (a 2-line summary), never the full tweet.",
+        "",
+        _picks_summary("Insights picked", picks["insight"], insights),
+        _picks_summary("Announcements picked", picks["announcement"], announcements),
+        "",
+        "## Insights",
+        "",
+        _review_table(insights, picks["insight"]),
+        "",
+        "## Announcements",
+        "",
+        _review_table(announcements, picks["announcement"]),
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def _picks_summary(label, urls, posts):
+    if not urls:
+        return f"**{label}:** none yet."
+    by_url = {p["url"]: p for p in posts}
+    bits = []
+    for url in urls:
+        post = by_url.get(url)
+        if post:
+            bits.append(f"{post['rank']} {post['author_handle']}")
+        else:
+            bits.append(url)
+    return f"**{label}:** " + ", ".join(bits) + "."
+
+
+def _review_table(posts, picked_urls):
+    picked = set(picked_urls)
+    rows = [
+        "| Pick | # | Author + likes | What |",
+        "| --- | --- | --- | --- |",
+    ]
+    for post in posts:
+        mark = "✅" if post["url"] in picked else ""
+        author = (
+            f"[{post['author_handle']}]({post['url']})<br>"
+            f"{_md_cell(post['author_name'])} · {post['author_type']}<br>"
+            f"♥ {_likes_label(post['likes'])} · {post['posted_at']}"
+        )
+        rows.append(
+            f"| {mark} | {post['rank']} | {author} | {_what_cell(post)} |"
+        )
+    return "\n".join(rows) if posts else "_None._"
+
+
+def _what_cell(post):
+    parts = []
+    title = (post.get("newsletter_title") or "").strip()
+    if title:
+        parts.append(f"<b>Newsletter title:</b> {_md_cell(title)}")
+    elif len(post.get("text") or "") > LONG_TEXT:
+        parts.append(
+            "<b>Newsletter title:</b> <i>needed — 2-line summary, not the full tweet</i>"
+        )
+    parts.append(_md_cell(post.get("text") or ""))
+    quoted = post.get("quoted_post")
+    if quoted:
+        q_handle = quoted.get("author_handle") or ""
+        q_text = quoted.get("text") or ""
+        q_url = quoted.get("url") or ""
+        quote_line = f"Quote of {q_handle}"
+        if q_url:
+            quote_line = f"Quote of [{q_handle}]({q_url})"
+        parts.append(f"<i>{quote_line}:</i> {_md_cell(q_text)}")
+    if post.get("link_url"):
+        parts.append(f"Link: {post['link_url']}")
+    media = post.get("media") or "none"
+    if media != "none":
+        parts.append(f"Media: {media}")
+    return "<br><br>".join(parts)
+
+
+def write_review(path, snapshot, insight=None, announcement=None):
+    path = pathlib.Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(review_markdown(snapshot, insight, announcement), encoding="utf-8")
+    return path
 
 def load(path):
     return json.loads(pathlib.Path(path).read_text())

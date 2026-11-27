@@ -8,13 +8,14 @@ The data behind two newsletter sections:
   announcement lands here, no other section covers it. AI News keeps the
   reporting around it.
 
-Unlike every other source, this data is not fetched by a script. The publisher
-runs the prompt in `grok-prompt.md` (or a saved Grok task) and pastes Grok's
-JSON into `/x-fetch-items`. Grok returns `{announcements, insights}`. The skill
-flattens both lists into `posts`, wraps them in the envelope (it already knows
-the window and dates), saves the file, and adds `shortlist` once the publisher
-has reviewed it. This file is the contract between the Grok prompt,
-`/x-fetch-items`, and `/generate-newsletter-content`.
+Unlike every other source, this data is not fetched by `fetch.py`. Grok pulls
+it with `/proj-fetch-from-x` (native X search) or the publisher pastes JSON
+from the prompt in `grok-prompt.md` into `/proj-generate-prompt-x-items`.
+Grok returns `{announcements, insights}`. The skill flattens both lists into
+`posts`, wraps them in the envelope, writes `x_review.md` for the publisher
+to pick from, and adds `shortlist` once they confirm. This file is the
+contract between the Grok prompt, those two skills, and
+`/generate-newsletter-content`.
 
 ## Where it lives
 
@@ -80,7 +81,7 @@ examples live only in the dated snapshots.
 | `fetched_via` | `"grok"` | How the data was gathered. Keeps the door open for a script later. |
 | `window` | `{after, before}` | The 7 days covered: `after` inclusive, `before` exclusive. |
 | `ranking` | `"likes"` | What `rank` is ordered by within each bucket: likes descending, ties broken by reposts. |
-| `shortlist` | object or absent | `{insight: [...], announcement: [...]}`, the post `url`s that go into the issue, in display order: **5** insights and **3–5** announcements. `/x-fetch-items` adds it, since Grok never writes it. If it is absent, nothing has been shortlisted yet. |
+| `shortlist` | object or absent | `{insight: [...], announcement: [...]}`, the post `url`s that go into the issue, in display order: **5** insights and **3–5** announcements. The skill adds it after the publisher picks from `x_review.md`. If it is absent, nothing has been shortlisted yet. |
 | `posts` | array | Every post Grok returned: up to **10** announcements, then up to **20** insights, each group in `rank` order. The full pool is kept even after shortlisting. |
 
 ### Post
@@ -105,11 +106,13 @@ examples live only in the dated snapshots.
 | `why_viral` | string | yes | One sentence from Grok on why the post spread. **Context for the editor, never shown as fact.** |
 | `why_it_matters` | string | yes | One line from Grok on why a developer or founder should care. The main input for the skill's own context line, but it is also Grok's claim, so check it first. |
 | `also_covered` | string[] | no | Other qualifying posts about the same story or point that Grok merged into this one. The skill uses them to dedupe. |
-| `emoji` | string | no | Shortlisted insights only. The emoji the post's Viral on X row opens with. `/x-fetch-items` adds it with `x_items.py emoji`, since Grok never writes it. It is ours, not the author's, so it never goes into `text`. |
+| `emoji` | string | no | Shortlisted insights only. The emoji the post's Viral on X row opens with. Set with `x_items.py emoji`. It is ours, not the author's, so it never goes into `text`. |
+| `newsletter_title` | string | no | Two-line headline for a long post (`text` over 600 characters). Viral on X prints this instead of excerpting `text`. Set with `x_items.py title`. Never a substitute for `text` in the snapshot. |
 
 ## Shortlisting
 
-`/x-fetch-items` shortlists each bucket separately.
+The skill shortlists each bucket separately after the publisher picks from
+`x_review.md`.
 
 **Both buckets:**
 
@@ -144,13 +147,17 @@ round.
 
 ## Rules the skills rely on
 
-- **Verbatim text.** `text` and `quoted_post.text` are shown as they are. The
-  skill chooses which posts to show and in what order, and may add its own
-  context line, but it never edits a post's words.
+- **Verbatim `text`.** `text` and `quoted_post.text` stay exactly as posted.
+  The skill never edits those fields. Official Announcements still prints
+  `text` (trimmed past 600 characters). Viral on X prints `newsletter_title`
+  when it is set, otherwise the opening words of `text` (280 characters).
+- **Long posts get a title.** A post over 600 characters is too long for a
+  newsletter row. Give it a 2-line `newsletter_title` (a headline such as
+  "A funny but realistic story of How PRs were merged in 2022 vs 2026"), not
+  the tweet restated. The full `text` stays in the snapshot and the gist.
 - **Nothing is invented.** A field Grok could not fill is left `null`, never
-  guessed. Every shortlisted post is opened on X before the issue is built. A
-  post whose `url` does not open is removed. Where Grok's `text` or
-  `posted_at` differs from X, it is corrected to what X shows, since X is the
-  source of truth for "verbatim".
+  guessed. Every URL must be a post that was actually retrieved. Where
+  Grok's `text` or `posted_at` differs from X, it is corrected to what X
+  shows.
 - **Counts are Grok's.** They are shown with the post but are as of
   `fetched_at`, so they will drift.

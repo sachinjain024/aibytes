@@ -1,11 +1,11 @@
-"""Render the shortlisted X posts as newsletter HTML, word for word.
+"""Render the shortlisted X posts as newsletter HTML.
 
-The two X sections show posts in their authors' own words, so the HTML is
-built here from x_data.json rather than retyped by the issue skill. Official
-Announcements shows each post whole; Viral on X shows its opening words. The
-only text this module writes is labels: the company, the date, the link text,
-the author's @handle, and the row's emoji (the post's `emoji`, picked at
-shortlist time).
+The two X sections are built here from x_data.json rather than retyped by the
+issue skill. Official Announcements shows each post whole (trimmed past 600
+characters). Viral on X shows `newsletter_title` when a post has one — the
+2-line summary for a long tweet — otherwise the post's opening words. The
+only text this module writes is labels: the company, the date, the link
+text, the author's @handle, the row's emoji, and that title.
 
 Three formats: "html" fills the issue template's {{ANNOUNCEMENT_ITEMS}} and
 {{X_ROWS}}; "substack" is the plain-block markup the Substack export carries
@@ -58,6 +58,21 @@ def shortlisted(snapshot, bucket):
     """The shortlisted posts of one bucket, in shortlist order."""
     by_url = {p["url"]: p for p in snapshot["posts"]}
     return [by_url[u] for u in (snapshot.get("shortlist") or {}).get(bucket, [])]
+
+
+def display_words(post, limit=EXCERPT_LIMIT):
+    """The Viral on X row's words: newsletter_title when set, else an excerpt.
+
+    A long tweet ships as a 2-line title so the row is a headline, not a
+    280-character fragment of a 4,000-character story. `text` in the snapshot
+    stays verbatim.
+    """
+    title = (post.get("newsletter_title") or "").strip()
+    if title:
+        lines = [re.sub(r"[ \t]+", " ", line).strip() for line in title.split("\n")]
+        lines = [line for line in lines if line][:2]
+        return lines, False
+    return excerpt(post["text"], limit=limit)
 
 
 def excerpt(text, limit=EXCERPT_LIMIT):
@@ -174,7 +189,7 @@ def profile_url(post):
 
 
 def x_row_html(post, gist_url=None):
-    lines, cut = excerpt(post["text"])
+    lines, cut = display_words(post)
     words = ' <span class="cut">/</span> '.join(_e(line) for line in lines)
     tail = f' <span class="cut">{ELLIPSIS}</span>' if cut else ""
     words_href = gist_url or post["url"]
@@ -208,7 +223,7 @@ def announcement_beehiiv(post, last=False, gist_url=None):
 
 
 def x_row_beehiiv(post, last=False, gist_url=None):
-    lines, cut = excerpt(post["text"])
+    lines, cut = display_words(post)
     words = f' <span style="color:{SLATE};">/</span> '.join(_e(line) for line in lines)
     tail = f' <span style="color:{SLATE};">{ELLIPSIS}</span>' if cut else ""
     border = "" if last else f"border-bottom:1px solid {LINE};"
@@ -266,7 +281,7 @@ def announcement_substack(post, gist_url=None):
 
 def x_row_substack(post, gist_url=None):
     # Handle → gist when one was written, else the post. Words stay body ink.
-    lines, cut = excerpt(post["text"])
+    lines, cut = display_words(post)
     words = " / ".join(_e(line) for line in lines)
     tail = f" {ELLIPSIS}" if cut else ""
     handle_href = gist_url or post["url"]
@@ -283,6 +298,11 @@ def render(snapshot, fmt="html", number="0x02", gist_urls=None):
     warnings = [f"{p['author_handle']}: no company on file, labelled {p['author_name']!r}; add it to x_render.COMPANIES"
                 for p in oa if not company(p)[1] and p["author_type"] == "person"]
     warnings += [f"{p['url']}: no emoji; set one with x_items.py emoji" for p in xs if not p.get("emoji")]
+    warnings += [
+        f"{p['url']}: long post with no newsletter_title; "
+        f"the row will excerpt `text` — set a 2-line title with x_items.py title"
+        for p in xs if len(p.get("text") or "") > LONG_POST and not (p.get("newsletter_title") or "").strip()
+    ]
     if fmt == "html":
         out = {"announcements": "\n".join(announcement_html(p, _gist_of(p, gist_urls)) for p in oa),
                "viral": "\n".join(x_row_html(p, _gist_of(p, gist_urls)) for p in xs)}
