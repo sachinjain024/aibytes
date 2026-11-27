@@ -17,14 +17,20 @@ const DEV_MATCH = "http://localhost:5173/*";
 export const ICON_SIZES = [16, 32, 48, 128];
 const icon = (size) => `icons/icon-${size}.png`;
 
+// The store listing's name and short description (CHROMEWEBSTORE.md, "The
+// listing"); chrome://extensions shows the same words. version.test.js checks
+// both against the listing and the store's limits.
+export const NAME = "aiBytes – AI News Feed for Developers";
+export const SHORT_DESCRIPTION =
+  "AI feed for developers: latest AI news, trending GitHub projects, Hacker News threads, Reddit discussions and Product Hunt launches.";
+
 export function manifest({ mode, version }) {
   const dev = mode === "development";
   return {
     manifest_version: 3,
-    name: dev ? "aiBytes (dev)" : "aiBytes – AI News Feed for Developers",
+    name: dev ? "aiBytes (dev)" : NAME,
     short_name: "aiBytes",
-    // A placeholder until store-listing writes the short description (T23).
-    description: "Today's AI news, ranked: launches, repos and stories in one list, a click from your toolbar.",
+    description: SHORT_DESCRIPTION,
     version,
     key: KEY,
     action: {

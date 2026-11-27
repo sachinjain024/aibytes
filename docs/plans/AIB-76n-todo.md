@@ -877,9 +877,16 @@ The site's own sections stay as they are. Set the version to
 `YY.M.D`. Freeze-check the permissions, then build the zip.
 
 **Acceptance criteria:**
-- [ ] The version is above `26.1.15` (a test), and the permissions equal T8's set
-- [ ] The privacy answers and `/privacy` agree, and match the build
+- [x] The version is above `26.1.15` (a test), and the permissions equal T8's set
+- [x] The privacy answers and `/privacy` agree, and match the build
 - [ ] The zip passes T12's checks in a clean profile, signed in and out, against production
+
+**27 Nov 2026:** the listing, description and privacy answers are in
+`CHROMEWEBSTORE.md`; version 26.11.27 (`version.test.js` checks it, the name
+and the short description against the listing); `/privacy` has "The Chrome
+extension". The zip is built and checked (21 files, `storage` only). Left: the
+clean-profile check by hand, and `/privacy` live on aibytes.io (PR #73 merged)
+before the upload, since the dashboard links to it.
 
 **Verification:** (A), (C), `npm run package:extension`.
 

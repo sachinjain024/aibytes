@@ -57,6 +57,12 @@ test("/privacy names Umami and no longer claims no analytics", () => {
   assert.match(app, /changes every month/);
 });
 
+test("/privacy describes the Chrome extension without bringing back the no-analytics claim (AIB-76n T23)", () => {
+  assert.match(app, /<h2 className="ldg-section-h">The Chrome extension<\/h2>/);
+  assert.match(app, /reads nothing from the pages you visit\s+and sends no analytics events/);
+  assert.match(app, /Removing the extension from Chrome deletes\s+everything it keeps there/);
+});
+
 test("the app never identifies a reader to the analytics tool", () => {
   // saves.js lives in @aibytes/app-core (spec AIB-76n app-core) and is still the site's.
   for (const name of ["App.jsx", "analytics.js", "account.js", "../../../packages/app-core/src/saves.js"]) {

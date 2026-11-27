@@ -853,7 +853,7 @@ function PrivacyApp({ saves, location, navigate, theme, onToggleTheme }) {
       skipLabel="Skip to the privacy page" date={null} all={null}>
       {() => <article className="app-privacy">
         <h1 className="ldg-section-h">Privacy</h1>
-        <p>Last changed 12 November 2026.</p>
+        <p>Last changed 27 November 2026.</p>
 
         <h2 className="ldg-section-h">Reading</h2>
         <p>aiBytes_ sets no cookies. The site is hosted on GitHub Pages; its fonts come from Google Fonts, and item
@@ -885,6 +885,19 @@ function PrivacyApp({ saves, location, navigate, theme, onToggleTheme }) {
 
         <h2 className="ldg-section-h">Deleting</h2>
         <p>Unstar an item to delete its save. To delete your account and all its saves, email {contact}.</p>
+
+        <h2 className="ldg-section-h">The Chrome extension</h2>
+        <p>The aiBytes_ extension shows the same daily edition in Chrome. It reads nothing from the pages you visit
+          and sends no analytics events. It loads the edition from aibytes.io, and item images from the sites they
+          belong to.</p>
+        <p>Items you star while signed out stay in the extension&apos;s storage on this device. When you sign in with
+          Google on aibytes.io, the extension signs in to the same account: it receives your name, email address and
+          profile photo to show in its header, and your saves, including the ones you made before signing in, are
+          stored in your account in Cloud Firestore, as on the site. Firebase keeps the extension signed in using the
+          extension&apos;s own storage.</p>
+        <p>On your device the extension also keeps the last edition it showed, your light or dark theme, and whether
+          you closed its sign-in banner. None of that leaves your device. Removing the extension from Chrome deletes
+          everything it keeps there; to delete your saves or your account, see Deleting above.</p>
 
         <h2 className="ldg-section-h">The newsletter</h2>
         <p>{NEWSLETTER_PRIVACY}</p>

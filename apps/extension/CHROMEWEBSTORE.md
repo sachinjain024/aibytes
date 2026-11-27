@@ -1,15 +1,64 @@
 # Chrome Web Store listing — aiBytes_
 
-> Last updated: 2026-11-25
+> Last updated: 2026-11-27
 >
-> Lives with the extension. Stay out of the store zip. Listing copy is owned
-> by `docs/specs/AIB-76n-store-listing.md` and is filled in at T23. This file
-> starts with the permission justifications the review team will read.
+> Lives with the extension. Stay out of the store zip. The listing copy below
+> is from `docs/specs/AIB-76n-store-listing.md` (T23); the publisher pastes it
+> into the developer dashboard.
 
 The update replaces the existing listing
 `faamldnehjdjdobapchedpmldfjjfife` (version 26.1.15). The manifest `key` is
 the public key that pins an unpacked build to that ID. The private `.pem`
 never enters this repo.
+
+## The listing
+
+| Field | Value |
+|---|---|
+| Name | aiBytes – AI News Feed for Developers |
+| Short description | AI feed for developers: latest AI news, trending GitHub projects, Hacker News threads, Reddit discussions and Product Hunt launches. |
+| Category | Lifestyle › News & Weather |
+| Language | English |
+| Website | https://aibytes.io |
+| Support | the publisher's support email, set in the dashboard (never committed) |
+
+The short description keeps Reddit by the publisher's choice (22 Nov 2026);
+if review calls it misleading, use the fallback in the spec's "Risks".
+
+### Description
+
+Paste the text between the markers as it is. The store shows plain text, so
+the section headings are capitals and the lists use "•".
+
+<!-- description:start -->
+```text
+aiBytes_ puts today's AI news for developers in your toolbar: one ranked list of the stories, repos, threads and launches worth your time.
+
+WHAT'S IN IT
+Every day aiBytes_ publishes an edition from four sources:
+• AI news from TechCrunch
+• Trending AI repositories on GitHub, with the stars they gained
+• Hacker News threads about AI
+• AI launches on Product Hunt
+Each item has its title, a one-line summary written for developers, and where it came from, with its stars, points or comments.
+
+HOW IT'S RANKED
+Each item is ranked by how it stands in its own source: stars gained on GitHub, points on Hacker News, votes on Product Hunt. The four are then put into one list, strongest first, whatever the source.
+
+GISTS
+Many items have a gist: a short page on what it is, the numbers behind it, and why it matters. Click the item and the gist opens in the popup; go to the source when you want more.
+
+SAVING
+Star an item to keep it in Saved. Without an account, your stars stay in this browser. Sign in with Google on aibytes.io and the extension signs in too: your stars sync with your aibytes.io account, and the ones you made before signing in are added to it.
+
+ALSO FROM aiBytes_
+• aibytes.io: the same daily edition on the web, with earlier editions.
+• The aiBytes_ newsletter: the week in AI for developers, every Monday.
+
+PRIVACY
+The extension asks for one permission, storage, to keep your stars on this device while you are signed out. It reads nothing from the pages you visit and sends no analytics events. When you sign in, your stars are stored in your aibytes.io account. Details: https://aibytes.io/privacy
+```
+<!-- description:end -->
 
 ## Permissions
 
@@ -53,22 +102,39 @@ record how each was made.
 
 ## Privacy and data use
 
-These map to the Chrome Web Store data-use form. T23 checks them against
-`/privacy` and the build.
+These are the dashboard's Privacy tab, checked on 27 Nov 2026 (T23) against
+the build and `/privacy`'s "The Chrome extension" section.
 
-**Does the extension collect user data?** Yes, only what the reader saves.
+**Single purpose:** Shows the aiBytes_ daily edition of AI news and lets the
+reader save items, synced with their aibytes.io account.
 
-| Data type | Collected? | Transmitted off-device? | Purpose | Shared with third parties? |
+**Permission justification, `storage`:** Keeps the stars a reader sets while
+signed out on this device, so they survive closing the popup and restarting
+Chrome, and so they can be added to the reader's aibytes.io account when they
+sign in.
+
+**Remote code:** No. Every script is in the package; the extension fetches
+only the public edition JSON from aibytes.io and talks to Firebase through its
+bundled SDK.
+
+**Does the extension collect user data?** Yes, only when the reader signs in,
+plus the ids of the items they star.
+
+| Data type | Collected? | Where it goes | Purpose | Shared? |
 |---|---|---|---|---|
-| Personally identifiable info | No | — | — | — |
-| Health info | No | — | — | — |
-| Financial info | No | — | — | — |
-| Authentication info | Not in this module. T8/T13 sign the reader in with a Firebase custom token minted for their own uid; the token is not stored as a secret in this repo. | T8 | Keep stars in sync with aibytes.io | Firebase (Google), for Auth and Firestore |
-| Personal communications | No | — | — | — |
-| Location | No | — | — | — |
-| Web history | No | — | — | — |
-| User activity | Saved item ids only | Signed in: written to the reader's `users/{uid}/saves` on aibytes.io. Signed out: `chrome.storage.local` on this device. | The star on each row, and the Saved list | No, other than Firebase as the account store |
-| Website content | No. The edition JSON is public and is read, not collected from other sites. | The public `aibytes.io/content/` files | Show today's ranked edition | No |
+| Personally identifiable info | Yes, when signed in: the name, email address and profile photo of the Google account, which the popup shows in its header | Kept by Firebase Authentication in the extension's storage on this device; the account itself is on aibytes.io's Firebase | Show who is signed in | No. Firebase (Google) only, as the account service |
+| Health info | No | | | |
+| Financial and payment info | No | | | |
+| Authentication info | Yes, when signed in: the Firebase session | The extension's storage on this device | Keep the reader signed in | No. Firebase (Google) only |
+| Personal communications | No | | | |
+| Location | No | | | |
+| Web history | No | | | |
+| User activity | The ids of the items the reader stars | Signed out: `chrome.storage.local` on this device. Signed in: the reader's account in Cloud Firestore, readable only by them | The star on each row, and the Saved list | No. Firebase (Google) only, as the account store |
+| Website content | No. The extension reads nothing from the pages the reader visits | | | |
+
+On the device and nowhere else, the popup also keeps the last edition it
+showed (to open instantly), the light or dark theme, and whether the save
+banner was dismissed. The extension sends no analytics events.
 
 ### Certification
 
@@ -79,14 +145,17 @@ These map to the Chrome Web Store data-use form. T23 checks them against
 
 ### Privacy policy URL
 
-`https://aibytes.io/privacy` — T23 adds the Chrome extension section.
+`https://aibytes.io/privacy`, whose "The Chrome extension" section covers the
+above.
 
 ## Version history
 
 | Version | Date | Changes | Status |
 |---|---|---|---|
 | 26.1.15 | existing listing | Placeholder "AI Bytes" | Published |
+| 26.11.27 | 2026-11-27 | The first full release (T23): this listing, version `YY.M.D`, `/privacy`'s extension section. Includes everything under 0.1.0 | Ready to submit |
 | 0.1.0 | 2026-11-25 | Scaffold: popup placeholder, `storage` only, onboarding on install. Then today's edition (T9), stars and Saved signed out, kept in `chrome.storage.local` (T10), and gists in the popup (T11). Store zip: 19 files, 422 KB unpacked (T12). Popup review (27 Nov): 550px wide, stacked rows, a light/dark toggle (light by default) and the signed-out save banner; the theme and the banner's dismissal stay in the popup's own localStorage, on the device, and no permission changes | Draft |
 
-The store version is set to `YY.M.D` of the submission day at T23, and must
-be above `26.1.15`.
+The store version is `YY.M.D` of the submission day and must be above
+`26.1.15` (`version.test.js`). T23 set it to 26.11.27; if the upload is on a
+later day, set that day's version and rebuild the zip.
