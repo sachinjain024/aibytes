@@ -5,7 +5,7 @@ import assert from "node:assert/strict";
 import { mkdtemp, mkdir, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
-import { HEIGHT, RAW, SHOTS, WIDTH, fillFrame, pngSize, versions } from "./screenshots.mjs";
+import { HEIGHT, LOOKS, RAW, SHOTS, WIDTH, fillFrame, pngSize, versionDir, versions } from "./screenshots.mjs";
 
 test("five shots at 1280×800, each framing raw captures that exist", () => {
   assert.equal(WIDTH, 1280);
@@ -53,5 +53,25 @@ test("versions lists vN folders in number order and ignores the rest", async () 
     assert.deepEqual(await versions(path.join(dir, "missing")), []);
   } finally {
     await rm(dir, { recursive: true, force: true });
+  }
+});
+
+test("fillFrame sets the look: cream by default, navy when asked", () => {
+  const shot = SHOTS[0];
+  assert.deepEqual(LOOKS, ["cream", "navy"]);
+  assert.equal(fillFrame("<head></head>{{LOOK}}", shot, []).endsWith("cream"), true);
+  assert.equal(fillFrame("<head></head>{{LOOK}}", shot, [], "navy").endsWith("navy"), true);
+});
+
+test("a version folder may carry a name, v12-cream, and keeps its number", async () => {
+  const dir = await mkdtemp(path.join(tmpdir(), "versions-"));
+  try {
+    for (const name of ["v3", "v12-cream", "v13-navy", "promo-tile", "v14 (x)"]) await mkdir(path.join(dir, name));
+    assert.deepEqual(await versions(dir), [3, 12, 13]);
+    assert.equal(await versionDir(12, dir), path.join(dir, "v12-cream"));
+    assert.equal(await versionDir(3, dir), path.join(dir, "v3"));
+    assert.equal(await versionDir(14, dir), path.join(dir, "v14"));
+  } finally {
+    await rm(dir, { recursive: true });
   }
 });

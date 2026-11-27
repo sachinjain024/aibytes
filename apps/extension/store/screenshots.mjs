@@ -3,9 +3,9 @@
 // writes a new version under store/assets/ and never deletes or overwrites an
 // earlier one (the proj-generate-chrome-store-screenshots skill drives it):
 //
-//   node apps/extension/store/screenshots.mjs raw                 # → assets/vN/raw/*.png, N = next version
-//   node apps/extension/store/screenshots.mjs frame               # assets/vN/raw → assets/vN/claude/screenshot-*.png
-//   node apps/extension/store/screenshots.mjs frame --tool grok   # frames with assets/vN/grok/frame.html
+//   node apps/extension/store/screenshots.mjs raw                 # → assets/screenshots/vN/raw/*.png, N = next version
+//   node apps/extension/store/screenshots.mjs frame               # assets/screenshots/vN/raw → assets/screenshots/vN/claude/screenshot-*.png
+//   node apps/extension/store/screenshots.mjs frame --tool grok   # frames with assets/screenshots/vN/grok/frame.html
 //
 // raw: Vite builds store/stage.html (the real popup on the fixed edition in
 // fixture.js), a local server serves it with content/, and headless Chrome
@@ -26,11 +26,16 @@ import { parseArgs } from "node:util";
 import { FIXTURE_DATE } from "./fixture.js";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const ROOT = path.resolve(here, "../../..");
+export const ROOT = path.resolve(here, "../../..");
 const CONTENT = path.join(ROOT, "content");
 const STAGE = path.join(here, ".stage");
 export const ASSETS = path.join(here, "assets");
+/** The screenshot versions: assets/screenshots/vN (v12-cream, ...). The promo
+ *  images version beside them in assets/promo-tile/ and assets/marquee/. */
+export const SCREENSHOTS = path.join(ASSETS, "screenshots");
 export const TOOLS = ["claude", "chatgpt", "grok", "gemini"];
+/** The frame's grounds: cream (the style guide) or navy (the promo tile). */
+export const LOOKS = ["cream", "navy"];
 const CHROME = process.env.CHROME || "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 export const WIDTH = 1280;
 export const HEIGHT = 800;
@@ -66,12 +71,12 @@ export const SHOTS = [
     subtitle: "The daily feed on aibytes.io, this extension, and the weekly aiBytes_ newsletter." },
 ];
 
-const FONT_FILES = {
+export const FONT_FILES = {
   inter: path.join(ROOT, "node_modules/@fontsource/inter/files"),
   bricolage: path.join(ROOT, "node_modules/@fontsource/bricolage-grotesque/files"),
 };
 // The faces a frame may use, served locally: no request leaves for fonts.
-const FONT_FACES = [
+export const FONT_FACES = [
   ...[400, 500, 600, 700].map((w) => `@font-face{font-family:'Inter';font-weight:${w};src:url(/fonts/inter/inter-latin-${w}-normal.woff2) format('woff2')}`),
   ...[500, 700, 800].map((w) => `@font-face{font-family:'Bricolage Grotesque';font-weight:${w};src:url(/fonts/bricolage/bricolage-grotesque-latin-${w}-normal.woff2) format('woff2')}`),
 ].join("\n");
@@ -83,13 +88,13 @@ const slug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(
 /** Fills a frame template's placeholders for one shot. `images` are the
  * shot's captures in order, each { src, width, height, rows } in CSS px;
  * `rows` (from the capture's .json) becomes --row-<source>-x/y/w/h on :root. */
-export function fillFrame(template, shot, images) {
+export function fillFrame(template, shot, images, look = "cream") {
   const title = escapeHtml(shot.title);
   const accent = shot.accent ? escapeHtml(shot.accent) : "";
   const rows = Object.entries(images[0]?.rows ?? {}).map(([name, r]) =>
     ["x", "y", "w", "h"].map((k, i) => `--row-${slug(name)}-${k}:${[r.x, r.y, r.width, r.height][i]}px`).join(";")).join(";");
   const values = {
-    TITLE: title, CAPTION: title, SUBTITLE: escapeHtml(shot.subtitle), THEME: shot.theme, N: String(shot.n), LAYOUT: shot.layout, ICON: "/icon.png",
+    TITLE: title, CAPTION: title, SUBTITLE: escapeHtml(shot.subtitle), THEME: shot.theme, N: String(shot.n), LAYOUT: shot.layout, ICON: "/icon.png", LOOK: look,
     TITLE_HTML: accent && title.includes(accent) ? title.replace(accent, `<em>${accent}</em>`) : title,
     ROWS_CSS: rows,
   };
@@ -109,10 +114,19 @@ export function pngSize(buffer) {
   return { width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20) };
 }
 
-/** The version numbers under assets/ (v1, v2, ...), ascending. */
-export async function versions(assets = ASSETS) {
+// A version folder: v12, or v12-cream once the publisher names its look.
+const VERSION_DIR = /^v(\d+)(?:-[a-z0-9]+)?$/;
+
+/** The version numbers under assets/ (v1, v2, v12-cream, ...), ascending. */
+export async function versions(assets = SCREENSHOTS) {
   const names = await readdir(assets).catch(() => []);
-  return names.map((n) => /^v(\d+)$/.exec(n)?.[1]).filter(Boolean).map(Number).sort((a, b) => a - b);
+  return names.map((n) => VERSION_DIR.exec(n)?.[1]).filter(Boolean).map(Number).sort((a, b) => a - b);
+}
+
+/** Version N's folder: the existing vN or vN-<name>, else a new vN. */
+export async function versionDir(n, assets = SCREENSHOTS) {
+  const names = await readdir(assets).catch(() => []);
+  return path.join(assets, names.find((name) => VERSION_DIR.exec(name)?.[1] === String(n)) ?? `v${n}`);
 }
 
 const pngsIn = async (dir) => (await readdir(dir).catch(() => [])).filter((n) => n.endsWith(".png"));
@@ -120,21 +134,20 @@ const pngsIn = async (dir) => (await readdir(dir).catch(() => [])).filter((n) =>
 async function main() {
   const { values, positionals } = parseArgs({
     allowPositionals: true,
-    options: { version: { type: "string" }, tool: { type: "string" }, frame: { type: "string" }, replace: { type: "boolean" } },
+    options: { version: { type: "string" }, tool: { type: "string" }, frame: { type: "string" }, look: { type: "string" }, replace: { type: "boolean" } },
   });
   const mode = positionals[0];
-  if (mode !== "raw" && mode !== "frame") throw new Error("usage: screenshots.mjs raw|frame [--version N] [--tool claude|chatgpt|grok|gemini] [--frame f.html] [--replace]");
+  if (mode !== "raw" && mode !== "frame") throw new Error("usage: screenshots.mjs raw|frame [--version N] [--tool claude|chatgpt|grok|gemini] [--frame f.html] [--look cream|navy] [--replace]");
   const known = await versions();
   const version = values.version ? Number(values.version) : mode === "raw" ? (known.at(-1) ?? 0) + 1 : await latestWithRaw(known);
   if (!Number.isInteger(version) || version < 1) throw new Error(`no version to use: ${values.version ?? "none has a raw/ folder"}`);
-  const dir = path.join(ASSETS, `v${version}`);
+  const dir = await versionDir(version);
   const rawDir = path.join(dir, "raw");
 
   if (mode === "raw") {
     // A new version every time: an earlier version's captures are never touched.
     if ((await pngsIn(rawDir)).length) throw new Error(`v${version}/raw already has captures; run raw without --version for a new version`);
-    for (const tool of TOOLS) await mkdir(path.join(dir, tool), { recursive: true });
-    for (const tool of TOOLS.slice(1)) await writeFile(path.join(dir, tool, ".gitkeep"), "");
+    // Only raw/: each tool's folder is made when that tool's frame is run.
     await mkdir(rawDir, { recursive: true });
     await captureRaw(rawDir);
     console.log(`v${version}: raw captures in ${path.relative(ROOT, rawDir)}`);
@@ -148,11 +161,13 @@ async function main() {
   const existing = (await pngsIn(outDir)).filter((n) => n.startsWith("screenshot-"));
   if (existing.length && !values.replace) throw new Error(`v${version}/${tool} already has screenshots; pass --replace to redo this version's ${tool} set, or capture a new version`);
   await mkdir(outDir, { recursive: true });
-  await frameShots(rawDir, outDir, await readFile(framePath, "utf8"));
+  const look = values.look ?? "cream";
+  if (!LOOKS.includes(look)) throw new Error(`--look must be one of ${LOOKS.join(", ")}`);
+  await frameShots(rawDir, outDir, await readFile(framePath, "utf8"), look);
 }
 
 async function latestWithRaw(known) {
-  for (const v of [...known].reverse()) if ((await pngsIn(path.join(ASSETS, `v${v}`, "raw"))).length) return v;
+  for (const v of [...known].reverse()) if ((await pngsIn(path.join(await versionDir(v), "raw"))).length) return v;
   return 0;
 }
 
@@ -164,7 +179,7 @@ async function serveFile(res, root, pathname) {
   send(res, 200, TYPES[path.extname(file)] ?? "application/octet-stream", await readFile(file));
 }
 
-async function withBrowser(handler, fn) {
+export async function withBrowser(handler, fn) {
   const server = createServer(async (req, res) => {
     try {
       await handler(req, res, new URL(req.url, "http://x"));
@@ -235,7 +250,7 @@ async function captureRaw(rawDir) {
   });
 }
 
-async function frameShots(rawDir, outDir, template) {
+async function frameShots(rawDir, outDir, template, look) {
   const frames = new Map();
   await withBrowser(async (req, res, url) => {
     if (url.pathname.startsWith("/frame/")) return send(res, 200, "text/html", frames.get(url.pathname.slice(7)) ?? "");
@@ -255,7 +270,7 @@ async function frameShots(rawDir, outDir, template) {
         const rows = JSON.parse(await readFile(path.join(rawDir, `${name}.json`), "utf8").catch(() => "{}")).rows ?? {};
         images.push({ src: `/raw/${name}.png`, width: size.width / SCALE, height: size.height / SCALE, rows });
       }
-      frames.set(String(shot.n), fillFrame(template, shot, images));
+      frames.set(String(shot.n), fillFrame(template, shot, images, look));
       await cdp.send("Emulation.setDeviceMetricsOverride", { width: WIDTH, height: HEIGHT, deviceScaleFactor: 1, mobile: false });
       await cdp.send("Page.navigate", { url: `${origin}/frame/${shot.n}` });
       await waitFor(cdp, "document.readyState === 'complete'", `frame ${shot.n} to load`);
@@ -272,18 +287,18 @@ async function frameShots(rawDir, outDir, template) {
 }
 
 const TYPES = { ".html": "text/html", ".js": "text/javascript", ".css": "text/css", ".json": "application/json", ".png": "image/png", ".svg": "image/svg+xml", ".woff2": "font/woff2", ".webp": "image/webp", ".jpg": "image/jpeg" };
-function send(res, status, type, body) {
+export function send(res, status, type, body) {
   res.writeHead(status, { "content-type": type });
   res.end(body);
 }
 
-async function evaluate(cdp, expression) {
+export async function evaluate(cdp, expression) {
   const { result, exceptionDetails } = await cdp.send("Runtime.evaluate", { expression, awaitPromise: true, returnByValue: true });
   if (exceptionDetails) throw new Error(exceptionDetails.exception?.description ?? exceptionDetails.text);
   return result.value;
 }
 
-async function waitFor(cdp, expression, what, ms = 20000) {
+export async function waitFor(cdp, expression, what, ms = 20000) {
   const start = Date.now();
   while (Date.now() - start < ms) {
     try {

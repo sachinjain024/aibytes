@@ -1,6 +1,6 @@
 ---
 name: proj-generate-chrome-store-screenshots
-description: Generate the aiBytes_ Chrome Web Store screenshots (five 1280×800 PNGs) as a new numbered version under apps/extension/store/assets/vN/, never deleting or overwriting an earlier one - first the raw captures of the real popup, site and newsletter for the publisher to approve, then the framed screenshots (Claude's frame, or ChatGPT's, Grok's or Gemini's). Use when asked to generate, regenerate, refresh or redo the Chrome store screenshots, store assets or listing images, or for "/proj-generate-chrome-store-screenshots".
+description: Generate the aiBytes_ Chrome Web Store screenshots (five 1280×800 PNGs) as a new numbered version under apps/extension/store/assets/screenshots/vN/, never deleting or overwriting an earlier one - first the raw captures of the real popup, site and newsletter for the publisher to approve, then the framed screenshots (Claude's frame, or ChatGPT's, Grok's or Gemini's). Use when asked to generate, regenerate, refresh or redo the Chrome store screenshots, store assets or listing images, or for "/proj-generate-chrome-store-screenshots".
 ---
 
 # Generate the Chrome Web Store screenshots
@@ -16,14 +16,22 @@ brief, and the prompt for other tools, is `apps/extension/store/screenshot-brief
 ```
 apps/extension/store/assets/
   references/          layout references the publisher supplies (never generated)
-  v1/  v2/  ...        one folder per run, never deleted or overwritten
-    raw/               the real popup, 2x: 1-today, 2-github-list, 3-github-gist, 4-mixed,
+  screenshots/         every screenshot version, and only those
+    v3/  v8/  v12-cream/  v13-navy/  ...
+                       one folder per run, never deleted or overwritten. The
+                       publisher may name a version's look after its number
+                       (v12-cream); the script reads only the number
+      raw/             the real popup, 2x: 1-today, 2-github-list, 3-github-gist, 4-mixed,
                        each with a .json of where each source's first row sits
-    claude/            screenshot-1-feed.png ... screenshot-5-everywhere.png
-    chatgpt/ grok/ gemini/   each tool's frame.html and its five PNGs
+      claude/          screenshot-1-feed.png ... screenshot-5-everywhere.png
+      chatgpt/ grok/ gemini/   each tool's frame.html and its five PNGs, made only
+                       when that tool is run (never an empty placeholder)
+  promo-tile/vN/  marquee/vN/  the promo images (promo.mjs finish), one version
+                       per upload, each with its HTML source
 ```
 
-`raw` always starts a new version (the highest `vN` plus one). `frame` writes
+`raw` always starts a new version under `assets/screenshots/` (the highest
+`vN` plus one, whatever its suffix). `frame` writes
 into the newest version that has a `raw/` folder, or `--version N`, and refuses
 to touch PNGs already there unless `--replace` is passed, which only redoes
 that one version's set for that one tool. Nothing else is ever removed.
@@ -60,6 +68,7 @@ that one version's set for that one tool. Nothing else is ever removed.
    ```bash
    node apps/extension/store/screenshots.mjs frame                  # Claude: store/frame.html → vN/claude
    node apps/extension/store/screenshots.mjs frame --tool grok      # vN/grok/frame.html → vN/grok
+   node apps/extension/store/screenshots.mjs frame --look navy      # Claude's frame on the navy ground (default cream)
    ```
    For ChatGPT, Grok or Gemini, the publisher pastes the brief's prompt with
    the version's `raw/` PNGs and the icon attached, and saves the HTML as
@@ -72,6 +81,12 @@ that one version's set for that one tool. Nothing else is ever removed.
 
 - Never delete or overwrite an earlier version's files. Never edit a raw PNG.
 - Never draw, retouch or mock UI in a frame: the captures are placed whole.
+- The aiBytes_ mark in a frame (and in any art, like S5's monitor) uses the
+  standard icon: the blue bolt tile with a white outline and an orange
+  `#FF7A00` offset shadow down and right, the raised look of v12 (`.brand img`
+  in `store/frame.html`). The name beside it stays navy "aiBytes" with a blue
+  underscore. The popup's own header bolt is part of the capture and is left
+  as it is.
 - No browser chrome, cursors, ratings, user counts, other products' logos or
   claims ("best", "#1", "free") in a frame; the words are the shot's title and
   subtitle and the name aiBytes_.

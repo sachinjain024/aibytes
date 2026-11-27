@@ -12,19 +12,19 @@ through it, so every candidate shows exactly the same UI.
 ## How to run it
 
 The `proj-generate-chrome-store-screenshots` skill drives this. Every run is
-a new version under `apps/extension/store/assets/vN/`; nothing earlier is
+a new version under `apps/extension/store/assets/screenshots/vN/`; nothing earlier is
 deleted or overwritten.
 
 1. `node apps/extension/store/screenshots.mjs raw` captures the real popup,
-   site and newsletter into `assets/vN/raw/`. The publisher approves them
+   site and newsletter into `assets/screenshots/vN/raw/`. The publisher approves them
    before anything is framed.
 2. `node apps/extension/store/screenshots.mjs frame` renders Claude's frame
-   (`store/frame.html`) into `assets/vN/claude/`.
+   (`store/frame.html`) into `assets/screenshots/vN/claude/`.
 3. In ChatGPT, Grok and Gemini, paste the prompt below and attach the
    version's `raw/` PNGs, `packages/design-system/assets/extension/icon-128.png`,
    `docs/image-guide/AI Bytes Image Generation Style Guide.pdf` and
    `assets/references/r1/chrome-store-ref-1.png`. Save the HTML each
-   returns as `assets/vN/<tool>/frame.html`, then
+   returns as `assets/screenshots/vN/<tool>/frame.html`, then
    `node apps/extension/store/screenshots.mjs frame --tool <tool>`.
    A frame that breaks a rule below is dropped, not fixed by hand.
 4. The publisher compares the sets and picks one. Record which tool's frame
@@ -55,7 +55,9 @@ screenshot at exactly 1280×800 CSS pixels, device scale 1. Placeholders:
   {{N}}           the screenshot's number, 1 to 5
   {{SHOT1}}       the capture's URL (empty for the art layout)
   {{SHOT1_W}} {{SHOT1_H}}  its natural size in CSS px (552×582: the popup)
-  {{ICON}}        the extension icon's URL (the blue lightning tile)
+  {{ICON}}        the extension icon's URL (the blue lightning tile). Show it as
+                  the standard icon: a white outline and an orange (#FF7A00)
+                  offset shadow down and right, so it looks raised
   For "annotated", CSS variables on :root give each source's first row in
   the capture, in CSS px: --row-hacker-news-x/-y/-w/-h, --row-techcrunch-…,
   --row-product-hunt-… . The source marks are served at /marks/github.svg,
@@ -105,11 +107,18 @@ Record each tool's model and any follow-up here when you run it.
 - Claude (Claude Code, Opus 5.5): `frame.html`, written alongside this brief;
   v1 on the first brief, v3 on the revised one.
 - ChatGPT:
-- Grok: Grok 4.6 in Grok Build, 27 Nov 2026. Prompt as written; HTML saved at `assets/v3/grok/frame.html`. Follow-up: S1 source chips overlapped the subtitle, so they were moved right of the copy and the winding roads shortened, then `--replace`.
-- Grok (r2): Grok 4.6 in Grok Build, 27 Nov 2026. Layout from `assets/references/r2/ref1.png` and `ref2.png` (pale canvas, rounded navy panel, left copy, white product card, looping arrow, accent highlight bar). HTML at `assets/v8/grok/frame.html` on existing v8 raw. Follow-up: keep each `<em>` phrase on one line; hide the copy swoosh on S1 so the source chips carry that shot; widen S2 copy so “every day” does not orphan.
-- Gemini: Gemini 4 Hydrogen (Medium) in Antigravity, 27 Nov 2026. Custom `frame.html` written at `assets/v8/gemini/frame.html` and rendered into `assets/v8/gemini/`.
+- Grok: Grok 4.6 in Grok Build, 27 Nov 2026. Prompt as written; HTML saved at `assets/screenshots/v3/grok/frame.html`. Follow-up: S1 source chips overlapped the subtitle, so they were moved right of the copy and the winding roads shortened, then `--replace`.
+- Grok (r2): Grok 4.6 in Grok Build, 27 Nov 2026. Layout from `assets/references/r2/ref1.png` and `ref2.png` (pale canvas, rounded navy panel, left copy, white product card, looping arrow, accent highlight bar). HTML at `assets/screenshots/v8/grok/frame.html` on existing v8 raw. Follow-up: keep each `<em>` phrase on one line; hide the copy swoosh on S1 so the source chips carry that shot; widen S2 copy so “every day” does not orphan.
+- Gemini: Gemini 4 Hydrogen (Medium) in Antigravity, 27 Nov 2026. Custom `frame.html` written at `assets/screenshots/v8/gemini/frame.html` and rendered into `assets/screenshots/v8/gemini/`.
 
 ## The pick
 
-v3, Claude's frame (`assets/v3/claude/`), accepted by the publisher on
-27 Nov 2026. The other tools were not run.
+v12, Claude's frame (`assets/screenshots/v12-cream/claude/`), picked by the publisher on
+27 Nov 2026 as the set to upload. It is v3's layout on the current popup
+(550px, stacked rows, the theme toggle), with the standard raised icon in the
+mark. v3 was accepted earlier the same day and is kept. The other tools were
+not run.
+
+v13-navy (`assets/screenshots/v13-navy/claude/`, `frame --look navy`) is the same frame
+on the promo tile's navy ground, kept as an alternative. A version folder may
+carry its look after the number (`v12-cream`); the script reads the number.

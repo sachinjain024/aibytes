@@ -5,7 +5,7 @@
      and orange, confetti, the winding road, a 2-D character) and the layout
      follows assets/references/r1: words on the left, the product on the right.
      The UI is always the real capture, placed whole. -->
-<html lang="en" data-theme="{{THEME}}">
+<html lang="en" data-theme="{{THEME}}" data-look="{{LOOK}}">
 <head>
 <meta charset="utf-8">
 <style>
@@ -14,28 +14,39 @@
     --navy:#1a1a2e;--ink-2:#4b4b60;--orange:#ff7a00;--blue:#3b82f6;--purple:#8b5cf6;--teal:#10a37f;
     --yellow:#ffc83d;--pink:#ff8fb1;--sky:#8ec5ff;--white:#fff;
     --pop-left:640px;--pop-top:109px;--pop-scale:1;
+    /* The look: cream (the style guide's ground) by default. */
+    --bg:var(--cream);--ground:var(--cream-2);--text:var(--navy);--text-2:var(--ink-2);--underscore:#285ed1;
+    --pop-line:var(--navy);--shadow:var(--navy);--line:var(--navy);--monitor:var(--navy);--legs:var(--navy);
+  }
+  /* The navy look (v13): the promo tile's navy ground, light words, the same
+     orange accent and raised icon. Dark outlines and shadows that would vanish
+     on navy turn near-black or light. */
+  [data-look="navy"]{
+    --bg:var(--navy);--ground:#20203a;--dots:#30304f;--text:#fff;--text-2:#d9d3c7;--underscore:#6b9bff;
+    --pop-line:#3b3b5c;--shadow:#0b0b16;--line:#e9e2d4;--monitor:#2c2c4a;--legs:#c9cbd8;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;width:1280px;height:800px;overflow:hidden;background:var(--cream);color:var(--navy)}
+  html,body{margin:0;width:1280px;height:800px;overflow:hidden;background:var(--bg);color:var(--text)}
   body{position:relative;font-family:Inter,system-ui,sans-serif}
 
   /* The dotted ground along the bottom, as in the reference. */
-  .ground{position:absolute;left:0;right:0;bottom:0;height:128px;background-color:var(--cream-2);
+  .ground{position:absolute;left:0;right:0;bottom:0;height:128px;background-color:var(--ground);
     background-image:radial-gradient(var(--dots) 1.3px,transparent 1.6px);background-size:11px 11px}
   .confetti{position:absolute;inset:0;pointer-events:none}
 
   /* Words on the left. */
   .copy{position:absolute;left:76px;top:0;bottom:128px;width:500px;display:flex;flex-direction:column;justify-content:center;gap:22px}
   .brand{display:flex;align-items:center;gap:10px;font:700 22px/1 'Bricolage Grotesque',system-ui,sans-serif;letter-spacing:-.01em}
-  .brand img{width:34px;height:34px;border-radius:8px}
-  .brand b{color:#285ed1}
+  /* The standard icon (27 Nov 2026): the blue tile in a white outline on an orange offset shadow. */
+  .brand img{width:36px;height:36px;border-radius:10px;border:2.5px solid #fff;box-shadow:3.5px 3.5px 0 #ff7a00;background:#285ed1;margin-right:4px}
+  .brand b{color:var(--underscore)}
   h1{margin:0;font:800 58px/1.02 'Bricolage Grotesque',system-ui,sans-serif;letter-spacing:-.03em}
   h1 em{font-style:normal;color:var(--orange)}
-  .sub{margin:0;font:500 24px/1.35 'Bricolage Grotesque',system-ui,sans-serif;color:var(--ink-2)}
+  .sub{margin:0;font:500 24px/1.35 'Bricolage Grotesque',system-ui,sans-serif;color:var(--text-2)}
   .swoosh{display:block;width:300px;height:30px;margin-top:4px}
 
   /* The product on the right: the capture whole, in a bold rounded outline. */
-  .pop{position:absolute;left:var(--pop-left);top:var(--pop-top);border:3px solid var(--navy);border-radius:20px;overflow:hidden;background:var(--white);
+  .pop{position:absolute;left:var(--pop-left);top:var(--pop-top);border:3px solid var(--pop-line);border-radius:20px;overflow:hidden;background:var(--white);
     box-shadow:0 28px 60px -24px #1a1a2e66}
   .pop img{display:block;width:calc({{SHOT1_W}}px * var(--pop-scale));height:calc({{SHOT1_H}}px * var(--pop-scale))}
   .doodle{position:absolute;pointer-events:none}
@@ -49,7 +60,7 @@
   [data-layout="sources"] .copy{width:440px}
   [data-layout="sources"] h1{font-size:54px}
   .src{position:absolute;display:flex;align-items:center;gap:10px;padding:10px 16px 10px 10px;background:var(--white);border:2.5px solid var(--navy);border-radius:14px;
-    font:700 18px/1 'Bricolage Grotesque',system-ui,sans-serif;box-shadow:4px 4px 0 var(--navy)}
+    font:700 18px/1 'Bricolage Grotesque',system-ui,sans-serif;color:var(--navy);box-shadow:4px 4px 0 var(--shadow)}
   .src img{width:30px;height:30px;border-radius:7px}
 
   /* S4: each source's first row outlined, with a tag naming it. */
@@ -61,7 +72,7 @@
     left:calc(var(--pop-left) + 3px + var(--x) + 6px);top:calc(var(--pop-top) + 3px + var(--y) + 4px);width:calc(var(--w) - 12px);height:calc(var(--h) - 8px)}
   .tag{position:absolute;left:calc(var(--pop-left) + 3px + var(--x) + var(--w) - 4px);top:calc(var(--pop-top) + 3px + var(--y) + var(--h) / 2 - 22px);
     padding:10px 16px;border-radius:12px;background:var(--c);color:var(--white);font:700 19px/1.2 'Bricolage Grotesque',system-ui,sans-serif;white-space:nowrap;
-    box-shadow:4px 4px 0 var(--navy);transform:rotate(var(--r))}
+    box-shadow:4px 4px 0 var(--shadow);transform:rotate(var(--r))}
   .hn{--c:var(--orange);--r:-3deg;--x:var(--row-hacker-news-x);--y:var(--row-hacker-news-y);--w:var(--row-hacker-news-w);--h:var(--row-hacker-news-h)}
   .tc{--c:var(--blue);--r:2deg;--x:var(--row-techcrunch-x);--y:var(--row-techcrunch-y);--w:var(--row-techcrunch-w);--h:var(--row-techcrunch-h)}
   .ph{--c:var(--purple);--r:-2deg;--x:var(--row-product-hunt-x);--y:var(--row-product-hunt-y);--w:var(--row-product-hunt-w);--h:var(--row-product-hunt-h)}
@@ -106,7 +117,7 @@
   <!-- S1: four sources, each with a doodled arrow into the feed. -->
   <div class="only only-sources">
     <svg class="doodle" style="left:0;top:0" width="1280" height="800" viewBox="0 0 1280 800" aria-hidden="true">
-      <g fill="none" stroke="var(--navy)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 9">
+      <g fill="none" stroke="var(--line)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 9">
         <path d="M708 170C740 180 748 210 762 236"/>
         <path d="M730 312C748 316 754 330 762 344"/>
         <path d="M720 452C744 452 752 440 762 430"/>
@@ -121,7 +132,7 @@
 
   <!-- S2, S3: a hand-drawn arrow from the words to the product. -->
   <svg class="doodle only only-single" style="left:540px;top:92px" width="110" height="120" viewBox="0 0 110 120" aria-hidden="true">
-    <g fill="none" stroke="var(--navy)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <g fill="none" stroke="var(--line)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
       <path d="M8 100C10 60 40 30 64 52C80 66 58 84 50 66C42 46 70 26 96 24"/>
       <path d="M82 14l15 10-13 13"/>
     </g>
@@ -143,9 +154,9 @@
       <path d="M-20 700C120 640 260 700 420 650S640 620 720 660" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="14 12"/>
       <!-- desk -->
       <rect x="150" y="530" width="520" height="22" rx="6" fill="#e6c79c"/>
-      <path d="M190 552v110M630 552v110" fill="none"/>
+      <path d="M190 552v110M630 552v110" fill="none" stroke="var(--legs)"/>
       <!-- monitor -->
-      <rect x="230" y="40" width="440" height="330" rx="22" fill="var(--navy)"/>
+      <rect x="230" y="40" width="440" height="330" rx="22" fill="var(--monitor)"/>
       <rect x="248" y="58" width="404" height="270" rx="10" fill="#fff" stroke="none"/>
       <path d="M430 370l-14 110h68l-14-110" fill="#c9cbd8"/>
       <rect x="380" y="476" width="140" height="18" rx="9" fill="#c9cbd8"/>
@@ -153,8 +164,10 @@
       <g stroke="none">
         <rect x="248" y="58" width="404" height="48" rx="10" fill="#f6f8fc"/>
         <rect x="248" y="96" width="404" height="10" fill="#f6f8fc"/>
-        <path d="M272 70l-8 14h8l-3 12 11-16h-8l4-10z" fill="#285ed1"/>
-        <text x="290" y="92" class="l" style="font-size:20px">aiBytes<tspan fill="#285ed1">_</tspan></text>
+        <rect x="266" y="70" width="24" height="24" rx="6" fill="#ff7a00"/>
+        <rect x="263" y="67" width="24" height="24" rx="6" fill="#fff"/>
+        <image href="{{ICON}}" x="265" y="69" width="20" height="20" clip-path="inset(0 round 5px)"/>
+        <text x="298" y="92" class="l" style="font-size:20px">aiBytes<tspan fill="#285ed1">_</tspan></text>
       </g>
       <g>
         <rect x="266" y="122" width="118" height="190" rx="14" fill="#fff6ec" stroke="var(--orange)" stroke-width="3"/>
@@ -180,7 +193,7 @@
       <!-- the reader: chair, legs, body, arm, head -->
       <g transform="translate(-52 8)">
       <path d="M40 420h110v150H40z" fill="#c4a47a"/>
-      <path d="M44 560v110M146 560v110" fill="none"/>
+      <path d="M44 560v110M146 560v110" fill="none" stroke="var(--legs)"/>
       <path d="M90 520h120v40h-30v120h-40V560H90z" fill="var(--blue)"/>
       <path d="M140 676h56a10 10 0 0 1 0 20h-60z" fill="var(--orange)"/>
       <path d="M70 380c0-60 40-96 90-96s84 38 84 96v150H70z" fill="var(--orange)"/>
