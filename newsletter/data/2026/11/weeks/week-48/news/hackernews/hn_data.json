@@ -1,0 +1,350 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-27",
+  "window": {
+    "after": "2026-11-20",
+    "before": "2026-11-28"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 30,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 70,
+  "poolCount": 396,
+  "stories": [
+    {
+      "title": "GLM-5.4: Toward generalized coding with our first loop transformer",
+      "url": "https://z.ai/blog/glm-5.4",
+      "type": "story",
+      "points": 1181,
+      "num_comments": 388,
+      "author": "foohis",
+      "created_at": "2026-11-23T10:06:43Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50609685",
+      "front_page": false
+    },
+    {
+      "title": "87% of the Anthropic power will come from gas and 11% from coal in 2028",
+      "url": "https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/",
+      "type": "story",
+      "points": 1043,
+      "num_comments": 1011,
+      "author": "happosai",
+      "created_at": "2026-11-22T08:57:34Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50597612",
+      "front_page": false
+    },
+    {
+      "title": "LLM agents work for their parent companies, not for you",
+      "url": "https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/",
+      "type": "story",
+      "points": 1032,
+      "num_comments": 415,
+      "author": "surprisetalk",
+      "created_at": "2026-11-24T12:40:15Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50627340",
+      "front_page": false
+    },
+    {
+      "title": "A Beginner's Guide to Local AI with Inkling, Qwen, and Unsloth",
+      "url": "https://www.gpupartner.com/blog/beginners-guide-local-ai-inkling-qwen-unsloth",
+      "type": "story",
+      "points": 780,
+      "num_comments": 319,
+      "author": "Retell15",
+      "created_at": "2026-11-22T21:01:16Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50603845",
+      "front_page": false
+    },
+    {
+      "title": "AI made self-hosting fun again",
+      "url": "https://janlukas.blog/posts/ai-self-hosting",
+      "type": "story",
+      "points": 751,
+      "num_comments": 372,
+      "author": "jlelse",
+      "created_at": "2026-11-26T21:47:45Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50660180",
+      "front_page": true
+    },
+    {
+      "title": "Perplexity and Intelligence",
+      "url": "https://openai.com/index/perplexity-and-intelligence/",
+      "type": "story",
+      "points": 721,
+      "num_comments": 453,
+      "author": "acossta",
+      "created_at": "2026-11-22T17:06:27Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50601525",
+      "front_page": false
+    },
+    {
+      "title": "Frostbite: A new CPU architecture discovered, designed and verified by AI",
+      "url": "https://architectlabs.com/blog/frostbite",
+      "type": "story",
+      "points": 686,
+      "num_comments": 371,
+      "author": "shioyama",
+      "created_at": "2026-11-20T10:01:41Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50572503",
+      "front_page": false
+    },
+    {
+      "title": "The New York Times warns photographers not to update Photoshop over AI features",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features",
+      "type": "story",
+      "points": 674,
+      "num_comments": 530,
+      "author": "rmason",
+      "created_at": "2026-11-25T21:18:02Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50647673",
+      "front_page": false
+    },
+    {
+      "title": "Restricting AI agents in mobile operating systems platforms from capturing data",
+      "url": "https://signal.org/blog/protecting-your-privacy/",
+      "type": "story",
+      "points": 584,
+      "num_comments": 350,
+      "author": "dotcoma",
+      "created_at": "2026-11-20T09:42:16Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50572348",
+      "front_page": false
+    },
+    {
+      "title": "Much shorter version of GRH Lean verification from Anthropic",
+      "url": "https://github.com/lsernau/grh-lean",
+      "type": "story",
+      "points": 557,
+      "num_comments": 355,
+      "author": "nb-t",
+      "created_at": "2026-11-25T21:48:10Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50648050",
+      "front_page": false
+    },
+    {
+      "title": "Nasdaq erases all 2026 gains as AI sell-off dampens Anthropic\u2019s second day",
+      "url": "https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off",
+      "type": "story",
+      "points": 531,
+      "num_comments": 943,
+      "author": "cdrnsf",
+      "created_at": "2026-11-20T13:29:59Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50574383",
+      "front_page": false
+    },
+    {
+      "title": "Language Models Can Rewrite Their Own Weights",
+      "url": "https://arxiv.org/abs/2611.21885",
+      "type": "story",
+      "points": 494,
+      "num_comments": 146,
+      "author": "lwhsiao",
+      "created_at": "2026-11-20T16:29:06Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50577265",
+      "front_page": false
+    },
+    {
+      "title": "OpenAI cuts GPT-6.2 usage: Astra hits limits 40% faster, Sol 25% faster",
+      "url": "https://twitter.com/thsottiaux/status/2125784147889393806",
+      "type": "story",
+      "points": 490,
+      "num_comments": 267,
+      "author": "Herrera",
+      "created_at": "2026-11-26T03:36:58Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50651117",
+      "front_page": false
+    },
+    {
+      "title": "Ask HN: Anthropic is accusing my company of distilling. How can I prove I'm not?",
+      "url": "https://news.ycombinator.com/item?id=50630809",
+      "type": "ask_hn",
+      "points": 469,
+      "num_comments": 359,
+      "author": "weli",
+      "created_at": "2026-11-24T16:45:44Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50630809",
+      "front_page": false
+    },
+    {
+      "title": "GPT-6.2 Astra is the first model to beat Googlers' code golf records",
+      "url": "https://bjin.github.io/go-codegolf-benchmark/#leaderboard",
+      "type": "story",
+      "points": 466,
+      "num_comments": 133,
+      "author": "bjin",
+      "created_at": "2026-11-22T16:44:48Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50601280",
+      "front_page": false
+    },
+    {
+      "title": "Anthropic breaks below $83 IPO price",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-24/anthropic-breaks-below-83-ipo-price-in-premarket-trading",
+      "type": "story",
+      "points": 433,
+      "num_comments": 800,
+      "author": "Betelbuddy",
+      "created_at": "2026-11-24T13:23:47Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50627836",
+      "front_page": false
+    },
+    {
+      "title": "PenGPT: A Generative Transformer for Handwriting and Sketches",
+      "url": "https://greydanus.github.io/2026/11/12/pengpt/",
+      "type": "story",
+      "points": 406,
+      "num_comments": 78,
+      "author": "smusamashah",
+      "created_at": "2026-11-25T00:54:49Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50637056",
+      "front_page": false
+    },
+    {
+      "title": "AMD-specific fork of llama.cpp",
+      "url": "https://devnull.land/amd-specific-llama-cpp",
+      "type": "story",
+      "points": 369,
+      "num_comments": 89,
+      "author": "julianlam",
+      "created_at": "2026-11-26T17:11:29Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50657265",
+      "front_page": true
+    },
+    {
+      "title": "Show HN: I built a game where you are an LLM's subagent",
+      "url": "https://github.com/gulivan/worker755",
+      "type": "show_hn",
+      "points": 362,
+      "num_comments": 90,
+      "author": "ivantgam",
+      "created_at": "2026-11-22T13:56:58Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50599762",
+      "front_page": false
+    },
+    {
+      "title": "GPT-6 models demonstrate intrinsic protein-design capabilities",
+      "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/",
+      "type": "story",
+      "points": 356,
+      "num_comments": 97,
+      "author": "acossta",
+      "created_at": "2026-11-24T21:02:22Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50634658",
+      "front_page": false
+    },
+    {
+      "title": "Google Will Make AI Agents Use Its MCP Servers. The Gmail One Can't Send Email",
+      "url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/",
+      "type": "story",
+      "points": 339,
+      "num_comments": 303,
+      "author": "ritzaco",
+      "created_at": "2026-11-26T09:44:23Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50653477",
+      "front_page": true
+    },
+    {
+      "title": "Tidal bans AI-generated music",
+      "url": "https://variety.com/2026/music/news/tidal-bans-ai-generated-music-1236956924/",
+      "type": "story",
+      "points": 337,
+      "num_comments": 344,
+      "author": "theanonymousone",
+      "created_at": "2026-11-24T16:12:38Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50630309",
+      "front_page": false
+    },
+    {
+      "title": "OpenAI may be in cost control mode",
+      "url": "https://micjm.com/blog/openai-is-in-cost-control-mode/",
+      "type": "story",
+      "points": 333,
+      "num_comments": 344,
+      "author": "seizethecheese",
+      "created_at": "2026-11-26T07:33:12Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50652527",
+      "front_page": false
+    },
+    {
+      "title": "Tracking Diseases Cured by AI",
+      "url": "https://diseasescuredbyai.com/",
+      "type": "story",
+      "points": 310,
+      "num_comments": 190,
+      "author": "spoofyroot",
+      "created_at": "2026-11-26T17:16:41Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50657307",
+      "front_page": false
+    },
+    {
+      "title": "The group chat where your AI talks behind your back",
+      "url": "https://construct22.com/",
+      "type": "story",
+      "points": 297,
+      "num_comments": 125,
+      "author": "utiiiD",
+      "created_at": "2026-11-27T06:44:34Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50663595",
+      "front_page": true
+    },
+    {
+      "title": "Porting Rockbox to an undocumented $9 Aliexpress 'YP3' MP3 Player with LLMs",
+      "url": "https://jayd.ml/2026/11/14/rockbox-on-yp3.html",
+      "type": "story",
+      "points": 285,
+      "num_comments": 105,
+      "author": "jaydenmilne",
+      "created_at": "2026-11-24T06:22:36Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50624446",
+      "front_page": false
+    },
+    {
+      "title": "Google workers tell their employer not to punish schools that don't want AI",
+      "url": "https://www.motherjones.com/politics/2026/11/google-alphabet-union-school-ai-protest-gemini-workers-petition/",
+      "type": "story",
+      "points": 285,
+      "num_comments": 230,
+      "author": "cdrnsf",
+      "created_at": "2026-11-20T16:59:27Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50577901",
+      "front_page": false
+    },
+    {
+      "title": "Bare Metal Qwen",
+      "url": "https://github.com/alesha-pro/llm.asm/tree/main/02-baremetal-os",
+      "type": "story",
+      "points": 232,
+      "num_comments": 59,
+      "author": "miohtama",
+      "created_at": "2026-11-25T22:15:34Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50648365",
+      "front_page": false
+    },
+    {
+      "title": "Anthropic Staff Openly Talk About \u2018Taking Over the World\u2019, Claims Max Tegmark",
+      "url": "https://novaramedia.com/2026/11/24/anthropic-staff-openly-talk-about-taking-over-the-world-claims-top-mit-physicist/",
+      "type": "story",
+      "points": 225,
+      "num_comments": 145,
+      "author": "mikhael",
+      "created_at": "2026-11-24T17:10:45Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50631210",
+      "front_page": false
+    },
+    {
+      "title": "Marginalia Search, Money, C++, Rust, AI, Stuff",
+      "url": "https://www.marginalia.nu/log/a_141_marginalia_update/",
+      "type": "story",
+      "points": 224,
+      "num_comments": 84,
+      "author": "Curiositry",
+      "created_at": "2026-11-25T03:47:42Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50638220",
+      "front_page": false
+    }
+  ]
+}
