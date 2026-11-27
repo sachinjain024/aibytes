@@ -17,7 +17,7 @@ import { RowList } from "@aibytes/design-system/components/content/Feed.jsx";
 import { SectionHeading } from "@aibytes/design-system/components/content/SectionHeading.jsx";
 import { Button } from "@aibytes/design-system/components/forms/Button.jsx";
 import { withRef } from "@aibytes/design-system/components/content/withRef.js";
-import { midDate, shortDate } from "@aibytes/app-core/format.js";
+import { shortDate } from "@aibytes/app-core/format.js";
 import { leftOutNote, savedGroups } from "@aibytes/app-core/saved.js";
 import { Refused, loadGist, loadSaved, loadToday, readCache, todayItems, writeCache } from "../content.js";
 import { gistUrl, savedUrl, tabHref, todayUrl } from "../links.js";
@@ -48,7 +48,7 @@ function Row({ item, from }) {
   const { site, store, saves, openGist } = React.useContext(RowContext);
   const saved = saves.some((s) => s.item_id === item.id);
   const gist = item.gist ? { gistHref: gistUrl(site, item.gist), onOpenGist: () => openGist(item, from) } : {};
-  return <ListRow item={item} front={item.front_page === true} starPos="visual" saved={saved}
+  return <ListRow item={item} front={item.front_page === true} stacked starPos="visual" saved={saved}
     onToggleSave={store ? () => store.toggle(item, from) : undefined} {...gist} />;
 }
 
@@ -146,7 +146,7 @@ export function Popup({ storage, fetch, site, openSaves, openTab, onSignIn, user
       {/* The list stays mounted under a gist, so Back finds it as it was. */}
       <div style={{ display: open ? "none" : "contents" }}>
         {/* Neither Sign in nor the avatar while the session restores (user undefined). */}
-        <PopupHeader date={shown ? midDate(shown.date) : undefined}
+        <PopupHeader
           onSignIn={user === undefined ? undefined : onSignIn}
           user={user ?? null} onSignOut={onSignOut}
           savedCount={saves.length} savedActive={onSaved}

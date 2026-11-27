@@ -824,13 +824,26 @@ Shots 1 to 4 (Today, a gist, Saved, dark) render the popup's own components
 the live page uses, so it needs no running site. Commit the five PNGs.
 
 **Acceptance criteria:**
-- [ ] Five PNGs at exactly 1280×800, captions as in the store-listing spec
-- [ ] Only real UI appears
+- [x] Five PNGs at exactly 1280×800, captions as in the store-listing spec
+- [x] Only real UI appears
 
 **Verification:** `node apps/extension/store/screenshots.mjs`, then check the
 sizes.
 
 **Dependencies:** T5, T15. **Files:** `apps/extension/store/{screenshots.mjs,*.png}`. **Scope:** S
+
+**Built (26 Nov 2026):** revised with the publisher (ticket items 3.21.1 to
+3.21.7). The shot list follows the ticket's "Chrome Store Screenshots"
+comment, not the five above; the store-listing spec now lists it. The script
+works in two passes, `raw` (the real popup, filtered to some sources by
+leaving the other items out of the real edition file) and `frame`, and each
+run is a new version under `store/assets/vN/`; the
+`proj-generate-chrome-store-screenshots` skill drives it. The publisher's
+asks along the way: popup rows stacked (Ledger `ListRow` `stacked`), the
+popup 550px wide, no date in the popup header. S5 is art only, at the
+publisher's request. The pick is v3, Claude's frame
+(`assets/v3/claude/`), five PNGs at 1280×800, 8-bit RGB. ChatGPT, Grok and
+Gemini were not run; the brief's prompt is ready for them. `store/screenshots.test.js` covers the helpers.
 
 ## T22 [4.2]: the promo tile and marquee
 

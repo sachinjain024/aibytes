@@ -2711,3 +2711,68 @@ html:not([data-input-modality="keyboard"]) .app-shell :focus,.app-shell :focus:n
 .gist-panel-status {
   padding: 20px;
 }
+
+/* ListRow stacked (the extension popup): title and ⋮ menu, the summary, then
+   the source and counts on a small line at the bottom. Two lines at most for
+   the title and the summary, so a long one never pushes the row out. */
+.story.story--stacked .story-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2px;
+}
+.story--stacked .story-top {
+  gap: 8px;
+}
+.story--stacked .story-top h3 {
+  flex: 1;
+  min-width: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.story--stacked .story-top .item-actions {
+  flex: none;
+  margin-top: 2px;
+}
+.story.story--stacked .story-content .summary {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  white-space: normal;
+  overflow: hidden;
+  margin: 0;
+}
+/* The row's container query (from 560px) makes the source line a two-column
+   grid; a stacked row keeps it one line, whatever its width. */
+.story.story--stacked .story-content .metadata {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  justify-self: auto;
+  grid-column: auto;
+  grid-row: auto;
+  order: initial;
+  margin-top: 4px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  white-space: normal;
+  width: auto;
+  font-size: 11px;
+  line-height: 1.5;
+  gap: 10px;
+}
+.story.story--stacked .story-content .metadata .discussion,
+.story.story--stacked .story-content .metadata .ldg-signals {
+  grid-column: auto;
+  grid-row: auto;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.story--stacked .ldg-signals svg {
+  width: 12px;
+  height: 12px;
+}

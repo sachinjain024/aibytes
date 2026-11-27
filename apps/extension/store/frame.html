@@ -1,0 +1,212 @@
+<!doctype html>
+<!-- The store screenshots' frame, Claude's version (AIB-76n T21). screenshots.mjs
+     fills the {{...}} placeholders once per shot; the contract is in
+     screenshot-brief.md. The look follows docs/image-guide (cream ground, navy
+     and orange, confetti, the winding road, a 2-D character) and the layout
+     follows assets/references/r1: words on the left, the product on the right.
+     The UI is always the real capture, placed whole. -->
+<html lang="en" data-theme="{{THEME}}">
+<head>
+<meta charset="utf-8">
+<style>
+  :root{
+    --cream:#f5eee2;--cream-2:#ece2d0;--dots:#d8cbb4;
+    --navy:#1a1a2e;--ink-2:#4b4b60;--orange:#ff7a00;--blue:#3b82f6;--purple:#8b5cf6;--teal:#10a37f;
+    --yellow:#ffc83d;--pink:#ff8fb1;--sky:#8ec5ff;--white:#fff;
+    --pop-left:640px;--pop-top:109px;--pop-scale:1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;width:1280px;height:800px;overflow:hidden;background:var(--cream);color:var(--navy)}
+  body{position:relative;font-family:Inter,system-ui,sans-serif}
+
+  /* The dotted ground along the bottom, as in the reference. */
+  .ground{position:absolute;left:0;right:0;bottom:0;height:128px;background-color:var(--cream-2);
+    background-image:radial-gradient(var(--dots) 1.3px,transparent 1.6px);background-size:11px 11px}
+  .confetti{position:absolute;inset:0;pointer-events:none}
+
+  /* Words on the left. */
+  .copy{position:absolute;left:76px;top:0;bottom:128px;width:500px;display:flex;flex-direction:column;justify-content:center;gap:22px}
+  .brand{display:flex;align-items:center;gap:10px;font:700 22px/1 'Bricolage Grotesque',system-ui,sans-serif;letter-spacing:-.01em}
+  .brand img{width:34px;height:34px;border-radius:8px}
+  .brand b{color:#285ed1}
+  h1{margin:0;font:800 58px/1.02 'Bricolage Grotesque',system-ui,sans-serif;letter-spacing:-.03em}
+  h1 em{font-style:normal;color:var(--orange)}
+  .sub{margin:0;font:500 24px/1.35 'Bricolage Grotesque',system-ui,sans-serif;color:var(--ink-2)}
+  .swoosh{display:block;width:300px;height:30px;margin-top:4px}
+
+  /* The product on the right: the capture whole, in a bold rounded outline. */
+  .pop{position:absolute;left:var(--pop-left);top:var(--pop-top);border:3px solid var(--navy);border-radius:20px;overflow:hidden;background:var(--white);
+    box-shadow:0 28px 60px -24px #1a1a2e66}
+  .pop img{display:block;width:calc({{SHOT1_W}}px * var(--pop-scale));height:calc({{SHOT1_H}}px * var(--pop-scale))}
+  .doodle{position:absolute;pointer-events:none}
+
+  .only{display:none}
+  [data-layout="sources"] .only-sources,[data-layout="single"] .only-single,[data-layout="annotated"] .only-annotated,[data-layout="art"] .only-art{display:block}
+  [data-layout="art"] .pop{display:none}
+
+  /* S1: the sources flowing into the feed. */
+  [data-layout="sources"]{--pop-left:770px;--pop-top:150px;--pop-scale:.84}
+  [data-layout="sources"] .copy{width:440px}
+  [data-layout="sources"] h1{font-size:54px}
+  .src{position:absolute;display:flex;align-items:center;gap:10px;padding:10px 16px 10px 10px;background:var(--white);border:2.5px solid var(--navy);border-radius:14px;
+    font:700 18px/1 'Bricolage Grotesque',system-ui,sans-serif;box-shadow:4px 4px 0 var(--navy)}
+  .src img{width:30px;height:30px;border-radius:7px}
+
+  /* S4: each source's first row outlined, with a tag naming it. */
+  [data-layout="annotated"]{--pop-left:440px}
+  [data-layout="annotated"] .copy{width:340px}
+  [data-layout="annotated"] h1{font-size:48px}
+  [data-layout="annotated"] .sub{font-size:22px}
+  .ring{position:absolute;border:3.5px solid var(--c);border-radius:12px;
+    left:calc(var(--pop-left) + 3px + var(--x) + 6px);top:calc(var(--pop-top) + 3px + var(--y) + 4px);width:calc(var(--w) - 12px);height:calc(var(--h) - 8px)}
+  .tag{position:absolute;left:calc(var(--pop-left) + 3px + var(--x) + var(--w) - 4px);top:calc(var(--pop-top) + 3px + var(--y) + var(--h) / 2 - 22px);
+    padding:10px 16px;border-radius:12px;background:var(--c);color:var(--white);font:700 19px/1.2 'Bricolage Grotesque',system-ui,sans-serif;white-space:nowrap;
+    box-shadow:4px 4px 0 var(--navy);transform:rotate(var(--r))}
+  .hn{--c:var(--orange);--r:-3deg;--x:var(--row-hacker-news-x);--y:var(--row-hacker-news-y);--w:var(--row-hacker-news-w);--h:var(--row-hacker-news-h)}
+  .tc{--c:var(--blue);--r:2deg;--x:var(--row-techcrunch-x);--y:var(--row-techcrunch-y);--w:var(--row-techcrunch-w);--h:var(--row-techcrunch-h)}
+  .ph{--c:var(--purple);--r:-2deg;--x:var(--row-product-hunt-x);--y:var(--row-product-hunt-y);--w:var(--row-product-hunt-w);--h:var(--row-product-hunt-h)}
+
+  /* S5: art only. */
+  [data-layout="art"] .copy{width:470px}
+  [data-layout="art"] h1{font-size:56px}
+  .scene{position:absolute;left:560px;top:40px;width:690px;height:720px}
+</style>
+</head>
+<body data-layout="{{LAYOUT}}" data-n="{{N}}">
+  <div class="ground"></div>
+
+  <!-- Confetti: dots and plus signs from the style guide's secondary colours. -->
+  <svg class="confetti" viewBox="0 0 1280 800" aria-hidden="true">
+    <g stroke-width="4" stroke-linecap="round" fill="none">
+      <path d="M612 64v18M603 73h18" stroke="var(--purple)"/>
+      <path d="M1232 220v16M1224 228h16" stroke="var(--orange)"/>
+      <path d="M96 712v16M88 720h16" stroke="var(--blue)"/>
+      <path d="M1180 742v14M1173 749h14" stroke="var(--teal)"/>
+      <path d="M560 744v14M553 751h14" stroke="var(--pink)"/>
+    </g>
+    <circle cx="1238" cy="64" r="7" fill="var(--yellow)"/>
+    <circle cx="1206" cy="96" r="4" fill="var(--pink)"/>
+    <circle cx="74" cy="58" r="5" fill="var(--sky)"/>
+    <circle cx="526" cy="104" r="5" fill="var(--teal)"/>
+    <circle cx="1250" cy="470" r="5" fill="var(--purple)"/>
+    <circle cx="360" cy="752" r="6" fill="var(--yellow)"/>
+    <circle cx="880" cy="764" r="5" fill="var(--orange)"/>
+    <circle cx="44" cy="420" r="4" fill="var(--pink)"/>
+  </svg>
+
+  <section class="copy">
+    <div class="brand"><img src="{{ICON}}" alt=""><span>aiBytes<b>_</b></span></div>
+    <h1>{{TITLE_HTML}}</h1>
+    <p class="sub">{{SUBTITLE}}</p>
+    <svg class="swoosh" viewBox="0 0 300 30" aria-hidden="true"><path d="M6 22C70 8 170 4 294 14" fill="none" stroke="var(--orange)" stroke-width="7" stroke-linecap="round"/></svg>
+  </section>
+
+  <div class="pop"><img src="{{SHOT1}}" alt=""></div>
+
+  <!-- S1: four sources, each with a doodled arrow into the feed. -->
+  <div class="only only-sources">
+    <svg class="doodle" style="left:0;top:0" width="1280" height="800" viewBox="0 0 1280 800" aria-hidden="true">
+      <g fill="none" stroke="var(--navy)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 9">
+        <path d="M708 170C740 180 748 210 762 236"/>
+        <path d="M730 312C748 316 754 330 762 344"/>
+        <path d="M720 452C744 452 752 440 762 430"/>
+        <path d="M712 592C744 588 752 560 762 530"/>
+      </g>
+    </svg>
+    <div class="src" style="left:548px;top:144px;transform:rotate(-4deg)"><img src="/marks/github.svg" alt="">GitHub</div>
+    <div class="src" style="left:536px;top:288px;transform:rotate(3deg)"><img src="/marks/hackernews.svg" alt="">Hacker News</div>
+    <div class="src" style="left:548px;top:428px;transform:rotate(-2deg)"><img src="/marks/techcrunch.svg" alt="">TechCrunch</div>
+    <div class="src" style="left:528px;top:568px;transform:rotate(4deg)"><img src="/marks/producthunt.svg" alt="">Product Hunt</div>
+  </div>
+
+  <!-- S2, S3: a hand-drawn arrow from the words to the product. -->
+  <svg class="doodle only only-single" style="left:540px;top:92px" width="110" height="120" viewBox="0 0 110 120" aria-hidden="true">
+    <g fill="none" stroke="var(--navy)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 100C10 60 40 30 64 52C80 66 58 84 50 66C42 46 70 26 96 24"/>
+      <path d="M82 14l15 10-13 13"/>
+    </g>
+  </svg>
+
+  <!-- S4: the three sources' rows, ringed and tagged. -->
+  <div class="only only-annotated">
+    <div class="ring hn"></div><div class="tag hn">Hacker News threads</div>
+    <div class="ring tc"></div><div class="tag tc">AI news</div>
+    <div class="ring ph"></div><div class="tag ph">Product launches</div>
+  </div>
+
+  <!-- S5: the reader at his computer, its screen showing the three ways. -->
+  <svg class="scene only only-art" viewBox="0 0 690 720" aria-hidden="true">
+    <defs><style>.l{font:700 19px 'Bricolage Grotesque',system-ui,sans-serif;fill:var(--navy)}.s{font:500 15px Inter,system-ui,sans-serif;fill:var(--ink-2)}</style></defs>
+    <g stroke="var(--navy)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+      <!-- the winding road under the desk -->
+      <path d="M-20 700C120 640 260 700 420 650S640 620 720 660" fill="none" stroke="#3a3a48" stroke-width="26"/>
+      <path d="M-20 700C120 640 260 700 420 650S640 620 720 660" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="14 12"/>
+      <!-- desk -->
+      <rect x="150" y="530" width="520" height="22" rx="6" fill="#e6c79c"/>
+      <path d="M190 552v110M630 552v110" fill="none"/>
+      <!-- monitor -->
+      <rect x="230" y="40" width="440" height="330" rx="22" fill="var(--navy)"/>
+      <rect x="248" y="58" width="404" height="270" rx="10" fill="#fff" stroke="none"/>
+      <path d="M430 370l-14 110h68l-14-110" fill="#c9cbd8"/>
+      <rect x="380" y="476" width="140" height="18" rx="9" fill="#c9cbd8"/>
+      <!-- the screen: the wordmark, then the three ways -->
+      <g stroke="none">
+        <rect x="248" y="58" width="404" height="48" rx="10" fill="#f6f8fc"/>
+        <rect x="248" y="96" width="404" height="10" fill="#f6f8fc"/>
+        <path d="M272 70l-8 14h8l-3 12 11-16h-8l4-10z" fill="#285ed1"/>
+        <text x="290" y="92" class="l" style="font-size:20px">aiBytes<tspan fill="#285ed1">_</tspan></text>
+      </g>
+      <g>
+        <rect x="266" y="122" width="118" height="190" rx="14" fill="#fff6ec" stroke="var(--orange)" stroke-width="3"/>
+        <rect x="391" y="122" width="118" height="190" rx="14" fill="#eef4ff" stroke="var(--blue)" stroke-width="3"/>
+        <rect x="516" y="122" width="118" height="190" rx="14" fill="#f4efff" stroke="var(--purple)" stroke-width="3"/>
+        <!-- feed: a globe -->
+        <circle cx="325" cy="176" r="26" fill="#fff" stroke="var(--orange)" stroke-width="3"/>
+        <path d="M299 176h52M325 150c-12 14-12 38 0 52M325 150c12 14 12 38 0 52" fill="none" stroke="var(--orange)" stroke-width="3"/>
+        <!-- extension: a puzzle piece -->
+        <path d="M428 156h14a8 8 0 1 1 16 0h14v14a8 8 0 1 1 0 16v14h-44z" fill="#fff" stroke="var(--blue)" stroke-width="3"/>
+        <!-- newsletter: an envelope -->
+        <rect x="551" y="158" width="48" height="36" rx="5" fill="#fff" stroke="var(--purple)" stroke-width="3"/>
+        <path d="M553 162l22 18 22-18" fill="none" stroke="var(--purple)" stroke-width="3"/>
+      </g>
+      <g stroke="none">
+        <text x="325" y="240" text-anchor="middle" class="l">Daily feed</text>
+        <text x="325" y="266" text-anchor="middle" class="s">aibytes.io</text>
+        <text x="450" y="240" text-anchor="middle" class="l">Extension</text>
+        <text x="450" y="266" text-anchor="middle" class="s">In Chrome</text>
+        <text x="575" y="240" text-anchor="middle" class="l">Newsletter</text>
+        <text x="575" y="266" text-anchor="middle" class="s">Every week</text>
+      </g>
+      <!-- the reader: chair, legs, body, arm, head -->
+      <g transform="translate(-52 8)">
+      <path d="M40 420h110v150H40z" fill="#c4a47a"/>
+      <path d="M44 560v110M146 560v110" fill="none"/>
+      <path d="M90 520h120v40h-30v120h-40V560H90z" fill="var(--blue)"/>
+      <path d="M140 676h56a10 10 0 0 1 0 20h-60z" fill="var(--orange)"/>
+      <path d="M70 380c0-60 40-96 90-96s84 38 84 96v150H70z" fill="var(--orange)"/>
+      <path d="M200 380c30 30 70 70 120 120l-22 22c-50-40-100-80-120-110z" fill="var(--orange)"/>
+      <circle cx="318" cy="512" r="16" fill="#f2c29b"/>
+      <path d="M150 276v24h40v-24" fill="#f2c29b"/>
+      <circle cx="172" cy="214" r="62" fill="#f2c29b"/>
+      <!-- curly dark hair -->
+      <g fill="#2b2b33">
+        <circle cx="130" cy="180" r="24"/><circle cx="152" cy="156" r="24"/><circle cx="182" cy="150" r="24"/>
+        <circle cx="210" cy="164" r="22"/><circle cx="118" cy="212" r="20"/><circle cx="126" cy="244" r="16"/>
+      </g>
+      <!-- glasses, looking at the screen -->
+      <g fill="#fff" fill-opacity=".55">
+        <circle cx="200" cy="212" r="16"/><circle cx="234" cy="212" r="14"/>
+      </g>
+      <path d="M216 212h4M184 210l-18-4" fill="none"/>
+      <circle cx="204" cy="214" r="3.5" fill="var(--navy)" stroke="none"/>
+      <circle cx="236" cy="214" r="3.5" fill="var(--navy)" stroke="none"/>
+      <path d="M208 248c10 8 22 8 28-2" fill="none"/>
+      </g>
+    </g>
+    <!-- the screen's glow of interest: a few sparks -->
+    <g stroke="var(--yellow)" stroke-width="4" stroke-linecap="round">
+      <path d="M258 22l-10-16M226 30l-16-10M290 18l2-18"/>
+    </g>
+  </svg>
+</body>
+</html>

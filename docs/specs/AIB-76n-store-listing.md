@@ -60,19 +60,26 @@ up), so it is reviewed in a PR and copied into the dashboard.
 | Website | `https://aibytes.io` |
 | Support | the publisher's support email from the dashboard (not committed) |
 
-**Screenshots,** each the real popup over a plain page, with a short caption
-band at the top in Ledger's display face:
+**Screenshots** (revised 26 Nov 2026 from the publisher's "Chrome Store
+Screenshots" comment on AIB-76n): the headline and a line under it on the
+left, the real popup or art on the right, in the image style guide's look
+(`docs/image-guide/`: cream ground, navy and orange, confetti) and the layout
+of `apps/extension/store/assets/references/r1/`:
 
-1. Today's edition, ranked: "Today's AI news, ranked, one click away"
-2. A gist in the popup: "Read the gist without leaving your tab"
-3. Saved: "Save items; they sync with aibytes.io"
-4. Dark mode: "Follows your system theme"
-5. Onboarding step 1: "Pin it in two steps"
+1. The sources feeding the feed: "Your daily AI feed, from the best sources"
+2. GitHub repos only: "Trending GitHub repos, every day"
+3. A repo's gist: "Get the gist of any repo"
+4. Hacker News, AI news and launches, each row ringed and labelled:
+   "Threads, news and launches in one list"
+5. Art only, the style guide's character at his computer with the three ways
+   to follow aiBytes_: "Stay current with AI, three ways"
 
-Made by `apps/extension/store/screenshots.mjs`: a page that renders the real
-popup components against a fixed edition fixture, captured by headless Chrome
-at 1280×800 (the method the prototype used; no new dependency). The PNGs are
-committed under `apps/extension/store/`, so AIB-152d can reuse them.
+Made by `apps/extension/store/screenshots.mjs` (the
+`proj-generate-chrome-store-screenshots` skill): it captures the real popup on
+a fixed edition fixture with headless Chrome (no new dependency), then frames
+the captures at 1280×800. Every run is a new version under
+`apps/extension/store/assets/vN/`, never deleting an earlier one; the pick is
+v3, Claude's frame, in `assets/v3/claude/`, so AIB-152d can reuse it.
 
 ## The promo images
 
@@ -151,7 +158,8 @@ checked against the built extension before the page changes.
 ```bash
 npm run package:extension                     # → apps/extension/aibytes-extension-<version>.zip
 npm test -w @aibytes/extension                # includes the version and manifest checks
-node apps/extension/store/screenshots.mjs     # → apps/extension/store/*.png
+node apps/extension/store/screenshots.mjs raw     # → apps/extension/store/assets/vN/raw/
+node apps/extension/store/screenshots.mjs frame   # → apps/extension/store/assets/vN/claude/*.png
 npm test -w @aibytes/web                      # footer and flag, after approval
 npm run build:web
 ```
@@ -161,8 +169,9 @@ npm run build:web
 ```
 apps/extension/
   CHROMEWEBSTORE.md          the listing, justifications, privacy answers, review history
-  store/screenshots.mjs      the capture script
-  store/*.png                5 screenshots
+  store/screenshots.mjs      the capture and frame script
+  store/frame.html           Claude's frame; screenshot-brief.md, the prompt for other tools
+  store/assets/vN/           each version: raw/ captures, claude/ (and chatgpt/, grok/, gemini/) screenshots
   store/promo-brief.md       the brief and each tool's prompt
   store/candidates/          generated candidates (git-ignored)
   store/promo-tile.png, store/marquee.png   the publisher's picks

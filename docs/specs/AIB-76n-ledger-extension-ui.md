@@ -55,10 +55,12 @@ something sensible alone.
 | `PinAnimation` | F1: the looping five-frame animation of Chrome's toolbar, the puzzle menu and the pin, with its caption under it (`onb.pin.1`–`5`). Under `prefers-reduced-motion` it shows the last frame still, with all five captions as a numbered list | `captions` (five strings) |
 | `ExtensionPromo` | H3: a small bordered box: icon and "aiBytes_ for Chrome", one line, a primary "Add to Chrome" link (opens in a new tab), and a "Not now" text button | `href`, `onDismiss`, `labels` |
 
-The popup frame is 400px wide and up to 580px tall (Chrome's popup limit is
-800×600). The components lay out for that width; Ledger's narrow `ListRow`
-layout already applies below 761px, so the popup renders `ListRow` unchanged
-(B1). `GistView` is used unchanged inside the popup.
+The popup frame is 550px wide (400px until 26 Nov 2026, the publisher's
+call) and up to 580px tall (Chrome's popup limit is 800×600). The popup
+renders `ListRow` with `stacked` (26 Nov 2026): the title (up to two lines)
+with the ⋮ menu beside it, the summary (up to two lines), then the source and
+its counts on a smaller line at the bottom, so neither takes width from the
+title (B1). `GistView` is used unchanged inside the popup.
 
 ### Options on existing components
 
@@ -87,7 +89,7 @@ only if the favicon changes.
   `<!-- @dsCard … -->` marker as its first line, wired in the kit's `App.jsx`
   and listed in its `README.md`, like the gist screens before them.
 - `guidelines/extending-ledger.md`: the "Chrome extension (new-tab surface)"
-  section is rewritten for the popup: the components above, the 400px frame,
+  section is rewritten for the popup: the components above, the 550px frame,
   the favicon as the icon (not the wordmark's `icon` variant), and fonts
   bundled with the extension rather than fetched. The new-tab notes move under
   a short "Later: the new tab (AIB-151m)" line.
@@ -163,7 +165,7 @@ window, not a Ledger popover).
 - **`tests/test_design_system.py`:** the new kit pages are seeded kit pages
   with the marker first; dark and light token blocks still match.
 - **By eye:** the three kit screens beside the prototype, light and dark, at
-  400px for the popup and 1280px and 390px for the site.
+  550px for the popup and 1280px and 390px for the site.
 
 ## Boundaries
 

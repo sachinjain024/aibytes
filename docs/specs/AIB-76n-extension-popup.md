@@ -18,8 +18,9 @@ Who: aibytes.io readers who want the edition one click away in their toolbar.
 
 Success looks like:
 
-- Selecting the toolbar icon opens a 400px popup: `PopupHeader` with the
-  edition's date, the saved toggle with its count, and Sign in; Ledger
+- Selecting the toolbar icon opens a 550px popup (400px until 26 Nov 2026):
+  `PopupHeader` with the wordmark (the edition's date moved to the footer on
+  26 Nov 2026), the saved toggle with its count, and Sign in; Ledger
   `ListRow`s in ranked order with the star under the source image (B1, E2 of
   AIB-75v); "That's the {date} edition." at the end; `PopupFooter` with
   "{date} · {count} items" and "View on Web".

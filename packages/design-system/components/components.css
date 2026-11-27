@@ -224,8 +224,8 @@ body.gist-resizing{cursor:col-resize;user-select:none}
 .gist-react-note{margin:0;color:var(--text-2);font:400 var(--text-12) var(--font-body)}
 
 /* The Chrome extension popup (AIB-76n). Tokens only; no shadow at rest (the popup is Chrome's window).
-   .ldg-popup is the 400px frame: header, a scrolling body, then the footer or the action bar. */
-.ldg-popup{position:relative;display:flex;flex-direction:column;width:400px;height:580px;max-height:600px;overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--font-body)}
+   .ldg-popup is the 550px frame: header, a scrolling body, then the footer or the action bar. */
+.ldg-popup{position:relative;display:flex;flex-direction:column;width:550px;height:580px;max-height:600px;overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--font-body)}
 .ldg-popup__scroll{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain}
 .ldg-popup__scroll .story{padding-left:12px;padding-right:12px}
 .ldg-popup__scroll .ldg-section-h{padding-left:14px;padding-right:14px}

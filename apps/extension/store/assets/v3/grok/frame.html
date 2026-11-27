@@ -1,0 +1,210 @@
+<!doctype html>
+<!-- Grok's store-screenshot frame (AIB-76n T21). screenshots.mjs fills the
+     {{...}} placeholders once per shot. Words on the left, product or art on
+     the right. The UI is always the real capture, placed whole. -->
+<html lang="en" data-theme="{{THEME}}">
+<head>
+<meta charset="utf-8">
+<style>
+  :root{
+    --cream:#f6efe4;--cream-2:#eadfcb;--dots:#d4c6ad;
+    --navy:#1a1a2e;--ink-2:#4a4a62;--orange:#ff7a00;--blue:#3b82f6;--purple:#8b5cf6;--teal:#14b8a6;
+    --yellow:#ffc83d;--pink:#ff8fb1;--sky:#8ec5ff;--white:#fff;
+    --pop-left:668px;--pop-top:96px;--pop-scale:1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;width:1280px;height:800px;overflow:hidden;background:var(--cream);color:var(--navy)}
+  body{position:relative;font-family:Inter,system-ui,sans-serif}
+
+  .ground{position:absolute;left:0;right:0;bottom:0;height:120px;background-color:var(--cream-2);
+    background-image:radial-gradient(var(--dots) 1.25px,transparent 1.55px);background-size:10px 10px}
+  .confetti{position:absolute;inset:0;pointer-events:none}
+
+  .copy{position:absolute;left:64px;top:0;bottom:120px;width:520px;display:flex;flex-direction:column;justify-content:center;gap:20px}
+  .brand{display:flex;align-items:center;gap:10px;font:700 21px/1 'Bricolage Grotesque',system-ui,sans-serif}
+  .brand img{width:32px;height:32px;border-radius:8px}
+  .brand b{color:#285ed1}
+  h1{margin:0;font:800 56px/1.04 'Bricolage Grotesque',system-ui,sans-serif;letter-spacing:-.03em}
+  h1 em{font-style:normal;color:var(--orange)}
+  .sub{margin:0;max-width:460px;font:500 22px/1.4 'Bricolage Grotesque',system-ui,sans-serif;color:var(--ink-2)}
+  .swoosh{display:block;width:220px;height:22px;margin-top:2px}
+
+  .pop{position:absolute;left:var(--pop-left);top:var(--pop-top);border:3px solid var(--navy);border-radius:22px;overflow:hidden;background:var(--white);
+    box-shadow:8px 8px 0 var(--navy)}
+  .pop img{display:block;width:calc({{SHOT1_W}}px * var(--pop-scale));height:calc({{SHOT1_H}}px * var(--pop-scale))}
+  .doodle{position:absolute;pointer-events:none}
+
+  .only{display:none}
+  [data-layout="sources"] .only-sources,[data-layout="single"] .only-single,[data-layout="annotated"] .only-annotated,[data-layout="art"] .only-art{display:block}
+  [data-layout="art"] .pop{display:none}
+
+  /* S1: four source chips along a winding path into the feed. */
+  [data-layout="sources"]{--pop-left:792px;--pop-top:148px;--pop-scale:.82}
+  [data-layout="sources"] .copy{width:390px}
+  [data-layout="sources"] .sub{max-width:370px}
+  [data-layout="sources"] h1{font-size:52px}
+  .chip{position:absolute;display:flex;align-items:center;gap:10px;padding:9px 16px 9px 9px;background:var(--white);border:2.5px solid var(--navy);border-radius:999px;
+    font:700 17px/1 'Bricolage Grotesque',system-ui,sans-serif;box-shadow:4px 4px 0 var(--navy)}
+  .chip img{width:28px;height:28px;border-radius:7px}
+
+  /* S2 / S3: the popup at full CSS size, words a little narrower. */
+  [data-layout="single"]{--pop-left:668px;--pop-top:96px;--pop-scale:1}
+  [data-layout="single"] .copy{width:540px}
+  [data-layout="single"] h1{font-size:54px}
+
+  /* S4: tags sit to the right of the capture so they never cover a row's text. */
+  [data-layout="annotated"]{--pop-left:428px;--pop-top:96px;--pop-scale:1}
+  [data-layout="annotated"] .copy{width:330px}
+  [data-layout="annotated"] h1{font-size:46px}
+  [data-layout="annotated"] .sub{font-size:20px;max-width:300px}
+  .ring{position:absolute;border:3.5px solid var(--c);border-radius:14px;pointer-events:none;
+    left:calc(var(--pop-left) + 3px + var(--x) + 8px);top:calc(var(--pop-top) + 3px + var(--y) + 4px);width:calc(var(--w) - 16px);height:calc(var(--h) - 8px)}
+  .tag{position:absolute;left:calc(var(--pop-left) + 3px + var(--x) + var(--w) + 10px);top:calc(var(--pop-top) + 3px + var(--y) + var(--h) / 2 - 20px);
+    padding:9px 14px;border:2.5px solid var(--navy);border-radius:12px;background:var(--c);color:var(--white);
+    font:700 17px/1.15 'Bricolage Grotesque',system-ui,sans-serif;white-space:nowrap;box-shadow:4px 4px 0 var(--navy);transform:rotate(var(--r))}
+  .hn{--c:var(--orange);--r:-4deg;--x:var(--row-hacker-news-x);--y:var(--row-hacker-news-y);--w:var(--row-hacker-news-w);--h:var(--row-hacker-news-h)}
+  .tc{--c:var(--blue);--r:3deg;--x:var(--row-techcrunch-x);--y:var(--row-techcrunch-y);--w:var(--row-techcrunch-w);--h:var(--row-techcrunch-h)}
+  .ph{--c:var(--purple);--r:-2deg;--x:var(--row-product-hunt-x);--y:var(--row-product-hunt-y);--w:var(--row-product-hunt-w);--h:var(--row-product-hunt-h)}
+
+  [data-layout="art"] .copy{width:460px}
+  [data-layout="art"] h1{font-size:54px}
+  .scene{position:absolute;left:540px;top:28px;width:720px;height:744px}
+</style>
+</head>
+<body data-layout="{{LAYOUT}}" data-n="{{N}}">
+  <div class="ground"></div>
+
+  <svg class="confetti" viewBox="0 0 1280 800" aria-hidden="true">
+    <g stroke-width="4" stroke-linecap="round" fill="none">
+      <path d="M118 86v16M110 94h16" stroke="var(--purple)"/>
+      <path d="M602 52v16M594 60h16" stroke="var(--orange)"/>
+      <path d="M1228 168v16M1220 176h16" stroke="var(--blue)"/>
+      <path d="M64 708v14M57 715h14" stroke="var(--teal)"/>
+      <path d="M1188 736v14M1181 743h14" stroke="var(--pink)"/>
+      <path d="M540 748v14M533 755h14" stroke="var(--yellow)"/>
+    </g>
+    <circle cx="48" cy="52" r="5" fill="var(--sky)"/>
+    <circle cx="1248" cy="56" r="6" fill="var(--yellow)"/>
+    <circle cx="1210" cy="92" r="4" fill="var(--pink)"/>
+    <circle cx="520" cy="88" r="5" fill="var(--teal)"/>
+    <circle cx="1256" cy="430" r="5" fill="var(--purple)"/>
+    <circle cx="24" cy="248" r="4" fill="var(--orange)"/>
+    <circle cx="880" cy="760" r="5" fill="var(--blue)"/>
+    <circle cx="300" cy="756" r="5" fill="var(--yellow)"/>
+  </svg>
+
+  <section class="copy">
+    <div class="brand"><img src="{{ICON}}" alt=""><span>aiBytes<b>_</b></span></div>
+    <h1>{{TITLE_HTML}}</h1>
+    <p class="sub">{{SUBTITLE}}</p>
+    <svg class="swoosh" viewBox="0 0 220 22" aria-hidden="true"><path d="M4 16C54 6 124 4 216 12" fill="none" stroke="var(--orange)" stroke-width="6" stroke-linecap="round"/></svg>
+  </section>
+
+  <div class="pop"><img src="{{SHOT1}}" alt=""></div>
+
+  <div class="only only-sources">
+    <svg class="doodle" style="left:0;top:0" width="1280" height="800" viewBox="0 0 1280 800" aria-hidden="true">
+      <path d="M620 176C700 168 750 220 792 248" fill="none" stroke="#3a3a48" stroke-width="12" stroke-linecap="round"/>
+      <path d="M620 328C700 318 750 344 792 358" fill="none" stroke="#3a3a48" stroke-width="12" stroke-linecap="round"/>
+      <path d="M620 476C700 464 750 430 792 418" fill="none" stroke="#3a3a48" stroke-width="12" stroke-linecap="round"/>
+      <path d="M620 616C700 590 760 530 792 498" fill="none" stroke="#3a3a48" stroke-width="12" stroke-linecap="round"/>
+      <path d="M620 176C700 168 750 220 792 248" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="9 9" stroke-linecap="round"/>
+      <path d="M620 328C700 318 750 344 792 358" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="9 9" stroke-linecap="round"/>
+      <path d="M620 476C700 464 750 430 792 418" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="9 9" stroke-linecap="round"/>
+      <path d="M620 616C700 590 760 530 792 498" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="9 9" stroke-linecap="round"/>
+    </svg>
+    <div class="chip" style="left:508px;top:140px;transform:rotate(-6deg)"><img src="/marks/github.svg" alt="">GitHub</div>
+    <div class="chip" style="left:492px;top:292px;transform:rotate(4deg)"><img src="/marks/hackernews.svg" alt="">Hacker News</div>
+    <div class="chip" style="left:508px;top:444px;transform:rotate(-3deg)"><img src="/marks/techcrunch.svg" alt="">TechCrunch</div>
+    <div class="chip" style="left:486px;top:588px;transform:rotate(5deg)"><img src="/marks/producthunt.svg" alt="">Product Hunt</div>
+  </div>
+
+  <svg class="doodle only only-single" style="left:548px;top:78px" width="120" height="110" viewBox="0 0 120 110" aria-hidden="true">
+    <g fill="none" stroke="var(--navy)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M8 86C18 40 48 18 78 38C96 52 70 74 58 52C48 32 78 18 108 28"/>
+      <path d="M94 16l16 12-14 12"/>
+    </g>
+  </svg>
+
+  <div class="only only-annotated">
+    <div class="ring hn"></div><div class="tag hn">Hacker News threads</div>
+    <div class="ring tc"></div><div class="tag tc">AI news</div>
+    <div class="ring ph"></div><div class="tag ph">Product launches</div>
+  </div>
+
+  <svg class="scene only only-art" viewBox="0 0 720 744" aria-hidden="true">
+    <defs>
+      <style>
+        .l{font:700 18px 'Bricolage Grotesque',system-ui,sans-serif;fill:var(--navy)}
+        .s{font:500 14px Inter,system-ui,sans-serif;fill:var(--ink-2)}
+      </style>
+    </defs>
+    <g stroke="var(--navy)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M40 700C180 640 300 710 460 660S640 620 760 680" fill="none" stroke="#3a3a48" stroke-width="26"/>
+      <path d="M40 700C180 640 300 710 460 660S640 620 760 680" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="14 12"/>
+
+      <rect x="168" y="548" width="500" height="22" rx="6" fill="#e6c79c"/>
+      <path d="M210 570v108M616 570v108" fill="none"/>
+
+      <rect x="268" y="36" width="420" height="318" rx="22" fill="var(--navy)"/>
+      <rect x="286" y="54" width="384" height="258" rx="10" fill="#fff" stroke="none"/>
+      <path d="M458 354l-12 108h64l-12-108" fill="#c9cbd8"/>
+      <rect x="410" y="458" width="136" height="16" rx="8" fill="#c9cbd8"/>
+
+      <g stroke="none">
+        <rect x="286" y="54" width="384" height="46" rx="10" fill="#f6f8fc"/>
+        <rect x="286" y="90" width="384" height="8" fill="#f6f8fc"/>
+        <path d="M308 66l-7 13h7l-3 11 10-15h-7l4-9z" fill="#285ed1"/>
+        <text x="326" y="88" class="l" style="font-size:19px">aiBytes<tspan fill="#285ed1">_</tspan></text>
+      </g>
+
+      <g>
+        <rect x="302" y="116" width="110" height="178" rx="14" fill="#fff6ec" stroke="var(--orange)" stroke-width="3"/>
+        <rect x="423" y="116" width="110" height="178" rx="14" fill="#eef4ff" stroke="var(--blue)" stroke-width="3"/>
+        <rect x="544" y="116" width="110" height="178" rx="14" fill="#f4efff" stroke="var(--purple)" stroke-width="3"/>
+        <circle cx="357" cy="168" r="24" fill="#fff" stroke="var(--orange)" stroke-width="3"/>
+        <path d="M333 168h48M357 144c-11 13-11 35 0 48M357 144c11 13 11 35 0 48" fill="none" stroke="var(--orange)" stroke-width="3"/>
+        <path d="M458 150h12a8 8 0 1 1 16 0h12v12a8 8 0 1 1 0 16v12h-40z" fill="#fff" stroke="var(--blue)" stroke-width="3"/>
+        <rect x="570" y="152" width="58" height="40" rx="6" fill="#fff" stroke="var(--purple)" stroke-width="3"/>
+        <path d="M572 156l27 20 27-20" fill="none" stroke="var(--purple)" stroke-width="3"/>
+      </g>
+      <g stroke="none">
+        <text x="357" y="228" text-anchor="middle" class="l">Daily feed</text>
+        <text x="357" y="252" text-anchor="middle" class="s">aibytes.io</text>
+        <text x="478" y="228" text-anchor="middle" class="l">Extension</text>
+        <text x="478" y="252" text-anchor="middle" class="s">In Chrome</text>
+        <text x="599" y="228" text-anchor="middle" class="l">Newsletter</text>
+        <text x="599" y="252" text-anchor="middle" class="s">Every week</text>
+      </g>
+
+      <!-- Reader: young man, glasses, curly dark hair, orange sweatshirt, blue trousers, orange shoes. -->
+      <g transform="translate(8 24)">
+        <path d="M72 430h96v132H72z" fill="#c4a47a"/>
+        <path d="M80 562v108M160 562v108" fill="none"/>
+        <path d="M108 500h108v36h-28v128h-40V536H108z" fill="var(--blue)"/>
+        <path d="M148 660h52a10 10 0 0 1 0 20h-56z" fill="var(--orange)"/>
+        <path d="M92 372c0-56 38-90 86-90s80 36 80 90v138H92z" fill="var(--orange)"/>
+        <path d="M214 378c28 26 68 64 118 112l-20 20c-48-38-96-76-116-104z" fill="var(--orange)"/>
+        <circle cx="328" cy="502" r="15" fill="#f2c29b"/>
+        <path d="M152 268v22h36v-22" fill="#f2c29b"/>
+        <circle cx="172" cy="208" r="58" fill="#f2c29b"/>
+        <g fill="#2b2b33" stroke="none">
+          <circle cx="132" cy="176" r="22"/><circle cx="152" cy="154" r="22"/>
+          <circle cx="180" cy="148" r="22"/><circle cx="208" cy="160" r="20"/>
+          <circle cx="122" cy="206" r="18"/><circle cx="128" cy="236" r="14"/>
+        </g>
+        <g fill="#fff" fill-opacity=".55" stroke="none">
+          <circle cx="198" cy="206" r="15"/><circle cx="230" cy="206" r="13"/>
+        </g>
+        <path d="M213 206h4M182 204l-16-4" fill="none"/>
+        <circle cx="202" cy="208" r="3.2" fill="var(--navy)" stroke="none"/>
+        <circle cx="232" cy="208" r="3.2" fill="var(--navy)" stroke="none"/>
+        <path d="M206 240c9 7 20 7 26-2" fill="none"/>
+      </g>
+    </g>
+    <g stroke="var(--yellow)" stroke-width="4" stroke-linecap="round">
+      <path d="M292 18l-8-14M264 28l-14-8M322 14l2-16"/>
+    </g>
+  </svg>
+</body>
+</html>
