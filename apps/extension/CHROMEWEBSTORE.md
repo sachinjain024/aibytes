@@ -39,6 +39,18 @@ the package for a source map, a file that names `localhost`, or any file that
 is not the manifest, `popup.html`, `background.js`, an icon, or a built
 script, stylesheet or font. Check it with `unzip -l`.
 
+## Images
+
+| Asset | File | Size | Source |
+|---|---|---|---|
+| Screenshots (5) | `store/assets/screenshots/v12-cream/claude/screenshot-*.png` | 1280×800 | The real popup on a fixed edition, in Claude's frame with the standard raised icon; picked 27 Nov 2026 (T21) |
+| Small promo tile | `store/assets/promo-tile/v1/promo-tile.png` | 440×280 | Claude's T2, picked 27 Nov 2026 (T22) |
+| Marquee | `store/assets/marquee/v1/marquee.png` | 1400×560 | Claude's M4, picked 27 Nov 2026 (T22); shows the four sources' marks, which name what the feed reads |
+
+All are opaque PNGs. Each image keeps every version uploaded to the store:
+a new one is a new `vN` folder, and an earlier one is never replaced. `store/promo-brief.md` and `store/screenshot-brief.md`
+record how each was made.
+
 ## Privacy and data use
 
 These map to the Chrome Web Store data-use form. T23 checks them against

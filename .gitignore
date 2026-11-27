@@ -31,3 +31,5 @@ tmp/
 # The extension's store screenshots (AIB-76n T21): the stage build. The
 # versioned captures and screenshots under store/assets/ are committed.
 apps/extension/store/.stage/
+# The promo candidates from every tool (T22); only the two picks are committed.
+apps/extension/store/candidates/

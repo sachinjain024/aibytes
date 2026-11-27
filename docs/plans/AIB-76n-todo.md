@@ -837,12 +837,12 @@ sizes.
 comment, not the five above; the store-listing spec now lists it. The script
 works in two passes, `raw` (the real popup, filtered to some sources by
 leaving the other items out of the real edition file) and `frame`, and each
-run is a new version under `store/assets/vN/`; the
+run is a new version under `store/assets/screenshots/vN/`; the
 `proj-generate-chrome-store-screenshots` skill drives it. The publisher's
 asks along the way: popup rows stacked (Ledger `ListRow` `stacked`), the
 popup 550px wide, no date in the popup header. S5 is art only, at the
 publisher's request. The pick is v3, Claude's frame
-(`assets/v3/claude/`), five PNGs at 1280×800, 8-bit RGB. ChatGPT, Grok and
+(`assets/screenshots/v3/claude/`), five PNGs at 1280×800, 8-bit RGB. ChatGPT, Grok and
 Gemini were not run; the brief's prompt is ready for them. `store/screenshots.test.js` covers the helpers.
 
 ## T22 [4.2]: the promo tile and marquee
@@ -854,12 +854,17 @@ picks one tile and one marquee. Resize the picks to 440×280 and 1400×560 and
 commit them.
 
 **Acceptance criteria:**
-- [ ] Two committed PNGs at the exact sizes, and the pick recorded in `CHROMEWEBSTORE.md`
-- [ ] No rejected candidate is committed
+- [x] Two committed PNGs at the exact sizes, and the pick recorded in `CHROMEWEBSTORE.md`
+- [x] No rejected candidate is committed
+
+**Done 27 Nov 2026:** Claude's T2 and M4, picked by the publisher on the review
+artifact; the other tools were not run. Kept as versions,
+`assets/promo-tile/v1/` and `assets/marquee/v1/`, each with its HTML source, so
+every set uploaded to the store is kept.
 
 **Verification:** check the sizes; the publisher signs off.
 
-**Dependencies:** T3. **Files:** `apps/extension/store/{promo-brief.md,promo-tile.png,marquee.png}`, `.gitignore`. **Scope:** S
+**Dependencies:** T3. **Files:** `apps/extension/store/{promo-brief.md,promo.mjs,assets/promo-tile/v1/,assets/marquee/v1/}`, `.gitignore`. **Scope:** S
 
 ## T23 [4]: listing text, `/privacy`, version and zip
 

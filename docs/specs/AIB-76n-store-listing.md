@@ -78,8 +78,10 @@ Made by `apps/extension/store/screenshots.mjs` (the
 `proj-generate-chrome-store-screenshots` skill): it captures the real popup on
 a fixed edition fixture with headless Chrome (no new dependency), then frames
 the captures at 1280×800. Every run is a new version under
-`apps/extension/store/assets/vN/`, never deleting an earlier one; the pick is
-v3, Claude's frame, in `assets/v3/claude/`, so AIB-152d can reuse it.
+`apps/extension/store/assets/screenshots/vN/`, never deleting an earlier one; the pick is
+v12, Claude's frame with the standard raised icon (the blue tile, white
+outline and orange offset shadow), in `assets/screenshots/v12-cream/claude/`, so AIB-152d can
+reuse it.
 
 ## The promo images
 
@@ -95,15 +97,26 @@ publisher. The screenshots are not: they are always the real build.
    the publisher in each tool (no API key or tool session is added to the
    repo). Each tool's prompt as used is kept in the brief.
 3. **Collect.** The candidates go in `apps/extension/store/candidates/`
-   (`<tool>-<n>.png`), git-ignored, so the rejected ones are never committed.
+   (`<tool>-<tile|marquee>-<n>.png`), git-ignored, so the rejected ones are
+   never committed. `store/promo.mjs` renders HTML candidates, builds the
+   review page (`review`) and sizes the picks (`finish`).
 4. **Shortlist.** A review artifact shows every candidate at its real size,
    numbered, grouped by tool, in light and dark surrounds, as the repo's
    numbered-options practice for taste decisions. The publisher picks one tile
    and one marquee.
 5. **Finish.** The two picks are cropped or resized to exactly 440×280 and
    1400×560 PNG, with any lettering redrawn in Ledger's faces if a tool garbled
-   it, and committed as `store/promo-tile.png` and `store/marquee.png`. The
+   it, and committed as a new version, `store/assets/promo-tile/vN/` and
+   `store/assets/marquee/vN/`, so every set uploaded to the store is kept. The
    pick and the tool it came from go in `CHROMEWEBSTORE.md`.
+
+**The pick (27 Nov 2026):** Claude's T2 (navy tile) and M4 (navy marquee).
+Two changes from the brief above, both the publisher's: the look follows the
+accepted screenshots (the image style guide's cream, navy and orange) rather
+than Ledger's palette, and the marquee shows the four sources' marks (GitHub,
+Hacker News, TechCrunch, Product Hunt) in small chips under "From". They name
+what the feed reads, not an endorsement. Reddit is left out because it is not
+one of the edition's sources (see "Risks").
 
 ## Privacy
 
@@ -158,8 +171,8 @@ checked against the built extension before the page changes.
 ```bash
 npm run package:extension                     # → apps/extension/aibytes-extension-<version>.zip
 npm test -w @aibytes/extension                # includes the version and manifest checks
-node apps/extension/store/screenshots.mjs raw     # → apps/extension/store/assets/vN/raw/
-node apps/extension/store/screenshots.mjs frame   # → apps/extension/store/assets/vN/claude/*.png
+node apps/extension/store/screenshots.mjs raw     # → apps/extension/store/assets/screenshots/vN/raw/
+node apps/extension/store/screenshots.mjs frame   # → apps/extension/store/assets/screenshots/vN/claude/*.png
 npm test -w @aibytes/web                      # footer and flag, after approval
 npm run build:web
 ```
@@ -171,10 +184,13 @@ apps/extension/
   CHROMEWEBSTORE.md          the listing, justifications, privacy answers, review history
   store/screenshots.mjs      the capture and frame script
   store/frame.html           Claude's frame; screenshot-brief.md, the prompt for other tools
-  store/assets/vN/           each version: raw/ captures, claude/ (and chatgpt/, grok/, gemini/) screenshots
+  store/assets/screenshots/vN/           each screenshot version: raw/ captures, claude/ screenshots, and a
+                             chatgpt/, grok/ or gemini/ folder only once that tool is run
   store/promo-brief.md       the brief and each tool's prompt
+  store/promo.mjs            render HTML candidates, the review page, finish the picks
   store/candidates/          generated candidates (git-ignored)
-  store/promo-tile.png, store/marquee.png   the publisher's picks
+  store/assets/promo-tile/vN/, store/assets/marquee/vN/   the publisher's picks, one
+                             version per upload, each with its HTML source
 apps/web/src/
   footer.js, extension.js    the link and the flag, after approval
   App.jsx                    /privacy's extension section
