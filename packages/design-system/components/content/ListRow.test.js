@@ -38,3 +38,22 @@ test('the default row keeps the menu on the source line',()=>{
   assert.doesNotMatch(top,/item-actions/);
   assert.match(html.slice(at(html,'class="metadata"')),/class="item-actions"/);
 });
+
+// The popup window (550px) matches the narrow-window rules, which give the
+// summary order 1; the stacked row pins all three so the source line stays last.
+test('stacked rows pin their order: title, summary, then the source line', async () => {
+  const { readFileSync } = await import('node:fs');
+  const css = readFileSync(new URL('../../styles.css', import.meta.url), 'utf8');
+  const rule = (sel) => new RegExp(sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*\\{[^}]*order:\\s*(\\d+)').exec(css)?.[1];
+  assert.equal(rule('.story.story--stacked .story-content .story-top'), '0');
+  assert.equal(rule('.story.story--stacked .story-content .summary'), '1');
+  assert.equal(rule('.story.story--stacked .story-content .metadata'), '2');
+});
+
+// The popup's summary is a step smaller than the site's 14px (publisher, 27 Nov 2026).
+test('a stacked row sets its summary at 13px', async () => {
+  const { readFileSync } = await import('node:fs');
+  const css = readFileSync(new URL('../../styles.css', import.meta.url), 'utf8');
+  const size = /\.story\.story--stacked \.story-content \.summary\s*\{[^}]*font-size:\s*([\d.]+px)/.exec(css)?.[1];
+  assert.equal(size, '13px');
+});

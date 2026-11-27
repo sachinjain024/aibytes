@@ -2738,6 +2738,7 @@ html:not([data-input-modality="keyboard"]) .app-shell :focus,.app-shell :focus:n
   margin-top: 2px;
 }
 .story.story--stacked .story-content .summary {
+  font-size: 13px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -2746,6 +2747,10 @@ html:not([data-input-modality="keyboard"]) .app-shell :focus,.app-shell :focus:n
   overflow: hidden;
   margin: 0;
 }
+/* The order is fixed here: the narrow-window rules (max-width:760px, which
+   the 550px popup window always matches) give the summary order 1. */
+.story.story--stacked .story-content .story-top { order: 0; }
+.story.story--stacked .story-content .summary { order: 1; }
 /* The row's container query (from 560px) makes the source line a two-column
    grid; a stacked row keeps it one line, whatever its width. */
 .story.story--stacked .story-content .metadata {
@@ -2755,7 +2760,7 @@ html:not([data-input-modality="keyboard"]) .app-shell :focus,.app-shell :focus:n
   justify-self: auto;
   grid-column: auto;
   grid-row: auto;
-  order: initial;
+  order: 2;
   margin-top: 4px;
   justify-content: flex-start;
   flex-wrap: wrap;

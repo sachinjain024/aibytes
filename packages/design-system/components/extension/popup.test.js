@@ -29,6 +29,16 @@ test('the header has the compact wordmark and the edition date', () => {
   assert.match(html, /<span class="ldg-popup-head__date">Wed, Aug 27<\/span>/);
 });
 
+test('the theme toggle comes before the star: a moon in light, a sun in dark, named for the switch', () => {
+  const light = h(PopupHeader, { onToggleTheme: noop, savedCount: 2, onToggleSaved: noop });
+  assert.match(light, /<button type="button" class="ldg-popup-theme" aria-label="Switch to dark theme">/);
+  assert.ok(light.indexOf('ldg-popup-theme') < light.indexOf('ldg-popup-saved'), 'the toggle is before the star');
+  const dark = h(PopupHeader, { theme: 'dark', onToggleTheme: noop, labels: { toLight: 'Hell' } });
+  assert.match(dark, /class="ldg-popup-theme" aria-label="Hell"/);
+  assert.notEqual(light.match(/<svg[\s\S]*?<\/svg>/)[0], dark.match(/<svg[\s\S]*?<\/svg>/)[0], 'moon and sun differ');
+  assert.doesNotMatch(h(PopupHeader, {}), /ldg-popup-theme/, 'no toggle without onToggleTheme');
+});
+
 test('the saved toggle (A2) is a star and the count, pressed when Saved shows', () => {
   const off = h(PopupHeader, { savedCount: 3, onToggleSaved: noop });
   assert.match(off, /<button type="button" class="ldg-popup-saved" aria-pressed="false" aria-label="Saved items">/);

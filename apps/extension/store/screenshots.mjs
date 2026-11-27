@@ -218,7 +218,9 @@ async function captureRaw(rawDir) {
     for (const raw of RAW) {
       const theme = raw.query.theme ?? "light";
       await cdp.send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-color-scheme", value: theme }] });
-      await cdp.send("Emulation.setDeviceMetricsOverride", { width: 1400, height: 1000, deviceScaleFactor: SCALE, mobile: false });
+      // The popup's own window size (550×580, plus the stage's 1px border), so
+      // the same media queries apply as in Chrome's popup.
+      await cdp.send("Emulation.setDeviceMetricsOverride", { width: 552, height: 582, deviceScaleFactor: SCALE, mobile: false });
       await cdp.send("Page.navigate", { url: `${origin}/stage.html?${new URLSearchParams({ theme, ...raw.query })}` });
       await waitFor(cdp, "document.documentElement.dataset.ready === 'true' || document.documentElement.dataset.error", `${raw.name} to render`);
       const error = await evaluate(cdp, "document.documentElement.dataset.error || ''");

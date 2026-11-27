@@ -123,6 +123,16 @@ section, and `{ issue_slug }` for a weekly section, as on the site.
 - **Header** (`PopupHeader`): `midDate(edition.date)`; the saved toggle with
   `saves.length`; Sign in (`pop.signin`). Sign in calls
   `chrome.tabs.create({ url: "https://aibytes.io/extension-onboarding?step=signin" })`.
+- **Theme** (added 27 Nov 2026 at the publisher's ask): a borderless moon/sun
+  toggle before the saved toggle. Light by default; the choice is kept in the
+  popup's localStorage under `aibytes-theme` (`src/popup/theme.js`).
+- **Save banner** (added 27 Nov 2026 at the publisher's ask): Ledger's
+  `SaveBanner`, not sticky, under the header, for a signed-out reader with at
+  least one save, as aibytes.io shows it. Its first sentence says where the
+  saves live (`pop.banner.before`: "Saved items are kept in this extension.");
+  the link and ending are the site's. The link calls Sign in; dismissing it is
+  remembered in the popup's localStorage (`src/popup/banner.js`). The store
+  stage keeps it out of the screenshots.
 - **Rows:** `ListRow` with `starPos="visual"`, `onToggleSave`, and, when the
   item has `gist`, `gistHref` (the absolute gist URL) and `onOpenGist`.
 - **End line** (`pop.end`) on Today only; **footer** (`pop.foot.meta`,

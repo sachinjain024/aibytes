@@ -1,6 +1,6 @@
 // The store screenshots' stage (spec AIB-76n store-listing, "Screenshots"):
 // the real popup on a fixed edition: ?shot=list or gist, ?source= to show one
-// source's items, ?theme=. screenshots.mjs serves this page and the repo's content/, waits
+// source's items, ?theme=, ?banner=1 for the save banner. screenshots.mjs serves this page and the repo's content/, waits
 // for <html data-ready>, and captures #stage. Nothing here is drawn by hand:
 // every pixel is a shipped component.
 import React from "react";
@@ -36,6 +36,15 @@ function memoryStorage(seed) {
   return { getItem: (k) => map.get(k) ?? null, setItem: (k, v) => map.set(k, String(v)), removeItem: (k) => map.delete(k) };
 }
 const store = localSaves(memoryStorage(FIXTURE_SAVES), new EventTarget());
+// The popup's own storage, holding only the theme ?theme= asks for: the popup
+// reads its theme from there, as it does from localStorage in Chrome.
+// The signed-out save banner reads as dismissed, so it stays out of the store
+// shots; ?banner=1 shows it.
+const banner = params.get("banner") === "1";
+const themeStorage = {
+  getItem: (k) => (k === "aibytes-theme" ? theme : k === "aibytes-save-banner-dismissed" && !banner ? "1" : null),
+  setItem: () => {}, removeItem: () => {},
+};
 const openSaves = () => Promise.resolve(store);
 
 const ready = () => { document.documentElement.dataset.ready = "true"; };
@@ -83,7 +92,7 @@ function PopupShot() {
   }, []);
   return (
     <div id="stage" className="stage-popup">
-      <Popup storage={null} fetch={fetchHere} site={SITE} openSaves={openSaves}
+      <Popup storage={themeStorage} fetch={fetchHere} site={SITE} openSaves={openSaves}
         openTab={() => {}} onSignIn={() => {}} user={null} onSignOut={() => {}} />
     </div>
   );

@@ -14,6 +14,24 @@ test("every pop.* string the popup uses is the prototype's, word for word", () =
   for (const key of used) assert.equal(t(key), agreed[key], key);
 });
 
+// The theme toggle (added 27 Nov 2026, after the prototype) words its name as
+// aibytes.io's header does: "Switch to {the other} theme".
+test("the theme toggle's names match aibytes.io's header", () => {
+  const header = readFileSync(new URL("../../../packages/design-system/components/navigation/AppHeader.jsx", import.meta.url), "utf8");
+  assert.match(header, /`Switch to \$\{theme === "dark" \? "light" : "dark"\} theme`/);
+  assert.equal(t("pop.theme.dark"), "Switch to dark theme");
+  assert.equal(t("pop.theme.light"), "Switch to light theme");
+});
+
+// The save banner (added 27 Nov 2026, after the prototype) keeps aibytes.io's
+// link and ending; only the first sentence says where the saves are kept.
+test("the save banner's words follow aibytes.io's, except where the saves live", () => {
+  const banner = readFileSync(new URL("../../../packages/design-system/components/content/SaveBanner.jsx", import.meta.url), "utf8");
+  assert.ok(banner.includes(`link: "${t("pop.banner.link")}"`));
+  assert.ok(banner.includes(`after: "${t("pop.banner.after")}"`));
+  assert.equal(t("pop.banner.before"), "Saved items are kept in this extension.");
+});
+
 test("t fills {name} and leaves an unknown one as written", () => {
   assert.equal(t("pop.foot.meta", { date: "Nov 19", count: 34 }), "Nov 19 · 34 items");
   assert.equal(t("pop.end", {}), "That's the {date} edition.");

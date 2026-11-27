@@ -74,7 +74,7 @@ These map to the Chrome Web Store data-use form. T23 checks them against
 | Version | Date | Changes | Status |
 |---|---|---|---|
 | 26.1.15 | existing listing | Placeholder "AI Bytes" | Published |
-| 0.1.0 | 2026-11-25 | Scaffold: popup placeholder, `storage` only, onboarding on install. Then today's edition (T9), stars and Saved signed out, kept in `chrome.storage.local` (T10), and gists in the popup (T11). Store zip: 19 files, 422 KB unpacked (T12) | Draft |
+| 0.1.0 | 2026-11-25 | Scaffold: popup placeholder, `storage` only, onboarding on install. Then today's edition (T9), stars and Saved signed out, kept in `chrome.storage.local` (T10), and gists in the popup (T11). Store zip: 19 files, 422 KB unpacked (T12). Popup review (27 Nov): 550px wide, stacked rows, a light/dark toggle (light by default) and the signed-out save banner; the theme and the banner's dismissal stay in the popup's own localStorage, on the device, and no permission changes | Draft |
 
 The store version is set to `YY.M.D` of the submission day at T23, and must
 be above `26.1.15`.

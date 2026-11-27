@@ -4,6 +4,12 @@
 const POP = {
   "pop.savedbtn": "Saved items",
   "pop.signin": "Sign in",
+  // The theme toggle's accessible name, as aibytes.io's header words it.
+  "pop.theme.dark": "Switch to dark theme",
+  "pop.theme.light": "Switch to light theme",
+  "pop.banner.before": "Saved items are kept in this extension.",
+  "pop.banner.link": "Sign in with Google",
+  "pop.banner.after": "to sync them to your account.",
   "pop.empty.title": "No saved items yet.",
   "pop.empty.body": "Use the ☆ to save an item. Saved items appear here.",
   "pop.end": "That's the {date} edition.",

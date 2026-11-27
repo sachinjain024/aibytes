@@ -23,6 +23,9 @@ import { Refused, loadGist, loadSaved, loadToday, readCache, todayItems, writeCa
 import { gistUrl, savedUrl, tabHref, todayUrl } from "../links.js";
 import { t } from "../copy.js";
 import { GistPanel } from "./GistPanel.jsx";
+import { readTheme, writeTheme } from "./theme.js";
+import { readDismissed, showSaveBanner, writeDismissed } from "./banner.js";
+import { SaveBanner } from "@aibytes/design-system/components/content/SaveBanner.jsx";
 
 const NONE = [];
 const noSubscribe = () => () => {};
@@ -67,6 +70,16 @@ const Message = ({ role = "status", title, children }) => (
  * onFirstRender(ms, fromCache).
  */
 export function Popup({ storage, fetch, site, openSaves, openTab, onSignIn, user, onSignOut, onFirstRender }) {
+  // Light unless the reader chose dark (popup.html starts light, so there is no flash).
+  const [theme, setTheme] = React.useState(() => readTheme(storage));
+  React.useEffect(() => { document.documentElement.dataset.theme = theme; }, [theme]);
+  const toggleTheme = () => setTheme((now) => {
+    const next = now === "dark" ? "light" : "dark";
+    writeTheme(storage, next);
+    return next;
+  });
+  const [bannerDismissed, setBannerDismissed] = React.useState(() => readDismissed(storage));
+  const dismissBanner = () => { writeDismissed(storage); setBannerDismissed(true); };
   const base = React.useMemo(() => new URL("/content/", site), [site]);
   const [today, setToday] = React.useState(() => {
     const cached = readCache(storage);
@@ -146,12 +159,16 @@ export function Popup({ storage, fetch, site, openSaves, openTab, onSignIn, user
       {/* The list stays mounted under a gist, so Back finds it as it was. */}
       <div style={{ display: open ? "none" : "contents" }}>
         {/* Neither Sign in nor the avatar while the session restores (user undefined). */}
-        <PopupHeader
+        <PopupHeader theme={theme} onToggleTheme={toggleTheme}
           onSignIn={user === undefined ? undefined : onSignIn}
           user={user ?? null} onSignOut={onSignOut}
           savedCount={saves.length} savedActive={onSaved}
           onToggleSaved={store ? toggleView : undefined}
-          labels={{ signIn: t("pop.signin"), saved: t("pop.savedbtn") }} />
+          labels={{ signIn: t("pop.signin"), saved: t("pop.savedbtn"), toDark: t("pop.theme.dark"), toLight: t("pop.theme.light") }} />
+        {showSaveBanner({ user, saveCount: saves.length, dismissed: bannerDismissed }) && (
+          <SaveBanner onSignIn={onSignIn} onDismiss={dismissBanner}
+            copy={{ before: t("pop.banner.before"), link: t("pop.banner.link"), after: t("pop.banner.after") }} />
+        )}
         <div className="ldg-popup__scroll" ref={scroller}>
           <RowContext.Provider value={rows}>
             {onSaved ? (
