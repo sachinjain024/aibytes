@@ -33,3 +33,5 @@ tmp/
 apps/extension/store/.stage/
 # The promo candidates from every tool (T22); only the two picks are committed.
 apps/extension/store/candidates/
+# The extension's store zips (T12), one per version: built, never committed.
+apps/extension/builds/

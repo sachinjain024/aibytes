@@ -1,10 +1,10 @@
 // The store zip (spec AIB-76n, T12): `npm run package:extension` makes a
 // production build in a temp folder, checks it, and zips it to
-// apps/extension/aibytes-extension-<version>.zip (git-ignored).
+// apps/extension/builds/aibytes-extension-<version>.zip (git-ignored).
 // It never touches dist/, which the dev profile loads unpacked: a production
 // build there would quietly point that profile at aibytes.io.
 import { execFile } from "node:child_process";
-import { mkdtemp, readdir, readFile, rm } from "node:fs/promises";
+import { mkdir, mkdtemp, readdir, readFile, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -49,13 +49,14 @@ export async function storeProblems(dir) {
 }
 
 /** Builds, checks and zips. Returns the zip's path. */
-export async function packageExtension({ outDir = here, logLevel = "warn" } = {}) {
+export async function packageExtension({ outDir = path.join(here, "builds"), logLevel = "warn" } = {}) {
   const { version } = JSON.parse(await readFile(path.join(here, "package.json"), "utf8"));
   const buildDir = await mkdtemp(path.join(tmpdir(), "aibytes-extension-store-"));
   try {
     await build({ configFile: path.join(here, "vite.config.js"), mode: "production", logLevel, build: { outDir: buildDir } });
     const problems = await storeProblems(buildDir);
     if (problems.length) throw new Error(`Not packaged:\n  ${problems.join("\n  ")}`);
+    await mkdir(outDir, { recursive: true });
     const zip = path.join(outDir, `aibytes-extension-${version}.zip`);
     await rm(zip, { force: true });
     // -X: no extra file attributes; manifest.json at the zip's root, as the store wants.

@@ -7,6 +7,7 @@
 //   node apps/extension/store/promo.mjs render             # candidates/*.html → .png at the exact size
 //   node apps/extension/store/promo.mjs review             # candidates/review.html: every PNG, numbered T1…/M1…
 //   node apps/extension/store/promo.mjs finish --tile candidates/claude-tile-1.png --marquee candidates/grok-marquee-2.png
+//   node apps/extension/store/promo.mjs icon               # store-icon.html → assets/store-icon/vN/ (128×128, transparent margin)
 //
 // render: each HTML candidate is captured in headless Chrome with the faces
 // the screenshots use (Bricolage Grotesque, Inter) and the extension icon at
@@ -30,6 +31,8 @@ export const CANDIDATES = path.join(here, "candidates");
 export const PROMO = {
   tile: { width: 440, height: 280, dir: "promo-tile", file: "promo-tile.png" },
   marquee: { width: 1400, height: 560, dir: "marquee", file: "marquee.png" },
+  // The store icon keeps its transparent margin (the guidelines ask for one).
+  icon: { width: 128, height: 128, dir: "store-icon", file: "store-icon.png", alpha: true },
 };
 
 /** Where a finished pick goes: the version after the highest under assets/<dir>/. */
@@ -51,8 +54,9 @@ export function pngColourType(buffer) {
   return buffer[25];
 }
 
-async function capture(cdp, origin, page, { width, height }) {
+async function capture(cdp, origin, page, { width, height, alpha = false }) {
   await cdp.send("Emulation.setDeviceMetricsOverride", { width, height, deviceScaleFactor: 1, mobile: false });
+  await cdp.send("Emulation.setDefaultBackgroundColorOverride", alpha ? { color: { r: 0, g: 0, b: 0, a: 0 } } : {});
   await cdp.send("Page.navigate", { url: `${origin}${page}` });
   await waitFor(cdp, "document.readyState === 'complete'", `${page} to load`);
   await evaluate(cdp, "document.fonts.ready.then(() => Promise.all([...document.images].map((i) => i.decode().catch(() => {})))).then(() => true)");
@@ -60,8 +64,25 @@ async function capture(cdp, origin, page, { width, height }) {
   const png = Buffer.from(data, "base64");
   const size = pngSize(png);
   if (size.width !== width || size.height !== height) throw new Error(`${page} is ${size.width}×${size.height}, not ${width}×${height}`);
-  if (pngColourType(png) !== 2) throw new Error(`${page} has an alpha channel; the store wants an opaque PNG`);
+  if (!alpha && pngColourType(png) !== 2) throw new Error(`${page} has an alpha channel; the store wants an opaque PNG`);
+  if (alpha && pngColourType(png) !== 6) throw new Error(`${page} has no alpha channel; the icon's margin must be transparent`);
   return png;
+}
+
+// The store icon: store/store-icon.html, captured on a transparent ground and
+// written as the next version, assets/store-icon/vN/, with its HTML source.
+async function icon() {
+  const source = path.join(here, "store-icon.html");
+  const pages = new Map([["/icon", await readFile(source, "utf8")]]);
+  await withBrowser((req, res, url) => serve(req, res, url, { pages, files: new Map() }), async (cdp, origin) => {
+    const png = await capture(cdp, origin, "/icon", PROMO.icon);
+    const dir = await nextPromoDir("icon");
+    await mkdir(dir, { recursive: true });
+    const out = path.join(dir, PROMO.icon.file);
+    await writeFile(out, png);
+    await copyFile(source, path.join(dir, "store-icon.html"));
+    console.log(`wrote ${path.relative(ROOT, out)} (128×128, transparent margin)`);
+  });
 }
 
 const fonts = `<style>${FONT_FACES}</style>`;
@@ -197,13 +218,14 @@ async function main() {
   const { values, positionals } = parseArgs({ allowPositionals: true, options: { tile: { type: "string" }, marquee: { type: "string" } } });
   if (positionals[0] === "render") return render();
   if (positionals[0] === "review") return review();
+  if (positionals[0] === "icon") return icon();
   if (positionals[0] === "finish" && (values.tile || values.marquee)) {
     const picks = {};
     if (values.tile) picks.tile = values.tile;
     if (values.marquee) picks.marquee = values.marquee;
     return finish(picks);
   }
-  throw new Error("usage: promo.mjs render | review | finish --tile <png> --marquee <png>");
+  throw new Error("usage: promo.mjs render | review | icon | finish --tile <png> --marquee <png>");
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) await main();
