@@ -3,6 +3,7 @@
 // shipped with. X and "Suggest a link" were dropped on 16 Nov 2026 for the
 // Weekly Archive, the site's own page, which opens in the same tab.
 import { withRef } from "@aibytes/design-system/components/content/withRef.js";
+import { STORE_URL } from "./extension.js";
 import { NEWSLETTER_ORIGIN, privacyPath, weeklyPath } from "./route.js";
 
 const EMAIL = "sachinjain.hq@gmail.com";
@@ -18,9 +19,9 @@ export const GITHUB_URL = "https://github.com/sachinjain024/aibytes";
 
 export const mailto = (address, subject) => `mailto:${address}?subject=${encodeURIComponent(subject)}`;
 
-// No href renders as plain text: the extension has no page until it ships (phase 7).
+// The extension links its Chrome Web Store listing (AIB-76n T24).
 export const FOOTER_LINKS = [
-  { label: "Chrome Extension (soon)" },
+  { label: "Chrome Extension", href: STORE_URL },
   { label: "Weekly Archive", href: weeklyPath(), internal: true },
   { label: "GitHub", href: GITHUB_URL },
   { label: "Advertise", href: mailto(EMAIL, "Advertise: aiBytes_") },

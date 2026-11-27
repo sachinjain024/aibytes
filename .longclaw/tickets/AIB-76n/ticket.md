@@ -2507,3 +2507,16 @@ changes:
 -->
 ### You updated this ticket
 <!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_d7d1f26e
+kind: comment
+occurred_at: 2026-11-27T10:33:15.787Z
+actor:
+  type: human
+  id: local
+-->
+### You commented
+
+T24 done on PR #73 (publisher's ask, 27 Nov 2026, before store approval): EXTENSION_LIVE = true, so the install box and onboarding's Add to Chrome show; the footer's 'Chrome Extension' (no '(soon)') links the store listing. Web tests 226/226, build:web passes, checked on the dev server. Left for item 5: after approval, a clean store install opens onboarding once and a 26.1.15 install updates silently.
+<!-- /longclaw:event -->

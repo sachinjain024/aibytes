@@ -1,10 +1,10 @@
 // The extension, as the site sees it (spec AIB-76n site-extension). The flag
-// keeps "Add to Chrome" off the site until the store update is live: the
-// store-listing module turns it on. The install box's rules live here, pure,
+// shows "Add to Chrome" on the site; T24 turned it on (27 Nov 2026, at the
+// publisher's ask, with 26.11.27 in review). The install box's rules live here, pure,
 // so node --test covers them; App.jsx's useExtensionPromo runs them.
 import { EXTENSION_ID } from "./extensionBridge.js";
 
-export const EXTENSION_LIVE = false;
+export const EXTENSION_LIVE = true;
 
 /** The Chrome Web Store listing the extension replaces. */
 export const STORE_URL = `https://chromewebstore.google.com/detail/${EXTENSION_ID}`;

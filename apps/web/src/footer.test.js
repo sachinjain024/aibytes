@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
+import { STORE_URL } from "./extension.js";
 import { FOOTER_LINKS, GITHUB_URL, mailto, SUBSCRIBE_HREF, SUBSCRIBE_URL } from "./footer.js";
 
 test("a mailto link encodes its subject", () => {
@@ -8,15 +9,16 @@ test("a mailto link encodes its subject", () => {
 
 test("the footer links, in order", () => {
   assert.deepEqual(FOOTER_LINKS.map((l) => l.label),
-    ["Chrome Extension (soon)", "Weekly Archive", "GitHub", "Advertise", "Privacy"]);
+    ["Chrome Extension", "Weekly Archive", "GitHub", "Advertise", "Privacy"]);
 });
 
-test("the extension has no link until it ships", () => {
-  assert.equal(FOOTER_LINKS[0].href, undefined);
+test("the extension links its store listing", () => {
+  assert.equal(FOOTER_LINKS[0].href, STORE_URL);
+  assert.equal(FOOTER_LINKS[0].internal, undefined);
 });
 
-test("every other link is https, mailto, or a page of the site", () => {
-  for (const link of FOOTER_LINKS.slice(1)) assert.match(link.href, /^(https:\/\/|mailto:|\/[a-z])/, link.label);
+test("every link is https, mailto, or a page of the site", () => {
+  for (const link of FOOTER_LINKS) assert.match(link.href, /^(https:\/\/|mailto:|\/[a-z])/, link.label);
   assert.equal(FOOTER_LINKS.find((l) => l.label === "Privacy").href, "/privacy");
   assert.equal(GITHUB_URL, "https://github.com/sachinjain024/aibytes");
   assert.equal(FOOTER_LINKS.find((l) => l.label === "GitHub").href, GITHUB_URL);

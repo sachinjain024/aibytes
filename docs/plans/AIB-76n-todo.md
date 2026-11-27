@@ -902,8 +902,14 @@ replaces store-listing's "on the same branch", which T23 corrects):
 `EXTENSION_LIVE = true`, and `footer.js` drops "(soon)" and links the
 listing.
 
+**As done (27 Nov 2026):** at the publisher's ask, on PR #73 itself with
+26.11.27 still in review, not a follow-up PR after approval. Until the store
+approves, the box and the footer link reach the listing as it is (26.1.15).
+
 **Acceptance criteria:**
-- [ ] The footer test is updated; the box and the onboarding button are live
+- [x] The footer test is updated; the box and the onboarding button are live
+  (checked on the dev server: "Add to Chrome" and the footer's "Chrome
+  Extension" open the listing in a new tab; no "(soon)")
 - [ ] A clean install from the store opens onboarding once; a 26.1.15 install updates silently
 
 **Verification:** (A), (C); by hand on aibytes.io after deploy.
