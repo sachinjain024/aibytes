@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "slug": "tc-nvidia-hits-pause-on-chip-shipments-to",
+  "kind": "news",
+  "title": "Nvidia hits pause on chip shipments to Southeast Asia",
+  "url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
+  "source_url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
+  "source": "techcrunch",
+  "category": "news",
+  "tags": [
+    "Nvidia",
+    "Policy"
+  ],
+  "image": {
+    "type": "thumbnail",
+    "url": "https://techcrunch.com/wp-content/uploads/2026/11/Taiwan-Nvidia.jpg?w=1024"
+  },
+  "depth": "full",
+  "lede": "Nvidia has told manufacturing partners to stop server shipments to four Southeast Asian countries while it checks that regional partners comply with U.S. export rules, the Wall Street Journal reports.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Partners including Dell and Super Micro were told to hold shipments to Malaysia, Singapore, Thailand and Indonesia.",
+        "The pause has no stated end date.",
+        "Chinese companies had been renting Nvidia compute remotely from data centers in those countries until the Commerce Department shut that route this month.",
+        "The Institute for Progress estimates such remote facilities provide about 24% of China's AI computing power."
+      ]
+    },
+    {
+      "key": "why_it_matters",
+      "text": "Server supply to Southeast Asian data centers now waits on export compliance checks, which can delay or tighten GPU capacity for anyone building on infrastructure hosted there."
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Nvidia hits pause on chip shipments to Southeast Asia",
+      "url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "tc-nvidia-hits-pause-on-chip-shipments-to-2026-11-27",
+      "edition_date": "2026-11-27"
+    },
+    {
+      "item_id": "tc-nvidia-pauses-server-shipments-to-southeast-asia-issue-20",
+      "issue_slug": "issue-20"
+    }
+  ],
+  "created_at": "2026-11-27T18:09:09Z",
+  "updated_at": "2026-11-28T02:01:02Z"
+}

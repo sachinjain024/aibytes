@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "slug": "hn-openai-may-be-in-cost-control-mode",
+  "kind": "hn",
+  "title": "OpenAI may be in cost control mode",
+  "url": "https://micjm.com/blog/openai-is-in-cost-control-mode/",
+  "source_url": "https://news.ycombinator.com/item?id=50652527",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "OpenAI",
+    "Pricing"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "A post built on battle-system data argues OpenAI tuned Astra 6.2 and Sol 6.2 for cost, since both now reason and output far less per task than the models they face.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The authors compare each model's spend and reasoning with its opponents in the same battle, plotted against their Elo leaderboard.",
+        "Astra 6 and Sol 6.1 looked typical; the 6.2 releases stand out as outliers on reasoning and output tokens.",
+        "Reported p-values for the drop in reasoning are 0.00013 for Sol and 0.0064 for Astra.",
+        "The authors conclude both models now underthink compared with their predecessors."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "counterpoint",
+          "text": "One commenter calls it a single data point, arguing Astra 6.2 was a timed release that may simply be undercooked.",
+          "url": "https://news.ycombinator.com/item?id=50660438"
+        },
+        {
+          "stance": "theme",
+          "text": "Others read it as OpenAI aiming for the cost-intelligence Pareto frontier on benchmarks, which suits buyers paying API rates.",
+          "url": "https://news.ycombinator.com/item?id=50659291"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "A commenter notes fewer reasoning tokens could also come from better pre-training, and calls the post too sure of itself.",
+          "url": "https://news.ycombinator.com/item?id=50668818"
+        },
+        {
+          "stance": "agreed",
+          "text": "Several users report weaker results lately, including a team that moved from Claude to Codex for cost and found the 6.x models poor at coding.",
+          "url": "https://news.ycombinator.com/item?id=50659691"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "OpenAI may be in cost control mode",
+      "url": "https://micjm.com/blog/openai-is-in-cost-control-mode/"
+    },
+    {
+      "role": "discussion",
+      "title": "OpenAI may be in cost control mode",
+      "url": "https://news.ycombinator.com/item?id=50652527"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-openai-may-be-in-cost-control-mode-2026-11-27",
+      "edition_date": "2026-11-27"
+    }
+  ],
+  "created_at": "2026-11-27T18:09:09Z",
+  "updated_at": "2026-11-27T18:09:09Z",
+  "stats": {
+    "points": 351,
+    "comments": 353,
+    "submitted_by": "seizethecheese",
+    "posted_at": "2026-11-26T07:33:12Z"
+  },
+  "stats_as_of": "2026-11-27T18:06:55Z"
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "slug": "hn-google-will-make-ai-agents-use-its-mcp-servers",
+  "kind": "hn",
+  "title": "Google Will Make AI Agents Use Its MCP Servers. The Gmail One Can't Send Email",
+  "url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/",
+  "source_url": "https://news.ycombinator.com/item?id=50653477",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Google",
+    "MCP",
+    "Agents"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "From 1 February 2027, Google's API terms require AI agents to reach Workspace through its eight MCP servers, and the Gmail server can draft mail but not send, reply or forward.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Agents that keep calling the REST APIs directly drop to Standard-tier quotas and breach the terms; apps without AI are unaffected.",
+        "Sending, replying and forwarding need partner access, while Anthropic's Claude connector already advertises them.",
+        "Google may cap retention of embeddings, memory indexes and profiles built from Workspace data at 30 days, and bans training on it.",
+        "The free tier allows 5,000 MCP requests a day per project per product, and a Gmail search costs 10.",
+        "OAuth clients must be flagged as agentic; older clients not marked in time have to be replaced."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "Many commenters see the partner-only send tool as a business decision, noting MCP elicitation could already gate sending behind user confirmation.",
+          "url": "https://news.ycombinator.com/item?id=50654225"
+        },
+        {
+          "stance": "disputed",
+          "text": "Commenters split on whether people will just have agents drive a browser instead, or whether security-minded users will push Google to add sending.",
+          "url": "https://news.ycombinator.com/item?id=50658840"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "One commenter calls it a net good, since MCP has forced Google to build features its APIs lacked for years, such as comments on a Docs range.",
+          "url": "https://news.ycombinator.com/item?id=50663849"
+        },
+        {
+          "stance": "theme",
+          "text": "A commenter reports the Gmail server now supports sending, apparently updated after the article was written.",
+          "url": "https://news.ycombinator.com/item?id=50663581"
+        },
+        {
+          "stance": "theme",
+          "text": "Drafts-only suits agents, one commenter argues, but a mandatory confirm step should then apply to everyone, not just independent developers.",
+          "url": "https://news.ycombinator.com/item?id=50669129"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "Google Will Make AI Agents Use Its Workspace MCP Servers. The Gmail One Can't Send Email | Tech Stackups",
+      "url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/"
+    },
+    {
+      "role": "discussion",
+      "title": "Google Will Make AI Agents Use Its MCP Servers. The Gmail One Can't Send Email",
+      "url": "https://news.ycombinator.com/item?id=50653477"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-google-will-make-ai-agents-use-its-mcp-servers-2026-11-27",
+      "edition_date": "2026-11-27"
+    },
+    {
+      "item_id": "hn-google-will-make-ai-agents-use-its-mcp-servers-t-issue-20",
+      "issue_slug": "issue-20"
+    }
+  ],
+  "created_at": "2026-11-27T18:09:09Z",
+  "updated_at": "2026-11-28T02:01:02Z",
+  "stats": {
+    "points": 339,
+    "comments": 327,
+    "submitted_by": "ritzaco",
+    "posted_at": "2026-11-26T09:44:23Z"
+  },
+  "stats_as_of": "2026-11-28T02:01:02Z",
+  "front_page": true
+}

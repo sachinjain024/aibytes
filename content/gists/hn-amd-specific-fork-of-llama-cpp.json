@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "hn-amd-specific-fork-of-llama-cpp",
+  "kind": "hn",
+  "title": "AMD-specific fork of llama.cpp",
+  "url": "https://devnull.land/amd-specific-llama-cpp",
+  "source_url": "https://news.ycombinator.com/item?id=50657265",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Local LLM",
+    "Inference",
+    "Open Source"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "A blog post recommends llama-cpp-rdna-boosts, a small set of AMD patches for llama.cpp that the author says lifted generation from 35 to 55 tokens per second.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "The patches apply to a pinned llama.cpp commit and are re-applied as upstream moves, keeping the fork small.",
+        "On an R9700 over eGPU running a 27B Qwen 3.8 model, prefill went from 700 to 1300 tokens per second.",
+        "The author warns that some new bespoke engines, such as Strata, gain speed by changing which experts the model uses.",
+        "Prebuilt ROCm server images run under podman, so there is no need to build against local ROCm libraries."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "agreed",
+          "text": "Several commenters report doubling or tripling speed with their own Claude-assisted forks, on an MI100 and on 7900XTX cards.",
+          "url": "https://news.ycombinator.com/item?id=50658571"
+        },
+        {
+          "stance": "theme",
+          "text": "Owners of 2018-era gfx906 cards with fast HBM2 memory note that patches aimed at newer RDNA cards do nothing for them.",
+          "url": "https://news.ycombinator.com/item?id=50657791"
+        },
+        {
+          "stance": "counterpoint",
+          "text": "Asked why llama.cpp does not merge these changes, a reply suggests they would cause regressions on other supported architectures.",
+          "url": "https://news.ycombinator.com/item?id=50657526"
+        },
+        {
+          "stance": "theme",
+          "text": "Intel Arc owners ask for similar patches, saying the XMX units go largely unused on Linux.",
+          "url": "https://news.ycombinator.com/item?id=50658990"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "AMD-specific fork of llama.cpp | devnull.land",
+      "url": "https://devnull.land/amd-specific-llama-cpp"
+    },
+    {
+      "role": "discussion",
+      "title": "AMD-specific fork of llama.cpp",
+      "url": "https://news.ycombinator.com/item?id=50657265"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-amd-specific-fork-of-llama-cpp-2026-11-27",
+      "edition_date": "2026-11-27"
+    }
+  ],
+  "created_at": "2026-11-27T18:09:09Z",
+  "updated_at": "2026-11-27T18:09:09Z",
+  "stats": {
+    "points": 422,
+    "comments": 102,
+    "submitted_by": "julianlam",
+    "posted_at": "2026-11-26T17:11:29Z"
+  },
+  "stats_as_of": "2026-11-27T18:06:55Z",
+  "front_page": true
+}

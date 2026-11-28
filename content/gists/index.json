@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-26T18:25:28Z",
+  "generated_at": "2026-11-28T02:01:02Z",
   "gists": [
     {
       "slug": "gh-app-store-compliance",
@@ -127,6 +127,12 @@
       "source_key": "github.com/n8n-io/n8n",
       "path": "gists/gh-n8n.json",
       "created_at": "2026-11-18T17:15:44Z"
+    },
+    {
+      "slug": "gh-obsidianmd-obsidian-skills",
+      "source_key": "github.com/obsidianmd/obsidian-skills",
+      "path": "gists/gh-obsidianmd-obsidian-skills.json",
+      "created_at": "2026-11-28T02:01:02Z"
     },
     {
       "slug": "gh-open-code-review",
@@ -267,6 +273,12 @@
       "created_at": "2026-11-20T16:59:26Z"
     },
     {
+      "slug": "hn-ai-made-self-hosting-fun-again",
+      "source_key": "news.ycombinator.com/item?id=50660180",
+      "path": "gists/hn-ai-made-self-hosting-fun-again.json",
+      "created_at": "2026-11-27T18:09:09Z"
+    },
+    {
       "slug": "hn-ai-supply-chain-security-what-canary-tokens",
       "source_key": "news.ycombinator.com/item?id=50596511",
       "path": "gists/hn-ai-supply-chain-security-what-canary-tokens.json",
@@ -289,6 +301,18 @@
       "source_key": "news.ycombinator.com/item?id=50507303",
       "path": "gists/hn-all-ai-generated-code-should-be-open-source.json",
       "created_at": "2026-11-15T15:41:02Z"
+    },
+    {
+      "slug": "hn-amd-specific-fork-of-llama-cpp",
+      "source_key": "news.ycombinator.com/item?id=50657265",
+      "path": "gists/hn-amd-specific-fork-of-llama-cpp.json",
+      "created_at": "2026-11-27T18:09:09Z"
+    },
+    {
+      "slug": "hn-an-introduction-to-uncertainty-in-machine",
+      "source_key": "news.ycombinator.com/item?id=50658498",
+      "path": "gists/hn-an-introduction-to-uncertainty-in-machine.json",
+      "created_at": "2026-11-27T18:09:09Z"
     },
     {
       "slug": "hn-anthropic-breaks-below-83-ipo-price",
@@ -409,6 +433,12 @@
       "source_key": "news.ycombinator.com/item?id=50526264",
       "path": "gists/hn-claude-mythos-slashed-software-work-to-onboard.json",
       "created_at": "2026-11-17T17:37:40Z"
+    },
+    {
+      "slug": "hn-claude-sabotaging-ml-research-tasks",
+      "source_key": "news.ycombinator.com/item?id=50664325",
+      "path": "gists/hn-claude-sabotaging-ml-research-tasks.json",
+      "created_at": "2026-11-27T18:09:09Z"
     },
     {
       "slug": "hn-claude-ship",
@@ -537,6 +567,12 @@
       "created_at": "2026-11-18T17:15:44Z"
     },
     {
+      "slug": "hn-google-will-make-ai-agents-use-its-mcp-servers",
+      "source_key": "news.ycombinator.com/item?id=50653477",
+      "path": "gists/hn-google-will-make-ai-agents-use-its-mcp-servers.json",
+      "created_at": "2026-11-27T18:09:09Z"
+    },
+    {
       "slug": "hn-google-workers-tell-their-employer-not-to",
       "source_key": "news.ycombinator.com/item?id=50577901",
       "path": "gists/hn-google-workers-tell-their-employer-not-to.json",
@@ -553,6 +589,12 @@
       "source_key": "news.ycombinator.com/item?id=50535230",
       "path": "gists/hn-gpt6-2-astra-and-sol.json",
       "created_at": "2026-11-18T17:15:44Z"
+    },
+    {
+      "slug": "hn-group-chat-where-your-ai-talks-behind-your-back",
+      "source_key": "news.ycombinator.com/item?id=50663595",
+      "path": "gists/hn-group-chat-where-your-ai-talks-behind-your-back.json",
+      "created_at": "2026-11-27T18:09:09Z"
     },
     {
       "slug": "hn-harsher-on-male-evaluating-llms-on-gender",
@@ -673,6 +715,12 @@
       "source_key": "news.ycombinator.com/item?id=50487184",
       "path": "gists/hn-openai-disbands-its-robotics-team-as-its.json",
       "created_at": "2026-11-14T15:02:25Z"
+    },
+    {
+      "slug": "hn-openai-may-be-in-cost-control-mode",
+      "source_key": "news.ycombinator.com/item?id=50652527",
+      "path": "gists/hn-openai-may-be-in-cost-control-mode.json",
+      "created_at": "2026-11-27T18:09:09Z"
     },
     {
       "slug": "hn-pandex-official-european-law-for-ai-agents-over",
@@ -813,6 +861,12 @@
       "created_at": "2026-11-21T16:08:42Z"
     },
     {
+      "slug": "hn-what-s-claude-s-fursona-and-other-questions",
+      "source_key": "news.ycombinator.com/item?id=50662933",
+      "path": "gists/hn-what-s-claude-s-fursona-and-other-questions.json",
+      "created_at": "2026-11-27T18:09:09Z"
+    },
+    {
       "slug": "hn-who-is-hiring-postings-stuck-near-12-year-lows",
       "source_key": "news.ycombinator.com/item?id=50512950",
       "path": "gists/hn-who-is-hiring-postings-stuck-near-12-year-lows.json",
@@ -909,6 +963,12 @@
       "created_at": "2026-11-16T08:33:32Z"
     },
     {
+      "slug": "ph-depost-ai-2",
+      "source_key": "producthunt.com/products/depost-ai",
+      "path": "gists/ph-depost-ai-2.json",
+      "created_at": "2026-11-27T18:09:09Z"
+    },
+    {
       "slug": "ph-dex-semantics",
       "source_key": "producthunt.com/products/dex-by-exmergo",
       "path": "gists/ph-dex-semantics.json",
@@ -931,6 +991,12 @@
       "source_key": "producthunt.com/products/ekline",
       "path": "gists/ph-ekline.json",
       "created_at": "2026-11-18T17:15:44Z"
+    },
+    {
+      "slug": "ph-extraorbital",
+      "source_key": "producthunt.com/products/extraorbital-deleted-1365752",
+      "path": "gists/ph-extraorbital.json",
+      "created_at": "2026-11-27T18:09:09Z"
     },
     {
       "slug": "ph-frevana-multiplayer",
@@ -1035,6 +1101,12 @@
       "created_at": "2026-11-16T08:33:32Z"
     },
     {
+      "slug": "ph-qa-tech-mcp-2",
+      "source_key": "producthunt.com/products/qa-tech",
+      "path": "gists/ph-qa-tech-mcp-2.json",
+      "created_at": "2026-11-27T18:09:09Z"
+    },
+    {
       "slug": "ph-rakazo-2",
       "source_key": "producthunt.com/products/rakazo",
       "path": "gists/ph-rakazo-2.json",
@@ -1069,6 +1141,12 @@
       "source_key": "producthunt.com/products/s-space",
       "path": "gists/ph-s-space.json",
       "created_at": "2026-11-19T17:24:12Z"
+    },
+    {
+      "slug": "ph-saparo",
+      "source_key": "producthunt.com/products/saparo",
+      "path": "gists/ph-saparo.json",
+      "created_at": "2026-11-28T02:01:02Z"
     },
     {
       "slug": "ph-stripo-email-widgets",
@@ -1123,6 +1201,12 @@
       "source_key": "producthunt.com/products/waldo-by-wherobots",
       "path": "gists/ph-waldo-by-wherobots.json",
       "created_at": "2026-11-19T17:24:12Z"
+    },
+    {
+      "slug": "ph-wizstar-r1",
+      "source_key": "producthunt.com/products/wizstar",
+      "path": "gists/ph-wizstar-r1.json",
+      "created_at": "2026-11-27T18:09:09Z"
     },
     {
       "slug": "ph-yoroll",
@@ -1527,6 +1611,12 @@
       "created_at": "2026-11-18T17:15:44Z"
     },
     {
+      "slug": "tc-nvidia-hits-pause-on-chip-shipments-to",
+      "source_key": "techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia",
+      "path": "gists/tc-nvidia-hits-pause-on-chip-shipments-to.json",
+      "created_at": "2026-11-27T18:09:09Z"
+    },
+    {
       "slug": "tc-nvidia-is-abandoning-china-after-jensen-huangs",
       "source_key": "techcrunch.com/2026/11/17/nvidia-is-abandoning-china-after-jensen-huangs-ouster",
       "path": "gists/tc-nvidia-is-abandoning-china-after-jensen-huangs.json",
@@ -1791,16 +1881,52 @@
       "created_at": "2026-11-22T04:36:39Z"
     },
     {
+      "slug": "x-antoniosarosi-taking-over-someone-else-s",
+      "source_key": "x.com/antoniosarosi/status/2126123713355772052",
+      "path": "gists/x-antoniosarosi-taking-over-someone-else-s.json",
+      "created_at": "2026-11-28T02:01:02Z"
+    },
+    {
+      "slug": "x-claudedevs-introducing-claude-ship-beta-claude",
+      "source_key": "x.com/ClaudeDevs/status/2124959436640858475",
+      "path": "gists/x-claudedevs-introducing-claude-ship-beta-claude.json",
+      "created_at": "2026-11-28T02:01:02Z"
+    },
+    {
+      "slug": "x-claudedevs-you-can-now-install-claude",
+      "source_key": "x.com/ClaudeDevs/status/2125315491522650299",
+      "path": "gists/x-claudedevs-you-can-now-install-claude.json",
+      "created_at": "2026-11-28T02:01:02Z"
+    },
+    {
+      "slug": "x-finkd-releasing-muse-in-the-uk",
+      "source_key": "x.com/finkd/status/2125107155338711179",
+      "path": "gists/x-finkd-releasing-muse-in-the-uk.json",
+      "created_at": "2026-11-28T02:01:02Z"
+    },
+    {
       "slug": "x-google-gemini-4-hydrogen-is-live",
       "source_key": "x.com/Google/status/2122820914777845813",
       "path": "gists/x-google-gemini-4-hydrogen-is-live.json",
       "created_at": "2026-11-22T04:36:39Z"
     },
     {
+      "slug": "x-google-yes-this-is-a-real",
+      "source_key": "x.com/Google/status/2125667315303723011",
+      "path": "gists/x-google-yes-this-is-a-real.json",
+      "created_at": "2026-11-28T02:01:02Z"
+    },
+    {
       "slug": "x-googlecloudtech-how-to-build-an-ai",
       "source_key": "x.com/GoogleCloudTech/status/2122359038151106953",
       "path": "gists/x-googlecloudtech-how-to-build-an-ai.json",
       "created_at": "2026-11-22T04:36:39Z"
+    },
+    {
+      "slug": "x-hwchase17-all-our-agents-at-langchain",
+      "source_key": "x.com/hwchase17/status/2124181216719151585",
+      "path": "gists/x-hwchase17-all-our-agents-at-langchain.json",
+      "created_at": "2026-11-28T02:01:02Z"
     },
     {
       "slug": "x-levelsio-there-is-no-real-way",
@@ -1815,6 +1941,12 @@
       "created_at": "2026-11-22T04:36:39Z"
     },
     {
+      "slug": "x-mohansolo-resetting-gemini-quota-for-all",
+      "source_key": "x.com/_mohansolo/status/2125851902009311306",
+      "path": "gists/x-mohansolo-resetting-gemini-quota-for-all.json",
+      "created_at": "2026-11-28T02:01:02Z"
+    },
+    {
       "slug": "x-msftresearch-ai-coding-agents-can-waste",
       "source_key": "x.com/MSFTResearch/status/2122435510463242401",
       "path": "gists/x-msftresearch-ai-coding-agents-can-waste.json",
@@ -1825,6 +1957,18 @@
       "source_key": "x.com/OpenAI/status/2122750124543926515",
       "path": "gists/x-openai-some-of-you-have-been.json",
       "created_at": "2026-11-22T04:36:39Z"
+    },
+    {
+      "slug": "x-shneural-asked-opus-next-5-6",
+      "source_key": "x.com/shneural/status/2125658847323017291",
+      "path": "gists/x-shneural-asked-opus-next-5-6.json",
+      "created_at": "2026-11-28T02:01:02Z"
+    },
+    {
+      "slug": "x-superalesha-if-you-pay-for-a",
+      "source_key": "x.com/superalesha/status/2126011712692224264",
+      "path": "gists/x-superalesha-if-you-pay-for-a.json",
+      "created_at": "2026-11-28T02:01:02Z"
     },
     {
       "slug": "x-theo-with-yet-another-unexpectedly-good",

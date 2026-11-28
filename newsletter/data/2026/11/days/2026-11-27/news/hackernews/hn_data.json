@@ -1,0 +1,130 @@
+{
+  "source": "hackernews",
+  "section": "ai-news",
+  "fetched_at": "2026-11-27",
+  "window": {
+    "after": "2026-11-26",
+    "before": "2026-11-28"
+  },
+  "query_params": {
+    "tags": "story",
+    "count": 10,
+    "min_points": 50,
+    "topic": "ai",
+    "ranking": "points,recency"
+  },
+  "totalCount": 15,
+  "poolCount": 68,
+  "stories": [
+    {
+      "title": "AI made self-hosting fun again",
+      "url": "https://janlukas.blog/posts/ai-self-hosting",
+      "type": "story",
+      "points": 990,
+      "num_comments": 467,
+      "author": "jlelse",
+      "created_at": "2026-11-26T21:47:45Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50660180",
+      "front_page": true
+    },
+    {
+      "title": "Group chat where your AI talks behind your back",
+      "url": "https://construct22.com/",
+      "type": "story",
+      "points": 584,
+      "num_comments": 248,
+      "author": "utiiiD",
+      "created_at": "2026-11-27T06:44:34Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50663595",
+      "front_page": true
+    },
+    {
+      "title": "OpenAI cuts GPT-6.2 usage: Astra hits limits 40% faster, Sol 25% faster",
+      "url": "https://twitter.com/thsottiaux/status/2125784147889393806",
+      "type": "story",
+      "points": 503,
+      "num_comments": 272,
+      "author": "Herrera",
+      "created_at": "2026-11-26T03:36:58Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50651117",
+      "front_page": false
+    },
+    {
+      "title": "AMD-specific fork of llama.cpp",
+      "url": "https://devnull.land/amd-specific-llama-cpp",
+      "type": "story",
+      "points": 422,
+      "num_comments": 102,
+      "author": "julianlam",
+      "created_at": "2026-11-26T17:11:29Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50657265",
+      "front_page": true
+    },
+    {
+      "title": "Google Will Make AI Agents Use Its MCP Servers. The Gmail One Can't Send Email",
+      "url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/",
+      "type": "story",
+      "points": 405,
+      "num_comments": 327,
+      "author": "ritzaco",
+      "created_at": "2026-11-26T09:44:23Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50653477",
+      "front_page": true
+    },
+    {
+      "title": "OpenAI may be in cost control mode",
+      "url": "https://micjm.com/blog/openai-is-in-cost-control-mode/",
+      "type": "story",
+      "points": 351,
+      "num_comments": 353,
+      "author": "seizethecheese",
+      "created_at": "2026-11-26T07:33:12Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50652527",
+      "front_page": false
+    },
+    {
+      "title": "Claude sabotaging ML research tasks?",
+      "url": "https://twitter.com/RealAstropulse/status/2126119408997466389",
+      "type": "story",
+      "points": 342,
+      "num_comments": 180,
+      "author": "baobabKoodaa",
+      "created_at": "2026-11-27T08:28:08Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50664325",
+      "front_page": true
+    },
+    {
+      "title": "Tracking Diseases Cured by AI",
+      "url": "https://diseasescuredbyai.com/",
+      "type": "story",
+      "points": 315,
+      "num_comments": 191,
+      "author": "spoofyroot",
+      "created_at": "2026-11-26T17:16:41Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50657307",
+      "front_page": false
+    },
+    {
+      "title": "An introduction to uncertainty in machine learning",
+      "url": "https://chrhenning.com/blog/2026/introduction-to-uncertainty/",
+      "type": "story",
+      "points": 134,
+      "num_comments": 12,
+      "author": "chrhenning",
+      "created_at": "2026-11-26T19:04:50Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50658498",
+      "front_page": false
+    },
+    {
+      "title": "\"What's Claude's fursona?\" and other questions",
+      "url": "https://herecomesthemoon.net/2026/11/whats-claudes-fursona/",
+      "type": "story",
+      "points": 118,
+      "num_comments": 85,
+      "author": "Mond_",
+      "created_at": "2026-11-27T04:56:18Z",
+      "hn_url": "https://news.ycombinator.com/item?id=50662933",
+      "front_page": true
+    }
+  ]
+}

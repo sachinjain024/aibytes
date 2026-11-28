@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "slug": "hn-what-s-claude-s-fursona-and-other-questions",
+  "kind": "hn",
+  "title": "\"What's Claude's fursona?\" and other questions",
+  "url": "https://herecomesthemoon.net/2026/11/whats-claudes-fursona/",
+  "source_url": "https://news.ycombinator.com/item?id=50662933",
+  "source": "hackernews",
+  "category": "hn",
+  "tags": [
+    "Anthropic",
+    "LLM"
+  ],
+  "image": {
+    "type": "none"
+  },
+  "depth": "full",
+  "lede": "A blogger asked a range of models what their fursona would be, 50 times each, and found Claude favours corvids or octopuses, Gemini protogens, and GPT-6.2 Astra a moth.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Queries went through OpenRouter with no harness or context; Claude Haiku 5.5 labelled the answers, and multimodal models iterated on images of their pick.",
+        "Gemini models raised machine or cybernetic themes in at least 48 of 50 answers, while Claude and GPT-6.2 never did.",
+        "Claude describes its fursona by behaviour more than looks, and Fable 5.2 put a brass key in nearly every image.",
+        "Most models avoided gendered language, and a playful fox was a common default.",
+        "Harness and context change results: Fable at max effort in the web UI also picked a moth."
+      ]
+    },
+    {
+      "key": "discussion",
+      "points": [
+        {
+          "stance": "disputed",
+          "text": "Commenters disagree on the raven with a key: a Scott Alexander image bet, a SciHub motif, or an older symbol for a keeper of knowledge.",
+          "url": "https://news.ycombinator.com/item?id=50663337"
+        },
+        {
+          "stance": "theme",
+          "text": "Training data is the favoured explanation, such as Facebook's office fox mascot behind Muse Spark's fox; a reply suggests fox is just the default for weaker models.",
+          "url": "https://news.ycombinator.com/item?id=50663455"
+        },
+        {
+          "stance": "theme",
+          "text": "One commenter points out that Claude's octopus drawing resembles the Claude logo.",
+          "url": "https://news.ycombinator.com/item?id=50664025"
+        },
+        {
+          "stance": "theme",
+          "text": "Commenters enjoy these emergent model tics, recalling a GPT release fixated on goblins, and wonder what they say about human habits.",
+          "url": "https://news.ycombinator.com/item?id=50663251"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "\"What's Claude's Fursona?\" and other Questions",
+      "url": "https://herecomesthemoon.net/2026/11/whats-claudes-fursona/"
+    },
+    {
+      "role": "discussion",
+      "title": "\"What's Claude's fursona?\" and other questions",
+      "url": "https://news.ycombinator.com/item?id=50662933"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "hn-what-s-claude-s-fursona-and-other-questions-2026-11-27",
+      "edition_date": "2026-11-27"
+    }
+  ],
+  "created_at": "2026-11-27T18:09:09Z",
+  "updated_at": "2026-11-27T18:09:09Z",
+  "stats": {
+    "points": 118,
+    "comments": 85,
+    "submitted_by": "Mond_",
+    "posted_at": "2026-11-27T04:56:18Z"
+  },
+  "stats_as_of": "2026-11-27T18:06:55Z",
+  "front_page": true
+}
