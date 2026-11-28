@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🕵️ Agents work for their makers not you and Character.ai sells your chats</title>
+<meta name="description" content="Plus Claude artifacts as desktop apps, the Claude Ship launch and Obsidian&#x27;s official agent skills.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
+    --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--cobalt);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px 56px}
+
+  header{padding:36px 0 0}
+  .issue-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--slate);display:flex;justify-content:space-between;margin-bottom:12px}
+  .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
+  .logo em{font-style:normal;color:var(--cobalt)}
+
+
+  section{margin-top:34px}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--paper);background:var(--ink);padding:2px 7px}
+  .sec-title{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+  .sec-rule{flex:1;height:2px;background:var(--ink)}
+
+  /* ── Intro block ── */
+  .intro{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 22px;margin-bottom:18px}
+  .intro p{font-size:15.5px;line-height:1.65;margin-bottom:14px;color:#3A3E4A}
+  .intro p:last-child{margin-bottom:0}
+  .intro .greet{color:var(--ink)}
+  .intro b{color:var(--ink);font-weight:700}
+  /* Table of contents: closes the intro. The label speaks in the storyline lead's
+       voice (body face, bold ink); the rows sit smaller and lighter beneath it. */
+  .intro .toc-label{color:var(--ink);font-weight:700;margin-bottom:4px}
+  .toc{border-top:1px solid var(--line)}
+  .toc .r{display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:baseline;padding:5px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+  .toc .r:last-child{border-bottom:none;padding-bottom:0}
+  .toc .m{font-family:var(--mono);font-size:10.5px;font-weight:500;color:var(--slate)}
+  .toc .n{color:#3A3E4A;font-weight:500}
+  .toc .d{font-family:var(--mono);font-size:11px;color:var(--slate);white-space:nowrap}
+
+  /* ── News card ── */
+  .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
+  .news-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;color:var(--cobalt);letter-spacing:.02em;margin-bottom:14px}
+  .news-item{font-size:15.5px;margin-bottom:14px;line-height:1.6}
+  .news-item:last-of-type{margin-bottom:0}
+  .news-item b a{font-weight:700}
+  .src{font-family:var(--mono);font-size:12px;color:var(--slate)}
+  /* Attribution links stay grey and quiet - the headline link is the loud one. */
+  .src a{color:var(--slate);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+  .src a:hover{color:var(--ink)}
+  .quote{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px 18px;margin-top:18px}
+  .quote p{font-size:15px;color:#3A3E4A}
+
+  /* ── Official Announcements: the companies' own posts on X, whole and verbatim ──
+       Ink card, sibling of the AI News card. Each entry is a byline, the post in a
+       paper inset (the same treatment as the AI News quote, so the words read as
+       theirs), and a mono footer with the post and the official page. ── */
+  .oa-card{border:1.5px solid var(--ink);border-radius:14px;padding:20px 22px;background:var(--card);margin-top:18px}
+  .oa-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.02em}
+  .oa-card .card-sub{font-size:13.5px;color:var(--slate);margin:2px 0 6px}
+  .oa-item{padding:14px 0;border-bottom:1px solid var(--line)}
+  .oa-item:last-child{border-bottom:none;padding-bottom:0}
+  .oa-by{font-size:14.5px;margin-bottom:8px}
+  .oa-by b{color:var(--ink)}
+  .oa-by span{font-family:var(--mono);font-size:11px;color:var(--slate)}
+  .oa-post{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px 4px;margin-bottom:8px}
+  .oa-post p{font-size:15px;line-height:1.55;color:#3A3E4A;margin-bottom:8px}
+  .oa-links{font-family:var(--mono);font-size:11.5px;color:var(--slate)}
+  .oa-links .dot{color:var(--line)}
+
+  /* ── Ticker rows ── */
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .ico{width:22px;text-align:center;flex-shrink:0}
+  .row .txt{flex:1}
+  .row .txt b{font-weight:600}
+  .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
+  .stat b{color:var(--cobalt);font-weight:700}
+  .hot{background:var(--signal);padding:0 4px;font-weight:600}
+  /* Viral on X rows: emoji, the author's @handle in cobalt (linked to the profile),
+       then the post's own words in body grey. */
+  .sec-sub{font-size:14px;color:var(--slate);margin:-4px 0 6px}
+  .row .txt a.post{color:#3A3E4A}
+  .row .txt a.post:hover{color:var(--cobalt)}
+  .cut{color:var(--slate)}
+
+  footer{margin-top:48px;border-top:3px solid var(--ink);padding-top:20px;text-align:center}
+  footer p{color:var(--slate);font-size:13.5px}
+  .foot-links{margin-top:10px;font-family:var(--mono);font-size:12.5px;display:flex;gap:20px;justify-content:center}
+  @media (max-width:480px){ .row{flex-wrap:wrap} .stat{margin-left:34px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="issue-tag"><span>ISSUE 0x14 · TL;DR</span><span>2026-11-30 · ~6 MIN</span></div>
+    <div class="logo">⚡ aiBytes<em>_</em> #20</div>
+  </header>
+
+  <section>
+    <div class="intro">
+      <p class="greet">Hello, AI enthusiasts 👋</p>
+      <p>Welcome back to your weekly dose of aiBytes_.</p>
+      <p>Here's a quick update: we've shipped <b>aiBytes_ as a Chrome extension</b> to help you quickly get to the daily ai_ feed. <a href="https://chromewebstore.google.com/detail/faamldnehjdjdobapchedpmldfjjfife">Add it to Chrome</a>.</p>
+      <p>I didn't expect a song to make the week's best argument about AI. Michael Harley built a Claude Code skill that finds the Bandcamp page of music he hears on Instagram, so he can buy it. When Bandcamp added a challenge to its search, Claude refused to help him get past it. It would still download the same track from YouTube, where the band earns nothing 🎸. His conclusion: <a href="https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/">LLM agents work for their parent companies, not for you</a>.</p>
+      <p><b>The rest of the week asked the same question: whose side is your agent on</b>: Google's new Workspace terms send every agent through its own MCP servers, where Anthropic's Claude connector can send your email and an independent developer's agent can only leave drafts. Signal will block assistants like Gemini and Siri from reading its chats off the screen, and Character.AI's bankruptcy sale puts its users' private chats up for auction. An agent is only as loyal as the company that runs it. I'd read the terms before handing one the keys.</p>
+      <p class="toc-label">In this issue</p>
+      <div class="toc">
+<div class="r"><span class="m">🌍</span><span class="n">AI News</span><span class="d">9 stories</span></div>
+<div class="r"><span class="m">📣</span><span class="n">Official Announcements</span><span class="d">Anthropic · Google · Meta</span></div>
+<div class="r"><span class="m">0x02</span><span class="n">Viral on X</span><span class="d">5 posts</span></div>
+<div class="r"><span class="m">0x03</span><span class="n">New AI Products</span><span class="d">5 launches</span></div>
+<div class="r"><span class="m">0x04</span><span class="n">Trending Github Projects</span><span class="d">4 repos</span></div>
+<div class="r"><span class="m">0x05</span><span class="n">HN Deep Stories</span><span class="d">5 threads</span></div>
+      </div>
+    </div>
+
+    <div class="news-card">
+      <div class="card-title">🌍 AI NEWS</div>
+
+      <p class="news-item">🕵️ <b><a href="https://aibytes.io/gists/hn-llm-agents-work-for-their-parent-companies-not?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">LLM agents work for their parent companies, not for you</a></b> Claude Code refused to get past Bandcamp's new search challenge, then still offered to download the same song from YouTube, where the band earns nothing. <span class="hot">Story of the week</span> <span class="src">(<a href="https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/">Michael Harley</a>)</span></p>
+<p class="news-item">📵 <b><a href="https://aibytes.io/gists/hn-restricting-ai-agents-in-mobile-operating?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Signal will block AI assistants from reading its chats</a></b> On iOS 27 and Android, Signal will block screen capture when it detects an assistant reading the screen, as it did for Microsoft Recall. <span class="src">(<a href="https://signal.org/blog/protecting-your-privacy/">Signal</a>)</span></p>
+<p class="news-item">🗄️ <b><a href="https://aibytes.io/gists/tc-state-ags-fight-character-ais-plan-to-auction?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">State AGs fight Character.AI's plan to sell users' private chats</a></b> The bankruptcy auction covers chats from more than 21 million U.S. accounts, 2.1 million of them registered to minors. <span class="src">(<a href="https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/">TechCrunch</a>)</span></p>
+<p class="news-item">🔁 <b><a href="https://aibytes.io/gists/hn-glm-5-4-toward-generalized-coding-with-our?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Z.ai ships GLM-5.4, its first loop transformer</a></b> A model aimed at more general coding work, and the lab's first built on a loop transformer architecture. <span class="src">(<a href="https://z.ai/blog/glm-5.4">Z.ai</a>)</span></p>
+<p class="news-item">⏳ <b><a href="https://aibytes.io/gists/tc-openai-says-heavy-chatgpt-users-may-hit-limits?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">OpenAI merges Chat and Work under one usage meter</a></b> One allowance across ChatGPT, so the heaviest users may hit limits sooner. Instant stays unlimited. <span class="src">(<a href="https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/">TechCrunch</a>)</span></p>
+<p class="news-item">🏭 <b><a href="https://aibytes.io/gists/hn-87-of-the-anthropic-power-will-come-from-gas?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Anthropic's 2028 power will come 87% from gas and 11% from coal</a></b> A case study of its contracted U.S. data centers puts 2028 emissions near 32 million tonnes of CO2 in the mid case. <span class="src">(<a href="https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/">Better Data Center Project</a>)</span></p>
+<p class="news-item">📉 <b><a href="https://aibytes.io/gists/hn-anthropic-breaks-below-83-ipo-price?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Anthropic breaks below its $83 IPO price</a></b> Shares traded under the IPO price before the market opened, a week after listing. <span class="src">(<a href="https://www.bloomberg.com/news/articles/2026-11-24/anthropic-breaks-below-83-ipo-price-in-premarket-trading">Bloomberg</a>)</span></p>
+<p class="news-item">🚢 <b><a href="https://aibytes.io/gists/tc-nvidia-hits-pause-on-chip-shipments-to?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Nvidia pauses server shipments to Southeast Asia</a></b> Dell and Super Micro were told to hold servers for Malaysia, Singapore, Thailand and Indonesia while Nvidia checks export compliance. <span class="src">(<a href="https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/">TechCrunch</a>)</span></p>
+<p class="news-item">📷 <b><a href="https://aibytes.io/gists/hn-the-new-york-times-warns-photographers-not-to?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">The New York Times tells photographers not to update Photoshop</a></b> Photoshop 2027's AI features can mark photos as AI-edited in their C2PA metadata, even after minimal edits. <span class="src">(<a href="https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features">The Verge</a>)</span></p>
+
+      <div class="quote">
+        <p>"An agent is only as loyal as the company that runs it."</p>
+      </div>
+    </div>
+
+    <div class="oa-card">
+      <div class="card-title">📣 OFFICIAL ANNOUNCEMENTS</div>
+      <p class="card-sub">This week's launches, in the companies' own words.</p>
+<div class="oa-item"><div class="oa-by"><b>Anthropic</b> <span>@ClaudeDevs · TUE 24</span></div><div class="oa-post"><p>You can now install Claude artifacts as desktop apps on Mac and Windows.</p><p>Ask Claude to build an artifact, click "Install as app", and open it like any other app. It can use your connectors and, if you allow it, send notifications or add a menu bar item.</p></div><div class="oa-links"><a href="https://aibytes.io/gists/x-claudedevs-you-can-now-install-claude?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Gist ↗</a> <span class="dot">·</span> <a href="https://x.com/ClaudeDevs/status/2125315491522650299">Post on X ↗</a> <span class="dot">·</span> <a href="https://claude.com/resources/articles/install-as-app">claude.com ↗</a></div></div>
+<div class="oa-item"><div class="oa-by"><b>Anthropic</b> <span>@ClaudeDevs · MON 23</span></div><div class="oa-post"><p>Introducing Claude Ship (beta): Claude can review your pull requests, work on fixes, and approve the ones your team's policy allows.</p><p>The goal is to help you ship code as fast as you can write it.</p></div><div class="oa-links"><a href="https://aibytes.io/gists/x-claudedevs-introducing-claude-ship-beta-claude?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Gist ↗</a> <span class="dot">·</span> <a href="https://x.com/ClaudeDevs/status/2124959436640858475">Post on X ↗</a> <span class="dot">·</span> <a href="https://claude.com/resources/articles/introducing-claude-ship">claude.com ↗</a></div></div>
+<div class="oa-item"><div class="oa-by"><b>Google</b> <span>@_mohansolo · THU 26</span></div><div class="oa-post"><p>Resetting Gemini quota for all Antigravity users for Thanksgiving!</p><p>We’re very thankful for all of our users ❤️</p><p>We’re growing very quickly and are working tirelessly to make sure you all have a great experience!</p></div><div class="oa-links"><a href="https://aibytes.io/gists/x-mohansolo-resetting-gemini-quota-for-all?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Gist ↗</a> <span class="dot">·</span> <a href="https://x.com/_mohansolo/status/2125851902009311306">Post on X ↗</a></div></div>
+<div class="oa-item"><div class="oa-by"><b>Meta</b> <span>@finkd · TUE 24</span></div><div class="oa-post"><p>Releasing Muse in the UK starting today -- now spells colour with a "u".</p></div><div class="oa-links"><a href="https://aibytes.io/gists/x-finkd-releasing-muse-in-the-uk?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Gist ↗</a> <span class="dot">·</span> <a href="https://x.com/finkd/status/2125107155338711179">Post on X ↗</a></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x02</span><h2 class="sec-title">Viral on X</h2><div class="sec-rule"></div></div>
+    <p class="sec-sub">The AI posts that drew the biggest reaction this week.</p>
+    <div class="row"><span class="ico">🎬</span><span class="txt"><b><a href="https://x.com/shneural">@shneural</a></b> <a class="post" href="https://aibytes.io/gists/x-shneural-asked-opus-next-5-6?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">asked Opus Next (5.6/6) to make an Anthropic-style launch video for "Claude Pelican 1", a fake model that only generates SVG pelicans on bicycles <span class="cut">/</span> gave it their real launch videos as refs. it actually looks like an official ad lol</a> <span class="src">(<a href="https://x.com/shneural/status/2125658847323017291">X</a>)</span></span><span class="stat"><b>♥︎ 7.7k</b></span></div>
+<div class="row"><span class="ico">🖥️</span><span class="txt"><b><a href="https://x.com/superalesha">@superalesha</a></b> <a class="post" href="https://aibytes.io/gists/x-superalesha-if-you-pay-for-a?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">You're sitting on a 96 GB RTX PRO 6000 in Colab. One script launches GLM-5.3 at 102 tok/s.</a> <span class="src">(<a href="https://x.com/superalesha/status/2126011712692224264">X</a>)</span></span><span class="stat"><b>♥︎ 4.3k</b></span></div>
+<div class="row"><span class="ico">🏭</span><span class="txt"><b><a href="https://x.com/hwchase17">@hwchase17</a></b> <a class="post" href="https://aibytes.io/gists/x-hwchase17-all-our-agents-at-langchain?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">all our agents at langchain (internal GTM &amp; content agents, LangSmith Engine) have a learning loop with similar pieces <span class="cut">/</span> wrote about what we think makes up a "knowledge factory" https://x.com/i/article/2124180107669766144</a> <span class="src">(<a href="https://x.com/hwchase17/status/2124181216719151585">X</a>)</span></span><span class="stat"><b>♥︎ 4.1k</b></span></div>
+<div class="row"><span class="ico">🔀</span><span class="txt"><b><a href="https://x.com/antoniosarosi">@antoniosarosi</a></b> <a class="post" href="https://aibytes.io/gists/x-antoniosarosi-taking-over-someone-else-s?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">A funny but realistic story of How PRs were merged in 2022 vs 2026</a> <span class="src">(<a href="https://x.com/antoniosarosi/status/2126123713355772052">X</a>)</span></span><span class="stat"><b>♥︎ 3.9k</b></span></div>
+<div class="row"><span class="ico">📊</span><span class="txt"><b><a href="https://x.com/Google">@Google</a></b> <a class="post" href="https://aibytes.io/gists/x-google-yes-this-is-a-real?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Yes, this is a real Google Sheet 📊 <span class="cut">/</span> Using /swarm in @Antigravity, Gemini 4 Neon turned one photo into a 100,000-cell grid with zero embedded images and zero Apps Script — using native formulas for edge detection, 3D depth shading, and six lighting modes.</a> <span class="src">(<a href="https://x.com/Google/status/2125667315303723011">X</a>)</span></span><span class="stat"><b>♥︎ 2.2k</b></span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x03</span><h2 class="sec-title">New AI Products</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">👀</span><span class="txt"><b><a href="https://aibytes.io/gists/ph-letter-visitors?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Letter Visitors</a></b> - See the people, companies and AI agents on your website, on the site itself, with session replays. <span class="src">(<a href="https://www.producthunt.com/products/visitors">ProductHunt</a>)</span></span><span class="stat"><b>▲ 417</b></span></div>
+<div class="row"><span class="ico">🛰️</span><span class="txt"><b><a href="https://aibytes.io/gists/ph-hub-d3d2bb55-5f42-4355-98fe-d7e0b636a030?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Hub</a></b> - A self-hosted coordinator that hands your goals to Claude Code and Codex sessions and sends back only the decisions. <span class="src">(<a href="https://www.producthunt.com/products/hub-20">ProductHunt</a>)</span></span><span class="stat"><b>▲ 395</b></span></div>
+<div class="row"><span class="ico">🎮</span><span class="txt"><b><a href="https://aibytes.io/gists/ph-yoroll?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Yoroll</a></b> - Turn a script, image or clip into a playable, branching story without a game engine. <span class="src">(<a href="https://www.producthunt.com/products/yoroll">ProductHunt</a>)</span></span><span class="stat"><b>▲ 365</b></span></div>
+<div class="row"><span class="ico">🐗</span><span class="txt"><b><a href="https://aibytes.io/gists/ph-rankhog?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Rankhog</a></b> - Finds Reddit threads asking for what you sell and posts replies from your account, one by one or on autopilot. <span class="src">(<a href="https://www.producthunt.com/products/rankhog">ProductHunt</a>)</span></span><span class="stat"><b>▲ 363</b></span></div>
+<div class="row"><span class="ico">🏷️</span><span class="txt"><b><a href="https://aibytes.io/gists/ph-saparo?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Saparo</a></b> - A shopping agent that stacks promo codes, cash back and card offers, then leaves the final payment to you. <span class="src">(<a href="https://www.producthunt.com/products/saparo">ProductHunt</a>)</span></span><span class="stat"><b>▲ 348</b></span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x04</span><h2 class="sec-title">Trending Github Projects</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🔎</span><span class="txt"><b><a href="https://aibytes.io/gists/gh-last30days-skill?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">mvanhorn/last30days-skill</a></b> - An agent skill that researches one topic across Reddit, X, YouTube, HN and Polymarket and writes a sourced brief. <span class="src">(<a href="https://github.com/mvanhorn/last30days-skill">GitHub</a>)</span></span><span class="stat"><b>+5.1k</b> ★</span></div>
+<div class="row"><span class="ico">🎞️</span><span class="txt"><b><a href="https://aibytes.io/gists/gh-ffmpeg-skill?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">kajisho5/ffmpeg-skill</a></b> - A local video editor for coding agents: FFmpeg tools with a machine-readable contract and an MCP server. <span class="src">(<a href="https://github.com/kajisho5/ffmpeg-skill">GitHub</a>)</span></span><span class="stat"><b>+3.2k</b> ★</span></div>
+<div class="row"><span class="ico">📈</span><span class="txt"><b><a href="https://aibytes.io/gists/gh-claude-trading-skills?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">tradermonty/claude-trading-skills</a></b> - Claude skills for part-time investors: market review, risk checks, trade planning and a journal, not buy or sell calls. <span class="src">(<a href="https://github.com/tradermonty/claude-trading-skills">GitHub</a>)</span></span><span class="stat"><b>+1.4k</b> ★</span></div>
+<div class="row"><span class="ico">🗂️</span><span class="txt"><b><a href="https://aibytes.io/gists/gh-obsidianmd-obsidian-skills?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">obsidianmd/obsidian-skills</a></b> - Obsidian's official skills that teach agents its formats: Markdown, Bases and JSON Canvas. <span class="src">(<a href="https://github.com/obsidianmd/obsidian-skills">GitHub</a>)</span></span><span class="stat"><b>+704</b> ★</span></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-hex">0x05</span><h2 class="sec-title">HN Deep Stories</h2><div class="sec-rule"></div></div>
+    <div class="row"><span class="ico">🏠</span><span class="txt"><b><a href="https://aibytes.io/gists/hn-ai-made-self-hosting-fun-again?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">AI made self-hosting fun again</a></b> A personal essay on how AI tools made running your own services enjoyable again. <span class="src">(<a href="https://news.ycombinator.com/item?id=50660180">HackerNews</a>)</span></span><span class="stat"><b>751</b> pts</span></div>
+<div class="row"><span class="ico">🧬</span><span class="txt"><b><a href="https://aibytes.io/gists/hn-language-models-can-rewrite-their-own-weights?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Language models can rewrite their own weights</a></b> An open 27B model inspects its own weights, diagnoses a failure and edits them directly, with no gradient updates. <span class="src">(<a href="https://news.ycombinator.com/item?id=50577265">HackerNews</a>)</span></span><span class="stat"><b>494</b> pts</span></div>
+<div class="row"><span class="ico">🧪</span><span class="txt"><b><a href="https://aibytes.io/gists/hn-ask-hn-anthropic-is-accusing-my-company-of?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Ask HN: Anthropic is accusing my company of distilling. How can I prove I'm not?</a></b> A founder asks how to show they are not distilling the models they pay Anthropic to use. <span class="src">(<a href="https://news.ycombinator.com/item?id=50630809">HackerNews</a>)</span></span><span class="stat"><b>469</b> pts</span></div>
+<div class="row"><span class="ico">🎮</span><span class="txt"><b><a href="https://aibytes.io/gists/hn-show-hn-i-built-a-game-where-you-are-an-llm-s?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Show HN: I built a game where you are an LLM's subagent</a></b> A real LLM orchestrator thinks you are its subagent, sends you terminal tasks on a 90-second clock and reviews your work. <span class="src">(<a href="https://news.ycombinator.com/item?id=50599762">HackerNews</a>)</span></span><span class="stat"><b>362</b> pts</span></div>
+<div class="row"><span class="ico">📭</span><span class="txt"><b><a href="https://aibytes.io/gists/hn-google-will-make-ai-agents-use-its-mcp-servers?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Google will make AI agents use its MCP servers. The Gmail one can't send email</a></b> From February, agents must reach Workspace through Google's MCP servers, and the public Gmail one can draft but not send. <span class="src">(<a href="https://news.ycombinator.com/item?id=50653477">HackerNews</a>)</span></span><span class="stat"><b>339</b> pts</span></div>
+  </section>
+
+  <footer>
+    <p>Curated &amp; Written with ❤️ for Engineers and Startup Founders.</p>
+    <div class="foot-links"><a href="#">SUBSCRIBE</a><a href="#">ARCHIVE</a><a href="#">SUGGEST A LINK</a></div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -96,7 +96,7 @@ the row, as plain text:
   call, Issue 17; the "not linked" rule does not apply once a gist exists).
   Issues 1–18 keep the title plain and the thread as the only orange.
 
-The X words are still verbatim and still come from the `x_items.py` render.
+The X words still come from the `x_items.py` render (`newsletter_title` for a long Viral on X post, otherwise the opening words of `text`).
 `scripts/substack_export.py` builds this whole layout from the issue HTML, and
 its X rows match `x_items.py render --format substack` exactly, so
 `x_items.py verify --substack <export page>` checks them.

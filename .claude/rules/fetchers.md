@@ -2,6 +2,8 @@
 paths:
   - "packages/fetchers/**"
   - ".claude/skills/*-fetch-items/**"
+  - ".claude/skills/proj-generate-prompt-x-items/**"
+  - ".claude/skills/proj-fetch-from-x/**"
   - ".claude/skills/fetch-weekly-items/**"
   - "tests/test_fetchers.py"
   - "tests/test_ai_filters.py"
@@ -48,18 +50,20 @@ The skill scripts are thin wrappers by design: they re-export their source
 module's functions under the historical names so the offline tests keep
 reaching them. Keep them thin — logic belongs in the package.
 
-## X is pasted, not fetched
+## X is gathered in Grok, not by fetch.py
 
-`x_paste.py` is the exception. X has no API this project can call, so the
-publisher runs a Grok prompt and pastes the JSON in. There is no `fetch()`,
-so it is not a `sources/` module and doesn't use the runner or the envelope.
-It still files its snapshot through `layout`, under the same weekly path. The
-contract is in `.claude/skills/x-fetch-items/references/x-data.md`, and the
+`x_paste.py` is the exception. There is no `fetch()` the shared runner can
+call, so it is not a `sources/` module and doesn't use the envelope. Grok
+pulls the week with `/proj-fetch-from-x` (native X search) or the publisher
+pastes JSON from `/proj-generate-prompt-x-items`. Both write
+`week-NN/x/x_data.json` through `layout`, plus `x_review.md` for picking.
+The contract is in
+`.claude/skills/proj-generate-prompt-x-items/references/x-data.md`, and the
 tests are in `tests/test_x_fetch_items.py`.
 
-`x_render.py` turns the shortlist into the newsletter's HTML, because those
-sections show posts word for word and a script copies text more reliably than
-the issue skill retyping it. Its markup mirrors the generate-newsletter-content
-template, the Substack export script
+`x_render.py` turns the shortlist into the newsletter's HTML. Official
+Announcements prints `text`; Viral on X prints `newsletter_title` when a
+long post has one, otherwise the opening words. Its markup mirrors the
+generate-newsletter-content template, the Substack export script
 (`generate-newsletter-content/scripts/substack_export.py`) and the Beehiiv
 patterns: change them together.

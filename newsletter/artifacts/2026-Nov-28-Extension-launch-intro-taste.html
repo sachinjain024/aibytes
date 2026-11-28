@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Issue 20 Extension Intro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFAF7; --ink:#191C26; --cobalt:#2B4EF0; --signal:#FFD338;
+    --slate:#6B7080; --line:#E4E4DC; --card:#FFFFFF;
+    --display:'Bricolage Grotesque',sans-serif; --body:'Instrument Sans',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--cobalt);text-decoration:none}
+  a:hover{text-decoration:underline;text-underline-offset:3px}
+  a:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-radius:2px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 20px 56px}
+
+  header{padding:36px 0 0}
+  .issue-tag{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--slate);display:flex;justify-content:space-between;margin-bottom:12px}
+  .logo{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em}
+  .logo em{font-style:normal;color:var(--cobalt)}
+
+
+  section{margin-top:34px}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+  .sec-hex{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--paper);background:var(--ink);padding:2px 7px}
+  .sec-title{font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+  .sec-rule{flex:1;height:2px;background:var(--ink)}
+
+  /* ── Intro block ── */
+  .intro{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 22px;margin-bottom:18px}
+  .intro p{font-size:15.5px;line-height:1.65;margin-bottom:14px;color:#3A3E4A}
+  .intro p:last-child{margin-bottom:0}
+  .intro .greet{color:var(--ink)}
+  .intro b{color:var(--ink);font-weight:700}
+  /* Table of contents: closes the intro. The label speaks in the storyline lead's
+       voice (body face, bold ink); the rows sit smaller and lighter beneath it. */
+  .intro .toc-label{color:var(--ink);font-weight:700;margin-bottom:4px}
+  .toc{border-top:1px solid var(--line)}
+  .toc .r{display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:baseline;padding:5px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+  .toc .r:last-child{border-bottom:none;padding-bottom:0}
+  .toc .m{font-family:var(--mono);font-size:10.5px;font-weight:500;color:var(--slate)}
+  .toc .n{color:#3A3E4A;font-weight:500}
+  .toc .d{font-family:var(--mono);font-size:11px;color:var(--slate);white-space:nowrap}
+
+  /* ── News card ── */
+  .news-card{border:2px solid var(--cobalt);border-radius:14px;padding:20px 22px;background:var(--card)}
+  .news-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;color:var(--cobalt);letter-spacing:.02em;margin-bottom:14px}
+  .news-item{font-size:15.5px;margin-bottom:14px;line-height:1.6}
+  .news-item:last-of-type{margin-bottom:0}
+  .news-item b a{font-weight:700}
+  .src{font-family:var(--mono);font-size:12px;color:var(--slate)}
+  /* Attribution links stay grey and quiet - the headline link is the loud one. */
+  .src a{color:var(--slate);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+  .src a:hover{color:var(--ink)}
+  .quote{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:16px 18px;margin-top:18px}
+  .quote p{font-size:15px;color:#3A3E4A}
+
+  /* ── Official Announcements: the companies' own posts on X, whole and verbatim ──
+       Ink card, sibling of the AI News card. Each entry is a byline, the post in a
+       paper inset (the same treatment as the AI News quote, so the words read as
+       theirs), and a mono footer with the post and the official page. ── */
+  .oa-card{border:1.5px solid var(--ink);border-radius:14px;padding:20px 22px;background:var(--card);margin-top:18px}
+  .oa-card .card-title{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.02em}
+  .oa-card .card-sub{font-size:13.5px;color:var(--slate);margin:2px 0 6px}
+  .oa-item{padding:14px 0;border-bottom:1px solid var(--line)}
+  .oa-item:last-child{border-bottom:none;padding-bottom:0}
+  .oa-by{font-size:14.5px;margin-bottom:8px}
+  .oa-by b{color:var(--ink)}
+  .oa-by span{font-family:var(--mono);font-size:11px;color:var(--slate)}
+  .oa-post{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px 4px;margin-bottom:8px}
+  .oa-post p{font-size:15px;line-height:1.55;color:#3A3E4A;margin-bottom:8px}
+  .oa-links{font-family:var(--mono);font-size:11.5px;color:var(--slate)}
+  .oa-links .dot{color:var(--line)}
+
+  /* ── Ticker rows ── */
+  .row{display:flex;gap:12px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+  .row:last-child{border-bottom:none}
+  .ico{width:22px;text-align:center;flex-shrink:0}
+  .row .txt{flex:1}
+  .row .txt b{font-weight:600}
+  .stat{font-family:var(--mono);font-size:11.5px;color:var(--slate);white-space:nowrap}
+  .stat b{color:var(--cobalt);font-weight:700}
+  .hot{background:var(--signal);padding:0 4px;font-weight:600}
+  /* Viral on X rows: emoji, the author's @handle in cobalt (linked to the profile),
+       then the post's own words in body grey. */
+  .sec-sub{font-size:14px;color:var(--slate);margin:-4px 0 6px}
+  .row .txt a.post{color:#3A3E4A}
+  .row .txt a.post:hover{color:var(--cobalt)}
+  .cut{color:var(--slate)}
+
+  footer{margin-top:48px;border-top:3px solid var(--ink);padding-top:20px;text-align:center}
+  footer p{color:var(--slate);font-size:13.5px}
+  .foot-links{margin-top:10px;font-family:var(--mono);font-size:12.5px;display:flex;gap:20px;justify-content:center}
+  @media (max-width:480px){ .row{flex-wrap:wrap} .stat{margin-left:34px} }
+
+  :root{color-scheme:light;--soft:#F1F1EA}
+  body{background:var(--paper)}
+  .page{max-width:760px;margin:0 auto;padding-block:32px 64px;padding-inline:16px;display:grid;gap:28px}
+  .page-head h1{font-family:var(--display);font-weight:800;font-size:28px;letter-spacing:-.02em;text-wrap:balance}
+  .page-head p{color:var(--slate);max-width:62ch;margin-top:8px}
+  .note{font-size:13.5px;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:12px 14px;max-width:62ch}
+  .note b{color:var(--ink)}
+  .var{display:grid;gap:10px}
+  .var-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .var-n{font-family:var(--mono);font-weight:700;font-size:12px;color:var(--paper);background:var(--ink);padding:2px 7px}
+  .var-head h2{font-family:var(--display);font-weight:700;font-size:18px;min-width:0}
+  .pill{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--cobalt);color:var(--cobalt);border-radius:99px;padding:1px 8px}
+  .var-why{color:var(--slate);font-size:14px;max-width:62ch}
+  .frame{border:1px dashed var(--line);border-radius:12px;padding:14px;background:var(--soft);min-width:0}
+  .frame .intro{margin:0}
+  .snip{font-family:var(--mono);font-size:12px;color:var(--slate)}
+  .ext-card{margin-top:18px;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:18px 20px}
+  .ext-list{margin:10px 0 0 18px;display:grid;gap:6px;font-size:14.5px}
+  .ext-cta{margin-top:12px;font-weight:600}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="page-head"><h1>Where the Chrome extension goes in Issue #20</h1>
+<p>Four ways to introduce the aiBytes_ extension to readers, shown in the issue's own styles. Pick a number, or tell me what to change in one.</p></header>
+<p class="note"><b>Chosen: option 2</b> (publisher, 28 Nov 2026). The publisher reworded it on this page to the version shown. The launch paragraph goes right after the standing welcome line, before the hook. The welcome line becomes its own paragraph. Claude had recommended option 1; the publisher chose to lead with the launch. The extension was live on the Chrome Web Store by then.</p>
+<article class="var" id="v1"><div class="var-head"><span class="var-n">1</span><h2>In the intro, after the storyline</h2></div><p class="var-why">A bold-led paragraph of its own, just above the table of contents. Every reader who gets past the hook sees it. Exports to Substack with no script change.</p><div class="frame"><div class="intro"><p class="greet">Hello, AI enthusiasts 👋</p><p>Welcome back to your weekly dose of aiBytes_. I didn't expect a song to make the week's best argument about AI. Michael Harley built a Claude Code skill … <span class="snip">(hook unchanged)</span></p><p><b>The rest of the week asked the same question: whose side is your agent on</b>: Google's new Workspace terms send every agent through its own MCP servers, where Anthropic's Claude connector can send your email and an independent developer's agent can only leave drafts. Signal will block assistants like Gemini and Siri from reading its chats off the screen, and Character.AI's bankruptcy sale puts its users' private chats up for auction. An agent is only as loyal as the company that runs it. I'd read the terms before handing one the keys.</p><p><b>New from aiBytes_</b>: the daily edition now lives in your Chrome toolbar. Click the icon for today's ranked list of AI news, trending repos, Hacker News threads and launches, open any gist right in the popup, and star what you want to keep. Sign in on aibytes.io and your stars sync. <a href="https://chromewebstore.google.com/detail/faamldnehjdjdobapchedpmldfjjfife">Add aiBytes_ to Chrome</a>.</p><p class="toc-label">In this issue</p>
+      <div class="toc">
+<div class="r"><span class="m">🌍</span><span class="n">AI News</span><span class="d">9 stories</span></div>
+<div class="r"><span class="m">📣</span><span class="n">Official Announcements</span><span class="d">Anthropic · Google · Meta</span></div>
+<div class="r"><span class="m">0x02</span><span class="n">Viral on X</span><span class="d">5 posts</span></div>
+<div class="r"><span class="m">0x03</span><span class="n">New AI Products</span><span class="d">5 launches</span></div>
+<div class="r"><span class="m">0x04</span><span class="n">Trending Github Projects</span><span class="d">4 repos</span></div>
+<div class="r"><span class="m">0x05</span><span class="n">HN Deep Stories</span><span class="d">5 threads</span></div></div></div></article><article class="var" id="v2"><div class="var-head"><span class="var-n">2</span><h2>Opens the intro, before the hook</h2><span class="pill">Chosen</span></div><p class="var-why">Leads with our own launch, then the hook. Highest visibility, but it pushes the week's story down and spends the opening lines on us. No script change.</p><div class="frame"><div class="intro"><p class="greet">Hello, AI enthusiasts 👋</p><p>Welcome back to your weekly dose of aiBytes_.</p><p>Here's a quick update: we've shipped <b>aiBytes_ as a Chrome extension</b> to help you quickly get to the daily ai_ feed. <a href="https://chromewebstore.google.com/detail/faamldnehjdjdobapchedpmldfjjfife">Add it to Chrome</a>.</p><p>I didn't expect a song to make the week's best argument about AI … <span class="snip">(hook unchanged)</span></p><p><b>The rest of the week asked the same question: whose side is your agent on</b>: Google's new Workspace terms send every agent through its own MCP servers, where Anthropic's Claude connector can send your email and an independent developer's agent can only leave drafts. Signal will block assistants like Gemini and Siri from reading its chats off the screen, and Character.AI's bankruptcy sale puts its users' private chats up for auction. An agent is only as loyal as the company that runs it. I'd read the terms before handing one the keys.</p><p class="toc-label">In this issue</p>
+      <div class="toc">
+<div class="r"><span class="m">🌍</span><span class="n">AI News</span><span class="d">9 stories</span></div>
+<div class="r"><span class="m">📣</span><span class="n">Official Announcements</span><span class="d">Anthropic · Google · Meta</span></div>
+<div class="r"><span class="m">0x02</span><span class="n">Viral on X</span><span class="d">5 posts</span></div>
+<div class="r"><span class="m">0x03</span><span class="n">New AI Products</span><span class="d">5 launches</span></div>
+<div class="r"><span class="m">0x04</span><span class="n">Trending Github Projects</span><span class="d">4 repos</span></div>
+<div class="r"><span class="m">0x05</span><span class="n">HN Deep Stories</span><span class="d">5 threads</span></div></div></div></article><article class="var" id="v3"><div class="var-head"><span class="var-n">3</span><h2>Its own card, between the intro and AI News</h2></div><p class="var-why">A short card in the issue's card style with three features and an install link, plus a row in the table of contents. Most room to explain it. Needs a small change to the Substack export script so the card comes through as an h2 and a list.</p><div class="frame"><div class="intro"><p class="greet">Hello, AI enthusiasts 👋</p><p>Welcome back to your weekly dose of aiBytes_. I didn't expect a song to make the week's best argument about AI. Michael Harley built a Claude Code skill … <span class="snip">(hook unchanged)</span></p><p><b>The rest of the week asked the same question: whose side is your agent on</b>: Google's new Workspace terms send every agent through its own MCP servers, where Anthropic's Claude connector can send your email and an independent developer's agent can only leave drafts. Signal will block assistants like Gemini and Siri from reading its chats off the screen, and Character.AI's bankruptcy sale puts its users' private chats up for auction. An agent is only as loyal as the company that runs it. I'd read the terms before handing one the keys.</p><p class="toc-label">In this issue</p>
+      <div class="toc">
+<div class="r"><span class="m">🌍</span><span class="n">AI News</span><span class="d">9 stories</span></div>
+<div class="r"><span class="m">📣</span><span class="n">Official Announcements</span><span class="d">Anthropic · Google · Meta</span></div>
+<div class="r"><span class="m">0x02</span><span class="n">Viral on X</span><span class="d">5 posts</span></div>
+<div class="r"><span class="m">0x03</span><span class="n">New AI Products</span><span class="d">5 launches</span></div>
+<div class="r"><span class="m">0x04</span><span class="n">Trending Github Projects</span><span class="d">4 repos</span></div>
+<div class="r"><span class="m">0x05</span><span class="n">HN Deep Stories</span><span class="d">5 threads</span><div class="r"><span class="m">🧩</span><span class="n">New: aiBytes_ for Chrome</span><span class="d">extension</span></div>
+</div></div><div class="ext-card"><div class="card-title">🧩 NEW: aiBytes_ FOR CHROME</div>
+<p class="card-sub">The daily edition, one click from any tab.</p>
+<ul class="ext-list"><li><b>One ranked list.</b> AI news, trending repos, HN threads and Product Hunt launches, strongest first.</li><li><b>Gists in the popup.</b> Click an item for the short version, then go to the source.</li><li><b>Stars that sync.</b> Star an item to save it; sign in on aibytes.io and your stars follow you.</li></ul>
+<p class="ext-cta"><a href="https://chromewebstore.google.com/detail/faamldnehjdjdobapchedpmldfjjfife">Add aiBytes_ to Chrome ↗</a></p></div></div></article><article class="var" id="v4"><div class="var-head"><span class="var-n">4</span><h2>A PS that closes the storyline</h2></div><p class="var-why">One sentence tacked onto the storyline's closer, tying the extension to the week's theme. Lightest touch, easiest to miss. No script change.</p><div class="frame"><div class="intro"><p class="greet">Hello, AI enthusiasts 👋</p><p>Welcome back to your weekly dose of aiBytes_. I didn't expect a song to make the week's best argument about AI. Michael Harley built a Claude Code skill … <span class="snip">(hook unchanged)</span></p><p><b>The rest of the week asked the same question: whose side is your agent on</b>: … <span class="snip">(storyline unchanged)</span> An agent is only as loyal as the company that runs it. I'd read the terms before handing one the keys. <b>PS:</b> the one tool I can vouch for is ours. aiBytes_ is now <a href="https://chromewebstore.google.com/detail/faamldnehjdjdobapchedpmldfjjfife">a Chrome extension</a> with the daily edition one click away.</p><p class="toc-label">In this issue</p>
+      <div class="toc">
+<div class="r"><span class="m">🌍</span><span class="n">AI News</span><span class="d">9 stories</span></div>
+<div class="r"><span class="m">📣</span><span class="n">Official Announcements</span><span class="d">Anthropic · Google · Meta</span></div>
+<div class="r"><span class="m">0x02</span><span class="n">Viral on X</span><span class="d">5 posts</span></div>
+<div class="r"><span class="m">0x03</span><span class="n">New AI Products</span><span class="d">5 launches</span></div>
+<div class="r"><span class="m">0x04</span><span class="n">Trending Github Projects</span><span class="d">4 repos</span></div>
+<div class="r"><span class="m">0x05</span><span class="n">HN Deep Stories</span><span class="d">5 threads</span></div></div></div></article>
+</div>
+</body>
+</html>

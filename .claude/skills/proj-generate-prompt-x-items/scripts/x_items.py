@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
-"""Save the week's X posts, pasted in from Grok, and record the shortlist.
+"""Save the week's X posts and record the shortlist.
 
 Thin CLI wrapper. The logic lives in packages/fetchers
-(aibytes_fetchers.x_paste).
+(aibytes_fetchers.x_paste). Used by /proj-fetch-from-x and
+/proj-generate-prompt-x-items.
 
     x_items.py prompt    [--date D]                          print the Grok prompt for the week
-    x_items.py save      --input PASTE [--date D]            check Grok's paste and save it
-    x_items.py move      URL... --to BUCKET [--date D]       re-file posts Grok put in the wrong list
+    x_items.py save      --input PASTE [--date D]            check JSON and save the snapshot
+    x_items.py review    [--date D] [--insight URL...] [--announcement URL...]
+    x_items.py move      URL... --to BUCKET [--date D]       re-file posts put in the wrong list
+    x_items.py title     URL --text TITLE [--date D]         2-line newsletter title for a long post
     x_items.py shortlist --insight URL... --announcement URL... [--date D]
     x_items.py emoji     URL EMOJI [URL EMOJI ...] [--date D]  the emoji each Viral on X row opens with
     x_items.py render    [--format html|substack|beehiiv] [--section S] [--number 0x02] [--date D]
@@ -14,9 +17,11 @@ Thin CLI wrapper. The logic lives in packages/fetchers
     x_items.py verify    [--issue ISSUE.html] [--substack EXPORT.html] [--export EXPORT.html] [--section S] [--date D]
                          [--issue-slug issue-N] [--content-root content]
 
-render prints the shortlisted posts as newsletter HTML, word for word, for
-/generate-newsletter-content to paste in; verify checks a built issue carries
-them unchanged and in order.
+`review` writes x_review.md (Insights and Announcements tables) next to
+x_data.json so the publisher can pick. save/move/title/shortlist/emoji also
+refresh that file. render prints the shortlisted posts as newsletter HTML
+for /generate-newsletter-content; verify checks a built issue carries them
+unchanged and in order.
 
 Every command takes --output-root. The snapshot is
 newsletter/data/<yyyy>/<mm>/weeks/week-<NN>/x/x_data.json, with the week taken
@@ -50,9 +55,17 @@ def main(argv=None):
     mv = sub.add_parser("move", parents=[common], help="move posts to another bucket")
     mv.add_argument("urls", nargs="+")
     mv.add_argument("--to", required=True, choices=x_paste.BUCKETS)
+    rv = sub.add_parser("review", parents=[common], help="write Insights and Announcements markdown tables")
+    rv.add_argument("--insight", nargs="*", default=None, metavar="URL",
+                    help="tick these insight URLs (default: recorded shortlist)")
+    rv.add_argument("--announcement", nargs="*", default=None, metavar="URL",
+                    help="tick these announcement URLs (default: recorded shortlist)")
     sl = sub.add_parser("shortlist", parents=[common], help="record the posts that go into the issue")
     sl.add_argument("--insight", nargs="+", required=True, metavar="URL")
     sl.add_argument("--announcement", nargs="+", required=True, metavar="URL")
+    tl = sub.add_parser("title", parents=[common], help="set a 2-line newsletter title for a long post")
+    tl.add_argument("url", help="https://x.com/<handle>/status/<id>")
+    tl.add_argument("--text", required=True, help="the title; use \\n for a second line")
     em = sub.add_parser("emoji", parents=[common], help="set the emoji each Viral on X row opens with")
     em.add_argument("pairs", nargs="+", metavar="URL EMOJI", help="shortlisted insight url, then its emoji; repeatable")
     rd = sub.add_parser("render", parents=[common], help="print the shortlisted posts as newsletter HTML")
@@ -95,9 +108,12 @@ def main(argv=None):
         if errors:
             print(f"not saved: {len(errors)} error(s)", file=sys.stderr)
             return 1
-        x_paste.write(path, x_paste.build(paste, as_of))
+        snapshot = x_paste.build(paste, as_of)
+        x_paste.write(path, snapshot)
+        review = _write_review(as_of, args.output_root, snapshot)
         print(f"wrote {_shown(path)} ({len(paste['announcements'])} announcements, "
               f"{len(paste['insights'])} insights, {len(warnings)} warning(s))")
+        print(f"wrote {_shown(review)}")
         return 0
 
     if not path.is_file():
@@ -109,6 +125,13 @@ def main(argv=None):
             print(f"error: {_shown(path)} has no shortlist; run shortlist first", file=sys.stderr)
             return 1
         return _render(args, snapshot) if args.command == "render" else _verify(args, snapshot)
+    if args.command == "review":
+        review = _write_review(
+            as_of, args.output_root, snapshot,
+            insight=args.insight, announcement=args.announcement,
+        )
+        print(f"wrote {_shown(review)}")
+        return 0
     try:
         if args.command == "emoji":
             if len(args.pairs) % 2:
@@ -119,6 +142,9 @@ def main(argv=None):
         elif args.command == "move":
             x_paste.move(snapshot, args.urls, args.to)
             print(f"moved {len(args.urls)} post(s) to {args.to}")
+        elif args.command == "title":
+            x_paste.set_newsletter_title(snapshot, args.url, args.text.replace("\\n", "\n"))
+            print(f"set newsletter_title on {args.url}")
         else:
             for line in x_paste.set_shortlist(snapshot, args.insight, args.announcement):
                 print(f"warning: {line}")
@@ -127,7 +153,9 @@ def main(argv=None):
         print(f"error: {exc}", file=sys.stderr)
         return 1
     x_paste.write(path, snapshot)
+    review = _write_review(as_of, args.output_root, snapshot)
     print(f"wrote {_shown(path)}")
+    print(f"wrote {_shown(review)}")
     return 0
 
 
@@ -203,6 +231,12 @@ def _verify(args, snapshot):
         if not problems:
             print(f"ok: {file} carries every shortlisted post unchanged")
     return 1 if failed else 0
+
+
+def _write_review(as_of, output_root, snapshot, insight=None, announcement=None):
+    path = x_paste.review_path(as_of, output_root)
+    x_paste.write_review(path, snapshot, insight=insight, announcement=announcement)
+    return path
 
 
 def _shown(path):

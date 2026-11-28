@@ -1,8 +1,8 @@
-"""Offline tests for the x-fetch-items skill and aibytes_fetchers.x_paste.
+"""Offline tests for the X skills and aibytes_fetchers.x_paste.
 
-No network: X data is pasted in from Grok, so every test builds its own paste.
-The end-to-end tests run the skill script with --output-root in a temp dir, so
-the committed newsletter/data tree is never touched.
+No network: every test builds its own paste. The end-to-end tests run
+x_items.py with --output-root in a temp dir, so the committed
+newsletter/data tree is never touched.
 """
 
 import copy
@@ -21,7 +21,7 @@ sys.path.insert(0, str(REPO_ROOT / "packages" / "fetchers"))
 
 from aibytes_fetchers import x_paste, x_render
 
-SCRIPT = REPO_ROOT / ".claude" / "skills" / "x-fetch-items" / "scripts" / "x_items.py"
+SCRIPT = REPO_ROOT / ".claude" / "skills" / "proj-generate-prompt-x-items" / "scripts" / "x_items.py"
 AS_OF = dt.date(2026, 9, 26)
 
 
@@ -77,6 +77,10 @@ class TestWindowAndPrompt(unittest.TestCase):
     def test_snapshot_goes_in_the_weekly_folder(self):
         path = x_paste.snapshot_path(AS_OF, "/tmp/root")
         self.assertEqual(path, pathlib.Path("/tmp/root/2026/09/weeks/week-39/x/x_data.json"))
+
+    def test_review_markdown_sits_beside_the_snapshot(self):
+        path = x_paste.review_path(AS_OF, "/tmp/root")
+        self.assertEqual(path, pathlib.Path("/tmp/root/2026/09/weeks/week-39/x/x_review.md"))
 
     def test_prompt_fills_the_window(self):
         text = x_paste.prompt(AS_OF)
@@ -213,6 +217,53 @@ class TestBuildMoveShortlist(unittest.TestCase):
         with self.assertRaises(ValueError):
             x_paste.set_shortlist(x_paste.build(paste(), AS_OF), ["https://x.com/nobody/status/9"], [])
 
+    def test_newsletter_title_is_stored_on_the_post(self):
+        snap = x_paste.build(paste(), AS_OF)
+        x_paste.set_newsletter_title(snap, "https://x.com/alice/status/3", "A two-line title")
+        self.assertEqual(
+            next(p for p in snap["posts"] if p["url"] == "https://x.com/alice/status/3")["newsletter_title"],
+            "A two-line title",
+        )
+        self.assertEqual(
+            next(p for p in snap["posts"] if p["url"] == "https://x.com/alice/status/3")["text"],
+            "A post by alice.",
+        )
+
+    def test_long_post_without_title_is_a_warning(self):
+        data = paste()
+        data["insights"][0]["text"] = "x" * (x_paste.LONG_TEXT + 1)
+        _, warnings = x_paste.check(data, AS_OF)
+        joined = "\n".join(warnings)
+        self.assertIn("long post, ", joined)
+        self.assertIn("newsletter_title", joined)
+
+
+class TestReviewMarkdown(unittest.TestCase):
+    def test_tables_include_full_text_and_ticks(self):
+        snap = x_paste.build(paste(), AS_OF)
+        md = x_paste.review_markdown(
+            snap,
+            insight=["https://x.com/alice/status/3"],
+            announcement=["https://x.com/lab/status/1"],
+        )
+        self.assertIn("## Insights", md)
+        self.assertIn("## Announcements", md)
+        self.assertIn("A post by alice.", md)
+        self.assertIn("https://x.com/alice/status/3", md)
+        self.assertIn("**Insights picked:** 1 @alice.", md)
+        self.assertRegex(md, r"\| ✅ \| 1 \|")
+
+    def test_long_post_flags_a_needed_title(self):
+        data = paste()
+        data["insights"][0]["text"] = "x" * (x_paste.LONG_TEXT + 1)
+        snap = x_paste.build(data, AS_OF)
+        md = x_paste.review_markdown(snap)
+        self.assertIn("needed", md)
+        x_paste.set_newsletter_title(snap, "https://x.com/alice/status/3", "Short headline")
+        md = x_paste.review_markdown(snap)
+        self.assertIn("Newsletter title:", md)
+        self.assertIn("Short headline", md)
+
 
 def shortlisted_snapshot():
     """A built snapshot with a full shortlist and real-looking post text."""
@@ -263,6 +314,25 @@ class TestExcerpt(unittest.TestCase):
     def test_a_single_overlong_word_is_hard_cut(self):
         lines, cut = x_render.excerpt("x" * (x_render.EXCERPT_LIMIT + 60))
         self.assertEqual((len(lines[0]), cut), (x_render.EXCERPT_LIMIT, True))
+
+
+class TestDisplayWords(unittest.TestCase):
+    def test_newsletter_title_wins_over_excerpt(self):
+        item = post("insight", "alice", 3, 3000, text="word " * 80,
+                    newsletter_title="A funny but realistic story of How PRs were merged in 2022 vs 2026")
+        lines, cut = x_render.display_words(item)
+        self.assertEqual(lines, ["A funny but realistic story of How PRs were merged in 2022 vs 2026"])
+        self.assertFalse(cut)
+
+    def test_title_keeps_two_lines(self):
+        item = post("insight", "alice", 3, 3000,
+                    newsletter_title="Line one\nLine two\nLine three")
+        lines, cut = x_render.display_words(item)
+        self.assertEqual((lines, cut), (["Line one", "Line two"], False))
+
+    def test_without_title_falls_back_to_excerpt(self):
+        item = post("insight", "alice", 3, 3000, text="Short post.")
+        self.assertEqual(x_render.display_words(item), (["Short post."], False))
 
 
 class TestGistNewsletterUrl(unittest.TestCase):
@@ -520,7 +590,7 @@ class TestVerify(unittest.TestCase):
 
 class TestScript(unittest.TestCase):
     def setUp(self):
-        tmp = tempfile.TemporaryDirectory(prefix="x-fetch-items-test-")
+        tmp = tempfile.TemporaryDirectory(prefix="x-items-test-")
         self.addCleanup(tmp.cleanup)
         self.root = pathlib.Path(tmp.name)
         self.snapshot = self.root / "2026/09/weeks/week-39/x/x_data.json"
@@ -536,6 +606,7 @@ class TestScript(unittest.TestCase):
         proc = self.run_script("save", "--input", "-", stdin=raw)
         self.assertEqual(proc.returncode, 0, proc.stderr)
         self.assertTrue(self.snapshot.is_file())
+        self.assertTrue(self.snapshot.with_name("x_review.md").is_file())
 
         proc = self.run_script(
             "shortlist",
@@ -582,6 +653,21 @@ class TestScript(unittest.TestCase):
         proc = self.run_script("verify", "--issue", str(issue))
         self.assertEqual(proc.returncode, 1)
         self.assertIn("alice/status/3 is missing or was changed", proc.stderr)
+
+    def test_title_then_review_ticks_picks(self):
+        self.run_script("save", "--input", "-", stdin=json.dumps(paste()))
+        proc = self.run_script("title", "https://x.com/alice/status/3", "--text", "A two-line title")
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        data = json.loads(self.snapshot.read_text())
+        self.assertEqual(
+            next(p for p in data["posts"] if p["url"] == "https://x.com/alice/status/3")["newsletter_title"],
+            "A two-line title",
+        )
+        proc = self.run_script("review", "--insight", "https://x.com/alice/status/3")
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        md = self.snapshot.with_name("x_review.md").read_text()
+        self.assertIn("A two-line title", md)
+        self.assertIn("**Insights picked:** 1 @alice.", md)
 
     def test_render_needs_a_shortlist(self):
         self.run_script("save", "--input", "-", stdin=json.dumps(paste()))
