@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "slug": "gh-obsidianmd-obsidian-skills",
+  "kind": "repo",
+  "title": "obsidianmd/obsidian-skills",
+  "url": "https://github.com/obsidianmd/obsidian-skills",
+  "source_url": "https://github.com/obsidianmd/obsidian-skills",
+  "source": "github",
+  "category": "repos",
+  "tags": [],
+  "image": {
+    "type": "avatar",
+    "url": "https://github.com/obsidianmd.png?size=80"
+  },
+  "depth": "full",
+  "lede": "Obsidian's official Agent Skills teach coding agents to read and write a vault in its own formats, from wikilinks and callouts to Bases and JSON Canvas files.",
+  "sections": [
+    {
+      "key": "key_points",
+      "points": [
+        "Seven skills: Obsidian Markdown, Bases, JSON Canvas, the Obsidian CLI, Obsidian Headless, Defuddle and Knap.",
+        "They follow the Agent Skills spec, so one set works in Claude Code, Codex, Cursor, Copilot, OpenCode and others.",
+        "Obsidian ships them as an official plugin for Claude, ChatGPT, Cursor, Grok Bot, Hermes and Kiro.",
+        "Defuddle turns web pages into clean Markdown to save tokens; Knap renders Markdown templates from JSON or CSV."
+      ]
+    },
+    {
+      "key": "try_it",
+      "command": "npx skills add https://github.com/obsidianmd/obsidian-skills"
+    },
+    {
+      "key": "whats_open",
+      "points": [
+        {
+          "text": "The obsidian-cli skill's base commands don't follow the documented file and path targeting rules.",
+          "url": "https://github.com/obsidianmd/obsidian-skills/issues/141"
+        },
+        {
+          "text": "Users want the skills to read a vault's own Obsidian settings.",
+          "url": "https://github.com/obsidianmd/obsidian-skills/issues/50"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "role": "destination",
+      "title": "obsidianmd/obsidian-skills",
+      "url": "https://github.com/obsidianmd/obsidian-skills"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "gh-obsidianmd-obsidian-skills-issue-20",
+      "issue_slug": "issue-20"
+    }
+  ],
+  "created_at": "2026-11-28T02:01:02Z",
+  "updated_at": "2026-11-28T02:01:02Z",
+  "stats": {
+    "stars": 54351,
+    "forks": 3867,
+    "language": "Shell",
+    "license": "MIT",
+    "created_on": "2026-01-02",
+    "contributors": 28,
+    "last_release": {
+      "tag": "1.2.3",
+      "published_on": "2026-11-25"
+    },
+    "open_issues": 3,
+    "stars_gained": 704
+  },
+  "stats_as_of": "2026-11-28T02:01:02Z"
+}

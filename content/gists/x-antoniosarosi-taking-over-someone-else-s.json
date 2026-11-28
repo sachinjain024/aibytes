@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "slug": "x-antoniosarosi-taking-over-someone-else-s",
+  "kind": "x_post",
+  "title": "Antonio Sarosi: Taking over someone else's unfinished work in 2022:",
+  "url": "https://x.com/antoniosarosi/status/2126123713355772052",
+  "source_url": "https://x.com/antoniosarosi/status/2126123713355772052",
+  "tags": [],
+  "image": {
+    "type": "none"
+  },
+  "depth": "preview",
+  "sections": [],
+  "preview": {
+    "bucket": "insight",
+    "author_name": "Antonio Sarosi",
+    "author_handle": "@antoniosarosi",
+    "posted_on": "2026-11-27",
+    "text": "Taking over someone else's unfinished work in 2022:\n\nOpen GitHub, there's a PR there.\n+673 -241 diff.\n\nCheckout the branch, run tests.\nThey pass.\n\nSpend 2 hours reading the code to understand it.\n\nThere's a weird if statement that you don't understand why it's there.\nYou ask the coworker who opened the PR.\n\nHe says it's because some obscure payload field can be null and now it all makes sense, you understand all the code.\n\nRead the ticket again to see what's missing and write rest of code.\n\n+871 -308 final diff.\nMerge PR.\n\n✅ Done.\n\nTaking over someone else's work in 2026:\n\nOpen GitHub. There's a PR there.\n+87341 -32651 diff.\n\nTell Claude to read the ticket and see what's left.\nClaude comes up with 5 bullet points of what's left to do. You understand none of them.\n\nThere are 15 markdown files in the PR your coworker's agent dumped for future context.\nYou open them. 3000 lines each. You understand none of it.\n\nAsk Claude to explain it like you're 5.\nClaude outputs words that are coherent but you still understand none of it.\n\nYou tell Claude to make diagrams to explain the architecture.\nA tiny bit of it starts making sense.\n\nThere's some weird service \"Transactional Reconciliation Service\" you don't understand why it's there. Claude says it shouldn't be there and the markdown files don't specify why it's there.\n\nYou ask the coworker about that service.\nHe has no idea what you're talking about, he needs to ask his agent.\n\nHis Claude makes an artifact that explains why that service is slop that was written by the subagent who implemented it and shouldn't be there at all.\n\nThe coworker hands that artifact to you. He hasn't read it.\n\nYou hand the artifact to your Claude. Your Claude advices to remove the service and proposes 4 different solutions to replace it.\n\nYou understand none of the solutions but there is one which seems to make more sense. You ask the coworker if that's a good call.\n\nHe has no idea what any of that means, he asks his agent. His agent says it's a good solution but it's missing an important edge case. He copy pastes the agent output in Slack.\n\nYou copy paste the Slack message into your Claude. Your Claude says that you're absolutely right, that this is an important edge case that was not handled in the initial solution. Claude proposes a small fix to cover it and asks if it should implement it along with the other 5 bullet points.\n\nYou say ok, Claude starts writing code. PR diff grows to +97564 -41698.\n\nYou ask Claude if everything in the ticket is implemented. Claude starts reviewing the code.\n\nClaude says that most of it is implemented, but comes up with 5 bullet points of things that are missing.\n\nYou are confused, it already came up with 5 bullet points the first time you asked. These seem different bullet points that only came up after reviewing the code though, so you say ok, implement it.\n\nClaude writes code.\nPR +102467 -45790 diff.\n\nYou ask if now it's all done.\nClaude reviews the code. Says it's mostly done but there 3 low priority items that are not yet implemented.\n\nYou don't understand any of the items but since they're low priority you figure out they don't matter much, so you click merge.\n\nPR spends 3 hours in the merge queue for CI to go green, then it merges.\n\nNext Monday your coworker asks his agent to deploy to AWS.\nYour agent's code now runs in production.\n\n2 hours later the whole backend is down. No one knows why.\n\nYour coworker asks his agent to investigate. After 20 minutes it finds the code that threw an unhandled error when some payload came up with an obscure null field.\n\nYour coworker doesn't recognize any of that code and his agent says it should not be there but you wrote it so your coworker should check with you first.\n\nHe asks you about that code.\n\nYou've never seen that code in your entire life.\nYou ask your agent about it.\n\nYour Claude says the error was thrown because the code never expected that obscure field to be null.\n\nThe code was in \"Transactional Reconciliation Service\".",
+    "media": "none"
+  },
+  "links": [
+    {
+      "role": "discussion",
+      "title": "The post on X",
+      "url": "https://x.com/antoniosarosi/status/2126123713355772052"
+    }
+  ],
+  "appearances": [
+    {
+      "item_id": "x-antoniosarosi-taking-over-someone-else-s-issue-20",
+      "issue_slug": "issue-20"
+    }
+  ],
+  "created_at": "2026-11-28T02:01:02Z",
+  "updated_at": "2026-11-28T02:01:02Z",
+  "stats": {
+    "likes": 3876,
+    "reposts": 284,
+    "replies": 127,
+    "views": 170488
+  },
+  "stats_as_of": "2026-11-28T02:01:02Z"
+}
