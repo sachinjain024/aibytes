@@ -34,7 +34,7 @@ COMPANIES = {
     "openai": "OpenAI", "openaidevs": "OpenAI", "chatgptapp": "OpenAI",
     "xai": "xAI", "spacexai": "xAI", "grok": "xAI",
     "googledeepmind": "Google", "googleai": "Google", "geminiapp": "Google",
-    "googlefordevs": "Google", "officiallogank": "Google",
+    "googlefordevs": "Google", "officiallogank": "Google", "_mohansolo": "Google",
     "aiatmeta": "Meta", "metaai": "Meta", "finkd": "Meta",
     "nvidia": "NVIDIA", "nvidiaai": "NVIDIA",
     "mistralai": "Mistral", "cursor_ai": "Cursor", "huggingface": "Hugging Face",
