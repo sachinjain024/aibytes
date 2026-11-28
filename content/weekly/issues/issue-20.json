@@ -1,0 +1,576 @@
+{
+  "schema_version": 1,
+  "number": 20,
+  "slug": "issue-20",
+  "title": "🕵️ Agents work for their makers not you and Character.ai sells your chats",
+  "description": "Plus Claude artifacts as desktop apps, the Claude Ship launch and Obsidian's official agent skills.",
+  "published_on": "2026-11-30",
+  "generated_at": "2026-11-28T12:05:56Z",
+  "counts": {
+    "launches": 5,
+    "repos": 4,
+    "news": 9,
+    "hn": 5,
+    "x": 9
+  },
+  "items": [
+    {
+      "id": "hn-llm-agents-work-for-their-parent-companies-not-f-issue-20",
+      "title": "LLM agents work for their parent companies, not for you",
+      "summary": "Claude Code refused to get past Bandcamp's new search challenge, then still offered to download the same song from YouTube, where the band earns nothing.",
+      "url": "https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50627340",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "hn-llm-agents-work-for-their-parent-companies-not",
+      "rank": 1
+    },
+    {
+      "id": "hn-signal-will-block-ai-assistants-from-reading-its-issue-20",
+      "title": "Signal will block AI assistants from reading its chats",
+      "summary": "On iOS 27 and Android, Signal will block screen capture when it detects an assistant reading the screen, as it did for Microsoft Recall.",
+      "url": "https://signal.org/blog/protecting-your-privacy/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50572348",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "hn-restricting-ai-agents-in-mobile-operating",
+      "rank": 2
+    },
+    {
+      "id": "tc-state-ags-fight-character-ai-s-plan-to-sell-user-issue-20",
+      "title": "State AGs fight Character.AI's plan to sell users' private chats",
+      "summary": "The bankruptcy auction covers chats from more than 21 million U.S. accounts, 2.1 million of them registered to minors.",
+      "url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "tc-state-ags-fight-character-ais-plan-to-auction",
+      "rank": 3
+    },
+    {
+      "id": "hn-z-ai-ships-glm-5-4-its-first-loop-transformer-issue-20",
+      "title": "Z.ai ships GLM-5.4, its first loop transformer",
+      "summary": "A model aimed at more general coding work, and the lab's first built on a loop transformer architecture.",
+      "url": "https://z.ai/blog/glm-5.4",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50609685",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "hn-glm-5-4-toward-generalized-coding-with-our",
+      "rank": 4
+    },
+    {
+      "id": "tc-openai-merges-chat-and-work-under-one-usage-mete-issue-20",
+      "title": "OpenAI merges Chat and Work under one usage meter",
+      "summary": "One allowance across ChatGPT, so the heaviest users may hit limits sooner. Instant stays unlimited.",
+      "url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "tc-openai-says-heavy-chatgpt-users-may-hit-limits",
+      "rank": 5
+    },
+    {
+      "id": "hn-anthropic-s-2028-power-will-come-87-from-gas-and-issue-20",
+      "title": "Anthropic's 2028 power will come 87% from gas and 11% from coal",
+      "summary": "A case study of its contracted U.S. data centers puts 2028 emissions near 32 million tonnes of CO2 in the mid case.",
+      "url": "https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50597612",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "hn-87-of-the-anthropic-power-will-come-from-gas",
+      "rank": 6
+    },
+    {
+      "id": "hn-anthropic-breaks-below-its-83-ipo-price-issue-20",
+      "title": "Anthropic breaks below its $83 IPO price",
+      "summary": "Shares traded under the IPO price before the market opened, a week after listing.",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-24/anthropic-breaks-below-83-ipo-price-in-premarket-trading",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50627836",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "hn-anthropic-breaks-below-83-ipo-price",
+      "rank": 7
+    },
+    {
+      "id": "tc-nvidia-pauses-server-shipments-to-southeast-asia-issue-20",
+      "title": "Nvidia pauses server shipments to Southeast Asia",
+      "summary": "Dell and Super Micro were told to hold servers for Malaysia, Singapore, Thailand and Indonesia while Nvidia checks export compliance.",
+      "url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
+      "source": "techcrunch",
+      "source_url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "tc-nvidia-hits-pause-on-chip-shipments-to",
+      "rank": 8
+    },
+    {
+      "id": "hn-the-new-york-times-tells-photographers-not-to-up-issue-20",
+      "title": "The New York Times tells photographers not to update Photoshop",
+      "summary": "Photoshop 2027's AI features can mark photos as AI-edited in their C2PA metadata, even after minimal edits.",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50647673",
+      "category": "news",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "hn-the-new-york-times-warns-photographers-not-to",
+      "rank": 9
+    },
+    {
+      "id": "x-claudedevs-you-can-now-install-claude-issue-20",
+      "title": "Anthropic",
+      "summary": "You can now install Claude artifacts as desktop apps on Mac and Windows.\n\nAsk Claude to build an artifact, click \"Install as app\", and open it like any other app. It can use your connectors and, if yo",
+      "url": "https://x.com/ClaudeDevs/status/2125315491522650299",
+      "source": "x",
+      "source_url": "https://x.com/ClaudeDevs/status/2125315491522650299",
+      "category": "x",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "x-claudedevs-you-can-now-install-claude",
+      "rank": 10
+    },
+    {
+      "id": "x-claudedevs-introducing-claude-ship-beta-claude-issue-20",
+      "title": "Anthropic",
+      "summary": "Introducing Claude Ship (beta): Claude can review your pull requests, work on fixes, and approve the ones your team's policy allows.\n\nThe goal is to help you ship code as fast as you can write it.",
+      "url": "https://x.com/ClaudeDevs/status/2124959436640858475",
+      "source": "x",
+      "source_url": "https://x.com/ClaudeDevs/status/2124959436640858475",
+      "category": "x",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "x-claudedevs-introducing-claude-ship-beta-claude",
+      "rank": 11
+    },
+    {
+      "id": "x-mohansolo-resetting-gemini-quota-for-all-issue-20",
+      "title": "Google",
+      "summary": "Resetting Gemini quota for all Antigravity users for Thanksgiving!\n\nWe’re very thankful for all of our users ❤️\n\nWe’re growing very quickly and are working tirelessly to make sure you all have a great",
+      "url": "https://x.com/_mohansolo/status/2125851902009311306",
+      "source": "x",
+      "source_url": "https://x.com/_mohansolo/status/2125851902009311306",
+      "category": "x",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "x-mohansolo-resetting-gemini-quota-for-all",
+      "rank": 12
+    },
+    {
+      "id": "x-finkd-releasing-muse-in-the-uk-issue-20",
+      "title": "Meta",
+      "summary": "Releasing Muse in the UK starting today -- now spells colour with a \"u\".",
+      "url": "https://x.com/finkd/status/2125107155338711179",
+      "source": "x",
+      "source_url": "https://x.com/finkd/status/2125107155338711179",
+      "category": "x",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "x-finkd-releasing-muse-in-the-uk",
+      "rank": 13
+    },
+    {
+      "id": "x-shneural-asked-opus-next-5-6-issue-20",
+      "title": "@shneural asked Opus Next (5.6/6) to make an Anthropic-style launch video for \"Claude Pelican 1\", a fake model that only generates SVG pelicans on bicycles / gave it their real launch videos as refs. it actually looks like an official ad lol",
+      "summary": "asked Opus Next (5.6/6) to make an Anthropic-style launch video for \"Claude Pelican 1\", a fake model that only generates SVG pelicans on bicycles\n\ngave it their real launch videos as refs. it actually",
+      "url": "https://x.com/shneural/status/2125658847323017291",
+      "source": "x",
+      "source_url": "https://x.com/shneural/status/2125658847323017291",
+      "category": "x",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "x-shneural-asked-opus-next-5-6",
+      "rank": 14
+    },
+    {
+      "id": "x-superalesha-if-you-pay-for-a-issue-20",
+      "title": "@superalesha You're sitting on a 96 GB RTX PRO 6000 in Colab. One script launches GLM-5.3 at 102 tok/s.",
+      "summary": "If you pay for a Gemini or Google AI subscription, you're sitting on a 96 GB RTX PRO 6000 Blackwell in Colab and probably haven't touched it.\n\n1 script launches GLM-5.3-Flash Uncensored (321B) at 102 ",
+      "url": "https://x.com/superalesha/status/2126011712692224264",
+      "source": "x",
+      "source_url": "https://x.com/superalesha/status/2126011712692224264",
+      "category": "x",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "x-superalesha-if-you-pay-for-a",
+      "rank": 15
+    },
+    {
+      "id": "x-hwchase17-all-our-agents-at-langchain-issue-20",
+      "title": "@hwchase17 all our agents at langchain (internal GTM & content agents, LangSmith Engine) have a learning loop with similar pieces / wrote about what we think makes up a \"knowledge factory\" https://x.com/i/article/2124180107669766144",
+      "summary": "all our agents at langchain (internal GTM & content agents, LangSmith Engine) have a learning loop with similar pieces\n\nwrote about what we think makes up a \"knowledge factory\" https://x.com/i/article",
+      "url": "https://x.com/hwchase17/status/2124181216719151585",
+      "source": "x",
+      "source_url": "https://x.com/hwchase17/status/2124181216719151585",
+      "category": "x",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "x-hwchase17-all-our-agents-at-langchain",
+      "rank": 16
+    },
+    {
+      "id": "x-antoniosarosi-taking-over-someone-else-s-issue-20",
+      "title": "@antoniosarosi A funny but realistic story of How PRs were merged in 2022 vs 2026",
+      "summary": "Taking over someone else's unfinished work in 2022:\n\nOpen GitHub, there's a PR there.\n+673 -241 diff.\n\nCheckout the branch, run tests.\nThey pass.\n\nSpend 2 hours reading the code to understand it.\n\nThe",
+      "url": "https://x.com/antoniosarosi/status/2126123713355772052",
+      "source": "x",
+      "source_url": "https://x.com/antoniosarosi/status/2126123713355772052",
+      "category": "x",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "x-antoniosarosi-taking-over-someone-else-s",
+      "rank": 17
+    },
+    {
+      "id": "x-google-yes-this-is-a-real-issue-20",
+      "title": "@Google Yes, this is a real Google Sheet 📊 / Using /swarm in @Antigravity, Gemini 4 Neon turned one photo into a 100,000-cell grid with zero embedded images and zero Apps Script — using native formulas for edge detection, 3D depth shading, and six lighting modes.",
+      "summary": "Yes, this is a real Google Sheet 📊\n\nUsing /swarm in @Antigravity, Gemini 4 Neon turned one photo into a 100,000-cell grid with zero embedded images and zero Apps Script — using native formulas for edg",
+      "url": "https://x.com/Google/status/2125667315303723011",
+      "source": "x",
+      "source_url": "https://x.com/Google/status/2125667315303723011",
+      "category": "x",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "gist": "x-google-yes-this-is-a-real",
+      "rank": 18
+    },
+    {
+      "id": "ph-letter-visitors-issue-20",
+      "title": "Letter Visitors",
+      "summary": "See the people, companies and AI agents on your website, on the site itself, with session replays.",
+      "url": "https://www.producthunt.com/products/visitors",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/visitors",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 417
+      },
+      "gist": "ph-letter-visitors",
+      "rank": 19
+    },
+    {
+      "id": "ph-hub-issue-20",
+      "title": "Hub",
+      "summary": "A self-hosted coordinator that hands your goals to Claude Code and Codex sessions and sends back only the decisions.",
+      "url": "https://www.producthunt.com/products/hub-20",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/hub-20",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 395
+      },
+      "gist": "ph-hub-d3d2bb55-5f42-4355-98fe-d7e0b636a030",
+      "rank": 20
+    },
+    {
+      "id": "ph-yoroll-issue-20",
+      "title": "Yoroll",
+      "summary": "Turn a script, image or clip into a playable, branching story without a game engine.",
+      "url": "https://www.producthunt.com/products/yoroll",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/yoroll",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 365
+      },
+      "gist": "ph-yoroll",
+      "rank": 21
+    },
+    {
+      "id": "ph-rankhog-issue-20",
+      "title": "Rankhog",
+      "summary": "Finds Reddit threads asking for what you sell and posts replies from your account, one by one or on autopilot.",
+      "url": "https://www.producthunt.com/products/rankhog",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/rankhog",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 363
+      },
+      "gist": "ph-rankhog",
+      "rank": 22
+    },
+    {
+      "id": "ph-saparo-issue-20",
+      "title": "Saparo",
+      "summary": "A shopping agent that stacks promo codes, cash back and card offers, then leaves the final payment to you.",
+      "url": "https://www.producthunt.com/products/saparo",
+      "source": "producthunt",
+      "source_url": "https://www.producthunt.com/products/saparo",
+      "category": "launches",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "upvotes": 348
+      },
+      "gist": "ph-saparo",
+      "rank": 23
+    },
+    {
+      "id": "gh-mvanhorn-last30days-skill-issue-20",
+      "title": "mvanhorn/last30days-skill",
+      "summary": "An agent skill that researches one topic across Reddit, X, YouTube, HN and Polymarket and writes a sourced brief.",
+      "url": "https://github.com/mvanhorn/last30days-skill",
+      "source": "github",
+      "source_url": "https://github.com/mvanhorn/last30days-skill",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/mvanhorn.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 5100
+      },
+      "gist": "gh-last30days-skill",
+      "rank": 24
+    },
+    {
+      "id": "gh-kajisho5-ffmpeg-skill-issue-20",
+      "title": "kajisho5/ffmpeg-skill",
+      "summary": "A local video editor for coding agents: FFmpeg tools with a machine-readable contract and an MCP server.",
+      "url": "https://github.com/kajisho5/ffmpeg-skill",
+      "source": "github",
+      "source_url": "https://github.com/kajisho5/ffmpeg-skill",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/kajisho5.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 3200
+      },
+      "gist": "gh-ffmpeg-skill",
+      "rank": 25
+    },
+    {
+      "id": "gh-tradermonty-claude-trading-skills-issue-20",
+      "title": "tradermonty/claude-trading-skills",
+      "summary": "Claude skills for part-time investors: market review, risk checks, trade planning and a journal, not buy or sell calls.",
+      "url": "https://github.com/tradermonty/claude-trading-skills",
+      "source": "github",
+      "source_url": "https://github.com/tradermonty/claude-trading-skills",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/tradermonty.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 1400
+      },
+      "gist": "gh-claude-trading-skills",
+      "rank": 26
+    },
+    {
+      "id": "gh-obsidianmd-obsidian-skills-issue-20",
+      "title": "obsidianmd/obsidian-skills",
+      "summary": "Obsidian's official skills that teach agents its formats: Markdown, Bases and JSON Canvas.",
+      "url": "https://github.com/obsidianmd/obsidian-skills",
+      "source": "github",
+      "source_url": "https://github.com/obsidianmd/obsidian-skills",
+      "category": "repos",
+      "tags": [],
+      "image": {
+        "type": "avatar",
+        "url": "https://github.com/obsidianmd.png?size=80"
+      },
+      "hidden": false,
+      "signals": {
+        "stars_gained": 704
+      },
+      "gist": "gh-obsidianmd-obsidian-skills",
+      "rank": 27
+    },
+    {
+      "id": "hn-ai-made-self-hosting-fun-again-issue-20",
+      "title": "AI made self-hosting fun again",
+      "summary": "A personal essay on how AI tools made running your own services enjoyable again.",
+      "url": "https://janlukas.blog/posts/ai-self-hosting",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50660180",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 751
+      },
+      "gist": "hn-ai-made-self-hosting-fun-again",
+      "rank": 28
+    },
+    {
+      "id": "hn-language-models-can-rewrite-their-own-weights-issue-20",
+      "title": "Language models can rewrite their own weights",
+      "summary": "An open 27B model inspects its own weights, diagnoses a failure and edits them directly, with no gradient updates.",
+      "url": "https://arxiv.org/abs/2611.21885",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50577265",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 494
+      },
+      "gist": "hn-language-models-can-rewrite-their-own-weights",
+      "rank": 29
+    },
+    {
+      "id": "hn-ask-hn-anthropic-is-accusing-my-company-of-disti-issue-20",
+      "title": "Ask HN: Anthropic is accusing my company of distilling. How can I prove I'm not?",
+      "summary": "A founder asks how to show they are not distilling the models they pay Anthropic to use.",
+      "url": "https://news.ycombinator.com/item?id=50630809",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50630809",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 469
+      },
+      "gist": "hn-ask-hn-anthropic-is-accusing-my-company-of",
+      "rank": 30
+    },
+    {
+      "id": "hn-show-hn-i-built-a-game-where-you-are-an-llm-s-su-issue-20",
+      "title": "Show HN: I built a game where you are an LLM's subagent",
+      "summary": "A real LLM orchestrator thinks you are its subagent, sends you terminal tasks on a 90-second clock and reviews your work.",
+      "url": "https://github.com/gulivan/worker755",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50599762",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 362
+      },
+      "gist": "hn-show-hn-i-built-a-game-where-you-are-an-llm-s",
+      "rank": 31
+    },
+    {
+      "id": "hn-google-will-make-ai-agents-use-its-mcp-servers-t-issue-20",
+      "title": "Google will make AI agents use its MCP servers. The Gmail one can't send email",
+      "summary": "From February, agents must reach Workspace through Google's MCP servers, and the public Gmail one can draft but not send.",
+      "url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/",
+      "source": "hackernews",
+      "source_url": "https://news.ycombinator.com/item?id=50653477",
+      "category": "hn",
+      "tags": [],
+      "image": {
+        "type": "none"
+      },
+      "hidden": false,
+      "signals": {
+        "points": 339
+      },
+      "gist": "hn-google-will-make-ai-agents-use-its-mcp-servers",
+      "rank": 32
+    }
+  ]
+}

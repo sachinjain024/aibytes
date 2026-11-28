@@ -8,7 +8,7 @@ priority: urgent
 type: newsletter
 due: 2026-11-29
 created_at: 2026-11-27T11:17:21.774Z
-updated_at: 2026-11-27T13:45:38.469Z
+updated_at: 2026-11-28T11:54:22.834Z
 ---
 
 Weekly aiBytes_ Issue #20.
@@ -28,9 +28,9 @@ Checklist copied from Issue #19 (AIB-150f), plus the extension intro and the sub
 - [x] Fetch weekly sources (ProductHunt, HackerNews, TechCrunch, GitHub) <!-- longclaw:item=ck_a011f2c1 -->
 - [x] Shortlist X posts for Viral on X <!-- longclaw:item=ck_7562b0c5 -->
 - [x] Decide whether to include the Official Announcements section from X <!-- longclaw:item=ck_c60caae6 -->
-- [ ] Publish the weekly gists to main <!-- longclaw:item=ck_c75a9303 -->
-- [ ] Generate Weekly Content <!-- longclaw:item=ck_ca22a30e -->
-- [ ] Introduce the aiBytes_ Chrome extension to readers <!-- longclaw:item=ck_c713b7b3 -->
+- [x] Publish the weekly gists to main <!-- longclaw:item=ck_c75a9303 -->
+- [x] Generate Weekly Content <!-- longclaw:item=ck_ca22a30e -->
+- [x] Introduce the aiBytes_ Chrome extension to readers <!-- longclaw:item=ck_c713b7b3 -->
 - [ ] Update the Content <!-- longclaw:item=ck_2e7b3558 -->
 - [ ] Finalize Title & Description <!-- longclaw:item=ck_8849da2e -->
 - [ ] Update Intro Content <!-- longclaw:item=ck_7bcaa60d -->
@@ -134,4 +134,43 @@ changes:
 ### Claude Code updated this ticket
 
 X picks from x_review.md (fetched with Grok CLI /proj-fetch-from-x). Viral on X: @shneural, @superalesha, @hwchase17, @antoniosarosi, @Google. Official Announcements: in, 4 posts (@ClaudeDevs ×2, @_mohansolo, @finkd).
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_aaa28206
+kind: update
+occurred_at: 2026-11-28T02:17:29.758Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_c75a9303.checked
+    from: "false"
+    to: "true"
+  - field: checklist.ck_ca22a30e.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Gists published to main: PR #78 (11 new, 22 updated), #79 (Frostbite swapped for the subagent game; it ran in #19), #80 (Signal title). Review artifact: https://claude.ai/artifact/BeJWVHXAhdGiuVaCw4DCGz. Extension intro options: https://claude.ai/artifact/QTMp8secRgUPNozFxxfU9A. gh-obsidianmd-obsidian-skills and ph-saparo appear only in this issue, so their pages go live when content/weekly/issue-20 merges.
+<!-- /longclaw:event -->
+
+<!-- longclaw:event
+id: evt_2785e56c
+kind: update
+occurred_at: 2026-11-28T11:54:22.834Z
+actor:
+  type: agent
+  id: claude-code
+  name: Claude Code
+changes:
+  - field: checklist.ck_c713b7b3.checked
+    from: "false"
+    to: "true"
+-->
+### Claude Code updated this ticket
+
+Extension intro: option 2, the launch paragraph before the hook (decision record newsletter/artifacts/2026-Nov-28-Extension-launch-intro-taste.html). New extension version is live on the Chrome Web Store.
 <!-- /longclaw:event -->

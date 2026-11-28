@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Substack Export - aiBytes_ #20</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light}
+  *{box-sizing:border-box}
+  body{margin:0;background:#EFEFEA;color:#191C26;font-family:'Instrument Sans',Helvetica,Arial,sans-serif}
+  .wrap{max-width:760px;margin:0 auto;padding:32px 20px 64px}
+  h1{font-size:22px;margin:0 0 6px}
+  .sub{color:#6B7080;font-size:14px;margin:0 0 28px}
+  .sub code{background:#E4E4DC;padding:1px 5px;border-radius:4px;font-size:12.5px}
+  .sec-block{background:#FFFFFF;border:1px solid #E4E4DC;border-radius:12px;margin-bottom:22px;overflow:hidden}
+  .bar{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#191C26;padding:10px 16px}
+  .bar .name{color:#FAFAF7;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;letter-spacing:.1em}
+  .copy-btn{background:#FFD338;border:none;border-radius:6px;padding:6px 14px;font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:12px;font-weight:700;color:#191C26;cursor:pointer;white-space:nowrap}
+  .copy-btn:hover{background:#FFC800}
+  .copy-btn.done{background:#7BE0A2}
+  .btn-group{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+  .code{display:none}
+  .meta{padding:16px 22px}
+  .meta .label{font-family:'JetBrains Mono',Menlo,Consolas,monospace;font-size:10.5px;letter-spacing:.1em;color:#6B7080;margin-bottom:2px}
+  .meta .title{font-size:17px;font-weight:700;margin-bottom:12px}
+  .meta .desc{font-size:14.5px;color:#3A3E4A}
+  .steps{margin:0;padding:14px 22px 16px 40px;font-size:14px;line-height:1.6;color:#3A3E4A}
+  .steps b{color:#191C26}
+  /* The preview approximates the publication theme (substack-layout.md): cream
+     page, Spectral body, every link in the #FF6719 accent. */
+  .preview{padding:24px 26px;background:#FFF7ED;font-family:'Spectral',Georgia,serif;font-size:17px;line-height:1.6;color:#363737;overflow-wrap:anywhere}
+  .preview h2{font-family:Helvetica,Arial,sans-serif;font-size:24px;margin:32px 0 10px;color:#1a1a1a}
+  .preview h3{font-family:Helvetica,Arial,sans-serif;font-size:19px;margin:22px 0 8px;color:#1a1a1a}
+  .preview p{margin:0 0 14px}
+  .preview a{color:#FF6719}
+  .preview blockquote{margin:0 0 10px;padding:0 0 0 18px;border-left:3px solid #FF6719}
+  .preview ol,.preview ul{margin:0 0 14px;padding-left:26px}
+  .preview li{margin:0 0 8px}
+  .preview .pullquote{margin:22px 0;padding:14px 0;border-top:1px solid #E6D8C6;border-bottom:1px solid #E6D8C6;font-size:20px;font-style:italic;text-align:center}
+  .preview .pullquote p{margin:0}
+  .preview hr{border:none;border-top:1px solid #E6D8C6;margin:28px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Substack Export - aiBytes_ Issue #20</h1>
+  <p class="sub">The issue rebuilt from Substack's own blocks. Copy the title and subtitle into their fields, then click <b>⧉ Copy body</b> and paste into the empty post body with <code>⌘V</code>. The preview is close to the publication theme, not exact.</p>
+
+  <!-- Title (= email subject) and subtitle (= preview text) are typed into
+       Substack's own fields as plain text; data-copy holds the selector of the
+       element whose text each button copies. -->
+  <div class="sec-block">
+    <div class="bar"><span class="name">TITLE &amp; SUBTITLE</span><span class="btn-group"><button class="copy-btn" type="button" data-copy=".title">⧉ Copy title</button><button class="copy-btn" type="button" data-copy=".desc">⧉ Copy subtitle</button></span></div>
+    <div class="meta">
+      <div class="label">TITLE - USED AS EMAIL SUBJECT</div>
+      <div class="title">🕵️ Agents work for their makers not you and Character.ai sells your chats</div>
+      <div class="label">SUBTITLE - PREVIEW TEXT</div>
+      <div class="desc">Plus Claude artifacts as desktop apps, the Claude Ship launch and Obsidian&#x27;s official agent skills.</div>
+    </div>
+  </div>
+
+  <div class="sec-block">
+    <div class="bar"><span class="name">IN THE EDITOR, AFTER THE PASTE</span></div>
+    <ol class="steps">
+      <li>Add the subscribe button under the sign-off: <b>Button → Subscribe w/ caption</b>. Buttons don't survive a paste.</li>
+      <li>Set the social image: <b>Continue → Social preview → Edit</b>, and upload the thumbnail picked from <code>thumbnails/</code>.</li>
+      <li>Check the tag counts in the editor against this page: AI News 9, Viral on X 5, New AI products 5, Trending GitHub projects 4, HN deep stories 5.</li>
+      <li>Send a test email to yourself before scheduling the Monday send.</li>
+    </ol>
+  </div>
+
+  <!-- The body as rich HTML. The textarea holds it raw (not entity-escaped:
+       x_items.py verify --substack reads this page) and must not contain the
+       literal string "</textarea>"; the preview renders from it. -->
+  <div class="sec-block">
+    <div class="bar"><span class="name">BODY</span><span class="btn-group"><button class="copy-btn" type="button" data-rich>⧉ Copy body</button><button class="copy-btn" type="button">⧉ Copy HTML source</button></span></div>
+    <textarea class="code" spellcheck="false"><p>Hello, AI enthusiasts 👋</p>
+<p>Welcome back to your weekly dose of aiBytes_.</p>
+<p>Here's a quick update: we've shipped <b>aiBytes_ as a Chrome extension</b> to help you quickly get to the daily ai_ feed. <a href="https://chromewebstore.google.com/detail/faamldnehjdjdobapchedpmldfjjfife">Add it to Chrome</a>.</p>
+<p>I didn't expect a song to make the week's best argument about AI. Michael Harley built a Claude Code skill that finds the Bandcamp page of music he hears on Instagram, so he can buy it. When Bandcamp added a challenge to its search, Claude refused to help him get past it. It would still download the same track from YouTube, where the band earns nothing 🎸. His conclusion: <a href="https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/">LLM agents work for their parent companies, not for you</a>.</p>
+<p><b>The rest of the week asked the same question: whose side is your agent on</b>: Google's new Workspace terms send every agent through its own MCP servers, where Anthropic's Claude connector can send your email and an independent developer's agent can only leave drafts. Signal will block assistants like Gemini and Siri from reading its chats off the screen, and Character.AI's bankruptcy sale puts its users' private chats up for auction. An agent is only as loyal as the company that runs it. I'd read the terms before handing one the keys.</p>
+<p><b>In this issue</b></p><ul>
+<li>AI News - 9 stories</li>
+<li>Official announcements - Anthropic · Google · Meta</li>
+<li>Viral on X - 5 posts</li>
+<li>New AI products - 5 launches</li>
+<li>Trending GitHub projects - 4 repos</li>
+<li>HN deep stories - 5 threads</li>
+</ul>
+<h2>🌍 AI News</h2>
+<h3>🕵️ <a href="https://aibytes.io/gists/hn-llm-agents-work-for-their-parent-companies-not?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">LLM agents work for their parent companies, not for you</a></h3><p>Claude Code refused to get past Bandcamp's new search challenge, then still offered to download the same song from YouTube, where the band earns nothing. (<a href="https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/">Michael Harley</a>)</p>
+<p>📵 <a href="https://aibytes.io/gists/hn-restricting-ai-agents-in-mobile-operating?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>Signal will block AI assistants from reading its chats</b></a> On iOS 27 and Android, Signal will block screen capture when it detects an assistant reading the screen, as it did for Microsoft Recall. (<a href="https://signal.org/blog/protecting-your-privacy/">Signal</a>)</p>
+<p>🗄️ <a href="https://aibytes.io/gists/tc-state-ags-fight-character-ais-plan-to-auction?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>State AGs fight Character.AI's plan to sell users' private chats</b></a> The bankruptcy auction covers chats from more than 21 million U.S. accounts, 2.1 million of them registered to minors. (<a href="https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/">TechCrunch</a>)</p>
+<p>🔁 <a href="https://aibytes.io/gists/hn-glm-5-4-toward-generalized-coding-with-our?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>Z.ai ships GLM-5.4, its first loop transformer</b></a> A model aimed at more general coding work, and the lab's first built on a loop transformer architecture. (<a href="https://z.ai/blog/glm-5.4">Z.ai</a>)</p>
+<p>⏳ <a href="https://aibytes.io/gists/tc-openai-says-heavy-chatgpt-users-may-hit-limits?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>OpenAI merges Chat and Work under one usage meter</b></a> One allowance across ChatGPT, so the heaviest users may hit limits sooner. Instant stays unlimited. (<a href="https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/">TechCrunch</a>)</p>
+<p>🏭 <a href="https://aibytes.io/gists/hn-87-of-the-anthropic-power-will-come-from-gas?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>Anthropic's 2028 power will come 87% from gas and 11% from coal</b></a> A case study of its contracted U.S. data centers puts 2028 emissions near 32 million tonnes of CO2 in the mid case. (<a href="https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/">Better Data Center Project</a>)</p>
+<p>📉 <a href="https://aibytes.io/gists/hn-anthropic-breaks-below-83-ipo-price?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>Anthropic breaks below its $83 IPO price</b></a> Shares traded under the IPO price before the market opened, a week after listing. (<a href="https://www.bloomberg.com/news/articles/2026-11-24/anthropic-breaks-below-83-ipo-price-in-premarket-trading">Bloomberg</a>)</p>
+<p>🚢 <a href="https://aibytes.io/gists/tc-nvidia-hits-pause-on-chip-shipments-to?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>Nvidia pauses server shipments to Southeast Asia</b></a> Dell and Super Micro were told to hold servers for Malaysia, Singapore, Thailand and Indonesia while Nvidia checks export compliance. (<a href="https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/">TechCrunch</a>)</p>
+<p>📷 <a href="https://aibytes.io/gists/hn-the-new-york-times-warns-photographers-not-to?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>The New York Times tells photographers not to update Photoshop</b></a> Photoshop 2027's AI features can mark photos as AI-edited in their C2PA metadata, even after minimal edits. (<a href="https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features">The Verge</a>)</p>
+<div class="pullquote"><p>"An agent is only as loyal as the company that runs it."</p></div>
+<h2>📣 Official announcements</h2>
+<p>This week's launches, in the companies' own words.</p>
+<h3>@ClaudeDevs · Tue 24</h3><blockquote><p>You can now install Claude artifacts as desktop apps on Mac and Windows.</p><p>Ask Claude to build an artifact, click "Install as app", and open it like any other app. It can use your connectors and, if you allow it, send notifications or add a menu bar item.</p></blockquote><p><a href="https://aibytes.io/gists/x-claudedevs-you-can-now-install-claude?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Gist ↗</a> · <a href="https://x.com/ClaudeDevs/status/2125315491522650299">Post on X ↗</a> · <a href="https://claude.com/resources/articles/install-as-app">claude.com ↗</a></p>
+<h3>@ClaudeDevs · Mon 23</h3><blockquote><p>Introducing Claude Ship (beta): Claude can review your pull requests, work on fixes, and approve the ones your team's policy allows.</p><p>The goal is to help you ship code as fast as you can write it.</p></blockquote><p><a href="https://aibytes.io/gists/x-claudedevs-introducing-claude-ship-beta-claude?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Gist ↗</a> · <a href="https://x.com/ClaudeDevs/status/2124959436640858475">Post on X ↗</a> · <a href="https://claude.com/resources/articles/introducing-claude-ship">claude.com ↗</a></p>
+<h3>@_mohansolo · Thu 26</h3><blockquote><p>Resetting Gemini quota for all Antigravity users for Thanksgiving!</p><p>We’re very thankful for all of our users ❤️</p><p>We’re growing very quickly and are working tirelessly to make sure you all have a great experience!</p></blockquote><p><a href="https://aibytes.io/gists/x-mohansolo-resetting-gemini-quota-for-all?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Gist ↗</a> · <a href="https://x.com/_mohansolo/status/2125851902009311306">Post on X ↗</a></p>
+<h3>@finkd · Tue 24</h3><blockquote><p>Releasing Muse in the UK starting today -- now spells colour with a "u".</p></blockquote><p><a href="https://aibytes.io/gists/x-finkd-releasing-muse-in-the-uk?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Gist ↗</a> · <a href="https://x.com/finkd/status/2125107155338711179">Post on X ↗</a></p>
+<h2>🔥 Viral on X</h2>
+<p>The AI posts that drew the biggest reaction this week.</p>
+<ol>
+<li>🎬 <a href="https://aibytes.io/gists/x-shneural-asked-opus-next-5-6?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>@shneural</b></a> asked Opus Next (5.6/6) to make an Anthropic-style launch video for "Claude Pelican 1", a fake model that only generates SVG pelicans on bicycles / gave it their real launch videos as refs. it actually looks like an official ad lol <a href="https://x.com/shneural/status/2125658847323017291">Post on X</a> ♥︎ 7.7k</li>
+<li>🖥️ <a href="https://aibytes.io/gists/x-superalesha-if-you-pay-for-a?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>@superalesha</b></a> You're sitting on a 96 GB RTX PRO 6000 in Colab. One script launches GLM-5.3 at 102 tok/s. <a href="https://x.com/superalesha/status/2126011712692224264">Post on X</a> ♥︎ 4.3k</li>
+<li>🏭 <a href="https://aibytes.io/gists/x-hwchase17-all-our-agents-at-langchain?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>@hwchase17</b></a> all our agents at langchain (internal GTM &amp; content agents, LangSmith Engine) have a learning loop with similar pieces / wrote about what we think makes up a "knowledge factory" https://x.com/i/article/2124180107669766144 <a href="https://x.com/hwchase17/status/2124181216719151585">Post on X</a> ♥︎ 4.1k</li>
+<li>🔀 <a href="https://aibytes.io/gists/x-antoniosarosi-taking-over-someone-else-s?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>@antoniosarosi</b></a> A funny but realistic story of How PRs were merged in 2022 vs 2026 <a href="https://x.com/antoniosarosi/status/2126123713355772052">Post on X</a> ♥︎ 3.9k</li>
+<li>📊 <a href="https://aibytes.io/gists/x-google-yes-this-is-a-real?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>@Google</b></a> Yes, this is a real Google Sheet 📊 / Using /swarm in @Antigravity, Gemini 4 Neon turned one photo into a 100,000-cell grid with zero embedded images and zero Apps Script — using native formulas for edge detection, 3D depth shading, and six lighting modes. <a href="https://x.com/Google/status/2125667315303723011">Post on X</a> ♥︎ 2.2k</li>
+</ol>
+<h2>🚀 New AI products</h2>
+<ol>
+<li>👀 <a href="https://aibytes.io/gists/ph-letter-visitors?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>Letter Visitors</b></a> - See the people, companies and AI agents on your website, on the site itself, with session replays. (<a href="https://www.producthunt.com/products/visitors">Product Hunt</a>) ▲ 417</li>
+<li>🛰️ <a href="https://aibytes.io/gists/ph-hub-d3d2bb55-5f42-4355-98fe-d7e0b636a030?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>Hub</b></a> - A self-hosted coordinator that hands your goals to Claude Code and Codex sessions and sends back only the decisions. (<a href="https://www.producthunt.com/products/hub-20">Product Hunt</a>) ▲ 395</li>
+<li>🎮 <a href="https://aibytes.io/gists/ph-yoroll?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>Yoroll</b></a> - Turn a script, image or clip into a playable, branching story without a game engine. (<a href="https://www.producthunt.com/products/yoroll">Product Hunt</a>) ▲ 365</li>
+<li>🐗 <a href="https://aibytes.io/gists/ph-rankhog?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>Rankhog</b></a> - Finds Reddit threads asking for what you sell and posts replies from your account, one by one or on autopilot. (<a href="https://www.producthunt.com/products/rankhog">Product Hunt</a>) ▲ 363</li>
+<li>🏷️ <a href="https://aibytes.io/gists/ph-saparo?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>Saparo</b></a> - A shopping agent that stacks promo codes, cash back and card offers, then leaves the final payment to you. (<a href="https://www.producthunt.com/products/saparo">Product Hunt</a>) ▲ 348</li>
+</ol>
+<h2>⭐ Trending GitHub projects</h2>
+<ol>
+<li>🔎 <a href="https://aibytes.io/gists/gh-last30days-skill?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>mvanhorn/last30days-skill</b></a> - An agent skill that researches one topic across Reddit, X, YouTube, HN and Polymarket and writes a sourced brief. (<a href="https://github.com/mvanhorn/last30days-skill">GitHub</a>) +5.1k ★</li>
+<li>🎞️ <a href="https://aibytes.io/gists/gh-ffmpeg-skill?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>kajisho5/ffmpeg-skill</b></a> - A local video editor for coding agents: FFmpeg tools with a machine-readable contract and an MCP server. (<a href="https://github.com/kajisho5/ffmpeg-skill">GitHub</a>) +3.2k ★</li>
+<li>📈 <a href="https://aibytes.io/gists/gh-claude-trading-skills?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>tradermonty/claude-trading-skills</b></a> - Claude skills for part-time investors: market review, risk checks, trade planning and a journal, not buy or sell calls. (<a href="https://github.com/tradermonty/claude-trading-skills">GitHub</a>) +1.4k ★</li>
+<li>🗂️ <a href="https://aibytes.io/gists/gh-obsidianmd-obsidian-skills?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20"><b>obsidianmd/obsidian-skills</b></a> - Obsidian's official skills that teach agents its formats: Markdown, Bases and JSON Canvas. (<a href="https://github.com/obsidianmd/obsidian-skills">GitHub</a>) +704 ★</li>
+</ol>
+<h2>🧵 HN deep stories</h2>
+<ol>
+<li>🏠 <a href="https://aibytes.io/gists/hn-ai-made-self-hosting-fun-again?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">AI made self-hosting fun again</a> A personal essay on how AI tools made running your own services enjoyable again. (<a href="https://news.ycombinator.com/item?id=50660180">HN thread</a>) 751 pts</li>
+<li>🧬 <a href="https://aibytes.io/gists/hn-language-models-can-rewrite-their-own-weights?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Language models can rewrite their own weights</a> An open 27B model inspects its own weights, diagnoses a failure and edits them directly, with no gradient updates. (<a href="https://news.ycombinator.com/item?id=50577265">HN thread</a>) 494 pts</li>
+<li>🧪 <a href="https://aibytes.io/gists/hn-ask-hn-anthropic-is-accusing-my-company-of?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Ask HN: Anthropic is accusing my company of distilling. How can I prove I'm not?</a> A founder asks how to show they are not distilling the models they pay Anthropic to use. (<a href="https://news.ycombinator.com/item?id=50630809">HN thread</a>) 469 pts</li>
+<li>🎮 <a href="https://aibytes.io/gists/hn-show-hn-i-built-a-game-where-you-are-an-llm-s?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Show HN: I built a game where you are an LLM's subagent</a> A real LLM orchestrator thinks you are its subagent, sends you terminal tasks on a 90-second clock and reviews your work. (<a href="https://news.ycombinator.com/item?id=50599762">HN thread</a>) 362 pts</li>
+<li>📭 <a href="https://aibytes.io/gists/hn-google-will-make-ai-agents-use-its-mcp-servers?utm_source=newsletter&amp;utm_medium=email&amp;utm_campaign=issue-20">Google will make AI agents use its MCP servers. The Gmail one can't send email</a> From February, agents must reach Workspace through Google's MCP servers, and the public Gmail one can draft but not send. (<a href="https://news.ycombinator.com/item?id=50653477">HN thread</a>) 339 pts</li>
+</ol>
+<hr>
+<p>Curated &amp; Written with ❤️ for Engineers and Startup Founders.</p></textarea>
+    <div class="preview"></div>
+  </div>
+
+</div>
+<script>
+  function flash(btn, label){
+    btn.textContent='✓ Copied'; btn.classList.add('done');
+    setTimeout(function(){ btn.textContent=label; btn.classList.remove('done'); },1500);
+  }
+  function copyText(text, btn, label){
+    function fallback(){
+      var tmp=document.createElement('textarea');
+      tmp.value=text; tmp.setAttribute('readonly','');
+      tmp.style.position='fixed'; tmp.style.top='0'; tmp.style.opacity='0';
+      document.body.appendChild(tmp); tmp.select();
+      try{ document.execCommand('copy'); flash(btn,label); } finally { document.body.removeChild(tmp); }
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ flash(btn,label); }).catch(fallback);
+    } else { fallback(); }
+  }
+  // Rich copy: the editor needs text/html on the clipboard to keep the blocks.
+  // Without ClipboardItem, select the rendered preview and copy that instead.
+  function copyRich(html, node, btn, label){
+    function fallback(){
+      var range=document.createRange(); range.selectNodeContents(node);
+      var sel=window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      try{ document.execCommand('copy'); flash(btn,label); } finally { sel.removeAllRanges(); }
+    }
+    if(window.ClipboardItem && navigator.clipboard && navigator.clipboard.write){
+      var item=new ClipboardItem({
+        'text/html': new Blob([html],{type:'text/html'}),
+        'text/plain': new Blob([node.innerText],{type:'text/plain'})
+      });
+      navigator.clipboard.write([item]).then(function(){ flash(btn,label); }).catch(fallback);
+    } else { fallback(); }
+  }
+  document.querySelectorAll('.sec-block').forEach(function(block){
+    var ta = block.querySelector('.code');
+    var pv = block.querySelector('.preview');
+    if (ta && pv) pv.innerHTML = ta.value;
+    block.querySelectorAll('.copy-btn').forEach(function(btn){
+      var label = btn.textContent;
+      btn.addEventListener('click', function(){
+        if (btn.hasAttribute('data-rich')) return copyRich(ta.value, pv, btn, label);
+        var target = btn.dataset.copy ? block.querySelector(btn.dataset.copy) : ta;
+        copyText(typeof target.value === 'string' ? target.value : target.textContent.trim(), btn, label);
+      });
+    });
+  });
+</script>
+</body>
+</html>
